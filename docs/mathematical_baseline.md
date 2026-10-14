@@ -113,8 +113,8 @@ where completeness is used.
    <https://arxiv.org/abs/2409.15709>
 5. B. McKay, Ramsey graph data:
    <https://users.cecs.anu.edu.au/~bdm/data/ramsey.html>
-6. A. Koutsoukou-Argyraki, C. Keller, and E. Zainoulline, formal verification
-   of `R(4,5) = 25` in HOL4:
+6. T. Gauthier and C. E. Brown, *A Formal Proof of R(4,5)=25*, ITP 2024
+   (HOL4 verification of the full equality, including the upper bound):
    <https://doi.org/10.4230/LIPIcs.ITP.2024.16>
 
 Items 1-4 establish the current global bounds. Item 5 is a data source, not by

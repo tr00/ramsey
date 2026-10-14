@@ -12,8 +12,9 @@ review discipline of `../AGENTS.md` and `../docs/workflow.md`.
 | `lakefile.toml` | Package `Ramsey`; depends on Mathlib `v4.35.0` |
 | `lean-toolchain` | `leanprover/lean4:v4.35.0` (must match Mathlib's pin) |
 | `lake-manifest.json` | Pinned dependency revisions; keep committed |
-| `Ramsey.lean` | Root module of the `Ramsey` library |
-| `Ramsey/Basic.lean` | Placeholder for shared definitions |
+| `Ramsey.lean` | Root module: re-exports; hosts the `R_5_5_43` main target |
+| `Ramsey/Defs.lean` | Pure definitions: `IsRamseyGraph`, `ramseyNumber`, pivot vocabulary (`antiNeighborSet`, `crossEdgeSet`, `rowSet`, `columnSet`, `IsTransversal`) — no premise imports |
+| `Ramsey/Premises.lean` | Trusted published facts as named axioms, on top of `Defs` (audit trail via `#print axioms`) |
 
 ## Build
 
