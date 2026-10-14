@@ -48,5 +48,5 @@ max{m<=min(h,18):S_m<=W/2+4-q} higher-degree neighbors. Sum these capacities
 over roots and compare with the necessary cut size. These inequalities
 strengthen degree-profile filters without claiming simultaneous realization.
 
-Detailed proof: `docs/degree18_excess_bounds.md`.
-Operational index: `results.md`, Section 8.12.
+Detailed proof: `n43/d18/excess_bounds.md`.
+Operational index: `n43/reductions.md`, Section 8.12.

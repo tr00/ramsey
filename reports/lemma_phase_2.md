@@ -28,7 +28,7 @@ remainder. This would force at least 71 edges in `F`, contradicting 68.
 Therefore every cross column in the `x=136` branch has at least four vertices.
 The previous 46/47-edge attachment cases are all impossible.
 
-Detailed proof: `/scratch/ramsey/docs/transversal_four.md`.
+Detailed proof: `/scratch/ramsey/n43/d18/transversal_four.md`.
 
 ## Other Phase II results
 

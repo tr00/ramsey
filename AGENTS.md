@@ -26,7 +26,7 @@ machine. Current work is purely mathematical and should reduce a future
 certified order-43 decision:
 
 1. Tighten the degree-18 frontier. At `x=136`, four size-four columns are
-   excluded; the live branches have `r=0..3` and are indexed in `results.md`.
+   excluded; the live branches have `r=0..3` and are indexed in `n43/reductions.md`.
 2. Prioritize compatibility of multiple actual cross columns over proving a
    stronger universal transversal theorem for an isolated neighborhood.
 3. Extend the frontier-band and unavoidable adjacent-pivot reductions beyond
@@ -69,13 +69,23 @@ proof, though they may also expose a construction if order 43 is satisfiable.
 
 Read these before extending the work:
 
-- `results.md`
-- `docs/frontier_band.md`
-- `docs/degree18_small_columns.md`
-- `docs/degree18_r4_exclusion.md`
-- `docs/degree18_pivot_classes.md`
-- `docs/reproducibility.md`
+- `results.md` and `n43/README.md`
+- `n43/d18/README.md` and `n43/d18/x136/README.md`
+- `n43/d18/frontier_band.md`
+- `n43/d18/x136/small_columns.md`
+- `n43/d18/x136/r4/exclusion.md`
+- `n43/d18/pivot_classes.md`
+- `docs/reproducibility.md` and `docs/workflow.md`
+- `WORK.md` for active ownership in this shared worktree
 
-Record substantial new deductions in `docs/`, add a concise status report under
-`reports/`, and update `results.md` with assumptions and search use. Update the
+Record substantial deductions beside the applicable mathematical branch, with
+shared lemmas at the nearest appropriate parent. Global or mixed-scope notes
+may remain in `docs/`. Follow the claim/review templates in `docs/workflow.md`.
+Add a concise historical report under `reports/`; have the coordinator update
+shared indexes with assumptions and search use after integration. Update the
 theory map only after the deduction is audited.
+
+All agents use this same worktree. Assign distinct owned paths, re-read before
+editing, and coordinate edits to shared indexes and the Git index. Never reset,
+clean, stash, or switch the shared checkout to isolate a task. Do not overwrite
+another agent's or the user's newer work. See `docs/workflow.md` for handoffs.

@@ -22,4 +22,4 @@ These interface reductions apply throughout x=136,...,141 using the existing
 four-transversal premise, and in every higher-x subcase with e(A)>=83.
 No frontier value was excluded and no global Ramsey bound improved.
 
-Full proofs and audit: docs/degree18_small_columns.md.
+Full proofs and audit: n43/d18/x136/small_columns.md.

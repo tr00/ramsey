@@ -4,9 +4,9 @@ Date: 2026-10-14
 
 This note uses the current live results in:
 
-- `docs/frontier_band.md`
-- `docs/degree18_small_columns.md`
-- `docs/transversal_five_attempt.md`
+- `n43/d18/frontier_band.md`
+- `n43/d18/x136/small_columns.md`
+- `n43/d18/x136/transversal_five_attempt.md`
 
 No graph enumeration, solver, catalogue download, or installation was used.
 
@@ -73,7 +73,7 @@ The audited four-transversal family reduction implies:
 
 Indeed, the possible induced four-vertex types and attachment degrees are
 exactly the `C4`, `P4`/claw, `C4`/paw, and diamond families recorded in
-`transversal_five_attempt.md`; direct addition of internal and attachment
+`n43/d18/x136/transversal_five_attempt.md`; direct addition of internal and attachment
 degrees gives the interval above.
 
 ## Step 1: an element cannot lie in two columns `T_i`

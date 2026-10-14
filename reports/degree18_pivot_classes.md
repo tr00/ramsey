@@ -24,4 +24,4 @@ The unrestricted degree-18 branch is not reduced to small k or small W.
 The excess identity alone loses q after substituting the degree profiles;
 additional structural inequalities are needed. No branch was excluded.
 
-Detailed proofs, conditions and case tables: docs/degree18_pivot_classes.md.
+Detailed proofs, conditions and case tables: n43/d18/pivot_classes.md.

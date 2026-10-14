@@ -11,7 +11,7 @@ those vertices, H the higher-degree vertices, h=|H|, p=43-h, and
 epsilon_z=d_G(z)-18. Put W=sum_z epsilon_z and Z=sum_z epsilon_z^2.
 Thus W is even, h<=W<=6h, and e(G)=387+W/2. For v in P put
 q_v=85-e(N(v)) and E_v=sum_(z adjacent v)epsilon_z.
-The census inputs in `degree18_pivot_classes.md` imply
+The census inputs in `n43/d18/pivot_classes.md` imply
 
 ```
 q_v+E_v<=W/2+4.
@@ -226,7 +226,7 @@ The actual Z and weighted edges of H can tighten these estimates further.
 ## 6. Small h gives overlap bounds without any small-W assumption
 
 Every v in P has at least 18-h degree-18 neighbors. In the overlap formula
-from `degree18_pivot_classes.md`, bound the number z of higher-degree neighbors
+from `n43/d18/pivot_classes.md`, bound the number z of higher-degree neighbors
 by h rather than by E. Then some adjacent degree-18 u satisfies
 
 ```

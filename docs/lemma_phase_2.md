@@ -150,7 +150,7 @@ in the `x=136` branch,
 |N_A(y)| >= 4 for every y in B.
 ```
 
-The detailed proof and source information are in `docs/transversal_four.md`.
+The detailed proof and source information are in `n43/d18/transversal_four.md`.
 
 ## 3. Superseded three-transversal reduction
 

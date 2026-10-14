@@ -9,7 +9,7 @@ novelty check was performed.
 Let G be an order-43 (5,5)-free graph, v a degree-18 vertex,
 A=N(v), B=M(v), and C_y=N_A(y) for y in B. Write x=136+k,
 q=85-e(A). We use the recorded census bound e(A)<=85. The four-transversal
-proof in `frontier_band.md`, using the published 15-vertex (4,4) minimum of
+proof in `n43/d18/frontier_band.md`, using the published 15-vertex (4,4) minimum of
 50 edges, gives |C_y|>=4 whenever q<=2. This includes all k<=5.
 
 The overlap results below do not need the census; only the column-count and
@@ -166,7 +166,7 @@ give an independent five. This is an additional higher-order restriction.
 These are necessary conditions for the full interface. They do not prove
 tau>=5 for an isolated 18-vertex graph, and do not exclude x=136.
 They refine the existing size-four attachment budget without relying on the
-unresolved attachment families in `transversal_five_attempt.md`.
+unresolved attachment families in `n43/d18/x136/transversal_five_attempt.md`.
 
 The useful next targets are the r=4 case with twenty size-six columns, and
 the r=0 case with eight to ten size-five columns. In the latter, every A

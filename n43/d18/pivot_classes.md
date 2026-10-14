@@ -233,6 +233,6 @@ degree classes using their neighborhood extrema and induced adjacency
 constraints, or to prove stronger local bounds on q+E. Those are the remaining
 coverage gaps; numerical root profiles alone are not full classifications.
 
-Sources: `theory_phase_1.md`, `lemma_phase_2.md`, `frontier_band.md`,
-`degree18_cliques_augmentation.md`, and Angeltveit-McKay, R(5,5)<=46,
+Sources: `theory_phase_1.md`, `lemma_phase_2.md`, `n43/d18/frontier_band.md`,
+`n43/d18/cliques_augmentation.md`, and Angeltveit-McKay, R(5,5)<=46,
 arXiv:2409.15709v2, Appendix A Table 1 for E(4,5,17)=79.

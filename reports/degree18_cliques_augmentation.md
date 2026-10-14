@@ -17,7 +17,7 @@ Specified a safe root choice maximizing neighborhood edges among degree-18
 vertices and exact interface inequalities transferring that bound to other
 degree-18 vertices. The root-choice precondition is essential.
 
-Updated results.md with the frontier band, small-column deductions, these
+Updated n43/reductions.md with the frontier band, small-column deductions, these
 new results, and corrected complement selector tie coverage. No frontier
 value or global Ramsey bound was improved. Full proofs:
-docs/degree18_cliques_augmentation.md.
+n43/d18/cliques_augmentation.md.

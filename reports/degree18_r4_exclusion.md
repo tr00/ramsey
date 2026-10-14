@@ -36,4 +36,4 @@ where `s` is the number of size-five columns.
 
 Full proof:
 
-`/scratch/ramsey/docs/degree18_r4_exclusion.md`
+`/scratch/ramsey/n43/d18/x136/r4/exclusion.md`

@@ -26,20 +26,26 @@ To prove an exact value:
 The initial target after setup review is therefore the 43-vertex decision
 problem. A failed heuristic search is not evidence of nonexistence.
 
-## Layout
+## Layout and reading paths
 
-- `AGENTS.md`: persistent scope, research priorities, and evidence standards.
-- `docs/mathematical_baseline.md`: established facts, constraints, and sources.
-- `docs/theory_phase_1.md`: audited mathematical deductions and proof targets.
-- `docs/lemma_phase_2.md`: audited follow-up proofs and rejected shortcuts.
-- `docs/transversal_four.md`: proof of the four-vertex `K4` transversal bound.
-- `docs/tool_inventory.md`: local resource and software inventory.
-- `docs/reproducibility.md`: evidence and artifact policy.
-- `src/ramsey.py`: dependency-free witness checker and DIMACS generator.
-- `tests/test_ramsey.py`: tests on small, independently understood instances.
-- `reports/first_report.md`: first setup report and proposed research program.
-- `reports/mathematical_phase_1.md`: concise report on the first theory phase.
-- `reports/lemma_phase_2.md`: concise report on the focused lemma attempts.
+Start with [current status](results.md), then follow the
+[order-43 navigation](n43/README.md). The main active path is
+[n43/d18/x136](n43/d18/x136/README.md), with live cases
+[r0](n43/d18/x136/r0/README.md), [r1](n43/d18/x136/r1/README.md),
+[r2](n43/d18/x136/r2/README.md), and [r3](n43/d18/x136/r3/README.md).
+
+- `n43/`: mathematical branch navigation, scoped proof notes, and the
+  [detailed reduction index](n43/reductions.md).
+- `docs/`: global baseline, mixed research-phase notes, environment inventory,
+  [reproducibility](docs/reproducibility.md), and [workflow](docs/workflow.md).
+- `reports/`: historical summaries; these do not override current proof records.
+- [WORK.md](WORK.md): coordinator-owned task ownership and handoffs for agents
+  sharing this worktree.
+- `src/ramsey.py` and `tests/`: dependency-free reference utility and tests.
+- [AGENTS.md](AGENTS.md): scope, research priorities, and evidence standards.
+
+Existing audit assertions are preserved, not independently revalidated by the
+reorganization. New reviews identify the exact proof revision and dependencies.
 
 ## Baseline commands
 

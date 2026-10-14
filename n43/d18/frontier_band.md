@@ -1,7 +1,7 @@
 # Degree-18 frontier band
 
 Date: 2026-10-13. Purely mathematical deductions; no search or enumeration.
-External census premises are recorded in docs/transversal_four.md and
+External census premises are recorded in n43/d18/transversal_four.md and
  docs/theory_phase_1.md. No novelty claim is made.
 
 ## Exact budgets

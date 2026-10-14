@@ -57,7 +57,7 @@ those external classes is assumed; it must satisfy the remaining Ramsey tests.
 
 ### Application to four size-four columns
 
-If r=4 size-four columns exist, they form Q by `degree18_small_columns.md`.
+If r=4 size-four columns exist, they form Q by `n43/d18/x136/small_columns.md`.
 Their c sum is 16, so their total excess E_Q is at most four. If E_Q=4,
 each d_B(y)=15, hence each epsilon_y=1 and d_G(y)=19. The exact pair/triple
 signature classes above are forced. This holds at any x; at x=136 the

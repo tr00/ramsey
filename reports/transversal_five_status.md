@@ -37,4 +37,4 @@ extremal `(4,5,18)` graphs and independently verify their transversal numbers.
 
 Full details:
 
-`/scratch/ramsey/docs/transversal_five_attempt.md`
+`/scratch/ramsey/n43/d18/x136/transversal_five_attempt.md`
