@@ -908,6 +908,63 @@ for the entire degree-18 branch, so these do not establish W<=10 globally.
 Detailed proofs: `n43/d18/excess_bounds.md`; status and arithmetic audit:
 `reports/degree18_excess_bounds.md`.
 
+### 8.13 Reviewed x137..142 profiles and above-frontier deductions
+
+**[PROVED-HERE, accepted independent reviews on retained published premises]**
+The [degree-18 branch](d18/README.md) separates x136,...,x142 and residual
+x>=143 into sibling case folders. Each x137..142 case retains all its
+disjoint (q,E_A) numerical profiles; [x>=137](d18/x-ge137/README.md) is an overview.
+No unconditional x<=142 bound or unavoidable root in this subband is proved.
+
+For actual four size-four columns Q and q=85-e(A), each member a satisfies
+9-q<=d_A(a)<=11. All twenty external columns then have size at least six
+even without an assumed lower bound elsewhere. Their total excess over six
+is k=x-136. If m(a) counts memberships in Q columns and p(a) counts
+incident external columns larger than six, m=2 forces p>=1+epsilon_a,
+m=3 forces p>=3+epsilon_a, and m=4 is impossible. Independent-four anchor
+degree sums give further actual-incidence filters.
+
+Consequences, restricted to the indicated hypotheses:
+
+- At x137, r4 is excluded; live necessary ranges are r0:s7..10,
+  r1:s5..10, r2:s3..7, r3:s1..3. This does not close x137.
+- At q0,r4,x138 exactly two external columns have size seven; at
+  q0,r4,x139..141 at least two columns exceed six.
+- At q0,r4 through x142 the four size-four signatures must overlap.
+  At x142,q0,r4 a single exceptional column requires six excess-one
+  A vertices inducing a triangle-free graph; other profiles remain open.
+
+Proof and exact review: [four-column stability](d18/four_column_stability.md),
+claims01..06 and linked review. Search use: branch and propagate.
+
+At q3, any actual size-three column forces an exact triangle/55-edge-core
+decomposition and three disjoint independent-four anchors. Combined core
+degree and anchor-incidence counts give E_A>=14 and x>=156. Therefore q3
+and x142..155 exclude size three. An elementary deletion-two argument also
+excludes sizes at most two for complement A of order18, alpha<=3,
+and 71 edges. Thus every actual column has size at least four in all x142
+profiles. The isolated four-transversal argument remains restricted to q<=2;
+the new q3 bound uses the complete order-43 interface.
+
+Proof and exact review: [size-three theorem](d18/x142/q3/three_columns.md),
+claims core/excess-six/excess-fourteen, and
+[elementary lower bound](d18/transfer_summary.md#claim-band137-two-transversal).
+Search use: propagate; no full q3 branch is closed.
+
+The [transfer bounds](d18/transfer_bounds.md) rederive complete b and
+small-column counts through142 (including b>=145 at142), extend the guaranteed
+adjacent degree-18 neighbor codegree bounds at142 to 11,10,9,9 for q0..3,
+and apply the existing eight-vertex structural test to every nonadjacent
+union-ten column pair, including size4+size6. Any independent B triple
+has column union at least15 and a clique remainder of size at most3;
+exact overlap filters are recorded for size triples4/6/6,5/5/6,6/6/6.
+Search use: branch and propagate under each claim's hypotheses.
+
+These additions have exact-revision independent internal reviews and no
+novelty claim or new formal certificate. Retained census premises, symmetry
+coverage, and complete completion certificates remain necessary for a future
+order-43 proof. All complete x137..142 branches and x>=143 remain open.
+
 ### 8.14 Reviewed pairwise pivot and excess refinements
 
 **[PROVED-HERE; accepted independent mathematical review]** For P the

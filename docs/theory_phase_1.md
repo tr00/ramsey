@@ -570,6 +570,20 @@ conditional pointed pairs, and a maximum-edge degree-18 root has tighter x
 caps when W<=10. Dense-pair and small-overlap guarantees are separate, and
 no small h or W hypothesis has been proved for the unrestricted branch.
 
+Audited 2026-10-14 above-frontier continuation:
+[four-column stability](../n43/d18/four_column_stability.md) excludes r4 at
+x137, forces at least two exceptional columns for q0,r4 at x138..141,
+and forces small-column overlap for q0 through x142. At x142,q0 a single
+exception requires six unit-excess vertices inducing a triangle-free graph.
+[Actual size-three column analysis](../n43/d18/x142/q3/three_columns.md)
+proves that q3 and an actual size-three column require E_A>=14, hence x>=156.
+With the elementary lower bound of three, all x142 profiles therefore have
+columns of size at least four. The [transfer table](../n43/d18/transfer_bounds.md)
+extends adjacent-pivot bounds to x142 (11,10,9,9 by q) and actual union-ten
+pair and independent-triple tests. Exact-hash independent reviews accompany
+these necessary filters. No complete x branch closes; x>=143 remains needed
+for coverage, and no unconditional x<=142 bound is asserted.
+
 Conditional excess bounds: `degree18_excess_bounds.md` proves a high-degree
 cut obstruction. When exactly h=2,4,6,8,10 vertices have degree above 18,
 it gives W<=8,20,32,44,58, respectively. If all degree-18 neighborhoods have
