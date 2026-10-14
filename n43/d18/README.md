@@ -20,6 +20,7 @@ Shared proof notes:
 - [Excess bounds](excess_bounds.md)
 - [Clique budgets and augmentation](cliques_augmentation.md)
 - [Four-transversal bound](transversal_four.md)
+- [Pairwise refinements and reviewed claim connections](pairwise_refinements.md)
 
 These results may have narrower hypotheses than this parent branch. Follow the
 preconditions in each proof before applying a filter.

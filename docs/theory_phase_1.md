@@ -551,6 +551,25 @@ Generic Hoffman and interlacing bounds are too weak to exclude it.
 
 ## 9. Highest-value next lemmas
 
+Reviewed pairwise integration (2026-10-14): the
+[d18 comparison](../n43/d18/pairwise_refinements.md) combines actual-column
+counts, vertex degrees, and independent-four anchors to exclude x136/r3.
+Together with the existing r4 exclusion, the live equality-frontier cases
+are r=0,1,2. Further accepted deductions sharpen r2 overlaps, give the
+general actual size-four member bound 9-q<=d_A<=11, constrain q1 safe
+augmentations by actual columns, and improve four-clique signature defects.
+Each linked claim has an exact-revision independent review and retains its
+external census premises. The x137/r4 conclusion is overlapping concurrent
+work, recorded as an independent cross-check. No global bound changes.
+
+The [reviewed pivot/excess pairings](../n43/d18/pairwise_pivot_refinements.md)
+also turn cut capacities into dense-family counts. At exact h3/W18 and
+h5/W30 they force 26 roots with at least 84 and 83 neighborhood edges,
+respectively, hence adjacent dense pairs. Cut-surplus profiles give additional
+conditional pointed pairs, and a maximum-edge degree-18 root has tighter x
+caps when W<=10. Dense-pair and small-overlap guarantees are separate, and
+no small h or W hypothesis has been proved for the unrestricted branch.
+
 Conditional excess bounds: `degree18_excess_bounds.md` proves a high-degree
 cut obstruction. When exactly h=2,4,6,8,10 vertices have degree above 18,
 it gives W<=8,20,32,44,58, respectively. If all degree-18 neighborhoods have

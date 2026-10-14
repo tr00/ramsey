@@ -6,7 +6,8 @@ The working expectation R(5,5)=43 remains a conjecture.
 - [Order-43 branch navigation](n43/README.md)
 - [Detailed reduction index and existing status labels](n43/reductions.md)
 - [Degree-18 work](n43/d18/README.md)
-- [Equality frontier and live r branches](n43/d18/x136/README.md)
+- [Equality frontier and live r=0,1,2 branches](n43/d18/x136/README.md)
+- [Pairwise d18 refinements and their exact reviews](n43/d18/pairwise_refinements.md)
 - [Normalized minimum-degree-20 work](n43/min-degree20/README.md)
 - [Workflow, naming, and proof review](docs/workflow.md)
 

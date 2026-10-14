@@ -618,10 +618,11 @@ maximum s:    10  10   7   3
 If r=2 with signatures T1,T2, then 5s<=36-|T1 intersect T2|.
 If every column has size at least four (in particular for q<=2), put
 H=sum_(c_y>=6)(c_y-6). Then exactly 2r+s=8-k+H, H>=0.
-At x=136 the necessary count ranges are:
+After the independently reviewed r3 exclusion below, at x=136 the live
+necessary count ranges are:
 
 ```text
-(r,s)=(0,8..10),(1,6..10),(2,4..7),(3,2..3).
+(r,s)=(0,8..10),(1,6..10),(2,4..7).
 ```
 
 **[PROVED-HERE]** The `r=4` branch is impossible at `x=136`. Four size-four
@@ -631,6 +632,33 @@ at most 32 incidences from that anchor into `B`, contradicting the anchor
 lower bound 36.
 
 Proof: `n43/d18/x136/r4/exclusion.md`.
+
+**[PROVED-HERE; accepted independent mathematical review]** The `r=3`
+branch is also impossible at `x=136`. Its former s=2..3 range gives H<=1.
+Any vertex in two size-four signatures must have A degree 11 and is universal
+inside both; no vertex belongs to three. The overlap vertices form a clique
+O of size at most three. The four-transversal theorem gives an independent
+four-set avoiding O, meeting the three columns at distinct vertices of degree
+at least nine. Its fourth vertex has degree at least six by E(4,5,17)=79;
+the sum is at least 33, contradicting the anchor upper bound 32.
+
+For `r=2`, s=4 forces disjoint size-four signatures. At s=5, their overlap
+has size at most two, lies in the unique size-seven column, and has A degrees
+11. At s=6, a degree-ten overlap vertex requires two size-seven columns and
+belongs to both. These conditions do not close r=2.
+
+Proof: [small-column refinements](d18/x136/pairwise_small_refinements.md),
+Claims 01--04. [Exact independent review](d18/review_pairwise-small_2026-10-14_coordinator.md)
+retains external premises. Search use: terminate exactly x136/r3 and propagate
+the live r<=2 split; apply the r2 overlap conditions only at x136.
+
+At x136/r2,s=7, an overlap has size at most one and its vertex needs at
+least two incident columns of size seven or larger. The single size-nine
+column alternative forces disjointness. With sizes eight and seven, an
+overlap belongs to both and has A degree eleven; with three size-seven
+columns, degree ten requires membership in all three.
+Proof: same note, Claim 05;
+[independent review](d18/review_pairwise-small-05_2026-10-14_coordinator.md).
 
 The remaining ranges are necessary conditions, not realizability claims.
 
@@ -665,6 +693,18 @@ pattern above applies. This does not require x=136.
 Search use: degree-sum and signature-class propagation at any four-clique.
 Proof: `n43/d18/cliques_augmentation.md`, using only R(3,4)=9.
 
+**[PROVED-HERE; accepted independent review]** Every exact triple-Q class
+in B-Q has size at most two: the class is independent and anticomplete to
+the omitted Q vertex, with three members forbidden by I4 in B. For Q=L4
+of size four, if n_j counts external Q signatures of size j and E_Q is
+the total degree excess of Q, then
+`n_3=4+E_Q+2n_0+n_1<=8`, hence `2n_0+n_1<=4-E_Q`.
+Each Q edge additionally has at most six external common neighbors. These
+mask/degree propagation bounds hold wherever such Q exists, independently
+of x; they alone do not exclude a branch. Proof:
+[frontier Claim 04](d18/pairwise_frontier_refinements.md#claim-pairwise-frontier-04),
+[exact review](d18/review_pairwise-frontier_2026-10-14_coordinator.md).
+
 ### 8.9 Safe augmentation at a=84
 
 **[PROVED-HERE, using the published extremal bound a<=85]** A safe missing
@@ -681,6 +721,18 @@ subcase, regardless of x or A degree excess.
 
 Search use: near-extremal internal-graph classification and pruning.
 Proof: `n43/d18/cliques_augmentation.md`.
+
+**[PROVED-HERE; accepted independent review]** At q=1, let D8 consist of
+A-degree-eight vertices in any actual size-four column. Every safe edge
+has all D8 vertices as endpoints: adding it preserves each T's I4-transversal
+property, and the 85-edge augmented internal graph forces degree at least
+nine on every T vertex. Thus |D8|>=3 forces saturation; |D8|=2 permits
+only their mutual edge; |D8|=1 requires all safe edges to share that vertex.
+For any T with e(A-T)=50, every safe edge meets T. This holds regardless
+of A degree excess and does not assert a full-interface extension after
+the internal addition. Proof:
+[augmentation bridge](d18/pairwise_refinements.md#claim-pairwise-safe-columns),
+[independent review](d18/review_pairwise-safe-columns_2026-10-14_small-agent.md).
 
 ### 8.10 Neighborhood bounds transferred between pivots
 
@@ -855,6 +907,48 @@ conditionally, and select a pivot by minimum E. No bound on h has been proved
 for the entire degree-18 branch, so these do not establish W<=10 globally.
 Detailed proofs: `n43/d18/excess_bounds.md`; status and arithmetic audit:
 `reports/degree18_excess_bounds.md`.
+
+### 8.14 Reviewed pairwise pivot and excess refinements
+
+**[PROVED-HERE; accepted independent mathematical review]** For P the
+degree-18 vertices and H its complement in V(G), put h=|H|, p=43-h,
+J=sum_(v in P)E_v, Z=sum epsilon_z^2, and B0=W/2+4. For h>0,
+
+```text
+J=(19-h)W+Z+sum_(yz nonedge in H)(epsilon_y+epsilon_z)
+ >=(19-h)W+Z+2*eta_min*(C(h,2)-floor(3h^2/8)).
+```
+
+This strengthens weighted root-family lower bounds; W=6 now forces at
+least four degree-18 roots with at least 81 neighborhood edges, though
+four roots alone need not contain an edge.
+
+Using the excess sequence capacity t(j)=t_seq(j) of section 8.12, when
+t(0)>t(Q+1) and both exist, the dense family M_Q={v in P:q_v<=Q} obeys
+
+```text
+|M_Q|>=max(0,ceil((C_lo-p*t(Q+1))/(t(0)-t(Q+1)))),
+C_lo=18h+W-2floor(3h^2/8).
+```
+
+At h3/W18 this forces 26 roots with at least 84 neighborhood edges;
+at h5/W30 it forces 26 with at least 83. Each family has an adjacent
+pair. At h2/W8, h4/W20, h6/W32, cut surplus forces at least 1,2,3 roots
+with exact (q,E,x)=(0,8,144),(0,14,150),(0,20,156). Each such root has
+some adjacent degree-18 neighbor with overlap at most 9,10,10 respectively;
+the companion's deficit need not be zero.
+
+If a root is explicitly chosen to maximize neighborhood edges among P,
+its q_*=min_P q satisfies q_*<=floor(B0-J_lo/p) for any valid lower
+bound J_lo, and the same root has x<=136+B0+q_*. For W=0,2,4,6,8,10,
+the resulting x caps are 144,145,146,147,149,150, retaining pointed
+overlap caps 9,9,10,11,12,12. These caps require the stated root choice.
+
+Search use: conditional root-family and degree-count propagation/branching.
+No bound on h or W throughout d18 is inferred, and the dense-pair and
+low-overlap statements do not automatically apply to the same edge.
+Proof: [pivot pairings](d18/pairwise_pivot_refinements.md), Claims 01--04;
+[exact review](d18/review_pairwise-pivot_2026-10-14_coordinator.md).
 
 ## 9. Complement-normalized minimum-degree-20 branch
 
@@ -1267,6 +1361,10 @@ proof or an explicitly admitted complete finite verification.
 - `docs/upper_bound_method_review.md`
 - `n43/d18/pivot_classes.md`
 - `n43/d18/excess_bounds.md`
+- `n43/d18/pairwise_refinements.md`
+- `n43/d18/x136/pairwise_small_refinements.md`
+- `n43/d18/pairwise_frontier_refinements.md`
+- `n43/d18/pairwise_pivot_refinements.md`
 - `docs/reproducibility.md`
 - `reports/mathematical_phase_1.md`
 - `reports/lemma_phase_2.md`
@@ -1277,3 +1375,4 @@ proof or an explicitly admitted complete finite verification.
 - `reports/degree18_cliques_augmentation.md`
 - `reports/degree18_pivot_classes.md`
 - `reports/degree18_excess_bounds.md`
+- `reports/2026-10-14-d18-pairwise-refinements.md`
