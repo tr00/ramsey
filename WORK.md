@@ -20,6 +20,7 @@ a lock against user edits. Re-read files before changing them.
 | band137-flat-20261014 | Codex coordinator | 81c768a | Sibling x cases, transfer-note/review reference migration, navigation and move manifest | Completed; ownership released; reports and original Git band report rechecked, no x<=142 proof located; see reports/2026-10-14-d18-layout.md; included in user-requested commit |
 | symmetry-d18-20261014 | Codex symmetry author | 81c768a | n43/d18/symmetry_reduction.md; reports/2026-10-14-d18-symmetry.md; own WORK row | Research committed at user request; six claims subsequently independently accepted and integrated by joint-d18 task; generator remains draft; ownership released |
 | joint-d18-20261014 | Codex coordinator; r2_triples, r2_low_s, pivot_coverage agents | 2ce0cca input; concurrent 49bd363 symmetry commit preserved | r2 proofs; dense-pivot proof; distinct reviews/reports; coordinator shared integration | Completed research and independent audits; entire x136/r2 excluded on recorded premises, dense same-edge family theorem and symmetry review integrated; final verification/commit authorized; see reports/2026-10-14-d18-joint-discoveries.md; ownership released after commit |
+| lean-scaffold-20261014 | GLM | 81c768a | lean/ scaffolding, reports/2026-10-14-lean-scaffolding.md | Completed; Mathlib v4.35.0 pinned and `lake build` verified clean; no formalizations; ownership released |
 
 Future entries should identify input claim revisions, acceptance criteria, and
 blockers in the handoff column or a linked branch-local note. Remove completed
