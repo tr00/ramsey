@@ -615,6 +615,26 @@ Continuation: `frontier_band.md` extends x=136 to x=136+k, proves the
 census-dependent four-transversal bound throughout x=136,...,141, and records
 anchor defect identities and the clique restriction on size-four columns.
 
+Audited 2026-10-14 joint-column continuation: the
+[r2 closure](../n43/d18/x136/r2/README.md) covers every former s=4..7
+child, leaving only r=0,1 live at x136. Four-set I4-transversals have
+degrees9..11 and total degree38..40; no two are disjoint or meet in a
+singleton of degree10 or11 under the full frontier anchor assumptions.
+Size-five membership saturation closes s7; exact common-neighborhood
+rows and global nonedge codegree close the two-overlap s6 alternative;
+the final singleton theorem closes the residual s6. Exact independent
+reviews retain the published census premises. No full x136 exclusion is
+claimed, and the isolated universal transversal-five theorem remains open.
+
+The [dense-family continuation](../n43/d18/dense_pivot_coverage.md) proves
+that any thirteen degree-18 vertices contain an edge of codegree at most10
+inside that family. Conditional odd-h near-maximum excess families extend
+simultaneously dense endpoint coverage beyond W<=10, including h7/W42,
+h9/W54,h11/W66. The [symmetry note](../n43/d18/symmetry_reduction.md) now
+has an exact independent review of its multiset stabilizer, sorted-prefix
+coverage, multiplicity and orientation claims. Implemented exhaustive
+generation and certificate coverage remain separate obligations.
+
 The following are proof targets, not established facts:
 
 1. **Extreme-degree exclusion.** Rule out degree 18 (and hence 24) using the

@@ -4,9 +4,9 @@ Date: 2026-10-14. Task: symmetry-d18-20261014.
 
 This is a mathematical coverage note and a future search design. No graph
 enumeration, solver, canonicalizer, download, installation, or literature
-novelty review was performed. All claims below are ready for independent
-review, with an author's self-audit only. They are not accepted pruning rules
-or an order-43 certificate.
+novelty review was performed. All six mathematical claims have exact-revision independent acceptance,
+with the review linked below. The generator remains a draft design; no
+implemented pruning or order-43 certificate is supplied.
 
 The intended change in search order is
 
@@ -76,7 +76,7 @@ Claim ID: `n43/d18/symmetry_reduction.md#claim-d18-symmetry-01`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every rooted degree-18 candidate, with a fixed labeled A; no
 frontier or census bound is needed for the symmetry argument.
@@ -123,7 +123,7 @@ redundancy in cross matrices, not elapsed solver time.
 
 Search use: symmetry, after independent review and certified orbit handling.
 
-Reviews: none.
+Reviews: [exact independent pivot-agent review](review_d18_symmetry_20261014_pivot.md).
 
 <a id="claim-d18-symmetry-02"></a>
 ## 2. Sorted prefix pruning has a coverage proof
@@ -132,7 +132,7 @@ Claim ID: `n43/d18/symmetry_reduction.md#claim-d18-symmetry-02`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the multiset generation stage of Claim 01, under any subgroup H of
 Aut(A), with no B edges assigned and a fixed total subset order.
@@ -164,7 +164,7 @@ Search use: symmetry, after independent review. A rejection witness is the
 single row permutation g; its automorphism property and the strict sorted
 comparison are directly checkable without trusting a canonicalizer.
 
-Reviews: none.
+Reviews: [exact independent pivot-agent review](review_d18_symmetry_20261014_pivot.md).
 
 <a id="claim-d18-symmetry-03"></a>
 ## 3. At x136..141 no full column occurs more than twice
@@ -173,7 +173,7 @@ Claim ID: `n43/d18/symmetry_reduction.md#claim-d18-symmetry-03`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every candidate in the setting with 0<=k<=5; hence q<=2.
 
@@ -210,7 +210,7 @@ assumption that A itself is triangle-free.
 Search use: propagate multiplicities and forced edges; symmetry via Claim 01,
 after independent review of this claim and its external premises.
 
-Reviews: none.
+Reviews: [exact independent pivot-agent review](review_d18_symmetry_20261014_pivot.md).
 
 <a id="claim-d18-symmetry-04"></a>
 ## 4. Concrete equality-frontier consequences
@@ -219,7 +219,7 @@ Claim ID: `n43/d18/symmetry_reduction.md#claim-d18-symmetry-04`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: x=136, and the reviewed live branches r=0,1,2 where tabulated.
 
@@ -259,7 +259,7 @@ the pair's remaining neighborhoods as equal or impose twin-vertex equations.
 
 Search use: propagate and symmetry, subject to the review gates above.
 
-Reviews: none.
+Reviews: [exact independent pivot-agent review](review_d18_symmetry_20261014_pivot.md).
 
 <a id="claim-d18-symmetry-05"></a>
 ## 5. Selected lex comparisons are safe but need not be complete
@@ -268,7 +268,7 @@ Claim ID: `n43/d18/symmetry_reduction.md#claim-d18-symmetry-05`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: any invariant finite family of complete B edge vectors with fixed M,
 under Gamma_M; also any invariant domain of assigned edges at a partial state.
@@ -311,7 +311,7 @@ justified by these comparisons.
 Search use: symmetry after review; complete quotient claims require additional
 coverage of all elements or an equivalent orbit algorithm.
 
-Reviews: none.
+Reviews: [exact independent pivot-agent review](review_d18_symmetry_20261014_pivot.md).
 
 <a id="claim-d18-symmetry-06"></a>
 ## 6. Complement selection is automatically compatible through x151
@@ -320,7 +320,7 @@ Claim ID: `n43/d18/symmetry_reduction.md#claim-d18-symmetry-06`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every candidate with a degree-18 root, arbitrary q>=0 and E>=0;
 no four-transversal or small-column hypothesis is used.
@@ -363,7 +363,7 @@ does not permit complementing a fixed degree-18 root while retaining degree
 
 Search use: symmetry compatibility and degree-count propagation after review.
 
-Reviews: none.
+Reviews: [exact independent pivot-agent review](review_d18_symmetry_20261014_pivot.md).
 
 ## Proposed generator and exact certification obligations
 

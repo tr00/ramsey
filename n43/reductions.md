@@ -618,11 +618,11 @@ maximum s:    10  10   7   3
 If r=2 with signatures T1,T2, then 5s<=36-|T1 intersect T2|.
 If every column has size at least four (in particular for q<=2), put
 H=sum_(c_y>=6)(c_y-6). Then exactly 2r+s=8-k+H, H>=0.
-After the independently reviewed r3 exclusion below, at x=136 the live
+After the independently reviewed r2,r3 exclusions below, at x=136 the live
 necessary count ranges are:
 
 ```text
-(r,s)=(0,8..10),(1,6..10),(2,4..7).
+(r,s)=(0,8..10),(1,6..10).
 ```
 
 **[PROVED-HERE]** The `r=4` branch is impossible at `x=136`. Four size-four
@@ -660,7 +660,37 @@ columns, degree ten requires membership in all three.
 Proof: same note, Claim 05;
 [independent review](d18/review_pairwise-small-05_2026-10-14_coordinator.md).
 
-The remaining ranges are necessary conditions, not realizability claims.
+**[PROVED-HERE; accepted independent mathematical reviews]** The entire
+`x136/r2` branch is excluded by joint actual-column and transversal arguments.
+Its former s=4..7 split is completely covered:
+
+| Former s | Closure |
+| --- | --- |
+| 4 | No large column implies disjoint four-transversals, which are impossible |
+| 5 | Sole large column forces a singleton overlap of degree eleven, which is impossible |
+| 7 | Membership saturation forces a singleton overlap; an exact column incidence count forces its degree eleven |
+| 6, one size-eight column | Same singleton-degree-eleven obstruction |
+| 6, two size-seven columns | Overlap rows force one or two independent degree-ten vertices; two violate global nonedge codegree, and a singleton violates the new degree-ten transversal theorem |
+
+For every four-set I4-transversal T, the new proof gives 9<=d_A(t)<=11
+and 38<=sum_T d_A<=40. It prohibits two disjoint such transversals and
+singleton intersections of degree ten or eleven. These statements use the
+full equality-frontier independent-four anchor bound sum_I d_A<=32;
+they are not universal claims about isolated 85-edge neighborhoods.
+
+Proofs: [low-excess Claims 01--06](d18/x136/r2/low_excess_columns.md),
+[triple Claims 02--04 and 06](d18/x136/r2/independent_triples.md).
+Exact independent reviews:
+[all low-excess claims](d18/x136/r2/review_low_excess_columns_20261014_triples.md),
+[final singleton and full coverage](d18/x136/r2/review_singleton_ten_20261014_pivot.md),
+[triple claims](d18/x136/r2/review_independent_triples_20261014_low_s.md),
+and [two-overlap contradiction](d18/x136/r2/review_r2_remaining_20261014_pivot.md).
+Search use: terminate exactly x136/r2, propagate r<=1 at equality together
+with the earlier r3,r4 closures. Published extrema 85 at (4,5,18), 79 at
+(4,5,17), 50 maximum at (4,4,14), and 50 minimum at (4,4,15) remain
+external premises. No x136, degree18, or order-43 closure is implied.
+
+The remaining r0,r1 ranges are necessary conditions, not realizability claims.
 
 A nonadjacent size-five pair has disjoint signatures. Their complement D in
 A has eight vertices, degrees four or five, with respectively 0,2,or4
@@ -1007,6 +1037,36 @@ low-overlap statements do not automatically apply to the same edge.
 Proof: [pivot pairings](d18/pairwise_pivot_refinements.md), Claims 01--04;
 [exact review](d18/review_pairwise-pivot_2026-10-14_coordinator.md).
 
+### 8.15 Simultaneous dense endpoints and overlap ten
+
+**[PROVED-HERE; accepted independent mathematical review]** Every family F
+of at least thirteen degree-18 vertices contains adjacent u,v in F with
+global codegree at most ten. This theorem uses small Ramsey numbers and
+the independent-four signature argument; it needs no edge census. Both
+endpoint conditions belong to the same family and hold for the same edge.
+
+For odd h, W=6h-D, D in {0,2,4,6}, 1<=h<=35 and h<=W, put
+
+```text
+R_h=24h-2floor(3h^2/8)-(43-h)*(h-1)/2.
+```
+
+At least max(0,R_h-D) degree-18 roots have m_H=(h+1)/2,
+q<=1+D/2, 3h+3-D<=E<=3h+4-D/2, and
+139+3h-D<=x<=141+3h. If this family has at least thirteen vertices,
+two of those roots form the overlap-ten edge. At D=0 they have exact
+E=3h+3 and q=0 or1. For h=3,5,7,9,11 and D=0, the family counts are
+26,26,24,20,14; both endpoint neighborhoods have at least84 edges.
+For h=3,5,7,9 and D=2, counts24,24,22,18 give at least83 edges at
+both endpoints. Four-transversal bounds apply at both endpoints for D<=2.
+
+Proof: [dense-pivot Claims 01--03](d18/dense_pivot_coverage.md);
+[exact independent review](d18/review_dense_pivot_coverage_20261014_low_s.md).
+Search use: conditional family propagation and two-root branching with all
+overlaps, maps and completions retained. No small h,W or x hypothesis has
+been established throughout d18. These are unavoidable families, not a
+disjoint case split, and no listed degree predicate is excluded here.
+
 ## 9. Complement-normalized minimum-degree-20 branch
 
 Use the canonical degree-sequence orientation described in Section 10. If the
@@ -1119,6 +1179,29 @@ Unsafe reductions:
   global lex minimality;
 - combining independent complement selectors without proving that one member
   of every complement pair survives.
+
+The [reviewed column-multiset alternative](d18/symmetry_reduction.md) first
+quotients 24 cross columns by S_24 and Aut(A), then completes B modulo
+the full multiset stabilizer Gamma_M. The kernel is product_C S_(m_C)
+and its quotient is the row automorphisms preserving the multiset.
+Sorted-prefix row comparisons preserve a least full multiset path.
+Selected full-vector lex comparisons preserve coverage even when they do
+not give a complete orbit quotient; partial comparisons need the stated
+assigned-domain and full-path restrictions.
+
+At x136..141 all signature multiplicities are at most two; repeated pairs
+are forced edges through x139. At x140,141 a repeated size-ten signature
+is not forced adjacent by the union bound. At equality duplicate swaps
+give a kernel of order at most4096. Separately, 3k-5q<48 forces n18>n24,
+so x<=151 is automatically compatible with the degree-sequence complement
+selector. This is not an upper bound on x.
+
+Proof and precise scope: symmetry Claims01--06;
+[exact independent review](d18/review_d18_symmetry_20261014_pivot.md).
+Search use: symmetry and propagation on the recorded premises. Complete
+A generation, certified permutations, rejection witnesses, surviving paths,
+root selection and completion certificates still require implementation.
+The mathematical review does not certify a generator or appended lex CNFs.
 
 ### 10.4 Canonical-parent generation
 

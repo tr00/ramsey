@@ -7,7 +7,7 @@ Notation and inherited bounds: [reduction index](../reductions.md), sections 2,
 
 | Child | Predicate | Status |
 | --- | --- | --- |
-| [x136](x136/README.md) | x=136 | Open, refined by the number of size-four columns |
+| [x136](x136/README.md) | x=136 | Open; only r=0,1 live, r2,r3,r4 excluded |
 | [x137](x137/README.md) | x=137 | Open; r=4 excluded |
 | [x138](x138/README.md) | x=138 | Open |
 | [x139](x139/README.md) | x=139 | Open |
@@ -32,6 +32,8 @@ Shared proof notes:
 - [Pairwise refinements and reviewed claim connections](pairwise_refinements.md)
 - [Four-column stability beyond equality](four_column_stability.md)
 - [Above-frontier transfer scope and reviewed deductions](transfer_summary.md)
+- [Dense degree-18 families with a simultaneous overlap bound](dense_pivot_coverage.md)
+- [Reviewed column-multiset symmetry coverage](symmetry_reduction.md)
 
 These results may have narrower hypotheses than this parent branch. Follow the
 preconditions in each proof before applying a filter.
