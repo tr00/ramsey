@@ -1,84 +1,82 @@
-# Ramsey R(5,5) Research Workspace
+# Towards R(5,5)
 
-This workspace is for a reproducible attempt to determine the diagonal Ramsey
-number `R(5,5)`. The setup phase uses only tools already present on the host;
-nothing has been downloaded or installed.
-
-## Current status
-
-The established bounds as of 2026-10-13 are
+How many vertices force a graph to contain either five mutually adjacent
+vertices or five mutually nonadjacent vertices? The smallest such number is
+R(5,5), and its exact value is still unknown. The established bounds are
 
 ```text
 43 <= R(5,5) <= 46.
 ```
 
-Equivalently, a `(5,5)`-Ramsey graph is a graph with neither a 5-clique nor an
-independent set of size 5. A 42-vertex example is known, while no such graph
-exists on 46 vertices.
+This repository collects mathematical work towards deciding the 43-vertex
+case. A graph on 43 vertices avoiding both patterns would raise the lower
+bound. A proof that no such graph exists would establish R(5,5) = 43, using
+the known 42-vertex construction.
 
-To prove an exact value:
+The problem remains open here. The aim is to find structural restrictions
+that make a future exhaustive proof feasible, while keeping every deduction
+clear enough to inspect and challenge.
 
-- `R(5,5) = 43`: prove nonexistence on 43 vertices.
-- `R(5,5) = 44`: construct a 43-vertex graph and prove nonexistence on 44.
-- `R(5,5) = 45`: construct a 44-vertex graph and prove nonexistence on 45.
-- `R(5,5) = 46`: construct a 45-vertex graph; the upper bound is already known.
+## The approach
 
-The initial target after setup review is therefore the 43-vertex decision
-problem. A failed heuristic search is not evidence of nonexistence.
+Start with a vertex and split the rest of a candidate graph into its neighbors
+and nonneighbors. Each side inherits a smaller Ramsey constraint. The neighbors
+cannot contain a clique of size four, and the nonneighbors cannot contain an
+independent set of size four. Both sides must still avoid the forbidden
+patterns of the full graph.
 
-## Layout and reading paths
+The difficult part is fitting these pieces together. For each nonneighbor,
+record which vertices on the neighbor side it touches. These sets are called
+cross columns in the notes. A column may satisfy all local conditions on its
+own and still be incompatible with the other columns. Studying their overlaps,
+shared adjacency patterns, and edge counts gives restrictions that an isolated
+neighborhood analysis can miss.
 
-Start with [current status](results.md), then follow the
-[order-43 navigation](n43/README.md). The main active path is
-[n43/d18/x136](n43/d18/x136/README.md), with live cases
-[r0](n43/d18/x136/r0/README.md), [r1](n43/d18/x136/r1/README.md),
-[r2](n43/d18/x136/r2/README.md), and [r3](n43/d18/x136/r3/README.md).
+Much of the current work follows a vertex of degree 18. Its two sides have
+18 and 24 vertices. The lowest possible cross-edge count under the recorded
+bounds is 136, where equality forces extra structure. The notes rule out
+several configurations at this boundary and develop restrictions beyond it.
+Other threads study overlapping vertex neighborhoods, symmetry reductions,
+and the case with minimum degree 20 after choosing between a graph and its
+complement.
 
-- `n43/`: mathematical branch navigation, scoped proof notes, and the
-  [detailed reduction index](n43/reductions.md).
-- `docs/`: global baseline, mixed research-phase notes, environment inventory,
-  [reproducibility](docs/reproducibility.md), and [workflow](docs/workflow.md).
-- `reports/`: historical summaries; these do not override current proof records.
-- [WORK.md](WORK.md): coordinator-owned task ownership and handoffs for agents
-  sharing this worktree.
-- `src/ramsey.py` and `tests/`: dependency-free reference utility and tests.
-- [AGENTS.md](AGENTS.md): scope, research priorities, and evidence standards.
+Computational exploration is currently paused. The active work is mathematical,
+with the goal of reducing the cases that a later certified search must cover.
 
-Existing audit assertions are preserved, not independently revalidated by the
-reorganization. New reviews identify the exact proof revision and dependencies.
+## Where to read
 
-## Baseline commands
+| Location | What you will find |
+| --- | --- |
+| [results.md](results.md) | Current progress and links to recent deductions |
+| [n43/](n43/README.md) | The 43-vertex case, organized by mathematical assumptions |
+| [n43/d18/](n43/d18/README.md) | Degree-18 neighborhoods, cross-column compatibility, and frontier cases |
+| [n43/min-degree20/](n43/min-degree20/README.md) | The complementary line of work on normalized minimum degree 20 |
+| [docs/](docs/) | Background, shared theorems, and evidence standards |
+| [reports/](reports/) | Dated accounts of the research and its unresolved questions |
+| [src/](src/) and [tests/](tests/) | Small Python utilities for checking graphs and generating reference SAT encodings |
 
-Run the tests:
+For background and references, start with the
+[mathematical baseline](docs/mathematical_baseline.md). For a concrete example
+of the approach, read the
+[degree-18 equality frontier](n43/d18/x136/README.md), where compatibility of
+actual columns rules out every column of size four. That case as a whole
+remains open.
 
-```bash
-python3 -m unittest discover -s tests -v
-```
+## Contributing
 
-Check a graph represented as an edge list:
+Contributions can be a new argument, a sharper bound, a counterexample to a
+proposed lemma, or a careful review of an existing proof. Particularly useful
+questions concern compatibility between multiple columns, constraints from
+overlapping neighborhoods, and symmetry reductions that preserve all cases.
 
-```bash
-python3 src/ramsey.py check --vertices 6 --clique 3 --independent 3 graph.edges
-```
+Each proof note records its assumptions and review status. When extending an
+argument, make clear which cases it covers and which remain open. A failed
+search does not establish nonexistence. A construction needs exhaustive
+verification of every five-vertex subset, and an exclusion needs complete case
+coverage with independently checkable evidence. The
+[workflow](docs/workflow.md) and
+[reproducibility notes](docs/reproducibility.md) explain how to record this work.
 
-Generate the direct Ramsey CNF:
+## License
 
-```bash
-python3 src/ramsey.py cnf --vertices 6 --clique 3 --independent 3 --output r33_6.cnf
-```
-
-The direct encoding uses one Boolean variable per edge. A true variable means
-that the edge is present. For each candidate clique it emits a clause requiring
-at least one absent edge, and for each candidate independent set it emits a
-clause requiring at least one present edge.
-
-## Research boundary
-
-The small utilities here form a transparent reference implementation, not a
-credible standalone solver for `R(5,5)`. A serious exhaustive phase requires a
-proof-logging SAT solver and likely mature graph canonicalization. Those tools
-must not be acquired without explicit user approval.
-
-Computational exploration is currently paused by user request. The active work
-is purely mathematical: tighter branch bounds, interface signatures, and safe
-symmetry reductions.
+This project is available under the [MIT License](LICENSE).
