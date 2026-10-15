@@ -1,5 +1,6 @@
 module
 
+public import Ramsey.defs.Transversals
 public import Ramsey.Premises
 public import Mathlib.Combinatorics.SimpleGraph.Copy
 public import Mathlib.Data.Finset.Card

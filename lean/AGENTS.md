@@ -8,7 +8,11 @@ comments you write or rewrite.
 ## Where code goes
 
 - General theorems go into `Ramsey/theorems/`, one file per topic.
-- Widely used definitions go into `Ramsey/Defs.lean`.
+- Widely used definitions go into `Ramsey/defs/`, one file per vocabulary
+  topic: `Ramsey/defs/RamseyGraph.lean` holds the core Ramsey graph and
+  bound-predicate vocabulary, `Ramsey/defs/Transversals.lean` the pivot and
+  transversal vocabulary. Open a new file there for a new topic instead of
+  growing an existing one.
 - Everything else goes into the directory of its branch, for example
   `Ramsey/d18/` for d18 material and `Ramsey/d20/` for d20 material.
 

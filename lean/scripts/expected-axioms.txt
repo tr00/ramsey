@@ -19,6 +19,17 @@
  Quot.sound,
  Ramsey.edges_ramsey_4_5_18_le_85,
  Ramsey.ramsey_4_5_le_25]
+'Ramsey.degree18_cross_le_288' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_24_le_132,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.degree18_cross_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_18_le_85,
+ Ramsey.edges_ramsey_4_5_24_le_132,
+ Ramsey.ramsey_4_5_le_25]
 'Ramsey.isRamseyGraph_five_five_iff_pivot_interface' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Ramsey.TransversalFour.transversal_card_ge_four' depends on axioms: [propext,
  Classical.choice,

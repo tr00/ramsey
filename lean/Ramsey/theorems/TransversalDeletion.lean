@@ -1,6 +1,7 @@
 module
 
-public import Ramsey.Defs
+public import Ramsey.defs.RamseyGraph
+public import Ramsey.defs.Transversals
 public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 
 /-!

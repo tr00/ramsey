@@ -24,11 +24,7 @@ the branch hypotheses must hold for every vertex of degree 18 (resp. 20).
 
 Premise consumption: only the handshaking step is pure Mathlib; everything
 else flows through `Ramsey.degree_mem`, which consumes `ramsey_4_5_le_25`
-(see `Ramsey/Premises.lean`). Per
-`../docs/proof_review_2026_10_13.md`, "the alternative arbitrary
-even-degree pivot split into 18 and 20 is sound", and must not be combined
-with the complement-normalized minimum-degree split without a separate
-coverage argument (not done here).
+(see `Ramsey/Premises.lean`).
 -/
 
 @[expose] public section

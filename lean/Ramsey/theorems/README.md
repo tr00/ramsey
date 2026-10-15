@@ -32,7 +32,8 @@ transversality. `DegreeCompatibilityHypotheses` and `DegreeCompatibilityGaps` se
 graph properties from numerical gaps. The degree-gap theorem and its frontier
 specialization retain two deliberate `sorry` bodies.
 
-Shared graph definitions live in [Defs.lean](../Defs.lean). The packages above stay
+Shared graph definitions live in [defs/RamseyGraph.lean](../defs/RamseyGraph.lean)
+and [defs/Transversals.lean](../defs/Transversals.lean). The packages above stay
 with their theorem topics. The root module re-exports both transversal modules,
 but the existing order-43 target does not use them.
 
@@ -62,7 +63,8 @@ statement-only transversal modules or the unproved branch exclusions.
 | [PivotCounting.lean](PivotCounting.lean) | §2 general degree sums over both pivot parts, cross-edge row counting and complement edge counting |
 | [d18/PivotBudget.lean](../d18/PivotBudget.lean) | §§2, 8.1–8.3 and the basic §8.6 identity: `50≤a≤85`, `144≤b≤160`, `x+2a=306+Δ_A`, `x=136+2(85-a)+Δ_A`, `x≥136`, `x=136 ↔ a=85 ∧ ∀u∈A,d(u)=18`, and `148≤b≤160` at equality |
 
-Shared counting and rectangle predicates are in [Defs.lean](../Defs.lean).
+Shared counting and rectangle predicates are in
+[defs/Transversals.lean](../defs/Transversals.lean).
 [Premises.lean](../Premises.lean) derives natural-number census intervals from
 the existing named axioms, with no additional trusted input. The pair bounds
 use `R(3,5)≤14` and `R(4,4)≤18`; the degree-18 budgets additionally use the

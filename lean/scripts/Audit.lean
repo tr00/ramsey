@@ -16,6 +16,8 @@ import Ramsey
 #print axioms Ramsey.degree_mem
 #print axioms Ramsey.degree18_frontier_iff
 #print axioms Ramsey.degree18_cross_ge_136
+#print axioms Ramsey.degree18_cross_le_288
+#print axioms Ramsey.degree18_cross_range
 #print axioms Ramsey.isRamseyGraph_five_five_iff_pivot_interface
 #print axioms Ramsey.TransversalFour.transversal_card_ge_four
 #print axioms Ramsey.pivot_neighbor_degree_sum

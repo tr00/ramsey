@@ -113,6 +113,35 @@ theorem degree18_antiNeighbor_edge_range :
     Nat.card (G.induce (antiNeighborSet G v)).edgeSet ≤ 160
   omega
 
+/-- Every degree-18 pivot has at most 288 cross edges. -/
+theorem degree18_cross_le_288 :
+    crossEdgeCount G (G.neighborSet v) (antiNeighborSet G v) ≤ 288 := by
+  classical
+  have hn := degree18_antiNeighbor_card v hv
+  have hR := (isRamseyGraph_compl _).mp (isRamseyGraph_induce_antiNeighborSet hG v)
+  have hcap : Nat.card (G.induce (antiNeighborSet G v))ᶜ.edgeSet ≤ 132 := by
+    exact_mod_cast edges_ramsey_4_5_24_le_132.on_finite_type hn _ hR
+  have he := card_edges_add_card_edges_compl (G.induce (antiNeighborSet G v))
+  have hchoose : Nat.choose 24 2 = 276 := by decide
+  rw [hn, hchoose] at he
+  have hb : 144 ≤ inducedEdgeCount G (antiNeighborSet G v) := by
+    change 144 ≤ Nat.card (G.induce (antiNeighborSet G v)).edgeSet
+    omega
+  have hs : (∑ y : antiNeighborSet G v, G.degree y) ≤ 576 := by
+    calc
+      (∑ y : antiNeighborSet G v, G.degree y) ≤
+          ∑ _y : antiNeighborSet G v, 24 :=
+        Finset.sum_le_sum (fun y _ ↦ degree_le_24 hG y)
+      _ = 576 := by simp [← Nat.card_eq_fintype_card, hn]
+  rw [pivot_antiNeighbor_degree_sum] at hs
+  omega
+
+/-- Every degree-18 pivot lies in the cross-edge corridor `136 ≤ x ≤ 288`. -/
+theorem degree18_cross_range :
+    136 ≤ crossEdgeCount G (G.neighborSet v) (antiNeighborSet G v) ∧
+      crossEdgeCount G (G.neighborSet v) (antiNeighborSet G v) ≤ 288 :=
+  ⟨degree18_cross_ge_136 hG v hv, degree18_cross_le_288 hG v hv⟩
+
 /-- The antineighborhood excess budget, written without truncated subtraction. -/
 theorem degree18_antiNeighbor_budget :
     2 * inducedEdgeCount G (antiNeighborSet G v) +

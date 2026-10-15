@@ -1,6 +1,6 @@
 module
 
-public import Ramsey.Defs
+public import Ramsey.defs.RamseyGraph
 
 /-!
 # Trusted premises
@@ -18,10 +18,11 @@ Exoo 1989, Angeltveit & McKay 2026 / arXiv:2409.15709, and McKay's Ramsey graph 
 The upper bounds and edge extrema cite the sources listed at the end of this file.
 
 Ramsey upper bounds and edge bounds use `RamseyUpperBound`,
-`RamseyEdgeLowerBound` and `RamseyEdgeUpperBound` from `Defs`. Both edge-bound
-predicates use real-valued edge counts; natural-number conclusions follow by
-`exact_mod_cast`. Their `on_finite_type` lemmas transport bounds to any finite
-vertex type of exactly the stated order.
+`RamseyEdgeLowerBound` and `RamseyEdgeUpperBound` from
+`Ramsey.defs.RamseyGraph`. Both edge-bound predicates use real-valued edge
+counts. Natural-number conclusions follow by `exact_mod_cast`. Their
+`on_finite_type` lemmas transport bounds to any finite vertex type of exactly
+the stated order.
 Use `RamseyUpperBound.not_isRamseyGraph` to apply an upper bound on any finite
 vertex type of at least the stated order.
 
