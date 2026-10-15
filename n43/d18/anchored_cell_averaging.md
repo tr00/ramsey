@@ -1,7 +1,8 @@
 # Anchored cells, weighted edge budgets, and forced completion structure
 
 Date: 2026-10-14. Author: Codex averaging extension.
-Review state throughout: ready for independent review, author-audited only.
+Review state throughout: accepted after independent review; the unsupported
+F-membership assertion is withdrawn below. See [the audit](review_audit_pending_averaging_20261015.md).
 No novelty claim, enumeration, solver, installation, or branch closure.
 
 ## Scope
@@ -19,14 +20,14 @@ than assuming a uniformly large fractional anchor packing.
 <a id="claim-cell-types"></a>
 Claim ID: `n43/d18/anchored_cell_averaging.md#claim-cell-types`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every clique Q and independent set P in A; each may be empty;
 no assumption on edges between Q and P; Q and P may overlap
 Dependencies: Ramsey hypotheses and established small Ramsey numbers
 Conclusion: T={y in B: Q subset C_y, P intersect C_y empty} is
 (5-|Q|, min(4,5-|P|))-free
-Search use: none pending independent review; proposed propagate
-Reviews: none
+Search use: propagate on the stated actual-set and external premises
+Reviews: [review_audit_pending_averaging_20261015.md](review_audit_pending_averaging_20261015.md)
 
 Proof. A clique of order 5-|Q| in T joins Q to give K5.
 An independent set of order 5-|P| in T joins P to give I5; independently
@@ -58,15 +59,15 @@ column family: its occurrences in a cell cannot exceed the final cap.
 <a id="claim-cell-quadratic-budget"></a>
 Claim ID: `n43/d18/anchored_cell_averaging.md#claim-cell-quadratic-budget`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: any nonempty actual cell T of type (a,b), a,b>=2; every
 nonnegative rational weight w_y on its occurrences
 Dependencies: preceding claim; elementary weighted clique inequality proved below
 Conclusion: with W=sum_T w_y, D=sum_T w_y^2, and
 K=sum_(yz edge in B[T])w_y*w_z,
 (W^2/(b-1)-D)/2 <= K <= (a-2)*W^2/(2*(a-1))
-Search use: none pending independent review; proposed propagate
-Reviews: none
+Search use: propagate on the stated actual-set and external premises
+Reviews: [review_audit_pending_averaging_20261015.md](review_audit_pending_averaging_20261015.md)
 
 Proof of the weighted clique inequality. In a graph with clique number
 at most k, normalize weights to sum one. If two positive-weight vertices
@@ -112,12 +113,12 @@ and degree intervals. No claim of superior computational performance.
 <a id="claim-cell-saturation"></a>
 Claim ID: `n43/d18/anchored_cell_averaging.md#claim-cell-saturation`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: any actual anchored cell of the types and sizes stated below
 Dependencies: cell types; R(3,4)=9, R(3,3)=6, R(2,t)=t
 Conclusion: the exact degree intervals and completion consequences below
-Search use: none pending independent review; proposed propagate
-Reviews: none
+Search use: propagate on the stated actual-set and external premises
+Reviews: [review_audit_pending_averaging_20261015.md](review_audit_pending_averaging_20261015.md)
 
 In an (a,b)-free graph T, for every y its neighborhood is
 (a-1,b)-free and its antineighborhood is (a,b-1)-free. Therefore
@@ -167,13 +168,13 @@ This connects unrestricted degree budgets to saturated-cell structure.
 <a id="claim-cell-higher-order-propagation"></a>
 Claim ID: `n43/d18/anchored_cell_averaging.md#claim-cell-higher-order-propagation`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every actual independent triple P or triangle Q in A, and every
 actual independent pair P2 or edge Q2 in A
 Dependencies: cell types proved above
 Conclusion: the forced pairs and triple constraints below
-Search use: none pending independent review; proposed propagate
-Reviews: none
+Search use: propagate on the stated actual-set and external premises
+Reviews: [review_audit_pending_averaging_20261015.md](review_audit_pending_averaging_20261015.md)
 
 Every pair of columns both missing an independent triple P must be
 adjacent in B. This recovers the original F rule. More generally, all
@@ -193,11 +194,18 @@ can be fed back into the cell degree and weighted completion budgets.
 They need not be witnessed by the original pair-only A tests.
 
 For example, if three actual columns all omit an independent A pair,
-and two pairs among their occurrences lie in H, the third pair must
-enter F even if its own residual A graph has no independent triple.
-This is conditional propagation, not a claim that such a configuration
-is realized. The dual example uses an A edge shared by three columns
-and two pairs in F. A cell triple with all three opposite forced pairs
+and two pairs among their occurrences lie in H, the third pair is a
+forced B edge. Retain F and H as the witness-defined graphs from
+[weighted averaging](weighted_averaging.md); record all inferred edges
+and nonedges in separate closure graphs F* and H*, with F subset F*
+and H subset H*. An inferred edge need not lie in F.
+The former assertion that this third pair must enter F even without
+an independent-triple witness is **withdrawn**: membership in F requires
+that witness by definition. This correction retains the valid B-edge
+implication. This is conditional propagation, not a claim that such a
+configuration is realized. The dual example uses an A edge shared by
+three columns and two pairs in F, forcing the remaining B nonedge
+into H* without asserting membership in H. A cell triple with all three opposite forced pairs
 is immediately rejected. Iterate only sound implications; the resulting
 closure is a necessary-condition filter, not complete Ramsey testing.
 
@@ -209,7 +217,7 @@ constraints or its weighted budgets.
 
 ## Audit and use limits
 
-All four claims are ready, pending independent review. Cell types
+All four claims are independently accepted at the corrected proof revision. Cell types
 were checked separately against clique and independence anchors; overlap
 forces empty cells. The weighted inequality was proved by support merging
 and independently checked on uniform complete multipartite weights. Both

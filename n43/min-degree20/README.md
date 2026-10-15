@@ -9,3 +9,11 @@ record does not complete the other minimum-degree cases or audit the selector.
 
 Branch-specific follow-up notes belong here. Shared symmetry arguments should
 retain their explicit normalization and coverage assumptions.
+
+[Independently reviewed pair coverage](pair_coverage.md) supplies a disjoint,
+exhaustive selection rule: n20>=13 guarantees a degree-20 edge of codegree
+at most11; n20<=12 forces n21>=20 and a degree-21 edge of codegree at most12.
+This needs no small-excess or neighborhood-edge-census hypothesis. It supplies
+existence coverage for later two-root gluing with all overlap maps/completions
+retained, and does not decide this branch. The degree-21 endpoint choice is
+compatible with minimum degree20; arbitrary even-pivot d20 remains separate.

@@ -1,6 +1,6 @@
 # R(5,5) Search Results and Reduction Index
 
-Last updated: 2026-10-14
+Last updated: 2026-10-15
 
 This is the operational index for a future certified order-43 search. It
 collects:
@@ -1116,6 +1116,27 @@ j+s <= 34.
 
 Search use: branch on `(j,r,s,a)` only after feasibility checks from these
 intervals.
+
+### 9.1 Complete same-degree pair-selection coverage
+
+**[PROVED-HERE; independently reviewed]** Under the global normalized
+minimum-degree20 assumptions of this section, the count predicates
+n20>=13 and n20<=12 give a disjoint exhaustive split. The first guarantees
+an edge with both endpoints of degree20 and codegree<=11. The second forces
+n21>=20 and guarantees an edge with both endpoints of degree21 and
+codegree<=12. More strongly, every thirteen-element prescribed subset of
+the indicated degree class contains such an edge.
+
+Dependencies: degree-count/selector identities and classical
+R(3,3)=6, R(3,4)=9, R(3,5)=14 through the generalized family-overlap theorem.
+No edge census or small-excess bound is assumed. This does not apply to an
+arbitrary even-pivot d20 branch without the global normalization premises.
+
+Search use: branch | propagate for complete two-root existence coverage;
+retain every allowed overlap value, map, internal graph and completion.
+No branch termination follows without exhaustive exclusion/certificates.
+Proof and exact reviews: [pair coverage](min-degree20/pair_coverage.md),
+[general family overlap](../docs/general_theorems/family_overlap.md).
 
 ## 10. Symmetry reductions
 

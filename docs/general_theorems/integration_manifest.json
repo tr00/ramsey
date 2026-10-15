@@ -1,0 +1,69 @@
+{
+  "base_revision": "b12925f7a96d24e18d06b0237930a32e30660ca2",
+  "date": "2026-10-15",
+  "records": [
+    {
+      "proof": "docs/general_theorems/safe_augmentation.md",
+      "review": "docs/general_theorems/review_safe_augmentation_20261015_transversal.md",
+      "reviewed_sha256": "6f6afdb332679d1acd1ae6d29d509ba6701f05a5ec3f1a0879437565e0938760",
+      "integrated_sha256": "8d838568f3568fe419938508c9155b04a9adbc70e3ac9f8154d8f7df4d240e3a",
+      "review_sha256": "d33e92133fb1722b3461771557c3f8a6c4e54aed34a7d0f5cc7eb3f5b097560f",
+      "change": "integration status banner only; original proof body unchanged",
+      "claims": 5
+    },
+    {
+      "proof": "docs/general_theorems/family_overlap.md",
+      "review": "docs/general_theorems/review_family_overlap_20261015_augmentation.md",
+      "reviewed_sha256": "ccc995bf68e3d6b2db994e9ebd358a0a91926209100dfd951476ae5d955207a1",
+      "integrated_sha256": "6fbd343167de8f0d43985ecf11d39fff9060b867680a91c12347772ffda86e87",
+      "review_sha256": "6057a92161f311cf967280e9e8dfa6eaf35b7c15a1847d0c2f34cbe267837316",
+      "change": "integration status banner only; original proof body unchanged",
+      "claims": 4
+    },
+    {
+      "proof": "docs/general_theorems/transversal_compatibility.md",
+      "review": "docs/general_theorems/review_transversal_compatibility_20261015_augmentation.md",
+      "reviewed_sha256": "fb591c3905f288906230cfd7a5318e64feaf64490150c24a486ed20be2df63e1",
+      "integrated_sha256": "f48f1856a139f1eac97a3648399f4dedc3c7e5fc232b909e670e10821fb53a31",
+      "review_sha256": "eca1abd8eaf5020efd2f861caf3f8dbfae5d995686706bb87eb34a241be7d549",
+      "change": "integration status banner only; original proof body unchanged",
+      "claims": 4
+    },
+    {
+      "proof": "docs/general_theorems/cut_capacity.md",
+      "review": "docs/general_theorems/review_cut_capacity_20261015_overlap.md",
+      "reviewed_sha256": "07884ee766c6d74831dc6b08e99c8e7b81ced6ec5474f40804f4758f8d2ce911",
+      "integrated_sha256": "450610eb69eddb2e4c2cfefc25ff99e6e61919aa722ddaf16888f364271b2137",
+      "review_sha256": "9c2cb078ba001bcb22403d208d468d314c97c274ecefea555336c992090a4c4b",
+      "change": "integration status banner only; original proof body unchanged",
+      "claims": 3
+    },
+    {
+      "proof": "docs/general_theorems/transversal_deletion.md",
+      "review": "docs/general_theorems/review_transversal_deletion_20261015_overlap.md",
+      "reviewed_sha256": "03f47814e5092641864b3f221c06f09123e2364ab0068a05d2cdb8d0bb46dee1",
+      "integrated_sha256": "dbc5bc023dbe92ee970a816eeaea16ecd808971c0b72b979a3103087323ac24c",
+      "review_sha256": "8f61d83f24f6776acc1eb137d94a3ddf3eabe45d99af696cb0d80aba211487ba",
+      "change": "integration status banner only; original proof body unchanged",
+      "claims": 4
+    },
+    {
+      "proof": "docs/general_theorems/signature_anchors.md",
+      "review": "docs/general_theorems/review_signature_anchors_20261015_overlap.md",
+      "reviewed_sha256": "7c286ad9f941ca8bb62ac24aa03967e436d78266299a42d2fef1cede098ebb0b",
+      "integrated_sha256": "4959062245805c0690ba4ec9db26d4057ff9ca2342813dc02fa12fe6c08f4036",
+      "review_sha256": "2e3116c8af179ab2fd4eb3d06766afd7b26df05d2a9f3a5e0f8e2d127cedbb8d",
+      "change": "integration status banner only; original proof body unchanged",
+      "claims": 6
+    },
+    {
+      "proof": "n43/min-degree20/pair_coverage.md",
+      "review": "n43/min-degree20/review_pair_coverage_20261015_transversal.md",
+      "reviewed_sha256": "2d0856ed1586302fa1b493a2aefe20993847784148a0674ddb42911ed7d09d9d",
+      "integrated_sha256": "dcc49b82fd216c9db70de88d0d8f0dc33e25a82c0eb75e671d47542d4c30cbde",
+      "review_sha256": "688cf4ba772d8ef5180c966dd063a2b9f34d2c189401a0648c35e6adb32f0376",
+      "change": "integration status banner only; original proof body unchanged",
+      "claims": 2
+    }
+  ]
+}

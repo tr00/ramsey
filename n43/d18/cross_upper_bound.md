@@ -3,7 +3,8 @@
 Date: 2026-10-14. Author: Codex cross-upper-bound task. Input revision:
 `49bd3637b8e6763ac6fbd3bd5c267155b0f1cb27`. Mathematical work only;
 no graph enumeration, solver, catalogue acquisition, or installation.
-Author self-audit completed; independent review pending. No novelty claim.
+Independent review accepted both current claims on their stated premises;
+see [the audit](review_audit_pending_cross_upper_20261015.md). No novelty claim.
 
 **Conclusion:** for every degree-18 pivot of an order-43 (5,5)-free graph,
 
@@ -50,13 +51,12 @@ between 18 and 24. Sources are recorded in
 ```text
 Claim ID: n43/d18/cross_upper_bound.md#claim-cross-upper-corridor
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every G and every degree-18 v in Section 1
 Dependencies: R(4,5)=25; the published e(complement B)<=132
 Conclusion: x<=288; equality forces b=144 and d_G(y)=24 for every y in B
-Search use: none pending independent review of this note; the pre-existing
-indexed corridor retains its existing status
-Reviews: none
+Search use: propagate with the stated Ramsey and census premises
+Reviews: [review_audit_pending_cross_upper_20261015.md](review_audit_pending_cross_upper_20261015.md)
 ```
 
 There are no v-B edges. Counting degrees on B gives exactly
@@ -98,12 +98,12 @@ This proves the stated two-sided corridor.
 ```text
 Claim ID: n43/d18/cross_upper_bound.md#claim-cross-upper-defects
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every G and every degree-18 v in Section 1
 Dependencies: the census b>=144; global degree upper bound 24
 Conclusion: 288-x=2(b-144)+sum_B(24-d_G(y)); the refinements below
-Search use: none pending independent review; proposed use propagate
-Reviews: none
+Search use: propagate with the stated Ramsey and census premises
+Reviews: [review_audit_pending_cross_upper_20261015.md](review_audit_pending_cross_upper_20261015.md)
 ```
 
 Define the nonnegative integer degree deficit
@@ -171,8 +171,6 @@ This argument supplies an unconditional bound within the d18 assumptions,
 conditional only on the established external Ramsey and census theorems.
 It does not prove x<=142, close the x>=143 branch, or decide R(5,5).
 
-Independent review is pending. Another coordinator owns concurrent shared
-integration, so this task changes only this new note and its historical
-report. Suggested integration after review: make the residual branch
-explicitly 143<=x<=288 and link this proof; do not change branch coverage
-or promote the withdrawn arguments.
+Independent review accepted the current corridor and defect claims;
+the residual branch retains complete coverage with 143<=x<=288.
+The stronger attempted bounds remain withdrawn.

@@ -5,9 +5,10 @@ Parent: degree-18 pivot in an order-43 K5/I5-free graph. A=N(v), |A|=18;
 B=M(v), |B|=24; x=e(A,B); R_u=N_B(u); C_y=N_A(y).
 No small-excess hypothesis is imposed unless explicitly stated.
 The underlying new tools in [anchored cell averaging](anchored_cell_averaging.md)
-and [weighted averaging](weighted_averaging.md) are author-audited and pending
-independent review. The threshold observations below are also self-checked,
-not independently reviewed. Search use: research planning only.
+and [weighted averaging](weighted_averaging.md), and the local observations
+below, are independently accepted on their stated premises; see
+[the exact-revision audit](review_audit_pending_averaging_20261015.md).
+Research targets and priority choices retain search use: research planning only.
 
 ## Priority regimes
 
@@ -24,9 +25,12 @@ The last row uses the [reviewed q3 actual-column result](x142/q3/three_columns.m
 and the applicable two-transversal argument linked in
 [transfer summary](transfer_summary.md). It does not exclude that x range.
 
+<a id="claim-averaging-large-row-family"></a>
 ## High-x averaging forces a family of large rows
 
-Kind: local-deduction; review state: ready; search use: none pending review.
+Claim ID: `n43/d18/averaging_future_work.md#claim-averaging-large-row-family`
+Kind: local-deduction; review state: accepted; search use: propagate.
+Reviews: [independent audit](review_audit_pending_averaging_20261015.md).
 Dependencies: |A|=18, sum_A |R_u|=x, universal row bound |R_u|<=17.
 The row bound follows because B[R_u] is K4/I4-free: a K4 extends with u,
 and an I4 extends with v; R(4,4)=18.
@@ -48,10 +52,12 @@ It neither proves that any such family is realizable nor improves the existing
 cross-count corridor by itself. Thresholds are sufficient, not necessary:
 large rows may also occur at smaller x.
 
+<a id="claim-averaging-adjacent-sixteen-rows"></a>
 ## Main target: compatibility of two large rows
 
-Kind of the observation: local-deduction; review state: ready;
-search use: none pending review.
+Claim ID: `n43/d18/averaging_future_work.md#claim-averaging-adjacent-sixteen-rows`
+Kind of the observation: local-deduction; review state: accepted;
+search use: propagate. Reviews: [independent audit](review_audit_pending_averaging_20261015.md).
 If u,w are adjacent in A, B[R_u intersect R_w] has no triangle and no I4,
 so R(3,4)=9 gives |R_u intersect R_w|<=8. Two size-sixteen rows also have
 intersection at least 16+16-24=8. Hence, for adjacent such A vertices,

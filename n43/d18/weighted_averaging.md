@@ -3,7 +3,8 @@
 Date: 2026-10-14. Author: Codex weighted-averaging task.
 Input HEAD: `49bd3637b8e6763ac6fbd3bd5c267155b0f1cb27`.
 Pure mathematical development; no graph enumeration, solver, download, or
-installation. All claims below are author-audited, **not independently reviewed**.
+installation. Both claims are independently accepted on their stated premises;
+see [the exact-revision audit](review_audit_pending_averaging_20261015.md).
 No novelty claim or branch closure is made.
 
 ## Setting and distinction from random constructions
@@ -25,15 +26,15 @@ The tools apply to x>=143 as well as the frontier; none assumes q<=2.
 <a id="claim-weighted-anchor-excess"></a>
 Claim ID: `n43/d18/weighted_averaging.md#claim-weighted-anchor-excess`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: setting above; any nonnegative rational weights lambda_I on actual
 independent four-sets I of A, with m_u=sum_(I containing u)lambda_I<=1
 Dependencies: inherited degree/excess identity; K5/I5 prohibitions
 Conclusion: writing d_A(I)=sum_(u in I)d_A(u),
 E>=sum_I lambda_I (d_A(I)-32);
 x>=136+2q+ceil(sum_I lambda_I (d_A(I)-32))
-Search use: none pending independent review; proposed propagate
-Reviews: none
+Search use: propagate on the stated actual-set and external premises
+Reviews: [review_audit_pending_averaging_20261015.md](review_audit_pending_averaging_20261015.md)
 
 Proof. Every C_y meets I. Vertices y with C_y intersect I={u} form a
 clique: two nonadjacent such vertices plus I-{u} would give I5. Each
@@ -86,13 +87,13 @@ the exact induced-graph test is at least as strong.
 <a id="claim-weighted-random-order"></a>
 Claim ID: `n43/d18/weighted_averaging.md#claim-weighted-random-order`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every proposed actual column multiset in the setting above; every
 nonempty subset S of occurrences and positive rational weights w_y on S
 Dependencies: exact pair rules; B has no K5 and no I4
 Conclusion: the following two inequalities must hold
-Search use: none pending independent review; proposed propagate
-Reviews: none
+Search use: propagate on the stated actual-set and external premises
+Reviews: [review_audit_pending_averaging_20261015.md](review_audit_pending_averaging_20261015.md)
 
     sum_(y in S) w_y / (w_y+sum_(z in S-{y}: yz not in F) w_z) <=4,
     sum_(y in S) w_y / (w_y+sum_(z in S-{y}: yz not in H) w_z) <=3.

@@ -551,6 +551,19 @@ Generic Hoffman and interlacing bounds are too weak to exclude it.
 
 ## 9. Highest-value next lemmas
 
+Audited 2026-10-15 [general theorem synthesis](general_theorems/README.md)
+parameterizes safe augmentation, exact signatures and weighted anchors,
+transversal deletion/defects, weighted avoidance and compatibility,
+prescribed-family overlap and cut capacities. Every claim has an independent
+exact-revision review. The same-family overlap bound extends to degree19,20,21
+at order43, with thirteen roots giving codegree at most11,11,12 respectively.
+The [normalized minimum-degree20 application](../n43/min-degree20/pair_coverage.md)
+combines this with degree counts for complete pair-selection coverage:
+n20>=13 gives a degree20 edge of codegree<=11; otherwise n21>=20 gives a
+degree21 edge of codegree<=12. This needs no small-excess or neighborhood
+edge-census assumption, retains all overlap maps and completions, and closes
+no branch. The arbitrary even-pivot d20 scheme has different hypotheses.
+
 Reviewed pairwise integration (2026-10-14): the
 [d18 comparison](../n43/d18/pairwise_refinements.md) combines actual-column
 counts, vertex degrees, and independent-four anchors to exclude x136/r3.

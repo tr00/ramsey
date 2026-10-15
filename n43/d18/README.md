@@ -24,6 +24,9 @@ External premises and proof status remain those recorded in the reduction index.
 
 Shared proof notes:
 
+- [Reviewed cross-count corridor 136<=x<=288](cross_upper_bound.md)
+- [Reviewed weighted averaging](weighted_averaging.md)
+- [Reviewed anchored cells and corrected implication closure](anchored_cell_averaging.md)
 - [Frontier band](frontier_band.md)
 - [Pivot classes and conditional coverage](pivot_classes.md)
 - [Excess bounds](excess_bounds.md)
