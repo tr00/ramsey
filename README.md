@@ -1,4 +1,4 @@
-# Towards R(5,5)
+# R(5,5) before GTA VI
 
 How many vertices force a graph to contain either five mutually adjacent
 vertices or five mutually nonadjacent vertices? The smallest such number is
@@ -16,6 +16,35 @@ the known 42-vertex construction.
 The problem remains open here. The aim is to find structural restrictions
 that make a future exhaustive proof feasible, while keeping every deduction
 clear enough to inspect and challenge.
+
+## State of the Art
+
+| R(s,t) | 1   | 2   | 3   | 4   | 5     |
+| ------ | --- | --- | --- | --- | ----- |
+| 1      | 1   | 1   | 1   | 1   | 1     |
+| 2      |     | 2   | 3   | 4   | 5     |
+| 3      |     |     | 6   | 9   | 14    |
+| 4      |     |     |     | 18  | 25    |
+| 5      |     |     |     |     | 43–46 |
+
+Edge bounds for graphs in R(s,t,n):
+
+| R(s,t,n) | min e(s,t,n) | max E(s,t,n) | Source |
+| -------- | ------------ | ------------ | ------ |
+| (4,5,17) | 41           | 79           | [1]    |
+| (4,5,18) | 50           | 85           | [1]    |
+| (4,5,24) | 116          | 132          | [1]    |
+| (4,4,14) | 41           | 50           | [2]    |
+| (4,4,15) | 50           | 55           | [2]    |
+| (4,4,16) |              |              |        |
+| (4,4,17) |              |              |        |
+| (5,4,17) | 57           | 95           | [1]    |
+| (5,4,18) | 68           | 103          | [1]    |
+| (5,4,24) | 144          | 160          | [1]    |
+| (5,5,42) |              |              |        |
+| (5,5,43) |              |              |        |
+| (5,5,44) |              |              |        |
+| (5,5,45) |              |              |        |
 
 ## The approach
 
@@ -40,20 +69,33 @@ Other threads study overlapping vertex neighborhoods, symmetry reductions,
 and the case with minimum degree 20 after choosing between a graph and its
 complement.
 
-Computational exploration is currently paused. The active work is mathematical,
-with the goal of reducing the cases that a later certified search must cover.
+```text
+43 vertices
+├── degree-18 pivot
+│   ├── cross-edge count 136
+│   ├── cross-edge count 137
+│   ├── cross-edge count 138
+│   ├── cross-edge count 139
+│   ├── cross-edge count 140
+│   ├── cross-edge count 141
+│   ├── cross-edge count 142
+│   └── cross-edge count >= 143
+└── degree-20 pivot
+```
+
+The active work is purely mathematical, with the goal of reducing the cases that a later certified search must cover.
 
 ## Where to read
 
-| Location | What you will find |
-| --- | --- |
-| [results.md](results.md) | Current progress and links to recent deductions |
-| [n43/](n43/README.md) | The 43-vertex case, organized by mathematical assumptions |
-| [n43/d18/](n43/d18/README.md) | Degree-18 neighborhoods, cross-column compatibility, and frontier cases |
-| [n43/min-degree20/](n43/min-degree20/README.md) | The complementary line of work on normalized minimum degree 20 |
-| [docs/](docs/) | Background, shared theorems, and evidence standards |
-| [reports/](reports/) | Dated accounts of the research and its unresolved questions |
-| [src/](src/) and [tests/](tests/) | Small Python utilities for checking graphs and generating reference SAT encodings |
+| Location                                        | What you will find                                                                |
+| ----------------------------------------------- | --------------------------------------------------------------------------------- |
+| [results.md](results.md)                        | Current progress and links to recent deductions                                   |
+| [n43/](n43/README.md)                           | The 43-vertex case, organized by mathematical assumptions                         |
+| [n43/d18/](n43/d18/README.md)                   | Degree-18 neighborhoods, cross-column compatibility, and frontier cases           |
+| [n43/min-degree20/](n43/min-degree20/README.md) | The complementary line of work on normalized minimum degree 20                    |
+| [docs/](docs/)                                  | Background, shared theorems, and evidence standards                               |
+| [reports/](reports/)                            | Dated accounts of the research and its unresolved questions                       |
+| [src/](src/) and [tests/](tests/)               | Small Python utilities for checking graphs and generating reference SAT encodings |
 
 For background and references, start with the
 [mathematical baseline](docs/mathematical_baseline.md). For a concrete example
@@ -76,6 +118,16 @@ verification of every five-vertex subset, and an exclusion needs complete case
 coverage with independently checkable evidence. The
 [workflow](docs/workflow.md) and
 [reproducibility notes](docs/reproducibility.md) explain how to record this work.
+
+## References
+
+[1] V. Angeltveit and B. D. McKay, _R(5,5) ≤ 46_, Journal of Graph Theory
+112 (2026) 198–208, <https://doi.org/10.1002/jgt.70029>; open version
+<https://arxiv.org/abs/2409.15709>.
+
+[2] B. D. McKay and S. P. Radziszowski, _A New Upper Bound for the Ramsey
+Number R(5,5)_, Australasian Journal of Combinatorics 5 (1992) 13–20,
+<https://ajc.maths.uq.edu.au/download/5/ocr-ajc-v5-p13.pdf>.
 
 ## License
 

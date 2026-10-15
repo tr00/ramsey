@@ -72,7 +72,7 @@ theorem isRamseyGraph_induce_antiNeighborSet {G : SimpleGraph V}
 theorem ramsey_5_4_le_25 [Finite V] (h : 25 ≤ Nat.card V)
     (G : SimpleGraph V) : ¬IsRamseyGraph 5 4 G :=
   fun hG => ramsey_4_5_le_25 h Gᶜ ((isRamseyGraph_compl G).mp hG)
-
+set_option linter.style.haveILetI false in
 /-- Vertex partition: `|N(v)| + |M(v)| + 1 = |V|`. -/
 theorem card_neighborSet_add_antiNeighborSet [Finite V] (G : SimpleGraph V) (v : V) :
     Nat.card ↥(G.neighborSet v) + Nat.card ↥(antiNeighborSet G v) + 1 = Nat.card V := by
@@ -83,10 +83,10 @@ theorem card_neighborSet_add_antiNeighborSet [Finite V] (G : SimpleGraph V) (v :
       (G.neighborSet v).toFinset ∪ (Gᶜ.neighborSet v).toFinset := by
     ext a
     simp
-  have hdF : ((G.neighborSet v).toFinset).Disjoint ((Gᶜ.neighborSet v).toFinset) :=
+  have hdF : Disjoint ((G.neighborSet v).toFinset) ((Gᶜ.neighborSet v).toFinset) :=
     Finset.disjoint_left.mpr fun a ha hma => by
       simp only [Set.mem_toFinset, SimpleGraph.mem_neighborSet, SimpleGraph.compl_adj] at ha hma
-      exact hma.2.2 ha
+      exact hma.2 ha
   have hcardU : (G.neighborSet v ∪ Gᶜ.neighborSet v).toFinset.card =
       (G.neighborSet v).toFinset.card + (Gᶜ.neighborSet v).toFinset.card := by
     rw [hTU, Finset.card_union_of_disjoint hdF]
