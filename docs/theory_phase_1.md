@@ -676,6 +676,21 @@ their residual completion group includes both restriction kernels. Exact
 premise chains, reviewed revisions and certified-generation limits remain
 in the proof notes. No new branch closure or Ramsey bound follows.
 
+Audited 2026-10-15 [SDP/SOS theory continuation](../reports/2026-10-15-sos-theory.md)
+adds seventeen independently accepted claims. Any twelve degree-18 roots now
+force a same-family edge of codegree at most10, improving the threshold13.
+An exact excess/degree covariance SOS strengthens conditional dense-root and
+safe selected-root bounds. Complementary finite triangle slack and integrality
+give sufficient (4,4)-free edge caps36,42,48 at orders11,12,13. Actual disjoint
+anchors then force an independent four-set of A degrees at least8 whenever
+q=1,E_A<=29 (the fixed-q x138..167 strip), without excluding size-four columns
+there. Dispersed triple-witness Goodman squares constrain open column triples
+across x, while a rational eight-leaf attachment certificate exceeds the
+fractional-matching star test on that explicit obligation graph. Exact reviewed
+bodies, assumptions, hashes and permitted uses are in the branch-local notes.
+No complete x branch or global Ramsey bound changes; no uniform occurrence of
+the conditional patterns is proved.
+
 The following are proof targets, not established facts:
 
 1. **Extreme-degree exclusion.** Rule out degree 18 (and hence 24) using the

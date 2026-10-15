@@ -1603,6 +1603,50 @@ which rely on published exhaustive computation, and what is trusted.
 
 ## 16. Update template
 
+### Reviewed SDP/SOS continuation (2026-10-15)
+
+Status: **PROVED-HERE**, seventeen independently reviewed local claims;
+no novelty or formal exhaustion assertion. Exact claim scopes and hashes are
+in [the report](../reports/2026-10-15-sos-theory.md) and
+[manifest](d18/sos_theory_manifest.json).
+
+Preconditions: order43 K5/I5-free G, chosen degree18 pivot where applicable;
+A is K4/I5-free and may contain I4, B is K5/I4-free. Pivot-family statements
+require the stated actual degree18 family. q=1,E_A<=29 is a conditional
+fixed-q strip, not unavoidable root coverage. Census premises are retained
+only where individually identified.
+
+Conclusions and search use:
+
+- [Pivot covariance and twelve-root theorem](d18/sos_pivot_selection.md):
+  any twelve degree18 roots contain a same-family edge of overlap<=10.
+  Rational covariance squares improve conditional excess lower bounds and
+  the root family cap becomes min(W,W/2+4). Propagate actual statistics;
+  branch with full same-family overlap/map/completion coverage or an explicit
+  minimum-q root selector. No blanket small-W or small-x assumption.
+- [Dispersed column moments](d18/sos_column_compatibility.md): weighted
+  Goodman squares and integer degree distances constrain triples whose
+  triangle/independent possibilities remain open under potentially varying
+  A witnesses. All24 columns require at least440+sum triangular(tau_y)
+  open triples, tau_y=max(0,6-|C_y|,|C_y|-13); x136 requires>=440+s.
+  Propagate on actual/permanently witnessed columns and sound degree intervals.
+- [Finite caps and anchor strip](d18/sos_finite_moments.md), with
+  [order12 addendum](d18/sos_order12_addendum.md): (4,4)-free edge caps
+  at orders11,12,13 improve to36,42,48. Low-degree transversal thresholds
+  hold across q; at q1,E_A<=29 an I4 with all A degrees>=8 is unavoidable.
+  Propagate specified core/transversal hypotheses and branch on all allowed
+  anchors. No size-four-column exclusion at q1 follows.
+- [Obligation-graph SOS](d18/sos_obligation_graphs.md): eight leaves whose
+  witnessed obligation graph contains the cycle-plus-opposite-matching graph
+  need at least five selected attachments, rejecting omission-star capacity4
+  where fractional matching only gives4. Propagate/reject the supplied actual
+  star with all witnesses and consumed slots retained; no unavoidable occurrence.
+
+All existing whole-x branches remain open. These tools supply reductions for
+a future certified decision, without a new bound on R(5,5).
+
+### Template
+
 Add future results using this structure:
 
 ```text

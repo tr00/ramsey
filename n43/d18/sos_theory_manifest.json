@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-15",
+  "task": "sos-theory-20261015",
+  "base_revision": "5c8d20526b37a1a74b6dbb3cb7540c6e829dec92",
+  "methods": "theory only; exact displayed formula arithmetic; no solver or graph enumeration",
+  "entries": [
+    {
+      "source": "n43/d18/sos_pivot_selection.md",
+      "reviewed_body_sha256": "037901dc6de8864744ef9d5945d218624aaa575f889afc7c74650ccdf6f526e7",
+      "integrated_sha256": "d62acf650f49d20b58cd41e3f3bdbe34e203f27d9c0f02d2ab012d673f52a82f",
+      "review": "n43/d18/review_sos_pivot_selection_20261015_finite.md",
+      "review_sha256": "58273a3511448855a3f5c55a1c7fe67494991411a97bb46816fac5c2a903ae7a",
+      "claims_accepted": 4,
+      "permitted_use": "conditional excess/covariance propagation, safe selected-root and same-family branching, and the twelve-root overlap theorem"
+    },
+    {
+      "source": "n43/d18/sos_column_compatibility.md",
+      "reviewed_body_sha256": "cf63a76237207e9d7b3242b61744476a053cf087bc6e64d27d57c2cb9d266646",
+      "integrated_sha256": "def2d3f44b07a34f0c34be7edcc9f78f02e602749984098762faaeea9053ad70",
+      "review": "n43/d18/review_sos_column_compatibility_20261015_pivot.md",
+      "review_sha256": "003daaf7357194769d6e80c463484ca2d35be68937a7ad0d89fb5137a93c793c",
+      "claims_accepted": 4,
+      "permitted_use": "conditional weighted/integer triple-coverage propagation and equality-anchor pair balance"
+    },
+    {
+      "source": "n43/d18/sos_finite_moments.md",
+      "reviewed_body_sha256": "87621348ef6d4612553c6e011f30506b89d85fd507fdd641bcef602581264e94",
+      "integrated_sha256": "3475235a80af1c671a4b79768980e19be4e6ff370f54bcfdc1dd724cbc93c29f",
+      "review": "n43/d18/review_sos_finite_moments_20261015_columns.md",
+      "review_sha256": "1a24e188ac8870a068272a08282b9e0994cd73657bd3d56161e754c75a7ba563",
+      "claims_accepted": 4,
+      "permitted_use": "core edge-cap and transversal propagation, and unavoidable-anchor branching in the fixed q=1,E_A<=29 slice"
+    },
+    {
+      "source": "n43/d18/sos_obligation_graphs.md",
+      "reviewed_body_sha256": "378cc12352d4c1fa208d12dc6c8f4640d17b6a4a28dec976399e6a9de4a24d68",
+      "integrated_sha256": "628993e643a57d22183ee108d4c8cf719b0cea636a142c954d5869158333dc3f",
+      "review": "n43/d18/review_sos_obligation_graphs_20261015_columns.md",
+      "review_sha256": "227e243a462d596f7d66316a4b168040ba9df37b7ff2e4c4349c5ab15cf98a4d",
+      "claims_accepted": 3,
+      "permitted_use": "conditional witnessed-star propagation and rejection for every x"
+    },
+    {
+      "source": "n43/d18/sos_order12_addendum.md",
+      "reviewed_body_sha256": "c48a88e455d232deb52ea7380a8874330362c20b750f5b73f7447ad1e835afa0",
+      "integrated_sha256": "1156aaa3b9e5e03a0a6eeaac80478ecfca637507ccc06c0988496e237a530549",
+      "review": "n43/d18/review_sos_order12_addendum_20261015_columns.md",
+      "review_sha256": "7bde01c14e2472995e3a54a5adf074e1db789c786861f624ec30bad456665128",
+      "claims_accepted": 2,
+      "permitted_use": "local core edge-cap propagation and specified six-set transversal rejection at q<=2"
+    }
+  ]
+}

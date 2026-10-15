@@ -24,6 +24,12 @@ External premises and proof status remain those recorded in the reduction index.
 
 Shared proof notes:
 
+- [Reviewed SDP/SOS theory: pivot selection, varying-x triple moments, finite core caps and attachment certificates](../../reports/2026-10-15-sos-theory.md)
+- [Reviewed twelve-root overlap coverage and rational excess covariance](sos_pivot_selection.md)
+- [Reviewed dispersed triple-witness SOS filters across x](sos_column_compatibility.md)
+- [Reviewed finite core caps and q=1 anchor through x167](sos_finite_moments.md)
+- [Reviewed order-twelve cap42 and six-set transversal threshold](sos_order12_addendum.md)
+- [Reviewed rational SOS on attachment-obligation graphs](sos_obligation_graphs.md)
 - [Reviewed cross-count corridor 136<=x<=288](cross_upper_bound.md)
 - [Reviewed weighted averaging](weighted_averaging.md)
 - [Reviewed anchored cells and corrected implication closure](anchored_cell_averaging.md)
