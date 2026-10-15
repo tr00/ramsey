@@ -618,11 +618,11 @@ maximum s:    10  10   7   3
 If r=2 with signatures T1,T2, then 5s<=36-|T1 intersect T2|.
 If every column has size at least four (in particular for q<=2), put
 H=sum_(c_y>=6)(c_y-6). Then exactly 2r+s=8-k+H, H>=0.
-After the independently reviewed r2,r3 exclusions below, at x=136 the live
-necessary count ranges are:
+After the independently reviewed full-interface transversal exclusion below,
+at x=136 the only live necessary count range is:
 
 ```text
-(r,s)=(0,8..10),(1,6..10).
+(r,s)=(0,8..10).
 ```
 
 **[PROVED-HERE]** The `r=4` branch is impossible at `x=136`. Four size-four
@@ -690,7 +690,36 @@ with the earlier r3,r4 closures. Published extrema 85 at (4,5,18), 79 at
 (4,5,17), 50 maximum at (4,4,14), and 50 minimum at (4,4,15) remain
 external premises. No x136, degree18, or order-43 closure is implied.
 
-The remaining r0,r1 ranges are necessary conditions, not realizability claims.
+**[PROVED-HERE; accepted independent mathematical review]** The full
+equality frontier has no four-set I4-transversal, so all r>=1 interfaces,
+including the entire former r1:s6..10 branch, are excluded. Every actual
+column has size at least five. Every candidate has an independent four-set
+I in A with all internal degrees eight. Relative to I, its24 actual columns
+have twelve singleton signatures in four triangle classes of size three,
+and twelve two-element signatures; each anchor vertex occurs in six of
+the two-element signatures. Pair-signature multiplicities remain unrestricted
+except by the proved counts and all other interface constraints.
+
+Proof: [four reviewed claims](d18/x136/five_column_compatibility.md), with
+[exact independent review](d18/x136/review_five_column_compatibility_20261015_independent.md).
+The proof first bounds K4/I4-free core edges at orders7..13 by elementary
+triangle counts in the graph and its complement. Deleting a transversal of
+at most eleven degree-at-most-seven vertices contradicts these caps. The
+full low-degree set has size at most ten by total degree170 and ceiling13,
+so some I4 avoids it; the actual-interface degree-sum cap32 makes all four
+degrees eight. Every four-set transversal has all degrees at least nine
+by the existing unrestricted deletion lemma, and therefore misses that I4.
+
+Preconditions: order43 K5/I5-free G, chosen degree18 pivot, and x=136,
+including all24 actual B columns and global degree18 for every A vertex.
+Published small Ramsey numbers, extrema85 at (4,5,18),79 at (4,5,17),
+maximum50 at (4,4,14), and minimum50 at (4,4,15) remain external premises.
+Search use: propagate column size>=5 and the exact anchor signatures;
+terminate x136/r1 and every x136/r>=1; branch on an unavoidable anchor
+only with all allowed choices and completions retained. No isolated85-edge
+neighborhood theorem, unique anchor, or canonical-root omission is implied.
+The remaining r0:s8..10 range is necessary, not a realizability claim.
+The complete x136, degree18, and order43 branches remain open.
 
 A nonadjacent size-five pair has disjoint signatures. Their complement D in
 A has eight vertices, degrees four or five, with respectively 0,2,or4
@@ -1336,8 +1365,9 @@ arguments give:
 ```
 
 At the selected `x=136` root, the transversal theorem strengthens every cross
-column to size at least 4. It does not imply that every nonedge of the whole
-graph has codegree at least 4 at every other root.
+column to size at least 5, by the reviewed full-interface argument in
+Section8.7. It does not imply that every nonedge of the whole graph has
+codegree at least 5 at every other root.
 
 ## 13. Rejected or non-pruning ideas
 

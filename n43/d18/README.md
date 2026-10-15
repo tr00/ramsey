@@ -7,7 +7,7 @@ Notation and inherited bounds: [reduction index](../reductions.md), sections 2,
 
 | Child | Predicate | Status |
 | --- | --- | --- |
-| [x136](x136/README.md) | x=136 | Open; only r=0,1 live, r2,r3,r4 excluded |
+| [x136](x136/README.md) | x=136 | Open; only r=0 live, every size-four column excluded |
 | [x137](x137/README.md) | x=137 | Open; r=4 excluded |
 | [x138](x138/README.md) | x=138 | Open |
 | [x139](x139/README.md) | x=139 | Open |
@@ -32,6 +32,7 @@ Shared proof notes:
 - [Excess bounds](excess_bounds.md)
 - [Clique budgets and augmentation](cliques_augmentation.md)
 - [Four-transversal bound](transversal_four.md)
+- [Reviewed equality-frontier degree-eight anchor and column size>=5](x136/five_column_compatibility.md)
 - [Pairwise refinements and reviewed claim connections](pairwise_refinements.md)
 - [Four-column stability beyond equality](four_column_stability.md)
 - [Above-frontier transfer scope and reviewed deductions](transfer_summary.md)

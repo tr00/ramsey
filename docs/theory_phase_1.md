@@ -639,6 +639,21 @@ the final singleton theorem closes the residual s6. Exact independent
 reviews retain the published census premises. No full x136 exclusion is
 claimed, and the isolated universal transversal-five theorem remains open.
 
+Audited 2026-10-15 equality continuation: the
+[degree-eight anchor proof](../n43/d18/x136/five_column_compatibility.md)
+and its [independent review](../n43/d18/x136/review_five_column_compatibility_20261015_independent.md)
+exclude every four-set I4-transversal under the full actual x136 interface,
+closing r1 and leaving only r0:s8..10. Elementary triangle counts in a
+K4/I4-free remainder and its complement exclude small low-degree
+transversals. The total degree170 then forces an I4 entirely of degree-eight
+vertices. Every four-set transversal has degrees at least nine, so misses
+this anchor. Its24 column signatures are exactly twelve singletons in
+four triangle classes and twelve pairs, each anchor vertex occurring in
+six pair signatures. This is an unavoidable anchor with full selection
+and completion coverage required; it is not an isolated85-edge theorem.
+The published census premises remain explicit. The complete x136 and
+order43 branches remain open.
+
 The [dense-family continuation](../n43/d18/dense_pivot_coverage.md) proves
 that any thirteen degree-18 vertices contain an edge of codegree at most10
 inside that family. Conditional odd-h near-maximum excess families extend
