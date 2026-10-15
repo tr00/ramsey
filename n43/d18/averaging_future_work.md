@@ -92,6 +92,12 @@ starting boundary. Empty or smaller intersections still require the exact
 triple constraints, but are not automatically contradictory.
 
 The main coverage gap is moderate rows and dispersed anchored cells.
+The [reviewed overlapping-cell continuation](overlapping_cells.md) now gives
+varying-anchor triple obligations, vertex-cover/matching capacity cuts and
+exact local mixed compatibility at every overlap order. These are conditional
+filters; forcing a sufficiently strong obligation family from broad incidence
+hypotheses remains open. C5 boundary rigidity does not require small x but
+does require the specified cell sizes.
 Isolated cell bounds and scalar weighting can be loose there. Prioritize
 simultaneous actual-cell compatibility; no uniform large cell, perfect
 anchor cover, or small excess may be assumed.

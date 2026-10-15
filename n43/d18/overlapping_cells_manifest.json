@@ -1,0 +1,59 @@
+{
+  "task": "cells-20261015",
+  "input_head": "f98a1285b7adc9720a693ae3a54fba212a021bdf",
+  "scope": "order43 degree18 actual cells; x unrestricted; boundary size hypotheses retained",
+  "claims": 13,
+  "implementation": "none",
+  "sources": [
+    {
+      "path": "n43/d18/cell_intersections.md",
+      "claim_count": 5,
+      "reviewed_sha256": "cc05444b193403ba5ef614ed75f1acfba566afda576e7a3fe473c08aac4144b7",
+      "integrated_sha256": "56cc61c0686ab97ff74c117b80403cdb3223608d80c64d8ae33690bb5c401f30",
+      "integration_change": "status banner only; reviewed body independently hash-verified",
+      "review_path": "n43/d18/review_cell_intersections_20261015_obligations.md",
+      "review_sha256": "3ed751c6f96caa81e252abf3368711708f09de4c36021a2c04859b376c3f811b"
+    },
+    {
+      "path": "n43/d18/cell_obligation_cuts.md",
+      "claim_count": 4,
+      "reviewed_sha256": "46f6e43ab3758fb085c41b90418e3780d720374e53e04dfb25d36b77c843470f",
+      "integrated_sha256": "61240cf4eb6094834917c2273933614637fdec07b9eb2603ff2ab7a41a70d2d2",
+      "integration_change": "status banner only; reviewed body independently hash-verified",
+      "review_path": "n43/d18/review_cell_obligation_cuts_20261015_intersections.md",
+      "review_sha256": "ea1bf8955719d9f5880df35a33bbd001aeec533ab9041ed1cfbe980f479bdb4f"
+    },
+    {
+      "path": "n43/d18/cell_attachments.md",
+      "claim_count": 3,
+      "reviewed_sha256": "01246b17c14f43a5cc8e879f87c056376b3269c4f5670eeb80acbe82a52bb810",
+      "integrated_sha256": "ccc3f2fe5d3bba83b91b72ed1a5b6cfc0281b04ccbe9a7d2770536ff962ff687",
+      "integration_change": "status banner only; reviewed body independently hash-verified",
+      "review_path": "n43/d18/review_cell_attachments_20261015_obligations.md",
+      "review_sha256": "cf6b91eba53ba7d4b058316e1baf01012495747a49109e268f465c17bd056183"
+    },
+    {
+      "path": "n43/d18/cell_attachment_boundary_witness.md",
+      "claim_count": 1,
+      "reviewed_sha256": "e140763cd0c4ece28a23a03308e888e8dc56b0774c505c79238f07dc8ed48875",
+      "integrated_sha256": "4ec51e2adf2e12ecc45e3b498302f080b7b01fd82aac3616220116b78d18e4be",
+      "integration_change": "status banner only; reviewed body independently hash-verified",
+      "review_path": "n43/d18/review_cell_attachment_boundary_20261015_coordinator.md",
+      "review_sha256": "5686810d0afe4048fe64edb9bba6900edc1165141ccd68e2224260a7960f3907"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "n43/d18/anchored_cell_averaging.md",
+      "sha256": "719fe4120c38550ee80d88cd6d9c48d8703959c46536daecae9ea17519c1a6e3"
+    },
+    {
+      "path": "n43/d18/weighted_averaging.md",
+      "sha256": "e4317ff4badde3eab2d4e5c0c1e6920a9045224c7d600869eb5b2e46aa3e1f07"
+    },
+    {
+      "path": "docs/mathematical_baseline.md",
+      "sha256": "e6ea1c070e32ac04a73eb53a5634921acb7fe6d02123a3c7d35a710f262a698e"
+    }
+  ]
+}

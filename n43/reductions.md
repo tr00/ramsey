@@ -1096,6 +1096,29 @@ overlaps, maps and completions retained. No small h,W or x hypothesis has
 been established throughout d18. These are unavoidable families, not a
 disjoint case split, and no listed degree predicate is excluded here.
 
+### 8.16 Overlapping actual cells and dispersed attachment obligations
+
+**[PROVED-HERE; accepted independent mathematical review]** For every
+degree-18 pivot, edge-containing cells T_Q are (3,4)-free and missing-pair
+cells U_P are (5,3)-free. The new continuation combines their actual
+intersections, attachment demands and shared undecided pairs without any
+x, q or E restriction. Thirteen reviewed claims and exact revisions are
+linked in [overlapping cells](d18/overlapping_cells.md).
+
+Within T_Q a vertex has at most three T_Q neighbors. Triple witnesses from
+possibly different U_P cells can require its adjacent leaves to cover an
+obligation graph. Any supplied fractional matching exceeding the remaining
+capacity rejects; the dual uses U_P nonneighbor capacity at most four and
+possibly different T_Q triple witnesses. Signed rational cuts additionally
+combine pair demands and upper capacities. Exact mixed union compatibility
+holds at all overlap orders, while C5 boundary templates retain explicit
+cell-size assumptions. No universally occurring pattern is asserted.
+
+Search use: conditional propagation and local rejection after witness checks;
+certificate formats and implementation remain design. No branch closes, no
+cross-count bound improves, and no census or symmetry coverage is supplied.
+The explicit local (5,3)-free boundary witness has research-planning use only.
+
 ## 9. Complement-normalized minimum-degree-20 branch
 
 Use the canonical degree-sequence orientation described in Section 10. If the
