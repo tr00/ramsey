@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-15",
+  "task": "lean-reductions-20261015",
+  "status": "Scoped reductions kernel-checked. No branch closure.",
+  "scope": {
+    "Ramsey.theorems.LocalReductions": "Sections 4.3, two-anchor parts of 4.4, and cardinal inequalities of 5.2-5.3.",
+    "Ramsey.theorems.PivotInterface": "Section 5.1 exact forbidden-rectangle equivalence with internal types and pivot cases.",
+    "Ramsey.theorems.PivotCounting": "General unordered cross-edge counting, pivot-part degree sums, and complement edge identity.",
+    "Ramsey.d18.PivotBudget": "Sections 2, internal edge intervals of 8.1, cross lower bound of 8.2, extremality/neighbor degrees/B edge interval of 8.3, deficit-excess identity of 8.6."
+  },
+  "public_theorems": {
+    "lean/Ramsey/theorems/LocalReductions.lean": [
+      "isRamseyGraph_induce_mixedCell",
+      "card_mixedCell_le_17",
+      "commonAntiNeighborSet_eq_compl",
+      "isRamseyGraph_induce_commonAntiNeighbors",
+      "card_commonAntiNeighbors_le_13",
+      "degree_eq_common_add_mixed",
+      "adjacent_codegree_interval",
+      "nonadjacent_common_cell_identity",
+      "nonadjacent_codegree_interval",
+      "pivot_row_card_bounds",
+      "pivot_column_card_bounds"
+    ],
+    "lean/Ramsey/theorems/PivotInterface.lean": [
+      "cliqueRectangleFree_iff_cliqueFreeOn",
+      "cliqueRectangleFree_compl_iff",
+      "pivot_neighbor_antiNeighbor_disjoint",
+      "cliqueFree_five_of_pivot_rectangles",
+      "isRamseyGraph_five_five_iff_pivot_interface"
+    ],
+    "lean/Ramsey/theorems/PivotCounting.lean": [
+      "crossEdgeCount_eq_sum_rows",
+      "crossEdgeCount_comm",
+      "pivot_neighbor_degree_split",
+      "pivot_neighbor_degree_sum",
+      "sum_degree_eq_base_add_excess",
+      "pivot_antiNeighbor_degree_split",
+      "pivot_antiNeighbor_degree_sum",
+      "card_edges_add_card_edges_compl"
+    ],
+    "lean/Ramsey/d18/PivotBudget.lean": [
+      "degree18_neighbor_edge_range",
+      "degree18_cross_budget",
+      "degree18_frontier_identity",
+      "degree18_cross_ge_136",
+      "degree18_frontier_iff",
+      "degree18_antiNeighbor_card",
+      "degree18_antiNeighbor_edge_range",
+      "degree18_antiNeighbor_budget",
+      "degree18_frontier_antiNeighbor_edge_range"
+    ]
+  },
+  "verification": {
+    "targeted_build": "lake build Ramsey.theorems.LocalReductions Ramsey.theorems.PivotInterface Ramsey.theorems.PivotCounting Ramsey.d18.PivotBudget",
+    "targeted_build_result": "Passed without warnings in these modules.",
+    "axiom_audit": "Ran #print axioms for all 33 new public reduction theorems and three shared helpers.",
+    "audited_declarations": 36,
+    "sorryAx_present": false,
+    "trusted_published_inputs": [
+      "Ramsey.edges_ramsey_4_5_18_ge_50",
+      "Ramsey.edges_ramsey_4_5_18_le_85",
+      "Ramsey.edges_ramsey_4_5_24_ge_116",
+      "Ramsey.edges_ramsey_4_5_24_le_132",
+      "Ramsey.ramsey_3_5_le_14",
+      "Ramsey.ramsey_4_4_le_18",
+      "Ramsey.ramsey_4_5_le_25"
+    ],
+    "frontier_identity_dependencies": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Ramsey.edges_ramsey_4_5_18_le_85",
+      "Ramsey.ramsey_4_5_le_25"
+    ],
+    "full_build": "An initial integrated lake build passed. A later full build failed in concurrent edits to Ramsey/theorems/TransversalCompatibility.lean, including unknown identifier havoidence and singleton-occurrence proof errors. Those unrelated edits were preserved.",
+    "axiom_audit_imports": [
+      "Ramsey.theorems.LocalReductions",
+      "Ramsey.theorems.PivotInterface",
+      "Ramsey.theorems.PivotCounting",
+      "Ramsey.d18.PivotBudget"
+    ],
+    "shared_helpers": [
+      "Ramsey.RamseyEdgeLowerBound.on_finite_type",
+      "Ramsey.edges_ramsey_4_5_18_range",
+      "Ramsey.edges_ramsey_4_5_24_range"
+    ],
+    "audit_reproduction": "Import the four axiom_audit_imports and run #print axioms Ramsey.<name> for every public_theorems entry, then #print axioms <name> for shared_helpers."
+  },
+  "limits": [
+    "Only the listed reductions are formalized.",
+    "No new trusted axioms were added by this task.",
+    "The order-43 target and existing statement-only modules retain unfinished proofs.",
+    "Triple cells, critical-cell regularity, signature equality triggers, full cross-edge corridor, regular corner, and later small-column exclusions were not newly formalized.",
+    "No solver, catalogue search, installation, download, staging or commit was performed."
+  ],
+  "sha256": {
+    "lean/Ramsey/theorems/LocalReductions.lean": "74de7a95a1aca0779161e1bcad4335c6e9655f5948d8d48d85fff10ce65ddac3",
+    "lean/Ramsey/theorems/PivotInterface.lean": "eb9de7683eb515ffd28898396b8754472e6a868d8e79ae5ce7d3194883267384",
+    "lean/Ramsey/theorems/PivotCounting.lean": "4172729e3521152a179fac887070706d070030a3b57835d421faf2068fe04cf8",
+    "lean/Ramsey/d18/PivotBudget.lean": "ff8a8d4b7fc672762bd3c192630dab999f5e44484527ffbaf45b420baf0133aa",
+    "lean/Ramsey/Defs.lean": "eff0fccd715571f5ee5931110ea205ee20cc819134539ae4a6bfb2fbc76e09ca",
+    "lean/Ramsey/Premises.lean": "2d1b06873883121ff3c32f6886d69af05bd75f7c1b3aac9cae64da7b1320ff3a",
+    "lean/Ramsey.lean": "92bc5766576326221955d03e6cd089206f205f6304b3d205ab2b6c723b0d0d22",
+    "n43/reductions.md": "dd94231967374b2ee90109b1e5b6ca5089afe2b4ec93d3f11199854838c03f6b"
+  },
+  "source_reductions_sha256_before_coverage_note": "b99ffbbc242de476c7def19a956c4a5eaa59569e0d420bcfee9b93efa0de69fd"
+}

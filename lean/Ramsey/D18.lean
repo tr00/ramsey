@@ -69,9 +69,8 @@ theorem isRamseyGraph_induce_antiNeighborSet {G : SimpleGraph V}
   exact isRamseyGraph_induce_neighborSet hGc v
 
 /-- `R(5,4) ≤ 25`, derived from `ramsey_4_5_le_25` by complement symmetry. -/
-theorem ramsey_5_4_le_25 [Finite V] (h : 25 ≤ Nat.card V)
-    (G : SimpleGraph V) : ¬IsRamseyGraph 5 4 G :=
-  fun hG => ramsey_4_5_le_25 h Gᶜ ((isRamseyGraph_compl G).mp hG)
+theorem ramsey_5_4_le_25 : RamseyUpperBound 5 4 25 :=
+  ramsey_4_5_le_25.compl
 set_option linter.style.haveILetI false in
 /-- Vertex partition: `|N(v)| + |M(v)| + 1 = |V|`. -/
 theorem card_neighborSet_add_antiNeighborSet [Finite V] (G : SimpleGraph V) (v : V) :
@@ -101,7 +100,7 @@ theorem card_neighborSet_add_antiNeighborSet [Finite V] (G : SimpleGraph V) (v :
 theorem degree_le_24 {G : SimpleGraph V} [Fintype V] [DecidableRel G.Adj]
     (hG : IsRamseyGraph 5 5 G) (v : V) : G.degree v ≤ 24 := by
   by_contra hlt
-  exact ramsey_4_5_le_25 (by
+  exact ramsey_4_5_le_25.not_isRamseyGraph (by
     rw [Nat.card_eq_fintype_card, SimpleGraph.card_neighborSet_eq_degree]
     omega) _ (isRamseyGraph_induce_neighborSet hG v)
 
@@ -116,7 +115,7 @@ theorem degree_mem {G : SimpleGraph (Fin 43)} [DecidableRel G.Adj]
   have hdeg : G.degree v = Nat.card ↥(G.neighborSet v) := by
     rw [Nat.card_eq_fintype_card, SimpleGraph.card_neighborSet_eq_degree]
   have h25 : 25 ≤ Nat.card ↥(antiNeighborSet G v) := by omega
-  exact ramsey_5_4_le_25 h25 (G.induce (antiNeighborSet G v))
+  exact ramsey_5_4_le_25.not_isRamseyGraph h25 (G.induce (antiNeighborSet G v))
     (isRamseyGraph_induce_antiNeighborSet hG v)
 
 /-- Common neighbors of adjacent vertices form a `(3,5)`-Ramsey graph. -/
@@ -163,6 +162,7 @@ theorem card_commonNeighbors_le_13 {G : SimpleGraph V} [Finite V]
     (hG : IsRamseyGraph 5 5 G) {v w : V} (hvw : G.Adj v w) :
     Nat.card ↥(G.commonNeighbors v w) ≤ 13 := by
   by_contra hlt
-  exact ramsey_3_5_le_14 (by omega) _ (isRamseyGraph_induce_commonNeighbors hG hvw)
+  exact ramsey_3_5_le_14.not_isRamseyGraph (by omega) _
+    (isRamseyGraph_induce_commonNeighbors hG hvw)
 
 end Ramsey

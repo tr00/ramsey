@@ -9,6 +9,13 @@ public import Ramsey.Premises
 public import Ramsey.d18.Exclusion
 public import Ramsey.d20.Exclusion
 public import Ramsey.Endgame
+public import Ramsey.theorems.TransversalDeletion
+public import Ramsey.theorems.TransversalCompatibility
+public import Ramsey.theorems.TransversalFour
+public import Ramsey.theorems.LocalReductions
+public import Ramsey.theorems.PivotInterface
+public import Ramsey.theorems.PivotCounting
+public import Ramsey.d18.PivotBudget
 
 @[expose] public section
 

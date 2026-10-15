@@ -76,6 +76,7 @@ Read these before extending the work:
 - `n43/d18/x136/r4/exclusion.md`
 - `n43/d18/pivot_classes.md`
 - `docs/reproducibility.md` and `docs/workflow.md`
+- `lean/AGENTS.md` for Lean style, comment rules and file placement
 - `WORK.md` for active ownership in this shared worktree
 
 Record substantial deductions beside the applicable mathematical branch, with

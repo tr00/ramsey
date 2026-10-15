@@ -12,13 +12,19 @@ exact trusted-premise chain. This mechanizes the certificate obligation of
 are theorem-prover checked and which rely on published exhaustive
 computation.
 
-Status labels: every declaration here is **[PUBLISHED]** — established
-literature or published exhaustive computation, used as a trusted premise,
-not re-proved. Sources: `../docs/mathematical_baseline.md` and its
-bibliography (Radziszowski, *Small Ramsey Numbers*, DS1 rev. 18; Exoo 1989;
-Angeltveit & McKay 2026 / arXiv:2409.15709; McKay's Ramsey graph data);
-the upper bounds and the edge extrema cite sources listed at the end of
-this file.
+Status labels: every axiom here is **[PUBLISHED]**, used as a trusted input and not re-proved.
+The derived census interval theorems below are proved from these inputs.
+Sources include Radziszowski, *Small Ramsey Numbers*, DS1 rev. 18,
+Exoo 1989, Angeltveit & McKay 2026 / arXiv:2409.15709, and McKay's Ramsey graph data.
+The upper bounds and edge extrema cite the sources listed at the end of this file.
+
+Ramsey upper bounds and edge bounds use `RamseyUpperBound`,
+`RamseyEdgeLowerBound` and `RamseyEdgeUpperBound` from `Defs`. Both edge-bound
+predicates use real-valued edge counts; natural-number conclusions follow by
+`exact_mod_cast`. Their `on_finite_type` lemmas transport bounds to any finite
+vertex type of exactly the stated order.
+Use `RamseyUpperBound.not_isRamseyGraph` to apply an upper bound on any finite
+vertex type of at least the stated order.
 
 Deliberately **not** included:
 
@@ -36,67 +42,62 @@ namespace Ramsey
 /-! ### Ramsey numbers -/
 
 /-- `R(4, 3) ≤ 9` [Greenwood & Gleason 1955]. -/
-axiom ramsey_4_3_le_9 {V : Type*} [Finite V] (h : 9 ≤ Nat.card V)
-    (G : SimpleGraph V) : ¬IsRamseyGraph 4 3 G
+axiom ramsey_4_3_le_9 : RamseyUpperBound 4 3 9
 
 /-- `R(3, 5) ≤ 14` [Greenwood & Gleason 1955]. -/
-axiom ramsey_3_5_le_14 {V : Type*} [Finite V] (h : 14 ≤ Nat.card V)
-    (G : SimpleGraph V) : ¬IsRamseyGraph 3 5 G
+axiom ramsey_3_5_le_14 : RamseyUpperBound 3 5 14
 
 /-- `R(4, 4) ≤ 18` [Greenwood & Gleason 1955]. -/
-axiom ramsey_4_4_le_18 {V : Type*} [Finite V] (h : 18 ≤ Nat.card V)
-    (G : SimpleGraph V) : ¬IsRamseyGraph 4 4 G
+axiom ramsey_4_4_le_18 : RamseyUpperBound 4 4 18
 
 /-- `R(4, 5) ≤ 25` [McKay & Radziszowski 1995]. -/
-axiom ramsey_4_5_le_25 {V : Type*} [Finite V] (h : 25 ≤ Nat.card V)
-    (G : SimpleGraph V) : ¬IsRamseyGraph 4 5 G
+axiom ramsey_4_5_le_25 : RamseyUpperBound 4 5 25
 
 /-! ### Edge extrema of small Ramsey graphs (published censuses) -/
 
 /-- R(4,5,18): e(G) >= 50 [Angeltveit & McKay 2026]. -/
-axiom edges_ramsey_4_5_18_ge_50 {V : Type*} [Finite V] (h : Nat.card V = 18)
-    (G : SimpleGraph V) (hG : IsRamseyGraph 4 5 G) :
-    50 ≤ Nat.card G.edgeSet
+axiom edges_ramsey_4_5_18_ge_50 : RamseyEdgeLowerBound 18 4 5 50
 
 /-- R(4,5,18): e(G) <= 85 [Angeltveit & McKay 2026]. -/
-axiom edges_ramsey_4_5_18_le_85 {V : Type*} [Finite V] (h : Nat.card V = 18)
-    (G : SimpleGraph V) (hG : IsRamseyGraph 4 5 G) :
-    Nat.card G.edgeSet ≤ 85
+axiom edges_ramsey_4_5_18_le_85 : RamseyEdgeUpperBound 18 4 5 85
 
 /-- R(4,5,17): e(G) <= 79 [Angeltveit & McKay 2026]. -/
-axiom edges_ramsey_4_5_17 {V : Type*} [Finite V] (h : Nat.card V = 17)
-    (G : SimpleGraph V) (hG : IsRamseyGraph 4 5 G) :
-    Nat.card G.edgeSet ≤ 79
+axiom edges_ramsey_4_5_17 : RamseyEdgeUpperBound 17 4 5 79
 
 /-- R(4,5,24): e(G) >= 116 [Angeltveit & McKay 2026]. -/
-axiom edges_ramsey_4_5_24_ge_116 {V : Type*} [Finite V] (h : Nat.card V = 24)
-    (G : SimpleGraph V) (hG : IsRamseyGraph 4 5 G) :
-    116 ≤ Nat.card G.edgeSet
+axiom edges_ramsey_4_5_24_ge_116 : RamseyEdgeLowerBound 24 4 5 116
 
 /-- R(4,5,24): e(G) <= 132 [Angeltveit & McKay 2026]. -/
-axiom edges_ramsey_4_5_24_le_132 {V : Type*} [Finite V] (h : Nat.card V = 24)
-    (G : SimpleGraph V) (hG : IsRamseyGraph 4 5 G) :
-    Nat.card G.edgeSet ≤ 132
+axiom edges_ramsey_4_5_24_le_132 : RamseyEdgeUpperBound 24 4 5 132
 
 /-- R(4,4,15): e(G) >= 50 [McKay & Radziszowski 1992]. -/
-axiom edges_ramsey_4_4_15_ge_50 {V : Type*} [Finite V] (h : Nat.card V = 15)
-    (G : SimpleGraph V) (hG : IsRamseyGraph 4 4 G) :
-    50 ≤ Nat.card G.edgeSet
+axiom edges_ramsey_4_4_15_ge_50 : RamseyEdgeLowerBound 15 4 4 50
 
 /-- R(4,4,15): e(G) <= 55 [McKay & Radziszowski 1992]. -/
-axiom edges_ramsey_4_4_15_le_55 {V : Type*} [Finite V] (h : Nat.card V = 15)
-    (G : SimpleGraph V) (hG : IsRamseyGraph 4 4 G) :
-    Nat.card G.edgeSet ≤ 55
+axiom edges_ramsey_4_4_15_le_55 : RamseyEdgeUpperBound 15 4 4 55
 
 /-- R(4,4,14): e(G) >= 41 [McKay & Radziszowski 1992]. -/
-axiom edges_ramsey_4_4_14_ge_41 {V : Type*} [Finite V] (h : Nat.card V = 14)
-    (G : SimpleGraph V) (hG : IsRamseyGraph 4 4 G) :
-    41 ≤ Nat.card G.edgeSet
+axiom edges_ramsey_4_4_14_ge_41 : RamseyEdgeLowerBound 14 4 4 41
 
 /-- R(4,4,14): e(G) <= 50 [McKay & Radziszowski 1992]. -/
-axiom edges_ramsey_4_4_14_le_50 {V : Type*} [Finite V] (h : Nat.card V = 14)
-    (G : SimpleGraph V) (hG : IsRamseyGraph 4 4 G) :
-    Nat.card G.edgeSet ≤ 50
+axiom edges_ramsey_4_4_14_le_50 : RamseyEdgeUpperBound 14 4 4 50
+
+
+/-- The published order-18 `(4,5)` edge interval, transported to an arbitrary finite type. -/
+theorem edges_ramsey_4_5_18_range {V : Type*} [Finite V] (hn : Nat.card V = 18)
+    (G : SimpleGraph V) (hG : IsRamseyGraph 4 5 G) :
+    50 ≤ Nat.card G.edgeSet ∧ Nat.card G.edgeSet ≤ 85 := by
+  constructor
+  · exact_mod_cast edges_ramsey_4_5_18_ge_50.on_finite_type hn G hG
+  · exact_mod_cast edges_ramsey_4_5_18_le_85.on_finite_type hn G hG
+
+/-- The published order-24 `(4,5)` edge interval. Complement it before using it on `B`. -/
+theorem edges_ramsey_4_5_24_range {V : Type*} [Finite V] (hn : Nat.card V = 24)
+    (G : SimpleGraph V) (hG : IsRamseyGraph 4 5 G) :
+    116 ≤ Nat.card G.edgeSet ∧ Nat.card G.edgeSet ≤ 132 := by
+  constructor
+  · exact_mod_cast edges_ramsey_4_5_24_ge_116.on_finite_type hn G hG
+  · exact_mod_cast edges_ramsey_4_5_24_le_132.on_finite_type hn G hG
 
 /-! ### The lower-bound witness -/
 
