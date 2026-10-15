@@ -13,6 +13,8 @@ The working expectation R(5,5)=43 remains a conjecture.
 - [Reviewed r2 closure covering every former s=4..7 child](n43/d18/x136/r2/README.md)
 - [Dense degree-18 families with overlap at most ten in the same edge](n43/d18/dense_pivot_coverage.md)
 - [Reviewed column-multiset symmetry and its certification obligations](n43/d18/symmetry_reduction.md)
+- [Reviewed symmetry structure and frontier duplicate-orbit bounds](n43/symmetry_structure.md)
+- [Reviewed double-coset quotient for two-root gluing](docs/general_theorems/symmetry_pair_gluing.md)
 - [Pairwise d18 refinements and their exact reviews](n43/d18/pairwise_refinements.md)
 - [Normalized minimum-degree-20 work](n43/min-degree20/README.md)
 - [Audited general theorem synthesis](docs/general_theorems/README.md)

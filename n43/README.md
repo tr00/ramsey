@@ -16,3 +16,10 @@ new proof of exhaustive case coverage.
 The even-pivot and normalized minimum-degree schemes are alternatives, not
 siblings of a single disjoint partition. Canonical root selection and symmetry
 coverage remain subject to the obligations in the reduction index.
+
+[Reviewed symmetry structure](symmetry_structure.md) gives pair separation,
+prime-graph and actual-automorphism support restrictions, and conditional
+frontier duplicate-orbit bounds. The
+[reviewed two-root gluing quotient](../docs/general_theorems/symmetry_pair_gluing.md)
+classifies compatible overlap maps and full ordered-root completions; its
+input-family coverage assumptions remain explicit.

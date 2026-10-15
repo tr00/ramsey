@@ -1,0 +1,417 @@
+# Independent review of disjoint swaps and frontier rooted kernels
+
+Date: 2026-10-15. Reviewer: `audit_swap_groups_clean`, an independent
+review agent distinct from the `symmetry-hour-20261015` proof author.
+Owned path: this review only. No proof, shared index, Git index, or other
+agent's file was edited by this reviewer.
+
+## Claims and exact revisions
+
+Claims reviewed:
+
+- `docs/general_theorems/disjoint_swap_stabilizers.md#claim-disjoint-swaps-01`
+  and `#claim-disjoint-swaps-02`.
+- `n43/symmetry_structure.md#claim-symmetry-structure-05`
+  and `#claim-symmetry-structure-06`.
+
+The working-tree base commit when the review began was
+`249f50a0d2f0e71e4ed6556252eb99ad3e8ed4f4`. The two proof files were
+uncommitted; their exact SHA-256 values, rather than the author's older base
+revision, identify the text reviewed.
+
+| File and stage | SHA-256 |
+| --- | --- |
+| General disjoint-swap proof, initial and renewed review | `bdbf5f1aabd35cfb1dec4d8ffa24dfb260a227d0561854c8dd652975161b7c46` |
+| Symmetry structure, initial review | `6152574608e34c427c0af0da7eee210969034ece5a2055e4622e0dd0bb385b58` |
+| Symmetry structure, renewed review after coordinator clarification | `c509fc6eb97a6ef209ae26fa6677e0b4d6cf320412f5f0772e2eeb457bdf454a` |
+
+Initial outcomes: general Claims 01–02 and structure Claim 05 accepted;
+structure Claim 06 changes-requested because the group acting on its
+completion-orbit table needed an explicit distinction from the completed
+graph's restriction kernel. The initial finding is retained below.
+
+Renewed outcomes: all four assigned claims accepted at the general proof
+hash above and the revised structure hash above, on their stated external
+premises and exact invariant-data scope. Claims elsewhere in the structure
+file are not promoted by this review.
+
+## Dependency revisions and applicability
+
+| Dependency read | SHA-256 |
+| --- | --- |
+| `docs/mathematical_baseline.md` | `e6ea1c070e32ac04a73eb53a5634921acb7fe6d02123a3c7d35a710f262a698e` |
+| `n43/d18/symmetry_reduction.md` | `6b9072c4a9b1f54042bd6d7e4913d4aedd5b0a8e8c04a2d18b994c2dc2d31d1b` |
+| `n43/d18/review_d18_symmetry_20261014_pivot.md` | `b1c63e0bc08605ca9378221f1616e27c6705a71810ea01e22782416f8f60acf8` |
+| `n43/d18/frontier_band.md` | `0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54` |
+| `n43/d18/x136/small_columns.md` | `f542dc5f73640d4d9b9da8790638dfd2d546feed79c5d8633d2ed3155f680733` |
+| `n43/d18/transversal_four.md` | `4c084b03583248dc7c7ed56324ec5b6801bdca5278cf4fc17fa7e845dc07825e` |
+| `docs/theory_phase_1.md` | `cab844f31da5aca53b1ed674ea04bc56ce6c9a0e271e4a8ef085568f1d9596e1` |
+
+The current accepted d18 symmetry note differs from its originally reviewed
+revision in review metadata and introductory status only. This was checked
+with `git diff 49bd363 HEAD -- n43/d18/symmetry_reduction.md`. The contents
+at commit `49bd363` hash to
+`bbb24262ca5833d59c89c44eeb75664c6a07f092cd2ef7596d008e591e53b50a`,
+exactly the proof revision named by the earlier independent review. The
+mathematical proof of its Claim 03 is unchanged. Its two local source hashes
+for frontier-band and small-column reasoning also still match that review.
+Acceptance was not inferred from the author's status label: the relevant
+reasoning is independently reconstructed below.
+
+The small Ramsey values remain literature premises. The pair-separation
+dependency uses `R(4,5)=25` to obtain degrees in 18..24 and `R(3,5)=14`
+to bound common neighborhoods of edges. The multiplicity dependency also
+retains the published `(4,5,18)` upper edge extremum 85, the 15-vertex
+`(4,4)` lower edge extremum 50, and the 14-vertex `(4,4)` lower edge
+extremum 41. Their recorded provenance was read in the local sources;
+their published exhaustive computations were not replayed or recertified.
+The `(5,4,24)` bound 160 occurs in the d18 setting, but is not needed
+for the multiplicity argument or the four assigned group conclusions.
+
+Ambient graph types were kept separate: `A=N(v)` is K4/I5-free and may
+contain I4; `B=M(v)` is K5/I4-free. None of these proofs imposes I4-freeness
+on A. The complement of A has independence number at most three, which
+is a consequence of A being K4-free.
+
+## Independent derivations
+
+### General Claim 01: all local constraints are equalities or pinned zeros
+
+For each specified pair, the transposition fixes its internal unordered
+edge. It also leaves edges between two fixed vertices untouched. The
+remaining edge orbits consist precisely of fixed-vertex/pair incidences
+and pair/pair blocks, so these checks cover every edge of the simple graph.
+
+For a fixed vertex x and pair i, swapping i preserves both incidences
+exactly when those two incidences are equal. If they differ, its swap bit
+must be zero. No other bit can repair this incidence block.
+
+For pairs i,j, let R and C denote the two commuting involutions that swap
+the rows and columns of their 2-by-2 binary block. The set of bits fixing
+the block is a subgroup of the four-element group generated by R and C:
+it contains identity, is closed under products, and all elements are their
+own inverses. A proper nontrivial subgroup has exactly two elements; if it
+had two distinct nonidentity elements their product would supply the third
+and the subgroup would be the whole group. Therefore the possible subgroups
+are exactly
+
+    {0}, <R>, <C>, <RC>, and <R,C>.
+
+The equations are respectively both bits zero, column bit zero, row bit
+zero, equal bits, and no condition. This is an independent subgroup
+classification; it does not assume the author's table is exhaustive.
+All five possibilities can also be exhibited without enumeration: a block
+with a single one has trivial stabilizer; two identical unequal-entry rows
+have stabilizer <R>; its transpose has stabilizer <C>; a checkerboard block
+has stabilizer <RC>; and a constant block has the full group.
+
+Intersecting the edge-block requirements therefore produces only equations
+`s_i=0` and `s_i=s_j`. Equality paths force each connected component of Q
+to have a constant bit. A marked component has constant zero. Conversely
+assigning arbitrary bits to unmarked components satisfies every local
+requirement and thus fixes all edges of Z. The indicator of each unmarked
+component is therefore an actual stabilizer vector. These indicators have
+disjoint supports, are independent, and span the entire stabilizer, giving
+dimension t and order `2^t`.
+
+The ambient pair group has order `2^p`. Its orbit of the particular labeled
+graph Z has order `2^p/2^t=2^(p-t)` by orbit-stabilizer. The trivial case
+p=0 also gives the claimed orders. No general binary parity constraint
+involving three or more bits can appear from these pairwise incidence
+blocks. Other automorphisms of Z do not affect this stabilizer inside K.
+
+Outcome: accepted unchanged.
+
+### General Claim 02: size of each free component
+
+Take any unmarked component J of size w. The preceding independent argument
+shows that swapping exactly its pairs is an automorphism, fixing every
+vertex outside their union. For an endpoint pair `{a_i,b_i}` in J and
+any such fixed vertex x, preservation of incidence gives
+
+    Z(x,a_i)=Z(x,b_i).
+
+Consequently its distinguishing vertices can only be the `2(w-1)` endpoints
+of the other pairs in J. Its own endpoints are omitted by the definition
+of delta. Thus
+
+    D <= delta_Z(a_i,b_i) <= 2(w-1),
+    w >= 1+ceil(D/2)=h.
+
+The disjoint unmarked components occupy at least th pair indices, proving
+`t<=floor(p/h)`. Substituting this into the exact formulas from Claim 01
+proves both the stabilizer upper bound and orbit lower bound. Every
+nonidentity stabilizer vector is a union of entire unmarked components,
+so it swaps at least h pairs. For `p<h` no such component exists and the
+stabilizer is trivial. This proves freeness on the specified graph family;
+it does not require freeness on all simple graphs.
+
+Outcome: accepted unchanged.
+
+### Pair-separation dependency: structure Claim 01
+
+For an edge uw of an order-43 K5/I5-free graph, the common neighborhood is
+K3/I5-free: a triangle there would join u,w to make K5, while I5 is forbidden
+globally. Hence it has at most 13 vertices. Distinguishing vertices count
+the symmetric difference of the endpoint neighborhoods outside the two
+endpoints, so the exact identity is
+
+    delta_G(u,w)=d_G(u)+d_G(w)-2-2|N(u) intersect N(w)|.
+
+It follows that `delta>=d_G(u)+d_G(w)-28>=8` using the minimum degree 18.
+For a nonedge, apply the edge calculation to the complement, whose degrees
+are `42-d_G(u)` and `42-d_G(w)`. Complementation preserves the property
+of being a distinguishing third vertex and preserves K5/I5-freeness.
+Thus `delta>=56-d_G(u)-d_G(w)>=8`, using the original maximum degree 24.
+The endpoint correction of two in the edge identity is essential and has
+been included. This checks the dependency for the assigned claims; it does
+not independently review the proposed partial-state implementation.
+
+### Structure Claim 05: completion orbit with duplicate columns
+
+For any p specified disjoint pairs in G, the preceding dependency supplies
+D=8 and hence h=5. General Claims 01–02 give
+
+    |K intersect Aut(G)| <= 2^floor(p/5),
+    |K.G| >= 2^(p-floor(p/5)).
+
+If these are duplicate-column pairs in B, their members have identical
+incidences to all of A and are both nonadjacent to v. Swapping them fixes
+the root, labeled A, its internal graph, all root incidences, and the full
+cross matrix. The only varying edge coordinates are those internal to B.
+Thus stabilizing the completed G is exactly stabilizing its B edge vector,
+and the displayed orbit is an orbit of completions with those fixed data.
+The distinctions counted by delta for each duplicate pair all lie in B;
+they are not implicitly removed by equating its remaining neighborhoods.
+Every free component has at least five pairs, and `p<=4` forces orbit
+order `2^p`.
+
+The invariant-data condition in the scope is necessary for symmetry use.
+Additional fixed colors, assigned edges, or vertex-specific degree targets
+must either be invariant under the chosen group or be transformed as part
+of the state. For example, differently colored endpoints would restrict
+that transposition out of the candidate group. The pure labeled graph
+orbit formula is still true, but it cannot silently become a quotient of
+an externally decorated candidate family. The note explicitly retains
+this fixed-data requirement; this review accepts no weaker one.
+
+Outcome: accepted at both the initial and revised structure hashes.
+
+### Multiplicity dependency: accepted d18 symmetry Claim 03
+
+At a degree-18 root, summing degrees over A gives
+
+    2e(A)+x+18=18*18+E,
+    x=136+2q+E,  q=85-e(A).
+
+The retained extremum makes q nonnegative, and minimum global degree makes
+E nonnegative. At `x=136+k`, `0<=k<=5`, one therefore has q<=2.
+For `F=complement A`, `e(F)=68+q<=70` and `alpha(F)<=3`. Deleting a
+three-transversal would leave a 15-vertex K4/I4-free graph with at least
+50 edges. Each of the three deleted vertices has at least seven neighbors
+in that remainder: its nonneighbors have no K4 and no I3, so order at
+most eight by `R(4,3)=9`. This would force at least 71 edges in F.
+Every actual column meets every I4 in A, so all actual columns have size
+at least four.
+
+For a size-four column T, `F-T` is K4/I4-free on 14 vertices, giving its
+retained lower edge bound 41. Each deleted vertex has at least six neighbors
+in this remainder by the same `R(4,3)=9` argument. Write its two edge
+counts as `41+u` and `24+w`, with u,w nonnegative, and `t=e_F(T)`.
+Then `u+w+t=3+q`, while `alpha(F)<=3` implies `t>=1`. In particular
+
+    e_A(T)=6-t >= 3-q >= 1.
+
+For any nonadjacent y,z in B, the common zero-set
+`A-(C_y union C_z)` has no K4 and no I3, so it has at most eight vertices.
+Their column union therefore has size at least ten. It follows that
+size-four columns form a clique, that r<=4, that every size-four column
+vertex is adjacent to every size-five column vertex, and that size-five
+columns containing a fixed A vertex also form a clique.
+
+For r=0,1, counting small-column incidences at a fixed A vertex gives
+`4r+5s<=54`, hence s<=10. At r=2, B[L5] has clique number at most two
+because it is completely joined to the L4 edge, giving `5s<=36` and s<=7.
+At r=3 it is independent, giving `5s<=18` and s<=3. At r=4 it is empty.
+All these counts allow repeated signatures.
+
+The column sum is `136+k=144-2r-s+H`, so
+`H=2r+s-8+k`. The five s bounds give respectively H upper bounds
+`2+k,4+k,3+k,1+k,k`; hence H<=9 throughout this band. Three occurrences
+of a column of size at least ten would contribute at least 12 to H.
+Three occurrences of size at most nine must instead be pairwise adjacent.
+Their common A signature contains an edge: at sizes at least five this
+uses A's I5 prohibition, and at size four it uses `e_A(T)>=1` above.
+That edge together with the three B occurrences would make K5.
+Thus every signature occurs at most twice, independently confirming the
+precise dependency needed in structure Claim 06. Since B has 24 vertices,
+there are at most twelve doubled signatures.
+
+The forced-edge part of the accepted theorem for k<=3 is not needed for
+Claim 06: duplicate pairs can be nonedges at k=4,5, and the disjoint-swap
+theorem and pair-separation bound apply to either pair status. No exclusion
+of x136 branches is used. This conditional band assertion is not a claim
+that every degree-18 root has x<=141.
+
+### Structure Claim 06: exact restriction kernel and label counts
+
+Let `rho:Aut(G)_v -> Aut(A)` be restriction to A. A rooted automorphism
+preserves A and B because it preserves adjacency to the fixed root. Thus
+restriction is a well-defined homomorphism. If its restriction is identity,
+then for all z in A the incidences `G(z,y)` and `G(z,pi(y))` agree. Each
+B vertex therefore maps within its complete signature class. Multiplicity
+at most two means this action is a product of swaps of the p doubled
+classes; singletons are fixed. Conversely a product of these swaps that
+fixes completed G is a rooted automorphism restricting to identity on A.
+Consequently
+
+    ker(rho)=L=K_M intersect Aut(G),  K_M=(C2)^p.
+
+This equality concerns the restriction kernel of the completed rooted
+graph. K_M is instead the group preserving the fixed labeled A and full
+cross matrix while acting on possible B completions. Generally its
+elements need not fix a completed B graph.
+
+Claim 05 gives `|L|<=2^floor(p/5)<=4`. The image of rho is a subgroup of
+Aut(A), so `|Aut(G)_v|=|L||image(rho)|<=4|Aut(A)|`. If Aut(A) is trivial,
+the rooted automorphism group is precisely L, a binary group of order
+1,2, or4. Its nonidentity elements swap at least five duplicate pairs.
+For `p<=4`, L is trivial and rho is injective, giving the stated rooted
+asymmetry conclusion when A is asymmetric. This concerns automorphisms
+fixing v; it asserts no corresponding bound on the whole unrooted group.
+
+The completion table follows from orbit-stabilizer under K_M. At p=0..4,
+L is trivial and the orbit has `2^p` members. At p=5..9, |L|<=2 and
+the orbit has at least `2^(p-1)` members. At p=10,11,12, |L|<=4 gives
+the lower bounds 256,512,1024. These are upper/lower bounds; possible
+attainment is not asserted.
+
+For the final label count, the S24 stabilizer of the entire cross matrix
+and B graph with labeled A fixed is exactly L. Thus its orbit has size
+`24!/|L|>=24!/2^floor(p/5)`. Equivalently there are `24!/2^p` cross
+matrices in the S24 orbit of the fixed multiset, and above each cross
+matrix the K_M orbit has `2^p/|L|` completions. The fibers are disjoint
+and have equal size by transporting them through a B relabeling, justifying
+the multiplication rather than treating the two stages as unrelated counts.
+
+Independent exact integer arithmetic confirmed
+
+    24! = 620448401733239439360000,
+    24!/4 = 155112100433309859840000.
+
+The full residual candidate group at a fixed cross multiset is Gamma_M;
+its projection to row automorphisms has image H_M and its kernel is K_M,
+so its order is `2^p|H_M|`. Neither its order nor its action can be
+replaced by |L|. The revised claim explicitly states this distinction.
+
+## Initial finding and renewed review
+
+At initial structure hash
+`6152574608e34c427c0af0da7eee210969034ece5a2055e4622e0dd0bb385b58`,
+Claim 06 introduced the kernel of `Aut(G)_v -> Aut(A)`, then said the
+displayed large completion orbits were "under the duplicate kernel".
+If this names the just-introduced completed restriction kernel L, the
+statement is false: every element of L fixes G, so its orbit of that
+completion has size one. If it names the cross-matrix candidate kernel
+K_M from the older symmetry note, the numerical table is correct, but
+the statement needed that group to be explicitly identified. The proof
+and final search-use warning already supported the intended larger group.
+The reviewer requested the narrow clarification before accepting Claim 06.
+
+The coordinator revised the claim to introduce explicitly
+`K_M=(C2)^p`, define `L=K_M intersect Aut(G)` as the completed graph's
+stabilizer, and name K_M in the completion-orbit sentence. The revised
+structure hash
+`c509fc6eb97a6ef209ae26fa6677e0b4d6cf320412f5f0772e2eeb457bdf454a`
+was re-read; its Claims 05–06 were independently checked as above.
+The new wording resolves the ambiguity and supplies the correct group
+for each orbit-stabilizer calculation. Claim 06 is accepted on renewed
+review; its initial changes-requested finding remains historical evidence.
+The general disjoint-swap proof remained unchanged throughout.
+
+## Permitted use and limits
+
+The accepted general claims supply exact completed-state disjoint-swap
+stabilizer formulas, orbit accounting, and restrictions on proposed actual
+automorphisms. Structure Claims 05–06 supply conditional completion-orbit
+and rooted-group bounds on the exact premises just checked. The duplicate
+pair delta bound may be used in a future completion filter only with a
+correct count of all incidence bits still able to differ.
+
+These are mathematical deductions. They do not certify a partial-state
+pruning implementation, an automorphism or canonicalization algorithm,
+complete enumeration of the relevant neighborhoods or cross multisets,
+or a connection from symmetry omissions to a complete order-43 certificate.
+A completed stabilizer calculation alone does not justify pruning a partial
+state. Noninvariant stored data must be included in the group restriction
+or consistently transported. No claim of realized orbit extrema, measured
+runtime improvement, branch closure, or a new global Ramsey bound follows.
+
+No graph enumeration, external tool, solver, theorem prover, canonicalizer,
+download, installation, or literature novelty review was performed. Shell
+tools read local files and Git history and computed hashes. Python's
+standard-library integer factorial and exponentiation checked only the
+displayed arithmetic. Published Ramsey and census premises remain external;
+a final certificate must identify their trusted status.
+
+## Final exact-revision renewal for structure Claims 05–06
+
+Date: 2026-10-15. Reviewer: the same independent `audit_swap_groups_clean`
+agent. Requested by the coordinator after concurrent changes elsewhere in
+the structure note. This section appends to the previous review; its
+initial finding and earlier accepted revisions remain unchanged.
+
+Reviewed structure revision: exact SHA-256
+`ed61d3fd5b87aac35e6bfb41c31aaaf55ff34ed57e72a03ac0cfcba857b49062`.
+The working-tree base commit remains
+`249f50a0d2f0e71e4ed6556252eb99ad3e8ed4f4`. The general disjoint-swap
+note remains at SHA-256
+`bdbf5f1aabd35cfb1dec4d8ffa24dfb260a227d0561854c8dd652975161b7c46`.
+The earlier review file, before this append, had SHA-256
+`67a504cfb84ed14ae85214200898c0f8ddf9c8a2fc4b48632fb0a62b0202eafd`.
+
+Checks: the setting, structure Claim 01, complete bodies of Claims 05–06,
+and the changed Claims 02 and 09 were re-read. Dependency hashes for the
+baseline, accepted d18 multiplicity note, frontier band, and small-column
+note were recomputed and match the table above. The accepted d18
+multiplicity Claim 03 was re-read directly. General disjoint-swap
+Claims 01–02 therefore retain their previous exact-revision acceptance.
+
+Findings for the final structure revision:
+
+- Claim 05 retains the scope requiring invariant candidate data and the
+  same deduction from D=8 to h=5. The common-neighborhood calculation
+  in Claim 01 still proves the distinguishing-vertex bound for edges,
+  and its complement calculation still covers nonedges. For duplicate
+  columns, the swaps fix the root, A, and cross matrix, so its whole-graph
+  orbit equals the B-completion orbit with those fixed data.
+- Claim 06 explicitly retains `K_M=(C2)^p` as the candidate action and
+  `L=K_M intersect Aut(G)` as the completed stabilizer. Its restriction
+  kernel equals L by preservation of complete signatures. Multiplicity
+  at most two through x141 yields p<=12 without requiring duplicate
+  pairs to be edges. Thus `|L|<=2^floor(p/5)<=4`, the rooted-group bound,
+  and every row of its K_M orbit table still follow. The S24 stabilizer
+  of the cross matrix together with B is exactly L, giving the stated
+  `24!/4` lower label count.
+- The inserted nonidentity qualifier in Claim 02 is consistent with these
+  deductions. Claims 05–06 depend on Claim 01 and the disjoint-swap
+  theorem, rather than on Claim 02; the identity permutation remains a
+  valid stabilizer element and is counted in |L|.
+- Claim 09's revised p<=10 assertion is explicitly conditional on the
+  x136 anchor interface and is downstream of Claim 06, not one of its
+  dependencies. Its four size-three anchor classes cannot identify equal
+  complete signatures across different anchor signatures; multiplicity
+  at most two forces at least one singleton in each odd class, consistent
+  with its stated conditional sharpening. This does not impose the
+  anchor hypothesis or p<=10 on Claims 05–06 throughout x136..141.
+  No dependency cycle or broader-scope restriction is introduced. This
+  contextual check does not replace the separate full audit of Claim 09
+  and its anchor/Claim 08 premises.
+
+Outcome: structure Claims 05 and 06 are **accepted** at exact structure
+hash `ed61d3fd5b87aac35e6bfb41c31aaaf55ff34ed57e72a03ac0cfcba857b49062`,
+on the same external premises and invariant-data conditions as the earlier
+review. Permitted use and limits remain those recorded above. Claims not
+assigned to this reviewer receive no additional acceptance from this renewal.
+No proof edits, shared-index edits, Git mutations, graph enumeration,
+downloads, installations, or external mathematical tools were performed.

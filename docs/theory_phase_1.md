@@ -663,6 +663,19 @@ has an exact independent review of its multiset stabilizer, sorted-prefix
 coverage, multiplicity and orientation claims. Implemented exhaustive
 generation and certificate coverage remain separate obligations.
 
+The [independently audited symmetry continuation](../reports/2026-10-15-symmetry-audit.md)
+adds exact disjoint-swap stabilizers and two-root overlap-map quotients.
+Pair separation at least8 forces actual automorphism support at least10;
+order43 candidates and order24 antineighborhoods are prime, without a
+primeness assertion on order18 A. Frontier duplicate swaps have completed
+stabilizer at most4 through x141, while the candidate group remains larger.
+At x136 the accepted four odd singleton-anchor classes force at least4
+singleton complete signatures and p<=10, giving rooted restriction kernel
+at most2. Compatible colored overlap maps are classified by double cosets;
+their residual completion group includes both restriction kernels. Exact
+premise chains, reviewed revisions and certified-generation limits remain
+in the proof notes. No new branch closure or Ramsey bound follows.
+
 The following are proof targets, not established facts:
 
 1. **Extreme-degree exclusion.** Rule out degree 18 (and hence 24) using the

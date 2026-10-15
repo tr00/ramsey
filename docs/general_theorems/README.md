@@ -7,6 +7,11 @@ in the proof bodies, with an integration banner resolving their current state.
 [The manifest](integration_manifest.json) records reviewed and integrated hashes.
 No novelty claim, formal certificate, or new global Ramsey bound is made.
 
+A separate [symmetry audit](../../reports/2026-10-15-symmetry-audit.md) adds
+fourteen independently accepted claims in three notes. Its
+[manifest](symmetry_audit_manifest.json) records the revised proof and review
+hashes; these claims are separate from the historical twenty-eight above.
+
 | Theorem family | Abstract hypotheses and conclusion | Original use and limits |
 | --- | --- | --- |
 | [Safe augmentation](safe_augmentation.md) | A K_r/I_s-free graph one edge below a proved edge cap has a star forest of individually safe additions, with at most r-1 edges. At higher deficit an exact minimal-conflict hypergraph describes feasible addition sets. | Recovers q=1 neighborhood generation; saturated alternatives must remain. |
@@ -16,6 +21,9 @@ No novelty claim, formal certificate, or new global Ramsey bound is made.
 | [Prescribed-family overlap](family_overlap.md) | Equal-degree families with high edge codegrees have either triangle equality and paw-free structure, or no triangles. Anchor and component bounds force a low-overlap edge inside the prescribed family. | At order43, thirteen roots of degree18,19,20,21 give codegree at most10,11,11,12. Family counts are separate hypotheses. |
 | [Cut capacity](cut_capacity.md) | An input root inequality plus cut demand and multiset/weighted capacities forces counts of the same prescribed root family. | The input q+E bound must be proved at each application; composing with overlap gives both endpoint properties on the same edge. |
 | [Normalized pair coverage](../../n43/min-degree20/pair_coverage.md) | The normalized minimum-degree20 branch splits into n20>=13 and n20<=12. The latter forces n21>=20. | Complete conditional branch coverage by a degree20 edge of overlap<=11 or degree21 edge of overlap<=12. Gluing all permitted maps/completions is still required. |
+| [Disjoint-swap stabilizers](disjoint_swap_stabilizers.md) | Stabilizers of disjoint pair swaps are partition subspaces with pinned components. Pair separation D forces each free component to contain at least 1+ceil(D/2) pairs. | Exact completed-state orbit accounting; partial-state pruning needs separate validation. |
+| [Two-root symmetry gluing](symmetry_pair_gluing.md) | Compatible overlap maps are double cosets of the two pointed-neighborhood restriction images; the residual group is a fiber product times the uniform D-cell permutation group. | Exact ordered-root coverage with complete inputs/maps/completions; fixed nonlocal data require the actual enriched-state group. |
+| [Order43 symmetry structure](../../n43/symmetry_structure.md) | Pair separation at least8, automorphism support at least10, prime G and order24 B, and conditional frontier duplicate-stabilizer bounds. | Kernel at most4 through x141; at x136 the accepted anchor gives p<=10, at least4 singletons and kernel at most2. No new branch closure. |
 
 ## What the synthesis adds
 

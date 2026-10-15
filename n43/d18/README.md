@@ -38,6 +38,8 @@ Shared proof notes:
 - [Above-frontier transfer scope and reviewed deductions](transfer_summary.md)
 - [Dense degree-18 families with a simultaneous overlap bound](dense_pivot_coverage.md)
 - [Reviewed column-multiset symmetry coverage](symmetry_reduction.md)
+- [Reviewed frontier duplicate-orbit and rooted automorphism bounds](../symmetry_structure.md)
+- [Reviewed exact two-root overlap-map and completion quotient](../../docs/general_theorems/symmetry_pair_gluing.md)
 
 These results may have narrower hypotheses than this parent branch. Follow the
 preconditions in each proof before applying a filter.

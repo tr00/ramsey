@@ -1,0 +1,85 @@
+{
+  "task": "symmetry-audit-20261015",
+  "date": "2026-10-15",
+  "base_revision": "249f50a0d2f0e71e4ed6556252eb99ad3e8ed4f4",
+  "accepted_claims": 14,
+  "records": [
+    {
+      "proof": "docs/general_theorems/disjoint_swap_stabilizers.md",
+      "reviewed_sha256": "bdbf5f1aabd35cfb1dec4d8ffa24dfb260a227d0561854c8dd652975161b7c46",
+      "integrated_sha256": "79ababb7561854af1ba3f902e349184e2a24b6ac0a2ce4a2fca19e2ed4ebb22e",
+      "integration_change": "status banner only; exact reviewed body unchanged",
+      "reviews": [
+        {
+          "path": "docs/general_theorems/review_disjoint_swap_stabilizers_20261015_swap_auditor.md",
+          "sha256": "be0b4dad50c7cfcff5dfec79a1e0ecdd069876831a80d2bd92768ed1bbd32a2c",
+          "claims": [
+            "claim-disjoint-swaps-01",
+            "claim-disjoint-swaps-02"
+          ],
+          "outcome": "accepted"
+        }
+      ]
+    },
+    {
+      "proof": "docs/general_theorems/symmetry_pair_gluing.md",
+      "reviewed_sha256": "4ece07911564de0370a787129e46fa359b4157ec6e5bbe41450990dec1c771f4",
+      "integrated_sha256": "d2dec50c5ffa859a09c45e26aee3b52d6b545d45d2636737a7305ed58a38902f",
+      "integration_change": "status banner only; exact reviewed body unchanged",
+      "reviews": [
+        {
+          "path": "docs/general_theorems/review_symmetry_pair_gluing_20261015_gluing_auditor_revised.md",
+          "sha256": "984860c54c5dadf601f6db00bb439e44938cc927eb14c2718effb4711cde87f3",
+          "claims": [
+            "claim-pair-gluing-01",
+            "claim-pair-gluing-02",
+            "claim-pair-gluing-03"
+          ],
+          "outcome": "accepted"
+        }
+      ]
+    },
+    {
+      "proof": "n43/symmetry_structure.md",
+      "reviewed_sha256": "ed61d3fd5b87aac35e6bfb41c31aaaf55ff34ed57e72a03ac0cfcba857b49062",
+      "integrated_sha256": "99ecbfe6f79cf072dfbca5d3c465bb4cb6ceb18332c5ee8ff1c916e4691b17ea",
+      "integration_change": "status banner only; exact reviewed body unchanged",
+      "reviews": [
+        {
+          "path": "n43/review_symmetry_structure_20261015_structure_auditor.md",
+          "sha256": "6ffbf2a5c4e1d77487cfad8fea679a65e7f6294554d7388aed8c862fdb386806",
+          "claims": [
+            "claim-symmetry-structure-01",
+            "claim-symmetry-structure-02",
+            "claim-symmetry-structure-03",
+            "claim-symmetry-structure-04",
+            "claim-symmetry-structure-07",
+            "claim-symmetry-structure-08",
+            "claim-symmetry-structure-09"
+          ],
+          "outcome": "accepted"
+        },
+        {
+          "path": "docs/general_theorems/review_disjoint_swap_stabilizers_20261015_swap_auditor.md",
+          "sha256": "be0b4dad50c7cfcff5dfec79a1e0ecdd069876831a80d2bd92768ed1bbd32a2c",
+          "claims": [
+            "claim-symmetry-structure-05",
+            "claim-symmetry-structure-06"
+          ],
+          "outcome": "accepted"
+        }
+      ]
+    }
+  ],
+  "historical_review": {
+    "path": "docs/general_theorems/review_symmetry_pair_gluing_20261015_gluing_auditor.md",
+    "sha256": "7384a0065fff67768ddfd8863b95f70c6e6bf87ac189239f1df3345a96fa01ca",
+    "outcome": "changes-requested at original proof; superseded only by revised acceptance"
+  },
+  "limits": [
+    "external Ramsey/census premises not recertified",
+    "no certified generator or pruning implementation",
+    "no branch closure or new Ramsey bound",
+    "no measured runtime claim"
+  ]
+}

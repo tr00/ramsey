@@ -1266,6 +1266,74 @@ Deleting another vertex can change which pivot is minimum-degree. Either:
 
 The parent-map and orbit-coverage checker are part of the proof obligation.
 
+### 10.5 Reviewed pair separation and duplicate-stabilizer bounds
+
+**[PROVED-HERE; independently reviewed]** Every order43 candidate pair has
+at least8 distinguishing vertices. A nonidentity automorphism therefore moves
+at least10 vertices. Every such candidate and every order24 (5,4)-free B
+is prime under modular decomposition; no primeness assumption applies to A.
+These assertions use the stated small Ramsey values, not edge censuses.
+
+Under p disjoint duplicate-column swaps, the completed stabilizer L is a
+partition subspace described by equal swap bits and pinned zeros. Each free
+component has at least5 pairs, so
+
+```text
+|L|<=2^floor(p/5), |K_M.G|>=2^(p-floor(p/5)), K_M=(C2)^p.
+```
+
+Through x141 the accepted multiplicity premises give p<=12, restriction
+kernel |L|<=4 and |Aut(G)_v|<=4|Aut(A)|. Thus a12-pair completion orbit
+under K_M has at least1024 members. K_M remains the larger candidate action;
+L fixes a particular completion and must not replace K_M in the quotient.
+The full S_24 B-label orbit at fixed labeled A has at least24!/4 members.
+
+Through x139 duplicate pairs are forced edges. A free five-pair component
+cannot coexist with another free component. For p10,11 this bounds |L| by2,
+giving completion orbits at least512,1024. At p12 a possible order4 stabilizer
+must have two six-pair components; that case is not excluded. At x136 the
+independently accepted anchor has four singleton anchor-signature classes
+of size3. Each forces a singleton complete signature, hence p<=10 and
+at least4 singleton complete signatures. Here |L|<=2 and the complete
+B-label orbit has at least24!/2 members. All frontier applications retain
+their multiplicity/forced-edge and, at equality, anchor census dependencies.
+
+Search use: conditional propagation, completed-module filtering, actual
+automorphism restrictions and symmetry accounting on the exact hypotheses.
+Partial modules may be broken by later assignments; label factors are not
+runtime measurements. No branch closure or implemented pruning is certified.
+Proofs and exact reviews: [symmetry structure](symmetry_structure.md),
+[disjoint swaps](../docs/general_theorems/disjoint_swap_stabilizers.md),
+[audit report](../reports/2026-10-15-symmetry-audit.md).
+
+### 10.6 Reviewed exact two-root gluing quotient
+
+**[PROVED-HERE; independently reviewed after revision]** For fixed pointed
+neighborhoods of ordered adjacent roots, let S be their compatible colored
+common-neighbor graph, J_u,J_v the induced overlap automorphism images,
+and rho_u,rho_v the side restriction maps. The identification-map classes
+are exactly J_v \ Aut(S) / J_u. After choosing phi, the full remaining
+completion group in the uniform unstructured D-cell scope is
+
+```text
+Gamma_phi={(a,b):rho_v(b)phi=phi rho_u(a)} x S_(|D|),
+|Gamma_phi|=|D|! |ker rho_u| |ker rho_v|
+             * |J_v intersect phi J_u phi^(-1)|.
+```
+
+All maps and automorphisms preserve fixed overlap colors. Fixed signatures
+or other nonlocal relations may couple side and D actions and require the
+actual enriched-state stabilizer, not merely replacement of the D factor.
+The staged quotient retains every admissible ordered-root completion with
+complete pointed-input, double-coset and residual-orbit coverage. The existing
+normalized degree20/21 pair families and conditional degree18 families
+retain their exact existence hypotheses; no universal new family is supplied.
+
+Search use: mathematical symmetry with certified complete map/input/orbit
+handling. Unrooted uniqueness, endpoint reversal and complementation need
+additional compatible selectors. Proof and original/revised reviews:
+[two-root gluing](../docs/general_theorems/symmetry_pair_gluing.md).
+
 ## 11. Global counting identities
 
 These are valid pruning/LP inputs but currently do not close a branch alone.

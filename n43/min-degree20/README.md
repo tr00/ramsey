@@ -17,3 +17,9 @@ This needs no small-excess or neighborhood-edge-census hypothesis. It supplies
 existence coverage for later two-root gluing with all overlap maps/completions
 retained, and does not decide this branch. The degree-21 endpoint choice is
 compatible with minimum degree20; arbitrary even-pivot d20 remains separate.
+
+The [reviewed two-root symmetry quotient](../../docs/general_theorems/symmetry_pair_gluing.md)
+retains one compatible overlap map per double coset and one full completion
+per residual-group orbit. It preserves the pair-coverage theorem's exact
+family assumptions. Complete pointed inputs, all allowed overlap types and
+checked orbit omissions remain future implementation requirements.
