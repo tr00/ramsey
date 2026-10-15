@@ -18,13 +18,23 @@ for exact reviewed revisions.
 
 ## Lean statement status
 
-[TransversalDeletion.lean](TransversalDeletion.lean) and
-[TransversalCompatibility.lean](TransversalCompatibility.lean) state Claims 01–04
-of their respective notes, including the numerical specializations and explicit
-external hypotheses. Their 17 and 11 theorem declarations, respectively, all have
-deliberate `by sorry` bodies: the statements typecheck, but no proofs are supplied.
-Shared definitions live in [Defs.lean](../Defs.lean). The root module re-exports
-both statement modules; the existing order-43 target does not use them.
+[TransversalDeletion.lean](TransversalDeletion.lean) states Claims 01–04 of its note.
+Its 17 theorem declarations retain deliberate `by sorry` bodies. General inputs use
+`DeletionHypotheses` and `IsSizedCliqueTransversal`, with external edge bounds kept
+explicit. Named threshold and defect definitions preserve natural-number truncation
+and integer casts. Component, defect, stability, equality and four-set budget results
+have named fields instead of nested conjunctions.
+
+[TransversalCompatibility.lean](TransversalCompatibility.lean) proves the elementary
+avoidance and weighted criteria. `WeightOccupancy` and `ComplementExclusion` separate
+the two weighted arguments. `IsSizedIndepTransversal` records exact cardinality and
+transversality. `DegreeCompatibilityHypotheses` and `DegreeCompatibilityGaps` separate
+graph properties from numerical gaps. The degree-gap theorem and its frontier
+specialization retain two deliberate `sorry` bodies.
+
+Shared graph definitions live in [Defs.lean](../Defs.lean). The packages above stay
+with their theorem topics. The root module re-exports both transversal modules,
+but the existing order-43 target does not use them.
 
 [TransversalFour.lean](TransversalFour.lean) proves
 [`n43/d18/transversal_four.md`](../../../n43/d18/transversal_four.md): a
@@ -35,7 +45,7 @@ application from an 85-edge neighborhood. Its published inputs are the named
 axioms `edges_ramsey_4_4_15_ge_50 : RamseyEdgeLowerBound 15 4 4 50` and
 `ramsey_4_3_le_9 : RamseyUpperBound 4 3 9` from `Ramsey.Premises`, rather than
 caller-supplied hypotheses. All proofs in this module are complete; it does not
-import either unproved statement module. Those statement modules retain explicit
+import either transversal module. Those general modules retain explicit
 bound hypotheses, keeping their general formulations independent of the premises.
 
 ## Proved reduction-index basics

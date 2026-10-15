@@ -1,0 +1,29 @@
+'Ramsey.R_5_5_43' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound, Ramsey.ramsey_4_5_le_25]
+'Ramsey.ramseyNumber_5_5_le_43_of_d18_d20' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.ramsey_5_5_eq_43' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.exoo_5_5_42]
+'Ramsey.exists_degree_18_or_20_up_to_compl' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.degree_mem' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_5_le_25]
+'Ramsey.degree18_frontier_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_18_le_85,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.degree18_cross_ge_136' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_18_le_85,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.isRamseyGraph_five_five_iff_pivot_interface' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.TransversalFour.transversal_card_ge_four' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_4_15_ge_50,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.pivot_neighbor_degree_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.card_mixedCell_le_17' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_4_le_18]

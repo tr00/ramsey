@@ -27,13 +27,13 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/d20/Exclusion.lean` | d20 branch target `Ramsey.d20.excludes : ExcludesDegree 20` — deliberate `sorry`, mirrors `../n43/d20/`; arbitrary even-pivot d20, *not* the normalized min-degree-20 scheme of `../n43/min-degree20/` |
 | `Ramsey/Endgame.lean` | Endgame glue `ramsey_5_5_eq_43`: order-43 exclusion + Exoo's 42-vertex witness ⇒ `ramseyNumber 5 5 = 43` |
 | `Ramsey/Defs.lean` | Shared graph, set-family, transversal, explicit bound and balanced-clique definitions |
-| `Ramsey/theorems/TransversalDeletion.lean` | 17 unproved statements for deletion Claims 01–04: bounds, integer defects, stability, equality and numerical applications; external inputs are explicit hypotheses |
-| `Ramsey/theorems/TransversalCompatibility.lean` | 11 unproved statements for compatibility Claims 01–04: avoidance, weighted occupancy/exclusion, degree gaps and conditional frontier intersection |
+| `Ramsey/theorems/TransversalDeletion.lean` | 17 unproved deletion statements with a shared `DeletionHypotheses` package, named thresholds/defects and named result fields; external edge bounds remain explicit |
+| `Ramsey/theorems/TransversalCompatibility.lean` | Proved avoidance and weighted criteria using separate `WeightOccupancy`/`ComplementExclusion` packages; degree compatibility and frontier intersection retain two deliberate `sorry`s |
 | `Ramsey/theorems/TransversalFour.lean` | Proved four-vertex transversal bounds and frontier cross-column application, consuming the named Ramsey and census axioms from `Premises` |
 | `Ramsey/theorems/LocalReductions.lean` | Proved mixed/common-nonneighbor cells, full pair-codegree intervals and row/column cardinal bounds |
 | `Ramsey/theorems/PivotInterface.lean` | Proved exact forbidden-rectangle criterion with internal graph types and pivot-containing sets handled explicitly |
 | `Ramsey/theorems/PivotCounting.lean` | General proved cross-edge counts, pivot degree sums and complement edge identity |
-| `Ramsey/d18/PivotBudget.lean` | Proved degree-18 edge intervals, deficit/excess identity, `x≥136` and equality-frontier consequences |
+| `Ramsey/d18/PivotBudget.lean` | Proved degree-18 edge intervals, deficit/excess identity, `x≥136` and equality-frontier consequences; scoped hypotheses preserve existing theorem applications |
 
 ## Build
 

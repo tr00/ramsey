@@ -6,8 +6,8 @@ public import Ramsey.Premises
 # Endgame glue
 
 Assembly of `ramseyNumber 5 5 = 43` from an order-43 exclusion and Exoo's
-42-vertex witness (`../n43/reductions.md` §1). Moved out of the root module
-to keep `Ramsey.lean` minimal; the public name is unchanged.
+42-vertex witness. Moved out of the root module to keep `Ramsey.lean`
+minimal. The public name is unchanged.
 -/
 
 @[expose] public section

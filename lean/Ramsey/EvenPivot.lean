@@ -7,8 +7,7 @@ public import Mathlib.Tactic.IntervalCases
 /-!
 # The even-pivot reduction (d18 ∪ d20)
 
-Root reduction of the order-43 search, formalizing `../n43/reductions.md` §3
-("Coverage warning") and `../docs/theory_phase_1.md` §2, second paragraph:
+Root reduction of the order-43 search:
 
 1. a 43-vertex graph has an even-degree vertex (handshaking, Mathlib);
 2. the degree frontier `18 ≤ d(v) ≤ 24` (`Ramsey.degree_mem`, from the

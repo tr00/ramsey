@@ -2,8 +2,8 @@
 
 Rules for writing Lean in this directory. Research-wide rules live in
 [`../.agents/AGENTS.md`](../.agents/AGENTS.md). Existing `.lean` files
-predate these rules, so apply them to new files and to comments you write
-or rewrite.
+predate these rules, so apply them to new files and to the code and
+comments you write or rewrite.
 
 ## Where code goes
 
@@ -14,6 +14,25 @@ or rewrite.
 
 A theorem or a definition is general, or widely used, only when several
 branches really use it. Otherwise it stays with its branch.
+
+## Visibility
+
+- New files do not open a blanket `@[expose] public section`. That block
+  publishes every unmarked declaration in the file.
+- Use the most local visibility that applies. A declaration used only in
+  its own file is `private`. A declaration that other modules may import
+  directly stays unmarked. `public` is only for the intended interface of
+  a module.
+- On this toolchain `private` declarations stay hidden from importers
+  even under `@[expose]`, and only `public` declarations are re-exported
+  through `public import`.
+
+## lemma and theorem
+
+- Use `lemma` for simple support results. Reserve `theorem` for major
+  statements: branch targets, mirrored claims and interface criteria.
+- `lemma` is provided by Mathlib, not by the Lean prelude. A file with no
+  Mathlib import must use `theorem`.
 
 ## Comments
 

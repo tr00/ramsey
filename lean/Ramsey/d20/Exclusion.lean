@@ -5,9 +5,8 @@ public import Ramsey.EvenPivot
 /-!
 # The d20 branch target
 
-The degree-20 pivot branch of the even-pivot scheme
-(`../n43/reductions.md` §3, branch `d(v) = 20`; navigation
-`../n43/d20/README.md`).
+The degree-20 pivot branch of the even-pivot scheme, the branch where
+`d(v) = 20`.
 
 `Ramsey.d20.excludes` is the complete Lean-side obligation of this branch:
 no 43-vertex `(5,5)`-Ramsey graph has *any* vertex of degree exactly 20

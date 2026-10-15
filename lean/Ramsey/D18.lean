@@ -9,7 +9,7 @@ public import Ramsey.Premises
 First premise-consuming layer. For a `(5,5)`-Ramsey graph `G`:
 
 * the neighborhood `N(v)` is `(4,5)`-Ramsey and the antineighborhood `M(v)`
-  is `(5,4)`-Ramsey (baseline facts, `../n43/d18/README.md`);
+  is `(5,4)`-Ramsey (baseline facts);
 * hence `18 ≤ d(v) ≤ 24` on 43 vertices;
 * adjacent vertices have at most `13` common neighbors (`R(3,5) ≤ 14`).
 -/

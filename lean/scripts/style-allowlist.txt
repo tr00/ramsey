@@ -1,0 +1,8 @@
+# Files whose comments predate the no-em-dash rule in AGENTS.md and still
+# contain em-dashes. Remove an entry once its comments are rewritten;
+# scripts/check.sh fails on any new em-dash outside this list.
+Ramsey/Defs.lean
+Ramsey/Premises.lean
+Ramsey/EvenPivot.lean
+Ramsey/d18/Exclusion.lean
+Ramsey/d20/Exclusion.lean

@@ -5,9 +5,8 @@ public import Ramsey.EvenPivot
 /-!
 # The d18 branch target
 
-The degree-18 pivot branch of the even-pivot scheme
-(`../n43/reductions.md` §3, branch `d(v) = 18`; predicates in §8;
-navigation `../n43/d18/README.md`).
+The degree-18 pivot branch of the even-pivot scheme, the branch where
+`d(v) = 18`.
 
 `Ramsey.d18.excludes` is the complete Lean-side obligation of this branch:
 no 43-vertex `(5,5)`-Ramsey graph has *any* vertex of degree exactly 18

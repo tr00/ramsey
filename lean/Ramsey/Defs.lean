@@ -15,7 +15,7 @@ Pure definitions for the R(5, 5) formalization.
 
 * `IsRamseyGraph s t G` — `G` has no `s`-clique and no independent `t`-set
 * `ramseyNumber s t` — the Ramsey number `R(s, t)`.
-* Pivot vocabulary, mirroring `../n43/reductions.md` §2 and §5:
+* Pivot vocabulary:
   `antiNeighborSet` (`M(v)`), `crossEdgeSet` (`x = e(A, B)`), `rowSet` (`R_u`),
   `columnSet` (`C_y`), `IsTransversal`.
 * Counting vocabulary: `inducedEdgeCount`, `crossEdgeCount`, and `degreeExcess`.

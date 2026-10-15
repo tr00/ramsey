@@ -1,0 +1,8 @@
+# Deliberate sorries, one entry per file: <path> <expected warning count>.
+# Files not listed here must elaborate with zero sorry warnings.
+# scripts/check.sh enforces exact equality at every handoff; update this
+# ledger in the same change that adds or removes a sorry.
+Ramsey/d18/Exclusion.lean 1
+Ramsey/d20/Exclusion.lean 1
+Ramsey/theorems/TransversalDeletion.lean 17
+Ramsey/theorems/TransversalCompatibility.lean 2

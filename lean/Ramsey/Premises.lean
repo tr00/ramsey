@@ -7,10 +7,9 @@ public import Ramsey.Defs
 
 The published computational facts the R(5, 5) work leans on, isolated as
 named axioms so that `#print axioms` on any downstream theorem reports its
-exact trusted-premise chain. This mechanizes the certificate obligation of
-`../n43/reductions.md` §15: any final certificate must identify which inputs
-are theorem-prover checked and which rely on published exhaustive
-computation.
+exact trusted-premise chain. This mechanizes the certificate obligation:
+any final certificate must identify which inputs are theorem-prover checked
+and which rely on published exhaustive computation.
 
 Status labels: every axiom here is **[PUBLISHED]**, used as a trusted input and not re-proved.
 The derived census interval theorems below are proved from these inputs.
