@@ -1,25 +1,14 @@
 \documentclass[a4paper]{article}
 \usepackage[margin=1in]{geometry}
 
+% DO NOT MODIFY!! THIS IS A HUMAN-ONLY WRITE UP
+
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{listings}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
-
-% Lean snippets contain Unicode operators that pdflatex cannot typeset
-% verbatim; map them to math symbols.
-\lstset{
-  basicstyle=\ttfamily\small,
-  columns=fullflexible,
-  keepspaces=true,
-  showstringspaces=false,
-  breaklines=true,
-  literate=
-    {ℕ}{{$\mathbb{N}$}}1
-    {∧}{{$\wedge$}}1
-    {¬}{{$\neg$}}1
-    {∃}{{$\exists$}}1
-}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
 
 \title{Progress on $R(5, 5)$ with pivots of degree $18$}
 \author{Tarik Y. Rosin}
@@ -95,6 +84,64 @@ $R(5,5)$.
 
 Target: $43 \le R(5,5) \le 46$; deciding order $43$ is the project goal.
 
+\newpage
+\section{Pivot Method}
+
+In order to prove $R(5,5) = 43$, one has to make a statement about all graphs with $43$ vertices.
+To get a handle on the enormous search space, we fix a vertex $v$, the \emph{pivot},
+and study the interface between its neighborhood $A = N_G(v)$ and its anti-neighborhood $B = M_G(v)$.
+
+% TODO: exemplary picture of a pivot graph with $|A| = 18$ and $|B| = 24$.
+
+\begin{lemma}\label{R_5_5_43_degree_mem}
+	Let $G \in R(5,5,43)$ be a Ramsey graph,
+	then $18 \leqslant d(v) \leqslant 24$ for any vertex $v \in V(G)$.
+\end{lemma}
+\begin{proof}
+	Pick an arbitrary vertex $v \in V(G)$.
+	\begin{itemize}
+		\item $G[N(v)]$ is $(4, 5)$-free
+		\item $G[M(v)]$ is $(5, 4)$-free
+	\end{itemize}
+	Recall that $R(4, 5) = R(5, 4) = 25$.
+	\begin{itemize}
+		\item The neighborhood of $v$ therefor must have less than $25$ vertices.
+		\item By complement symmetry, the anti-neighborhood of $v$ is larger than $43 - 1 - 25 = 17$ vertices.
+	\end{itemize}
+	It follows that for an arbitrary vertex $v$ the degree is bounded with $18 \leqslant d(v) \leqslant 24$
+\end{proof}
+
+\begin{theorem}[Even Pivot Theorem]
+	Let $G \in R(5,5,43)$ be a ramsey graph up to complement.
+	Then there exists a vertex $v \in V(G)$ with $d(v) = 18$ or $d(v) = 20$.
+\end{theorem}
+\begin{proof}
+	The handshake lemma guarantees an even degree vertex in a graph of odd order.
+	Combined with lemma \ref{R_5_5_43_degree_mem} we get four cases:
+	\begin{itemize}
+		\item $d(v) = 18$ or $d(v) = 20$: done.
+		\item $d(v) = 22$ or $d(v) = 24$: The complement $G^c$ is still a Ramsey graph.
+		      From counting all neighbors $d_G(v)$, all non-neighbors $d_{G^c}(v)$ and $v$ itself,
+		      we get that $d_G(v) + d_{G^c}(v) + 1 = 43$.
+		      Hence, in the complement graph, $v$ has either $18$ or $20$ neighboring vertices.
+	\end{itemize}
+\end{proof}
+
+Now we can split the problem into two subproblems, one for each pivot degree.
+We can further split the problem by the number of \emph{cross edges} $x = |e(A, B)|$
+with one end-point in $A$ and the other in $B$.
+$$e(A, B) = \left\{ \{u,w\} \in E(G) \mid u \in A, w \in B \right\}$$
+
+We formalize this as a cross adjacency matrix $M$ over $\{ 0, 1\}$ with shapes $18 \times 24$ or $20 \times 22$.
+
+$$M_{uw} = 1 \iff \{ u, w\} \in e(A, B)$$
+
+Let $u \in A$, the row $u$ in this matrix corresponds to $R_u = N_B(u) \subseteq B$,
+and a column $w \in B$ to $C_w = N_A(w) \subseteq A$.
+
+
+This decomposes our problem into choosing a pivot $v$, then finding its induced (anti-)neighborhood $G[A], G[B]$ and finally the cross interface $M$.
+
 \section{Pivot vocabulary}
 
 The order-43 search fixes a pivot vertex $v$ in a candidate
@@ -125,27 +172,6 @@ mirror \texttt{n43/reductions.md} Sections~2 and~5.
 	      In particular, a transversal of the column family
 	      $\{C_y : y \in B\}$ is a set of rows hitting every cross column.
 \end{description}
-
-\section*{Correspondence table}
-
-\begin{center}
-	\begin{tabular}{lll}
-		\hline
-		Mathematics                      & Lean (\texttt{Ramsey.\dots}) & Section \\
-		\hline
-		$G$ is $(s,t)$-Ramsey ($G \in R(s,t,n)$ once $|V| = n$)
-		                                 & \texttt{IsRamseyGraph s t G} & 2       \\
-		$R(s,t)$                         & \texttt{ramseyNumber s t}    & 3       \\
-		$M(v)$, the antineighborhood of $v$
-		                                 & \texttt{antiNeighborSet G v} & 1       \\
-		$e(A,B)$, cross edges between $A$ and $B$
-		                                 & \texttt{crossEdgeSet G A B}  & 4       \\
-		$R_u = N_G(u) \cap B$            & \texttt{rowSet G B u}        & 4       \\
-		$C_y = N_G(y) \cap A$            & \texttt{columnSet G A y}     & 4       \\
-		$T$ transversal of $\mathcal{C}$ & \texttt{IsTransversal T C}   & 4       \\
-		\hline
-	\end{tabular}
-\end{center}
 
 \section{Overview of the approach}
 

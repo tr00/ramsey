@@ -47,30 +47,49 @@ not establish existence of a three-transversal at 71 edges.
 Every column C_y=N_A(y) is a transversal, so in these cases
 4<=|C_y|<=14 and sum_B(|C_y|-4)=40+k.
 
+<a id="claim-frontier-anchor-defects"></a>
 ## Independent-four anchor defects
+
+Claim ID: `n43/d18/frontier_band.md#claim-frontier-anchor-defects`  
+Kind: local-deduction  
+Review state: accepted
+Scope: every order-43 (5,5)-free G, every degree-18 pivot v, and every
+independent four-set I in A=N(v), with q and E_I as below  
+Dependencies: exact budgets; singleton signature bound;
+Angeltveit–McKay, [arXiv:2409.15709v2](https://arxiv.org/abs/2409.15709v2),
+Appendix A, Table 1, E(4,5,14)=60  
+Conclusion: the anchor intervals and defect identities below  
+Search use: propagate
+Reviews: [independent revised-anchor audit](review_frontier_anchor_20261016_main.md)
 
 For any independent four-set I in A put S=A-I, C=e_A(I,S), and
 E_I=sum_I epsilon_u. Exact degree and edge sums give
 
 e(I,B)=68+E_I-C, and e(S)=85-q-C.
 
-The existing singleton signature bound gives e(I,B)>=36. Also e(S)<=64:
-Turan gives 65, but its unique equality graph K(5,5,4) has an independent
-five-set. Therefore
+The existing singleton signature bound gives e(I,B)>=36. The induced graph
+G[S] has 14 vertices and is (4,5)-free: a K4 in A, together with v, would
+give a K5 in G, and an I5 in S would already be an I5 in G. No I4
+prohibition is assumed for S. The published maximum E(4,5,14)=60 in
+Angeltveit–McKay, Appendix A, Table 1, therefore gives e(S)<=60.
+Combining this published input with the local identities above gives
 
-21-q<=C<=32+E_I,
-36<=e(I,B)<=47+q+E_I,
-53-q-E_I<=e(S)<=64.
+25-q<=C<=32+E_I,
+36<=e(I,B)<=43+q+E_I,
+53-q-E_I<=e(S)<=60.
 
-Define eta_I=e(I,B)-36. Then 0<=eta_I<=11+q+E_I,
+Define eta_I=e(I,B)-36. Then 0<=eta_I<=7+q+E_I,
 C=32+E_I-eta_I and e(S)=53-q-E_I+eta_I.
 If n1 counts singleton I signatures and
 h=sum_(y:|C_y intersect I|>=3)(|C_y intersect I|-2), then exactly
 eta_I=(12-n1)+h. Both terms are nonnegative. At most eta_I columns have
 signature size at least three, and at least 12-eta_I have singleton signatures.
+Thus n1>=max(0,5-q-E_I), and at most 7+q+E_I columns have at least
+three incidences with I. At x=136, n1>=5 and that latter count is at most seven.
 At eta_I=0 the four singleton classes are triangles and all other signatures
-have size two. At q=0 every anchor avoiding excess vertices retains the
-original frontier bounds verbatim.
+have size two. At q=E_I=0 the revised intervals specialize to
+25<=C<=32, 36<=e(I,B)<=43, and 53<=e(S)<=60. In particular this applies
+at x=136, and at q=0 to every anchor avoiding excess vertices.
 
 ## Size-four columns
 
@@ -100,6 +119,10 @@ The budgets were checked using separate degree and edge sums. The transversal
 extension uses precisely the published 15-vertex minimum of 50; the size-four
 attachment budget additionally uses the recorded 14-vertex minimum of 41.
 The pair exclusion uses only R(4,3)=9 and the Ramsey hypotheses.
+The revised anchor intervals additionally use the published maximum
+E(4,5,14)=60. Their local derivation is ready for independent review;
+earlier audits do not certify this changed input or its strengthened bounds.
+Unchanged material retains its original review scope.
 No value of x has been excluded. Next combine the size-four attachment budgets
 with their forced clique and B degrees; size-five pairs with union ten are the
 first boundary where this forced-adjacency argument can fail. Keep actual

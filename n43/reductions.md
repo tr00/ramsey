@@ -499,10 +499,14 @@ C=e_A(I,A-I),
 gives:
 
 ```text
-21 <= C <= 32,
-36 <= e(I,B) <= 47,
-53 <= e(A-I) <= 64.
+25 <= C <= 32,
+36 <= e(I,B) <= 43,
+53 <= e(A-I) <= 60.
 ```
+The strengthened bounds use the published `E(4,5,14)=60` on `A-I`,
+which is `(4,5)`-free, not necessarily `(4,4)`-free. See the updated
+[frontier anchor proof](d18/frontier_band.md#independent-four-anchor-defects).
+
 
 ### 8.4 Four-vertex transversal bound
 
@@ -567,7 +571,8 @@ Details: `n43/d18/x136/transversal_five_attempt.md`.
 
 ### 8.6 Frontier band and anchor defects
 
-**[PROVED-HERE, with the published census inputs of 8.1 and 8.4]**
+**[PROVED-HERE, with the published census inputs of 8.1 and 8.4 and
+E(4,5,14)=60 from Angeltveit-McKay, Appendix A, Table 1]**
 
 For x=136+k, q=85-a and E_A=sum_A(d_G(u)-18), exactly:
 
@@ -589,14 +594,17 @@ For an independent four-set I in A, let E_I=sum_I(d_G(u)-18) and
 C=e_A(I,A-I). Then:
 
 ```text
-21-q<=C<=32+E_I,
-36<=e(I,B)<=47+q+E_I,
-53-q-E_I<=e(A-I)<=64.
+25-q<=C<=32+E_I,
+36<=e(I,B)<=43+q+E_I,
+53-q-E_I<=e(A-I)<=60.
 ```
 
 If eta_I=e(I,B)-36, n1 counts singleton I signatures, and h is the sum
 of (signature size minus two) over signatures of size at least three,
-then eta_I=(12-n1)+h, with both terms nonnegative.
+then eta_I=(12-n1)+h, with both terms nonnegative, and
+`0<=eta_I<=7+q+E_I`. In particular at least `max(0,5-q-E_I)` columns
+have singleton I signatures, and at most `7+q+E_I` have size at least
+three on I. These are necessary incidence bounds, not branch exclusions.
 
 Search use: exact degree-excess branches and defect-aware anchor propagation.
 Proof: `n43/d18/frontier_band.md`.
@@ -1594,9 +1602,19 @@ Current reductions use these published finite facts:
 - `R(4,5)=25`;
 - `(4,5,18)` edge interval 50 through 85;
 - the `(4,5,17)` upper edge extremum 79 for the root-overlap classification;
+- `(4,5,14)` edge interval 22 through 60, with its upper endpoint used
+  by the revised independent-four anchor proof;
 - `(4,5,24)` edge interval 116 through 132;
 - every 15-vertex `(4,4)` graph has 50 through 55 edges;
 - every 14-vertex `(4,4)` graph has 41 through 50 edges.
+
+The `(4,5)` intervals are in Angeltveit-McKay, arXiv:2409.15709v2,
+Appendix A, Table 1. The `(4,4)` intervals are in McKay-Radziszowski
+1992, Table 1, p. 16. The [README table](../README.md#state-of-the-art)
+also records the published `(4,4)` intervals at orders 11, 12, 13, 16
+and 17, now available as named Lean premises. Their addition does not
+replace the separately proved, census-free sufficient caps or retroactively
+change the premises of historical proofs.
 
 Any final certificate must identify which of these are theorem-prover checked,
 which rely on published exhaustive computation, and what is trusted.

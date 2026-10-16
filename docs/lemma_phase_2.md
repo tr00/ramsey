@@ -1,6 +1,6 @@
 # Lemma Phase II: Proof Attempts and Audits
 
-Status date: 2026-10-13
+Status date: 2026-10-16 (anchor revision; earlier audit scopes unchanged)
 
 This phase tested the proposed "next best lemmas" from the first theory report.
 No computation, solver, graph enumeration, or catalogue search was run.
@@ -14,6 +14,8 @@ The outcome is mixed:
 
 As before, "derived here" means internally audited, not literature-checked for
 novelty.
+The revised independent-four anchor bounds in section 1 are an exception:
+they are ready for independent review, not certified by the earlier audits.
 
 ## 1. Degree-18 frontier
 
@@ -82,19 +84,29 @@ Every `B`-vertex meets `I`. At most twelve vertices meet it in exactly one
 place: each of the four singleton signature classes is a clique of size at
 most 3. Thus `e(I,B)>=36`, giving `C<=32`.
 
-The 14-vertex graph on `S` is `K4`-free. Turan gives `e(S)<=65`, but equality
-would be `K(5,5,4)`, which contains an independent 5-set. Therefore
-`e(S)<=64`, giving `C>=21`.
+The induced graph `G[S]` has 14 vertices and is `(4,5)`-free. Indeed, a
+`K4` in `A=N(v)` together with `v` would give a `K5` in the ambient
+`(5,5)`-free graph `G`, and an `I5` in `S` would already be an `I5` in `G`.
+There is no assumption that `S` is `I4`-free. The published input is
+`E(4,5,14)=60` from Angeltveit–McKay,
+[arXiv:2409.15709v2](https://arxiv.org/abs/2409.15709v2), Appendix A,
+Table 1. Thus `e(S)<=60`; the local identity `e(S)=85-C` gives `C>=25`.
 
 Hence, in the `x=136` branch, every independent 4-set satisfies
 
 ```text
-21 <= C <= 32,
-36 <= e(I,B) <= 47,
-53 <= e(S) <= 64.
+25 <= C <= 32,
+36 <= e(I,B) <= 43,
+53 <= e(S) <= 60.
 ```
 
-These bounds were independently rederived during audit.
+These strengthened bounds are local deductions from the published maximum
+and the unchanged degree/signature arguments. The revised intervals received
+[independent acceptance](../n43/d18/review_frontier_anchor_20261016_main.md).
+Earlier audits retain their original scope. The unchanged lemmas elsewhere
+retain their existing audit status.
+The general excess-sensitive version is
+[the frontier anchor claim](../n43/d18/frontier_band.md#claim-frontier-anchor-defects).
 
 ## 2. A four-vertex transversal lemma
 

@@ -5,9 +5,12 @@ Base revision: `81c768a683d3c3b3df70d4d3b7d03a67d505447b`.
 This note independently rederives inherited budgets, records their precise
 transfer scope, and extends the adjacent-pivot table and actual-column tests.
 No graph search, enumeration, solver, download, installation, or novelty
-review was performed. The six claims received independent internal review by
-the coordinator; the [exact-revision review](review_band137_transfer_20261014_coordinator.md)
-retains the external-premise and coverage limits.
+review was performed. The original six claims received independent internal
+review by the coordinator; the [exact-revision review](review_band137_transfer_20261014_coordinator.md)
+retains the external-premise and coverage limits on that original scope.
+The strengthened anchor portion below is a separate revision, ready for
+independent review; that earlier review does not certify its changed input
+or bounds. Unchanged material retains its original accepted scope.
 
 ## Setting and coverage
 
@@ -86,10 +89,11 @@ These are necessary integer profiles, rather than existence assertions.
 
 Claim ID: `n43/d18/transfer_bounds.md#claim-band137-transfer-scope`  
 Kind: local-deduction  
-Review state: accepted  
+Review state: accepted, with the revised anchor portion separately audited on 2026-10-16
 Scope: every rooted (G,v) above; claims restricted to the q cases shown  
 Dependencies: [frontier band](frontier_band.md), four-transversal extension
-and anchor defects; [safe augmentation](cliques_augmentation.md), section 2;
+and [revised anchor defects](frontier_band.md#claim-frontier-anchor-defects)
+(pending independent review); [safe augmentation](cliques_augmentation.md), section 2;
 [elementary two-transversal bound](transfer_summary.md#claim-band137-two-transversal);
 [actual q=3 column theorem](x142/q3/three_columns.md#claim-q3-three-column-excess-fourteen)  
 Conclusion: all actual columns have size at least four in x=137,...,142;
@@ -141,14 +145,32 @@ the isolated four-transversal bound; H is (4,4)-free because the actual T
 meets every I4 of A. Every T vertex has between six and 8+q F-neighbors
 in H, additionally capped by |H|=14.
 
-For any independent four-set I in A, put E_I=sum_I epsilon_u and
-eta_I=e(I,B)-36. The transferred anchor identities retain all excess terms:
+<a id="claim-band137-anchor-defects"></a>
+For any independent four-set I in A, put S=A-I, C=e_A(I,S),
+E_I=sum_I epsilon_u, and eta_I=e(I,B)-36. The induced graph G[S] is
+(4,5)-free on 14 vertices: A has no K4 (otherwise adding v gives K5),
+and G has no I5. In particular, S is not assumed I4-free. The published
+maximum E(4,5,14)=60 in Angeltveit–McKay,
+[arXiv:2409.15709v2](https://arxiv.org/abs/2409.15709v2), Appendix A,
+Table 1, gives e(S)<=60. The local degree and edge identities
+e(I,B)=68+E_I-C and e(S)=85-q-C, together with e(I,B)>=36, give
 
 ```text
-0<=eta_I<=11+q+E_I,
+25-q<=C<=32+E_I,
+36<=e(I,B)<=43+q+E_I,
+53-q-E_I<=e(A-I)<=60,
+0<=eta_I<=7+q+E_I,
 e_A(I,A-I)=32+E_I-eta_I,
-e(A-I)=53-q-E_I+eta_I<=64.
+e(A-I)=53-q-E_I+eta_I.
 ```
+
+The unchanged signature identity is eta_I=(12-n1)+h, where n1 counts
+singleton I signatures and
+h=sum_(y:|C_y intersect I|>=3)(|C_y intersect I|-2).
+This revised anchor portion is a local deduction accepted in the
+[independent revised-anchor audit](review_frontier_anchor_20261016_main.md).
+The original coordinator review retains its original scope. Search use:
+propagate the revised intervals and identities, not a branch closure.
 
 They apply at q3 as well, independently of the isolated transversal bound.
 The equality identity d_cross(u)=17-d_A(u) must be replaced by
@@ -374,6 +396,9 @@ an actual induced-subgraph condition to the numerical r3,s3 range.
 
 Claims 1 through 3 transfer or specialize existing budgets, with the new
 q3 actual-column theorem explicitly identified as a changed dependency.
+The anchor portion of claim 2 now also uses the published maximum
+E(4,5,14)=60; its strengthened bounds await independent review separately
+from the accepted unchanged material.
 Claim 4 adds the x142 adjacent-pivot row; claims 5 and 6 extend established
 pair/triple methods to further actual column combinations. None closes a
 complete x value or establishes a construction. They supply branch and
@@ -386,5 +411,7 @@ was included; H was counted directly rather than identified with a large-
 column count; adjacent-pivot arithmetic retained the excess multiplicities
 and did not copy the first profile onto the second root; all pair/triple
 proofs retain the (4,5)-type of A and (5,4)-type of B. External census and
-smaller Ramsey premises remain unverified evidence dependencies in this
-task. An author audit is not an independent review or a certificate.
+smaller Ramsey premises remain dependencies, not locally proved results.
+The new E(4,5,14)=60 input is explicitly attributed above; its application
+and revised bounds are pending independent review. An author audit is not
+an independent review or a certificate.

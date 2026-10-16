@@ -55,11 +55,20 @@ axiom ramsey_4_5_le_25 : RamseyUpperBound 4 5 25
 
 /-! ### Edge extrema of small Ramsey graphs (published censuses) -/
 
+/-- R(4,5,14): e(G) >= 22 [Angeltveit & McKay, arXiv:2409.15709v2, Appendix A, Table 1]. -/
+axiom edges_ramsey_4_5_14_ge_22 : RamseyEdgeLowerBound 14 4 5 22
+
+/-- R(4,5,14): e(G) <= 60 [Angeltveit & McKay, arXiv:2409.15709v2, Appendix A, Table 1]. -/
+axiom edges_ramsey_4_5_14_le_60 : RamseyEdgeUpperBound 14 4 5 60
+
 /-- R(4,5,18): e(G) >= 50 [Angeltveit & McKay 2026]. -/
 axiom edges_ramsey_4_5_18_ge_50 : RamseyEdgeLowerBound 18 4 5 50
 
 /-- R(4,5,18): e(G) <= 85 [Angeltveit & McKay 2026]. -/
 axiom edges_ramsey_4_5_18_le_85 : RamseyEdgeUpperBound 18 4 5 85
+
+/-- R(4,5,17): e(G) >= 41 [Angeltveit & McKay, arXiv:2409.15709v2, Appendix A, Table 1]. -/
+axiom edges_ramsey_4_5_17_ge_41 : RamseyEdgeLowerBound 17 4 5 41
 
 /-- R(4,5,17): e(G) <= 79 [Angeltveit & McKay 2026]. -/
 axiom edges_ramsey_4_5_17 : RamseyEdgeUpperBound 17 4 5 79
@@ -69,6 +78,36 @@ axiom edges_ramsey_4_5_24_ge_116 : RamseyEdgeLowerBound 24 4 5 116
 
 /-- R(4,5,24): e(G) <= 132 [Angeltveit & McKay 2026]. -/
 axiom edges_ramsey_4_5_24_le_132 : RamseyEdgeUpperBound 24 4 5 132
+
+/-- R(4,4,11): e(G) >= 19 [McKay & Radziszowski 1992, Table 1, p. 16, by complement]. -/
+axiom edges_ramsey_4_4_11_ge_19 : RamseyEdgeLowerBound 11 4 4 19
+
+/-- R(4,4,11): e(G) <= 36 [McKay & Radziszowski 1992, Table 1, p. 16]. -/
+axiom edges_ramsey_4_4_11_le_36 : RamseyEdgeUpperBound 11 4 4 36
+
+/-- R(4,4,12): e(G) >= 26 [McKay & Radziszowski 1992, Table 1, p. 16, by complement]. -/
+axiom edges_ramsey_4_4_12_ge_26 : RamseyEdgeLowerBound 12 4 4 26
+
+/-- R(4,4,12): e(G) <= 40 [McKay & Radziszowski 1992, Table 1, p. 16]. -/
+axiom edges_ramsey_4_4_12_le_40 : RamseyEdgeUpperBound 12 4 4 40
+
+/-- R(4,4,13): e(G) >= 33 [McKay & Radziszowski 1992, Table 1, p. 16, by complement]. -/
+axiom edges_ramsey_4_4_13_ge_33 : RamseyEdgeLowerBound 13 4 4 33
+
+/-- R(4,4,13): e(G) <= 45 [McKay & Radziszowski 1992, Table 1, p. 16]. -/
+axiom edges_ramsey_4_4_13_le_45 : RamseyEdgeUpperBound 13 4 4 45
+
+/-- R(4,4,16): e(G) >= 60 [McKay & Radziszowski 1992, Table 1, p. 16, by complement]. -/
+axiom edges_ramsey_4_4_16_ge_60 : RamseyEdgeLowerBound 16 4 4 60
+
+/-- R(4,4,16): e(G) <= 60 [McKay & Radziszowski 1992, Table 1, p. 16]. -/
+axiom edges_ramsey_4_4_16_le_60 : RamseyEdgeUpperBound 16 4 4 60
+
+/-- R(4,4,17): e(G) >= 68 [McKay & Radziszowski 1992, Table 1, p. 16, by complement]. -/
+axiom edges_ramsey_4_4_17_ge_68 : RamseyEdgeLowerBound 17 4 4 68
+
+/-- R(4,4,17): e(G) <= 68 [McKay & Radziszowski 1992, Table 1, p. 16]. -/
+axiom edges_ramsey_4_4_17_le_68 : RamseyEdgeUpperBound 17 4 4 68
 
 /-- R(4,4,15): e(G) >= 50 [McKay & Radziszowski 1992]. -/
 axiom edges_ramsey_4_4_15_ge_50 : RamseyEdgeLowerBound 15 4 4 50
@@ -128,18 +167,22 @@ R(4,5)=25*, ITP 2024, <https://doi.org/10.4230/LIPIcs.ITP.2024.16>.
 Journal of Graph Theory **112** (2026) 198-208,
 <https://doi.org/10.1002/jgt.70029>; open version arXiv:2409.15709v2,
 Appendix A, Table 1, a census of R(4,5) giving `e_min`/`e_max` per order:
-order 17 gives 41..79, order 18 gives 50..85, order 24 gives 116..132.
-Supplies `edges_ramsey_4_5_17`, `edges_ramsey_4_5_18_ge_50`,
-`edges_ramsey_4_5_18_le_85`, `edges_ramsey_4_5_24_ge_116`, and
-`edges_ramsey_4_5_24_le_132`.
+order 14 gives 22..60, order 17 gives 41..79, order 18 gives 50..85,
+and order 24 gives 116..132. Supplies `edges_ramsey_4_5_14_ge_22`,
+`edges_ramsey_4_5_14_le_60`, `edges_ramsey_4_5_17_ge_41`, `edges_ramsey_4_5_17`,
+`edges_ramsey_4_5_18_ge_50`, `edges_ramsey_4_5_18_le_85`,
+`edges_ramsey_4_5_24_ge_116`, and `edges_ramsey_4_5_24_le_132`.
 
 [McKay & Radziszowski 1992] B. D. McKay and S. P. Radziszowski, *A New
 Upper Bound for the Ramsey Number R(5,5)*, Australasian Journal of
 Combinatorics **5** (1992) 13-20,
 <https://ajc.maths.uq.edu.au/download/5/ocr-ajc-v5-p13.pdf>. The complete
-enumeration of the `(4, 4)`-Ramsey graphs, credited in DS1 rev. 18 §2.1(d);
-supplies the order-14 interval 41..50 and the order-15 interval 50..55.
-Independently recorded, with the same intervals and the counts 130,816 and
+enumeration of the `(4, 4)`-Ramsey graphs, credited in DS1 rev. 18 §2.1(d).
+Table 1 on printed page 16 supplies maxima for orders 11 through 17.
+Complementation gives the minima. The resulting supplied intervals are
+order 11: 19..36, order 12: 26..40, order 13: 33..45, order 14: 41..50,
+order 15: 50..55, order 16: 60..60, and order 17: 68..68.
+The order-14 and order-15 intervals are independently recorded, with counts 130,816 and
 640, by C. Calvert, M. J. Schuster, and S. P. Radziszowski, *Computing the
 Ramsey Number R(K5-P3,K5)*, arXiv:1203.6536, Table I.
 -/
