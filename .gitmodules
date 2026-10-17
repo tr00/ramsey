@@ -1,0 +1,3 @@
+[submodule "third-party/nauty"]
+	path = third-party/nauty
+	url = git@github.com:tr00/nauty.git

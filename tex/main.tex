@@ -4,7 +4,7 @@
 % DO NOT MODIFY!! THIS IS A HUMAN-ONLY WRITE UP
 
 \usepackage{amsmath,amssymb,amsthm}
-\usepackage{listings}
+\usepackage{tikz}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
@@ -64,25 +64,21 @@ $|T| = t$ in which no two vertices are adjacent.
 
 
 The table below lists the Ramsey numbers $R(s,t)$ for $s, t \le 5$.
-Only the upper triangle is shown, since $R(s,t) = R(t,s)$; the diagonal
-is printed in bold. All entries are exact except the bound shown for
-$R(5,5)$.
 
 \begin{center}
 	\begin{tabular}{c|ccccc}
 		\hline
-		$s \backslash t$ & $1$        & $2$        & $3$        & $4$         & $5$        \\
+		$s \backslash t$ & $1$ & $2$ & $3$ & $4$  & $5$        \\
 		\hline
-		$1$              & \textbf{1} & $1$        & $1$        & $1$         & $1$        \\
-		$2$              &            & \textbf{2} & $3$        & $4$         & $5$        \\
-		$3$              &            &            & \textbf{6} & $9$         & $14$       \\
-		$4$              &            &            &            & \textbf{18} & $25$       \\
-		$5$              &            &            &            &             & $43$--$46$ \\
+		$1$              & $1$ & $1$ & $1$ & $1$  & $1$        \\
+		$2$              &     & $2$ & $3$ & $4$  & $5$        \\
+		$3$              &     &     & $6$ & $9$  & $14$       \\
+		$4$              &     &     &     & $18$ & $25$       \\
+		$5$              &     &     &     &      & $43$--$46$ \\
 		\hline
 	\end{tabular}
 \end{center}
 
-Target: $43 \le R(5,5) \le 46$; deciding order $43$ is the project goal.
 
 \newpage
 \section{Pivot Method}
@@ -91,7 +87,8 @@ In order to prove $R(5,5) = 43$, one has to make a statement about all graphs wi
 To get a handle on the enormous search space, we fix a vertex $v$, the \emph{pivot},
 and study the interface between its neighborhood $A = N_G(v)$ and its anti-neighborhood $B = M_G(v)$.
 
-% TODO: exemplary picture of a pivot graph with $|A| = 18$ and $|B| = 24$.
+% Pivot-decomposition figure lives in figures/pivot-decomposition.tex.
+\input{figures/pivot-decomposition}
 
 \begin{lemma}\label{R_5_5_43_degree_mem}
 	Let $G \in R(5,5,43)$ be a Ramsey graph,
@@ -100,8 +97,8 @@ and study the interface between its neighborhood $A = N_G(v)$ and its anti-neigh
 \begin{proof}
 	Pick an arbitrary vertex $v \in V(G)$.
 	\begin{itemize}
-		\item $G[N(v)]$ is $(4, 5)$-free
-		\item $G[M(v)]$ is $(5, 4)$-free
+		\item $G[N(v)]$ is $(4, 5)$-free, since any $K_4$ in $G[N(v)]$ can be extended with $v$ to a $K_5$ in $G$.
+		\item $G[M(v)]$ is $(5, 4)$-free, since any $I_4$ in $G[M(v)]$ can be extended with $v$ to a $I_5$ in $G$.
 	\end{itemize}
 	Recall that $R(4, 5) = R(5, 4) = 25$.
 	\begin{itemize}
@@ -138,40 +135,7 @@ $$M_{uw} = 1 \iff \{ u, w\} \in e(A, B)$$
 
 Let $u \in A$, the row $u$ in this matrix corresponds to $R_u = N_B(u) \subseteq B$,
 and a column $w \in B$ to $C_w = N_A(w) \subseteq A$.
-
-
 This decomposes our problem into choosing a pivot $v$, then finding its induced (anti-)neighborhood $G[A], G[B]$ and finally the cross interface $M$.
-
-\section{Pivot vocabulary}
-
-The order-43 search fixes a pivot vertex $v$ in a candidate
-$G \in R(5,5,n)$ and studies the interface between
-\[
-	A = N_G(v), \qquad B = M(v).
-\]
-All five definitions below appear in \texttt{lean/Ramsey/defs/Transversals.lean}; they
-mirror \texttt{n43/reductions.md} Sections~2 and~5.
-
-\begin{description}
-	\item[Cross edges.] Edges of $G$ with one endpoint in $A$ and the other
-	      in $B$:
-	      \[
-		      e(A,B) = \bigl\{ \{u,w\} \in E(G) : u \in A,\ w \in B \bigr\},
-		      \qquad x = |e(A,B)|.
-	      \]
-	\item[Row at $u \in A$.] $R_u = N_G(u) \cap B$, the neighbors of $u$
-	      inside $B$.
-	\item[Column at $y \in B$.] $C_y = N_G(y) \cap A$, the neighbors of $y$
-	      inside $A$.
-	\item[Transversal.] For a family $\mathcal{C} \subseteq \mathcal{P}(V)$,
-	      a set $T \subseteq V$ is a \emph{transversal} of $\mathcal{C}$ if it
-	      meets every member:
-	      \[
-		      \forall\, S \in \mathcal{C}:\ S \cap T \neq \emptyset.
-	      \]
-	      In particular, a transversal of the column family
-	      $\{C_y : y \in B\}$ is a set of rows hitting every cross column.
-\end{description}
 
 \section{Overview of the approach}
 
@@ -180,5 +144,11 @@ For each branch we instruct LLMs (GPT-6.1 Sol and GLM-5.3) to derive analytical 
 We recurse until progress stalls, in which case we resort to SAT solvers to (cleverly) bruteforce the reduced search space.
 
 This approach allows us to prune more families of graphs, since we have more specific theorems tailored to the subcase we are inspecting.
+
+\section{Tools}
+
+We use a \texttt{geng} from \texttt{nauty} (v2.9.3) to enumerate graphs.
+Our fork of \texttt{geng} is customized to efficiently prune graphs with cliques or independent sets.
+
 
 \end{document}

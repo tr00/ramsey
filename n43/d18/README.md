@@ -34,6 +34,7 @@ Shared proof notes:
 - [Reviewed weighted averaging](weighted_averaging.md)
 - [Reviewed anchored cells and corrected implication closure](anchored_cell_averaging.md)
 - [Reviewed overlapping-cell compatibility and dispersed attachment cuts across x](overlapping_cells.md)
+- [Neighborhood connectivity classification](neighborhood_connectivity.md) ([Lean proof](../../lean/Ramsey/d18/ConnectivityClassification.lean))
 - [Frontier band](frontier_band.md)
 - [Pivot classes and conditional coverage](pivot_classes.md)
 - [Excess bounds](excess_bounds.md)

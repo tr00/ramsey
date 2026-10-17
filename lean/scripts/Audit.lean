@@ -22,3 +22,10 @@ import Ramsey
 #print axioms Ramsey.TransversalFour.transversal_card_ge_four
 #print axioms Ramsey.pivot_neighbor_degree_sum
 #print axioms Ramsey.card_mixedCell_le_17
+#print axioms Ramsey.d18.disconnected_neighborhood_classification
+#print axioms Ramsey.d18.connectivity_classification
+#print axioms Ramsey.d18.disconnected_edge_slices
+#print axioms Ramsey.d18.connected_of_edge_ge_69
+#print axioms Ramsey.d18.degree18_connectivity_classification
+#print axioms Ramsey.d18.degree18_neighbor_connected_of_deficit_le_16
+#print axioms Ramsey.d18.degree18_frontier_neighbor_connected

@@ -35,6 +35,7 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/theorems/PivotInterface.lean`           | Proved exact forbidden-rectangle criterion with internal graph types and pivot-containing sets handled explicitly                                                                                                                                                                                                                                                                 |
 | `Ramsey/theorems/PivotCounting.lean`            | General proved cross-edge counts, pivot degree sums and complement edge identity                                                                                                                                                                                                                                                                                                  |
 | `Ramsey/d18/PivotBudget.lean`                   | Proved degree-18 edge intervals, deficit/excess identity, `136≤x≤288` and equality-frontier consequences; scoped hypotheses preserve existing theorem applications                                                                                                                                                                                                                |
+| `Ramsey/d18/ConnectivityClassification.lean` | Proved exact disconnected-neighborhood family `K_m ⊔ C`, `m=1..3`, connected `(4,4)` core with independence number three, census edge slices, and connectivity for `a≥69`, `q≤16` and `x=136` |
 
 ## Build
 
@@ -64,3 +65,24 @@ reproducible. `.lake/` is ignored.
   in the `.lean` file itself (see `AGENTS.md`).
 - Do not weaken a statement to make it provable; if the informal claim needs
   an extra hypothesis, say so in the docstring and flag it in the handoff.
+
+## Neighborhood connectivity classification
+
+`Ramsey.d18.connectivity_classification` formalizes
+`n43/d18/neighborhood_connectivity.md#claim-connectivity-01` for every finite
+18-vertex `(4,5)`-Ramsey graph. Its exceptional predicate
+`IsDisconnectedNeighborhood` gives a nonempty clique of order at most three,
+no edges across its complement, and a connected `(4,4)` core on the remaining
+vertices. The core has an independent triple and no independent four-set.
+The structural proof needs only the existing `ramsey_4_3_le_9` premise.
+
+`disconnected_edge_slices` formalizes claim 02 using the six existing
+order-15, order-16 and order-17 census edge bounds. The degree-18 wrappers
+apply to arbitrary finite ambient graphs, except the `x=136` corollary,
+which uses the existing order-43 frontier identity. The theorem names and
+exact premise chains are included in `scripts/Audit.lean` and its expectations.
+
+Connectivity for `a≥69` is sufficient, not necessary. Disconnection is possible
+only in `[53,58] ∪ {61,68}` according to these necessary conditions. Nothing here
+asserts that any exceptional graph extends to an order-43 Ramsey candidate.
+The interface/filter claims in claim 03 are not formalized by this module.

@@ -38,3 +38,57 @@
  Ramsey.ramsey_4_3_le_9]
 'Ramsey.pivot_neighbor_degree_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Ramsey.card_mixedCell_le_17' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_4_le_18]
+'Ramsey.d18.disconnected_neighborhood_classification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.connectivity_classification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.disconnected_edge_slices' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_4_15_ge_50,
+ Ramsey.edges_ramsey_4_4_15_le_55,
+ Ramsey.edges_ramsey_4_4_16_ge_60,
+ Ramsey.edges_ramsey_4_4_16_le_60,
+ Ramsey.edges_ramsey_4_4_17_ge_68,
+ Ramsey.edges_ramsey_4_4_17_le_68,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.connected_of_edge_ge_69' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_4_15_ge_50,
+ Ramsey.edges_ramsey_4_4_15_le_55,
+ Ramsey.edges_ramsey_4_4_16_ge_60,
+ Ramsey.edges_ramsey_4_4_16_le_60,
+ Ramsey.edges_ramsey_4_4_17_ge_68,
+ Ramsey.edges_ramsey_4_4_17_le_68,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.degree18_connectivity_classification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.degree18_neighbor_connected_of_deficit_le_16' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_4_15_ge_50,
+ Ramsey.edges_ramsey_4_4_15_le_55,
+ Ramsey.edges_ramsey_4_4_16_ge_60,
+ Ramsey.edges_ramsey_4_4_16_le_60,
+ Ramsey.edges_ramsey_4_4_17_ge_68,
+ Ramsey.edges_ramsey_4_4_17_le_68,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.degree18_frontier_neighbor_connected' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_4_15_ge_50,
+ Ramsey.edges_ramsey_4_4_15_le_55,
+ Ramsey.edges_ramsey_4_4_16_ge_60,
+ Ramsey.edges_ramsey_4_4_16_le_60,
+ Ramsey.edges_ramsey_4_4_17_ge_68,
+ Ramsey.edges_ramsey_4_4_17_le_68,
+ Ramsey.edges_ramsey_4_5_18_le_85,
+ Ramsey.ramsey_4_3_le_9,
+ Ramsey.ramsey_4_5_le_25]
