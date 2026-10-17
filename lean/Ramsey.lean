@@ -2,6 +2,7 @@ module
 
 import Mathlib
 
+public import Ramsey.defs.Completeness
 public import Ramsey.defs.RamseyGraph
 public import Ramsey.defs.Transversals
 public import Ramsey.D18

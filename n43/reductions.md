@@ -461,14 +461,22 @@ The second interval follows by complementing the published 24-vertex
 ```text
 max(306-2a,432-2b)
   <= x
-  <= min(306,414-2a,576-2b).
+  <= min(279,414-2a,576-2b).
 ```
 
 In particular:
 
 ```text
-x>=136.
+136 <= x <= 279.
 ```
+
+The upper endpoint279 follows from the independently reviewed
+[omitted-row tail exclusions](d18/independent_row_cuts.md): if t and s
+count size-17 and size-16 rows, then s<=12-3t and 7t+8s<=72, giving
+x<=280 without a census. Both equality profiles are excluded; the last
+uses the recorded e(B)>=144 and all-vertex degree cap24. Thus x>=280
+terminates on those premises. This argument does not use the reported
+x136 closure. See its [exact-revision review](d18/review_independent_row_cuts_20261017_audit.md).
 
 Search use: branch by `x`, or more economically by:
 
@@ -1126,6 +1134,39 @@ Search use: conditional propagation and local rejection after witness checks;
 certificate formats and implementation remain design. No branch closes, no
 cross-count bound improves, and no census or symmetry coverage is supplied.
 The explicit local (5,3)-free boundary witness has research-planning use only.
+
+### 8.17 Fixed-B extension capacity and unavoidable independent-root cores
+
+**[PROVED-HERE; accepted independent mathematical review]** The
+[fixed-B extension specification](d18/fixed_b_extensions.md) complements
+the external complete352366-member (4,5,24) family, then constructs the18
+actual cross rows and A edges together. All mixed five-set constraints,
+degree budgets, multiplicities and residual symmetry are retained; catalogue
+completeness remains an external premise, not independently replayed here.
+
+Every row mask occurs at most twice; sizes9,10 cannot repeat. A one-deletion,
+one-addition mask ball has occupancy at most two for center sizes7,8,11..16.
+Eight such balls cannot cover an18-row family. Named triangle/I3 matching
+witnesses and signed rational/box-capacity certificates extend these domain
+rejections. No cover of every mask domain or complete rational relaxation
+is asserted. Search use: the stated witnessed propagation/domain rejection;
+actual generation and certified orbit/exhaustion coverage remain design.
+
+The [independent-root occurrence theorem](d18/obstruction_coverage.md) applies
+to every prescribed family of at least25 degree-18 roots. It forces either
+a nonadjacent pair of overlap1..6 (opposite (4,4) cells of orders12..17),
+or an independent four with singleton classes3 each, double classes4 each,
+no triples, and universal class3. For same-family q<=2 roots the pair range
+is4..6 and the cell orders12..14. The exceptional branch has four actual
+rooted K4's on16 vertices and explicit attachment obligations; neither
+alternative is excluded. No such25-root family is asserted universally.
+
+The [large-row attachment notes](d18/large_row_extensions.md) retain exact
+core/signature reductions rather than dropping ambient completion clauses.
+Reviews, exact hashes, premise limits and the new x<=279 tail argument are
+collected in the [extension research report](../reports/2026-10-17-d18-extension-research.md).
+The reported x136 closure is not used by these new structural deductions.
+
 
 ## 9. Complement-normalized minimum-degree-20 branch
 

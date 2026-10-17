@@ -2,7 +2,7 @@
 
 Date: 2026-10-13. Purely mathematical deductions; no search or enumeration.
 External census premises are recorded in n43/d18/transversal_four.md and
- docs/theory_phase_1.md. No novelty claim is made.
+docs/theory_phase_1.md. No novelty claim is made.
 
 ## Exact budgets
 
@@ -11,15 +11,15 @@ Put q=85-a and epsilon_u=d_G(u)-18, E=sum_A epsilon_u.
 Degree summation gives k=2q+E, with q,E nonnegative. Thus all cases are
 q=0,...,floor(k/2), E=k-2q. Each epsilon is between zero and six.
 
-|x|(a,E)|
-|---|---|
-|136|(85,0)|
-|137|(85,1)|
-|138|(85,2), (84,0)|
-|139|(85,3), (84,1)|
-|140|(85,4), (84,2), (83,0)|
-|141|(85,5), (84,3), (83,1)|
-|142|(85,6), (84,4), (83,2), (82,0)|
+| x   | (a,E)                          |
+| --- | ------------------------------ |
+| 136 | (85,0)                         |
+| 137 | (85,1)                         |
+| 138 | (85,2), (84,0)                 |
+| 139 | (85,3), (84,1)                 |
+| 140 | (85,4), (84,2), (83,0)         |
+| 141 | (85,5), (84,3), (83,1)         |
+| 142 | (85,6), (84,4), (83,2), (82,0) |
 
 At E=1 precisely one A vertex has degree 19. At E=2 either one has degree
 20 or two have degree 19. Generally the positive excesses partition E with
@@ -48,6 +48,7 @@ Every column C_y=N_A(y) is a transversal, so in these cases
 4<=|C_y|<=14 and sum_B(|C_y|-4)=40+k.
 
 <a id="claim-frontier-anchor-defects"></a>
+
 ## Independent-four anchor defects
 
 Claim ID: `n43/d18/frontier_band.md#claim-frontier-anchor-defects`  

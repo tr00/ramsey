@@ -1,5 +1,10 @@
 # Equality frontier x=136
 
+Current status (2026-10-17): the user reports this entire case closed in work
+not yet present in this checkout. The historical proof inventory and open
+labels below predate that closure; they are not the current research status.
+Closure evidence remains pending integration, not reconstructed here.
+
 Branch name: `n43/d18/x136`. Parent: [n43/d18](../README.md).
 Additional predicate: x=e(A,B)=136. Existing equality consequences and their
 premises are recorded in [reduction index](../../reductions.md), section 8.3.

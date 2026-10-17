@@ -19,6 +19,18 @@ comments you write or rewrite.
 A theorem or a definition is general, or widely used, only when several
 branches really use it. Otherwise it stays with its branch.
 
+## Enumeration completeness
+
+- `Ramsey/defs/Completeness.lean` defines `Ramsey.Complete S P`: every graph
+  of class `P` lies in the set `S`.
+- `Complete` is the wiring for refuting existence of a `(5,5)`-Ramsey graph
+  on 43 vertices. A cover splits the ambient class into branch classes, every
+  branch supplies a `Complete` proof for its enumerated set, and empty
+  enumeration sets refute their classes through
+  `Complete.forall_not_of_eq_empty`.
+- Branch modules state their completeness as `Complete`; do not inline ad hoc
+  completeness statements.
+
 ## Visibility
 
 - New files do not open a blanket `@[expose] public section`. That block

@@ -1,5 +1,11 @@
 # An unconditional upper bound on the degree-18 cross count
 
+Update (2026-10-17): the [reviewed omitted-row argument](independent_row_cuts.md)
+strengthens the upper endpoint to279, excluding x=280..288. It applies to
+every degree-18 pivot on the stated Ramsey and e(B)>=144 premises and does
+not use the reported x136 closure. The original288 proof and its failed
+stronger attempts below remain historical; their old reviews are unchanged.
+
 Date: 2026-10-14. Author: Codex cross-upper-bound task. Input revision:
 `49bd3637b8e6763ac6fbd3bd5c267155b0f1cb27`. Mathematical work only;
 no graph enumeration, solver, catalogue acquisition, or installation.

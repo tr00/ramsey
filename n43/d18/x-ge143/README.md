@@ -4,8 +4,8 @@ Branch name: `n43/d18/x-ge143`.
 Parent: [degree-18 pivot](../README.md). State: open.
 Additional predicate: x>=143. This residual branch is necessary for coverage:
 no unconditional degree-18 upper bound x<=142 has been established here.
-The [independently reviewed cross-count bound](../cross_upper_bound.md)
-gives 143<=x<=288, conditional on the recorded Ramsey and census premises.
+The [independently reviewed omitted-row bound](../independent_row_cuts.md)
+gives 143<=x<=279, on the recorded Ramsey and e(B)>=144 census premises.
 This does not assert realizability of either endpoint.
 
 Retain q=85-e(A)>=0, E_A>=0, and x=136+2q+E_A, with published

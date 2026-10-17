@@ -288,9 +288,13 @@ The second root's degree is 18; its q and E_A need not equal the first
 root's. N(v) intersect N(u) is a (3,5)-free graph on lambda vertices.
 The two neighborhoods have union size 36-lambda, including v and u in
 the union, and their common-nonneighbor cell has size 7+lambda and is
-(4,4)-free. A future gluing reduction must retain every permitted overlap
+(5,4)-free. A future gluing reduction must retain every permitted overlap
 map, second-root profile, and completion, rather than imposing the first
 profile at both endpoints.
+The former (4,4) assertion for that common-nonneighbor cell is withdrawn;
+only the opposite mixed cells have that type. See the
+[superseding ambient-type audit](review_adjacent_root_cell_20261017_audit.md).
+The displayed adjacent-pivot overlap bounds do not use the withdrawn typing.
 
 <a id="claim-band137-union-ten"></a>
 ## 5. The same eight-vertex test applies to every union-ten pair

@@ -7,7 +7,7 @@ Notation and inherited bounds: [reduction index](../reductions.md), sections 2,
 
 | Child | Predicate | Status |
 | --- | --- | --- |
-| [x136](x136/README.md) | x=136 | Open; only r=0 live, every size-four column excluded |
+| [x136](x136/README.md) | x=136 | Closed per user report; closure proof pending checkout integration |
 | [x137](x137/README.md) | x=137 | Open; r=4 excluded |
 | [x138](x138/README.md) | x=138 | Open |
 | [x139](x139/README.md) | x=139 | Open |
@@ -24,13 +24,17 @@ External premises and proof status remain those recorded in the reduction index.
 
 Shared proof notes:
 
+- [Extension research synthesis: omitted-row exclusions, fixed-B capacity, and unavoidable root cores](../../reports/2026-10-17-d18-extension-research.md)
+- [Fixed-B extension coverage, row multiplicity, exchange-ball capacities and exact certificates](fixed_b_extensions.md)
+- [Independent-root coverage: opposite cells or an exact exceptional four-root core](obstruction_coverage.md)
+- [Large-row core moments, exact eight-cell types and finite attachments](large_row_extensions.md)
 - [Reviewed SDP/SOS theory: pivot selection, varying-x triple moments, finite core caps and attachment certificates](../../reports/2026-10-15-sos-theory.md)
 - [Reviewed twelve-root overlap coverage and rational excess covariance](sos_pivot_selection.md)
 - [Reviewed dispersed triple-witness SOS filters across x](sos_column_compatibility.md)
 - [Reviewed finite core caps and q=1 anchor through x167](sos_finite_moments.md)
 - [Reviewed order-twelve cap42 and six-set transversal threshold](sos_order12_addendum.md)
 - [Reviewed rational SOS on attachment-obligation graphs](sos_obligation_graphs.md)
-- [Reviewed cross-count corridor 136<=x<=288](cross_upper_bound.md)
+- [Reviewed cross-count upper bound x<=279 and omitted-row tail exclusions](independent_row_cuts.md)
 - [Reviewed weighted averaging](weighted_averaging.md)
 - [Reviewed anchored cells and corrected implication closure](anchored_cell_averaging.md)
 - [Reviewed overlapping-cell compatibility and dispersed attachment cuts across x](overlapping_cells.md)

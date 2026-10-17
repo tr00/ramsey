@@ -102,7 +102,11 @@ The second root has degree 18, but its q or E need not equal the first root's.
 Its common-neighborhood graph is (3,5)-free on lambda vertices. Two degree-18
 neighborhoods overlap in lambda vertices and together cover 36-lambda
 vertices; the remaining common-nonneighbor cell has order 7+lambda and is
-(4,4)-free. These equations include both adjacent roots in the union.
+(5,4)-free. These equations include both adjacent roots in the union.
+The opposite mixed cells, not this common-nonneighbor cell, are (4,4)-free.
+The former (4,4) assertion for the latter cell is withdrawn; see the
+[superseding ambient-type audit](review_adjacent_root_cell_20261017_audit.md).
+The overlap bounds above do not use that assertion.
 
 ## 3. A complete reduction when the graph is near 18-regular
 

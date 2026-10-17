@@ -691,6 +691,18 @@ bodies, assumptions, hashes and permitted uses are in the branch-local notes.
 No complete x branch or global Ramsey bound changes; no uniform occurrence of
 the conditional patterns is proved.
 
+2026-10-17 [degree-18 extension continuation](../reports/2026-10-17-d18-extension-research.md):
+independently reviewed omitted-row capacities give s<=12-3t and7t+8s<=72
+for size-17/size-16 row counts t,s, hence x<=280 without a census. Excluding
+both equality profiles, the latter with the recorded e(B)>=144 premise,
+strengthens the bound to x<=279 for every degree-18 pivot. Fixed-B row
+capacity certificates avoid isolated A enumeration as a prerequisite; a
+same-family25-root occurrence theorem forces a nonadjacent pair with large
+opposite (4,4) cells or one exact four-root signature core. Full branch
+coverage and the exceptional core's exclusion remain unresolved. The user
+reports x136 closed with evidence outside this checkout; these new bounds
+do not depend on that closure, and older status text above is historical.
+
 The following are proof targets, not established facts:
 
 1. **Extreme-degree exclusion.** Rule out degree 18 (and hence 24) using the

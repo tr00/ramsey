@@ -9,9 +9,9 @@ public import Mathlib.Combinatorics.SimpleGraph.Sum
 public import Mathlib.Logic.Equiv.Set
 
 /-!
-# Connectivity classification for degree-eighteen neighborhoods
+# Connectivity classification for degree-18 neighborhoods
 
-An eighteen-vertex `(4,5)`-Ramsey graph is connected unless it is the disjoint union
+An 18-vertex `(4,5)`-Ramsey graph is connected unless it is the disjoint union
 of a clique of order one, two or three and a connected `(4,4)`-Ramsey graph.
 The classification uses the published Ramsey upper bounds as named premises.
 -/

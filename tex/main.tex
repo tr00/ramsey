@@ -5,6 +5,7 @@
 
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{tikz}
+\usepackage{url}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
@@ -31,9 +32,8 @@ and number of cross edges $e_G(A, B) = |\{ (u,v) \in A \times B \mid u \sim_G v 
 
 For $S \subseteq V$, the \emph{induced subgraph} $G[S]$ has vertex set $S$
 and all edges of $G$ with both endpoints in $S$. The \emph{complement}
-$\overline{G}$ has the same vertex set and all non-edges of $G$ as edges;
-a set is independent in $G$ exactly when it is a clique in
-$\overline{G}$.
+$G^c$ has the same vertex set and all non-edges of $G$ as edges.
+A set is independent in $G$ exactly when it is a clique in $G^c$.
 
 An \emph{$s$-clique} is a subset $S \subseteq V$ with $|S| = s$ in which
 every two vertices are adjacent, that is, $G[S]$ is the complete graph
@@ -137,7 +137,36 @@ Let $u \in A$, the row $u$ in this matrix corresponds to $R_u = N_B(u) \subseteq
 and a column $w \in B$ to $C_w = N_A(w) \subseteq A$.
 This decomposes our problem into choosing a pivot $v$, then finding its induced (anti-)neighborhood $G[A], G[B]$ and finally the cross interface $M$.
 
-\section{Overview of the approach}
+\section{Cross Adjacency Conditions}
+
+Suppose we have a hypothetical $G \in R(5, 5, 43)$ and we have pivoted on $v$ with $d_G(v) = 18$ which splits the graph into $A = N(v)$ and $B = M(v)$.
+There are now several conditions we can impose based on the structure of the rows and columns of the cross adjacency matrix $M$.
+
+\begin{theorem}[Cross Edge Bounds]
+	$136 \leqslant \left| M \right| \leqslant 279$
+\end{theorem}
+
+\begin{theorem}[Row Multiplicity]
+	No row repeats more than twice.
+\end{theorem}
+
+\begin{theorem}
+	No row of size $9$ or $10$ repeats.
+\end{theorem}
+
+\section{Pivot Selection Heuristics}
+
+TODO
+
+\section{Anti-Neighborhood Catalogue}
+
+There is a complete catalogue of $R(5, 4, 24)$ consisting of $352366$ unique maximal graphs up to isomorphism.
+Therefor every potential $G[B]$ is already established and once we have picked a pivot and an anti-neighborhood $B$,
+it remains to find (or exclude) any potential neighborhood $G[A]$ and cross adjacency matrix $M$.
+Since the number of edges in $M$ is upper bounded by $279$.
+
+
+\section{AI Usage}
 
 We dissect the galactic search space into multiple branches based on the degree of the pivot element.
 For each branch we instruct LLMs (GPT-6.1 Sol and GLM-5.3) to derive analytical conditions to further split the search space.
@@ -150,5 +179,9 @@ This approach allows us to prune more families of graphs, since we have more spe
 We use a \texttt{geng} from \texttt{nauty} (v2.9.3) to enumerate graphs.
 Our fork of \texttt{geng} is customized to efficiently prune graphs with cliques or independent sets.
 
+
+\nocite{angeltveit_mckay_2026,mckay_radziszowski_1992}
+\bibliographystyle{plain}
+\bibliography{sources/angeltveit-mckay-2026,sources/mckay-radziszowski-1992}
 
 \end{document}
