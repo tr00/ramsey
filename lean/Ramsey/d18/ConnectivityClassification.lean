@@ -12,7 +12,7 @@ public import Mathlib.Logic.Equiv.Set
 # Connectivity classification for degree-18 neighborhoods
 
 An 18-vertex `(4,5)`-Ramsey graph is connected unless it is the disjoint union
-of a clique of order one, two or three and a connected `(4,4)`-Ramsey graph.
+of a clique of order 1, 2 or 3 and a connected `(4,4)`-Ramsey graph.
 The classification uses the published Ramsey upper bounds as named premises.
 -/
 
@@ -174,11 +174,12 @@ The second component contains an independent triple and has no independent four-
     (H.induce Sᶜ).Connected ∧ IsRamseyGraph 4 4 (H.induce Sᶜ) ∧
     ¬(H.induce Sᶜ).IndepSetFree 3
 
-/-- Every disconnected eighteen-vertex `(4,5)`-Ramsey graph has the exceptional shape. -/
-public theorem disconnected_neighborhood_classification [Finite V] {H : SimpleGraph V}
-    (hn : Nat.card V = 18) (hH : IsRamseyGraph 4 5 H) (hd : ¬H.Connected) :
-    IsDisconnectedNeighborhood H := by
+/-- Every disconnected 18-vertex `(4,5)`-Ramsey graph has the exceptional shape. -/
+public theorem disconnected_neighborhood_classification [Finite V] (F : RamseyGraph 4 5 V)
+    (hn : Nat.card V = 18) (hd : ¬F.graph.Connected) : IsDisconnectedNeighborhood F.graph := by
   classical
+  let H := F.graph
+  have hH := F.ramsey
   have : Nonempty V := Finite.card_pos_iff.mp (by omega)
   obtain ⟨S, hS, hT, hcut⟩ := exists_cut hd
   have hcut' : ∀ u ∈ Sᶜ, ∀ w ∉ Sᶜ, ¬H.Adj u w := by
@@ -309,67 +310,65 @@ public theorem IsDisconnectedNeighborhood.not_connected [Finite V] {H : SimpleGr
       exact hcut x hx y hy hxy
   exact w.property (hclosed p u.property)
 
-/-- Disconnection is equivalent to the rigid exceptional family at order eighteen. -/
-public theorem connectivity_classification [Finite V] {H : SimpleGraph V}
-    (hn : Nat.card V = 18) (hH : IsRamseyGraph 4 5 H) :
-    ¬H.Connected ↔ IsDisconnectedNeighborhood H :=
-  ⟨disconnected_neighborhood_classification hn hH,
-    IsDisconnectedNeighborhood.not_connected⟩
+/-- Disconnection is equivalent to the rigid exceptional family at order 18. -/
+public theorem connectivity_classification [Finite V] (H : RamseyGraph 4 5 V)
+    (hn : Nat.card V = 18) : ¬H.graph.Connected ↔ IsDisconnectedNeighborhood H.graph :=
+  ⟨disconnected_neighborhood_classification H hn, IsDisconnectedNeighborhood.not_connected⟩
 
 /-- Disconnected neighborhoods have only the census edge slices `53..58`, `61` and `68`. -/
-public theorem disconnected_edge_slices [Finite V] {H : SimpleGraph V}
-    (hn : Nat.card V = 18) (hH : IsRamseyGraph 4 5 H) (hd : ¬H.Connected) :
-    (53 ≤ Nat.card H.edgeSet ∧ Nat.card H.edgeSet ≤ 58) ∨
-      Nat.card H.edgeSet = 61 ∨ Nat.card H.edgeSet = 68 := by
+public theorem disconnected_edge_slices [Finite V] (H : RamseyGraph 4 5 V)
+    (hn : Nat.card V = 18) (hd : ¬H.graph.Connected) :
+    (53 ≤ Nat.card H.graph.edgeSet ∧ Nat.card H.graph.edgeSet ≤ 58) ∨
+      Nat.card H.graph.edgeSet = 61 ∨ Nat.card H.graph.edgeSet = 68 := by
   obtain ⟨S, hlo, hhi, hclique, hcut, _, _, hcore, _⟩ :=
-    disconnected_neighborhood_classification hn hH hd
-  rcases exceptional_edge_slices H hn S hlo hhi hclique hcut hcore with h | h | h
+    disconnected_neighborhood_classification H hn hd
+  rcases exceptional_edge_slices H.graph hn S hlo hhi hclique hcut hcore with h | h | h
   · exact Or.inl h.2
   · exact Or.inr (Or.inl h.2)
   · exact Or.inr (Or.inr h.2)
 
-/-- At least sixty-nine edges force an eighteen-vertex `(4,5)`-Ramsey graph to be connected. -/
-public theorem connected_of_edge_ge_69 [Finite V] {H : SimpleGraph V}
-    (hn : Nat.card V = 18) (hH : IsRamseyGraph 4 5 H) (he : 69 ≤ Nat.card H.edgeSet) :
-    H.Connected := by
+/-- At least 69 edges force an 18-vertex `(4,5)`-Ramsey graph to be connected. -/
+public theorem connected_of_edge_ge_69 [Finite V] (H : RamseyGraph 4 5 V)
+    (hn : Nat.card V = 18) (he : 69 ≤ Nat.card H.graph.edgeSet) : H.graph.Connected := by
   by_contra hd
-  have := disconnected_edge_slices hn hH hd
+  have := disconnected_edge_slices H hn hd
   omega
 
-/-- A degree-eighteen neighborhood is connected exactly when it is not exceptional. -/
-public theorem degree18_connectivity_classification [Fintype V] {G : SimpleGraph V}
-    [DecidableRel G.Adj] (hG : IsRamseyGraph 5 5 G) (v : V) (hv : G.degree v = 18) :
-    ¬(G.induce (G.neighborSet v)).Connected ↔
-      IsDisconnectedNeighborhood (G.induce (G.neighborSet v)) := by
+/-- A degree-18 neighborhood is connected exactly when it is not exceptional. -/
+public theorem degree18_connectivity_classification [Fintype V] (G : RamseyGraph 5 5 V)
+    [DecidableRel G.graph.Adj] (v : V) (hv : G.graph.degree v = 18) :
+    ¬(G.graph.induce (G.graph.neighborSet v)).Connected ↔
+      IsDisconnectedNeighborhood (G.graph.induce (G.graph.neighborSet v)) := by
   apply connectivity_classification
-  · simpa only [Nat.card_eq_fintype_card, SimpleGraph.card_neighborSet_eq_degree] using hv
-  · exact isRamseyGraph_induce_neighborSet hG v
-
-/-- The sixty-nine-edge connectivity threshold applies to every degree-eighteen pivot. -/
-public theorem degree18_neighbor_connected_of_edge_ge_69 [Fintype V] {G : SimpleGraph V}
-    [DecidableRel G.Adj] (hG : IsRamseyGraph 5 5 G) (v : V) (hv : G.degree v = 18)
-    (he : 69 ≤ Nat.card (G.induce (G.neighborSet v)).edgeSet) :
-    (G.induce (G.neighborSet v)).Connected := by
-  apply connected_of_edge_ge_69 _ (isRamseyGraph_induce_neighborSet hG v) he
+    ⟨G.graph.induce (G.graph.neighborSet v), isRamseyGraph_induce_neighborSet G.ramsey v⟩
   simpa only [Nat.card_eq_fintype_card, SimpleGraph.card_neighborSet_eq_degree] using hv
 
-/-- Deficit at most sixteen is sufficient for connectivity of a degree-eighteen neighborhood. -/
-public theorem degree18_neighbor_connected_of_deficit_le_16 [Fintype V] {G : SimpleGraph V}
-    [DecidableRel G.Adj] (hG : IsRamseyGraph 5 5 G) (v : V) (hv : G.degree v = 18)
-    (hq : 85 - inducedEdgeCount G (G.neighborSet v) ≤ 16) :
-    (G.induce (G.neighborSet v)).Connected := by
-  apply degree18_neighbor_connected_of_edge_ge_69 hG v hv
-  change 69 ≤ inducedEdgeCount G (G.neighborSet v)
+/-- The 69-edge connectivity threshold applies to every degree-18 pivot. -/
+public theorem degree18_neighbor_connected_of_edge_ge_69 [Fintype V] (G : RamseyGraph 5 5 V)
+    [DecidableRel G.graph.Adj] (v : V) (hv : G.graph.degree v = 18)
+    (he : 69 ≤ Nat.card (G.graph.induce (G.graph.neighborSet v)).edgeSet) :
+    (G.graph.induce (G.graph.neighborSet v)).Connected := by
+  apply connected_of_edge_ge_69
+    ⟨G.graph.induce (G.graph.neighborSet v), isRamseyGraph_induce_neighborSet G.ramsey v⟩ _ he
+  simpa only [Nat.card_eq_fintype_card, SimpleGraph.card_neighborSet_eq_degree] using hv
+
+/-- Deficit at most 16 is sufficient for connectivity of a degree-18 neighborhood. -/
+public theorem degree18_neighbor_connected_of_deficit_le_16 [Fintype V] (G : RamseyGraph 5 5 V)
+    [DecidableRel G.graph.Adj] (v : V) (hv : G.graph.degree v = 18)
+    (hq : 85 - inducedEdgeCount G (G.graph.neighborSet v) ≤ 16) :
+    (G.graph.induce (G.graph.neighborSet v)).Connected := by
+  apply degree18_neighbor_connected_of_edge_ge_69 G v hv
+  change 69 ≤ inducedEdgeCount G (G.graph.neighborSet v)
   omega
 
-/-- Every degree-eighteen equality-frontier neighborhood is connected. -/
-public theorem degree18_frontier_neighbor_connected {G : SimpleGraph (Fin 43)}
-    [DecidableRel G.Adj] (hG : IsRamseyGraph 5 5 G) (v : Fin 43) (hv : G.degree v = 18)
-    (hx : crossEdgeCount G (G.neighborSet v) (antiNeighborSet G v) = 136) :
-    (G.induce (G.neighborSet v)).Connected := by
-  apply degree18_neighbor_connected_of_edge_ge_69 hG v hv
-  change 69 ≤ inducedEdgeCount G (G.neighborSet v)
-  rw [((degree18_frontier_iff hG v hv).mp hx).1]
+/-- Every degree-18 equality-frontier neighborhood is connected. -/
+public theorem degree18_frontier_neighbor_connected (G : RamseyGraph 5 5 (Fin 43))
+    [DecidableRel G.graph.Adj] (v : Fin 43) (hv : G.graph.degree v = 18)
+    (hx : crossEdgeCount G (G.graph.neighborSet v) (antiNeighborSet G v) = 136) :
+    (G.graph.induce (G.graph.neighborSet v)).Connected := by
+  apply degree18_neighbor_connected_of_edge_ge_69 G v hv
+  change 69 ≤ inducedEdgeCount G (G.graph.neighborSet v)
+  rw [((degree18_frontier_iff G.ramsey v hv).mp hx).1]
   omega
 
 end Ramsey.d18

@@ -146,6 +146,22 @@ There are now several conditions we can impose based on the structure of the row
 	$136 \leqslant \left| M \right| \leqslant 279$
 \end{theorem}
 
+\begin{theorem}[Neighborhood Edge Bounds]
+	$50 \leqslant e(G[A]) \leqslant 85$
+\end{theorem}
+
+\begin{theorem}[Anti-Neighborhood Edge Bounds]
+	$144 \leqslant e(G[B]) \leqslant 160$
+\end{theorem}
+
+\begin{theorem}[Neighborhood Degree Bounds]
+	$0 \leqslant d_A(u) \leqslant 13$
+\end{theorem}
+
+\begin{theorem}[Anti-Neighborhood Degree Bounds]
+	$10 \leqslant d_A(u) \leqslant 17$
+\end{theorem}
+
 \begin{theorem}[Row Multiplicity]
 	No row repeats more than twice.
 \end{theorem}
@@ -163,7 +179,8 @@ TODO
 There is a complete catalogue of $R(5, 4, 24)$ consisting of $352366$ unique maximal graphs up to isomorphism.
 Therefor every potential $G[B]$ is already established and once we have picked a pivot and an anti-neighborhood $B$,
 it remains to find (or exclude) any potential neighborhood $G[A]$ and cross adjacency matrix $M$.
-Since the number of edges in $M$ is upper bounded by $279$.
+
+The anti-neighborhood $G[B]$ is $K5$-free, $I5$-free and also $I4$-free, because otherwise it could be extended to an $I5$ in $G$.
 
 
 \section{AI Usage}

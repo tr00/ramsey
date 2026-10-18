@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-18",
+  "limits": [
+    "No MIP solver or solver-native LP parser was invoked.",
+    "No order-43 satisfiability or branch closure claim.",
+    "Only the selected catalogue graph was checked; catalogue completeness is not recertified."
+  ],
+  "scope": "Exact degree-18 fixed-B binary LP core; no strengthening, symmetry breaking, numerical branch exclusions, or solver execution.",
+  "sources": {
+    "scripts/fixed_b_mip.py": {
+      "sha256": "0826d6f87fb89cfcd520b5d48596630af3c3eb217f75ef192f50b2ed0c8cd486"
+    },
+    "src/ramsey.py": {
+      "sha256": "d6ccdd628281400a2a75ecc19213ee2ba5ae9cadf1ba28bd7d31d7c41cc32e2d"
+    },
+    "tests/test_fixed_b_mip.py": {
+      "sha256": "859c807c69eee1ba18cad5c6ef512f42c33ed9b8ed3af0e23b9e504d749a7737"
+    }
+  },
+  "task": "fixed-b-mip-20261018",
+  "temporary_models": "Removed after smoke verification; LP hash and generation metadata retained.",
+  "usage": [
+    "python3",
+    "scripts/fixed_b_mip.py",
+    "data/r45_24/b24.g6",
+    "--index",
+    "1",
+    "-o",
+    "/tmp/b1.lp"
+  ],
+  "verification": {
+    "all_lp_rows_parsed": 383580,
+    "binary_declarations": 585,
+    "estimated_lp_upper_bytes": 43364540,
+    "header_and_second_record_identical": true,
+    "invalid_B_preserves_existing_output": true,
+    "semantic_regression": "Exhaustive LP-feasibility versus full rooted graph checking for 5104 assignments across every valid B and A/B split of five nonpivot vertices.",
+    "smoke_command": [
+      "python3",
+      "scripts/fixed_b_mip.py",
+      "data/r45_24/b24.g6",
+      "--index",
+      "1",
+      "-o",
+      "/tmp/fixed-b-mip-smoke-heyqomby/b1.lp"
+    ],
+    "smoke_result": {
+      "b_edges": 152,
+      "b_graph6": "W~ze}yyfZbmshIQdOuyI|YXtUjdcydO]TlXdbofornoAXW~",
+      "bytes": 35105091,
+      "constraints": 383580,
+      "families": {
+        "I5_A": 8568,
+        "I5_A2_B3": 22644,
+        "I5_A3_B2": 101184,
+        "I5_A4_B1": 73440,
+        "K4_A": 3060,
+        "K5_A1_B4": 3222,
+        "K5_A2_B3": 47430,
+        "K5_A3_B2": 124032
+      },
+      "index": 1,
+      "input": "data/r45_24/b24.g6",
+      "output": "/tmp/fixed-b-mip-smoke-heyqomby/b1.lp",
+      "sha256": "29b0cc0c31677d4a1f8f82fdcc582858de6187a002f41e579ced0d1ae26e486e",
+      "variables": 585
+    },
+    "suite_command": "python3 -m unittest discover -s tests -v",
+    "suite_result": "PASS: 11 tests",
+    "temporary_free_bytes_before_generation": 581678051328
+  }
+}

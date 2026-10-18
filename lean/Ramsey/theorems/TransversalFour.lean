@@ -32,18 +32,18 @@ private theorem indepFree_induce (F : SimpleGraph V) {k : ℕ}
   rw [← SimpleGraph.cliqueFree_compl, heq, SimpleGraph.cliqueFree_induce_iff]
   exact fun t _ ↦ (SimpleGraph.cliqueFree_compl F).mpr hF t
 
-private theorem ramsey_card_lt [Fintype V] (F : SimpleGraph V) {r s R : ℕ}
-    (hR : RamseyUpperBound r s R) (hF : IsRamseyGraph r s F) :
-    Fintype.card V < R := by
+/-- A bundled Ramsey graph has order below any explicit Ramsey upper bound. -/
+private theorem ramsey_card_lt [Fintype V] {r s R : ℕ} (F : RamseyGraph r s V)
+    (hR : RamseyUpperBound r s R) : Fintype.card V < R := by
   by_contra! h
-  exact hR.not_isRamseyGraph (by simpa [Nat.card_eq_fintype_card] using h) F hF
+  exact hR.not_isRamseyGraph (by simpa [Nat.card_eq_fintype_card] using h) F.graph F.ramsey
 
-private theorem census_bound [Fintype V] (F : SimpleGraph V)
-    (hn : Fintype.card V = 15) (hF : IsRamseyGraph 4 4 F) :
-    50 ≤ Nat.card F.edgeSet := by
-  have hi := F.overFinIso hn
-  have h := edges_ramsey_4_4_15_ge_50 (F.overFin hn)
-    (isRamseyGraph_comap F (Fintype.equivFinOfCardEq hn).symm.toEmbedding hF)
+/-- The order-15 `(4,4)` census supplies the core edge lower bound. -/
+private theorem census_bound [Fintype V] (F : RamseyGraph 4 4 V)
+    (hn : Fintype.card V = 15) : 50 ≤ Nat.card F.graph.edgeSet := by
+  have hi := F.graph.overFinIso hn
+  have h := edges_ramsey_4_4_15_ge_50 (F.graph.overFin hn)
+    (isRamseyGraph_comap F.graph (Fintype.equivFinOfCardEq hn).symm.toEmbedding F.ramsey)
   have he := Nat.card_congr hi.mapEdgeSet
   rw [← he] at h
   exact_mod_cast h
@@ -90,7 +90,7 @@ private theorem nonneighbor_card_le [Fintype V] [DecidableEq V]
       have e' : t = b'.val := e
       exact b'.property.1 (e' ▸ ht)
     exact (SimpleGraph.cliqueFree_compl F).mpr hF _ hext
-  have h := ramsey_card_lt (F.induce A) ramsey_4_3_le_9 ⟨hc, hi⟩
+  have h := ramsey_card_lt ⟨F.induce A, hc, hi⟩ ramsey_4_3_le_9
   rw [Nat.card_eq_fintype_card]
   exact Nat.le_of_lt_succ h
 
@@ -157,8 +157,9 @@ theorem edge_lower_bound_of_three_transversal [Fintype V] [DecidableEq V]
     rw [heq, Finset.card_compl, hn, hcard]
   have hHcard : Fintype.card ↥((T : Set V)ᶜ) = 15 := by
     simpa only [Fintype.card_subtype, Set.mem_compl_iff, Finset.mem_coe] using hU
-  have hcore := census_bound (F.induce (T : Set V)ᶜ) hHcard
-    ⟨deleted_cliqueFree F T hT, indepFree_induce F hF _⟩
+  have hcore := census_bound
+    ⟨F.induce (T : Set V)ᶜ, deleted_cliqueFree F T hT, indepFree_induce F hF _⟩ hHcard
+  change 50 ≤ Nat.card (F.induce (T : Set V)ᶜ).edgeSet at hcore
   have hdegree : ∀ t : T, 7 ≤ Nat.card {u : V // u ∉ T ∧ F.Adj t u} := by
     intro t
     have hnon := nonneighbor_card_le F hF T hT t.property

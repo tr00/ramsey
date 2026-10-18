@@ -59,6 +59,8 @@ branches really use it. Otherwise it stays with its branch.
 - No other comments. Rare exceptions are allowed.
 - Comments use simple grammar. No semicolons and no em-dashes. Rare
   exceptions are allowed.
+- Always write numbers as digits, for example `18`, not `eighteen`, including
+  docstrings and comments.
 
 ## Links to markdown
 

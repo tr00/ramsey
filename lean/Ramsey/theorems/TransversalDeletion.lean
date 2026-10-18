@@ -230,9 +230,8 @@ theorem eighteen_complement_indep_transversal_card_ge_four
     4 ≤ T.card := by sorry
 
 /-- A `(4,5)`-free pivot complement with `68 + q` edges has this bound when `q ≤ 2`. -/
-theorem eighteen_pivot_indep_transversal_card_ge_four (A : SimpleGraph (Fin 18))
-    (hA : IsRamseyGraph 4 5 A) {q : ℤ} (hq : q ≤ 2)
-    (hEdges : (Nat.card Aᶜ.edgeSet : ℤ) = 68 + q)
+theorem eighteen_pivot_indep_transversal_card_ge_four (A : RamseyGraph 4 5 (Fin 18))
+    {q : ℤ} (hq : q ≤ 2) (hEdges : (Nat.card A.graphᶜ.edgeSet : ℤ) = 68 + q)
     (hR : RamseyUpperBound 4 3 9) (hL : RamseyEdgeLowerBound 15 4 4 50)
     (T : Finset (Fin 18)) (hT : IsIndepTransversal A 4 T) :
     4 ≤ T.card := by sorry

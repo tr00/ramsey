@@ -1,0 +1,67 @@
+{
+  "cleanup": "Temporary OPB model removed after verification.",
+  "date": "2026-10-18",
+  "encoding": "Clique sum <= k-1 becomes -sum >= 1-k. Independent-set sum >= 1 is unchanged. No objective, auxiliary variables, cuts, or symmetry restrictions.",
+  "format_reference": "third-party/roundingsat/InputFormats.md",
+  "limits": [
+    "No RoundingSat or other solver was invoked.",
+    "No order-43 satisfiability or nonexistence claim."
+  ],
+  "scope": "Replace LP output with linear OPB; exact Ramsey core unchanged. Historical LP report retained unchanged.",
+  "sources": {
+    "scripts/fixed_b_mip.py": {
+      "sha256": "4831e00d91804a119c5bd28f18156a43a08d3b4cd60433ca316aa23791734b78"
+    },
+    "tests/test_fixed_b_mip.py": {
+      "sha256": "b4b8b0917ae06d72565893c061666d46005fb7ee481835ac07a6784b28328b2d"
+    },
+    "third-party/roundingsat/InputFormats.md": {
+      "sha256": "df989d297e83da317d1541f0f6eda5cb4397435fa871c21f0be02610deee5d5f"
+    }
+  },
+  "task": "fixed-b-opb-20261018",
+  "variable_order": "x1..x153: lexicographic A edges; x154..x585: row-major cross edges; all 585 mappings in comments.",
+  "verification": {
+    "all_opb_constraints_parsed": 383580,
+    "estimated_upper_bytes": 33391460,
+    "free_temporary_bytes_before_generation": 581648793600,
+    "mapping_entries": 585,
+    "sample_inequalities": [
+      "-1 x1 -1 x2 -1 x3 -1 x18 -1 x19 -1 x34 >= -5;",
+      "-1 x1 -1 x2 -1 x4 -1 x18 -1 x20 -1 x35 >= -5;"
+    ],
+    "semantic_regression": "OPB feasibility agrees with full graph checker for all 5104 small rooted graph assignments. Header counts, variable IDs and mappings checked.",
+    "smoke_command": [
+      "python3",
+      "scripts/fixed_b_mip.py",
+      "data/r45_24/b24.g6",
+      "--index",
+      "1",
+      "-o",
+      "/tmp/fixed-b-opb-smoke-6nej2j0v/b1.opb"
+    ],
+    "smoke_result": {
+      "b_edges": 152,
+      "b_graph6": "W~ze}yyfZbmshIQdOuyI|YXtUjdcydO]TlXdbofornoAXW~",
+      "bytes": 28528160,
+      "constraints": 383580,
+      "families": {
+        "I5_A": 8568,
+        "I5_A2_B3": 22644,
+        "I5_A3_B2": 101184,
+        "I5_A4_B1": 73440,
+        "K4_A": 3060,
+        "K5_A1_B4": 3222,
+        "K5_A2_B3": 47430,
+        "K5_A3_B2": 124032
+      },
+      "index": 1,
+      "input": "data/r45_24/b24.g6",
+      "output": "/tmp/fixed-b-opb-smoke-6nej2j0v/b1.opb",
+      "sha256": "9cc14c9080257f9fdfe76803203b7a8e8a46d99aa09adb0ba9357fb15caf9bcd",
+      "variables": 585
+    },
+    "suite_command": "python3 -m unittest discover -s tests -v",
+    "suite_result": "PASS: 11 tests"
+  }
+}

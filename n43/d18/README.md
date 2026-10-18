@@ -34,7 +34,7 @@ Shared proof notes:
 - [Reviewed finite core caps and q=1 anchor through x167](sos_finite_moments.md)
 - [Reviewed order-twelve cap42 and six-set transversal threshold](sos_order12_addendum.md)
 - [Reviewed rational SOS on attachment-obligation graphs](sos_obligation_graphs.md)
-- [Reviewed cross-count upper bound x<=279 and omitted-row tail exclusions](independent_row_cuts.md)
+- [Reviewed cross-count upper bound x<=279 and omitted-row tail exclusions](independent_row_cuts.md) ([Lean proof](../../lean/Ramsey/d18/CrossEdgeBounds.lean))
 - [Reviewed weighted averaging](weighted_averaging.md)
 - [Reviewed anchored cells and corrected implication closure](anchored_cell_averaging.md)
 - [Reviewed overlapping-cell compatibility and dispersed attachment cuts across x](overlapping_cells.md)

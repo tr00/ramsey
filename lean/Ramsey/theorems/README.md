@@ -36,6 +36,9 @@ Shared graph definitions live in [defs/RamseyGraph.lean](../defs/RamseyGraph.lea
 and [defs/Transversals.lean](../defs/Transversals.lean). The packages above stay
 with their theorem topics. The root module re-exports both transversal modules,
 but the existing order-43 target does not use them.
+The Ramsey-specific declarations `eighteen_pivot_indep_transversal_card_ge_four`
+and `frontier_four_transversals_intersect` take a bundled `RamseyGraph`.
+Its `graph` and `ramsey` fields replace separate graph and Ramsey-proof arguments.
 
 [TransversalFour.lean](TransversalFour.lean) proves
 [`n43/d18/transversal_four.md`](../../../n43/d18/transversal_four.md): a

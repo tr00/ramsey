@@ -92,3 +92,10 @@
  Ramsey.edges_ramsey_4_5_18_le_85,
  Ramsey.ramsey_4_3_le_9,
  Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.degree18_cross_le_279' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_24_le_132,
+ Ramsey.ramsey_4_3_le_9,
+ Ramsey.ramsey_4_4_le_18,
+ Ramsey.ramsey_4_5_le_25]

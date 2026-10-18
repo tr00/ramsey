@@ -1,6 +1,6 @@
 # R(5,5) Search Results and Reduction Index
 
-Last updated: 2026-10-15
+Last updated: 2026-10-18
 
 This is the operational index for a future certified order-43 search. It
 collects:
@@ -981,7 +981,7 @@ Search use: exclude degree-count profiles, force extremal neighborhoods
 conditionally, and select a pivot by minimum E. No bound on h has been proved
 for the entire degree-18 branch, so these do not establish W<=10 globally.
 Detailed proofs: `n43/d18/excess_bounds.md`; status and arithmetic audit:
-`reports/degree18_excess_bounds.md`.
+[early excess-bounds session summary](../reports/early_session_reports.md#degree18-excess-bounds).
 
 ### 8.13 Reviewed x137..142 profiles and above-frontier deductions
 
@@ -1763,13 +1763,6 @@ proof or an explicitly admitted complete finite verification.
 - `n43/d18/pairwise_frontier_refinements.md`
 - `n43/d18/pairwise_pivot_refinements.md`
 - `docs/reproducibility.md`
-- `reports/mathematical_phase_1.md`
-- `reports/lemma_phase_2.md`
-- `reports/transversal_five_status.md`
-- `reports/frontier_band.md`
-- `reports/degree18_small_columns.md`
-- `reports/degree18_r4_exclusion.md`
-- `reports/degree18_cliques_augmentation.md`
-- `reports/degree18_pivot_classes.md`
-- `reports/degree18_excess_bounds.md`
+- `reports/early_session_reports.md` (consolidated 2026-10-13..14 session
+  summaries; supersedes the twelve former standalone stub reports)
 - `reports/2026-10-14-d18-pairwise-refinements.md`

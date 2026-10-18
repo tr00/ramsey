@@ -1,3 +1,9 @@
 [submodule "third-party/nauty"]
 	path = third-party/nauty
 	url = git@github.com:tr00/nauty.git
+[submodule "third-party/cadical"]
+	path = third-party/cadical
+	url = git@github.com:tr00/cadical.git
+[submodule "third-party/roundingsat"]
+	path = third-party/roundingsat
+	url = https://gitlab.com/MIAOresearch/software/roundingsat.git

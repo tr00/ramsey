@@ -7,6 +7,10 @@ Permitted use: the stated profile propagation and termination of x>=280,
 on the declared smaller Ramsey/global degree premises and e(B)>=144.
 The census-free intermediate bound is280. No x136 closure premise,
 formal exhaustion certificate, novelty claim, or full d18 exclusion is used.
+Lean formalization: [`Ramsey.d18.degree18_cross_le_279`](../../lean/Ramsey/d18/CrossEdgeBounds.lean)
+proves the actual degree-18 pivot bound. The supporting modules also prove the
+census-free tail count and both equality-profile exclusions. The reviewed body
+below remains unchanged.
 <!-- extension-research-integration:end -->
 
 # Independent-row cuts and the large-row tail

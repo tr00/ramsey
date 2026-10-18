@@ -29,3 +29,4 @@ import Ramsey
 #print axioms Ramsey.d18.degree18_connectivity_classification
 #print axioms Ramsey.d18.degree18_neighbor_connected_of_deficit_le_16
 #print axioms Ramsey.d18.degree18_frontier_neighbor_connected
+#print axioms Ramsey.d18.degree18_cross_le_279

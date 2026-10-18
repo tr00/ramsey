@@ -549,159 +549,16 @@ Therefore no hypothetical 43-vertex `(5,5)`-Ramsey graph is strongly regular.
 A regular candidate must have at least four distinct adjacency eigenvalues.
 Generic Hoffman and interlacing bounds are too weak to exclude it.
 
-## 9. Highest-value next lemmas
+## 9. Open proof targets
 
-Audited 2026-10-15 [general theorem synthesis](general_theorems/README.md)
-parameterizes safe augmentation, exact signatures and weighted anchors,
-transversal deletion/defects, weighted avoidance and compatibility,
-prescribed-family overlap and cut capacities. Every claim has an independent
-exact-revision review. The same-family overlap bound extends to degree19,20,21
-at order43, with thirteen roots giving codegree at most11,11,12 respectively.
-The [normalized minimum-degree20 application](../n43/min-degree20/pair_coverage.md)
-combines this with degree counts for complete pair-selection coverage:
-n20>=13 gives a degree20 edge of codegree<=11; otherwise n21>=20 gives a
-degree21 edge of codegree<=12. This needs no small-excess or neighborhood
-edge-census assumption, retains all overlap maps and completions, and closes
-no branch. The arbitrary even-pivot d20 scheme has different hypotheses.
-
-Reviewed pairwise integration (2026-10-14): the
-[d18 comparison](../n43/d18/pairwise_refinements.md) combines actual-column
-counts, vertex degrees, and independent-four anchors to exclude x136/r3.
-Together with the existing r4 exclusion, the live equality-frontier cases
-are r=0,1,2. Further accepted deductions sharpen r2 overlaps, give the
-general actual size-four member bound 9-q<=d_A<=11, constrain q1 safe
-augmentations by actual columns, and improve four-clique signature defects.
-Each linked claim has an exact-revision independent review and retains its
-external census premises. The x137/r4 conclusion is overlapping concurrent
-work, recorded as an independent cross-check. No global bound changes.
-
-The [reviewed pivot/excess pairings](../n43/d18/pairwise_pivot_refinements.md)
-also turn cut capacities into dense-family counts. At exact h3/W18 and
-h5/W30 they force 26 roots with at least 84 and 83 neighborhood edges,
-respectively, hence adjacent dense pairs. Cut-surplus profiles give additional
-conditional pointed pairs, and a maximum-edge degree-18 root has tighter x
-caps when W<=10. Dense-pair and small-overlap guarantees are separate, and
-no small h or W hypothesis has been proved for the unrestricted branch.
-
-Audited 2026-10-14 above-frontier continuation:
-[four-column stability](../n43/d18/four_column_stability.md) excludes r4 at
-x137, forces at least two exceptional columns for q0,r4 at x138..141,
-and forces small-column overlap for q0 through x142. At x142,q0 a single
-exception requires six unit-excess vertices inducing a triangle-free graph.
-[Actual size-three column analysis](../n43/d18/x142/q3/three_columns.md)
-proves that q3 and an actual size-three column require E_A>=14, hence x>=156.
-With the elementary lower bound of three, all x142 profiles therefore have
-columns of size at least four. The [transfer table](../n43/d18/transfer_bounds.md)
-extends adjacent-pivot bounds to x142 (11,10,9,9 by q) and actual union-ten
-pair and independent-triple tests. Exact-hash independent reviews accompany
-these necessary filters. No complete x branch closes; x>=143 remains needed
-for coverage, and no unconditional x<=142 bound is asserted.
-
-Conditional excess bounds: `degree18_excess_bounds.md` proves a high-degree
-cut obstruction. When exactly h=2,4,6,8,10 vertices have degree above 18,
-it gives W<=8,20,32,44,58, respectively. If all degree-18 neighborhoods have
-at most 84 edges, the first three bounds sharpen to 6,18,30. Weighted and
-unweighted cut averages select roots with small E; at exact h=1,2,3,4,5,6
-some root has E<=0,4,6,12,18,18. Small h also forces low-overlap adjacent
-degree-18 roots without assuming small W. No general bound on h is proved.
-The next extension is to use actual excess multiplicities and sharper
-constraints on the induced higher-degree graph in the cut inequality.
-
-Degree-18 classification: `degree18_pivot_classes.md` defines complete numerical
-root profiles, proves profile-dependent adjacent degree-18 overlap bounds,
-and gives conditional unavoidable pointed-pair families when the total global
-degree excess above 18 is at most ten. Its weighted root-class inequalities
-force dense adjacent families for excess two, four and six. It does not prove
-these excess bounds hold throughout the degree-18 branch.
-
-Further 2026-10-14 continuation: `degree18_cliques_augmentation.md` proves
-four-clique degree budgets and equality masks in B, classifies safe additions
-at a=84, and specifies root-selection inequalities transferring neighborhood
-edge bounds among degree-18 pivots.
-
-2026-10-14 continuation: `degree18_small_columns.md` proves joint size-four /
-size-five column bounds, exact small-column count budgets at x=136+k, and
-eight-vertex induced structure forced by nonadjacent size-five columns. These
-are full-interface necessary conditions, not an isolated tau>=5 theorem.
-
-Continuation: `frontier_band.md` extends x=136 to x=136+k, proves the
-census-dependent four-transversal bound throughout x=136,...,141, and records
-anchor defect identities and the clique restriction on size-four columns.
-
-Audited 2026-10-14 joint-column continuation: the
-[r2 closure](../n43/d18/x136/r2/README.md) covers every former s=4..7
-child, leaving only r=0,1 live at x136. Four-set I4-transversals have
-degrees9..11 and total degree38..40; no two are disjoint or meet in a
-singleton of degree10 or11 under the full frontier anchor assumptions.
-Size-five membership saturation closes s7; exact common-neighborhood
-rows and global nonedge codegree close the two-overlap s6 alternative;
-the final singleton theorem closes the residual s6. Exact independent
-reviews retain the published census premises. No full x136 exclusion is
-claimed, and the isolated universal transversal-five theorem remains open.
-
-Audited 2026-10-15 equality continuation: the
-[degree-eight anchor proof](../n43/d18/x136/five_column_compatibility.md)
-and its [independent review](../n43/d18/x136/review_five_column_compatibility_20261015_independent.md)
-exclude every four-set I4-transversal under the full actual x136 interface,
-closing r1 and leaving only r0:s8..10. Elementary triangle counts in a
-K4/I4-free remainder and its complement exclude small low-degree
-transversals. The total degree170 then forces an I4 entirely of degree-eight
-vertices. Every four-set transversal has degrees at least nine, so misses
-this anchor. Its24 column signatures are exactly twelve singletons in
-four triangle classes and twelve pairs, each anchor vertex occurring in
-six pair signatures. This is an unavoidable anchor with full selection
-and completion coverage required; it is not an isolated85-edge theorem.
-The published census premises remain explicit. The complete x136 and
-order43 branches remain open.
-
-The [dense-family continuation](../n43/d18/dense_pivot_coverage.md) proves
-that any thirteen degree-18 vertices contain an edge of codegree at most10
-inside that family. Conditional odd-h near-maximum excess families extend
-simultaneously dense endpoint coverage beyond W<=10, including h7/W42,
-h9/W54,h11/W66. The [symmetry note](../n43/d18/symmetry_reduction.md) now
-has an exact independent review of its multiset stabilizer, sorted-prefix
-coverage, multiplicity and orientation claims. Implemented exhaustive
-generation and certificate coverage remain separate obligations.
-
-The [independently audited symmetry continuation](../reports/2026-10-15-symmetry-audit.md)
-adds exact disjoint-swap stabilizers and two-root overlap-map quotients.
-Pair separation at least8 forces actual automorphism support at least10;
-order43 candidates and order24 antineighborhoods are prime, without a
-primeness assertion on order18 A. Frontier duplicate swaps have completed
-stabilizer at most4 through x141, while the candidate group remains larger.
-At x136 the accepted four odd singleton-anchor classes force at least4
-singleton complete signatures and p<=10, giving rooted restriction kernel
-at most2. Compatible colored overlap maps are classified by double cosets;
-their residual completion group includes both restriction kernels. Exact
-premise chains, reviewed revisions and certified-generation limits remain
-in the proof notes. No new branch closure or Ramsey bound follows.
-
-Audited 2026-10-15 [SDP/SOS theory continuation](../reports/2026-10-15-sos-theory.md)
-adds seventeen independently accepted claims. Any twelve degree-18 roots now
-force a same-family edge of codegree at most10, improving the threshold13.
-An exact excess/degree covariance SOS strengthens conditional dense-root and
-safe selected-root bounds. Complementary finite triangle slack and integrality
-give sufficient (4,4)-free edge caps36,42,48 at orders11,12,13. Actual disjoint
-anchors then force an independent four-set of A degrees at least8 whenever
-q=1,E_A<=29 (the fixed-q x138..167 strip), without excluding size-four columns
-there. Dispersed triple-witness Goodman squares constrain open column triples
-across x, while a rational eight-leaf attachment certificate exceeds the
-fractional-matching star test on that explicit obligation graph. Exact reviewed
-bodies, assumptions, hashes and permitted uses are in the branch-local notes.
-No complete x branch or global Ramsey bound changes; no uniform occurrence of
-the conditional patterns is proved.
-
-2026-10-17 [degree-18 extension continuation](../reports/2026-10-17-d18-extension-research.md):
-independently reviewed omitted-row capacities give s<=12-3t and7t+8s<=72
-for size-17/size-16 row counts t,s, hence x<=280 without a census. Excluding
-both equality profiles, the latter with the recorded e(B)>=144 premise,
-strengthens the bound to x<=279 for every degree-18 pivot. Fixed-B row
-capacity certificates avoid isolated A enumeration as a prerequisite; a
-same-family25-root occurrence theorem forces a nonadjacent pair with large
-opposite (4,4) cells or one exact four-root signature core. Full branch
-coverage and the exceptional core's exclusion remain unresolved. The user
-reports x136 closed with evidence outside this checkout; these new bounds
-do not depend on that closure, and older status text above is historical.
+The accumulated per-task status summaries that previously filled this
+section were removed on 2026-10-18: they duplicated the operational index
+and had grown stale (pre-migration file names, superseded x136
+r-partition status). Current statuses of every deduction live in the
+[reduction index](../n43/reductions.md), the
+[results dashboard](../results.md), the branch READMEs under `n43/`, the
+dated reports under `reports/`, and the
+[general theorem catalogue](general_theorems/README.md).
 
 The following are proof targets, not established facts:
 

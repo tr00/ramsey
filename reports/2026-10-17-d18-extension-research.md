@@ -192,3 +192,26 @@ in the new proofs, reviews and this report resolved (code notation excluded).
    no Lean files were changed in this research task.
 
 No result changes the global interval43<=R(5,5)<=46 or closes all of d18.
+
+## Subsequent Lean formalization
+
+The user-authorized Lean task formalizes the omitted-row upper bound in
+[`CrossEdgeBounds.lean`](../lean/Ramsey/d18/CrossEdgeBounds.lean), exported as
+`Ramsey.d18.degree18_cross_le_279`. Its hypotheses are an actual `(5,5)`-Ramsey
+graph on `Fin 43` and a degree-18 pivot. The supporting modules prove the
+census-free bound `x≤280`, both equality-profile exclusions, critical-core
+regularity, finite incidence identities and the required Turán bounds.
+This is a subsequent task, not a change to the reviewed research bodies or
+the original research manifest. No x136 closure or full d18 exclusion is used.
+The final theorem's external axioms are exactly `ramsey_4_3_le_9`,
+`ramsey_4_4_le_18`, `ramsey_4_5_le_25` and `edges_ramsey_4_5_24_le_132`,
+besides Lean's standard `propext`, `Classical.choice` and `Quot.sound`.
+The last input gives `e(B)≥144` by complementing. Neither the order-24
+lower census bound nor the `(3,5)` Ramsey premise enters this theorem.
+An importing consumer applies the theorem directly to the actual graph,
+and the public theorem and intermediate interfaces are in the axiom audit.
+Verification passed: `sh lean/scripts/check.sh` checked the project build,
+unchanged sorry ledger, style and exact axiom sets. A temporary consumer
+importing `Ramsey` applied the bound successfully and was removed. The reviewed
+independent-row proof body retains SHA-256
+`8cfd9375da0f8bc3afd0c7e7bf123fc829afde62a427514dec7c04c2bf8c04a0`.

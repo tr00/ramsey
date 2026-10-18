@@ -370,17 +370,16 @@ public theorem not_disjoint_of_degree_gaps
 
 /-- Claim 04, frontier specialization recovering the low-excess disjointness result. -/
 public theorem frontier_four_transversals_intersect
-    (G : SimpleGraph V) [DecidableRel G.Adj]
-    (horder : Nat.card V = 18) (hedges : Nat.card G.edgeSet = 85)
-    (hRamsey : IsRamseyGraph 4 5 G)
-    (hdegree : ∀ v, 6 ≤ (G.degree v : ℤ) ∧ (G.degree v : ℤ) ≤ 13)
-    (hanchor : ∀ I : Finset V, G.IsNIndepSet 4 I →
-      ∑ v ∈ I, (G.degree v : ℤ) ≤ 32)
+    (G : RamseyGraph 4 5 V) [DecidableRel G.graph.Adj]
+    (horder : Nat.card V = 18) (hedges : Nat.card G.graph.edgeSet = 85)
+    (hdegree : ∀ v, 6 ≤ (G.graph.degree v : ℤ) ∧ (G.graph.degree v : ℤ) ≤ 13)
+    (hanchor : ∀ I : Finset V, G.graph.IsNIndepSet 4 I →
+      ∑ v ∈ I, (G.graph.degree v : ℤ) ≤ 32)
     (htau : ∀ T : Finset V, IsIndepTransversal G 4 T → 4 ≤ T.card)
     (htransversalFloor : ∀ T : Finset V, IsSizedIndepTransversal G 4 4 T →
-      ∀ v ∈ T, 9 ≤ (G.degree v : ℤ))
+      ∀ v ∈ T, 9 ≤ (G.graph.degree v : ℤ))
     (htransversalSum : ∀ T : Finset V, IsSizedIndepTransversal G 4 4 T →
-      ∑ v ∈ T, (G.degree v : ℤ) ≤ 40)
+      ∑ v ∈ T, (G.graph.degree v : ℤ) ≤ 40)
     (hR34 : RamseyUpperBound 3 4 9)
     (T₁ T₂ : Finset V)
     (hT₁ : IsSizedIndepTransversal G 4 4 T₁) (hT₂ : IsSizedIndepTransversal G 4 4 T₂) :

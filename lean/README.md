@@ -33,7 +33,7 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/d20/Exclusion.lean` | d20 branch target `Ramsey.d20.excludes : ExcludesDegree 20` — deliberate `sorry`, mirrors `../n43/d20/`; arbitrary even-pivot d20, _not_ the normalized min-degree-20 scheme of `../n43/min-degree20/` |
 | `Ramsey/Endgame.lean` | Endgame glue `ramsey_5_5_eq_43`: order-43 exclusion + Exoo's 42-vertex witness ⇒ `ramseyNumber 5 5 = 43` |
 | `Ramsey/defs/Completeness.lean` | Enumeration completeness carrier `Complete S P` with premise-free glue lemmas (`mono`, `of_imp`, `sep`, `union`, `iUnion`, `cover`, `forall_not_of_eq_empty`); every branch states its obligation as a `Complete` proof |
-| `Ramsey/defs/RamseyGraph.lean` | Core vocabulary and premise-free transfer lemmas: `IsRamseyGraph`, `ramseyNumber`, explicit bound predicates `RamseyUpperBound` / `RamseyEdgeLowerBound` / `RamseyEdgeUpperBound`, balanced-clique definitions, and complement, embedding and induced-subgraph transfers (mirrors `../tex/core_definitions.tex`) |
+| `Ramsey/defs/RamseyGraph.lean` | Core vocabulary and premise-free transfer lemmas: bundled `RamseyGraph s t V`, predicate `IsRamseyGraph`, `ramseyNumber`, explicit bound predicates, balanced-clique definitions, and complement, embedding and induced-subgraph transfers |
 | `Ramsey/defs/Transversals.lean` | Pivot and transversal vocabulary: `antiNeighborSet` (`M(v)`), `crossEdgeSet` (`x = e(A,B)`), `rowSet` / `columnSet`, counting (`inducedEdgeCount`, `crossEdgeCount`, `degreeExcess`), rectangle predicates, set-family and transversal definitions, and the pivot partition lemma |
 | `Ramsey/theorems/TransversalDeletion.lean` | 17 unproved deletion statements with a shared `DeletionHypotheses` package, named thresholds/defects and named result fields; external edge bounds remain explicit |
 | `Ramsey/theorems/TransversalCompatibility.lean` | Proved avoidance and weighted criteria using separate `WeightOccupancy`/`ComplementExclusion` packages; degree compatibility and frontier intersection retain two deliberate `sorry`s |
@@ -43,6 +43,31 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/theorems/PivotCounting.lean` | General proved cross-edge counts, pivot degree sums and complement edge identity |
 | `Ramsey/d18/PivotBudget.lean` | Proved degree-18 edge intervals, deficit/excess identity, `136≤x≤288` and equality-frontier consequences; scoped hypotheses preserve existing theorem applications |
 | `Ramsey/d18/ConnectivityClassification.lean` | Proved exact disconnected-neighborhood family `K_m ⊔ C`, `m=1..3`, connected `(4,4)` core with independence number three, census edge slices, and connectivity for `a≥69`, `q≤16` and `x=136` |
+| `Ramsey/d18/CrossEdgeBounds.lean` | Single cross-edge module with public `Ramsey.d18.degree18_cross_le_279`. All row, incidence, critical-core and equality-profile support is private and used by this bound. No new axioms or sorries. |
+
+## Bundled Ramsey graphs
+
+`RamseyGraph s t V` packages `graph : SimpleGraph V` with
+`ramsey : IsRamseyGraph s t graph`. It coerces to its underlying simple graph.
+Construct a bundle with `⟨G, hG⟩` from an existing graph and its Ramsey proof.
+Connectivity APIs, the cross-edge upper bound and the 2 Ramsey-specific general
+transversal statements accept bundles instead of separate graph/proof arguments.
+One-sided graph hypotheses and predicate-based completeness interfaces retain
+their more general formulations.
+
+The final cross-edge interface is:
+
+```lean
+example (G : Ramsey.RamseyGraph 5 5 (Fin 43)) [DecidableRel G.graph.Adj]
+    (v : Fin 43) (hv : G.graph.degree v = 18) :
+    Ramsey.crossEdgeCount G.graph (G.graph.neighborSet v)
+      (Ramsey.antiNeighborSet G.graph v) ≤ 279 :=
+  Ramsey.d18.degree18_cross_le_279 G v hv
+```
+
+The former `CrossEdgeSupport`, `CrossEdgeTail`, `CrossEdgeSingle`,
+`CrossEdgeCores` and `CrossEdgeDouble` modules have been removed.
+Their internal lemmas are no longer part of the public API.
 
 ## Build
 

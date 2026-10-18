@@ -19,6 +19,7 @@ public import Ramsey.theorems.PivotInterface
 public import Ramsey.theorems.PivotCounting
 public import Ramsey.d18.PivotBudget
 public import Ramsey.d18.ConnectivityClassification
+public import Ramsey.d18.CrossEdgeBounds
 
 @[expose] public section
 

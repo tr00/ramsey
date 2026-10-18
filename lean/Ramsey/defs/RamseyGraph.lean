@@ -14,6 +14,7 @@ public import Mathlib.SetTheory.Cardinal.Finite
 Graph-level vocabulary shared by every branch of the R(5, 5) formalization:
 
 * `IsRamseyGraph s t G`: `G` has no `s`-clique and no independent `t`-set
+* `RamseyGraph s t V`: a graph bundled with its `(s,t)`-Ramsey property
 * `ramseyNumber s t`: the Ramsey number `R(s, t)`
 * explicit bound predicates `RamseyUpperBound`, `RamseyEdgeLowerBound` and
   `RamseyEdgeUpperBound`
@@ -38,6 +39,17 @@ set of size `t`. Mirrors "`G` in `R(s, t, n)`" from the informal mathematical
 baseline, with the order `n` supplied by the ambient type. -/
 @[expose] public def IsRamseyGraph (s t : ℕ) (G : SimpleGraph V) : Prop :=
   G.CliqueFree s ∧ G.IndepSetFree t
+
+/-- A graph bundled with the exclusion of `s`-cliques and independent `t`-sets. -/
+public structure RamseyGraph (s t : ℕ) (V : Type*) where
+  /-- The underlying simple graph. -/
+  graph : SimpleGraph V
+  /-- The clique and independence exclusions of the underlying graph. -/
+  ramsey : IsRamseyGraph s t graph
+
+/-- A bundled Ramsey graph can be used as its underlying simple graph. -/
+public instance {s t : ℕ} : CoeOut (RamseyGraph s t V) (SimpleGraph V) :=
+  ⟨RamseyGraph.graph⟩
 
 /-- The Ramsey number `R(s, t)`: the least `n` such that no `(s, t)`-Ramsey
 graph exists on exactly `n` vertices.
