@@ -1,20 +1,25 @@
 module
 
-public import Ramsey.Premises
-public import Ramsey.d18.PivotBudget
-public import Ramsey.defs.RootedRamseyGraph
+public import Ramsey.EvenPivot
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 public import Mathlib.Data.Set.Card
 public import Mathlib.SetTheory.Cardinal.NatCard
-public import Mathlib.Combinatorics.SimpleGraph.Sum
-public import Mathlib.Logic.Equiv.Set
 
 /-!
-# Connectivity classification for degree-18 neighborhoods
+# Connectivity classification and the d18 subcase split
 
 An 18-vertex `(4,5)`-Ramsey graph is connected unless it is the disjoint union
 of a clique of order 1, 2 or 3 and a connected `(4,4)`-Ramsey graph.
 The classification uses the published Ramsey upper bounds as named premises.
+
+The classification is refined by the exact complete-component order
+(`IsKNeighborhood k`, `isDisconnectedNeighborhood_iff`) and turned into the
+connectivity branching of the d18 case: `SubcaseBranch` indexes the four
+subcases, `ConnClass` and `KClass k` are their classes of 43-vertex graphs
+(stated instance-free through `deg`), `subcase_cover` covers the d18 pivot
+class, and `excludes_of_subcases` derives `Ramsey.ExcludesDegree 18` from the
+four subcase obligations `ExcludesSubcase b` by `Complete.cover` and
+`Complete.forall_not_of_eq_empty`.
 -/
 
 namespace Ramsey.d18
@@ -220,77 +225,6 @@ public theorem disconnected_neighborhood_classification [Finite V] (F : RamseyGr
   intro hf
   exact ramsey_4_3_le_9.not_isRamseyGraph (by omega) _ ⟨hramsey.1, hf⟩
 
-/-- An anticomplete clique contributes exactly its unordered vertex pairs to the edge count. -/
-private lemma edge_card_eq_choose_add_induce_compl [Finite V] (H : SimpleGraph V) (S : Set V)
-    (hclique : H.IsClique S)
-    (hanti : ∀ u, u ∈ S → ∀ w, w ∉ S → ¬ H.Adj u w) :
-    Nat.card H.edgeSet = (Nat.card S).choose 2 + Nat.card (H.induce Sᶜ).edgeSet := by
-  classical
-  let e : (H.induce S ⊕g H.induce Sᶜ) ≃g H :=
-    { toEquiv := Equiv.Set.sumCompl S
-      map_rel_iff' := by
-        rintro (u | u) (v | v)
-        · rfl
-        · simpa using hanti u.1 u.2 v.1 v.2
-        · simpa [SimpleGraph.adj_comm] using hanti v.1 v.2 u.1 u.2
-        · rfl }
-  have hcliqueEdges : Nat.card (H.induce S).edgeSet = (Nat.card S).choose 2 := by
-    rw [SimpleGraph.induce_eq_top.mpr hclique]
-    let : Fintype S := Fintype.ofFinite S
-    simpa only [Nat.card_eq_fintype_card, SimpleGraph.card_edgeSet] using
-      (SimpleGraph.card_edgeFinset_top_eq_card_choose_two (V := S))
-  calc
-    Nat.card H.edgeSet = Nat.card (H.induce S ⊕g H.induce Sᶜ).edgeSet :=
-      (Nat.card_congr e.mapEdgeSet).symm
-    _ = Nat.card ((H.induce S).edgeSet ⊕ (H.induce Sᶜ).edgeSet) :=
-      Nat.card_congr SimpleGraph.edgeSetSumEquiv
-    _ = Nat.card (H.induce S).edgeSet + Nat.card (H.induce Sᶜ).edgeSet := Nat.card_sum
-    _ = (Nat.card S).choose 2 + Nat.card (H.induce Sᶜ).edgeSet := by rw [hcliqueEdges]
-
-/-- The published `(4,4)` censuses give three disjoint edge slices for the exceptional shape. -/
-private lemma exceptional_edge_slices [Finite V] (H : SimpleGraph V) (hn : Nat.card V = 18) (S : Set V)
-    (hSlo : 1 ≤ Nat.card S) (hShi : Nat.card S ≤ 3) (hclique : H.IsClique S)
-    (hanti : ∀ u, u ∈ S → ∀ w, w ∉ S → ¬ H.Adj u w)
-    (hcore : IsRamseyGraph 4 4 (H.induce Sᶜ)) :
-    (Nat.card S = 3 ∧ 53 ≤ Nat.card H.edgeSet ∧ Nat.card H.edgeSet ≤ 58) ∨
-      (Nat.card S = 2 ∧ Nat.card H.edgeSet = 61) ∨
-      (Nat.card S = 1 ∧ Nat.card H.edgeSet = 68) := by
-  classical
-  have he := edge_card_eq_choose_add_induce_compl H S hclique hanti
-  have hpartition : Nat.card S + Nat.card ↥(Sᶜ) = 18 := by
-    calc
-      Nat.card S + Nat.card ↥(Sᶜ) = Nat.card (S ⊕ ↥(Sᶜ)) := Nat.card_sum.symm
-      _ = Nat.card V := Nat.card_congr (Equiv.Set.sumCompl S)
-      _ = 18 := hn
-  have hsize : Nat.card S = 3 ∨ Nat.card S = 2 ∨ Nat.card S = 1 := by omega
-  rcases hsize with h3 | h2 | h1
-  · left
-    have horder : Nat.card ↥(Sᶜ) = 15 := by omega
-    have hlo : 50 ≤ Nat.card (H.induce Sᶜ).edgeSet := by
-      exact_mod_cast edges_ramsey_4_4_15_ge_50.on_finite_type horder _ hcore
-    have hhi : Nat.card (H.induce Sᶜ).edgeSet ≤ 55 := by
-      exact_mod_cast edges_ramsey_4_4_15_le_55.on_finite_type horder _ hcore
-    rw [h3, show Nat.choose 3 2 = 3 by decide] at he
-    exact ⟨h3, by omega, by omega⟩
-  · right
-    left
-    have horder : Nat.card ↥(Sᶜ) = 16 := by omega
-    have hlo : 60 ≤ Nat.card (H.induce Sᶜ).edgeSet := by
-      exact_mod_cast edges_ramsey_4_4_16_ge_60.on_finite_type horder _ hcore
-    have hhi : Nat.card (H.induce Sᶜ).edgeSet ≤ 60 := by
-      exact_mod_cast edges_ramsey_4_4_16_le_60.on_finite_type horder _ hcore
-    rw [h2, show Nat.choose 2 2 = 1 by decide] at he
-    exact ⟨h2, by omega⟩
-  · right
-    right
-    have horder : Nat.card ↥(Sᶜ) = 17 := by omega
-    have hlo : 68 ≤ Nat.card (H.induce Sᶜ).edgeSet := by
-      exact_mod_cast edges_ramsey_4_4_17_ge_68.on_finite_type horder _ hcore
-    have hhi : Nat.card (H.induce Sᶜ).edgeSet ≤ 68 := by
-      exact_mod_cast edges_ramsey_4_4_17_le_68.on_finite_type horder _ hcore
-    rw [h1, show Nat.choose 1 2 = 0 by decide] at he
-    exact ⟨h1, by omega⟩
-
 /-- Every member of the exceptional family is disconnected. -/
 public theorem IsDisconnectedNeighborhood.not_connected [Finite V] {H : SimpleGraph V}
     (hH : IsDisconnectedNeighborhood H) : ¬H.Connected := by
@@ -316,56 +250,112 @@ public theorem connectivity_classification [Finite V] (H : RamseyGraph 4 5 V)
     (hn : Nat.card V = 18) : ¬H.graph.Connected ↔ IsDisconnectedNeighborhood H.graph :=
   ⟨disconnected_neighborhood_classification H hn, IsDisconnectedNeighborhood.not_connected⟩
 
-/-- Disconnected neighborhoods have only the census edge slices `53..58`, `61` and `68`. -/
-public theorem disconnected_edge_slices [Finite V] (H : RamseyGraph 4 5 V)
-    (hn : Nat.card V = 18) (hd : ¬H.graph.Connected) :
-    (53 ≤ Nat.card H.graph.edgeSet ∧ Nat.card H.graph.edgeSet ≤ 58) ∨
-      Nat.card H.graph.edgeSet = 61 ∨ Nat.card H.graph.edgeSet = 68 := by
-  obtain ⟨S, hlo, hhi, hclique, hcut, _, _, hcore, _⟩ :=
-    disconnected_neighborhood_classification H hn hd
-  rcases exceptional_edge_slices H.graph hn S hlo hhi hclique hcut hcore with h | h | h
-  · exact Or.inl h.2
-  · exact Or.inr (Or.inl h.2)
-  · exact Or.inr (Or.inr h.2)
+/-- The exceptional disconnected-neighborhood shape with the complete
+component of order exactly `k`. -/
+@[expose] public def IsKNeighborhood (k : ℕ) (H : SimpleGraph V) : Prop :=
+  ∃ S : Set V, Nat.card S = k ∧ H.IsClique S ∧
+    (∀ u ∈ S, ∀ w ∉ S, ¬H.Adj u w) ∧
+    Nat.card S + Nat.card ↥Sᶜ = 18 ∧
+    (H.induce Sᶜ).Connected ∧ IsRamseyGraph 4 4 (H.induce Sᶜ) ∧
+    ¬(H.induce Sᶜ).IndepSetFree 3
 
-/-- At least 69 edges force an 18-vertex `(4,5)`-Ramsey graph to be connected. -/
-public theorem connected_of_edge_ge_69 [Finite V] (H : RamseyGraph 4 5 V)
-    (hn : Nat.card V = 18) (he : 69 ≤ Nat.card H.graph.edgeSet) : H.graph.Connected := by
-  by_contra hd
-  have := disconnected_edge_slices H hn hd
-  omega
+/-- The exceptional family is exactly the union of the order-1, order-2 and
+order-3 complete-component families. -/
+public theorem isDisconnectedNeighborhood_iff {H : SimpleGraph V} :
+    IsDisconnectedNeighborhood H ↔
+      IsKNeighborhood 1 H ∨ IsKNeighborhood 2 H ∨ IsKNeighborhood 3 H := by
+  constructor
+  · rintro ⟨S, hlo, hhi, hclique, hcut, hsum, hconn, hcore, hfree⟩
+    rcases (show Nat.card S = 1 ∨ Nat.card S = 2 ∨ Nat.card S = 3 by omega) with h | h | h
+    · exact Or.inl ⟨S, h, hclique, hcut, hsum, hconn, hcore, hfree⟩
+    · exact Or.inr (Or.inl ⟨S, h, hclique, hcut, hsum, hconn, hcore, hfree⟩)
+    · exact Or.inr (Or.inr ⟨S, h, hclique, hcut, hsum, hconn, hcore, hfree⟩)
+  · rintro (⟨S, hs, hclique, hcut, hsum, hconn, hcore, hfree⟩ |
+      ⟨S, hs, hclique, hcut, hsum, hconn, hcore, hfree⟩ |
+      ⟨S, hs, hclique, hcut, hsum, hconn, hcore, hfree⟩)
+    · exact ⟨S, by omega, by omega, hclique, hcut, hsum, hconn, hcore, hfree⟩
+    · exact ⟨S, by omega, by omega, hclique, hcut, hsum, hconn, hcore, hfree⟩
+    · exact ⟨S, by omega, by omega, hclique, hcut, hsum, hconn, hcore, hfree⟩
 
-/-- A degree-18 neighborhood is connected exactly when it is not exceptional. -/
-public theorem degree18_connectivity_classification [Fintype V] (R : RootedRamseyGraph 5 5 V)
-    [DecidableRel R.graph.Adj] (hv : R.graph.degree R.pivot = 18) :
-    ¬R.neighborhood.graph.Connected ↔ IsDisconnectedNeighborhood R.neighborhood.graph := by
-  apply connectivity_classification R.neighborhood
-  simpa only [R.card_A] using hv
+/-- The four connectivity subcases of the d18 branch: the connected
+neighborhood and the three disconnected shapes. -/
+public inductive SubcaseBranch : Type
+  | conn | k1 | k2 | k3
 
-/-- The 69-edge connectivity threshold applies to every degree-18 pivot. -/
-public theorem degree18_neighbor_connected_of_edge_ge_69 [Fintype V]
-    (R : RootedRamseyGraph 5 5 V) [DecidableRel R.graph.Adj]
-    (hv : R.graph.degree R.pivot = 18) (he : 69 ≤ Nat.card R.neighborhood.graph.edgeSet) :
-    R.neighborhood.graph.Connected := by
-  apply connected_of_edge_ge_69 R.neighborhood _ he
-  simpa only [R.card_A] using hv
+/-- The connected subcase class: 43-vertex `(5,5)`-Ramsey graphs with a
+degree-18 pivot whose neighborhood is connected. -/
+@[expose] public def ConnClass (G : SimpleGraph (Fin 43)) : Prop :=
+  IsRamseyGraph 5 5 G ∧ ∃ v : Fin 43, deg G v = 18 ∧
+    (G.induce (G.neighborSet v)).Connected
 
-/-- Deficit at most 16 is sufficient for connectivity of a degree-18 neighborhood. -/
-public theorem degree18_neighbor_connected_of_deficit_le_16 [Fintype V]
-    (R : RootedRamseyGraph 5 5 V) [DecidableRel R.graph.Adj]
-    (hv : R.graph.degree R.pivot = 18) (hq : 85 - inducedEdgeCount R.graph R.A ≤ 16) :
-    R.neighborhood.graph.Connected := by
-  apply degree18_neighbor_connected_of_edge_ge_69 R hv
-  change 69 ≤ inducedEdgeCount R.graph R.A
-  omega
+/-- The disconnected subcase class for complete-component order `k`:
+43-vertex `(5,5)`-Ramsey graphs with a degree-18 pivot whose neighborhood
+has the exceptional shape with complete component of order `k`. -/
+@[expose] public def KClass (k : ℕ) (G : SimpleGraph (Fin 43)) : Prop :=
+  IsRamseyGraph 5 5 G ∧ ∃ v : Fin 43, deg G v = 18 ∧
+    IsKNeighborhood k (G.induce (G.neighborSet v))
 
-/-- Every degree-18 equality-frontier neighborhood is connected. -/
-public theorem degree18_frontier_neighbor_connected (R : RootedRamseyGraph 5 5 (Fin 43))
-    [DecidableRel R.graph.Adj] (hv : R.graph.degree R.pivot = 18)
-    (hx : crossEdgeCount R.graph R.A R.B = 136) : R.neighborhood.graph.Connected := by
-  apply degree18_neighbor_connected_of_edge_ge_69 R hv
-  change 69 ≤ inducedEdgeCount R.graph R.A
-  rw [((degree18_frontier_iff R hv).mp hx).1]
-  omega
+/-- The subcase class of a branch. -/
+public def SubcaseClass : SubcaseBranch → SimpleGraph (Fin 43) → Prop
+  | .conn => ConnClass
+  | .k1 => KClass 1
+  | .k2 => KClass 2
+  | .k3 => KClass 3
+
+/-- The enumeration set of each subcase branch: the empty set, since the
+obligation of every subcase is the refutation of its class. -/
+public def SubcaseSet : SubcaseBranch → Set (SimpleGraph (Fin 43))
+  | _ => ∅
+
+/-- Every subcase enumeration set is empty. -/
+public theorem subcaseSet_eq_empty (b : SubcaseBranch) : SubcaseSet b = ∅ := by
+  cases b <;> rfl
+
+/-- Branch obligation of subcase `b`: the empty enumeration completely
+enumerates the subcase class, so no graph of the class exists. -/
+public abbrev ExcludesSubcase (b : SubcaseBranch) : Prop :=
+  Complete (SubcaseSet b) (SubcaseClass b)
+
+/-- The connectivity split covers the d18 pivot class: every 43-vertex
+`(5,5)`-Ramsey graph with a vertex of degree 18 has, at that vertex, the
+connected neighborhood shape or one of the three exceptional shapes. -/
+public theorem subcase_cover (G : SimpleGraph (Fin 43)) (hG : IsRamseyGraph 5 5 G)
+    {v : Fin 43} (hv : deg G v = 18) : ∃ b : SubcaseBranch, SubcaseClass b G := by
+  classical
+  have hn : Nat.card ↥(G.neighborSet v) = 18 := hv
+  have hN : IsRamseyGraph 4 5 (G.induce (G.neighborSet v)) :=
+    isRamseyGraph_induce_neighborSet hG v
+  by_cases hconn : (G.induce (G.neighborSet v)).Connected
+  · exact ⟨.conn, hG, v, hv, hconn⟩
+  · have hdisc : IsDisconnectedNeighborhood (G.induce (G.neighborSet v)) :=
+      (connectivity_classification
+        (⟨G.induce (G.neighborSet v), hN⟩ : RamseyGraph 4 5 ↥(G.neighborSet v)) hn).mp hconn
+    rcases isDisconnectedNeighborhood_iff.mp hdisc with h1 | h2 | h3
+    · exact ⟨.k1, hG, v, hv, h1⟩
+    · exact ⟨.k2, hG, v, hv, h2⟩
+    · exact ⟨.k3, hG, v, hv, h3⟩
+
+/-- The d18 branch obligation follows from the four subcase obligations: the
+subcase classes cover the d18 class, every subcase enumeration is empty, and
+`Complete.forall_not_of_eq_empty` refutes the class. -/
+public theorem excludes_of_subcases (hc : ExcludesSubcase .conn)
+    (h1 : ExcludesSubcase .k1) (h2 : ExcludesSubcase .k2)
+    (h3 : ExcludesSubcase .k3) : ExcludesDegree 18 := by
+  have hbranch : ∀ b : SubcaseBranch, ExcludesSubcase b := by
+    intro b
+    cases b with
+    | conn => exact hc
+    | k1 => exact h1
+    | k2 => exact h2
+    | k3 => exact h3
+  have hcover : Complete (⋃ b : SubcaseBranch, SubcaseSet b)
+      (fun G : SimpleGraph (Fin 43) ↦
+        IsRamseyGraph 5 5 G ∧ ∃ v : Fin 43, deg G v = 18) :=
+    Complete.cover hbranch fun G hG ↦ by
+      obtain ⟨v, hv⟩ := hG.2
+      exact subcase_cover G hG.1 hv
+  have hempty : (⋃ b : SubcaseBranch, SubcaseSet b) = ∅ := by
+    simp [subcaseSet_eq_empty]
+  exact fun G hG ↦ hcover.forall_not_of_eq_empty hempty G hG
 
 end Ramsey.d18

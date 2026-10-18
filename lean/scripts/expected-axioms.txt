@@ -1,4 +1,9 @@
-'Ramsey.R_5_5_43' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound, Ramsey.ramsey_4_5_le_25]
+'Ramsey.R_5_5_43' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_3_le_9,
+ Ramsey.ramsey_4_5_le_25]
 'Ramsey.ramseyNumber_5_5_le_43_of_d18_d20' depends on axioms: [propext,
  Classical.choice,
  Quot.sound,
@@ -46,52 +51,6 @@
  Classical.choice,
  Quot.sound,
  Ramsey.ramsey_4_3_le_9]
-'Ramsey.d18.disconnected_edge_slices' depends on axioms: [propext,
- Classical.choice,
- Quot.sound,
- Ramsey.edges_ramsey_4_4_15_ge_50,
- Ramsey.edges_ramsey_4_4_15_le_55,
- Ramsey.edges_ramsey_4_4_16_ge_60,
- Ramsey.edges_ramsey_4_4_16_le_60,
- Ramsey.edges_ramsey_4_4_17_ge_68,
- Ramsey.edges_ramsey_4_4_17_le_68,
- Ramsey.ramsey_4_3_le_9]
-'Ramsey.d18.connected_of_edge_ge_69' depends on axioms: [propext,
- Classical.choice,
- Quot.sound,
- Ramsey.edges_ramsey_4_4_15_ge_50,
- Ramsey.edges_ramsey_4_4_15_le_55,
- Ramsey.edges_ramsey_4_4_16_ge_60,
- Ramsey.edges_ramsey_4_4_16_le_60,
- Ramsey.edges_ramsey_4_4_17_ge_68,
- Ramsey.edges_ramsey_4_4_17_le_68,
- Ramsey.ramsey_4_3_le_9]
-'Ramsey.d18.degree18_connectivity_classification' depends on axioms: [propext,
- Classical.choice,
- Quot.sound,
- Ramsey.ramsey_4_3_le_9]
-'Ramsey.d18.degree18_neighbor_connected_of_deficit_le_16' depends on axioms: [propext,
- Classical.choice,
- Quot.sound,
- Ramsey.edges_ramsey_4_4_15_ge_50,
- Ramsey.edges_ramsey_4_4_15_le_55,
- Ramsey.edges_ramsey_4_4_16_ge_60,
- Ramsey.edges_ramsey_4_4_16_le_60,
- Ramsey.edges_ramsey_4_4_17_ge_68,
- Ramsey.edges_ramsey_4_4_17_le_68,
- Ramsey.ramsey_4_3_le_9]
-'Ramsey.d18.degree18_frontier_neighbor_connected' depends on axioms: [propext,
- Classical.choice,
- Quot.sound,
- Ramsey.edges_ramsey_4_4_15_ge_50,
- Ramsey.edges_ramsey_4_4_15_le_55,
- Ramsey.edges_ramsey_4_4_16_ge_60,
- Ramsey.edges_ramsey_4_4_16_le_60,
- Ramsey.edges_ramsey_4_4_17_ge_68,
- Ramsey.edges_ramsey_4_4_17_le_68,
- Ramsey.edges_ramsey_4_5_18_le_85,
- Ramsey.ramsey_4_3_le_9,
- Ramsey.ramsey_4_5_le_25]
 'Ramsey.d18.degree18_cross_le_279' depends on axioms: [propext,
  Classical.choice,
  Quot.sound,
@@ -99,3 +58,6 @@
  Ramsey.ramsey_4_3_le_9,
  Ramsey.ramsey_4_4_le_18,
  Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.isDisconnectedNeighborhood_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.d18.subcase_cover' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.excludes_of_subcases' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_3_le_9]

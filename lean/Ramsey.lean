@@ -10,6 +10,10 @@ public import Ramsey.D18
 public import Ramsey.EvenPivot
 public import Ramsey.Premises
 public import Ramsey.d18.Exclusion
+public import Ramsey.d18.c.Exclusion
+public import Ramsey.d18.k1.Exclusion
+public import Ramsey.d18.k2.Exclusion
+public import Ramsey.d18.k3.Exclusion
 public import Ramsey.d20.Exclusion
 public import Ramsey.Endgame
 public import Ramsey.theorems.TransversalDeletion

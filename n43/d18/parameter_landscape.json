@@ -1,0 +1,1297 @@
+{
+  "domain": {
+    "E_max_formula": "min(108,143-2*q)",
+    "E_min": 0,
+    "integer_cells": 3600,
+    "q_max": 35,
+    "q_min": 0
+  },
+  "effective_scope": "Effective degree is w=d_A-epsilon=17-d_B; effective and column floors use the actual 43-vertex rooted interface.",
+  "meaning": "Structural lower bounds over an outer parameter envelope, not feasible graph classifications.",
+  "null_meaning": "No point-avoidance conclusion; zero is not used for this field.",
+  "positive_excess_support_corollary": "At q=0, support(epsilon|A) of size at most one forces every column size at least five, for any allowed excess on that support.",
+  "pure_graph_scope": "Internal and point-avoiding anchor floors apply to every K4/I5-free A on 18 vertices with e(A)=85-q; no E_A restriction.",
+  "reported_x136_closure": "User-reported closed; integration pending. This map does not reconstruct or use that closure.",
+  "review_state": "ready; independently unreviewed",
+  "rows": [
+    {
+      "A_edges": 85,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 1,
+          "E_min": 0,
+          "floor": 5
+        },
+        {
+          "E_max": 108,
+          "E_min": 2,
+          "floor": 4
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 1,
+          "E_min": 0,
+          "floor": 8
+        },
+        {
+          "E_max": 9,
+          "E_min": 2,
+          "floor": 7
+        },
+        {
+          "E_max": 15,
+          "E_min": 10,
+          "floor": 6
+        },
+        {
+          "E_max": 19,
+          "E_min": 16,
+          "floor": 5
+        },
+        {
+          "E_max": 23,
+          "E_min": 20,
+          "floor": 4
+        },
+        {
+          "E_max": 34,
+          "E_min": 24,
+          "floor": 3
+        },
+        {
+          "E_max": 108,
+          "E_min": 35,
+          "floor": 2
+        }
+      ],
+      "internal_anchor_floor": 8,
+      "point_avoiding_internal_anchor_floor": 8,
+      "q": 0,
+      "x_max": 244,
+      "x_min": 136
+    },
+    {
+      "A_edges": 84,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 4
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 0,
+          "E_min": 0,
+          "floor": 8
+        },
+        {
+          "E_max": 8,
+          "E_min": 1,
+          "floor": 7
+        },
+        {
+          "E_max": 13,
+          "E_min": 9,
+          "floor": 6
+        },
+        {
+          "E_max": 17,
+          "E_min": 14,
+          "floor": 5
+        },
+        {
+          "E_max": 21,
+          "E_min": 18,
+          "floor": 4
+        },
+        {
+          "E_max": 29,
+          "E_min": 22,
+          "floor": 3
+        },
+        {
+          "E_max": 101,
+          "E_min": 30,
+          "floor": 2
+        },
+        {
+          "E_max": 108,
+          "E_min": 102,
+          "floor": 1
+        }
+      ],
+      "internal_anchor_floor": 8,
+      "point_avoiding_internal_anchor_floor": 7,
+      "q": 1,
+      "x_max": 246,
+      "x_min": 138
+    },
+    {
+      "A_edges": 83,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 4
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 7,
+          "E_min": 0,
+          "floor": 7
+        },
+        {
+          "E_max": 12,
+          "E_min": 8,
+          "floor": 6
+        },
+        {
+          "E_max": 16,
+          "E_min": 13,
+          "floor": 5
+        },
+        {
+          "E_max": 20,
+          "E_min": 17,
+          "floor": 4
+        },
+        {
+          "E_max": 28,
+          "E_min": 21,
+          "floor": 3
+        },
+        {
+          "E_max": 47,
+          "E_min": 29,
+          "floor": 2
+        },
+        {
+          "E_max": 108,
+          "E_min": 48,
+          "floor": 1
+        }
+      ],
+      "internal_anchor_floor": 7,
+      "point_avoiding_internal_anchor_floor": 7,
+      "q": 2,
+      "x_max": 248,
+      "x_min": 140
+    },
+    {
+      "A_edges": 82,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 13,
+          "E_min": 0,
+          "floor": 4
+        },
+        {
+          "E_max": 108,
+          "E_min": 14,
+          "floor": 3
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 6,
+          "E_min": 0,
+          "floor": 7
+        },
+        {
+          "E_max": 11,
+          "E_min": 7,
+          "floor": 6
+        },
+        {
+          "E_max": 15,
+          "E_min": 12,
+          "floor": 5
+        },
+        {
+          "E_max": 19,
+          "E_min": 16,
+          "floor": 4
+        },
+        {
+          "E_max": 23,
+          "E_min": 20,
+          "floor": 3
+        },
+        {
+          "E_max": 41,
+          "E_min": 24,
+          "floor": 2
+        },
+        {
+          "E_max": 108,
+          "E_min": 42,
+          "floor": 1
+        }
+      ],
+      "internal_anchor_floor": 7,
+      "point_avoiding_internal_anchor_floor": 7,
+      "q": 3,
+      "x_max": 250,
+      "x_min": 142
+    },
+    {
+      "A_edges": 81,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 3
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 5,
+          "E_min": 0,
+          "floor": 7
+        },
+        {
+          "E_max": 10,
+          "E_min": 6,
+          "floor": 6
+        },
+        {
+          "E_max": 14,
+          "E_min": 11,
+          "floor": 5
+        },
+        {
+          "E_max": 17,
+          "E_min": 15,
+          "floor": 4
+        },
+        {
+          "E_max": 22,
+          "E_min": 18,
+          "floor": 3
+        },
+        {
+          "E_max": 40,
+          "E_min": 23,
+          "floor": 2
+        },
+        {
+          "E_max": 108,
+          "E_min": 41,
+          "floor": 1
+        }
+      ],
+      "internal_anchor_floor": 7,
+      "point_avoiding_internal_anchor_floor": 7,
+      "q": 4,
+      "x_max": 252,
+      "x_min": 144
+    },
+    {
+      "A_edges": 80,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 3
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 4,
+          "E_min": 0,
+          "floor": 7
+        },
+        {
+          "E_max": 9,
+          "E_min": 5,
+          "floor": 6
+        },
+        {
+          "E_max": 12,
+          "E_min": 10,
+          "floor": 5
+        },
+        {
+          "E_max": 15,
+          "E_min": 13,
+          "floor": 4
+        },
+        {
+          "E_max": 21,
+          "E_min": 16,
+          "floor": 3
+        },
+        {
+          "E_max": 35,
+          "E_min": 22,
+          "floor": 2
+        },
+        {
+          "E_max": 108,
+          "E_min": 36,
+          "floor": 1
+        }
+      ],
+      "internal_anchor_floor": 7,
+      "point_avoiding_internal_anchor_floor": 7,
+      "q": 5,
+      "x_max": 254,
+      "x_min": 146
+    },
+    {
+      "A_edges": 79,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 3
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 3,
+          "E_min": 0,
+          "floor": 7
+        },
+        {
+          "E_max": 8,
+          "E_min": 4,
+          "floor": 6
+        },
+        {
+          "E_max": 11,
+          "E_min": 9,
+          "floor": 5
+        },
+        {
+          "E_max": 14,
+          "E_min": 12,
+          "floor": 4
+        },
+        {
+          "E_max": 17,
+          "E_min": 15,
+          "floor": 3
+        },
+        {
+          "E_max": 29,
+          "E_min": 18,
+          "floor": 2
+        },
+        {
+          "E_max": 108,
+          "E_min": 30,
+          "floor": 1
+        }
+      ],
+      "internal_anchor_floor": 7,
+      "point_avoiding_internal_anchor_floor": 6,
+      "q": 6,
+      "x_max": 256,
+      "x_min": 148
+    },
+    {
+      "A_edges": 78,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 3
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 2,
+          "E_min": 0,
+          "floor": 7
+        },
+        {
+          "E_max": 7,
+          "E_min": 3,
+          "floor": 6
+        },
+        {
+          "E_max": 10,
+          "E_min": 8,
+          "floor": 5
+        },
+        {
+          "E_max": 13,
+          "E_min": 11,
+          "floor": 4
+        },
+        {
+          "E_max": 16,
+          "E_min": 14,
+          "floor": 3
+        },
+        {
+          "E_max": 23,
+          "E_min": 17,
+          "floor": 2
+        },
+        {
+          "E_max": 108,
+          "E_min": 24,
+          "floor": 1
+        }
+      ],
+      "internal_anchor_floor": 7,
+      "point_avoiding_internal_anchor_floor": 6,
+      "q": 7,
+      "x_max": 258,
+      "x_min": 150
+    },
+    {
+      "A_edges": 77,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 2
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 1,
+          "E_min": 0,
+          "floor": 7
+        },
+        {
+          "E_max": 6,
+          "E_min": 2,
+          "floor": 6
+        },
+        {
+          "E_max": 9,
+          "E_min": 7,
+          "floor": 5
+        },
+        {
+          "E_max": 11,
+          "E_min": 10,
+          "floor": 4
+        },
+        {
+          "E_max": 15,
+          "E_min": 12,
+          "floor": 3
+        },
+        {
+          "E_max": 22,
+          "E_min": 16,
+          "floor": 2
+        },
+        {
+          "E_max": 108,
+          "E_min": 23,
+          "floor": 1
+        }
+      ],
+      "internal_anchor_floor": 7,
+      "point_avoiding_internal_anchor_floor": 5,
+      "q": 8,
+      "x_max": 260,
+      "x_min": 152
+    },
+    {
+      "A_edges": 76,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 0,
+          "E_min": 0,
+          "floor": 7
+        },
+        {
+          "E_max": 2,
+          "E_min": 1,
+          "floor": 6
+        },
+        {
+          "E_max": 3,
+          "E_min": 3,
+          "floor": 5
+        },
+        {
+          "E_max": 4,
+          "E_min": 4,
+          "floor": 4
+        },
+        {
+          "E_max": 5,
+          "E_min": 5,
+          "floor": 3
+        },
+        {
+          "E_max": 17,
+          "E_min": 6,
+          "floor": 2
+        },
+        {
+          "E_max": 108,
+          "E_min": 18,
+          "floor": 1
+        }
+      ],
+      "internal_anchor_floor": 7,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 9,
+      "x_max": 262,
+      "x_min": 154
+    },
+    {
+      "A_edges": 75,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 1,
+          "E_min": 0,
+          "floor": 6
+        },
+        {
+          "E_max": 2,
+          "E_min": 2,
+          "floor": 5
+        },
+        {
+          "E_max": 3,
+          "E_min": 3,
+          "floor": 4
+        },
+        {
+          "E_max": 4,
+          "E_min": 4,
+          "floor": 3
+        },
+        {
+          "E_max": 5,
+          "E_min": 5,
+          "floor": 2
+        },
+        {
+          "E_max": 41,
+          "E_min": 6,
+          "floor": 1
+        },
+        {
+          "E_max": 108,
+          "E_min": 42,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 6,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 10,
+      "x_max": 264,
+      "x_min": 156
+    },
+    {
+      "A_edges": 74,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 0,
+          "E_min": 0,
+          "floor": 6
+        },
+        {
+          "E_max": 1,
+          "E_min": 1,
+          "floor": 5
+        },
+        {
+          "E_max": 2,
+          "E_min": 2,
+          "floor": 4
+        },
+        {
+          "E_max": 3,
+          "E_min": 3,
+          "floor": 3
+        },
+        {
+          "E_max": 4,
+          "E_min": 4,
+          "floor": 2
+        },
+        {
+          "E_max": 5,
+          "E_min": 5,
+          "floor": 1
+        },
+        {
+          "E_max": 108,
+          "E_min": 6,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 6,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 11,
+      "x_max": 266,
+      "x_min": 158
+    },
+    {
+      "A_edges": 73,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 0,
+          "E_min": 0,
+          "floor": 5
+        },
+        {
+          "E_max": 1,
+          "E_min": 1,
+          "floor": 4
+        },
+        {
+          "E_max": 2,
+          "E_min": 2,
+          "floor": 3
+        },
+        {
+          "E_max": 3,
+          "E_min": 3,
+          "floor": 2
+        },
+        {
+          "E_max": 4,
+          "E_min": 4,
+          "floor": 1
+        },
+        {
+          "E_max": 108,
+          "E_min": 5,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 5,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 12,
+      "x_max": 268,
+      "x_min": 160
+    },
+    {
+      "A_edges": 72,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 0,
+          "E_min": 0,
+          "floor": 4
+        },
+        {
+          "E_max": 1,
+          "E_min": 1,
+          "floor": 3
+        },
+        {
+          "E_max": 2,
+          "E_min": 2,
+          "floor": 2
+        },
+        {
+          "E_max": 3,
+          "E_min": 3,
+          "floor": 1
+        },
+        {
+          "E_max": 108,
+          "E_min": 4,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 4,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 13,
+      "x_max": 270,
+      "x_min": 162
+    },
+    {
+      "A_edges": 71,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 0,
+          "E_min": 0,
+          "floor": 3
+        },
+        {
+          "E_max": 1,
+          "E_min": 1,
+          "floor": 2
+        },
+        {
+          "E_max": 2,
+          "E_min": 2,
+          "floor": 1
+        },
+        {
+          "E_max": 108,
+          "E_min": 3,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 3,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 14,
+      "x_max": 272,
+      "x_min": 164
+    },
+    {
+      "A_edges": 70,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 0,
+          "E_min": 0,
+          "floor": 2
+        },
+        {
+          "E_max": 1,
+          "E_min": 1,
+          "floor": 1
+        },
+        {
+          "E_max": 108,
+          "E_min": 2,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 2,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 15,
+      "x_max": 274,
+      "x_min": 166
+    },
+    {
+      "A_edges": 69,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 0,
+          "E_min": 0,
+          "floor": 1
+        },
+        {
+          "E_max": 108,
+          "E_min": 1,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 1,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 16,
+      "x_max": 276,
+      "x_min": 168
+    },
+    {
+      "A_edges": 68,
+      "E_max": 108,
+      "column_floor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 108,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 17,
+      "x_max": 278,
+      "x_min": 170
+    },
+    {
+      "A_edges": 67,
+      "E_max": 107,
+      "column_floor_ranges": [
+        {
+          "E_max": 107,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 107,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 18,
+      "x_max": 279,
+      "x_min": 172
+    },
+    {
+      "A_edges": 66,
+      "E_max": 105,
+      "column_floor_ranges": [
+        {
+          "E_max": 105,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 105,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 19,
+      "x_max": 279,
+      "x_min": 174
+    },
+    {
+      "A_edges": 65,
+      "E_max": 103,
+      "column_floor_ranges": [
+        {
+          "E_max": 103,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 103,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 20,
+      "x_max": 279,
+      "x_min": 176
+    },
+    {
+      "A_edges": 64,
+      "E_max": 101,
+      "column_floor_ranges": [
+        {
+          "E_max": 101,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 101,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 21,
+      "x_max": 279,
+      "x_min": 178
+    },
+    {
+      "A_edges": 63,
+      "E_max": 99,
+      "column_floor_ranges": [
+        {
+          "E_max": 99,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 99,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 22,
+      "x_max": 279,
+      "x_min": 180
+    },
+    {
+      "A_edges": 62,
+      "E_max": 97,
+      "column_floor_ranges": [
+        {
+          "E_max": 97,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 97,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 23,
+      "x_max": 279,
+      "x_min": 182
+    },
+    {
+      "A_edges": 61,
+      "E_max": 95,
+      "column_floor_ranges": [
+        {
+          "E_max": 95,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 95,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 24,
+      "x_max": 279,
+      "x_min": 184
+    },
+    {
+      "A_edges": 60,
+      "E_max": 93,
+      "column_floor_ranges": [
+        {
+          "E_max": 93,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 93,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 25,
+      "x_max": 279,
+      "x_min": 186
+    },
+    {
+      "A_edges": 59,
+      "E_max": 91,
+      "column_floor_ranges": [
+        {
+          "E_max": 91,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 91,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 26,
+      "x_max": 279,
+      "x_min": 188
+    },
+    {
+      "A_edges": 58,
+      "E_max": 89,
+      "column_floor_ranges": [
+        {
+          "E_max": 89,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 89,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 27,
+      "x_max": 279,
+      "x_min": 190
+    },
+    {
+      "A_edges": 57,
+      "E_max": 87,
+      "column_floor_ranges": [
+        {
+          "E_max": 87,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 87,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 28,
+      "x_max": 279,
+      "x_min": 192
+    },
+    {
+      "A_edges": 56,
+      "E_max": 85,
+      "column_floor_ranges": [
+        {
+          "E_max": 85,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 85,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 29,
+      "x_max": 279,
+      "x_min": 194
+    },
+    {
+      "A_edges": 55,
+      "E_max": 83,
+      "column_floor_ranges": [
+        {
+          "E_max": 83,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 83,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 30,
+      "x_max": 279,
+      "x_min": 196
+    },
+    {
+      "A_edges": 54,
+      "E_max": 81,
+      "column_floor_ranges": [
+        {
+          "E_max": 81,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 81,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 31,
+      "x_max": 279,
+      "x_min": 198
+    },
+    {
+      "A_edges": 53,
+      "E_max": 79,
+      "column_floor_ranges": [
+        {
+          "E_max": 79,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 79,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 32,
+      "x_max": 279,
+      "x_min": 200
+    },
+    {
+      "A_edges": 52,
+      "E_max": 77,
+      "column_floor_ranges": [
+        {
+          "E_max": 77,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 77,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 33,
+      "x_max": 279,
+      "x_min": 202
+    },
+    {
+      "A_edges": 51,
+      "E_max": 75,
+      "column_floor_ranges": [
+        {
+          "E_max": 75,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 75,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 34,
+      "x_max": 279,
+      "x_min": 204
+    },
+    {
+      "A_edges": 50,
+      "E_max": 73,
+      "column_floor_ranges": [
+        {
+          "E_max": 73,
+          "E_min": 0,
+          "floor": 1
+        }
+      ],
+      "effective_anchor_ranges": [
+        {
+          "E_max": 73,
+          "E_min": 0,
+          "floor": 0
+        }
+      ],
+      "internal_anchor_floor": 0,
+      "point_avoiding_internal_anchor_floor": null,
+      "q": 35,
+      "x_max": 279,
+      "x_min": 206
+    }
+  ],
+  "schema_version": 1
+}

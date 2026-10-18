@@ -37,8 +37,7 @@ void add_edge(ramsey::Graph &graph, int u, int v)
     graph.neighbors[v] |= std::uint32_t{1} << u;
 }
 
-// Independent exhaustive checker: enumerate subsets of the assembled graph,
-// without relying on the generator's split into pure and mixed families.
+// Independent exhaustive checker: enumerate subsets of the assembled graph.
 bool has_homogeneous_set(const ramsey::Graph &graph, int size, bool clique)
 {
     for (std::uint32_t mask = 0; mask < (std::uint32_t{1} << graph.vertices); ++mask)

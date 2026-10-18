@@ -10,22 +10,30 @@ below, are independently accepted on their stated premises; see
 [the exact-revision audit](review_audit_pending_averaging_20261015.md).
 Research targets and priority choices retain search use: research planning only.
 
+Continuation (2026-10-18): the current reviewed upper bound is
+[x<=279](independent_row_cuts.md), obtained without excluding adjacent
+size-sixteen rows. New [omission-supply and attachment cuts](averaging_omission_cuts.md)
+and the [dated research report](../../reports/2026-10-18-averaging-tail.md)
+continue the tail analysis. Follow each note's exact-revision review banner;
+the all-profile upper bound remains 279.
+
 ## Priority regimes
 
-| Regime | Available necessary structure | Proposed next deduction |
-| --- | --- | --- |
-| Any x, substantial column overlap | Columns containing an A edge form a triangle-free B cell of order at most eight | Combine overlapping edge cells and transfer forced pairs between them |
-| Any x, repeated omissions of independent A pairs | Their missing-column cell has no independent triple and order at most thirteen | Combine its forced-edge obligations with edge cells' forced-nonedge obligations |
-| Anchored cells near maximum size | Tight internal degree intervals; exact structure at some endpoints | Bound attachments between two large cells, retaining their intersection |
-| x>=253 | Some row has size at least fifteen | Study size-15..17 row structure and attachments |
-| x>=271 | Some row has size at least sixteen; quantitative family bound below | Study simultaneous large rows, especially adjacent size-sixteen rows |
-| q=3 and 143<=x<=155 | Existing reviewed results exclude columns of size at most three | Apply cell propagation with the restored column-size lower bound four |
+| Regime                                           | Available necessary structure                                                   | Proposed next deduction                                                         |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Any x, substantial column overlap                | Columns containing an A edge form a triangle-free B cell of order at most eight | Combine overlapping edge cells and transfer forced pairs between them           |
+| Any x, repeated omissions of independent A pairs | Their missing-column cell has no independent triple and order at most thirteen  | Combine its forced-edge obligations with edge cells' forced-nonedge obligations |
+| Anchored cells near maximum size                 | Tight internal degree intervals; exact structure at some endpoints              | Bound attachments between two large cells, retaining their intersection         |
+| x>=253                                           | Some row has size at least fifteen                                              | Study size-15..17 row structure and attachments                                 |
+| x>=271                                           | Some row has size at least sixteen; quantitative family bound below             | Study simultaneous large rows, especially adjacent size-sixteen rows            |
+| q=3 and 143<=x<=155                              | Existing reviewed results exclude columns of size at most three                 | Apply cell propagation with the restored column-size lower bound four           |
 
 The last row uses the [reviewed q3 actual-column result](x142/q3/three_columns.md)
 and the applicable two-transversal argument linked in
 [transfer summary](transfer_summary.md). It does not exclude that x range.
 
 <a id="claim-averaging-large-row-family"></a>
+
 ## High-x averaging forces a family of large rows
 
 Claim ID: `n43/d18/averaging_future_work.md#claim-averaging-large-row-family`
@@ -53,6 +61,7 @@ cross-count corridor by itself. Thresholds are sufficient, not necessary:
 large rows may also occur at smaller x.
 
 <a id="claim-averaging-adjacent-sixteen-rows"></a>
+
 ## Main target: compatibility of two large rows
 
 Claim ID: `n43/d18/averaging_future_work.md#claim-averaging-adjacent-sixteen-rows`
@@ -69,12 +78,12 @@ The shared cell is (3,4)-free on eight vertices. Its degrees are two or
 three: its neighborhoods are independent of order at most three, while
 its antineighborhoods are (3,3)-free of order at most five.
 
-Research target: derive attachment restrictions between this shared cell
-and the two exclusive cells, then combine them with global degree and column
-budgets. Do not assert that adjacent size-sixteen rows are impossible.
-The [earlier cross-upper-bound attempt](cross_upper_bound.md) explicitly
-records an unresolved gap in that direction. No proposed stronger x upper
-bound should be used until that gap is resolved.
+The reviewed [large-row continuation](large_row_extensions.md) now classifies
+the shared eight-cell into three types and gives exact exclusive-cell
+signatures and global degree/column budgets. Adjacent size-sixteen rows
+remain unexcluded. The [earlier attempted exclusion](cross_upper_bound.md)
+still has its recorded gap; it is not used by the independently proved
+[x<=279 bound](independent_row_cuts.md) or the omission continuation below.
 
 ## Broad middle regime: opposing cell obligations
 
@@ -101,6 +110,33 @@ does require the specified cell sizes.
 Isolated cell bounds and scalar weighting can be loose there. Prioritize
 simultaneous actual-cell compatibility; no uniform large cell, perfect
 anchor cover, or small excess may be assumed.
+
+## Continued tail target: the three remaining x=279 profiles
+
+The [endpoint cover](averaging_omission_cuts.md#claim-omission-endpoint-cover)
+uses t=size-17 row count, s=size-16 row count, and
+D=sum_(other rows)(15-row size). Its independent source deductions are in
+[zero/one-root cuts](tail_zero_one.md) and
+[two/three-root cuts](tail_two_three.md); their review banners govern use.
+
+| t | s | D | Size-15 rows | Next attachment target |
+| --- | --- | --- | --- | --- |
+| 1 | 7 | 0 | 10 | Combine the simultaneous shared eight-sets in the unique 17-core with the h-dependent omission budget |
+| 2 | 5 | 0 | 11 | Retain overlapping as well as disjoint 17-root omissions; constrain where the eight units of L16 omission deficit lie |
+| 3 | 3 | 0 | 12 | Combine the L16 triangle, mandatory L17 attachments and L17 excess at least13 |
+
+The continuation excludes the other three numerical x=279 profiles, not
+these three. In particular t=0 gives x<=278, and t=1,s=8 gives x<=271.
+The endpoint has no row below fifteen; e(A)<=67 and its retained census
+minimum gives q>=18 and total A-excess at least73. Small-excess reasoning
+cannot be assumed here.
+
+The new supply step is explicit: high roots omitted at y form an independent
+set of order at most three, and Delta=72-7t-8s guarantees at least
+max(0,24-Delta) actual omitted triples. A residual row of size 15-delta
+must cover its triple obligations using at most 1+delta witnesses per
+size-16 neighbor and delta per size-17 neighbor. Large Delta leaves this
+bound weak; it does not resolve moderate rows or dispersed middle cells.
 
 ## Handoff
 

@@ -6,6 +6,11 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{tikz}
 \usepackage{url}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\N}{\mathbb{N}}
+
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
@@ -18,7 +23,12 @@
 \begin{document}
 \maketitle
 
-We document preliminary results on the the Ramsey number $R(5, 5)$ when restricted to $43$ vertices and a pivots of degree $18$.
+\section*{Abstract}
+
+We document preliminary results on the the Ramsey number $R(5, 5)$.
+In particular we focus on the question whether $R(5, 5) = 43$.
+Due to computational infeasibility of enumerating candidate graphs,
+we instead devise combinatorial arguments to disect the search space.
 
 \section{Background}
 
@@ -137,6 +147,64 @@ Let $u \in A$, the row $u$ in this matrix corresponds to $R_u = N_B(u) \subseteq
 and a column $w \in B$ to $C_w = N_A(w) \subseteq A$.
 This decomposes our problem into choosing a pivot $v$, then finding its induced (anti-)neighborhood $G[A], G[B]$ and finally the cross interface $M$.
 
+\section{Anchor Method}
+
+Suppose $G \in R(5, 5, 43)$ with $A = N(v)$ and $B = M(v)$ for some degree-18 pivot $v \in V(G)$.
+
+\begin{lemma}[Anchor Existence Lemma]
+	$G[A]$ contains an independent 4-set $I_4 \subset A$.
+\end{lemma}
+\begin{proof}
+	Recall that $R(4, 4) = 18$ and $|A| = 18$.
+	It follows that $G[A]$ must contain a $K_4$ or an $I_4$.
+	However, any $K_4$ could be extended with $v$ to form an $K_5$
+	which contradicts the assumption $G \in R(5, 5, 43)$.
+\end{proof}
+
+Now that we have established that every $A$ contains an independent $4$-set,
+we can use this as \emph{anchor}.
+There might be multiple independent $4$-sets in $A$ so we pick the one with the largest min-degree.
+
+% TODO: repeat the min-degree figure from below but with W_A replaced by \sum_A d(v)
+% and q replaced by e(G[A]) and the axis values adapted accordingly.
+
+\section{Cross Edge Counts}
+
+The next split we perform in the search tree is by cross edge count $x = |e(A, B)|$.
+We know $136 \leqslant x \leqslant 279$.
+Many of our theorems are conditioned on the edge deficiency and degree excess:
+
+\begin{definition}[Edge Deficiency]
+	The \emph{edge deficiency} $q = 85 - e(A) \geqslant 0$ measures how sparse $G[A]$ is,
+	by counting how many edges are missing from the extremal $E(4, 5, 18) \leqslant 85$ bound.
+\end{definition}
+
+\begin{definition}[Degree Excess]
+	The \emph{total degree excess} $W_A = \sum_{u \in A} \left( d_G(u) - 18 \right)$ counts
+	for all vertices in $A$ how far above the lower bound $d_G(u) \leqslant 18$ their degrees are.
+\end{definition}
+
+These two notions are tightly connected as can be shown with the handshake lemma.
+
+\begin{lemma}[Cross Identity]
+	$x - 136 = 2q + W_A$
+\end{lemma}
+
+\begin{center}
+	\begin{tabular}{c|c|c}
+		$x$          & cell            & notes \\
+		\hline
+		$136$        & $q=0$           &       \\
+		$[137, 141]$ & $q \leqslant 2$ &       \\
+		$[142, 143]$ & $q \leqslant 3$ &       \\
+		$[144, 155]$ &                 &       \\
+		$[156, 167]$ &                 &       \\
+		$[168, 279]$ &                 &       \\
+	\end{tabular}
+\end{center}
+
+\input{figures/parameter-landscape}
+
 \section{Cross Adjacency Conditions}
 
 Suppose we have a hypothetical $G \in R(5, 5, 43)$ and we have pivoted on $v$ with $d_G(v) = 18$ which splits the graph into $A = N(v)$ and $B = M(v)$.
@@ -170,18 +238,17 @@ There are now several conditions we can impose based on the structure of the row
 	No row of size $9$ or $10$ repeats.
 \end{theorem}
 
-\section{Pivot Selection Heuristics}
-
-TODO
-
 \section{Anti-Neighborhood Catalogue}
 
-There is a complete catalogue of $R(5, 4, 24)$ consisting of $352366$ unique maximal graphs up to isomorphism.
+There is a complete catalogue of $R(5, 4, 24)$ consisting of $352366$ unique graphs up to isomorphism.
 Therefor every potential $G[B]$ is already established and once we have picked a pivot and an anti-neighborhood $B$,
 it remains to find (or exclude) any potential neighborhood $G[A]$ and cross adjacency matrix $M$.
 
 The anti-neighborhood $G[B]$ is $K5$-free, $I5$-free and also $I4$-free, because otherwise it could be extended to an $I5$ in $G$.
 
+\section{Transversals}
+
+Let $\F = \{ F_i \}$ be a family of sets. A \emph{transversal} of $\F$ is a set $T$ such that $\forall S \in \F \colon S \cap T \neq \emptyset$
 
 \section{AI Usage}
 
@@ -196,6 +263,26 @@ This approach allows us to prune more families of graphs, since we have more spe
 We use a \texttt{geng} from \texttt{nauty} (v2.9.3) to enumerate graphs.
 Our fork of \texttt{geng} is customized to efficiently prune graphs with cliques or independent sets.
 
+\section*{Glossary}
+
+\begin{definition}[Edge Deficiency]
+	Let $G \in R(s, t, n)$.
+	The \emph{edge deficiency} $q = E(s, t, n) - |E(G)| \geqslant 0$ measures how sparse $G$ is
+	with respect to the extremal edge bound $E(s, t, n)$.
+\end{definition}
+
+\begin{definition}[Degree Excess]
+	Let $G$ be a simple graph.
+	Assume $d_G(v) \geqslant k$ for all vertices $v \in V(G)$.
+	Fix $v$, the \emph{degree excess} $\epsilon_v = d_G(v) - k$ is the difference between the degree of $v$ and the lower bound.
+	Let $S \subseteq V(G)$, its \emph{total degree excess} is $$W_S = \sum_{v \in S} \epsilon_v = \sum_{v \in S} \left( d_G(v) - k \right)$$.
+\end{definition}
+
+\begin{definition}[Transversal]
+	Let $\F = \{ F_i \}$ be a family of sets.
+	A \emph{transversal} of $\F$ is a set $T$ such that $\forall S \in \F \colon S \cap T \neq \emptyset$.
+	We write $\tau(\F)$ to denote the cardinality of the smallest transversal of $\F$.
+\end{definition}
 
 \nocite{angeltveit_mckay_2026,mckay_radziszowski_1992}
 \bibliographystyle{plain}

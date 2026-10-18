@@ -35,6 +35,7 @@ Shared proof notes:
 - [Reviewed order-twelve cap42 and six-set transversal threshold](sos_order12_addendum.md)
 - [Reviewed rational SOS on attachment-obligation graphs](sos_obligation_graphs.md)
 - [Reviewed cross-count upper bound x<=279 and omitted-row tail exclusions](independent_row_cuts.md) ([Lean proof](../../lean/Ramsey/d18/CrossEdgeBounds.lean))
+- [Averaging continuation: omission-supply cuts and three remaining x279 row profiles](averaging_omission_cuts.md) ([report](../../reports/2026-10-18-averaging-tail.md))
 - [Reviewed weighted averaging](weighted_averaging.md)
 - [Reviewed anchored cells and corrected implication closure](anchored_cell_averaging.md)
 - [Reviewed overlapping-cell compatibility and dispersed attachment cuts across x](overlapping_cells.md)
@@ -55,3 +56,12 @@ Shared proof notes:
 
 These results may have narrower hypotheses than this parent branch. Follow the
 preconditions in each proof before applying a filter.
+
+## Pending independent review
+
+[The full (q,E_A) structural landscape](parameter_landscape.md) gives uniform
+transversal certificates, an E_A-unrestricted q=1 degree-eight anchor,
+point-avoiding anchors, and concentrated-excess column exclusions at q=0.
+Its [machine-readable map](parameter_landscape.json) covers all 3,600 integer
+cells of the stated basic outer envelope, not a feasibility classification.
+All five new claims are ready, not accepted; existing pruning is unchanged.

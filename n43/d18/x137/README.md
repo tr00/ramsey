@@ -26,3 +26,12 @@ counts, pair and triple predicates, and adjacent degree-18 pivot bounds.
 [Transfer summary](../transfer_summary.md) separates inherited results from
 new reviewed deductions. The new r4 exclusion uses its separate higher-x
 argument.
+
+## Pending independent review
+
+[Effective-degree rigidity](effective_anchor.md) derives an exact independent-four
+anchor and excludes every four-set transversal at x137. If independently
+accepted, this would remove r1,r2,r3 as well as r4, leaving r0:s7..10 and
+H=s-7. The proof includes both tight Turan equality cases. Its claims remain
+ready, not accepted; the reviewed table and pruning status above are unchanged.
+No complete x137 or order-43 exclusion is claimed.

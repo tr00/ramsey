@@ -7,6 +7,7 @@ The working expectation R(5,5)=43 remains a conjecture.
 - [Detailed reduction index and existing status labels](n43/reductions.md)
 - [Degree-18 work](n43/d18/README.md)
 - [Degree-18 extension research: reviewed x<=279 bound, fixed-B capacity and unavoidable four-root alternatives](reports/2026-10-17-d18-extension-research.md)
+- [Averaging continuation: omitted-triple supply, conditional tail bounds and the three remaining x279 profiles](reports/2026-10-18-averaging-tail.md)
 - [Reviewed theory-only SDP/SOS progress: twelve-root coverage, covariance, varying-x witnesses and finite anchor reductions](reports/2026-10-15-sos-theory.md)
 - [Reviewed overlapping cells and dispersed attachment cuts across x](n43/d18/overlapping_cells.md)
 - [Degree-18 sibling x branches and residual x>=143](n43/d18/README.md)

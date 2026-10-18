@@ -77,14 +77,10 @@ complement.
 ```text
 43 vertices
 ├── degree-18 pivot
-│   ├── cross-edge count 136
-│   ├── cross-edge count 137
-│   ├── cross-edge count 138
-│   ├── cross-edge count 139
-│   ├── cross-edge count 140
-│   ├── cross-edge count 141
-│   ├── cross-edge count 142
-│   └── cross-edge count >= 143
+│   ├── G[A] is a single connected component
+│   ├── G[A] splits into K1 + R(4, 4, 17)
+│   ├── G[A] splits into K2 + R(4, 4, 16)
+│   └── G[A] splits into K3 + R(4, 4, 15)
 └── degree-20 pivot
 ```
 
@@ -172,16 +168,16 @@ remain at `scripts/ramsey.py`; run their tests with
 
 ## Where to read
 
-| Location                                        | What you will find                                                                |
-| ----------------------------------------------- | --------------------------------------------------------------------------------- |
-| [results.md](results.md)                        | Current progress and links to recent deductions                                   |
-| [n43/](n43/README.md)                           | The 43-vertex case, organized by mathematical assumptions                         |
-| [n43/d18/](n43/d18/README.md)                   | Degree-18 neighborhoods, cross-column compatibility, and frontier cases           |
-| [n43/min-degree20/](n43/min-degree20/README.md) | The complementary line of work on normalized minimum degree 20                    |
-| [docs/](docs/)                                  | Background, shared theorems, and evidence standards                               |
-| [reports/](reports/)                            | Dated accounts of the research and its unresolved questions                       |
-| [src/](src/) and [tests/](tests/)               | C++ fixed-B OPB frontend and semantic regression tests                            |
-| [scripts/](scripts/)                          | Independent Python graph checker and reference CNF utilities                     |
+| Location                                        | What you will find                                                      |
+| ----------------------------------------------- | ----------------------------------------------------------------------- |
+| [results.md](results.md)                        | Current progress and links to recent deductions                         |
+| [n43/](n43/README.md)                           | The 43-vertex case, organized by mathematical assumptions               |
+| [n43/d18/](n43/d18/README.md)                   | Degree-18 neighborhoods, cross-column compatibility, and frontier cases |
+| [n43/min-degree20/](n43/min-degree20/README.md) | The complementary line of work on normalized minimum degree 20          |
+| [docs/](docs/)                                  | Background, shared theorems, and evidence standards                     |
+| [reports/](reports/)                            | Dated accounts of the research and its unresolved questions             |
+| [src/](src/) and [tests/](tests/)               | C++ fixed-B OPB frontend and semantic regression tests                  |
+| [scripts/](scripts/)                            | Independent Python graph checker and reference CNF utilities            |
 
 For background and references, start with the
 [mathematical baseline](docs/mathematical_baseline.md). For a concrete example
