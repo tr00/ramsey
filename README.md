@@ -124,9 +124,37 @@ stdout belongs to RoundingSat. There is no JSON metadata or automatic hashing;
 record hashes externally when collecting experiment evidence.
 
 `src/main.cpp` parses arguments, `src/engine.cpp` loads and validates the graph,
-writes the output atomically, and launches RoundingSat. `src/opb.cpp` emits the
-PB instance, retaining fixed buffers and precomputed variable tokens for its
-constraint-writing hot path.
+writes the output atomically, and launches RoundingSat. `src/instance.hpp` exposes
+the solver-independent `InstanceBuilder`; `src/core.cpp` adds the eight Ramsey
+constraint families. `src/opb.cpp` only serializes the completed model, using
+bounded output buffering and precomputed variable tokens.
+
+Constraint components are ordinary functions taking `InstanceBuilder &`. They
+can query `a_vertices()` and `b_graph()`, look up `a_edge(i, j)` or
+`cross_edge(i, y)`, allocate binary auxiliary variables with `add_variable()`,
+and append weighted inequalities with `add_ge({{coefficient, variable}, ...}, rhs)`.
+Indices are zero-based; A edges accept either orientation. For example, this
+component introduces a binary marker equal to an existing A edge, without
+restricting the graph:
+
+```cpp
+void add_edge_marker(ramsey::InstanceBuilder &instance)
+{
+    const int edge = instance.a_edge(0, 1);
+    const int marker = instance.add_variable();
+    instance.add_ge({{1, marker}, {-1, edge}}, 0);
+    instance.add_ge({{1, edge}, {-1, marker}}, 0);
+}
+```
+
+The assembly flow in `src/engine.cpp` is: construct the builder, call
+`add_core_constraints(instance)`, call any additional components, then
+`write_opb(output, instance, record)`. Components need not predict counts or
+format solver input. Terms are copied into contiguous model storage; variables
+can be added between components without changing existing IDs. The writer
+derives final counts automatically. Unlike the former streaming encoder, the
+builder retains all numeric rows in memory (about 65 MiB measured peak process
+RSS for catalogue entry 1). No additional components are enabled by default.
 
 Graph indices are one-based; graph6 headers, blank lines, and CRLF are supported.
 Nauty decodes graph6 without relabeling. B is validated as K5/I4-free before

@@ -58,7 +58,7 @@ else()
 endif()
 
 
-add_library(ramsey_core STATIC src/engine.cpp src/opb.cpp)
+add_library(ramsey_core STATIC src/engine.cpp src/instance.cpp src/core.cpp src/opb.cpp)
 target_include_directories(ramsey_core PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src")
 target_include_directories(ramsey_core SYSTEM PRIVATE
     "${NAUTY_INCLUDE_DIR}" "${NAUTY_SOURCE_INCLUDE_DIR}")

@@ -198,12 +198,14 @@ int run(const Options &options)
         std::ofstream output;
         output.exceptions(std::ios::badbit | std::ios::failbit);
         output.open(temporary.path(), std::ios::binary);
-        const auto stats = write_core_opb(output, graph, record);
+        InstanceBuilder instance(graph);
+        add_core_constraints(instance);
+        write_opb(output, instance, record);
         output.close();
         reject_alias(options.input, options.output);
         fs::rename(temporary.path(), options.output);
-        std::cerr << "Wrote " << options.output << ": " << stats.variables << " variables, " << stats.constraints()
-                  << " constraints\n";
+        std::cerr << "Wrote " << options.output << ": " << instance.variable_count() << " variables, "
+                  << instance.constraint_count() << " constraints\n";
     }
     if (options.generate_only)
         return 0;

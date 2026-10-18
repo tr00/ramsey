@@ -151,10 +151,12 @@ std::uint64_t semantic_equivalence()
                 continue;
             ramsey::validate_b(b);
             std::ostringstream output;
-            const auto stats = ramsey::write_core_opb(output, b, "audit", a);
-            require(stats.variables == a * (a - 1) / 2 + a * b_size, "incorrect number of edge variables");
-            const auto rows = parse_opb(output.str(), stats.variables, stats.constraints());
-            for (unsigned mask = 0; mask < (1U << stats.variables); ++mask)
+            ramsey::InstanceBuilder instance(b, a);
+            ramsey::add_core_constraints(instance);
+            ramsey::write_opb(output, instance, "audit");
+            require(instance.variable_count() == a * (a - 1) / 2 + a * b_size, "incorrect number of edge variables");
+            const auto rows = parse_opb(output.str(), instance.variable_count(), instance.constraint_count());
+            for (unsigned mask = 0; mask < (1U << instance.variable_count()); ++mask)
             {
                 bool feasible = true;
                 for (const auto &row : rows)
@@ -192,6 +194,87 @@ std::uint64_t semantic_equivalence()
     }
     return assignments;
 }
+
+bool feasible(const std::vector<Row> &rows, unsigned mask)
+{
+    for (const auto &row : rows)
+    {
+        std::int64_t lhs = 0;
+        for (const auto &[coefficient, variable] : row.terms)
+            lhs += coefficient * static_cast<int>((mask >> (variable - 1)) & 1U);
+        if (lhs < row.rhs)
+            return false;
+    }
+    return true;
+}
+
+void component_composition()
+{
+    ramsey::Graph b;
+    b.vertices = 2;
+    add_edge(b, 0, 1);
+    ramsey::InstanceBuilder instance(b, 3);
+    const int a = instance.a_edge(1, 0);
+    const int cross = instance.cross_edge(2, 1);
+    const int conjunction = instance.add_variable();
+    // One component defines an auxiliary conjunction, before the Ramsey core.
+    instance.add_ge({{2, conjunction}, {-2, a}, {-2, cross}}, -2);
+    instance.add_ge({{1, a}, {-1, conjunction}}, 0);
+    instance.add_ge({{1, cross}, {-1, conjunction}}, 0);
+    ramsey::add_core_constraints(instance);
+    // A later component can allocate more variables and reference earlier ones.
+    const int complement = instance.add_variable();
+    instance.add_ge({{1, conjunction}, {1, complement}}, 1);
+    instance.add_ge({{-1, conjunction}, {-1, complement}}, -1);
+    rejects([&] { instance.add_ge({{1, complement + 1}}, 0); }, "accepted an unknown variable");
+    rejects([&] { (void)instance.a_edge(1, 1); }, "accepted an A loop");
+    rejects([&] { (void)instance.cross_edge(3, 0); }, "accepted an out-of-range cross edge");
+    std::ostringstream output;
+    ramsey::write_opb(output, instance, "composition");
+    const auto rows = parse_opb(output.str(), instance.variable_count(), instance.constraint_count());
+    for (unsigned mask = 0; mask < (1U << instance.variable_count()); ++mask)
+    {
+        const auto value = [&](int variable) { return (mask & (1U << (variable - 1))) != 0; };
+        const unsigned edge_mask = (1U << 9) - 1;
+        const bool expected = (mask & edge_mask) != edge_mask && value(conjunction) == (value(a) && value(cross)) &&
+                              value(complement) != value(conjunction);
+        require(feasible(rows, mask) == expected, "composed components changed the feasible assignments");
+    }
+}
+
+void general_pb_rows()
+{
+    ramsey::InstanceBuilder instance(ramsey::Graph{}, 0);
+    std::vector<ramsey::Term> terms;
+    for (int i = 0; i < 1000; ++i)
+        terms.push_back({1, instance.add_variable()});
+    const int auxiliary = instance.add_variable();
+    terms.push_back({-2, auxiliary});
+    instance.add_ge(terms, 1000);
+    // Reusing a row's view must survive reallocation of the builder's term arena.
+    instance.add_ge(instance.constraint(0).terms, 999);
+    std::ostringstream output;
+    ramsey::write_opb(output, instance, "wide");
+    const auto rows = parse_opb(output.str(), instance.variable_count(), instance.constraint_count());
+    for (const auto &row : rows)
+    {
+        for (int missing : {-1, 1})
+            for (bool aux : {false, true})
+            {
+                int lhs = 0;
+                for (const auto &[coefficient, variable] : row.terms)
+                    lhs += coefficient * (variable == auxiliary ? aux : variable != missing);
+                const int expected = 1000 - (missing == 1 ? 1 : 0) - (aux ? 2 : 0);
+                require((lhs >= row.rhs) == (expected >= row.rhs), "wide auxiliary cut changed semantics");
+            }
+    }
+    ramsey::InstanceBuilder constant(ramsey::Graph{}, 0);
+    constant.add_ge({}, 1);
+    std::ostringstream constant_output;
+    ramsey::write_opb(constant_output, constant, "constant");
+    require(!feasible(parse_opb(constant_output.str(), 0, 1), 0), "lost an impossible constant constraint");
+}
+
 } // namespace
 
 int main()
@@ -199,6 +282,8 @@ int main()
     try
     {
         graph6_validation();
+        component_composition();
+        general_pb_rows();
         const auto assignments = semantic_equivalence();
         std::cout << "PASS: graph6 validation and exhaustive OPB equivalence (" << assignments
                   << " rooted assignments)\n";
