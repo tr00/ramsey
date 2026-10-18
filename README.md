@@ -88,7 +88,59 @@ complement.
 └── degree-20 pivot
 ```
 
-The active work is purely mathematical, with the goal of reducing the cases that a later certified search must cover.
+The mathematical work aims to reduce the cases that a later certified search must cover.
+
+## Engine frontend
+
+The C++20 frontend reads one actual K5/I4-free B24 graph (not its catalogue
+complement), generates the exact degree-18 extension core, and launches the
+local RoundingSat executable. It does not run a catalogue-wide search.
+
+```sh
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
+./build/ramsey data/r45_24/b24.g6 --index 1 -o /tmp/b1.opb -- --time-limit=60
+```
+
+Requires POSIX, CMake 3.20+, a C++20 compiler, and configured local nauty
+headers under `third-party/nauty/build/`. CMake reuses the local nauty library,
+or compiles its existing sources when the library is absent; it never downloads
+or configures dependencies. The solver is fixed to
+`third-party/roundingsat/build/roundingsat`. If that binary is absent, build it
+locally without the optional SoPlex download:
+
+```sh
+cmake -S third-party/roundingsat -B third-party/roundingsat/build -DCMAKE_BUILD_TYPE=Release -Dsoplex=OFF
+cmake --build third-party/roundingsat/build -j
+```
+
+The frontend options are `-o/--output`, `-i/--index`, `-g/--generate-only`, and
+`-h/--help`, parsed with the system `getopt_long`. Generate-only mode writes OPB
+without launching RoundingSat. Arguments after `--` pass literally to
+RoundingSat, followed by the absolute OPB path. The frontend becomes the solver
+process, preserving its exit status and signal behavior. Frontend errors return
+2; execution failures return 126/127. A short generation summary goes to stderr;
+stdout belongs to RoundingSat. There is no JSON metadata or automatic hashing;
+record hashes externally when collecting experiment evidence.
+
+`src/main.cpp` parses arguments, `src/engine.cpp` loads and validates the graph,
+writes the output atomically, and launches RoundingSat. `src/opb.cpp` emits the
+PB instance, retaining fixed buffers and precomputed variable tokens for its
+constraint-writing hot path.
+
+Graph indices are one-based; graph6 headers, blank lines, and CRLF are supported.
+Nauty decodes graph6 without relabeling. B is validated as K5/I4-free before
+generation. The OPB is published atomically; invalid input leaves an existing
+destination unchanged, and input/output aliases are rejected. Variable numbering
+and constraint order match the former `scripts/fixed_b_mip.py`: 153 A edges and
+432 cross edges, with no degree cuts, objective, or symmetry restrictions.
+Proof checking, artifact compression, symmetry reduction, and batch iteration
+are not implemented. A solver response alone is not a certified Ramsey result.
+
+`ctest --test-dir build --output-on-failure` runs exhaustive small rooted-graph
+encoding checks. The independent Python checker and reference CNF generator
+remain at `scripts/ramsey.py`; run their tests with
+`python3 -m unittest discover -s tests -v`.
 
 ## Where to read
 
@@ -100,7 +152,8 @@ The active work is purely mathematical, with the goal of reducing the cases that
 | [n43/min-degree20/](n43/min-degree20/README.md) | The complementary line of work on normalized minimum degree 20                    |
 | [docs/](docs/)                                  | Background, shared theorems, and evidence standards                               |
 | [reports/](reports/)                            | Dated accounts of the research and its unresolved questions                       |
-| [src/](src/) and [tests/](tests/)               | Small Python utilities for checking graphs and generating reference SAT encodings |
+| [src/](src/) and [tests/](tests/)               | C++ fixed-B OPB frontend and semantic regression tests                            |
+| [scripts/](scripts/)                          | Independent Python graph checker and reference CNF utilities                     |
 
 For background and references, start with the
 [mathematical baseline](docs/mathematical_baseline.md). For a concrete example
