@@ -2,6 +2,7 @@ module
 
 public import Ramsey.Premises
 public import Ramsey.d18.PivotBudget
+public import Ramsey.defs.RootedRamseyGraph
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 public import Mathlib.Data.Set.Card
 public import Mathlib.SetTheory.Cardinal.NatCard
@@ -335,40 +336,36 @@ public theorem connected_of_edge_ge_69 [Finite V] (H : RamseyGraph 4 5 V)
   omega
 
 /-- A degree-18 neighborhood is connected exactly when it is not exceptional. -/
-public theorem degree18_connectivity_classification [Fintype V] (G : RamseyGraph 5 5 V)
-    [DecidableRel G.graph.Adj] (v : V) (hv : G.graph.degree v = 18) :
-    ¬(G.graph.induce (G.graph.neighborSet v)).Connected ↔
-      IsDisconnectedNeighborhood (G.graph.induce (G.graph.neighborSet v)) := by
-  apply connectivity_classification
-    ⟨G.graph.induce (G.graph.neighborSet v), isRamseyGraph_induce_neighborSet G.ramsey v⟩
-  simpa only [Nat.card_eq_fintype_card, SimpleGraph.card_neighborSet_eq_degree] using hv
+public theorem degree18_connectivity_classification [Fintype V] (R : RootedRamseyGraph 5 5 V)
+    [DecidableRel R.graph.Adj] (hv : R.graph.degree R.pivot = 18) :
+    ¬R.neighborhood.graph.Connected ↔ IsDisconnectedNeighborhood R.neighborhood.graph := by
+  apply connectivity_classification R.neighborhood
+  simpa only [R.card_A] using hv
 
 /-- The 69-edge connectivity threshold applies to every degree-18 pivot. -/
-public theorem degree18_neighbor_connected_of_edge_ge_69 [Fintype V] (G : RamseyGraph 5 5 V)
-    [DecidableRel G.graph.Adj] (v : V) (hv : G.graph.degree v = 18)
-    (he : 69 ≤ Nat.card (G.graph.induce (G.graph.neighborSet v)).edgeSet) :
-    (G.graph.induce (G.graph.neighborSet v)).Connected := by
-  apply connected_of_edge_ge_69
-    ⟨G.graph.induce (G.graph.neighborSet v), isRamseyGraph_induce_neighborSet G.ramsey v⟩ _ he
-  simpa only [Nat.card_eq_fintype_card, SimpleGraph.card_neighborSet_eq_degree] using hv
+public theorem degree18_neighbor_connected_of_edge_ge_69 [Fintype V]
+    (R : RootedRamseyGraph 5 5 V) [DecidableRel R.graph.Adj]
+    (hv : R.graph.degree R.pivot = 18) (he : 69 ≤ Nat.card R.neighborhood.graph.edgeSet) :
+    R.neighborhood.graph.Connected := by
+  apply connected_of_edge_ge_69 R.neighborhood _ he
+  simpa only [R.card_A] using hv
 
 /-- Deficit at most 16 is sufficient for connectivity of a degree-18 neighborhood. -/
-public theorem degree18_neighbor_connected_of_deficit_le_16 [Fintype V] (G : RamseyGraph 5 5 V)
-    [DecidableRel G.graph.Adj] (v : V) (hv : G.graph.degree v = 18)
-    (hq : 85 - inducedEdgeCount G (G.graph.neighborSet v) ≤ 16) :
-    (G.graph.induce (G.graph.neighborSet v)).Connected := by
-  apply degree18_neighbor_connected_of_edge_ge_69 G v hv
-  change 69 ≤ inducedEdgeCount G (G.graph.neighborSet v)
+public theorem degree18_neighbor_connected_of_deficit_le_16 [Fintype V]
+    (R : RootedRamseyGraph 5 5 V) [DecidableRel R.graph.Adj]
+    (hv : R.graph.degree R.pivot = 18) (hq : 85 - inducedEdgeCount R.graph R.A ≤ 16) :
+    R.neighborhood.graph.Connected := by
+  apply degree18_neighbor_connected_of_edge_ge_69 R hv
+  change 69 ≤ inducedEdgeCount R.graph R.A
   omega
 
 /-- Every degree-18 equality-frontier neighborhood is connected. -/
-public theorem degree18_frontier_neighbor_connected (G : RamseyGraph 5 5 (Fin 43))
-    [DecidableRel G.graph.Adj] (v : Fin 43) (hv : G.graph.degree v = 18)
-    (hx : crossEdgeCount G (G.graph.neighborSet v) (antiNeighborSet G v) = 136) :
-    (G.graph.induce (G.graph.neighborSet v)).Connected := by
-  apply degree18_neighbor_connected_of_edge_ge_69 G v hv
-  change 69 ≤ inducedEdgeCount G (G.graph.neighborSet v)
-  rw [((degree18_frontier_iff G.ramsey v hv).mp hx).1]
+public theorem degree18_frontier_neighbor_connected (R : RootedRamseyGraph 5 5 (Fin 43))
+    [DecidableRel R.graph.Adj] (hv : R.graph.degree R.pivot = 18)
+    (hx : crossEdgeCount R.graph R.A R.B = 136) : R.neighborhood.graph.Connected := by
+  apply degree18_neighbor_connected_of_edge_ge_69 R hv
+  change 69 ≤ inducedEdgeCount R.graph R.A
+  rw [((degree18_frontier_iff R hv).mp hx).1]
   omega
 
 end Ramsey.d18

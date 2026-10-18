@@ -171,7 +171,10 @@ private lemma crossRow_omission_card (v : Fin 43) (hv : G.degree v = 18) (u : Fi
     exact Set.mem_toFinset.mpr ((mem_crossRow G v u y).mp hy).2
   have h := Finset.card_sdiff_add_card_eq_card hsub
   have hb : (antiNeighborSet G v).toFinset.card = 24 := by
-    simpa [Nat.card_eq_fintype_card] using degree18_antiNeighbor_card v hv
+    have h := card_neighborSet_add_antiNeighborSet G v
+    rw [Nat.card_eq_fintype_card (α := G.neighborSet v),
+      SimpleGraph.card_neighborSet_eq_degree, hv, Nat.card_fin] at h
+    simpa [Nat.card_eq_fintype_card] using (by omega : Nat.card (antiNeighborSet G v) = 24)
   omega
 
 /-- Summing omissions in a row class counts each missing row entry once. -/
@@ -309,7 +312,9 @@ private lemma adjacent_crossRow_omission_bound {u w : Fin 43} (huw : G.Adj u w) 
   have hc := Finset.card_sdiff_add_card_eq_card hu
   have he := Finset.card_union_add_card_inter (crossRow G v u) (crossRow G v w)
   have hb : (antiNeighborSet G v).toFinset.card = 24 := by
-    simpa [Nat.card_eq_fintype_card] using degree18_antiNeighbor_card v hv
+    simpa only [RootedRamseyGraph.B, Nat.card_eq_fintype_card, Set.toFinset_card] using
+      degree18_antiNeighbor_card
+        (({graph := G, ramsey := hG} : RamseyGraph 5 5 _).root v) hv
   omega
 
 /-- Size-17 roots are pairwise nonadjacent. -/
@@ -407,7 +412,9 @@ private lemma degree18_high_row_budgets :
   classical
   have ht := independent_card_le_four hG (rowClass17_independent hG v hv)
   have hb : (antiNeighborSet G v).toFinset.card = 24 := by
-    simpa [Nat.card_eq_fintype_card] using degree18_antiNeighbor_card v hv
+    simpa only [RootedRamseyGraph.B, Nat.card_eq_fintype_card, Set.toFinset_card] using
+      degree18_antiNeighbor_card
+        (({graph := G, ramsey := hG} : RamseyGraph 5 5 _).root v) hv
   refine ⟨ht, ?_, ?_⟩
   · have hm : ∀ y ∈ (antiNeighborSet G v).toFinset,
         ((rowClass G v 16).filter (fun u ↦ ¬G.Adj u y)).card ≤
@@ -694,7 +701,9 @@ private lemma core_accounting (v u w : Fin 43) (hv : G.degree v = 18)
   let B := (antiNeighborSet G v).toFinset
   have hb : (P ∪ Q).card = 24 := by
     rw [hcover]
-    simpa [Nat.card_eq_fintype_card] using degree18_antiNeighbor_card v hv
+    simpa only [RootedRamseyGraph.B, Nat.card_eq_fintype_card, Set.toFinset_card] using
+      degree18_antiNeighbor_card
+        (({graph := G, ramsey := hG} : RamseyGraph 5 5 _).root v) hv
   have hi := Finset.card_inter_add_card_union P Q
   have hx := Finset.card_sdiff_add_card_inter P Q
   have hy := Finset.card_sdiff_add_card_inter Q P
@@ -919,7 +928,9 @@ private lemma degree18_cross_eq_280_not_single
   have hA : A.card = 18 := by
     simpa only [A, Set.toFinset_card, SimpleGraph.card_neighborSet_eq_degree] using hv
   have hB : B.card = 24 := by
-    simpa [B, Nat.card_eq_fintype_card] using degree18_antiNeighbor_card v hv
+    simpa only [B, RootedRamseyGraph.B, Nat.card_eq_fintype_card, Set.toFinset_card] using
+      degree18_antiNeighbor_card
+        (({graph := G, ramsey := hG} : RamseyGraph 5 5 _).root v) hv
   have hHA : H ⊆ A := by
     intro u hu
     rcases Finset.mem_union.mp hu with hu | hu <;>
@@ -1028,7 +1039,9 @@ private lemma double_profile_structure
     change (rowClass G v 16).card = 6
     omega
   have hB : B.card = 24 := by
-    simpa [B, Nat.card_eq_fintype_card] using degree18_antiNeighbor_card v hv
+    simpa only [B, RootedRamseyGraph.B, Nat.card_eq_fintype_card, Set.toFinset_card] using
+      degree18_antiNeighbor_card
+        (({graph := G, ramsey := hG} : RamseyGraph 5 5 _).root v) hv
   have hdis : Disjoint H L := rowClass17_disjoint_rowClass16 v
   have hmle : ∀ y ∈ B, (L.filter (fun a ↦ ¬G.Adj a y)).card ≤ 2 := by
     intro y hy
@@ -1095,7 +1108,8 @@ private lemma double_profile_structure
 private lemma antiNeighbor_edges_ge_144 :
     144 ≤ inducedEdgeCount G (antiNeighborSet G v) := by
   classical
-  have hn := degree18_antiNeighbor_card v hv
+  have hn := degree18_antiNeighbor_card
+    (({graph := G, ramsey := hG} : RamseyGraph 5 5 _).root v) hv
   have hr := (isRamseyGraph_compl _).mp (isRamseyGraph_induce_antiNeighborSet hG v)
   have hc : Nat.card (G.induce (antiNeighborSet G v))ᶜ.edgeSet ≤ 132 := by
     exact_mod_cast edges_ramsey_4_5_24_le_132.on_finite_type hn _ hr
@@ -1241,15 +1255,16 @@ private lemma degree18_cross_eq_280_not_double
 end Equality
 
 /-- Every degree-18 pivot has at most 279 cross edges on the retained published premises. -/
-public theorem degree18_cross_le_279 (G : RamseyGraph 5 5 (Fin 43))
-    [DecidableRel G.graph.Adj] (v : Fin 43) (hv : G.graph.degree v = 18) :
-    crossEdgeCount G (G.graph.neighborSet v) (antiNeighborSet G v) ≤ 279 := by
-  have htail := degree18_cross_le_280 G.ramsey v hv
+public theorem degree18_cross_le_279 (R : RootedRamseyGraph 5 5 (Fin 43))
+    [DecidableRel R.graph.Adj] (hv : R.graph.degree R.pivot = 18) :
+    crossEdgeCount R.graph R.A R.B ≤ 279 := by
+  have htail := degree18_cross_le_280 R.ramsey R.pivot hv
+  change crossEdgeCount R.graph R.A R.B ≤ 280 at htail
   by_contra hn
-  have hx : crossEdgeCount G (G.graph.neighborSet v) (antiNeighborSet G v) = 280 := by omega
-  rcases (degree18_cross_eq_280_profile G.ramsey v hv hx).1 with h | h
-  · exact degree18_cross_eq_280_not_single G.ramsey v hv hx h.1
-  · exact degree18_cross_eq_280_not_double G.ramsey v hv hx h.1
+  have hx : crossEdgeCount R.graph R.A R.B = 280 := by omega
+  rcases (degree18_cross_eq_280_profile R.ramsey R.pivot hv hx).1 with h | h
+  · exact degree18_cross_eq_280_not_single R.ramsey R.pivot hv hx h.1
+  · exact degree18_cross_eq_280_not_double R.ramsey R.pivot hv hx h.1
 
 
 end Ramsey.d18

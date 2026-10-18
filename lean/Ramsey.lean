@@ -5,6 +5,7 @@ import Mathlib
 public import Ramsey.defs.Completeness
 public import Ramsey.defs.RamseyGraph
 public import Ramsey.defs.Transversals
+public import Ramsey.defs.RootedRamseyGraph
 public import Ramsey.D18
 public import Ramsey.EvenPivot
 public import Ramsey.Premises

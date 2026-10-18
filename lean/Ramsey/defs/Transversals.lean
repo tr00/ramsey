@@ -130,29 +130,13 @@ public theorem isRamseyGraph_induce_antiNeighborSet {G : SimpleGraph V}
   rw [isRamseyGraph_compl, compl_induce, antiNeighborSet_eq_compl]
   exact isRamseyGraph_induce_neighborSet hGc v
 
-set_option linter.style.haveILetI false in
 /-- Vertex partition: `|N(v)| + |M(v)| + 1 = |V|`. -/
 public theorem card_neighborSet_add_antiNeighborSet [Finite V] (G : SimpleGraph V) (v : V) :
     Nat.card ↥(G.neighborSet v) + Nat.card ↥(antiNeighborSet G v) + 1 = Nat.card V := by
-  classical
-  letI : Fintype V := Fintype.ofFinite V
-  have hpos : 0 < Fintype.card V := Fintype.card_pos_iff.mpr ⟨v⟩
-  have hTU : (G.neighborSet v ∪ Gᶜ.neighborSet v).toFinset =
-      (G.neighborSet v).toFinset ∪ (Gᶜ.neighborSet v).toFinset := by
-    ext a
-    simp
-  have hdF : Disjoint ((G.neighborSet v).toFinset) ((Gᶜ.neighborSet v).toFinset) :=
-    Finset.disjoint_left.mpr fun a ha hma => by
-      simp only [Set.mem_toFinset, SimpleGraph.mem_neighborSet, SimpleGraph.compl_adj] at ha hma
-      exact hma.2 ha
-  have hcardU : (G.neighborSet v ∪ Gᶜ.neighborSet v).toFinset.card =
-      (G.neighborSet v).toFinset.card + (Gᶜ.neighborSet v).toFinset.card := by
-    rw [hTU, Finset.card_union_of_disjoint hdF]
-  have hcomp : (G.neighborSet v ∪ Gᶜ.neighborSet v).toFinset.card = Fintype.card V - 1 := by
-    simp_rw [G.neighborSet_union_compl_neighborSet_eq, Set.toFinset_compl, Finset.card_compl,
-      Set.toFinset_card, Set.card_singleton]
-  rw [antiNeighborSet_eq_compl, Nat.card_eq_fintype_card, Nat.card_eq_fintype_card,
-    Nat.card_eq_fintype_card, ← Set.toFinset_card, ← Set.toFinset_card]
+  rw [antiNeighborSet_eq_compl, Nat.card_coe_set_eq,
+    Nat.card_coe_set_eq, ← Set.ncard_union_eq (G.compl_neighborSet_disjoint v)]
+  rw [G.neighborSet_union_compl_neighborSet_eq, Set.ncard_compl, Set.ncard_singleton]
+  have := Nat.card_pos_iff.mpr (show Nonempty V ∧ Finite V from ⟨⟨v⟩, inferInstance⟩)
   omega
 
 end Ramsey

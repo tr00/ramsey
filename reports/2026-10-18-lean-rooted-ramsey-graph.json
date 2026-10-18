@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-18",
+  "kind": "Lean API refactoring and proof simplification",
+  "request": "Introduce RootedRamseyGraph carrying the pivot decomposition, improve theorem statements, and assess stronger tactics for counting proofs.",
+  "changes": {
+    "new_module": "lean/Ramsey/defs/RootedRamseyGraph.lean",
+    "bundle": "RootedRamseyGraph s t V extends RamseyGraph s t V with pivot : V. Canonical A and B are reducible definitions, not independently stored data. RamseyGraph.root constructs the rooted bundle.",
+    "structure": "Membership simplification, pivot exclusions, disjointness, exhaustive membership partition, finite cardinal partition, neighborhood-degree identity, and bundled (4,5) neighborhood and (5,4) antineighborhood for rooted (5,5) graphs.",
+    "migrated_modules": [
+      "lean/Ramsey/d18/PivotBudget.lean",
+      "lean/Ramsey/d18/ConnectivityClassification.lean",
+      "lean/Ramsey/d18/CrossEdgeBounds.lean",
+      "lean/Ramsey/theorems/LocalReductions.lean"
+    ],
+    "public_api": "Degree-18 budget/connectivity/cross-edge results use R and hv instead of graph/proof/pivot. Local row and column bounds use R and membership in R.A or R.B. All current consumers migrated without compatibility aliases.",
+    "generality": "Raw-graph counting identities, converse interface criteria and the one-sided TransversalFour API remain unchanged. Raw private cross-row cardinality arguments remain independent of Ramsey hypotheses.",
+    "proof_simplifications": [
+      "card_neighborSet_add_antiNeighborSet: 20 proof lines to 5 using Set.ncard_union_eq, Set.ncard_compl and omega. Removed the now-unnecessary local linter override.",
+      "degree_add_compl_degree: 15 proof lines to 4 using SimpleGraph.degree_compl and omega.",
+      "RootedRamseyGraph.mem_partition uses grind with the membership lemmas."
+    ],
+    "documentation": "Updated lean/README.md with rooted construction, API example, cardinality normalization guidance and the roles and limits of existing tactics."
+  },
+  "verification": {
+    "gate": {
+      "command": "sh lean/scripts/check.sh",
+      "exit_status": 0,
+      "output": [
+        "ok   pin: lean-toolchain v4.35.0 == mathlib rev v4.35.0",
+        "ok   build",
+        "ok   audit: axiom sets match scripts/expected-axioms.txt",
+        "PASS: build, ledger, style and axiom audit all green"
+      ]
+    },
+    "consumer": "Root-importing throwaway consumer passed: raw graph to rooted constructor, 279 upper bound, 136..279 corridor, frontier connectivity, neighborhood/antineighborhood Ramsey types, partition exclusions, and row/column bound projections.",
+    "new_declaration_axioms": {
+      "declarations": [
+        "Ramsey.RootedRamseyGraph.mem_partition",
+        "Ramsey.RootedRamseyGraph.card_parts",
+        "Ramsey.RootedRamseyGraph.neighborhood",
+        "Ramsey.RootedRamseyGraph.antineighborhood"
+      ],
+      "exact_set_each": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    "trust": "Sorry ledger and existing audited axiom sets unchanged. No new axioms or sorries. No mathematical branch exclusion claimed."
+  },
+  "operational": "No downloads, packages, solver runs, graph searches, staging or commits. Existing pinned Lean and Mathlib tactics suffice. Temporary validation files removed after use."
+}

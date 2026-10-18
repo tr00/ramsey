@@ -59,20 +59,9 @@ theorem deg_eq_degree (G : SimpleGraph (Fin 43)) [DecidableRel G.Adj] (v : Fin 4
 /-- Complement degrees on 43 vertices: `d_G(v) + d_{Gᶜ}(v) = 42`. -/
 theorem degree_add_compl_degree (G : SimpleGraph (Fin 43)) [DecidableRel G.Adj]
     (v : Fin 43) : G.degree v + Gᶜ.degree v = 42 := by
-  have hself : v ∉ G.neighborFinset v := by simp
-  have hsub : ({v} : Finset (Fin 43)) ⊆ (G.neighborFinset v)ᶜ := by
-    rw [Finset.singleton_subset_iff]
-    simp
-  have hv1 : v ∈ (G.neighborFinset v)ᶜ := Finset.mem_compl.mpr hself
-  have hpos : 0 < (G.neighborFinset v)ᶜ.card := Finset.card_pos.mpr ⟨v, hv1⟩
-  have hdegc : ((G.neighborFinset v)ᶜ \ {v}).card = Gᶜ.degree v := by
-    rw [← SimpleGraph.neighborFinset_compl, SimpleGraph.card_neighborFinset_eq_degree]
-  have hdeg : (G.neighborFinset v).card = G.degree v :=
-    SimpleGraph.card_neighborFinset_eq_degree _ _
-  have h43 : Fintype.card (Fin 43) = 43 := by simp
-  have hsplit : ((G.neighborFinset v)ᶜ \ {v}).card = (G.neighborFinset v)ᶜ.card - 1 := by
-    rw [Finset.card_sdiff, Finset.singleton_inter_of_mem hv1, Finset.card_singleton]
-  have hcomp := Finset.card_compl (s := G.neighborFinset v)
+  have h := G.degree_lt_card_verts v
+  rw [SimpleGraph.degree_compl]
+  simp only [Fintype.card_fin] at h ⊢
   omega
 
 /-- Handshaking on odd order: a graph on an odd number of vertices has a

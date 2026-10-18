@@ -1,6 +1,7 @@
 module
 
 public import Ramsey.D18
+public import Ramsey.defs.RootedRamseyGraph
 public import Mathlib.Data.Set.Card
 
 /-!
@@ -168,57 +169,57 @@ theorem nonadjacent_codegree_interval {G : SimpleGraph V} [Fintype V]
   constructor <;> omega
 
 /-- On 43 vertices, a row at a pivot neighbor satisfies the internal and cross-degree bounds. -/
-theorem pivot_row_card_bounds {G : SimpleGraph (Fin 43)} [DecidableRel G.Adj]
-    (hG : IsRamseyGraph 5 5 G) {v u : Fin 43} (hu : u ∈ G.neighborSet v) :
-    let s := Nat.card ↥(columnSet G (G.neighborSet v) u)
-    let r := Nat.card ↥(rowSet G (antiNeighborSet G v) u)
-    G.degree v - 18 ≤ s ∧ s ≤ 13 ∧ 17 - s ≤ r ∧ r ≤ min 17 (23 - s) := by
-  have hadj : G.Adj u v := hu.symm
-  have hi := adjacent_codegree_interval hG hadj
-  have hd := degree_mem hG u
-  have hsplit := degree_eq_common_add_mixed (G := G) u v
-  have hm := card_mixedCell_le_17 hG u v
+theorem pivot_row_card_bounds (R : RootedRamseyGraph 5 5 (Fin 43))
+    [DecidableRel R.graph.Adj] {u : Fin 43} (hu : u ∈ R.A) :
+    let s := Nat.card ↥(columnSet R.graph R.A u)
+    let r := Nat.card ↥(rowSet R.graph R.B u)
+    R.graph.degree R.pivot - 18 ≤ s ∧ s ≤ 13 ∧ 17 - s ≤ r ∧ r ≤ min 17 (23 - s) := by
+  have hadj : R.graph.Adj u R.pivot := hu.symm
+  have hi := adjacent_codegree_interval R.ramsey hadj
+  have hd := degree_mem R.ramsey u
+  have hsplit := degree_eq_common_add_mixed (G := R.graph) u R.pivot
+  have hm := card_mixedCell_le_17 R.ramsey u R.pivot
   simp only [hadj, ite_true] at hsplit
-  change G.degree v - 18 ≤ Nat.card ↥(G.commonNeighbors u v) ∧
-    Nat.card ↥(G.commonNeighbors u v) ≤ 13 ∧
-    17 - Nat.card ↥(G.commonNeighbors u v) ≤
-      Nat.card ↥(G.neighborSet u ∩ antiNeighborSet G v) ∧
-    Nat.card ↥(G.neighborSet u ∩ antiNeighborSet G v) ≤
-      min 17 (23 - Nat.card ↥(G.commonNeighbors u v))
+  change R.graph.degree R.pivot - 18 ≤ Nat.card ↥(R.graph.commonNeighbors u R.pivot) ∧
+    Nat.card ↥(R.graph.commonNeighbors u R.pivot) ≤ 13 ∧
+    17 - Nat.card ↥(R.graph.commonNeighbors u R.pivot) ≤
+      Nat.card ↥(R.graph.neighborSet u ∩ R.B) ∧
+    Nat.card ↥(R.graph.neighborSet u ∩ R.B) ≤
+      min 17 (23 - Nat.card ↥(R.graph.commonNeighbors u R.pivot))
+  dsimp only [RootedRamseyGraph.A, RootedRamseyGraph.B] at *
   omega
 
 /-- On 43 vertices, a column at a pivot antineighbor satisfies the internal and cross-degree bounds.
 Here `t` counts its antineighborhood neighbors and `c` counts its neighborhood neighbors. -/
-theorem pivot_column_card_bounds {G : SimpleGraph (Fin 43)} [DecidableRel G.Adj]
-    (hG : IsRamseyGraph 5 5 G) {v y : Fin 43} (hy : y ∈ antiNeighborSet G v) :
-    let b := Nat.card ↥(antiNeighborSet G v)
-    let t := Nat.card ↥(rowSet G (antiNeighborSet G v) y)
-    let c := Nat.card ↥(columnSet G (G.neighborSet v) y)
+theorem pivot_column_card_bounds (R : RootedRamseyGraph 5 5 (Fin 43))
+    [DecidableRel R.graph.Adj] {y : Fin 43} (hy : y ∈ R.B) :
+    let b := Nat.card R.B
+    let t := Nat.card ↥(rowSet R.graph R.B y)
+    let c := Nat.card ↥(columnSet R.graph R.A y)
     b - 14 ≤ t ∧ t ≤ 17 ∧
-      max (G.degree v - 17) (18 - t) ≤ c ∧ c ≤ min (G.degree v - 4) (24 - t) := by
-  have hne : y ≠ v := hy.1
-  have hn : ¬G.Adj y v := fun h ↦ hy.2 h.symm
+      max (R.graph.degree R.pivot - 17) (18 - t) ≤ c ∧
+        c ≤ min (R.graph.degree R.pivot - 4) (24 - t) := by
+  have hne : y ≠ R.pivot := hy.1
+  have hn : ¬R.graph.Adj y R.pivot := fun h ↦ hy.2 h.symm
   have hi := nonadjacent_codegree_interval (by simp : Nat.card (Fin 43) = 43)
-    hG hne hn
-  have hd := degree_mem hG y
-  have hsplit := degree_eq_common_add_mixed (G := G) y v
-  have hm := card_mixedCell_le_17 hG y v
+    R.ramsey hne hn
+  have hd := degree_mem R.ramsey y
+  have hsplit := degree_eq_common_add_mixed (G := R.graph) y R.pivot
+  have hm := card_mixedCell_le_17 R.ramsey y R.pivot
   have hid := nonadjacent_common_cell_identity hne hn
-  have hanti := card_commonAntiNeighbors_le_13 hG hne hn
-  have hb := card_neighborSet_add_antiNeighborSet G v
-  have hdeg : Nat.card ↥(G.neighborSet v) = G.degree v := by
-    rw [Nat.card_eq_fintype_card, SimpleGraph.card_neighborSet_eq_degree]
-  rw [hdeg, Nat.card_fin] at hb
+  have hanti := card_commonAntiNeighbors_le_13 R.ramsey hne hn
+  have hb := R.card_parts
+  rw [R.card_A, Nat.card_fin] at hb
   rw [Nat.card_fin] at hid
   simp only [hn, ite_false, Nat.add_zero] at hsplit
-  change Nat.card ↥(antiNeighborSet G v) - 14 ≤
-      Nat.card ↥(G.neighborSet y ∩ antiNeighborSet G v) ∧
-    Nat.card ↥(G.neighborSet y ∩ antiNeighborSet G v) ≤ 17 ∧
-    max (G.degree v - 17)
-      (18 - Nat.card ↥(G.neighborSet y ∩ antiNeighborSet G v)) ≤
-        Nat.card ↥(G.commonNeighbors y v) ∧
-    Nat.card ↥(G.commonNeighbors y v) ≤
-      min (G.degree v - 4) (24 - Nat.card ↥(G.neighborSet y ∩ antiNeighborSet G v))
+  change Nat.card R.B - 14 ≤ Nat.card ↥(R.graph.neighborSet y ∩ R.B) ∧
+    Nat.card ↥(R.graph.neighborSet y ∩ R.B) ≤ 17 ∧
+    max (R.graph.degree R.pivot - 17)
+      (18 - Nat.card ↥(R.graph.neighborSet y ∩ R.B)) ≤
+        Nat.card ↥(R.graph.commonNeighbors y R.pivot) ∧
+    Nat.card ↥(R.graph.commonNeighbors y R.pivot) ≤
+      min (R.graph.degree R.pivot - 4) (24 - Nat.card ↥(R.graph.neighborSet y ∩ R.B))
+  dsimp only [RootedRamseyGraph.A, RootedRamseyGraph.B] at *
   omega
 
 end Ramsey
