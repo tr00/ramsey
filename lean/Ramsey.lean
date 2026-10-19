@@ -27,6 +27,7 @@ public import Ramsey.theorems.RowBounds
 public import Ramsey.d18.PivotBudget
 public import Ramsey.d18.ConnectivityClassification
 public import Ramsey.d18.k1.Rigidity
+public import Ramsey.d18.k1.Reduction
 public import Ramsey.d18.CrossEdgeBounds
 
 @[expose] public section

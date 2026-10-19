@@ -54,6 +54,11 @@ All terms after 136 are nonnegative. Therefore:
 x >= 136.
 ```
 
+Update (2026-10-19): the reviewed x136 closure raises the effective floor
+to `x >= 137` ([closure](../n43/d18/x136/README.md),
+[consequences](../n43/d18/x136_closure_consequences.md)); the equality
+block below records a profile that cannot occur.
+
 If `x=136`, then necessarily:
 
 ```text

@@ -147,11 +147,43 @@ Let $u \in A$, the row $u$ in this matrix corresponds to $R_u = N_B(u) \subseteq
 and a column $w \in B$ to $C_w = N_A(w) \subseteq A$.
 This decomposes our problem into choosing a pivot $v$, then finding its induced (anti-)neighborhood $G[A], G[B]$ and finally the cross interface $M$.
 
+\section{Neighborhood Connectivity}
+
+Perhaps not the first question, but a fruitful one to ask is whether $G[A]$ is connected.
+The answer is no, but the obstructions can be made explicit and lead to a complete partitioning of the degree-18 branch.
+For most configurations $G[A]$ is connected, and otherwise,
+we can show that it splits into a clique and a smaller connected Ramsey graph.
+
+\begin{theorem}
+	Let $G \in R(5, 5, 43)$ and $v \in V(G)$ with $d_G(v) = 18$.
+	Then $G[N(v)]$ is either connected or $K_m \sqcup R$ for $m \in \{1, 2, 3\}$,
+	where $K_m$ is a clique and $R \in R(4,4,18-m)$ is the connected residual graph.
+\end{theorem}
+\begin{proof}
+	Let $A = N(v)$ which induces $G[A] \in R(4, 5, 18)$.
+	By lemma \ref{A-has-I4} we know that $\alpha(A) = 4$.
+	If $G[A]$ is connected we are done, so assume that $G[A]$ is disconnected.
+	Pick an arbitrary component $S \subsetneq A$. Observe that both $S, S^c$ are non-empty and have no cross edges.
+	The independence number behaves additive $\alpha(S) + \alpha(S^c) = \alpha(G[A]) = 4$ for anticonnected cuts.
+
+	We show that one of the two components has to be a clique by deriving a contradiction.
+	Assume for this purpose that $S, S^c$ are not a clique and therefor contain an independent pair.
+	It follows that $S^c$ is $I_3$-free because an $I_3 \in S^c$ with the $I_2 \in S$ would extend to a forbidden $I_5 \in G$.
+	The argument holds symmetrically for $S$.
+	Note that $\alpha(S) + \alpha(S^c) = 2 + 2 = 4 = \alpha(G[A])$,
+	hence there cannot be another component under the current assumptions.
+	However, $R(4, 3) = 9$ which means $\abs{S}, \abs{S^c} < 9$.
+	It follows that $\abs{S} + \abs{S^c} < 16 < 18 = \abs{A}$. contradiction.
+
+	We have established that $G[A] = K_m \sqcup R$ and since $G[A]$ is $K_4$-free, $m \leqslant 3$.
+	It remains to be shown that $R$ is connected and $(4,4)$-free.
+\end{proof}
+
 \section{Anchor Method}
 
 Suppose $G \in R(5, 5, 43)$ with $A = N(v)$ and $B = M(v)$ for some degree-18 pivot $v \in V(G)$.
 
-\begin{lemma}[Anchor Existence Lemma]
+\begin{lemma}[Anchor Existence Lemma]\label{A-has-I4}
 	$G[A]$ contains an independent 4-set $I_4 \subset A$.
 \end{lemma}
 \begin{proof}
@@ -284,8 +316,9 @@ Our fork of \texttt{geng} is customized to efficiently prune graphs with cliques
 	We write $\tau(\F)$ to denote the cardinality of the smallest transversal of $\F$.
 \end{definition}
 
-\nocite{angeltveit_mckay_2026,mckay_radziszowski_1992}
+\nocite{angeltveit_mckay_2026,mckay_radziszowski_1992,
+	biere_et_al_2024,elffers_nordstrom_2018,bolusani_et_al_2024,mckay_piperno_2014,de_moura_ullrich_2021}
 \bibliographystyle{plain}
-\bibliography{sources/angeltveit-mckay-2026,sources/mckay-radziszowski-1992}
+\bibliography{sources/angeltveit-mckay-2026,sources/mckay-radziszowski-1992,sources/tools}
 
 \end{document}

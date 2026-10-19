@@ -1,7 +1,8 @@
 {
   "title": "Seven common nonneighbors of the isolated-neighbor edge",
-  "status": "ready-for-independent-review",
-  "accepted": false,
+  "status": "accepted",
+  "accepted": true,
+  "reviews": ["review_attachments_20261019.json"],
   "scope": "Pure deductions conditional on the recorded n43/d18/k1 structural premises. No graph search, solver, catalogue scan, downloads, or realizability claim.",
   "notation": {
     "partition": "V(G)={v,u} disjoint-union C disjoint-union D disjoint-union T, with |C|=|D|=17 and |T|=7. Edge vu; v complete to C and anticomplete to D,T; u complete to D and anticomplete to C,T. Both cores are 8-regular (4,4)-free with 68 edges.",
@@ -170,5 +171,5 @@
     ],
     "verification": "Direct Python integer arithmetic checked the displayed sums and inequalities; no graph generation or enumeration was run."
   },
-  "outcome": "No theoretical exclusion established. A nontrivial disjoint rooted-labelled partition and exact local attachment criterion are supplied; only the explicitly stated mixed-core compatibility problem remains after those local obligations. All claims remain ready pending independent review."
+  "outcome": "No theoretical exclusion established. A nontrivial disjoint rooted-labelled partition and exact local attachment criterion are supplied; only the explicitly stated mixed-core compatibility problem remains after those local obligations. All nine claims independently accepted by K1AttachmentAudit; see review_attachments_20261019.json for the exact reviewed hash and the dated report for metadata-only integration."
 }

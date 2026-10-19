@@ -295,6 +295,10 @@ public def SubcaseClass : SubcaseBranch → SimpleGraph (Fin 43) → Prop
   | .k2 => KClass 2
   | .k3 => KClass 3
 
+/-- The K1 subcase classifier is exactly its complete-component class. -/
+public theorem subcaseClass_k1 (G : SimpleGraph (Fin 43)) :
+    SubcaseClass .k1 G ↔ KClass 1 G := Iff.rfl
+
 /-- The enumeration set of each subcase branch: the empty set, since the
 obligation of every subcase is the refutation of its class. -/
 public def SubcaseSet : SubcaseBranch → Set (SimpleGraph (Fin 43))

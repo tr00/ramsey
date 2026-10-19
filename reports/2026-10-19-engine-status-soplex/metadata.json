@@ -1,0 +1,21 @@
+{
+  "temporary_consumer_source": "#include \"solver.hpp\"\nint main(int argc,char **argv) { return argc<2 ? 2 : ramsey::run_solver(argv[1],argv+1); }\n",
+  "tiny_sat_opb": "* #variable= 3 #constraint= 3\n+1 x1 >= 1;\n-1 x2 >= 0;\n+1 x1 +1 x2 +1 x3 >= 2;\n",
+  "tiny_unsat_opb": "* #variable= 3 #constraint= 4\n+1 x1 +1 x2 >= 1;\n+1 x1 +1 x3 >= 1;\n+1 x2 +1 x3 >= 1;\n-1 x1 -1 x2 -1 x3 >= -1;\n",
+  "default_opb_sha256": "550a52bdeb9e08e6db5c1c377b8e23235d7547f4fa627d0b7ddb9caa3c87bb80",
+  "estimated_peak_temporary_model_bytes": 60000000,
+  "free_disk_bytes": 581189017600,
+  "solver_binary_sha256": "f1e9a69ed2b588b721c8f904e89d63515dcd4716501b83fcfeec43395a330f92",
+  "engine_binary_sha256": "4e9803b18426deae38764f6e238dcf28ac727f9b760094231cebeb5e183533f2",
+  "source_sha256": {
+    "src/solver.cpp": "e308b161aa035ddc96b90eba55cb8e6e37fce60a43d82b355ab132cdd69d5079",
+    "src/solver.hpp": "97ff1795d00f16d2ac82da9dc14ecf4e06ede64ad849949d953da9de3e9735b1",
+    "src/engine.cpp": "2d0dcf53f6564de7a2d3cad4b53a5ca9809a7e700a2a757cf9979937419c7478",
+    "tests/test_solver.cpp": "6a1714e9a42bb1b104ea35832bf9b8c8576be14e775224ce17e02b992e6e2948",
+    "CMakeLists.txt": "2d52fecdbbe8a342ed9028de2b34ebebacfa58a9787c4b7986e8da3c18d292bf",
+    "reports/2026-10-19-engine-status-soplex/smoke.py": "e76e7b0e3ebbf9c1f10c0ad53db4cb908de02a0c918908fd13d155a23b035a73"
+  },
+  "data_sha256": "c525e6eaf6f7241ef5e4e80ce1bc0108a4b941fd6f3b875c7834bd3dd009b6d7",
+  "cleanup": "Temporary consumer executable, source and OPBs removed by TemporaryDirectory. Raw verification logs retained.",
+  "scope": "Smoke checks only. No Ramsey exclusion or performance comparison claim."
+}

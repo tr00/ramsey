@@ -6,6 +6,13 @@ The reviewed body below is preserved verbatim; ready labels are historical.
 Permitted use: the stated propagation and unavoidable-family branching;
 Claim06 retains its conditional user-supplied closure premise. No full
 degree-18 exclusion, novelty claim, or formal exhaustion certificate follows.
+Status update (2026-10-19): premise C136 is now established in-tree and
+independently reviewed
+([closure](x136/README.md), [review](x136/review_frontier_exclusion_handoff_20261019_main.md)).
+Claim06's conclusions (rootwise q+E>=1, and E=0 => q>=1) may be used
+unconditionally once its conditional qualifier is lifted under renewed
+review; claim bodies, review state, and this banner's historical text are
+unchanged here.
 <!-- extension-research-integration:end -->
 
 # Independent-root coverage and an exact exceptional signature core

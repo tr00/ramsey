@@ -78,3 +78,106 @@
  Quot.sound,
  Ramsey.ramsey_4_5_le_25]
 'Ramsey.d18.c.w0.complete_of_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.d18.subcaseClass_k1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.d18.k1.exists_admissible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_3_le_9,
+ Ramsey.ramsey_4_4_le_18,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.k1.core_isSRGWith' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.k1.core_total_paircodegrees' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.k1.core_nonedge_common_anti_triangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.k1.core_nonedge_miss_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.k1.attachment_cross_ge_sixty_four' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_3_le_9]
+'Ramsey.d18.k1.Frame.degree_C' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.d18.k1.Frame.C_T_degree_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_3_5_le_14]
+'Ramsey.d18.k1.Frame.isolated_T_core_degree_ge_ten' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_3_5_le_14]
+'Ramsey.d18.k1.Frame.core_excess_budgets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.k1.Frame.T_excess_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_24_ge_116,
+ Ramsey.edges_ramsey_4_5_24_le_132,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.k1.Frame.root_cross_excess' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.k1.Frame.total_excess' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.k1.Frame.parameters_allowed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_24_ge_116,
+ Ramsey.edges_ramsey_4_5_24_le_132,
+ Ramsey.ramsey_4_3_le_9,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.k1.ramsey_iff_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.d18.k1.replace_ramsey_iff_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.d18.k1.Key.ofFrame_reconstruct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.d18.k1.Key.matrix_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.d18.k1.Key.assemble_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ramsey.d18.k1.Key.valid_filters' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_24_ge_116,
+ Ramsey.edges_ramsey_4_5_24_le_132,
+ Ramsey.ramsey_3_5_le_14,
+ Ramsey.ramsey_4_3_le_9,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.k1.reduction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_24_ge_116,
+ Ramsey.edges_ramsey_4_5_24_le_132,
+ Ramsey.ramsey_3_5_le_14,
+ Ramsey.ramsey_4_3_le_9,
+ Ramsey.ramsey_4_4_le_18,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.k1.complete_by_parameters' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_24_ge_116,
+ Ramsey.edges_ramsey_4_5_24_le_132,
+ Ramsey.ramsey_4_3_le_9,
+ Ramsey.ramsey_4_4_le_18,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.k1.complete_of_reduced' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_24_ge_116,
+ Ramsey.edges_ramsey_4_5_24_le_132,
+ Ramsey.ramsey_3_5_le_14,
+ Ramsey.ramsey_4_3_le_9,
+ Ramsey.ramsey_4_4_le_18,
+ Ramsey.ramsey_4_5_le_25]
+'Ramsey.d18.k1.excludes_of_reduced' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Ramsey.edges_ramsey_4_5_24_ge_116,
+ Ramsey.edges_ramsey_4_5_24_le_132,
+ Ramsey.ramsey_3_5_le_14,
+ Ramsey.ramsey_4_3_le_9,
+ Ramsey.ramsey_4_4_le_18,
+ Ramsey.ramsey_4_5_le_25]

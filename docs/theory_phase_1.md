@@ -433,6 +433,10 @@ In particular,
 x >= 136.
 ```
 
+Update (2026-10-19): the reviewed x136 closure strengthens this floor to
+`x >= 137` for every degree-18 root
+([closure](../n43/d18/x136/README.md)).
+
 This is a tighter branch bound than the catalogue-free matching lemma, though
 it relies on the established computational census.
 

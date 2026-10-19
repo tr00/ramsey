@@ -27,7 +27,7 @@
     {
       "id": "claim-k1-double-core",
       "kind": "local-deduction",
-      "review_state": "ready",
+      "review_state": "accepted",
       "scope": "Every rooted graph in the stated k1 branch",
       "conclusion": "The partition {v,u},C,D,T has orders2,17,17,7. Both C and D induce 8-regular K4/I4-free graphs, with68 edges each. Edge vu is present; v is complete to C and anticomplete to D union T; u is complete to D and anticomplete to C union T. Both C union T and D union T induce (5,4)-free graphs of order24. Both roots have neighborhood edge count68, hence deficit17.",
       "proof": [
@@ -36,12 +36,12 @@
         "The antineighborhoods of u and v are respectively C union T and D union T. Any I4 there extends with that root to I5; K5 is forbidden by heredity. Thus both are (5,4)-free. Also N(u)={v} disjoint-union D, so its induced edge count is68, just as for v."
       ],
       "search_use": "propagate",
-      "reviews": []
+      "reviews": ["review_research_20261019.json"]
     },
     {
       "id": "claim-k1-budget-obstruction",
       "kind": "local-deduction",
-      "review_state": "ready",
+      "review_state": "accepted",
       "scope": "Same branch; epsilon_z=d_G(z)-18 and E_S=sum over S of epsilon_z",
       "conclusion": {
         "identities": ["r+p=153+E_C", "r+q=153+E_D", "p+q+2h=126+E_T", "W=2(r+p+q+h-216)", "x_v=17+r+p=170+E_C", "x_u=17+r+q=170+E_D"],
@@ -57,12 +57,12 @@
         "For c in C, common nonneighbors of the nonedge uc consist exactly of the8 C-nonneighbors of c and T-N_T(c). Their union has no I3 (add u,c) and no K5 (heredity), hence has order at most13 by R(3,5)=14, equivalently the recorded nonedge common-cell bound. Thus15-d_T(c)<=13. The upper bound7 is the size of T. The final degree intervals follow by subtracting the9 fixed neighbors."
       ],
       "search_use": "propagate",
-      "reviews": []
+      "reviews": ["review_research_20261019.json"]
     },
     {
       "id": "claim-k1-exact-partition",
       "kind": "local-deduction",
-      "review_state": "ready",
+      "review_state": "accepted",
       "scope": "Root-preserving labelled isomorphism classes represented with v=0,u=1,C=2..18,D=19..35,T=36..42; within each cell all labelings retained, no automorphism quotient asserted",
       "conclusion": {
         "branch_key": "(labelled C graph, labelled D graph, labelled T graph, C-T matrix P, D-T matrix Q)",
@@ -84,10 +84,10 @@
         "There is no converse claim for the budget filters alone, the valid sides alone, or the134112 B-catalogue survivors. The11 obstruction families include every forbidden5-set, not merely necessary local samples."
       ],
       "search_use": "branch",
-      "reviews": []
+      "reviews": ["review_research_20261019.json"]
     }
   ],
   "related_notes": ["seven_cell.json", "cross_core.json"],
-  "independent_review": "Pending",
+  "independent_review": "Accepted by K1PartitionAudit; see review_research_20261019.json for exact reviewed hash and report for metadata-only integration hash",
   "no_exclusion_claim": true
 }

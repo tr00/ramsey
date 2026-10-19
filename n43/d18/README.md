@@ -7,7 +7,7 @@ Notation and inherited bounds: [reduction index](../reductions.md), sections 2,
 
 | Child | Predicate | Status |
 | --- | --- | --- |
-| [x136](x136/README.md) | x=136 | Closed per user report; closure proof pending checkout integration |
+| [x136](x136/README.md) | x=136 | Excluded; reviewed full-frontier closure, every root has x>=137 |
 | [x137](x137/README.md) | x=137 | Open; r0 only, r>=1 excluded |
 | [x138](x138/README.md) | x=138 | Open |
 | [x139](x139/README.md) | x=139 | Open |
@@ -16,7 +16,10 @@ Notation and inherited bounds: [reduction index](../reductions.md), sections 2,
 | [x142](x142/README.md) | x=142 | Open; every column has size at least four |
 | [x-ge143](x-ge143/README.md) | x>=143 | Open residual branch |
 
-This disjoint split uses the existing lower bound x>=136 and integer x.
+This disjoint split uses the lower bound x>=137 and integer x: the x=136
+slice is excluded by the reviewed [full-frontier closure](x136/README.md),
+whose rootwise profile consequences are recorded in
+[closure consequences](x136_closure_consequences.md).
 The notes tabulate profiles through x142; no upper bound x<=142 was located
 in the frontier-band work or reports. The residual x>=143 branch is retained.
 The [x>=137 overview](x-ge137/README.md) links to these sibling branches.
@@ -52,6 +55,7 @@ Shared proof notes:
 - [Excess bounds](excess_bounds.md)
 - [Clique budgets and augmentation](cliques_augmentation.md)
 - [Four-transversal bound](transversal_four.md)
+- [Reviewed full x136 frontier exclusion: double domination, three-anchor and low-degree lemmas, column-incidence closure](x136/frontier_exclusion_handoff.md) ([review](x136/review_frontier_exclusion_handoff_20261019_main.md))
 - [Reviewed equality-frontier degree-eight anchor and column size>=5](x136/five_column_compatibility.md)
 - [Pairwise refinements and reviewed claim connections](pairwise_refinements.md)
 - [Four-column stability beyond equality](four_column_stability.md)

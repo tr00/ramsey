@@ -36,7 +36,11 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/d18/c/Exclusion.lean` | Connected d18 subcase target `Ramsey.d18.c.excludes : ExcludesSubcase .conn` — deliberate `sorry` |
 | `Ramsey/d18/c/w0/Exclusion.lean` | Connected degree-18 zero-A-excess branch `Ramsey.d18.c.w0.Class`, with open `Excludes := Complete ∅ Class`. Here `W_A = E_A = 0` means every A vertex has global degree 18, proved by `zero_excess_iff`. Mirrors the exact budgets in `../n43/d18/frontier_band.md`. This is not restricted to `x = 136` and does not cover positive A-excess. No new axioms or sorries. |
 | `Ramsey/d18/k1/Exclusion.lean` | K1 d18 subcase target `Ramsey.d18.k1.excludes : ExcludesSubcase .k1` (exceptional neighborhood with complete component of order 1) — deliberate `sorry` |
-| `Ramsey/d18/k1/Rigidity.lean` | K1 rigidity `Ramsey.d18.k1.rigidity`: in the exceptional disconnected neighborhood with complete component of order 1, its vertex u satisfies `deg G u = 18` and row size 17, and the row `R_u` induces a 17-vertex 8-regular `(4,4)`-Ramsey graph. Mirrors item (b) of the ready (not accepted) claim `../n43/d18/neighborhood_connectivity.md#claim-connectivity-03` at `m = 1`, strengthened by needing no pivot-degree hypothesis. Consumes `R(3,4) ≤ 9`, `R(4,4) ≤ 18`, `R(4,5) ≤ 25` |
+| `Ramsey/d18/k1/Rigidity.lean` | K1 rigidity: the isolated neighbor has global degree 18 and a 17-vertex 8-regular `(4,4)` cross row. Mirrors accepted connectivity claim 03(b), with no pivot-degree hypothesis. |
+| `Ramsey/d18/k1/{Frame,Structure}.lean` | Canonical adjacent-root cells and the proved 17+17+7 decomposition with both regular cores and both `(5,4)` sides. |
+| `Ramsey/d18/k1/{Core,Attachments}.lean` | Proved SRG(17,8,3,4), unique missers of core nonedges, and at least 64 attachment edges per side. The 64-edge proof uses incidence convexity and needs no 8-vertex census. |
+| `Ramsey/d18/k1/{Budgets,Totals,VertexBounds}.lean` | Exact core, root and global edge/excess identities, 7-cell excess 26..42, and all vertexwise bounds. |
+| `Ramsey/d18/k1/{Completion,Parameters,Reduction}.lean` | Exact 8/3 mixed obstruction types, arbitrary cross-core replacement, the scalar outer envelope, and `Complete` reductions to admissible erased keys with 289 Boolean positions. No exclusion or realizability claim. |
 | `Ramsey/d18/k2/Exclusion.lean` | K2 d18 subcase target `Ramsey.d18.k2.excludes : ExcludesSubcase .k2` (complete component of order 2) — deliberate `sorry` |
 | `Ramsey/d18/k3/Exclusion.lean` | K3 d18 subcase target `Ramsey.d18.k3.excludes : ExcludesSubcase .k3` (complete component of order 3) — deliberate `sorry` |
 | `Ramsey/d20/Exclusion.lean` | d20 branch target `Ramsey.d20.excludes : ExcludesDegree 20` — deliberate `sorry`, mirrors `../n43/d20/`; arbitrary even-pivot d20, _not_ the normalized min-degree-20 scheme of `../n43/min-degree20/` |
@@ -91,6 +95,38 @@ example (R : Ramsey.RootedRamseyGraph 5 5 (Fin 43)) [DecidableRel R.graph.Adj]
 The former `CrossEdgeSupport`, `CrossEdgeTail`, `CrossEdgeSingle`,
 `CrossEdgeCores` and `CrossEdgeDouble` modules have been removed.
 Their internal lemmas are no longer part of the public API.
+
+## K1 completion reduction
+
+The accepted claims in [the double-core research note](../n43/d18/k1/research.json),
+[cross-core bounds](../n43/d18/k1/cross_core.json), and
+[seven-cell structure](../n43/d18/k1/seven_cell.json) now have proved reduction interfaces.
+The exact source correspondence and axiom audit are recorded in
+[the formalization report](../reports/2026-10-19-lean-d18k1-reduction.json).
+
+`Ramsey.d18.k1.reduction` proves
+`Complete {G | ReducedClass G} (Ramsey.d18.KClass 1)`.
+The reduced class contains explicit Boolean completions of partial keys. Each key has the
+cross-core block erased and retains both admissible 24-vertex sides. Its matrix has exactly
+289 positions. The 8 negative and 3 positive rectangle families are necessary and sufficient
+for the assembled graph to be `(5,5)`-free. All scalar, attachment and vertexwise filters
+stored in the reduced class are proved consequences, not extra search assumptions.
+
+```lean
+example {S : Set (SimpleGraph (Fin 43))}
+    (h : Ramsey.Complete S Ramsey.d18.k1.ReducedClass) :
+    Ramsey.Complete S (Ramsey.d18.KClass 1) :=
+  Ramsey.d18.k1.complete_of_reduced h
+```
+
+`complete_by_parameters` alternatively joins complete enumerations for all allowed scalar
+profiles. An allowed profile is an outer-envelope cell, not a realizability certificate.
+`excludes_of_reduced` transfers an eventual empty complete enumeration to the K1 exclusion.
+The original K1 exclusion remains open and its existing `sorry` is unchanged. No new
+axioms or sorries are introduced. The core saturation, nonedge packing and 64-edge bound
+consume only the existing `R(4,3) ≤ 9` premise. The exact completion equivalence and
+matrix-reconstruction theorems use only the standard logical axioms. Census-dependent
+budget filters retain the existing published order-24 edge bounds.
 
 ## Proof automation
 
@@ -199,6 +235,6 @@ its cross row. The row cap `|R_u| ≤ 17` and the global degree floor
 `18 ≤ d(u)` force `deg G u = 18` and `|R_u| = 17`, and the row itself is a
 17-vertex 8-regular `(4,4)`-Ramsey graph by the regularity trigger. The
 statement needs no hypothesis on the pivot degree. The source claim
-`n43/d18/neighborhood_connectivity.md#claim-connectivity-03` is ready, not
-accepted; its item (b) arithmetic `epsilon_u ≤ m - 1` and
+`n43/d18/neighborhood_connectivity.md#claim-connectivity-03` is independently
+accepted. Its item (b) arithmetic `epsilon_u ≤ m - 1` and
 `d_B(u) = 18 - m + epsilon_u` collapses at m = 1 to the equalities above.

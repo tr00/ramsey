@@ -1,0 +1,385 @@
+{
+  "title": "Independent review of the k1 seven-cell and cross-core attachment notes",
+  "date": "2026-10-19",
+  "review_id": "review_attachments_20261019",
+  "reviewer": "K1AttachmentAudit",
+  "authors": {
+    "n43/d18/k1/seven_cell.json": "K1SevenCell",
+    "n43/d18/k1/cross_core.json": "K1CrossCore"
+  },
+  "author_reviewer_distinct": true,
+  "kind": "Independent mathematical audit. Read-only except this review file. No solver, graph enumeration, catalogue scan, downloads, installs, Lean edits, formatters, linters, or test suites. The only computation run was exact integer arithmetic recounting stated scalar counts, which is within the permitted scalar-only checking the authors themselves performed.",
+  "scope_note": "Both reviewed files are conditional research notes: every claim is a necessary-condition filter, an exact (if and only if) local/residual equivalence, or an exact labelled-partition statement. Neither file asserts exclusion or existence of an order-43 candidate. This review validates the internal mathematics and the exact/necessary labelling; it grants no pruning authority beyond what the proven statements give.",
+
+  "reviewed_revisions": [
+    {
+      "path": "n43/d18/k1/seven_cell.json",
+      "author": "K1SevenCell",
+      "sha256": "12291b747b0ffaf8c1210e204c88361520c702b2ea400dd61df1b396ff5cbc56",
+      "lines": 174,
+      "claim_count": 9,
+      "hash_note": "Independently recomputed with sha256sum before audit and again after audit; matches the author-reported READY hash both times. The file did not change during review."
+    },
+    {
+      "path": "n43/d18/k1/cross_core.json",
+      "author": "K1CrossCore",
+      "sha256_initial_reviewed": "bae11177615d88cfd4bb4e59694cc0ea4fad59936449305f36b235ca143f4b5c",
+      "sha256_final": "f114df4f0999ce41f91b87c1fa73bb887ebd365df2fb1871957c62b749be86ce",
+      "lines": 118,
+      "claim_count": 5,
+      "hash_note": "The initial hash was fully audited. Finding att-01 required one proof-sentence correction in strict-seven-signature-budget; the author reports no other change. The final hash was independently recomputed, the corrected sentence re-read in full, and every other claim body re-read against the audited version and found substantively identical. The final hash is the reviewed-and-accepted revision."
+    }
+  ],
+
+  "shared_setup_used": {
+    "source": "n43/d18/k1/research.json (Main's shared setup; consistency checked, not reviewed here)",
+    "rederived_independently": [
+      "Partition {v,u},C,D,T of orders 2,17,17,7; both roots have degree 18 and neighborhood edge count 68 (deficit 17 each); C and D are (4,4)-free on 17 vertices and each exactly 8-regular with 68 edges: a C-vertex has at most 8 internal neighbors by R(3,4)=9 on its (triangle-free, I4-free) neighborhood, and at most 8 nonneighbors by R(3,4)=9 applied to the complement of its (I3-free, K4-free) nonneighborhood, so all degrees are exactly 8.",
+      "Fixed edges total 171 = 1 (vu) + 34 (root-core) + 136 (core-internal).",
+      "Budget identities r+p=153+E_C, r+q=153+E_D, p+q+2h=126+E_T, E_total=2(r+p+q+h-216)=E_C+E_D+E_T, e(G)=171+r+p+q+h, x_v=17+r+p=170+E_C, x_u=17+r+q=170+E_D: each recomputed from fixed-neighbor counts (core vertex: 9 fixed neighbors; T vertex: neighbors only in C,D,T) and from x_v = e(N(v), V-N[v]) = 17 + r + p.",
+      "Side types: the antineighborhood of u is C+T and of v is D+T; each is K5-free hereditarily and I4-free because an I4 there plus the anticomplete root is I5. Both are (5,4)-free of order 24."
+    ],
+    "consistency": "Both reviewed files use exactly these identities and side types; no divergence found."
+  },
+
+  "dependencies_reviewed": [
+    {
+      "dependency": "n43/d18/neighborhood_connectivity.md#claim-connectivity-01/02/03",
+      "status": "accepted in prior independent review (reviews recorded in the file and its acceptance addendum)",
+      "applicability_check": "The k1 predicate (isolated vertex u in N(v)) forces the (1,3) component profile with m=1, so u is unique and claim-03(b) applies: epsilon_u=0, d(u)=18, |D|=17. Verified against the claim text."
+    },
+    {
+      "dependency": "n43/reductions.md section 4.1 degree bounds 18..24 [PUBLISHED]",
+      "status": "rederived independently: a K4-free, I5-free neighborhood cannot reach 25 vertices by R(4,5)=25 (upper bound 24); the non-neighborhood is K5-free and I4-free, hence of order at most 24 by R(5,4)=25 (lower bound 18).",
+      "applicability_check": "Holds for every vertex of the order-43 candidate; both files cite it correctly."
+    },
+    {
+      "dependency": "n43/reductions.md section 4.3 pair codegree bounds",
+      "status": "recorded PROVED-HERE; all four inequalities rederived independently in this review:",
+      "rederivations": [
+        "Edge lower: for adjacent x,y, the set of vertices adjacent to x but not to y is (4,4)-free (a K4 there plus x is K5; an I4 there plus y is I5), hence of order at most 17 by R(4,4)=18, giving c >= d(x)-17-1 = d(x)-18; symmetric.",
+        "Edge upper 13: the common-neighbor set of an edge is triangle-free (a triangle there plus the edge is K5) and I5-free hereditarily, hence of order at most 13 by R(3,5)=14.",
+        "Nonedge lower: for nonadjacent x,y, the vertices adjacent to exactly one of x,y form a (4,4)-free set (K4 plus x is K5; I4 plus y is I5) of order at most 17, giving c >= max(d)-17.",
+        "Nonedge upper: the partition of V-{x,y} gives c = d(x)+d(y)+m-41 where m is the number of common nonneighbors; m is I3-free (with x,y that is I5) and K5-free hereditarily, so m <= 13 by R(3,5)=14, giving c <= d(x)+d(y)-28."
+      ],
+      "applicability_check": "Both files substitute d_G = 9+s on core vertices and the T-pair degrees exactly as recorded; the substitutions were redone term by term."
+    },
+    {
+      "dependency": "n43/reductions.md section 4.4 small common-cell bounds",
+      "status": "recorded PROVED-HERE; triangle common cell independent of size at most 4 (any edge among common neighbors plus any triangle vertex is K5; then alpha<=4 from I5-freeness) and independent-triple common nonneighbors form a clique of size at most 4 (two nonadjacent ones with the triple are I5) both rederived.",
+      "applicability_check": "Used by seven_cell T-pair-and-triangle-global-filters exactly in these forms."
+    },
+    {
+      "dependency": "README.md census table rows (5,4,24): 144..160 [source 1] and (4,4,17): 68..68 [source 2]; n43/reductions.md section 8.1 [PUBLISHED] 144..160 (complement of the (4,5,24) interval 116..132)",
+      "status": "located and quoted in the recorded direction only; not recertified (published census premise)",
+      "applicability_check": "Both sides C+T and D+T are order-24 (5,4)-free, so 144 <= 68+X+h <= 160 applies; the (4,4,17) row is consistent with, and not used by, the census-free regularity proof in cross_core."
+    },
+    {
+      "dependency": "n43/d18/large_row_extensions.md#claim-seventeen-codegree-moments (accepted; reviewed-body SHA-256 1f53107e3e8889c6ee8064e50578de8e092641b60e8b9c3eacfac6d6f2827c48 recorded in the file header)",
+      "status": "accepted; statement read",
+      "applicability_check": "Scope is any (4,4)-free graph of order 17 and concludes edge codegree 3, nonedge codegree 4 (i.e. SRG(17,8,3,4)), census-free. Matches both files' use. cross_core independently re-supplies the same argument, so its correctness does not rest on this dependency."
+    },
+    {
+      "dependency": "n43/d18/large_row_extensions.md#claim-common-eight-classification (accepted)",
+      "status": "accepted; statement and proof read",
+      "applicability_check": "Scope is every triangle-free I4-free graph of order 8, conclusion e(S) in {10,11,12}. seven_cell applies it to F = complement(H[W_t]), which is exactly triangle-free (W_t has no I3) and I4-free (core is K4-free); usage matches the scope."
+    },
+    {
+      "dependency": "n43/d18/large_row_extensions.md#claim-seventeen-extension-domain (accepted)",
+      "status": "accepted; criterion list read",
+      "applicability_check": "Verified verbatim-in-substance reuse: the source obligations (W-side K5/I4-freeness, edge-pair no-triangle in common neighbors, triangle independent common neighbors, K4 empty intersection, each T_z no I3, nonedge pair missed intersection a clique of order at most 3, independent triple empty missed intersection) are exactly seven_cell's listed obligations with K in place of H and T in place of W. Applicability to BOTH sides verified: for D+T take pivot v and row-vertex u (|R_u| = |D| = 17); for C+T take pivot u and row-vertex v (|R_v| = |C| = 17)."
+    },
+    {
+      "dependency": "Recorded Ramsey numbers R(3,3)=6, R(3,4)=9, R(3,5)=14, R(4,4)=18, R(4,5)=25 (equivalently R(5,4)=25)",
+      "status": "standard published values used as recorded; each application in the two files was checked for direction (clique-type vs independence-type) and vertex count"
+    },
+    {
+      "dependency": "Elementary Turan theorem with equality (seven-vertex endpoints only)",
+      "status": "recomputed: ex(7,K4)=16 via parts 3,2,2; ex(7,K5)=18 via parts 2,2,2,1; equality cases unique as stated"
+    }
+  ],
+
+  "checks": {
+    "assumptions": [
+      "No maximum-edge-root or minimum-degree normalization is assumed anywhere; both files are conditional on the raw k1 predicate plus the accepted connectivity claims, matching research.json scope.",
+      "Degrees 18..24 are imported as a published universal premise, not re-derived inside each claim; correct usage confirmed.",
+      "No census uniqueness and no 17-core uniqueness is used: cross_core states its SRG derivation is census-free and explicitly disclaims identification with Paley17 or uniqueness; seven_cell's coverage section carries the unlabelled-census warning. This satisfies the review constraint not to assume SRG/Paley uniqueness.",
+      "Both files state no-exclusion and no-existence status explicitly; review_state/ready labels remain pending until Main integrates."
+    ],
+    "quantifiers": [
+      "seven_cell claim 3 quantifies per side (either core K with its T attachment) under the single hypothesis H is (5,4)-free; both directions checked under exactly this hypothesis, with no claim about the full graph G (explicitly stated).",
+      "seven_cell claim 9 quantifies over all cell triples (U,V,W) with nonempty U,V, |U|+|V|+|W|=5; necessity covers every actual K5/I5 (root cases excluded separately), sufficiency only fires when the antecedent itself exhibits a genuine forbidden 5-set.",
+      "cross_core exact-scalar-envelope quantifies integer feasibility of aggregate inequalities only and explicitly disclaims individual-vertex assignment and graph realizability.",
+      "Labelled coverage in both files is per ordered root pair with fixed within-cell labels and no automorphism quotient; disjointness claims are about labelled objects only, as stated."
+    ],
+    "ambient_types": [
+      "Every set used with a Ramsey bound was type-checked: neighborhoods nonneighbors core sides and intersection cells were verified to carry the claimed K-free/I-free properties by heredity from G, by the root anticompleteness structure, or by the local criteria, in each individual application (roughly twenty distinct applications; none failed).",
+      "The R(3,5)=14 applications were specifically checked to run in the K5-free + I3-free direction (equivalently the complement direction), which is the direction actually established in each proof.",
+      "R(3,4)=9 applications to sets that are (I3-free + K4-free) run via the complement (triangle-free + I4-free); both files state this explicitly or implicitly and the step is valid."
+    ],
+    "algebra": [
+      "Identities: r+p=153+E_C (17 x (9+8-8+... ) from 9 fixed neighbors per core vertex), p+q+2h=126+E_T (7 x 18), fixed edges 171, E_total=2(r+p+q+h-216), x_v=17+r+p: all recomputed and matched.",
+      "Census coupling: e(C+T)=68+X+h in [144,160] gives i=X+h-76 in [0,16]; sum_T d = X+Y+2h = 152+i+j <= 168 gives i+j<=16 and sum delta = 16-i-j; E_T = L+R-126 in [26,42] from 152<=L+R<=168; all matched.",
+      "SRG saturation: 17*C(8,2) = 476 = 68*3 + 68*4, and for a nonedge common-nonneighbors = codegree-1 (union of two size-8 neighborhoods inside 15 vertices: 16-c, so 15-(16-c)=c-1): matched.",
+      "Scalar envelope recount (independent awk integer arithmetic): exactly 1589 feasible (h,L,R) profiles and 155057 (h,L,R,r) buckets, matching cross_core's stated 1589 and Main's reported PASS; no empty r-interval found (length = 103-|L-R| >= 87).",
+      "h-band table rederived: rmin = 69+h, rmax = 179+h for h<=11 and 191 for h>=12, pmin = max(64,76-h), pmax = min(92-h, 104-2h); all 14 rows match the table entry by entry.",
+      "Projections rederived: p,q in [64,87], r in [74,191], E_total in [26,246], x_v,x_u in [170,272], e_G in [400,510]; endpoint feasibility spot-checked (e.g. E_total=26 at L=R=76, r=77+h; E_total=246 at L=R=84, r=171+h).",
+      "Arithmetic witness recomputed: h=5 with tau=[2,2,2,1,1,1,1], X=Y=71, sum delta=16, per-vertex delta=[2,2,2,2,2,3,3] all equal 24-p-q-tau, both sides 144 edges, all bounds (L_t, delta caps, i+j<=16, h<=12+i) satisfied; consistent scalar-only witness as claimed.",
+      "Vertexwise bounds algebra: delta_t<=6-tau_t from p+q>=18; delta_t<=24-tau_t-2L_t from p_t,q_t>=L_t; p_t<=24-tau_t-delta_t-L_t from q_t>=L_t: all equivalences checked."
+    ],
+    "case_coverage": [
+      "K5 without roots: must meet both cores (else it lies inside one (5,4)-free side); per-core counts (a,b) in [1,3]^2 with |W|=5-a-b give exactly the eight triples [3,2,0],[2,3,0],[3,1,1],[2,2,1],[1,3,1],[2,1,2],[1,2,2],[1,1,3]; enumerating a=1..3,b=1..3 with 5-a-b>=0 reproduces exactly this set (checked in research.json and subsumed by seven_cell claim 9's quantification, whose extra size-triples are vacuous under side validity because e.g. an independent 3+1 split of C,T would itself be an I4 of the side).",
+      "I5 without roots: side I4-freeness forces a+c<=3 and b+c<=3, hence c<=1 and only (3,2,0),(2,3,0),(2,2,1); seven_cell's broader quantification remains correct because every triple satisfying its antecedent IS an actual independent 5-set.",
+      "K5/I5 containing one root: excluded by K4-freeness of the core (K5) and side I4-freeness (I5); containing both roots: impossible since v-u adjacent rules out I5 and N(v) intersect N(u) is empty rules out K5. Checked in seven_cell claim 9 sufficiency and research claim 3.",
+      "seven_cell claim 3/4 case splits: I4 wholly in core, wholly in T, mixed with s=0..4 T-vertices; K5 wholly, mixed with s=0..4. s=0 and s=4 (resp. s=5) fall on the side-type hypotheses; s=1..3 (resp. s=1..4) match the obligations one for one. Core anchors of sizes 1..3 exhaust mixed cases because both cores have clique and independence numbers at most 3.",
+      "strict-seven counting: seven size-8 signatures would need 70 distinct core nonedges against 68 available; the 8-vertex sub-graph bound e>=10 was checked via the accepted classification (seven_cell) and via a full census-free re-derivation (cross_core) after the sentence correction in att-01."
+    ],
+    "dependency_applicability": [
+      "All cited claim anchors exist with the review states claimed (connectivity claims accepted; three large_row_extensions claims accepted at the recorded body hash; reductions sections 4.1/4.3/4.4/8.1 present with the quoted content; README census rows present).",
+      "Seven-cell cites reductions section 5.3 (single-column bounds) among dependencies but no claim in the file uses column bounds; this is an over-broad citation only (finding att-02), not a mathematical error.",
+      "Cross-core's rigid-partition input correctly needs only claim-connectivity-03(b) plus heredity for the (4,4)-free core types; d(u)=18, |D|=17, root incidence and no root-T edges were checked against the claim text and research.json."
+    ],
+    "permitted_search_use": "Both files declare no enumeration, solver, catalogue scan, or downloads, and their verification fields are consistent with what was actually needed (integer arithmetic only). This review likewise used only proof reading and one scalar integer recount. Search use labels in research.json (propagate/branch) are Main's to integrate."
+  },
+
+  "claims": [
+    {
+      "file": "n43/d18/k1/seven_cell.json",
+      "id": "seven-cell-type",
+      "line": 24,
+      "statement_type": "necessary-filter",
+      "outcome": "accepted",
+      "proof_checks": [
+        "alpha(H)<=3 via I5 with anticomplete root v; complement K4-free; Turan e<=16 gives h>=5; K5-free gives h<=18 (both recomputed).",
+        "Endpoint equality shapes correct: h=5 forces H=K3+K2+K2 (complement is the unique T_3(7)); h=18 forces complete 4-partite parts 2,2,2,1 with six tau=5 and one tau=6, which is exactly what the h=18 interpretation sentence of claim two-B24-census-coupling needs.",
+        "The refusal to impose omega(H)<=3 is correct: v,u are anticomplete to T, so only a K5 inside T is excluded; K4 in T has no fifth clique vertex."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/seven_cell.json",
+      "id": "single-attachment-bounds",
+      "line": 34,
+      "statement_type": "necessary-filter",
+      "outcome": "accepted",
+      "proof_checks": [
+        "C-P_i has no I3 (with t_i that is I4 of C+T, then plus u is I5) and is K4-free hereditarily; R(3,4)=9 via the complement bounds it by 8, so p_i>=9; symmetric for q_i.",
+        "Vertex nonneighbors inside a (5,4)-free 24-side are I3-free (plus the vertex they are an I4) and K5-free, hence at most 13 by R(3,5)=14 in the K5-free+I3-free direction, giving degree at least 10: applied to t_i yields p_i+tau_i>=10, q_i+tau_i>=10, hence L_i=max(9,10-tau_i); applied to a core vertex yields 8+r_c>=10, so r_c>=2 (r_c<=7 trivial).",
+        "Upper caps p_i,q_i<=24-tau_i-L_i follow from degree<=24 and the matching lower cap on the other side; the global window 18<=p_i+q_i+tau_i<=24 follows from p_i,q_i>=9 and the degree bounds."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/seven_cell.json",
+      "id": "all-homogeneous-subsets-of-T",
+      "line": 40,
+      "statement_type": "exact-equivalence (per side, local to K+T)",
+      "outcome": "accepted",
+      "proof_checks": [
+        "Necessity: an I4 of K+T split as s T-vertices plus 4-s core vertices forces alpha(missed core set)<=3-s for independent s<=3; a K5 split as s T-vertices plus 5-s core vertices forces omega(common neighbors)<=4-s for cliques s<=4.",
+        "Sufficiency: exhaustive split of any I4/K5 by its nonempty T-part; s=0 and full-T cases fall on the side-type hypotheses provided by the H is (5,4)-free hypothesis; every mixed case lands on exactly one listed obligation. No location of a forbidden set is missed.",
+        "Cardinality refinements correct: missed singleton alpha<=2 with size<=8 (complement route through R(3,4)=9), independent pair missed set a clique of size at most 3 (no K4), independent triple empty, clique pair common neighbors triangle-free plus I4-free of size at most 8, triangle common neighbors independent of size at most 3, K4 common neighbors empty.",
+        "Applicability to both sides verified against the accepted source claim-seventeen-extension-domain (row-vertex v for C+T, row-vertex u for D+T, both with rows of size 17); the qualification that adjacent T pairs need the packing argument for clique missed intersections is correct and correctly deferred."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/seven_cell.json",
+      "id": "dual-core-subset-obligations",
+      "line": 62,
+      "statement_type": "exact-equivalence (core-anchored form of the local criterion)",
+      "outcome": "accepted",
+      "proof_checks": [
+        "Necessity: an I4 with an independent core anchor Q of size 1..3 forces alpha(T minus union S_c)<=3-s; a K5 with a core clique Q of size 1..3 forces omega(intersection S_c)<=4-s. Core anchors of size 4 are impossible because both cores have clique and independence numbers at most 3.",
+        "Sufficiency: any mixed I4 or K5 splits by its core part into one of the listed obligations; a K5 with four T-vertices and one core vertex is caught by the s=1 clique obligation (the core vertex's common T-neighbors may not contain a K4).",
+        "The in-particular row conditions (H[S_c] K4-free, H[T-S_c] I3-free, r_c>=2) are correctly labeled as necessary but not sufficient; r_c>=2 is established by single-attachment-bounds rather than by this criterion, and the file does not claim otherwise in a way that affects any conclusion."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/seven_cell.json",
+      "id": "saturated-core-nonedge-packing",
+      "line": 73,
+      "statement_type": "necessary-filter",
+      "outcome": "accepted",
+      "proof_checks": [
+        "SRG(17,8,3,4) steps verified: edge codegree<=3 (common neighbors independent else K4), nonedge common-nonneighbors form a clique of size at most 3 and equal codegree-1, sum 17*C(8,2)=476=68*3+68*4 forces equality everywhere.",
+        "Packing verified including adjacent T pairs: a t missing nonedge xy must be complete to the common-nonneighbor triangle Z (else I4); two missers ts nonadjacent give I4 on x,y,t,s and ts adjacent give K5 on Z+t+s. So each core nonedge is missed by at most one t; consequently the missed-nonedge sets of the seven signatures are pairwise disjoint and sum to at most 68.",
+        "Size-8 signature bound: F=complement(H[W_t]) is triangle-free and I4-free; seven_cell invokes the accepted eight-classification (scope-matched) for e(F)>=10, so seven signatures would need 70>68 distinct nonedges; hence at most six p_t=9 and X,Y>=6*9+10=64.",
+        "Cross-attribution to K1CrossCore is recorded in the claim, satisfying provenance."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/seven_cell.json",
+      "id": "two-B24-census-coupling",
+      "line": 80,
+      "statement_type": "necessary-filter-and-branch-parameters",
+      "outcome": "accepted",
+      "proof_checks": [
+        "Offsets i=X+h-76, j=Y+h-76 in [0,16] from the census; X+Y+2h=152+i+j; the per-vertex degree cap 24 gives sum<=168 hence i+j<=16 and sum delta=16-i-j; all recomputed.",
+        "X,Y>=64 (from the packing claim) gives h<=12+i and h<=12+j; independently X,Y>=sum L_t=63+z (L_t=9 for tau_t>=1, 10 for isolated t); combining gives h<=76+min(i,j)-max(64,63+z). Verified.",
+        "Vertexwise inequalities are exact rearrangements of p+q=24-tau-delta with both sides bounded below by L_t.",
+        "Interpretation sentences verified: i=16 forces j=0, sum delta=0 and all T degrees 24, other side 144 edges; at h=18, i,j>=6 and i+j>=12, six tau=5 vertices have delta<=1 and the tau=6 vertex delta=0."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/seven_cell.json",
+      "id": "T-pair-and-triangle-global-filters",
+      "line": 88,
+      "statement_type": "necessary-filter (plus one exact cell description)",
+      "outcome": "accepted",
+      "proof_checks": [
+        "k_ts decomposition across the disjoint cells C,D,T is exact because the roots have no T-neighbors.",
+        "The edge/nonedge bounds are verbatim reductions 4.3 with this graph's degree range; both directions rederived independently (see dependencies_reviewed).",
+        "Triangle common-neighbor cell: the full common set is independent (any edge inside plus a triangle vertex is K5) hence of size at most 4 from I5-freeness; the stated disjoint union over the three cells is exact, and the instruction that future C-D edges between the two core cells must all be absent is the correct K5 obligation.",
+        "Independent triple: exact common nonneighbors are {v,u} (core vertices are covered by the triple-cover obligations; a T-vertex would complete an I4 of H); {v,u} is an edge, a clique of size 2, consistent with the general clique bound 4 for common nonneighbors of an independent triple (two nonadjacent ones with the triple would be I5)."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/seven_cell.json",
+      "id": "labelled-disjoint-coverage",
+      "line": 100,
+      "statement_type": "exact-partition-proposal",
+      "outcome": "accepted",
+      "proof_checks": [
+        "Every listed tuple component (H word, i, j, delta vector, p-vector, the P_t/Q_t subsets) is a function of a genuine rooted labelled completion, so the classes are pairwise disjoint and cover all completions; distinct tuples therefore cannot be the same partial graph, exactly as claimed.",
+        "Every rejection filter used in the steps was proven necessary by an earlier claim in the same file (types, coupling, vertexwise caps, sum identities, local obligations, r_c>=2, packing, all-9 rejection, T-pair/triangle bounds), so no completion is dropped. The automatic identity sum q_t=76+j-h was recomputed from sum tau=2h and sum delta=16-i-j.",
+        "No automorphism quotient is asserted (the 21-bit word is kept literally, and the endpoint-shape specialization warns about permuting equal-sized components); root order is per selected ordered pair. The core graphs and M are not enumerated as tuple components, which is consistent: a bucket is the preimage of the tuple and the claim does not assert tuple determines the partial graph.",
+        "The claim correctly stops short of feasibility: empty tuples may be rejected without asserting any survivor completes."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/seven_cell.json",
+      "id": "remaining-compatibility-obstruction",
+      "line": 114,
+      "statement_type": "necessary-and-sufficient (exact residual criterion for M)",
+      "outcome": "accepted",
+      "proof_checks": [
+        "Necessity: any K5 or I5 in a completion with the fixed root structure either contains a root (impossible), stays inside one side (excluded by the local criteria that the hypothesis already grants), or meets both cores and is exactly a prohibited all-1 (clique case) or all-0 (independent case) rectangle with optional clique/independent T part and complete/absent T attachment, which is precisely one of the quantified clauses; the size restrictions follow from (4,4)-freeness of both cores and nonempty U,V.",
+        "Sufficiency: any K5/I5 present in a graph satisfying the conditions exhibits a quantified triple whose antecedent holds and whose rectangle violates the clause, contradiction; degree conditions 9<=d_M+r<=15 are exactly the degree window 18..24 (core degree = 9 fixed + d_M + r).",
+        "Each antecedent-true triple is itself a genuine forbidden 5-set, so the broader quantification (all size triples with nonempty U,V, not only the realizable type list) never over-restricts; extra triples are vacuous under the side-validity the hypothesis provides.",
+        "Limitation sentence correctly restates that this is residual compatibility, not existence."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/cross_core.json",
+      "id": "critical-core-srg",
+      "line": 41,
+      "statement_type": "exact structural theorem (census-free)",
+      "outcome": "accepted",
+      "proof_checks": [
+        "8-regularity: neighborhood of each vertex is triangle-free and I4-free (at most 8 by R(3,4)=9); nonneighborhood is K4-free and I3-free (at most 8 by the same input on the complement); the two sizes sum to 16, forcing both to 8; hence 68 edges.",
+        "Edge codegree at most 3 (common neighbors independent else K4 in the core); nonedge common-nonneighbors a clique of size at most 3 (else I4) and equal to codegree-1 since both degrees are 8; saturation 476=68*3+68*4 forces edge codegree exactly 3 and nonedge exactly 4, so every nonedge's common-nonneighbor set is a triangle.",
+        "The claim explicitly disclaims identification with Paley17 or uniqueness; no census input is used (the (4,4,17) row is stated as consistency only). This satisfies the no-SRG/Paley-uniqueness constraint."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/cross_core.json",
+      "id": "strict-seven-signature-budget",
+      "line": 51,
+      "statement_type": "necessary-filter",
+      "outcome": "accepted (after correction; see finding att-01)",
+      "proof_checks": [
+        "|W_t|<=8 because H[W_t] has no I3 (with t that is I4 of H+T) and is K4-free, so d_H(t)>=9; upper bound 17 trivial.",
+        "Nonedge packing: a t missing nonedge xy must be complete to the SRG triangle Z (else x,y,z,t is I4); two missers give I4 (ts nonedge) or K5 (ts edge, Z+t+s). This holds for adjacent as well as independent T pairs, which is the strict part of the statement; verified.",
+        "Disjointness of missed-nonedge sets across the seven signatures gives sum_t [C(|W_t|,2)-e(H[W_t])] <= 68.",
+        "Census-free e(F)>=10 sub-lemma for |W_t|=8 fully rederived in this review: all degrees of F are 2 or 3 (neighborhood independent of size at most 3; nonneighborhood has no triangle and no I3 hence at most 5 by R(3,3)=6); all degrees 3 gives 12 edges; otherwise a degree-2 vertex a with nonadjacent neighbors b,c leaves five vertices that are triangle-free and I3-free with every internal degree exactly 2, hence a C5; the corrected clique/C5 step then forces the union of b,c cycle-neighbor sets to be at least 3, giving 2+5+3=10 edges.",
+        "Seven size-8 signatures would consume at least 70 distinct core nonedges against 68, so at most six vertices have d_H(t)=9 and X,Y>=6*9+10=64; correct.",
+        "The limit sentence correctly marks the increment as necessary only, with six-9-plus-one-10 neither constructed nor ruled out."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/cross_core.json",
+      "id": "exact-symmetric-budget-identities",
+      "line": 67,
+      "statement_type": "exact-identities plus necessary window",
+      "outcome": "accepted",
+      "proof_checks": [
+        "First three identities recomputed from fixed-neighbor counts; 171 fixed edges and e(G)=171+r+p+q+h consistent with the global e=387+W/2 record.",
+        "x_v=17+r+p is exactly e(N(v), V-N[v]) (row u contributes 17 into D, C rows contribute r+p); x_u symmetric.",
+        "76<=L,R<=92 from the side census; L+R<=168 from sum of the seven T degrees; L+R>=152 from the two lower census bounds; E_T=L+R-126 in [26,42].",
+        "d_T(c)>=2 from the uc common-nonneighbor cell: exactly 8 core nonneighbors plus 7-d_T(c) T nonneighbors, no I3 (with u,c that is I5), K5-free by heredity, hence at most 13 by R(3,5)=14; the D version uses vd. Then 9<=s<=15 from the degree window and row_sum(M,c)=s_c-d_T(c)."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/cross_core.json",
+      "id": "exact-scalar-envelope",
+      "line": 82,
+      "statement_type": "exact integer feasibility of the aggregate inequalities (scalar only)",
+      "outcome": "accepted",
+      "proof_checks": [
+        "Parameterization boundary: h in [5,18] (Turán both ways); L,R in [max(76,64+h),92] with L+R<=168 combines census, packing and the T degree cap; r in [153+h-min(L,R), 255+h-max(L,R)] is exactly 0<=E_C,E_D<=102 after substitution (both bounds checked as max/min of the pair conditions).",
+        "Converse direction (parameterization implies all listed aggregates) checked by substitution, including E_T in [26,42], p,q in [64,87], x windows, and e_G=387+E_total/2.",
+        "Independent recount: exactly 1589 (h,L,R) profiles and 155057 (h,L,R,r) buckets, matching the file and Main's reported PASS; every row of the 14-line h-band table reproduced (rmin=69+h; rmax=179+h for h<=11, 191 for h>=12; pmin=max(64,76-h); pmax=min(92-h,104-2h)).",
+        "Scope sentence correctly limits the claim to scalar feasibility, explicitly not graph realizability."
+      ]
+    },
+    {
+      "file": "n43/d18/k1/cross_core.json",
+      "id": "matrix-pair-obstructions",
+      "line": 99,
+      "statement_type": "necessary-filter (pair and homogeneous-set conditions)",
+      "outcome": "accepted",
+      "proof_checks": [
+        "C-pair decomposition: common root v (1) plus SRG codegree (3 edge / 4 nonedge) gives 4/5 before the outside part I; substituting d=9+s into reductions 4.3 gives exactly max(0,s_c-13,s_c'-13)<=I<=9 (edge) and <=s_c+s_c'-15 (nonedge); all four inequalities rederived.",
+        "Edge M-intersection triangle-free (a triangle plus the C-edge is K5) and I4-free by D heredity, hence at most 8 by R(3,4)=9.",
+        "C-D common-neighbor count k=(A_C M + M A_D + P Q^T)[c,d]: cell-by-cell expansion verified, roots contribute nothing (each root is adjacent to exactly one side), and substitution of d=9+s into 4.3 gives max(s_c,s_d)-9<=k<=13 for M[c,d]=1 and max(s_c,s_d)-8<=k<=s_c+s_d-10 for M[c,d]=0.",
+        "Mixed homogeneous statements verified as direct forbidden-5-set obstructions: triangle of C with two adjacent common M-neighbors is K5; independent triple of C with two nonadjacent common M-missed D vertices is I5 (clique, size at most omega(D)=3); edge of C common M-neighbors triangle-free plus I4-free (at most 8); nonedge of C common M-missed D vertices I3-free (with c,c' that is I5) plus K4-free hereditary (at most 8). Symmetric statements follow by exchanging the cores and roots."
+      ]
+    }
+  ],
+
+  "findings": [
+    {
+      "id": "att-01",
+      "title": "Imprecise C5 step in the census-free e(F)>=10 sub-proof",
+      "file_path": "n43/d18/k1/cross_core.json",
+      "line_initial": 61,
+      "line_final": 61,
+      "severity": "proof gap at the initial revision; conclusion was correct but the written inference was not valid",
+      "status": "resolved; correction applied by the author and verified at the final hash f114df4f0999ce41f91b87c1fa73bb887ebd365df2fb1871957c62b749be86ce",
+      "original_sentence": "The independent cycle-neighbor sets of b,c must have union size at least3, since two common missed cycle vertices would form an I4 with b,c.",
+      "problem": "Two arbitrary commonly missed cycle vertices may be adjacent on the C5, in which case together with b,c they do not form an I4; the sentence as written does not establish union size at least 3 (its literal reading would rather suggest at least 4).",
+      "required_and_applied_correction": "The common missed cycle vertices of b,c must form a clique: otherwise b,c together with a nonadjacent commonly missed pair form an I4. Every clique in C5 has at most 2 vertices, so the union of the cycle-neighbor sets of b,c has size at least 3. Hence F has at least 2+5+3=10 edges.",
+      "verification": "Re-read the corrected line in full at the final hash; the argument is now valid (missed set clique by I4 obstruction, clique in C5 has at most 2 vertices, union >=3, edge count 2+5+3>=10) and the rest of the file was re-read against the audited revision with no other substantive change."
+    },
+    {
+      "id": "att-02",
+      "title": "Over-broad dependency citation of reductions section 5.3",
+      "file_path": "n43/d18/k1/seven_cell.json",
+      "line_start": 16,
+      "line_end": 16,
+      "severity": "documentation nit only; no claim uses the cited single-column bounds",
+      "status": "noted; no correction required for mathematical validity",
+      "problem": "The dependency list cites pair/common-cell bounds recorded in reductions.md sections 4.3, 4.4, 5.3, but every bound used in the file comes from 4.3 and 4.4 (plus the degree window of 4.1). Section 5.3 (single-column bounds) is never invoked.",
+      "suggestion": "Either drop 5.3 from the citation or point at the specific claim that consumes a column bound."
+    }
+  ],
+
+  "outcomes": {
+    "n43/d18/k1/seven_cell.json": "accepted at SHA-256 12291b747b0ffaf8c1210e204c88361520c702b2ea400dd61df1b396ff5cbc56 (9 of 9 claims accepted; one citation nit att-02 noted)",
+    "n43/d18/k1/cross_core.json": "accepted at SHA-256 f114df4f0999ce41f91b87c1fa73bb887ebd365df2fb1871957c62b749be86ce (5 of 5 claims accepted; the initial hash bae11177615d88cfd4bb4e59694cc0ea4fad59936449305f36b235ca143f4b5c would have been changes-requested for att-01, which the author fixed before this outcome)"
+  },
+
+  "exact_vs_necessary_summary": {
+    "exact_equivalences": [
+      "seven_cell all-homogeneous-subsets-of-T (per-side iff for K+T)",
+      "seven_cell dual-core-subset-obligations (equivalent core-anchored form)",
+      "seven_cell remaining-compatibility-obstruction (iff for the residual M completion)",
+      "seven_cell labelled-disjoint-coverage (exact disjoint labelled partition; filters necessary, no feasibility asserted)",
+      "cross_core critical-core-srg (exact structural parameters of every core)",
+      "cross_core exact-symmetric-budget-identities and exact-scalar-envelope (exact scalar identities and exact integer feasibility of the aggregate system only)"
+    ],
+    "necessary_filters_only": [
+      "seven_cell seven-cell-type, single-attachment-bounds, saturated-core-nonedge-packing, two-B24-census-coupling, T-pair-and-triangle-global-filters",
+      "cross_core strict-seven-signature-budget, matrix-pair-obstructions"
+    ],
+    "explicitly_not_claimed": [
+      "No exclusion of the k1 branch; no ambient construction; no realizability of any scalar profile, attachment, or matrix; no completeness of any unlabelled core census; no SRG uniqueness or Paley identification."
+    ]
+  },
+
+  "limits": [
+    "Published premises retained, not recertified: Ramsey values R(3,3)=6, R(3,4)=9, R(3,5)=14, R(4,4)=18, R(4,5)=25; census intervals (5,4,24) 144..160 and (4,4,17) 68..68; degree window 18..24 as recorded from R(4,5)=25 (the derivation was rechecked, the publication was not).",
+    "Prior accepted reviews of the dependency claims (connectivity 01/02/03, the three large_row_extensions claims) were checked for existence, stated content, and applicability, not re-audited proof by proof; their recorded review states are taken as given.",
+    "No novelty check, no formal/Lean certificate check, and no search or enumeration evidence was produced or requested; the arithmetic-noncontradiction witness is scalar only, as it declares.",
+    "This review does not decide Main's integration statuses for research.json and does not close any branch; it only reports outcomes for the two reviewed attachment files.",
+    "The recount of 1589 profiles and 155057 buckets is exact integer arithmetic over the stated inequalities; it corroborates the scalar claims and is not a graph realizability check."
+  ]
+}

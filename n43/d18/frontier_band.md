@@ -124,7 +124,10 @@ The revised anchor intervals additionally use the published maximum
 E(4,5,14)=60. Their local derivation is ready for independent review;
 earlier audits do not certify this changed input or its strengthened bounds.
 Unchanged material retains its original review scope.
-No value of x has been excluded. Next combine the size-four attachment budgets
+Status update (2026-10-19): `x=136` has since been excluded by the
+reviewed [full-frontier closure](x136/frontier_exclusion_handoff.md); no
+other value of x is excluded, and every bound above remains valid on the
+surviving range `x>=137`. Next combine the size-four attachment budgets
 with their forced clique and B degrees; size-five pairs with union ten are the
 first boundary where this forced-adjacency argument can fail. Keep actual
 intersections and their induced graphs. Higher k cases remain covered by the

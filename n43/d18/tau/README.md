@@ -96,7 +96,7 @@ Shared reduction: [symmetry.md](symmetry.md) (ready, unreviewed).
 
 | x | k=x-136 | Rungs | Notes |
 | --- | --- | --- | --- |
-| 136 | 0 | none | Closed per user report; closure evidence pending integration ([x136](../x136/README.md)) |
+| 136 | 0 | none | Closed: reviewed proof integrated 2026-10-19 ([x136](../x136/README.md)) |
 | 137 | 1 | t5 + closure | `tau_4>=5` already accepted; columns5 is the whole live r0:s7..10 space ([x137](../x137/README.md)) |
 | 138..142 | 2..6 | t4, t5 + closure | All open; per-x q-profile children exist; the ladder itself needs no q premise, including the x=142 q=3 cell |
 | 143 | 7 | t4, t5 + closure | Inside the residual branch [x-ge143](../x-ge143/README.md); `24*6=144>143` |

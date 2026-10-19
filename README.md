@@ -102,13 +102,21 @@ Requires POSIX, CMake 3.20+, a C++20 compiler, and configured local nauty
 headers under `third-party/nauty/build/`. CMake reuses the local nauty library,
 or compiles its existing sources when the library is absent; it never downloads
 or configures dependencies. The solver is fixed to
-`third-party/roundingsat/build/roundingsat`. If that binary is absent, build it
-locally without the optional SoPlex download:
+`third-party/roundingsat/build/roundingsat`. The local Release solver includes
+SoPlex 7.1.6, statically linked for LP reasoning. Rebuild the configured solver
+separately from the engine:
 
 ```sh
-cmake -S third-party/roundingsat -B third-party/roundingsat/build -DCMAKE_BUILD_TYPE=Release -Dsoplex=OFF
-cmake --build third-party/roundingsat/build -j
+cmake --build third-party/roundingsat/build --parallel 4
 ```
+
+Dependency setup is explicit and separate from the root engine build. The exact
+SoPlex download, archive hash, bounded build/install commands, and RoundingSat
+`-Dsoplex=ON` configuration are retained in
+[`reports/2026-10-19-soplex-build.json`](reports/2026-10-19-soplex-build.json).
+That setup preserves vendored sources and avoids the upstream unbounded nested
+build. No SoPlex shared-library path is required. Pass `-- --lp=0` to disable
+LP reasoning for an individual run.
 
 The frontend options include `-o/--output`, `-i/--index`, `-g/--generate-only`, and
 `-h/--help`, parsed with the system `getopt_long`. Degree and edge bounds default to the
@@ -162,15 +170,35 @@ Neither component imposes connectedness of G[A], restricts q to 1, or fixes B
 degrees to 18. An UNSAT result for this larger zero-excess family also covers
 the connected child, but a SAT witness still needs connectivity checked.
 
-Generate-only mode writes OPB without launching RoundingSat. Arguments after `--` pass literally to
-RoundingSat, followed by the absolute OPB path. The frontend becomes the solver
-process, preserving its exit status and signal behavior. Frontend errors return
-2; execution failures return 126/127. A short generation summary goes to stderr;
-stdout belongs to RoundingSat. There is no JSON metadata or automatic hashing;
-record hashes externally when collecting experiment evidence.
+Generate-only mode writes OPB without launching RoundingSat. Arguments after
+`--` pass literally to RoundingSat, followed by the absolute OPB path. The engine
+supervises a child solver, streams its stdout unchanged, and inherits stderr.
+It forwards SIGINT, SIGTERM, SIGHUP, and SIGPIPE to the child and waits for it.
+Solver stdout is parsed for a consistent terminal status because raw RoundingSat
+exit 0 can mean SAT, UNSAT, or timeout.
+
+| Engine exit | Meaning |
+| --- | --- |
+| 0 | Generate-only completed, or help displayed |
+| 10 | SATISFIABLE |
+| 20 | UNSATISFIABLE |
+| 4 | TIMELIMIT, regardless of whether the solver returned 0 or 4 |
+| 5 | UNKNOWN |
+| 1 | Solver failure, missing/unsupported terminal status, or conflicting statuses |
+| 2 | Frontend input or system error |
+| 3 | Solver-reported memory exhaustion |
+| 126 / 127 | Solver execution failure / executable not found |
+| 128 + signal | Engine interrupted, or solver terminated by a signal |
+
+SAT and UNSAT are nonzero exits. Shell scripts must inspect these codes rather
+than treating shell success as a solver decision. A terminal decision is not
+accepted after an unrelated nonzero solver exit. A short generation summary and
+protocol errors go to stderr. There is no JSON metadata or automatic hashing.
+Record hashes externally when collecting experiment evidence.
 
 `src/main.cpp` parses arguments, `src/engine.cpp` loads and validates the graph,
-writes the output atomically, and launches RoundingSat. `src/instance.hpp` exposes
+writes the output atomically, and launches RoundingSat through the streaming
+supervisor in `src/solver.{hpp,cpp}`. `src/instance.hpp` exposes
 the solver-independent `InstanceBuilder`; `src/core.cpp` adds the eight Ramsey
 constraint families. `src/constraints/degrees.hpp` exposes `DegreeOptions` and
 `add_degree_constraints(instance, options)`, implemented in the sibling `.cpp`.

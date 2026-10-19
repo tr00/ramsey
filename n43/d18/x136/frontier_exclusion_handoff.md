@@ -1,5 +1,13 @@
 # Candidate exclusion of the entire equality frontier
 
+Integration status (2026-10-19): all four claims below received independent
+exact-revision acceptance in [the review](review_frontier_exclusion_handoff_20261019_main.md)
+at file SHA-256 `c07f097358bd42e8c11957660f4f25dce3784608b143a87bc86a16d2bc0561cb`.
+The reviewed body, including its historical author-stage handoff banner, is
+preserved unchanged below. Permitted use is closure of the entire x136 branch
+including r0, and propagation of `x>=137` for every degree-18 root of an
+order-43 candidate. No formal certificate or novelty claim is supplied.
+
 Date: 2026-10-15. Task token: `frontier-exclusion-handoff-20261015`.
 Author and self-auditor: Codex. Base revision:
 `ab4941bd3e4b4b0bcd89098482f5767bd3fc5925`.
@@ -86,7 +94,7 @@ e(A-S)=85-sum_(a in S)d_A(a)+e(A[S]).
 
 Claim ID: `n43/d18/x136/frontier_exclusion_handoff.md#claim-frontier-handoff-double-domination`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: the full equality-frontier setting; every independent four-set I in A
 whose four internal degrees are eight; every a in A-I.
@@ -118,7 +126,7 @@ a triangle and all are adjacent to i; a is also adjacent to i. Hence
 these five vertices would give K5. Therefore a has at least two I neighbors.
 
 Search use: none pending independent review; proposed propagation on each
-actual degree-eight independent-four anchor. Reviews: none.
+actual degree-eight independent-four anchor. Reviews: [review_frontier_exclusion_handoff_20261019_main.md](review_frontier_exclusion_handoff_20261019_main.md).
 
 ## 2. Three disjoint degree-eight anchors are impossible
 
@@ -126,7 +134,7 @@ actual degree-eight independent-four anchor. Reviews: none.
 
 Claim ID: `n43/d18/x136/frontier_exclusion_handoff.md#claim-frontier-handoff-three-anchors`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: the full equality-frontier setting; three pairwise disjoint
 independent four-sets I,J,K, all of whose vertices have internal degree8.
@@ -150,7 +158,7 @@ where the last cap is Turan's theorem for the K4-free graph A[R]. This is
 a contradiction. No I4 prohibition was imposed on R.
 
 Search use: none pending independent review; proposed rejection of an actual
-triple of disjoint degree-eight anchors. Reviews: none.
+triple of disjoint degree-eight anchors. Reviews: [review_frontier_exclusion_handoff_20261019_main.md](review_frontier_exclusion_handoff_20261019_main.md).
 
 ## 3. No degree-six vertex, and at most one degree-seven vertex
 
@@ -158,7 +166,7 @@ triple of disjoint degree-eight anchors. Reviews: none.
 
 Claim ID: `n43/d18/x136/frontier_exclusion_handoff.md#claim-frontier-handoff-low-degrees`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: the full equality-frontier setting, before any r or s split.
 
@@ -245,7 +253,7 @@ order3. The independent four-set `{u} union P` has degree sum at least
 degree-six case and completes the proof.
 
 Search use: none pending independent review; proposed internal degree
-propagation. Reviews: none.
+propagation. Reviews: [review_frontier_exclusion_handoff_20261019_main.md](review_frontier_exclusion_handoff_20261019_main.md).
 
 ## 4. Column incidences exclude both remaining low-degree cases
 
@@ -253,7 +261,7 @@ propagation. Reviews: none.
 
 Claim ID: `n43/d18/x136/frontier_exclusion_handoff.md#claim-frontier-handoff-exclusion`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: every order-43 K5/I5-free graph with a degree-18 root and `x=136`.
 No root-maximization, canonical selection, regularity, r, or s assumption.
@@ -314,7 +322,7 @@ a final contradiction. Both cases are impossible.
 
 Search use: none pending independent review; proposed termination of the
 entire x136 branch, only after the complete dependency chain is accepted.
-Reviews: none.
+Reviews: [review_frontier_exclusion_handoff_20261019_main.md](review_frontier_exclusion_handoff_20261019_main.md).
 
 ## Author self-check and exact handoff to the next agent
 

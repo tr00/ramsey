@@ -64,6 +64,12 @@
       "W": 26,
       "eG": 400,
       "meaning": "Only aggregate consistency; no realization claimed."
+    },
+    "seven_cell_witness": "PASS: X=Y=71,bothB24edgecounts144,deltaSum16,all7degrees and deficits agree.",
+    "final_artifact_checks": {
+      "json_artifacts_parsed": 6,
+      "new_navigation_and_review_targets": 11,
+      "result": "PASS"
     }
   },
   "limits": [
@@ -73,10 +79,56 @@
     "No solver, catalogue scan, downloads, installation, Lean edits, engine changes, staging, or commit.",
     "No novelty claim. The existing accepted large_row_extensions.md core SRG and one-sided attachment criteria are reused; the new contribution is the coupled k1 reduction, packing budget, and exact two-sided mixed completion partition."
   ],
-  "review_state": "Pending independent reports",
+  "review_state": "All17claims independently accepted:3 main,9seven-cell,5cross-core. Metadata-only integration preserves all reviewed scientific content.",
   "artifact_hashes": {
-    "n43/d18/k1/research.json": "e49eb91802a6b5ddf95a1bc48b19711cb7d292b3f0dd184286abd062204037c5",
-    "n43/d18/k1/seven_cell.json": "12291b747b0ffaf8c1210e204c88361520c702b2ea400dd61df1b396ff5cbc56",
-    "n43/d18/k1/cross_core.json": "bae11177615d88cfd4bb4e59694cc0ea4fad59936449305f36b235ca143f4b5c"
+    "n43/d18/k1/research.json": "bf434421efcf08b73813866ba8db7e76878700fb65104895539622d8127a069e",
+    "n43/d18/k1/seven_cell.json": "f62130763dfb9315377ad542c33aabef9eb8555370c29db2b61f5e998f780bfd",
+    "n43/d18/k1/cross_core.json": "772a3df44e76627408b7933cbb46c51a86368f74dde484665e54a14bfd7bd19d",
+    "n43/d18/k1/review_research_20261019.json": "c86fb9210396366880349d4352643fce675f03a73f5e93814860bb286a405b68",
+    "n43/d18/k1/review_attachments_20261019.json": "21f7610cffc55d819a76822e624578e7623e4cefd7696bfdcc7981ce1d08fbdc"
+  },
+  "review_integration": {
+    "main": {
+      "reviewed_sha256": "03053b632599213bf6bb61b927d031c8f51b8de17e3a49642a58c9c92a52acee",
+      "integrated_sha256": "bf434421efcf08b73813866ba8db7e76878700fb65104895539622d8127a069e",
+      "outcome": "accepted for all3claims",
+      "scientific_content_preservation": "PASS: all content outside review_state/reviews/independent_review identical"
+    },
+    "n43/d18/k1/seven_cell.json": {
+      "reviewed_sha256": "12291b747b0ffaf8c1210e204c88361520c702b2ea400dd61df1b396ff5cbc56",
+      "integrated_sha256": "f62130763dfb9315377ad542c33aabef9eb8555370c29db2b61f5e998f780bfd",
+      "scientific_content_preservation": "PASS: claims, dependencies, coverage and all scientific fields unchanged; review/use metadata only",
+      "outcome": "accepted"
+    },
+    "n43/d18/k1/cross_core.json": {
+      "reviewed_sha256": "f114df4f0999ce41f91b87c1fa73bb887ebd365df2fb1871957c62b749be86ce",
+      "integrated_sha256": "772a3df44e76627408b7933cbb46c51a86368f74dde484665e54a14bfd7bd19d",
+      "scientific_content_preservation": "PASS: claims, dependencies, coverage and all scientific fields unchanged; review/use metadata only",
+      "outcome": "accepted"
+    }
+  },
+  "resolved_review_corrections": [
+    "Corrected inverted component-order inequality: an8regular component has at least9vertices. Final main proof independently reviewed after correction.",
+    "Corrected C5 lower-edge proof: common missed cycle vertices form clique of size<=2; final cross-core proof independently reviewed after correction."
+  ],
+  "integration_changes": [
+    "New3branch-local mathematical JSON notes and2independent reviews.",
+    "Narrow new navigation links in existing n43/d18/README.md and results.md.",
+    "Own WORK.md row and this dated report; no existing proof bodies changed.",
+    "No throwaway files created; all proof-check replay code retained as report strings."
+  ],
+  "source_hashes_at_handoff": {
+    "n43/d18/neighborhood_connectivity.md": "b67a6083ad065cb51febd75bbc9c0aff7a6a64fcf33580d0e7d8378bcc885bb0",
+    "n43/d18/pivot_classes.md": "ab0849cf011c8b830eb5ded2a67d9439776caf7535c19bcf6ef79280cd61081c",
+    "n43/reductions.md": "c5485dfc0316e9f91f72de059cfb00853e1c1f6e7f9032838174373dc1751e8f",
+    "README.md": "fff09d1ae4150385e869d15f974cde5070cfddc5a64a946422cbec6174923de4",
+    "reports/2026-10-19-k1-catalogue-filter.json": "ead681a2c8f4d4d354acbf06126175ce0f75cffc666225f010544794d683a3a0"
+  },
+  "concurrent_source_changes": {
+    "files": [
+      "README.md",
+      "n43/reductions.md"
+    ],
+    "check": "Relevant premise sections re-read at handoff: README Ramsey/census table lines20..52 and reductions universal predicates lines166..248 retain every used value and direction. Concurrent engine documentation/frontier-closure work preserved; initial reviewed source hashes retained separately. No dependency statement used here changed."
   }
 }

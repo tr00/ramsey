@@ -24,6 +24,14 @@ No new pruning authority is claimed before independent review.
 The reported closure of x=136 is user-supplied and pending integration. No
 claim here uses it. In particular, the conclusions do not silently replace
 x>=136 by x>=137. The older branch index may still display x136 as open.
+Status update (2026-10-19): the closure is now proved and independently
+reviewed in-tree ([closure](x136/README.md),
+[review](x136/review_frontier_exclusion_handoff_20261019_main.md)), and the
+branch index shows x136 excluded. The disclaimer above remains accurate
+about claim content: no conclusion in this note uses the closure, and no
+conclusion silently raises any floor. Consumers that do wish to use it may
+now cite the in-tree proof; see
+[closure consequences](x136_closure_consequences.md).
 
 ## Setting and inputs
 

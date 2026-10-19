@@ -98,12 +98,18 @@ The published bound `a<=85` yields:
 x = 136 + 2(85-a) + Delta_A >= 136.
 ```
 
-Thus `x=136` is the sharp equality frontier. Equality forces:
+Thus `x=136` was the sharp equality frontier. Equality forces:
 
 ```text
 a=85,
 d_G(u)=18 for every u in A.
 ```
+
+Update (2026-10-19): the equality case is excluded by the reviewed
+[full-frontier closure](d18/x136/README.md); every degree-18 root now has
+`x>=137`, so the forcing list above records an impossible profile and the
+floor of every `x>=136` bound in this index is 137. Consequences and
+consumer cross-comparison: [closure consequences](d18/x136_closure_consequences.md).
 
 For navigable case folders, start at [n43/README.md](README.md) and
 [the x136 r partition](d18/x136/README.md). This detailed index preserves
@@ -515,6 +521,39 @@ The strengthened bounds use the published `E(4,5,14)=60` on `A-I`,
 which is `(4,5)`-free, not necessarily `(4,4)`-free. See the updated
 [frontier anchor proof](d18/frontier_band.md#independent-four-anchor-defects).
 
+**[PROVED-HERE; accepted independent mathematical review]** The entire
+`x=136` branch is excluded: no order-43 K5/I5-free graph with a degree-18
+root has `x=136`. Consequently every degree-18 root of an order-43
+candidate has `x>=137`.
+
+Proof: [frontier exclusion handoff](d18/x136/frontier_exclusion_handoff.md),
+Claims 01--04, with [exact independent review](d18/x136/review_frontier_exclusion_handoff_20261019_main.md)
+at file SHA-256 `c07f097358bd42e8c11957660f4f25dce3784608b143a87bc86a16d2bc0561cb`.
+Chain: every all-degree-eight independent four-set anchor double-dominates
+A (saturated B singleton classes forbid A singleton signatures by K5);
+three disjoint anchors are impossible (`85=96-e(A[D])+e(A[R])<=84` with
+Turan's K4-free cap on the six-vertex remainder); deletion-cap tables
+against the reviewed K4/I4-free core caps force every A degree to at least
+eight with at most one degree-seven exception (a sole degree-six vertex
+dies in the Turan equality case `K(3,3,3)`); both surviving profiles
+contradict the abstract transversal bound tau>=5 through the degree-eight
+row budget `9*|D8|` (`t>=14>12` without the degree-seven vertex;
+`t=11` and `e(D8 union {u},B)=109<120` with it).
+
+Preconditions: the rooted equality-frontier setting of section 8.3,
+including the actual24 B columns, global degree18 for every A vertex, the
+reviewed degree-eight anchor and abstract tau>=5, and the reviewed core
+caps 36/42/48 at orders 11/12/13. Rooted scope only: unavoidability of a
+low-x degree-18 root in every candidate is not asserted. Search use:
+terminate x136 completely, including r0. The degree-18 x>=137 siblings,
+d20 and min-degree20 schemes, and the x>=143 residual remain open.
+
+Rootwise corollaries, the floor sharpening for `x>=136` conclusions, and
+the forced-q=0 upgrade are recorded in
+[closure consequences](d18/x136_closure_consequences.md); the full
+consumer cross-comparison is in the
+[propagation report](../reports/2026-10-19-x137-propagation.md).
+
 
 ### 8.4 Four-vertex transversal bound
 
@@ -635,11 +674,14 @@ If r=2 with signatures T1,T2, then 5s<=36-|T1 intersect T2|.
 If every column has size at least four (in particular for q<=2), put
 H=sum_(c_y>=6)(c_y-6). Then exactly 2r+s=8-k+H, H>=0.
 After the independently reviewed full-interface transversal exclusion below,
-at x=136 the only live necessary count range is:
+the former necessary count range at x=136 was:
 
 ```text
-(r,s)=(0,8..10).
+(r,s)=(0,8..10);
 ```
+
+that final case is now also excluded by the reviewed full-frontier closure
+in section 8.3.
 
 **[PROVED-HERE]** The `r=4` branch is impossible at `x=136`. Four size-four
 columns would be pairwise disjoint as subsets of `A`; an independent 4-set in
@@ -734,8 +776,10 @@ Search use: propagate column size>=5 and the exact anchor signatures;
 terminate x136/r1 and every x136/r>=1; branch on an unavoidable anchor
 only with all allowed choices and completions retained. No isolated85-edge
 neighborhood theorem, unique anchor, or canonical-root omission is implied.
-The remaining r0:s8..10 range is necessary, not a realizability claim.
-The complete x136, degree18, and order43 branches remain open.
+The remaining r0:s8..10 range was necessary, not a realizability claim;
+the complete x136 branch is now closed by the reviewed
+[full-frontier exclusion](d18/x136/frontier_exclusion_handoff.md#claim-frontier-handoff-exclusion)
+recorded in section 8.3 above, which is independent of r and s.
 
 A nonadjacent size-five pair has disjoint signatures. Their complement D in
 A has eight vertices, degrees four or five, with respectively 0,2,or4

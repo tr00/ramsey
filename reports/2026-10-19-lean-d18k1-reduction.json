@@ -1,0 +1,422 @@
+{
+  "date": "2026-10-19",
+  "task": "lean-d18k1-reduction-20261019",
+  "kind": "Formalization of independently reviewed k1 reductions",
+  "outcome": "Proved exact admissible-key Boolean completion reduction and allowed-scalar branch cover. K1 exclusion remains open.",
+  "primary_interfaces": {
+    "Ramsey.d18.k1.reduction": "Complete {G | ReducedClass G} (Ramsey.d18.KClass 1)",
+    "Ramsey.d18.k1.complete_of_reduced": "Complete S ReducedClass -> Complete S (KClass 1)",
+    "Ramsey.d18.k1.excludes_of_reduced": "Complete empty ReducedClass -> ExcludesSubcase.k1",
+    "Ramsey.d18.k1.Key.assemble_ramsey_iff": "An assembled graph is(5,5)-free iff the explicit8negative/3positive rectangle clauses hold.",
+    "Ramsey.d18.k1.complete_by_parameters": "Complete enumerations over every Allowed Parameters branch cover KClass1."
+  },
+  "source_sha256": {
+    "n43/d18/k1/research.json": "bf434421efcf08b73813866ba8db7e76878700fb65104895539622d8127a069e",
+    "n43/d18/k1/cross_core.json": "772a3df44e76627408b7933cbb46c51a86368f74dde484665e54a14bfd7bd19d",
+    "n43/d18/k1/seven_cell.json": "f62130763dfb9315377ad542c33aabef9eb8555370c29db2b61f5e998f780bfd",
+    "n43/d18/k1/review_research_20261019.json": "c86fb9210396366880349d4352643fce675f03a73f5e93814860bb286a405b68",
+    "n43/d18/k1/review_attachments_20261019.json": "21f7610cffc55d819a76822e624578e7623e4cefd7696bfdcc7981ce1d08fbdc"
+  },
+  "correspondence": [
+    {
+      "source": "research.json#claim-k1-double-core",
+      "lean": [
+        "Frame.lean",
+        "Structure.lean:exists_admissible",
+        "Structure.lean:Frame.root_partition",
+        "Totals.lean:Frame.root_degrees",
+        "Totals.lean:Frame.neighbor_edge_counts"
+      ]
+    },
+    {
+      "source": "research.json#claim-k1-budget-obstruction",
+      "lean": [
+        "Budgets.lean:Frame.core_excess_budgets",
+        "Budgets.lean:Frame.side_edge_budgets",
+        "Budgets.lean:Frame.T_excess_budget",
+        "Budgets.lean:Frame.T_excess_range",
+        "Budgets.lean:Frame.T_deficiency_le_sixteen",
+        "Totals.lean:Frame.total_edges",
+        "Totals.lean:Frame.total_excess",
+        "Totals.lean:Frame.root_cross_excess",
+        "VertexBounds.lean"
+      ]
+    },
+    {
+      "source": "research.json#claim-k1-exact-partition",
+      "lean": [
+        "Completion.lean:CliqueCountType",
+        "Completion.lean:IndepCountType",
+        "Completion.lean:ramsey_iff_compatible",
+        "Completion.lean:replace_ramsey_iff_compatible",
+        "Reduction.lean:Key.ofFrame_reconstruct",
+        "Reduction.lean:Key.assemble_injective",
+        "Reduction.lean:Key.matrix_card",
+        "Reduction.lean:reduction"
+      ]
+    },
+    {
+      "source": "cross_core.json critical-core-srg and strict-seven-signature-budget",
+      "lean": [
+        "Core.lean:core_isSRGWith",
+        "Core.lean:core_total_paircodegrees",
+        "Attachments.lean:core_nonedge_miss_unique",
+        "Attachments.lean:attachment_cross_ge_sixty_four"
+      ]
+    },
+    {
+      "source": "cross_core.json exact-scalar-envelope and seven_cell.json individual-attachment/census-coupling bounds",
+      "lean": [
+        "Budgets.lean:Frame.T_edge_range",
+        "Parameters.lean:Frame.parameters_allowed",
+        "Parameters.lean:Frame.parameter_projections",
+        "Parameters.lean:Frame.total_projections",
+        "Parameters.lean:parameter_cover",
+        "VertexBounds.lean:Frame.isolated_T_core_degree_ge_ten"
+      ]
+    }
+  ],
+  "proof_decisions": [
+    "The64-edge attachment bound uses a proved incidence-convexity bound55 omissions, avoiding the8-vertex census and R(3,3).",
+    "SRG parameters are proved from17vertices and(4,4)-freeness using the existingR(4,3)<=9 premise; SRG and core uniqueness are never assumed.",
+    "Key.base erases C-D edges. Its boolean Matrix has exactly289positions, with2^289assignments before filtering; assembly is injective for a fixed labelled key.",
+    "The reduced class stores proved scalar/attachment/vertexwise filters in addition to exact compatibility. No unlabelled symmetry quotient is used.",
+    "The classifier bridge subcaseClass_k1 is added alongside its definition because SubcaseClass has an unexposed body. Existing class definitions and their proof bodies remain unchanged."
+  ],
+  "axiom_audit": {
+    "old_target_count": 25,
+    "new_target_count": 25,
+    "old_target_axiom_sets_unchanged": true,
+    "new_targets": {
+      "Ramsey.d18.subcaseClass_k1": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "Ramsey.d18.k1.exists_admissible": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_4_3_le_9",
+        "Ramsey.ramsey_4_4_le_18",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ],
+      "Ramsey.d18.k1.core_isSRGWith": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_4_3_le_9",
+        "propext"
+      ],
+      "Ramsey.d18.k1.core_total_paircodegrees": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_4_3_le_9",
+        "propext"
+      ],
+      "Ramsey.d18.k1.core_nonedge_common_anti_triangle": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_4_3_le_9",
+        "propext"
+      ],
+      "Ramsey.d18.k1.core_nonedge_miss_unique": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_4_3_le_9",
+        "propext"
+      ],
+      "Ramsey.d18.k1.attachment_cross_ge_sixty_four": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_4_3_le_9",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Frame.degree_C": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Frame.C_T_degree_bounds": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_3_5_le_14",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Frame.isolated_T_core_degree_ge_ten": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_3_5_le_14",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Frame.core_excess_budgets": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Frame.T_excess_range": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.edges_ramsey_4_5_24_ge_116",
+        "Ramsey.edges_ramsey_4_5_24_le_132",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Frame.root_cross_excess": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Frame.total_excess": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Frame.parameters_allowed": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.edges_ramsey_4_5_24_ge_116",
+        "Ramsey.edges_ramsey_4_5_24_le_132",
+        "Ramsey.ramsey_4_3_le_9",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ],
+      "Ramsey.d18.k1.ramsey_iff_compatible": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "Ramsey.d18.k1.replace_ramsey_iff_compatible": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Key.ofFrame_reconstruct": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Key.matrix_card": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Key.assemble_injective": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "Ramsey.d18.k1.Key.valid_filters": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.edges_ramsey_4_5_24_ge_116",
+        "Ramsey.edges_ramsey_4_5_24_le_132",
+        "Ramsey.ramsey_3_5_le_14",
+        "Ramsey.ramsey_4_3_le_9",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ],
+      "Ramsey.d18.k1.reduction": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.edges_ramsey_4_5_24_ge_116",
+        "Ramsey.edges_ramsey_4_5_24_le_132",
+        "Ramsey.ramsey_3_5_le_14",
+        "Ramsey.ramsey_4_3_le_9",
+        "Ramsey.ramsey_4_4_le_18",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ],
+      "Ramsey.d18.k1.complete_by_parameters": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.edges_ramsey_4_5_24_ge_116",
+        "Ramsey.edges_ramsey_4_5_24_le_132",
+        "Ramsey.ramsey_4_3_le_9",
+        "Ramsey.ramsey_4_4_le_18",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ],
+      "Ramsey.d18.k1.complete_of_reduced": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.edges_ramsey_4_5_24_ge_116",
+        "Ramsey.edges_ramsey_4_5_24_le_132",
+        "Ramsey.ramsey_3_5_le_14",
+        "Ramsey.ramsey_4_3_le_9",
+        "Ramsey.ramsey_4_4_le_18",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ],
+      "Ramsey.d18.k1.excludes_of_reduced": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ramsey.edges_ramsey_4_5_24_ge_116",
+        "Ramsey.edges_ramsey_4_5_24_le_132",
+        "Ramsey.ramsey_3_5_le_14",
+        "Ramsey.ramsey_4_3_le_9",
+        "Ramsey.ramsey_4_4_le_18",
+        "Ramsey.ramsey_4_5_le_25",
+        "propext"
+      ]
+    },
+    "no_new_axioms": true,
+    "no_new_sorries": true,
+    "sorry_ledger_sha256_unchanged": "bde0daa3274072dc979b9a95133bd9e48e1369a510975bc775419b4343b11002",
+    "raw_output": "'Ramsey.R_5_5_43' depends on axioms: [propext,\n sorryAx,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_3_le_9,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.ramseyNumber_5_5_le_43_of_d18_d20' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.ramsey_5_5_eq_43' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.exoo_5_5_42]\n'Ramsey.exists_degree_18_or_20_up_to_compl' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.degree_mem' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_5_le_25]\n'Ramsey.degree18_frontier_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_18_le_85,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.degree18_cross_ge_136' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_18_le_85,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.degree18_cross_le_288' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_24_le_132,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.degree18_cross_range' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_18_le_85,\n Ramsey.edges_ramsey_4_5_24_le_132,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.isRamseyGraph_five_five_iff_pivot_interface' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.TransversalFour.transversal_card_ge_four' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_4_15_ge_50,\n Ramsey.ramsey_4_3_le_9]\n'Ramsey.pivot_neighbor_degree_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.card_mixedCell_le_17' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_4_le_18]\n'Ramsey.d18.disconnected_neighborhood_classification' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_3_le_9]\n'Ramsey.d18.connectivity_classification' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_3_le_9]\n'Ramsey.d18.degree18_cross_le_279' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_24_le_132,\n Ramsey.ramsey_4_3_le_9,\n Ramsey.ramsey_4_4_le_18,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.isDisconnectedNeighborhood_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.d18.subcase_cover' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_3_le_9]\n'Ramsey.d18.excludes_of_subcases' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_3_le_9]\n'Ramsey.isRamseyGraph_induce_rowSet' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.card_neighborSet_eq_eight_of_isRamseyGraph_4_4' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_3_le_9]\n'Ramsey.d18.k1.rigidity' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_3_le_9,\n Ramsey.ramsey_4_4_le_18,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.c.w0.zero_excess_iff' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.c.w0.class_of_zero_excess' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.c.w0.complete_of_connected' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.d18.subcaseClass_k1' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.d18.k1.exists_admissible' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_3_le_9,\n Ramsey.ramsey_4_4_le_18,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.k1.core_isSRGWith' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_3_le_9]\n'Ramsey.d18.k1.core_total_paircodegrees' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_3_le_9]\n'Ramsey.d18.k1.core_nonedge_common_anti_triangle' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_3_le_9]\n'Ramsey.d18.k1.core_nonedge_miss_unique' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_3_le_9]\n'Ramsey.d18.k1.attachment_cross_ge_sixty_four' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_3_le_9]\n'Ramsey.d18.k1.Frame.degree_C' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.d18.k1.Frame.C_T_degree_bounds' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_3_5_le_14]\n'Ramsey.d18.k1.Frame.isolated_T_core_degree_ge_ten' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_3_5_le_14]\n'Ramsey.d18.k1.Frame.core_excess_budgets' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.k1.Frame.T_excess_range' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_24_ge_116,\n Ramsey.edges_ramsey_4_5_24_le_132,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.k1.Frame.root_cross_excess' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.k1.Frame.total_excess' depends on axioms: [propext, Classical.choice, Quot.sound, Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.k1.Frame.parameters_allowed' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_24_ge_116,\n Ramsey.edges_ramsey_4_5_24_le_132,\n Ramsey.ramsey_4_3_le_9,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.k1.ramsey_iff_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.d18.k1.replace_ramsey_iff_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.d18.k1.Key.ofFrame_reconstruct' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.d18.k1.Key.matrix_card' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.d18.k1.Key.assemble_injective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Ramsey.d18.k1.Key.valid_filters' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_24_ge_116,\n Ramsey.edges_ramsey_4_5_24_le_132,\n Ramsey.ramsey_3_5_le_14,\n Ramsey.ramsey_4_3_le_9,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.k1.reduction' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_24_ge_116,\n Ramsey.edges_ramsey_4_5_24_le_132,\n Ramsey.ramsey_3_5_le_14,\n Ramsey.ramsey_4_3_le_9,\n Ramsey.ramsey_4_4_le_18,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.k1.complete_by_parameters' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_24_ge_116,\n Ramsey.edges_ramsey_4_5_24_le_132,\n Ramsey.ramsey_4_3_le_9,\n Ramsey.ramsey_4_4_le_18,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.k1.complete_of_reduced' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_24_ge_116,\n Ramsey.edges_ramsey_4_5_24_le_132,\n Ramsey.ramsey_3_5_le_14,\n Ramsey.ramsey_4_3_le_9,\n Ramsey.ramsey_4_4_le_18,\n Ramsey.ramsey_4_5_le_25]\n'Ramsey.d18.k1.excludes_of_reduced' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Ramsey.edges_ramsey_4_5_24_ge_116,\n Ramsey.edges_ramsey_4_5_24_le_132,\n Ramsey.ramsey_3_5_le_14,\n Ramsey.ramsey_4_3_le_9,\n Ramsey.ramsey_4_4_le_18,\n Ramsey.ramsey_4_5_le_25]\n"
+  },
+  "verification": {
+    "toolchain": "Lean4.35.0, eb6cafb7290e8bd5f2937522d8d804f58f02bafc, existing local toolchain and dependencies",
+    "full_build": {
+      "command": "lake build",
+      "cwd": "lean",
+      "exit_status": 0,
+      "observed": "Build completed successfully(9084jobs); only existing unrelated warnings."
+    },
+    "gate": {
+      "command": "sh lean/scripts/check.sh",
+      "cwd": ".",
+      "exit_status": 0,
+      "elapsed_seconds": 107.45,
+      "observed": [
+        "ok pin",
+        "ok build",
+        "ok audit:axiom sets match",
+        "PASS:build,ledger,style and axiom audit all green"
+      ]
+    },
+    "root_consumer": {
+      "command": "lake env lean /tmp/ramsey-k1-consumer-20261019.lean",
+      "cwd": "lean",
+      "exit_status": 0,
+      "code": "import Ramsey\n\nopen Ramsey\nopen Ramsey.d18.k1\n\nattribute [local instance] Classical.propDecidable\n\nexample : Complete {G | ReducedClass G} (Ramsey.d18.KClass 1) := reduction\n\nexample {S : Set (SimpleGraph (Fin 43))} (h : Complete S ReducedClass) :\n    Complete S (Ramsey.d18.KClass 1) := complete_of_reduced h\n\nexample (h : Complete \u2205 ReducedClass) : Ramsey.d18.ExcludesSubcase .k1 :=\n  excludes_of_reduced h\n\nexample (K : Key) (X : K.Matrix) : IsRamseyGraph 5 5 (K.assemble X) \u2194 K.Valid X :=\n  K.assemble_ramsey_iff X\n\nexample (K : Key) : Nat.card K.Matrix = 2 ^ 289 := K.matrix_card\n\nexample (K : Key) : Function.Injective K.assemble := K.assemble_injective\n\nexample (K : Key) (X : K.Matrix) (h : K.Valid X) :\n    (K.assembledFrame X).parameters.Allowed := (K.valid_filters X h).parameters\n\nexample {G : SimpleGraph (Fin 43)} (F : Frame G) (hF : F.Admissible) :\n    64 \u2264 crossEdgeCount G F.C F.T \u2227 64 \u2264 crossEdgeCount G F.D F.T := by\n  exact \u27e8attachment_cross_ge_sixty_four hF.ramsey_C hF.card_C hF.side_C\n    F.disjoint_CT hF.card_T,\n    attachment_cross_ge_sixty_four hF.ramsey_D hF.card_D hF.side_D\n      F.disjoint_DT hF.card_T\u27e9\n\nexample {G : SimpleGraph (Fin 43)} (hG : IsRamseyGraph 5 5 G)\n    (v : Fin 43) (hv : Ramsey.deg G v = 18)\n    (hK : Ramsey.d18.IsKNeighborhood 1 (G.induce (G.neighborSet v))) :\n    \u2203 F : Frame G, F.v = v \u2227 F.Admissible \u2227 F.parameters.Allowed := by\n  obtain \u27e8F, hf, ha\u27e9 := exists_admissible hG v hv hK\n  exact \u27e8F, hf, ha, F.parameters_allowed ha hG\u27e9\n\nexample {G : SimpleGraph (Fin 43)} (F : Frame G) (hF : F.Admissible) :\n    (G.induce F.C).IsSRGWith 17 8 3 4 := by\n  classical\n  exact core_isSRGWith hF.ramsey_C hF.card_C\n\nexample (S : {p : Parameters // p.Allowed} \u2192 Set (SimpleGraph (Fin 43)))\n    (h : \u2200 p, Complete (S p) (ParameterClass p.val)) :\n    Complete (\u22c3 p, S p) (Ramsey.d18.KClass 1) := complete_by_parameters S h\n\n#print axioms Ramsey.d18.k1.reduction\n#print axioms Ramsey.d18.k1.ramsey_iff_compatible\n#print axioms Ramsey.d18.k1.attachment_cross_ge_sixty_four\n",
+      "observed": "All11consumer examples and3axiom prints succeeded after adding explicit classical subtype instances in the consumer. Temporary file removed.",
+      "temporary_file_removed": true
+    },
+    "formalization_links": {
+      "checked": [
+        "../n43/d18/k1/research.json",
+        "../n43/d18/k1/cross_core.json",
+        "../n43/d18/k1/seven_cell.json",
+        "../reports/2026-10-19-lean-d18k1-reduction.json"
+      ],
+      "result": "PASS"
+    }
+  },
+  "review_results": {
+    "K1CompletionReview": {
+      "outcome": "accepted",
+      "findings": [],
+      "scope": [
+        "Frame.lean",
+        "Structure.lean",
+        "Completion.lean"
+      ],
+      "checked": [
+        "Exact8and3type enumerations and positive/negative complement clause semantics.",
+        "Root-containing forbidden5sets, both directions of the complete criterion and all cell cases.",
+        "Arbitrary matrix replacement fixes every other edge and preserves admissibility without a global Ramsey premise.",
+        "Original KClass1 scope, no selected-root normalization or unsafe quotient;289crosspositions."
+      ],
+      "limits": "Read-only statement-fidelity review, no builds. Budgets/Reduction outside this independent review slice; Main verified them with check.sh, axioms and the root consumer.",
+      "source_sha256": {
+        "lean/Ramsey/d18/k1/Frame.lean": "084d7407ec341741bd04d5a7da80ca153f7de2d2ef7f22d9cd152090d6b59bce",
+        "lean/Ramsey/d18/k1/Structure.lean": "0709e754da3f6ecad2739e8cf862b21761d2e067334f4a85750f53edebf4a3c7",
+        "lean/Ramsey/d18/k1/Completion.lean": "4ae8f75789f69aba86957b5373ba91c35be0e01a4454514e30119329f3f08503"
+      }
+    },
+    "K1PackingReview": {
+      "outcome": "accepted",
+      "scope": [
+        "Core.lean",
+        "Attachments.lean"
+      ],
+      "checked": [
+        "SRG(17,8,3,4) is proved from44-freeness and order17, never assumed.",
+        "Core nonedge miss uniqueness applies to both adjacent and nonadjacent outside pairs.",
+        "Incidence convexity gives at most55misses, hence at least64attachments, under exactly the reviewed structural premises.",
+        "Only existing R(4,3)<=9 is consumed logically; no core uniqueness or8-vertex census premise."
+      ],
+      "non_blocking_notes": [
+        "A private clique-cardinality helper duplicates a private lemma in another module.",
+        "Two proof-only imports are public imports. Neither note affects the claims or axiom sets."
+      ],
+      "source_sha256": {
+        "lean/Ramsey/d18/k1/Core.lean": "0f78421d2fd105e0470bc279f3a414a20984158b757d49dbdbd03eef9ed0d2da",
+        "lean/Ramsey/d18/k1/Attachments.lean": "be0778dd540e5976ed6fa1d98d3df1fdd4165b5d6f9cf4a0165c1fcfdfb07844"
+      }
+    }
+  },
+  "limits": [
+    "No K1 exclusion or order43 existence/nonexistence claim.",
+    "Existing K1 Exclusion.lean deliberate sorry unchanged; no new file contains a sorry.",
+    "Recorded published Ramsey bounds<=9,14,18,25 and order24 edge extrema116..132 remain the external premises of the full filtered reduction; no new literature premise introduced.",
+    "The parameter envelope is necessary, not graph realizability. Numeric counts1589and155057 were previously checked arithmetically, not certified by a new Lean counting theorem here.",
+    "The formalized scope is the three main research claims and the SRG/packing/scalar/vertexwise prerequisites above. Standalone seven-cell endpoint isomorphism classification and every optional refined pair filter were not separate Lean targets.",
+    "No solver/catalogue search, downloads, installs, staging, commit, or changes to existing proof obligations."
+  ],
+  "artifacts": {
+    "lean/Ramsey/d18/k1/Frame.lean": {
+      "sha256": "084d7407ec341741bd04d5a7da80ca153f7de2d2ef7f22d9cd152090d6b59bce",
+      "bytes": 5174
+    },
+    "lean/Ramsey/d18/k1/Structure.lean": {
+      "sha256": "0709e754da3f6ecad2739e8cf862b21761d2e067334f4a85750f53edebf4a3c7",
+      "bytes": 5582
+    },
+    "lean/Ramsey/d18/k1/Core.lean": {
+      "sha256": "0f78421d2fd105e0470bc279f3a414a20984158b757d49dbdbd03eef9ed0d2da",
+      "bytes": 9730
+    },
+    "lean/Ramsey/d18/k1/Attachments.lean": {
+      "sha256": "be0778dd540e5976ed6fa1d98d3df1fdd4165b5d6f9cf4a0165c1fcfdfb07844",
+      "bytes": 13533
+    },
+    "lean/Ramsey/d18/k1/Budgets.lean": {
+      "sha256": "044187a808e86b1681b81f7880e968f33f4461446e862c235ed457a63f7d3210",
+      "bytes": 16738
+    },
+    "lean/Ramsey/d18/k1/Totals.lean": {
+      "sha256": "bfddc5c3dfcad5e04e23b18f5f061d4de135f237162684054c7b3b22f7a21182",
+      "bytes": 9318
+    },
+    "lean/Ramsey/d18/k1/VertexBounds.lean": {
+      "sha256": "623d0d3d301988f2cd5b94d4ce9fcc6c111a01db8b2aa9329654384eae5fda5f",
+      "bytes": 10725
+    },
+    "lean/Ramsey/d18/k1/Completion.lean": {
+      "sha256": "4ae8f75789f69aba86957b5373ba91c35be0e01a4454514e30119329f3f08503",
+      "bytes": 18527
+    },
+    "lean/Ramsey/d18/k1/Parameters.lean": {
+      "sha256": "748c1e3e2f1eb73fee5949d8c108035940a21179d1ba83c756b5a65c7842fef1",
+      "bytes": 4593
+    },
+    "lean/Ramsey/d18/k1/Reduction.lean": {
+      "sha256": "498c5fcc94131e2f404373b9c236b201f2342e66702ca8ce8c05cfbe411389c6",
+      "bytes": 8642
+    },
+    "lean/Ramsey/d18/ConnectivityClassification.lean": {
+      "sha256": "7a6676ffa1fff5d7c017ef8a13279328a9df25777dc94c5bd566e4a3bc66939c",
+      "bytes": 16262
+    },
+    "lean/Ramsey.lean": {
+      "sha256": "85e7062b1d27c2255d880381b169a79276647f6757d77c27d47e8c56c44ed532",
+      "bytes": 1801
+    },
+    "lean/scripts/Audit.lean": {
+      "sha256": "16c90fb31e6ca4b1710779ae1a07c46dfe4d87f0e364d2919855884354f9c5ba",
+      "bytes": 2969
+    },
+    "lean/scripts/expected-axioms.txt": {
+      "sha256": "571ef990924a7dc4be15b3ee3298c64bd14290727db4098c8c9d850d6da0404f",
+      "bytes": 7137
+    },
+    "lean/README.md": {
+      "sha256": "6a9dd99766938407dabfd683edbaa0540cb49d95328215e74e0e10db8e867ec9",
+      "bytes": 21193
+    }
+  }
+}
