@@ -48,8 +48,9 @@ and `e(F)=68+q`:
   `t>=1`, the size-four defect budget of the
   [frontier band](../../frontier_band.md), which holds for any 4-set T4,
   not only actual columns.
-- Recorded total `e(F)>=41+24+1=65<68+q`: no arithmetic kill
-  ([lemma phase II section 8](../../../../docs/lemma_phase_2.md)).
+- Recorded total `e(F)>=41+24+1=66<68+q` (slack `q+2`): no arithmetic
+  kill. [Lemma phase II section 8](../../../../docs/lemma_phase_2.md)
+  records the total as 65, counting `41+24` without the `e_F(T4)>=1` term.
 
 ## Status and next actions
 

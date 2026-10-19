@@ -6,6 +6,7 @@ The working expectation R(5,5)=43 remains a conjecture.
 - [Order-43 branch navigation](n43/README.md)
 - [Detailed reduction index and existing status labels](n43/reductions.md)
 - [Degree-18 work](n43/d18/README.md)
+- [K1/d18 remains open: double-core obstruction and complete 289-bit residual partition](reports/2026-10-19-d18k1-research.json)
 - [Cross-branch synthesis across all d18 cross counts: interior degrees, higher connectivity, and improved transversal thresholds](reports/2026-10-19-cross-branch-synthesis.json)
 - [Degree-18 extension research: reviewed x<=279 bound, fixed-B capacity and unavoidable four-root alternatives](reports/2026-10-17-d18-extension-research.md)
 - [Averaging continuation: omitted-triple supply, conditional tail bounds and the three remaining x279 profiles](reports/2026-10-18-averaging-tail.md)

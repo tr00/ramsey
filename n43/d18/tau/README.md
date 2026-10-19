@@ -50,7 +50,7 @@ Additionally shared by every child:
 | Every four-set transversal excluded at x=137 | independently accepted 2026-10-18 | [effective anchor](../x137/effective_anchor.md#claim-x137-no-four-transversal) |
 | Every four-set transversal excluded at x=136 under equality assumptions | reviewed | [five-column compatibility](../x136/five_column_compatibility.md#claim-five-columns-no-four-transversal); x136 itself closed per user report |
 | Deletion budgets for a t-transversal | accepted | [transversal deletion](../../../docs/general_theorems/transversal_deletion.md), [frontier band](../frontier_band.md) |
-| Recorded edge-count totals reach 65 (t=4), below `e(F)=68+q` | recorded | [lemma phase II section 8](../../../docs/lemma_phase_2.md) |
+| Recorded edge-count totals reach 65 at t=4 (66 with the `e_F(T4)>=1` floor), below `e(F)=68+q` | recorded | [lemma phase II section 8](../../../docs/lemma_phase_2.md) |
 | r=0 count structure (`s=8-k+H`, `5s<=54`, eight-vertex alternatives) | internally audited; extends to q<=2 cells | [small columns](../x136/small_columns.md) |
 
 ## Coverage argument
@@ -101,6 +101,41 @@ Shared reduction: [symmetry.md](symmetry.md) (ready, unreviewed).
 | 138..142 | 2..6 | t4, t5 + closure | All open; per-x q-profile children exist; the ladder itself needs no q premise, including the x=142 q=3 cell |
 | 143 | 7 | t4, t5 + closure | Inside the residual branch [x-ge143](../x-ge143/README.md); `24*6=144>143` |
 | >=144 | >=8 | additionally t6, ... | Cap permits `tau_4=6`; see the extension formula in [closure](closure/README.md). Folders not created. |
+
+## Interaction with the connectivity split
+
+The accepted connectivity classification of A
+([neighborhood connectivity](../neighborhood_connectivity.md),
+[transfer](../connected_structure_transfer.json)) splits d18 by `kappa(A)`;
+this scheme splits by `tau_4`. The axes compose; the coverage argument above
+is unchanged.
+
+1. Geography (derived here, unreviewed): `x=136+2q+E_A` with `E_A>=0` gives
+   `q<=floor((x-136)/2)`, so every cell `x<=143` has `q<=3`: it lies inside
+   the connected branch, and by the accepted density thresholds (`q<=4`
+   implies `kappa(A)>=4` and `d_A>=4` for every vertex) deep inside it. Every
+   disconnected branch sits at `a<=68`: k1 at q=17, k2 at q=24, k3 at
+   q=27..32, hence `x>=170`. The rungs' closure territory and the k-branches
+   are disjoint.
+2. tau collapses in the disconnected branches (derived here, unreviewed): in
+   `A=K_m disjoint-union C` with C (4,4)-free, `alpha(C)=3`, every I4 of
+   G[A] is mixed, `{x} union T` with x in K_m and T an independent triple of
+   C. Hence `K_m` itself is a transversal: `tau_4=min(m,tau_3(C))<=3`, with
+   `tau_4=1` in k1. The rungs are inapplicable as refutations there (small
+   transversals exist by construction) and the cap `24*tau_4<=x` is vacuous.
+3. Placement: this scheme stays a d18-level overlay, a sibling of c and k1,
+   not a child of c. Rung predicates, closure, and relocation assume nothing
+   about connectivity; nesting under c would attach an unneeded hypothesis.
+   Operationally every live rung already falls inside c by item 1. If the
+   residual x>=144 band is attacked, instantiate rungs under c only and
+   handle k_m by the rigid-core machinery (k1): a rung cannot be UNSAT
+   where an `m<=3` transversal exists.
+4. Instance strengthening (derived here, unreviewed): pinning
+   `sum-cross<=143` in a rung derives `q<=3`, unlocking the band-uniform
+   floors `d_A>=4` (18 linear rows) and row caps `r_u<=17+epsilon_u-4` from
+   the accepted transfer — q-free cuts the rung would otherwise lack. The
+   stronger q-conditional floors (interior L(q), F(q)) do not transfer
+   without splitting q inside the rung.
 
 ## Scope limits
 

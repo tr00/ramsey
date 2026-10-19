@@ -1,0 +1,82 @@
+{
+  "anchor-pinned-signatures.opb": {
+    "sha256": "db929ee2ad1a0145f77d6b73cff0e1deb9e23cffea193631f67f91bc5c13e713",
+    "bytes": 28572761,
+    "header": "* #variable= 585 #constraint= 383832",
+    "gzip": "anchor-pinned-signatures.opb.gz",
+    "gzip_sha256": "e80f5f869eb917cc17b46635cb7de5fb343e1956f3612cc7c8b908364409ac8a",
+    "gzip_bytes": 4054051
+  },
+  "anchor-x138.opb": {
+    "sha256": "1992b54047b5fa6ec470293446911da4c52af54e52a2d77ef9fbc719226511a4",
+    "bytes": 28571321,
+    "header": "* #variable= 585 #constraint= 383736",
+    "gzip": "anchor-x138.opb.gz",
+    "gzip_sha256": "c113e36df512475b58a2f075cef5f8e24f1395123ed8a89a9563e14466c888d6",
+    "gzip_bytes": 4053602
+  },
+  "canonical-anchor-x138.opb": {
+    "sha256": "9872e9611ea9a871a447df437ed94adc8f8b99ef02e101d3d6f31b7158583aa7",
+    "bytes": 28571321,
+    "header": "* #variable= 585 #constraint= 383736",
+    "gzip": "canonical-anchor-x138.opb.gz",
+    "gzip_sha256": "47a5068772e8b47a5e622359573906ab4cf97898aad717624106628b964d9891",
+    "gzip_bytes": 4053121
+  },
+  "canonical-base.opb": {
+    "sha256": "414186c45e820d0c13300c5a84b41db9a28bd9a13c09660653af10a357003f92",
+    "bytes": 28570252,
+    "header": "* #variable= 585 #constraint= 383722",
+    "gzip": "canonical-base.opb.gz",
+    "gzip_sha256": "623bc92d642a707f7c897fef73b05ac7fc4920e47d72547e3e887658e13f2a4a",
+    "gzip_bytes": 4052903
+  },
+  "control-sat.opb": {
+    "sha256": "d993bd1f18bcde190142e5cb58fbfe772514eac855091d5fbb278bd7ab4c7fba",
+    "bytes": 81,
+    "header": "* #variable= 3 #constraint= 3",
+    "gzip": "control-sat.opb.gz",
+    "gzip_sha256": "ef426c819d7ba6b30800d965a2ea39475ac1fc87cb75c3128841edb03f89e7f8",
+    "gzip_bytes": 83
+  },
+  "default.opb": {
+    "sha256": "550a52bdeb9e08e6db5c1c377b8e23235d7547f4fa627d0b7ddb9caa3c87bb80",
+    "bytes": 28558606,
+    "header": "* #variable= 585 #constraint= 383686",
+    "gzip": "default.opb.gz",
+    "gzip_sha256": "70ecbdac5d57418ff1199a1f940e3245277466b2e62b70ac88433ecded476245",
+    "gzip_bytes": 4052302
+  },
+  "forward-invalid.opb": {
+    "sha256": "550a52bdeb9e08e6db5c1c377b8e23235d7547f4fa627d0b7ddb9caa3c87bb80",
+    "bytes": 28558606,
+    "header": "* #variable= 585 #constraint= 383686",
+    "gzip": "forward-invalid.opb.gz",
+    "gzip_sha256": "70ecbdac5d57418ff1199a1f940e3245277466b2e62b70ac88433ecded476245",
+    "gzip_bytes": 4052302
+  },
+  "impossible-pivot.opb": {
+    "sha256": "f4fb33ebc1f3c62acbcdc6795c650261863497fb0c05910b0dfa49de3ca618cf",
+    "bytes": 28549175,
+    "header": "* #variable= 585 #constraint= 383645",
+    "gzip": "impossible-pivot.opb.gz",
+    "gzip_sha256": "6307469a9d1733f5771618279ab11784b51fb72c832ad3881b08baeaa743c13f",
+    "gzip_bytes": 4049656
+  },
+  "zero-excess.opb": {
+    "sha256": "cb01a038b5bf7455543241fb89ff0dcd111f7d63a0494ff658d4fcc87bf370e6",
+    "bytes": 28570252,
+    "header": "* #variable= 585 #constraint= 383722",
+    "gzip": "zero-excess.opb.gz",
+    "gzip_sha256": "558b16d10a30501eb9433d5679ddfe7303d9bf5abf100519df124d22a57cc3bd",
+    "gzip_bytes": 4053404
+  },
+  "zero-x138.opb": {
+    "sha256": "e2fcd0d6be70f4f10849b2656deb0b1d6d1369942987a5847ede945109b70c29",
+    "bytes": 28570252,
+    "header": "* #variable= 585 #constraint= 383722",
+    "gzip": "zero-x138.opb.gz",
+    "gzip_sha256": "c17490b340af3861ec6b6cb4d2522de6042902481e53ddb5dd16c8f838c25e40",
+    "gzip_bytes": 4053410
+  }
+}

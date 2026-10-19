@@ -1,0 +1,118 @@
+{
+  "task": "n43-d18-k1-cross-core",
+  "review_state": "ready",
+  "search_use": "none pending independent review",
+  "scope": "Conditional on a 43-vertex K5/I5-free graph with degrees18..24 and the rigid partition {v,u},C,D,T specified by accepted neighborhood_connectivity claim03. No existence or exclusion claim is made.",
+  "notation": {
+    "M": "17x17 C-D adjacency matrix, rows C and columns D",
+    "P": "17x7 C-T adjacency matrix",
+    "Q": "17x7 D-T adjacency matrix",
+    "r": "e(C,D)",
+    "p": "e(C,T)",
+    "q": "e(D,T)",
+    "h": "e(T)",
+    "L": "p+h",
+    "R": "q+h",
+    "E_C_E_D_E_T": "sums of d_G(x)-18 over the named cells",
+    "s_c": "row_sum(M,c)+row_sum(P,c)=d_G(c)-9",
+    "s_d": "column_sum(M,d)+row_sum(Q,d)=d_G(d)-9"
+  },
+  "inputs": [
+    {
+      "id": "rigid-partition",
+      "source": "n43/d18/neighborhood_connectivity.md#claim-connectivity-03",
+      "applicability": "The specified k1 branch gives d(u)=d(v)=18, C,D order17 (4,4)-free, edge vu, complete v-C and u-D, no u-C,v-D, and no root-T edges. All unknown edges are in M,P,Q,T."
+    },
+    {
+      "id": "ramsey",
+      "source": "README.md State of the Art: R(3,3)=6, R(3,4)=9, R(3,5)=14, R(4,4)=18, R(4,5)=25",
+      "status": "Recorded published inputs, not recertified",
+      "applicability": "Only hereditary forbidden-clique/independent-set types are used below. R(3,4) bounds both a triangle-free I4-free graph and its complement at order8."
+    },
+    {
+      "id": "side-census",
+      "source": "README.md row (5,4,24):144..160, row (4,4,17):68..68",
+      "status": "Recorded universal census extrema, not recertified",
+      "applicability": "C union T is the full nonneighborhood of u, and D union T is the full nonneighborhood of v. Each is K5-free by heredity and I4-free because a missing independent4 together with its root would be I5. Thus the (5,4,24) row applies to both. The 17-core census is consistent with, but not needed for, the census-free regularity proof below. No census uniqueness input is used."
+    }
+  ],
+  "claims": [
+    {
+      "id": "critical-core-srg",
+      "conclusion": "Every core H has degrees8, edges68, adjacent-pair codegree3, and nonadjacent-pair codegree4. In particular every nonedge xy has exactly3 common nonneighbors, forming a triangle.",
+      "proof": [
+        "For x in H, N_H(x) is triangle-free and I4-free, hence has at most8 vertices by R(3,4)=9. Its nonneighborhood is K4-free and I3-free, hence also has at most8 vertices by complementation and the same Ramsey input. The two sizes sum16, so both are8.",
+        "For an edge xy, common neighbors form an independent set, else a K4; their size is at most3 because H is I4-free. For a nonedge xy, common nonneighbors form a clique, else an I4; they have size at most3 because H is K4-free. With both degrees8 their common-nonneighbor count is codegree(x,y)-1, so nonedge codegree is at most4.",
+        "The sum of all unordered-pair codegrees is17*binom(8,2)=476. There are68 edges and68 nonedges, and their upper bounds total68*3+68*4=476. Every bound therefore attains equality. This does not identify H with Paley17 or assert uniqueness."
+      ],
+      "existing_parallel_dependency": "n43/d18/large_row_extensions.md#claim-seventeen-codegree-moments proves the same SRG fact, but the preceding argument independently supplies it here."
+    },
+    {
+      "id": "strict-seven-signature-budget",
+      "conclusion": [
+        "For each t in T,9<=d_C(t),d_D(t)<=17.",
+        "For every nonedge xy in either core, at most one t in T is nonadjacent to both x and y.",
+        "For H=C or D, write W_t=H minus N_H(t). The sets of H-nonedges induced by the seven W_t are pairwise disjoint; sum_t [binom(|W_t|,2)-e_H(W_t)]<=68.",
+        "At most six vertices t have d_H(t)=9. Consequently p>=64 and q>=64."
+      ],
+      "proof": [
+        "H union T is (5,4)-free. Each H[W_t] has no I3, else with t it gives I4; it is K4-free by heredity. Hence |W_t|<=8 by R(3,4)=9 on its complement.",
+        "Fix a nonedge xy of H and its common-nonneighbor triangle Z given by critical-core-srg. If t misses x,y, it must be complete to Z: a missing t-z edge would make x,y,z,t an I4. If two vertices t,s miss x,y, a nonedge ts makes x,y,t,s an I4, whereas an edge ts makes Z union {t,s} a K5. Both are impossible. Thus the claimed nonedge packing holds for all pairs t,s, including adjacent pairs.",
+        "If |W_t|=8, F=complement(H[W_t]) is triangle-free and I4-free. We give a census-free proof that e(F)>=10. Each F-degree is2 or3: its neighborhood is independent of size at most3, and its nonneighborhood has no triangle or independent triple, so has at most5 vertices by R(3,3)=6. If F has no degree2 vertex it has12 edges. Otherwise choose a of degree2 with nonadjacent neighbors b,c. The other5 vertices induce C5, since they are triangle-free and I3-free (each degree within that5 is exactly2 by R(3,3)=6 and the three-vertex elementary bounds). The independent cycle-neighbor sets of b,c must have union size at least3, since two common missed cycle vertices would form an I4 with b,c. Hence F has at least2+5+3=10 edges.",
+        "If all seven t had d_H(t)=9, all seven W_t would have size8 and would consume at least70 distinct core nonedges. H has only68 nonedges. Therefore one signature has size at least10 and total attachment is at least6*9+10=64."
+      ],
+      "limit": "This strict increment is only necessary. Six size9 signatures plus one size10 have not been constructed or ruled out."
+    },
+    {
+      "id": "exact-symmetric-budget-identities",
+      "conclusion": [
+        "r+p=153+E_C; r+q=153+E_D; p+q+2h=126+E_T.",
+        "E_total=2(r+p+q+h-216)=E_C+E_D+E_T and e(G)=171+r+p+q+h.",
+        "x_v=17+r+p=170+E_C; x_u=17+r+q=170+E_D; both roots have neighborhood68 edges and q_pivot17.",
+        "76<=L,R<=92, L+R<=168, E_T=L+R-126 in26..42.",
+        "For every c in C and d in D,2<=d_T(c),d_T(d)<=7 and9<=s_c,s_d<=15. Thus9-d_T(c)<=row_sum(M,c)<=15-d_T(c), and symmetrically for columns."
+      ],
+      "proof": [
+        "A core vertex has8 internal neighbors, its one root neighbor, and its M/P or M/Q neighbors; summing d_G-18 over17 vertices yields the first two equations. A T vertex has only core and T neighbors, giving the third. There are171 fixed edges: vu, the34 root-core edges, and the136 internal core edges.",
+        "Each side H union T has68+attachment+h edges; the applicable side census yields76<=L,R<=92. The degree upper bound on the7 T vertices gives L+R<=168, and the side lower bounds give L+R>=152.",
+        "For c in C the nonedge uc has common nonneighbors consisting of the8 C vertices missing c and the7-d_T(c) T vertices missing c. This set cannot contain I3 (else with u,c gives I5), and is K5-free by heredity. Its size is at most13 by R(3,5)=14. Hence15-d_T(c)<=13 and d_T(c)>=2. The D version uses vd. The degree bounds give9<=s<=15."
+      ]
+    },
+    {
+      "id": "exact-scalar-envelope",
+      "scope": "Exact integer feasibility of the displayed aggregate inequalities only, not exact graph feasibility.",
+      "parameterization": [
+        "h integer,5<=h<=18.",
+        "L,R integers with max(76,64+h)<=L,R<=92 and L+R<=168.",
+        "r integer with153+h-min(L,R)<=r<=255+h-max(L,R).",
+        "Recover p=L-h,q=R-h,E_C=r+L-h-153,E_D=r+R-h-153,E_T=L+R-126."
+      ],
+      "proof": [
+        "T is I4-free, so its complement is K4-free; Turan gives h>=21-floor(49/3)=5. T is K5-free, so Turan gives h<=18 (balanced4-partite7-vertex extremum).",
+        "p,q>=64 give L,R>=64+h. The side census and T degree cap give the remaining L,R inequalities. The bounds0<=E_C,E_D<=102 give exactly the stated r interval. Conversely this parameterization implies every one of these aggregate inequalities and identities, by substitution; no claim about assignment of individual vertex excesses is made."
+      ],
+      "projections": {"p": [64,87], "q": [64,87], "r": [74,191], "E_total": [26,246], "x_v": [170,272], "x_u": [170,272], "e_G": [400,510]},
+      "h_bands_rmin_rmax_pmin_pmax": [[5,74,184,71,87],[6,75,185,70,86],[7,76,186,69,85],[8,77,187,68,84],[9,78,188,67,83],[10,79,189,66,82],[11,80,190,65,81],[12,81,191,64,80],[13,82,191,64,78],[14,83,191,64,76],[15,84,191,64,74],[16,85,191,64,72],[17,86,191,64,70],[18,87,191,64,68]],
+      "verification": "In-memory exact integer arithmetic checked all1589 (h,L,R) profiles and r interval endpoints. No graph objects, enumeration of graphs, solver, catalogue, downloads, build or test suite were used."
+    },
+    {
+      "id": "matrix-pair-obstructions",
+      "conclusion": [
+        "For c,c' in C let I=|M_c intersect M_c'|+|P_c intersect P_c'|. If cc' is an edge, max(0,s_c-13,s_c'-13)<=I<=9 and |M_c intersect M_c'|<=8. If cc' is a nonedge, max(0,s_c-13,s_c'-13)<=I<=s_c+s_c'-15. The symmetric D statements hold.",
+        "For c in C,d in D, their common-neighbor count is k=(A_C M+M A_D+P Q^transpose)[c,d]. If M[c,d]=1 then max(s_c,s_d)-9<=k<=13. If M[c,d]=0 then max(s_c,s_d)-8<=k<=s_c+s_d-10.",
+        "For every triangle J of C, its common M-neighbors in D form an independent set of size<=3. For every independent triple J of C, the D vertices missing all J form a clique of size<=3. For an edge of C its common M-neighbors induce a triangle-free D-subgraph of size<=8. For a nonedge of C its common M-nonneighbors induce an I3-free D-subgraph of size<=8. All symmetric statements hold."
+      ],
+      "proof": [
+        "For C-pairs the common root v and the SRG core codegrees contribute4 for edges and5 for nonedges. Substitute d_G(c)=9+s_c into reductions.md4.3 pair bounds; retain nonnegativity. The edge M-intersection is triangle-free else a K5 with the C-edge, and I4-free by D heredity, hence has at most8 vertices.",
+        "A C-D pair has no common root neighbor. Its other common neighbors are counted once in C,D,T by the displayed matrix product. Substitute the same degree identities into the universal pair bounds.",
+        "All mixed homogeneous statements are direct forbidden5-set obstructions and hereditary (4,4)-freeness of the opposite core, followed where needed by R(3,4)=9. They constrain actual intersections, not only intersection cardinalities."
+      ]
+    }
+  ],
+  "coverage": {
+    "labelled": "Fix ordered roots v,u and named ordered sets C=(c1,...,c17),D=(d1,...,d17),T=(t1,...,t7). Retain all labelled (4,4)-free core edge sets C,D and all named matrices M,P,Q and T edge sets satisfying the necessary conditions. Every graph in the branch has such a representation by its actual adjacency, hence is covered. The scalar tuple(h,L,R,r) is uniquely determined in a fixed representation and yields disjoint scalar buckets. Individual degree signatures may refine these buckets without dropping any assignments.",
+    "unlabelled_warning": "A census of unlabelled17-cores alone does not supply labelled coverage of cross matrices. It is safe only to include every bijection from each representative to the named core, or to prove a complete compatible simultaneous orbit rule on cores and all incident blocks. No independent quotient by row or column sums, or unsafe isomorphism selection, is made here. No uniqueness of the17-core is assumed.",
+    "remaining_obstruction": "The arithmetic envelope is nonempty. A graph must still simultaneously realize both (5,4)-free24-vertex sides, the strict critical nonedge packing on both sides, all vertex budgets, and actual C-D matrix compatibility. In particular the mixed K5/I5 rectangles across C,D,T remain; pair counts and moments are not asserted sufficient. Main owns the exact forbidden-cell partition. There is no exclusion of k1."
+  },
+  "verification_limits": ["All assertions are author proofs ready for independent review, not accepted claims.", "No graph enumeration, solver, catalogue scan, external fetch, file outside owned path, Lean edit, formatter, linter, build, or test suite."]
+}

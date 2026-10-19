@@ -1,0 +1,174 @@
+{
+  "title": "Seven common nonneighbors of the isolated-neighbor edge",
+  "status": "ready-for-independent-review",
+  "accepted": false,
+  "scope": "Pure deductions conditional on the recorded n43/d18/k1 structural premises. No graph search, solver, catalogue scan, downloads, or realizability claim.",
+  "notation": {
+    "partition": "V(G)={v,u} disjoint-union C disjoint-union D disjoint-union T, with |C|=|D|=17 and |T|=7. Edge vu; v complete to C and anticomplete to D,T; u complete to D and anticomplete to C,T. Both cores are 8-regular (4,4)-free with 68 edges.",
+    "H": "G[T], with h=e(H), labelled vertices t_1,...,t_7 and tau_i=d_H(t_i).",
+    "attachments": "P_i=N_C(t_i), Q_i=N_D(t_i), p_i=|P_i|, q_i=|Q_i|, X=sum_i p_i=e(C,T), Y=sum_i q_i=e(D,T).",
+    "core_rows": "For c in C or D, S_c=N_T(c), r_c=|S_c|.",
+    "deficits": "delta_i=24-d_G(t_i)=24-p_i-q_i-tau_i.",
+    "census_offsets": "i=e(C+T)-144=X+h-76 and j=e(D+T)-144=Y+h-76. The letters i,j in census formulas denote offsets, not vertex indices."
+  },
+  "dependencies": [
+    "Accepted claim-connectivity-03 in n43/d18/neighborhood_connectivity.md for the core decomposition.",
+    "Degree interval 18..24, R(3,4)=9, R(3,5)=14, and pair/common-cell bounds recorded in n43/reductions.md sections 4.3, 4.4, 5.3.",
+    "Published (5,4,24) edge interval 144..160 in README.md and n43/reductions.md section 8.1.",
+    "Accepted claim-seventeen-codegree-moments and claim-common-eight-classification in n43/d18/large_row_extensions.md: every core is SRG(17,8,3,4); a triangle-free I4-free eight-vertex graph has10,11,or12 edges.",
+    "Accepted n43/d18/large_row_extensions.md#claim-seventeen-extension-domain supplies the exact one-core/seven-vertex attachment criterion, reused below for each of the two B24 graphs.",
+    "Elementary Turan theorem, including equality, only for the seven-vertex edge endpoints."
+  ],
+  "claims": [
+    {
+      "id": "seven-cell-type",
+      "kind": "necessary-filter",
+      "statement": "H is (5,4)-free: omega(H)<=4 and alpha(H)<=3. In particular 5<=h<=18. It is not justified to impose omega(H)<=3.",
+      "proof": "K5 in H is forbidden in G. If H has an independent 4-set, adding v gives I5 because v is anticomplete to T. Thus the complement of H is K4-free. Turan gives e(complement H)<=16 and hence h>=21-16=5. K5-freeness gives h<=18. A K4 in T alone has no fifth clique vertex among v,u, which are both anticomplete to T; it is therefore not ruled out by the decomposition.",
+      "endpoint_shapes": {
+        "h=5": "Turan equality in the complement forces H=K3 disjoint-union K2 disjoint-union K2, on the actual labelled vertices.",
+        "h=18": "Turan equality forces H to be complete 4-partite with part sizes 2,2,2,1. Six vertices have tau=5 and one has tau=6."
+      }
+    },
+    {
+      "id": "single-attachment-bounds",
+      "kind": "necessary-filter",
+      "statement": "For every t_i, p_i,q_i>=9; p_i+q_i+tau_i is between 18 and 24. More sharply p_i,q_i>=L_i=max(9,10-tau_i), and p_i,q_i<=24-tau_i-L_i. Every core vertex has 2<=r_c<=7.",
+      "proof": "C+T is I4-free because u is anticomplete to it; D+T is I4-free because v is anticomplete to it. If C-P_i contains I3, that triple together with t_i is I4 in C+T, and adding u gives I5. Thus C-P_i is K4-free and I3-free, of order at most 8 by R(3,4)=9; hence p_i>=9, and similarly q_i>=9. The global degree of t_i is p_i+q_i+tau_i. In any (5,4)-free graph B on 24 vertices, a vertex's nonneighbors induce a (5,3)-free graph, hence have order at most 13 by R(3,5)=14; consequently d_B>=10. Applying this to t_i in each of C+T,D+T gives p_i+tau_i>=10 and q_i+tau_i>=10. Applying it to a core vertex gives 8+r_c>=10, so r_c>=2. No extra T-neighbors exist beyond its seven vertices."
+    },
+    {
+      "id": "all-homogeneous-subsets-of-T",
+      "kind": "exact-local-completion-criterion",
+      "statement": "Fix either core K=C or K=D and the T-to-K attachment. Provided H is (5,4)-free, K+T is (5,4)-free if and only if all obligations below hold. These are sufficient for this one 24-vertex graph only, not for G.",
+      "source_and_novelty": "Reuses the accepted n43/d18/large_row_extensions.md#claim-seventeen-extension-domain verbatim in substance, applied once to C+T and once to D+T; the new contributions here are the simultaneous two-sided constraints, census coupling, deficit partition, and their explicit mixed-core residual completion criterion.",
+      "independent_subsets": [
+        "For an independent singleton {t}, the common missed core set K-N_K(t) has alpha<=2, hence size<=8.",
+        "For an independent pair {t,s}, W=K-(N_K(t) union N_K(s)) is a clique. Since K has no K4, |W|<=3; equivalently |N_K(t) union N_K(s)|>=14.",
+        "For an independent triple {t,s,r}, K-(N_K(t) union N_K(s) union N_K(r)) is empty. Thus every independent triple of T covers the entire core.",
+        "In unified form: for independent S subset T of size s=1,2,3, alpha(K minus union_{t in S}N_K(t))<=3-s."
+      ],
+      "clique_subsets": [
+        "For a singleton {t}, N_K(t) is K4-free, automatic from the core.",
+        "For a clique pair {t,s}, K[N_K(t) intersect N_K(s)] is triangle-free and I4-free, hence has order<=8 by R(3,4)=9.",
+        "For a triangle S in T, K[intersection_{t in S}N_K(t)] is independent, hence has order<=3 because K is I4-free.",
+        "For a K4 S in T, intersection_{t in S}N_K(t) is empty.",
+        "In unified form: for clique S subset T of size s=1,2,3,4, omega(K[intersection_{t in S}N_K(t)])<=4-s."
+      ],
+      "proof_of_necessity": "An independent s-set in T and an independent (4-s)-set among its common core nonneighbors would form I4 in K+T. A clique s-set in T and a clique (5-s)-set among its common core neighbors would form K5 in K+T. The core supplies the stated opposite homogeneous restrictions and Ramsey cardinality bounds.",
+      "proof_of_sufficiency": "Any I4 in K+T that meets both parts has s=1,2,3 vertices in T and contradicts the corresponding independent obligation. An I4 wholly in K or T is already forbidden. Any K5 meeting both parts has s=1,2,3,4 vertices in T and contradicts the corresponding clique obligation; a K5 wholly in either part is already forbidden. Thus no possible location of a forbidden set remains.",
+      "qualification": "For an independent T pair the missed-core intersection is a clique directly by I4-freeness. For an adjacent T pair this needs the additional saturated-core argument below; the basic homogeneous-subset argument alone does not establish it."
+    },
+    {
+      "id": "dual-core-subset-obligations",
+      "kind": "equivalent-local-filters",
+      "statement": "The preceding exact local criterion can equivalently be checked with homogeneous subsets of the core as anchors.",
+      "obligations": [
+        "For every independent core s-set Q, s=1,2,3, the set T minus union_{c in Q}S_c has independence number<=3-s. Thus for s=1 it has no independent triple; for s=2 it is a clique of T, of size at most4; for s=3 it is empty.",
+        "For every core clique s-set Q, s=1,2,3, the common T-neighbor set intersection_{c in Q}S_c has clique number<=4-s. Thus for s=1 it contains no K4, for s=2 no triangle, and for s=3 it is independent (of size at most3).",
+        "In particular every allowed individual row S_c must have H[S_c] K4-free and H[T-S_c] I3-free, and r_c>=2. These individual-row conditions alone are NOT sufficient; the pair/triple core obligations remain."
+      ],
+      "proof": "Split a forbidden independent 4-set or clique 5-set according to its nonempty core part. Both cores have neither a clique nor an independent set of size4, so core anchors of sizes1..3 exhaust all mixed cases."
+    },
+    {
+      "id": "saturated-core-nonedge-packing",
+      "kind": "necessary-filter",
+      "statement": "For either core K, each nonedge xy of K is missed by at most one vertex of T. Thus the missed signatures W_t=K-N_K(t) have pairwise clique intersections even for adjacent T vertices; sum_t (binom(|W_t|,2)-e(K[W_t]))<=68. In particular at most six p_t equal9, at most six q_t equal9, and X,Y>=64.",
+      "proof": "Every regular17 core has edge codegree3 and nonedge codegree4: edge codegrees are at most3 because the common neighbors are independent; nonedge codegrees are at most4 because their common nonneighbors form a clique of size at most3. Summing all codegrees gives17*binom(8,2)=476=68*3+68*4, so every bound is attained. Therefore for each core nonedge xy its common core nonneighbors are a triangle Z of size3. If t misses x and y, it must be complete to Z; otherwise x,y,t and a missed z in Z form I4 in K+T. If both t,s miss xy, nonadjacency ts gives I4 on x,y,t,s, while adjacency ts gives K5 on Z,t,s. Both are impossible. Counting missed occurrences of core nonedges proves the packing inequality. If p_t=9 then |W_t|=8; its complement graph is triangle-free (because W_t has no I3) and I4-free (because the core is K4-free), so the accepted eight-vertex classification gives at least10 nonedges in W_t. Seven such signatures would consume at least70 distinct core nonedges, exceeding68. Thus at least one p_t is at least10, and X>=6*9+10=64; likewise Y>=64.",
+      "attribution": "The saturated-core repair and packing argument were supplied by K1CrossCore; the core-codegree and eight-set dependencies were checked directly against their accepted source statements."
+    },
+    {
+      "id": "two-B24-census-coupling",
+      "kind": "necessary-filter-and-branch-parameters",
+      "statement": "The two B24 intervals do not behave independently: 0<=i,j, i+j<=16, X=76+i-h, Y=76+j-h, and sum_t delta_t=16-i-j. In particular |X-Y|=|i-j|<=16 and 5<=h<=min(18,12+i,12+j).",
+      "proof": "The nonneighbors of u are exactly C+T and those of v are D+T. Hence each is (5,4)-free of order24, and e(C+T)=68+X+h and e(D+T)=68+Y+h both lie in144..160. This gives i,j in0..16. Summing degrees of the seven T vertices gives X+Y+2h=152+i+j. Since each degree is at most24, this sum is at most168, so i+j<=16. The deficit identity follows by subtracting from168. The saturated-core nonedge-packing bound X,Y>=64 gives h<=12+i and h<=12+j. Independently X,Y>=sum_t L_t=63+z, where z counts isolated T vertices. Combining gives h<=76+min(i,j)-max(64,63+z).",
+      "vertexwise": "For each t, 0<=delta_t<=6-tau_t, p_t+q_t=24-tau_t-delta_t. Using the stronger L_t, this becomes 0<=delta_t<=24-tau_t-2L_t and L_t<=p_t<=24-tau_t-delta_t-L_t, with q_t determined.",
+      "interpretation": "At most16 total degree deficiency from24 is available in T. If either B24 has160 edges, both offsets force the other B24 to have144 edges and all seven T vertices have degree24. For h=18, i,j>=6 and i+j>=12; the six tau=5 vertices have delta<=1 and the tau=6 vertex delta=0."
+    },
+    {
+      "id": "T-pair-and-triangle-global-filters",
+      "kind": "necessary-filter",
+      "statement": "Some useful global common-cell bounds are evaluable from H and the two attachments before choosing any C-D edge.",
+      "formulas": [
+        "For distinct t,s put k_ts=|P_t intersect P_s|+|Q_t intersect Q_s|+|N_H(t) intersect N_H(s)|. This is their full G-codegree, since v,u have no T-neighbors.",
+        "If ts is an edge: max(d_G(t),d_G(s))-18<=k_ts<=13.",
+        "If ts is a nonedge: max(d_G(t),d_G(s))-17<=k_ts<=d_G(t)+d_G(s)-28.",
+        "For each triangle S in H, |intersection P_t|+|intersection Q_t|+|intersection N_H(t)|<=4. Its entire common-neighbor set must be independent, since an edge there would complete a K5. Local attachment obligations handle the edges within either core and between that core and T; future C-D edges between the first two sets must all be absent.",
+        "For an independent triple S in H, the exact common nonneighbor set in G is {v,u}: no common nonneighbor lies in either core by the triple-cover obligations, and none lies in T because alpha(H)<=3. Its size2 is consistent with, not contradictory to, the general upper bound4."
+      ]
+    },
+    {
+      "id": "labelled-disjoint-coverage",
+      "kind": "exact-partition-proposal",
+      "parameters_in_order": [
+        "Keep the actual ordered labels of C,D,T fixed; C belongs to v and D to u. If u,v are not preselected externally, this describes coverage for each selected ordered root pair, not a quotient by swapping them.",
+        "Choose the exact 21-bit adjacency word of H on the ordered T vertices. Retain only (5,4)-free H with5<=h<=18. No graph is identified with an isomorphic graph.",
+        "Choose ordered offsets i,j>=0 with i+j<=16 and h<=76+min(i,j)-max(64,63+z), where z is the number of isolated T vertices.",
+        "Choose the ordered deficit vector delta_t with 0<=delta_t<=24-tau_t-2L_t and sum delta_t=16-i-j.",
+        "Choose the ordered p-vector with L_t<=p_t<=24-tau_t-delta_t-L_t and sum p_t=76+i-h. Set q_t=24-tau_t-delta_t-p_t; its sum is automatically76+j-h. Reject vectors with all p_t=9 or all q_t=9.",
+        "Choose actual labelled subsets P_t subset C of size p_t and Q_t subset D of size q_t. Keep precisely those satisfying the exact local homogeneous obligations for both cores; the B24 census identities; each core row r_c>=2; saturated-core nonedge packing; and any global T-pair/triangle bounds imposed as necessary filters."
+      ],
+      "proof_of_coverage_and_disjointness": "Every genuine rooted labelled completion determines exactly one H, one ordered pair of offsets, one ordered deficit vector, one p-vector, and one ordered collection of actual P_t,Q_t subsets. Every stated filter was proved necessary. Thus no completion is lost. Conversely distinct tuples change an actual edge, a uniquely calculated scalar, or an ordered row signature; they cannot represent the same rooted labelled partial graph. Empty tuples are allowed and may be rejected without a claim that any surviving tuple completes.",
+      "optional_within_branch_specialization": "The h=5 and h=18 endpoint shapes may be represented by labelled partitions into their stated components/parts, but each graph must retain its unique 21-bit adjacency word to avoid multiplicities from permuting equal-sized components or parts."
+    },
+    {
+      "id": "remaining-compatibility-obstruction",
+      "kind": "necessary-and-sufficient-full-completion-condition",
+      "statement": "For fixed cores, H, and attachments satisfying the exact local criteria, the unresolved object is the 17 by17 C-D adjacency matrix M. The following conditions together are necessary and sufficient for a full graph with the target root structure, degree interval18..24, and no K5/I5.",
+      "conditions": [
+        "For every c in C and d in D, 9<=d_M(c)+r_c<=15 and 9<=d_M(d)+r_d<=15. Core degrees are exactly9+d_M+r, including the one root neighbor and eight core neighbors.",
+        "For every triple (U,V,W) with nonempty U subset C, nonempty V subset D, W subset T, and |U|+|V|+|W|=5, if U,V,W are individually cliques and all edges between W and U union V are present, then the rectangle M[U,V] is not all1.",
+        "For every such triple with U,V,W individually independent and all edges between W and U union V absent, the rectangle M[U,V] is not all0.",
+        "Only sizes1<=|U|,|V|<=3 and0<=|W|<=3 need be considered because both cores are (4,4)-free and both U,V are nonempty. Empty W is allowed."
+      ],
+      "proof_of_sufficiency": "The roots each have degree18 and are already safe. A K5 containing v would require a K4 in C, since u is anticomplete to C; this is impossible, and the same holds for u,D. An I5 containing v must use four vertices of D+T, excluded by the exact local I4 criterion, and similarly for u,C+T. A K5 or I5 avoiding the roots and meeting at most one core lies in C+T or D+T and is excluded locally. Every remaining forbidden set meets both cores and is exactly one of the prohibited all1 or all0 rectangles with its optional T part. The degree inequalities give the required degrees of all core vertices; T degrees were fixed by delta, and roots already have degree18.",
+      "limitation": "This is an exact residual compatibility problem, not an existence proof and not a contradiction. Scalar or individual-row feasibility does not imply that either complete attachment, let alone M, exists."
+    }
+  ],
+  "arithmetic_noncontradiction_witness": {
+    "scope": "A scalar-only witness showing that the elementary edge and degree sums do not already contradict one another. It does not assert existence of core subsets or of a graph.",
+    "H": "K3 disjoint-union K2 disjoint-union K2, so h=5 and tau=[2,2,2,1,1,1,1].",
+    "i": 0,
+    "j": 0,
+    "p": [
+      10,
+      10,
+      10,
+      10,
+      11,
+      10,
+      10
+    ],
+    "q": [
+      10,
+      10,
+      10,
+      11,
+      10,
+      10,
+      10
+    ],
+    "delta": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "X": 71,
+    "Y": 71,
+    "both_B24_edges": 144,
+    "T_global_degrees": [
+      22,
+      22,
+      22,
+      22,
+      22,
+      21,
+      21
+    ],
+    "verification": "Direct Python integer arithmetic checked the displayed sums and inequalities; no graph generation or enumeration was run."
+  },
+  "outcome": "No theoretical exclusion established. A nontrivial disjoint rooted-labelled partition and exact local attachment criterion are supplied; only the explicitly stated mixed-core compatibility problem remains after those local obligations. All claims remain ready pending independent review."
+}

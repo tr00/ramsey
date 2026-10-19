@@ -1,0 +1,24 @@
+Wrote "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/canonical-base.opb": 585 variables, 383722 constraints
+	Command being timed: "timeout --signal=INT --kill-after=2s 20s /home/tarik/workspace/c/ramsey/build/ramsey /home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-canonical.g6 -g -o /home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/canonical-base.opb --zero-neighborhood-excess --internal-edges-min 84 --internal-edges-max 84 --cross-edges-min 138 --cross-edges-max 138"
+	User time (seconds): 0.09
+	System time (seconds): 0.08
+	Percent of CPU this job got: 97%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.18
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 67128
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 22665
+	Voluntary context switches: 4
+	Involuntary context switches: 1
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 55816
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -24,6 +24,8 @@ External premises and proof status remain those recorded in the reduction index.
 
 Shared proof notes:
 
+- [K1 subbranch: double regular cores, seven-cell obstruction and exact 289-bit completion partition](k1/research.json) ([attachment and scalar bounds](k1/cross_core.json), [seven-cell structure](k1/seven_cell.json)); no full exclusion claimed.
+
 - [Cross-branch synthesis: stronger interior degrees, separator exclusions, and transversal thresholds across all x](../../reports/2026-10-19-cross-branch-synthesis.json)
 - [Reviewed interior floors/ceilings and tightened row and pointed-overlap filters](interior_transfer.json) ([audit](review_interior_transfer_20261019.json))
 - [Separator structure, higher vertex connectivity, and selected-root transfer](connected_structure_transfer.json) ([audit](review_connected_structure_transfer_20261019.json))

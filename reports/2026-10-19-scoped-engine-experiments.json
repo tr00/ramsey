@@ -1,0 +1,1703 @@
+{
+  "date": "2026-10-19",
+  "task": "scoped-engine-experiments-20261019",
+  "kind": "authorized bounded computational experiments and integration investigation",
+  "result": "All 9 nontrivial solver configurations time out. SAT/UNSAT controls work. A timeout can exit 0. No Ramsey branch is excluded.",
+  "authorization": "User explicitly authorized scoped engine/nauty/RoundingSat experiments",
+  "tools": {
+    "engine": "Existing local Release build, source/binary hashes in inputs.json",
+    "nauty": "2.9.3, local geng/countg/labelg binaries",
+    "RoundingSat": "2, commit d4edbf7, Release, SoPlex OFF",
+    "compiler": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "seed": "No seed option exposed in observed solver help. No claim of statistical robustness from these single runs."
+  },
+  "resource_limits": {
+    "solver_internal_cpu_seconds": 8,
+    "wall_seconds": 20,
+    "address_space_bytes": 1073741824,
+    "process_cpu_soft_seconds": 18,
+    "process_cpu_hard_seconds": 20,
+    "proof_logging": false
+  },
+  "storage": {
+    "first_batch_estimate_bytes": 200000000,
+    "note": "First-batch raw model total exceeded the rough estimate, about 257 MB versus 200 MB. More than 542 GB was available. All exact models retained as gzip after runs.",
+    "all_model_raw_bytes": 399938458,
+    "all_model_gzip_bytes": 56747041,
+    "all_retained_artifact_bytes": 56935434,
+    "proof_traces": "Disabled to avoid uncontrolled certificate growth; UNSAT statuses are uncertified."
+  },
+  "scope": {
+    "B_records": "Only original catalogue records 1 and 2, plus canonical relabelling of record 1. Not catalogue-wide.",
+    "zero_x138": "All A global degrees 18, e(A)=84, e(A,B)=138. Connectedness not imposed.",
+    "anchor": "A[0:4] independent, each internal degree 8. No coverage certificate supplied by these experiments.",
+    "pinning": "A further arbitrary assignment of all 96 anchor-to-B incidences; not a justified B symmetry reduction.",
+    "ordering": "Nonincreasing internal degrees within all A for default, or only the 14 nonanchor A vertices. Proof of scope: relabel that free block by descending degree; labels within the designated anchor remain fixed. This is not full canonicalization.",
+    "timeouts": "No evidence of nonexistence, no completed search coverage. No construction found in nontrivial runs."
+  },
+  "runs": [
+    {
+      "name": "solver-copyright",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--copyright"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.008885,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "solver-copyright.stdout",
+      "stderr": "solver-copyright.stderr",
+      "stdout_sha256": "109b4179ebe64779855fee7460760c25b5054933da5b15ff96141aa16c96a482",
+      "stderr_sha256": "25b8e776a7c2f1d10d564580b7085366e4b82447f449b68fb7a61eeef8df760e",
+      "peak_rss_kib": 4096
+    },
+    {
+      "name": "compiler-version",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/usr/bin/c++",
+        "--version"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.008512,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "compiler-version.stdout",
+      "stderr": "compiler-version.stderr",
+      "stdout_sha256": "88b7c4b67564a146863224148116065fee418539f0a408f3636a68f3bde51805",
+      "stderr_sha256": "45619f578e430c13e1fb23ba4808b9451a4856b97601d4db3e5d9ee117a8fe93",
+      "peak_rss_kib": 2888
+    },
+    {
+      "name": "nauty-small",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/nauty/bin/geng",
+        "-cq",
+        "6",
+        "6:6",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/small.g6"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.008172,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "nauty-small.stdout",
+      "stderr": "nauty-small.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2d3be7f4c6b40aa4c2a5dbdf2c68abe02e171321e0f77fdb43fdbbeed8fbdd45",
+      "peak_rss_kib": 2168
+    },
+    {
+      "name": "nauty-small-count",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/nauty/bin/countg",
+        "--ne",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/small.g6"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.008229,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "nauty-small-count.stdout",
+      "stderr": "nauty-small-count.stderr",
+      "stdout_sha256": "66ba6cab13df92fa6b2aac47ee1387868a650f39f82e881a5e7ece846ac407b6",
+      "stderr_sha256": "1a4361ec3d293e6be468fb3d812511545c9b2fc34408c29dd130433a6cef28a7",
+      "peak_rss_kib": 2168
+    },
+    {
+      "name": "nauty-b-properties",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/nauty/bin/countg",
+        "--nedDkhao",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-first.g6"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.008727,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "nauty-b-properties.stdout",
+      "stderr": "nauty-b-properties.stderr",
+      "stdout_sha256": "afb1ef0d45b8502043946b8e9bc6df238ad0d452c866c5c858c1f3f2b45bee66",
+      "stderr_sha256": "3db91619d69e3dab989b2c4d60900e1461fd3998a11f6e66997977e51ef0f432",
+      "peak_rss_kib": 2168
+    },
+    {
+      "name": "nauty-canonical",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/nauty/bin/labelg",
+        "-q",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-first.g6",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-canonical.g6"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.008689,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "nauty-canonical.stdout",
+      "stderr": "nauty-canonical.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "af2091c23beddb018587ccd896bfe6072776320e857f34287b1a963484c273d2",
+      "peak_rss_kib": 2168
+    },
+    {
+      "name": "nauty-canonical-properties",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/nauty/bin/countg",
+        "--nedDkhao",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-canonical.g6"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.008247,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "nauty-canonical-properties.stdout",
+      "stderr": "nauty-canonical-properties.stderr",
+      "stdout_sha256": "afb1ef0d45b8502043946b8e9bc6df238ad0d452c866c5c858c1f3f2b45bee66",
+      "stderr_sha256": "09975b2a1f80ce77ef19609b0bb07011404fd9834fdbb239ab07c4eef26a029e",
+      "peak_rss_kib": 2116
+    },
+    {
+      "name": "nauty-order18-budget",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "5s",
+        "/home/tarik/workspace/c/ramsey/third-party/nauty/bin/geng",
+        "-u",
+        "-k",
+        "-i",
+        "18",
+        "84:84"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 124,
+      "wall_seconds": 5.03045,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "nauty-order18-budget.stdout",
+      "stderr": "nauty-order18-budget.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "84e6bf4ffae9f241446f68e2c4de419edb966d8c6f7b6d4ceeb7a3acd1d8ec8c",
+      "peak_rss_kib": 5080
+    },
+    {
+      "name": "control-sat",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--time-limit=8",
+        "--print-sol=1",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/control-sat.opb"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.016892,
+      "status_lines": [
+        "s SATISFIABLE"
+      ],
+      "statistics": {
+        "cpu time": "0.000273 s",
+        "total solve time": "8e-06 s",
+        "propagation time": "5e-06 s",
+        "conflict analysis time": "0 s",
+        "decisions": "0",
+        "conflicts": "0",
+        "input clauses": "3",
+        "input cardinalities": "0",
+        "input general constraints": "0",
+        "learned clauses": "0",
+        "learned cardinalities": "0",
+        "learned general constraints": "0",
+        "LP calls": "0",
+        "restarts": "1"
+      },
+      "stdout": "control-sat.stdout",
+      "stderr": "control-sat.stderr",
+      "stdout_sha256": "63082e0d10e507edf79ff9b0af771cc801ecd0c0e30be7af69379be0cb40ff96",
+      "stderr_sha256": "925feb7833b3dbb1ffac734c916a23776fdee4d01c53b388a452b7cec80cca31",
+      "peak_rss_kib": 5136
+    },
+    {
+      "name": "impossible-pivot",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/build/ramsey",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-first.g6",
+        "-o",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/impossible-pivot.opb",
+        "--global-degree-min",
+        "none",
+        "--global-degree-max",
+        "17",
+        "--",
+        "--time-limit=8",
+        "--verbosity=1",
+        "--print-sol=1"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 1.47072,
+      "status_lines": [
+        "s UNSATISFIABLE"
+      ],
+      "statistics": {
+        "cpu time": "0.853699 s",
+        "total solve time": "0 s",
+        "propagation time": "0.187489 s",
+        "conflict analysis time": "0 s",
+        "decisions": "0",
+        "conflicts": "0",
+        "input clauses": "383580",
+        "input cardinalities": "0",
+        "input general constraints": "0",
+        "learned clauses": "0",
+        "learned cardinalities": "0",
+        "learned general constraints": "0",
+        "LP calls": "0",
+        "restarts": "0"
+      },
+      "stdout": "impossible-pivot.stdout",
+      "stderr": "impossible-pivot.stderr",
+      "stdout_sha256": "8e008a5ef04052f215787e2d6c78477e48445b0c4b119ef8434d2d349a3860e2",
+      "stderr_sha256": "82c90c4c743434cda44ec7f2cc46dd71cb843dc34f2010c0646d0e1beea8c81b",
+      "peak_rss_kib": 66864
+    },
+    {
+      "name": "default",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/build/ramsey",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-first.g6",
+        "-o",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/default.opb",
+        "--",
+        "--time-limit=8",
+        "--verbosity=1",
+        "--print-sol=1"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 4,
+      "wall_seconds": 9.29242,
+      "status_lines": [
+        "s TIMELIMIT"
+      ],
+      "statistics": {
+        "cpu time": "8.00008 s",
+        "total solve time": "6.86163 s",
+        "propagation time": "4.07462 s",
+        "conflict analysis time": "1.37834 s",
+        "decisions": "228198",
+        "conflicts": "137966",
+        "input clauses": "383580",
+        "input cardinalities": "106",
+        "input general constraints": "0",
+        "learned clauses": "137961",
+        "learned cardinalities": "5",
+        "learned general constraints": "0",
+        "LP calls": "0",
+        "restarts": "380"
+      },
+      "stdout": "default.stdout",
+      "stderr": "default.stderr",
+      "stdout_sha256": "25f03767c90e9e1a977a5eda05d0e7d479a33a25ebc7a4478ac3e3e65fd7b67d",
+      "stderr_sha256": "c058fcae48f10fbac454df1bfedd9fbf5fac2f7eeb09d2a0672867d4fd93fa36",
+      "peak_rss_kib": 75392
+    },
+    {
+      "name": "zero-excess",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/build/ramsey",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-first.g6",
+        "-o",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/zero-excess.opb",
+        "--zero-neighborhood-excess",
+        "--",
+        "--time-limit=8",
+        "--verbosity=1",
+        "--print-sol=1"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 4,
+      "wall_seconds": 9.195251,
+      "status_lines": [
+        "s TIMELIMIT"
+      ],
+      "statistics": {
+        "cpu time": "8.00012 s",
+        "total solve time": "6.9358 s",
+        "propagation time": "4.58788 s",
+        "conflict analysis time": "1.1469 s",
+        "decisions": "181045",
+        "conflicts": "106350",
+        "input clauses": "383580",
+        "input cardinalities": "142",
+        "input general constraints": "0",
+        "learned clauses": "104566",
+        "learned cardinalities": "201",
+        "learned general constraints": "1582",
+        "LP calls": "0",
+        "restarts": "275"
+      },
+      "stdout": "zero-excess.stdout",
+      "stderr": "zero-excess.stderr",
+      "stdout_sha256": "8905858a96e17df97ea7f5b54b4dd0081a3c8485fbab0820460ac9c9a89c2eb2",
+      "stderr_sha256": "7197af7c8d1d9cd57ed48665c446dc1eb73e6a1b9d04c4e283eb26f33549fecd",
+      "peak_rss_kib": 80244
+    },
+    {
+      "name": "zero-x138",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/build/ramsey",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-first.g6",
+        "-o",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/zero-x138.opb",
+        "--zero-neighborhood-excess",
+        "--internal-edges-min",
+        "84",
+        "--internal-edges-max",
+        "84",
+        "--cross-edges-min",
+        "138",
+        "--cross-edges-max",
+        "138",
+        "--",
+        "--time-limit=8",
+        "--verbosity=1",
+        "--print-sol=1"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 4,
+      "wall_seconds": 8.892245,
+      "status_lines": [
+        "s TIMELIMIT"
+      ],
+      "statistics": {
+        "cpu time": "8.00018 s",
+        "total solve time": "7.11999 s",
+        "propagation time": "5.52193 s",
+        "conflict analysis time": "0.913253 s",
+        "decisions": "88811",
+        "conflicts": "41990",
+        "input clauses": "383580",
+        "input cardinalities": "142",
+        "input general constraints": "0",
+        "learned clauses": "22501",
+        "learned cardinalities": "2765",
+        "learned general constraints": "16723",
+        "LP calls": "0",
+        "restarts": "126"
+      },
+      "stdout": "zero-x138.stdout",
+      "stderr": "zero-x138.stderr",
+      "stdout_sha256": "d021aa41f24793560982d17b381c1cff42085f58a26dc2c59de7c29c36bd3549",
+      "stderr_sha256": "2f1314c2ef66d8817715b5a2f5189bae4d66abb904f31daf428ff65f35b9d47b",
+      "peak_rss_kib": 78068
+    },
+    {
+      "name": "anchor-x138",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--time-limit=8",
+        "--verbosity=1",
+        "--print-sol=1",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/anchor-x138.opb"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 4,
+      "wall_seconds": 8.994863,
+      "status_lines": [
+        "s TIMELIMIT"
+      ],
+      "statistics": {
+        "cpu time": "8.00006 s",
+        "total solve time": "7.0415 s",
+        "propagation time": "4.34079 s",
+        "conflict analysis time": "1.26912 s",
+        "decisions": "169936",
+        "conflicts": "113146",
+        "input clauses": "383586",
+        "input cardinalities": "150",
+        "input general constraints": "0",
+        "learned clauses": "86491",
+        "learned cardinalities": "7051",
+        "learned general constraints": "19603",
+        "LP calls": "0",
+        "restarts": "300"
+      },
+      "stdout": "anchor-x138.stdout",
+      "stderr": "anchor-x138.stderr",
+      "stdout_sha256": "1629bffd4968d053c1fc46d0f0f641066e5a28db345f45941e7c61f108ea6f9b",
+      "stderr_sha256": "837b87b35f7c858be203bf855e9ee456eafc78da86ce4ed76f7c9a3f00048cd0",
+      "peak_rss_kib": 76040
+    },
+    {
+      "name": "anchor-pinned-signatures",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--time-limit=8",
+        "--verbosity=1",
+        "--print-sol=1",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/anchor-pinned-signatures.opb"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 1.269913,
+      "status_lines": [
+        "s UNSATISFIABLE"
+      ],
+      "statistics": {
+        "cpu time": "0.801412 s",
+        "total solve time": "0 s",
+        "propagation time": "0.179043 s",
+        "conflict analysis time": "0 s",
+        "decisions": "0",
+        "conflicts": "0",
+        "input clauses": "383612",
+        "input cardinalities": "150",
+        "input general constraints": "0",
+        "learned clauses": "0",
+        "learned cardinalities": "0",
+        "learned general constraints": "0",
+        "LP calls": "0",
+        "restarts": "0"
+      },
+      "stdout": "anchor-pinned-signatures.stdout",
+      "stderr": "anchor-pinned-signatures.stderr",
+      "stdout_sha256": "6cfeba98c2c2ec241daad6fdf51355d8b57f1fd9ddb5e9d955c2db9e50b24206",
+      "stderr_sha256": "f21c7471fd39bcd2a0436c56edf195ef37fb76ef45c44645a571159be8bc3db9",
+      "peak_rss_kib": 40724
+    },
+    {
+      "name": "canonical-generate",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/build/ramsey",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-canonical.g6",
+        "-g",
+        "-o",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/canonical-base.opb",
+        "--zero-neighborhood-excess",
+        "--internal-edges-min",
+        "84",
+        "--internal-edges-max",
+        "84",
+        "--cross-edges-min",
+        "138",
+        "--cross-edges-max",
+        "138"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.215516,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "canonical-generate.stdout",
+      "stderr": "canonical-generate.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ec7ee8acb26c4b1d313f026fc71f160b42a3dea6b20d280b455b758ff2bb4c2b",
+      "peak_rss_kib": 67128
+    },
+    {
+      "name": "canonical-anchor-x138",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--time-limit=8",
+        "--verbosity=1",
+        "--print-sol=1",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/canonical-anchor-x138.opb"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 4,
+      "wall_seconds": 9.045173,
+      "status_lines": [
+        "s TIMELIMIT"
+      ],
+      "statistics": {
+        "cpu time": "8.00022 s",
+        "total solve time": "7.06293 s",
+        "propagation time": "4.37413 s",
+        "conflict analysis time": "1.33298 s",
+        "decisions": "188710",
+        "conflicts": "126979",
+        "input clauses": "383586",
+        "input cardinalities": "150",
+        "input general constraints": "0",
+        "learned clauses": "98449",
+        "learned cardinalities": "7463",
+        "learned general constraints": "21067",
+        "LP calls": "0",
+        "restarts": "346"
+      },
+      "stdout": "canonical-anchor-x138.stdout",
+      "stderr": "canonical-anchor-x138.stderr",
+      "stdout_sha256": "6f423f1858b26181fdf18037f5dace13c27a77e62351aeb6abca9fdbf100e991",
+      "stderr_sha256": "c1be4e62c44aa38901846e6acbd40ae670536540598b72bbb2ceb37bcfe60695",
+      "peak_rss_kib": 76168
+    },
+    {
+      "name": "forward-invalid-option",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/build/ramsey",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-first.g6",
+        "-o",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/forward-invalid.opb",
+        "--",
+        "--not-a-real-option=1"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 1,
+      "wall_seconds": 0.21523,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "forward-invalid-option.stdout",
+      "stderr": "forward-invalid-option.stderr",
+      "stdout_sha256": "8631ff601135990f62a76f34e91ae744bf746e9d90ef6a99db5261681de279d3",
+      "stderr_sha256": "6d9e72ddb7cb8293e87c60d8d04e84bfcec2ea5b85aa9009f1d083e3e934b572",
+      "peak_rss_kib": 67012
+    },
+    {
+      "name": "out-of-range-index",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/build/ramsey",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-first.g6",
+        "--index",
+        "2",
+        "-g",
+        "-o",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/bad-index.opb"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 2,
+      "wall_seconds": 0.008292,
+      "status_lines": [],
+      "statistics": {},
+      "stdout": "out-of-range-index.stdout",
+      "stderr": "out-of-range-index.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7862e35c34f47bf1c496083996b287f191ddf3b8937023df181ca147bf616721",
+      "peak_rss_kib": 4304
+    },
+    {
+      "name": "default-degree-ordered",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--time-limit=8",
+        "--print-sol=1",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/default-degree-ordered.opb"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 4,
+      "wall_seconds": 9.045451,
+      "status_lines": [
+        "s TIMELIMIT"
+      ],
+      "stdout": "default-degree-ordered.stdout",
+      "stderr": "default-degree-ordered.stderr",
+      "statistics": {
+        "cpu time": "8.00015 s",
+        "total solve time": "6.8465 s",
+        "propagation time": "4.17541 s",
+        "conflict analysis time": "1.34978 s",
+        "decisions": "215386",
+        "conflicts": "130121",
+        "input clauses": "383580",
+        "input cardinalities": "123",
+        "input general constraints": "0",
+        "learned clauses": "129666",
+        "learned cardinalities": "56",
+        "learned general constraints": "398",
+        "LP calls": "0",
+        "restarts": "351"
+      },
+      "stdout_sha256": "8cd956420e3ce6ca457866ce091b553bdc8a8f8148248c5a8a3d85ebe819df22",
+      "stderr_sha256": "a33892b3e1956c564a390be2ed5f060bbfffd6c7fd5acdf3f19b0416e897919b",
+      "peak_rss_kib": 77808
+    },
+    {
+      "name": "anchor-residual-ordered",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--time-limit=8",
+        "--print-sol=1",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/anchor-residual-ordered.opb"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 9.093684,
+      "status_lines": [
+        "s TIMELIMIT"
+      ],
+      "stdout": "anchor-residual-ordered.stdout",
+      "stderr": "anchor-residual-ordered.stderr",
+      "statistics": {
+        "cpu time": "8.03 s",
+        "total solve time": "7.13832 s",
+        "propagation time": "4.47962 s",
+        "conflict analysis time": "1.26646 s",
+        "decisions": "187231",
+        "conflicts": "124200",
+        "input clauses": "383586",
+        "input cardinalities": "163",
+        "input general constraints": "0",
+        "learned clauses": "93055",
+        "learned cardinalities": "5671",
+        "learned general constraints": "25474",
+        "LP calls": "0",
+        "restarts": "332"
+      },
+      "stdout_sha256": "12da5186a859a29d3b6b7b3acd874044feeb9b5a5847543bb48b823e4a02fb32",
+      "stderr_sha256": "57fa3474fbfcb75dd0ca7029e0ddffd0019a76fbdcf29bda0085b309199d88e3",
+      "peak_rss_kib": 75752
+    },
+    {
+      "name": "anchor-counting-disabled",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--time-limit=8",
+        "--print-sol=1",
+        "--prop-counting=0",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/anchor-counting-disabled.opb"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 4,
+      "wall_seconds": 8.992686,
+      "status_lines": [
+        "s TIMELIMIT"
+      ],
+      "stdout": "anchor-counting-disabled.stdout",
+      "stderr": "anchor-counting-disabled.stderr",
+      "statistics": {
+        "cpu time": "8.0001 s",
+        "total solve time": "6.89395 s",
+        "propagation time": "4.71142 s",
+        "conflict analysis time": "1.07176 s",
+        "decisions": "174941",
+        "conflicts": "115242",
+        "input clauses": "383586",
+        "input cardinalities": "150",
+        "input general constraints": "0",
+        "learned clauses": "86894",
+        "learned cardinalities": "7760",
+        "learned general constraints": "20587",
+        "LP calls": "0",
+        "restarts": "310"
+      },
+      "stdout_sha256": "97849c25c56089067bbab7efe85398004c6258abf704c5a434cdac1b370abf89",
+      "stderr_sha256": "fae847d7af9ce7df82bfd5cbe377aa6b73ff77f631e58687fac88eb09f588f9b",
+      "peak_rss_kib": 75940
+    },
+    {
+      "name": "nauty-second-properties",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/nauty/bin/countg",
+        "--nedDkhao",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-second.g6"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.008519,
+      "status_lines": [],
+      "stdout": "nauty-second-properties.stdout",
+      "stderr": "nauty-second-properties.stderr",
+      "statistics": {},
+      "stdout_sha256": "b24bb6bb154dd3eccc2e9d95f862c4ef019eacea40b5d0195a85571389cce5e1",
+      "stderr_sha256": "1dd0c2a267a78d29b6cd035192f2f6b0fe6c9547df92e74da2d143a55a37202d",
+      "peak_rss_kib": 2168
+    },
+    {
+      "name": "b-second-generate",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/build/ramsey",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-second.g6",
+        "-g",
+        "-o",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-second-base.opb",
+        "--zero-neighborhood-excess",
+        "--internal-edges-min",
+        "84",
+        "--internal-edges-max",
+        "84",
+        "--cross-edges-min",
+        "138",
+        "--cross-edges-max",
+        "138"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 0,
+      "wall_seconds": 0.215865,
+      "status_lines": [],
+      "stdout": "b-second-generate.stdout",
+      "stderr": "b-second-generate.stderr",
+      "statistics": {},
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e7454352f8e192262f409900f8f0141d1c1818c11079a5c482421b7950317386",
+      "peak_rss_kib": 66908
+    },
+    {
+      "name": "b-second-anchor",
+      "command": [
+        "prlimit",
+        "--as=1073741824",
+        "--cpu=18:20",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "timeout",
+        "--signal=INT",
+        "--kill-after=2s",
+        "20s",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--time-limit=8",
+        "--print-sol=1",
+        "/home/tarik/workspace/c/ramsey/reports/2026-10-19-scoped-engine-experiments/b-second-anchor.opb"
+      ],
+      "cwd": "/home/tarik/workspace/c/ramsey",
+      "exit_status": 4,
+      "wall_seconds": 8.944306,
+      "status_lines": [
+        "s TIMELIMIT"
+      ],
+      "stdout": "b-second-anchor.stdout",
+      "stderr": "b-second-anchor.stderr",
+      "statistics": {
+        "cpu time": "8.00014 s",
+        "total solve time": "7.10485 s",
+        "propagation time": "4.42585 s",
+        "conflict analysis time": "1.27767 s",
+        "decisions": "165050",
+        "conflicts": "104684",
+        "input clauses": "383568",
+        "input cardinalities": "150",
+        "input general constraints": "0",
+        "learned clauses": "74169",
+        "learned cardinalities": "7956",
+        "learned general constraints": "22558",
+        "LP calls": "0",
+        "restarts": "268"
+      },
+      "stdout_sha256": "b484ea3681266d80443e961876a6f05721de874339af9f7383dca9809023275c",
+      "stderr_sha256": "ca8e421c9975e8fc463485279ab3ba594af7dd35e5e19e2ba78780090fb94a75",
+      "peak_rss_kib": 76260
+    }
+  ],
+  "comparison_order": [
+    "default",
+    "zero-excess",
+    "zero-x138",
+    "anchor-x138",
+    "canonical-anchor-x138",
+    "default-degree-ordered",
+    "anchor-residual-ordered",
+    "anchor-counting-disabled",
+    "b-second-anchor"
+  ],
+  "model_manifest": {
+    "anchor-pinned-signatures.opb": {
+      "sha256": "db929ee2ad1a0145f77d6b73cff0e1deb9e23cffea193631f67f91bc5c13e713",
+      "bytes": 28572761,
+      "header": "* #variable= 585 #constraint= 383832",
+      "gzip": "anchor-pinned-signatures.opb.gz",
+      "gzip_sha256": "e80f5f869eb917cc17b46635cb7de5fb343e1956f3612cc7c8b908364409ac8a",
+      "gzip_bytes": 4054051
+    },
+    "anchor-x138.opb": {
+      "sha256": "1992b54047b5fa6ec470293446911da4c52af54e52a2d77ef9fbc719226511a4",
+      "bytes": 28571321,
+      "header": "* #variable= 585 #constraint= 383736",
+      "gzip": "anchor-x138.opb.gz",
+      "gzip_sha256": "c113e36df512475b58a2f075cef5f8e24f1395123ed8a89a9563e14466c888d6",
+      "gzip_bytes": 4053602
+    },
+    "canonical-anchor-x138.opb": {
+      "sha256": "9872e9611ea9a871a447df437ed94adc8f8b99ef02e101d3d6f31b7158583aa7",
+      "bytes": 28571321,
+      "header": "* #variable= 585 #constraint= 383736",
+      "gzip": "canonical-anchor-x138.opb.gz",
+      "gzip_sha256": "47a5068772e8b47a5e622359573906ab4cf97898aad717624106628b964d9891",
+      "gzip_bytes": 4053121
+    },
+    "canonical-base.opb": {
+      "sha256": "414186c45e820d0c13300c5a84b41db9a28bd9a13c09660653af10a357003f92",
+      "bytes": 28570252,
+      "header": "* #variable= 585 #constraint= 383722",
+      "gzip": "canonical-base.opb.gz",
+      "gzip_sha256": "623bc92d642a707f7c897fef73b05ac7fc4920e47d72547e3e887658e13f2a4a",
+      "gzip_bytes": 4052903
+    },
+    "control-sat.opb": {
+      "sha256": "d993bd1f18bcde190142e5cb58fbfe772514eac855091d5fbb278bd7ab4c7fba",
+      "bytes": 81,
+      "header": "* #variable= 3 #constraint= 3",
+      "gzip": "control-sat.opb.gz",
+      "gzip_sha256": "ef426c819d7ba6b30800d965a2ea39475ac1fc87cb75c3128841edb03f89e7f8",
+      "gzip_bytes": 83
+    },
+    "default.opb": {
+      "sha256": "550a52bdeb9e08e6db5c1c377b8e23235d7547f4fa627d0b7ddb9caa3c87bb80",
+      "bytes": 28558606,
+      "header": "* #variable= 585 #constraint= 383686",
+      "gzip": "default.opb.gz",
+      "gzip_sha256": "70ecbdac5d57418ff1199a1f940e3245277466b2e62b70ac88433ecded476245",
+      "gzip_bytes": 4052302
+    },
+    "forward-invalid.opb": {
+      "sha256": "550a52bdeb9e08e6db5c1c377b8e23235d7547f4fa627d0b7ddb9caa3c87bb80",
+      "bytes": 28558606,
+      "header": "* #variable= 585 #constraint= 383686",
+      "gzip": "forward-invalid.opb.gz",
+      "gzip_sha256": "70ecbdac5d57418ff1199a1f940e3245277466b2e62b70ac88433ecded476245",
+      "gzip_bytes": 4052302
+    },
+    "impossible-pivot.opb": {
+      "sha256": "f4fb33ebc1f3c62acbcdc6795c650261863497fb0c05910b0dfa49de3ca618cf",
+      "bytes": 28549175,
+      "header": "* #variable= 585 #constraint= 383645",
+      "gzip": "impossible-pivot.opb.gz",
+      "gzip_sha256": "6307469a9d1733f5771618279ab11784b51fb72c832ad3881b08baeaa743c13f",
+      "gzip_bytes": 4049656
+    },
+    "zero-excess.opb": {
+      "sha256": "cb01a038b5bf7455543241fb89ff0dcd111f7d63a0494ff658d4fcc87bf370e6",
+      "bytes": 28570252,
+      "header": "* #variable= 585 #constraint= 383722",
+      "gzip": "zero-excess.opb.gz",
+      "gzip_sha256": "558b16d10a30501eb9433d5679ddfe7303d9bf5abf100519df124d22a57cc3bd",
+      "gzip_bytes": 4053404
+    },
+    "zero-x138.opb": {
+      "sha256": "e2fcd0d6be70f4f10849b2656deb0b1d6d1369942987a5847ede945109b70c29",
+      "bytes": 28570252,
+      "header": "* #variable= 585 #constraint= 383722",
+      "gzip": "zero-x138.opb.gz",
+      "gzip_sha256": "c17490b340af3861ec6b6cb4d2522de6042902481e53ddb5dd16c8f838c25e40",
+      "gzip_bytes": 4053410
+    },
+    "default-degree-ordered.opb": {
+      "sha256": "55126524dee0578cb3ff8e2b22b5215db72288a26e0efca7eea68d3efbb808f1",
+      "bytes": 28562696,
+      "header": "* #variable= 585 #constraint= 383703",
+      "gzip": "default-degree-ordered.opb.gz",
+      "gzip_sha256": "2375c235aaff2460ee4f652bed9a231867026c584ddd581b828f9ff48e9edd06",
+      "gzip_bytes": 4053162
+    },
+    "anchor-residual-ordered.opb": {
+      "sha256": "ae29dc5b68c2343a3e14e290f35f42b62471df95eda28db04a8553ced2fef97b",
+      "bytes": 28574501,
+      "header": "* #variable= 585 #constraint= 383749",
+      "gzip": "anchor-residual-ordered.opb.gz",
+      "gzip_sha256": "4e6a3e3c2a4628a5b09d6a7d5c6b2ac3ac2cfdf2782056614fa679ebb0eea784",
+      "gzip_bytes": 4054395
+    },
+    "anchor-counting-disabled.opb": {
+      "sha256": "1992b54047b5fa6ec470293446911da4c52af54e52a2d77ef9fbc719226511a4",
+      "bytes": 28571321,
+      "header": "* #variable= 585 #constraint= 383736",
+      "gzip": "anchor-counting-disabled.opb.gz",
+      "gzip_sha256": "c113e36df512475b58a2f075cef5f8e24f1395123ed8a89a9563e14466c888d6",
+      "gzip_bytes": 4053602
+    },
+    "b-second-anchor.opb": {
+      "sha256": "2170ffced56f6d82631b5cd998bf7daa490f627001984adf23742f561bc63f10",
+      "bytes": 28569191,
+      "header": "* #variable= 585 #constraint= 383718",
+      "gzip": "b-second-anchor.opb.gz",
+      "gzip_sha256": "f83992034bff063884a03cc5328dfe058227d3dbe74563aa99bf06fc103b7c06",
+      "gzip_bytes": 4055612
+    },
+    "b-second-base.opb": {
+      "sha256": "06a8ac7c455c86640fd392fe025fedb0f848bd245f4f5772c33c24475751998c",
+      "bytes": 28568122,
+      "header": "* #variable= 585 #constraint= 383704",
+      "gzip": "b-second-base.opb.gz",
+      "gzip_sha256": "8cb92ef7023847440c4521fb361c09b809494a668e4c3876c369f0ddd4d47914",
+      "gzip_bytes": 4055436
+    }
+  },
+  "controls": {
+    "tiny_sat_assignment": {
+      "1": true,
+      "2": false,
+      "3": true
+    },
+    "tiny_sat_verified_against_opb": true,
+    "pinned_partial_graph_obstruction": {
+      "type": "I5",
+      "vertices": [
+        "A0",
+        "A1",
+        "A2",
+        "B7",
+        "B11"
+      ]
+    },
+    "small_nauty_graph_count": 13,
+    "first_B": "n24 e152 min12 max14 clique4 independent3 automorphism-group1",
+    "second_B": "n24 e151 min11 max14 clique4 independent3 automorphism-group1"
+  },
+  "findings": [
+    {
+      "id": "status-contract",
+      "severity": "critical",
+      "title": "Exit 0 does not mean SAT, UNSAT, or even a completed decision",
+      "observations": [
+        "SAT control and both UNSAT controls exit 0.",
+        "anchor-residual-ordered prints s TIMELIMIT but exits 0; other timeouts exit 4."
+      ],
+      "evidence": [
+        "control-sat.stdout",
+        "impossible-pivot.stdout",
+        "anchor-pinned-signatures.stdout",
+        "anchor-residual-ordered.stdout",
+        "anchor-residual-ordered.stderr",
+        "third-party/roundingsat/src/run.cpp:43-57,84-122",
+        "src/engine.cpp:222-230"
+      ],
+      "consequence": "Shell success checks can silently misclassify an unfinished run. The frontend execs the solver and cannot normalize the result afterward.",
+      "recommendation": "Use the explicit s status line as the decision field. Keep raw exit status separately, require a terminal status, and classify timeout/unknown/error independently. Do not change vendored code."
+    },
+    {
+      "id": "certification",
+      "severity": "high",
+      "title": "No end-to-end candidate or UNSAT-certificate acceptance path",
+      "observations": [
+        "Engine execs the solver without decoding or validating a SAT assignment.",
+        "RoundingSat help defaults --print-sol to 0. All these solver runs explicitly request 1.",
+        "Proof logging was deliberately disabled; no UNSAT result here is certified."
+      ],
+      "evidence": [
+        "src/engine.cpp:219-230",
+        "third-party/roundingsat/src/quit.cpp:62-72",
+        "README.md:165-170,238-240"
+      ],
+      "consequence": "A solver status alone cannot safely become research evidence, even if a future run decides a nontrivial slice.",
+      "recommendation": "Separate solving from acceptance: retain assignment/proof, reconstruct all 43 vertices, exhaustively check all 5-subsets, and integrate an approved independent proof checker before exclusion claims."
+    },
+    {
+      "id": "symmetry",
+      "severity": "high",
+      "title": "Nauty is a graph6 parser in the engine, not solver symmetry reduction",
+      "observations": [
+        "First and second B graphs both have automorphism group size 1 and 24 orbits.",
+        "Canonicalizing B changes the anchor search trace but still times out.",
+        "The engine emits all labelled A constraints without an A symmetry breaker. Degree ordering also times out."
+      ],
+      "evidence": [
+        "src/engine.cpp:146-175",
+        "src/core.cpp:133-146",
+        "nauty-b-properties.stdout",
+        "nauty-second-properties.stdout",
+        "canonical-anchor-x138.stdout",
+        "default-degree-ordered.stdout"
+      ],
+      "consequence": "Canonical B labelling does not remove permutations of the 18 unknown A vertices. A designated 4-anchor still leaves permutations of its 14 other A vertices.",
+      "recommendation": "Evaluate symmetry handling for the combined unknown A/cross structure, with a coverage argument. Cheap internal-degree ordering is incomplete and is not a demonstrated speedup here."
+    },
+    {
+      "id": "lp-build",
+      "severity": "high",
+      "title": "The local PB solver has no LP backend",
+      "observations": [
+        "Configured local Release build has soplex:STRING=OFF.",
+        "Every measured hard run reports LP calls 0.",
+        "The help still lists LP controls and --lp default 1."
+      ],
+      "evidence": [
+        "third-party/roundingsat/build/CMakeCache.txt:251-252",
+        "default.stdout",
+        "zero-x138.stdout",
+        "solver --help observed during setup"
+      ],
+      "consequence": "Linear constraints are handled by PB/CDCL propagation and cutting planes, not an LP relaxation in this build.",
+      "recommendation": "Expose solver build capabilities in experiment metadata. Compare with an LP-enabled local build only after obtaining approval for any missing dependency/download; no LP performance claim follows from these runs."
+    },
+    {
+      "id": "pb-cost",
+      "severity": "medium",
+      "title": "Stronger restrictions change per-conflict cost, not just search space",
+      "observations": [
+        "At equal 8-second internal CPU budgets: default 137966 conflicts, zero excess 106350, fixed x138 zero excess 41990.",
+        "Fixed x138 learns 16723 general constraints versus 0 in the default run.",
+        "All 9 nontrivial comparisons time out. Disabling counting propagation does not decide the anchor instance."
+      ],
+      "evidence": [
+        "default.stdout",
+        "zero-excess.stdout",
+        "zero-x138.stdout",
+        "anchor-counting-disabled.stdout"
+      ],
+      "consequence": "Fewer variables or stronger equations cannot be assumed to imply faster solving. Conflict counts alone are not a progress/completeness metric.",
+      "recommendation": "Benchmark repeated instances and deterministic work counters with fixed scope. Keep runtime, learned-constraint mix and memory, not just conflict throughput. No tuning default is justified by this small sample."
+    },
+    {
+      "id": "cut-interface",
+      "severity": "high",
+      "title": "Scoped graph constraints require external OPB surgery",
+      "observations": [
+        "The CLI exposes aggregate interval endpoints and zero excess but no fixed edge literals, designated independent set, anchor degree constraints, or residual degree ordering.",
+        "Experiments added 14 anchor rows, 96 arbitrary fixed-cross-edge rows, and degree-order rows outside the engine.",
+        "Arbitrary pinned incidences already force an explicit 5-vertex obstruction: {'type': 'I5', 'vertices': ['A0', 'A1', 'A2', 'B7', 'B11']}"
+      ],
+      "evidence": [
+        "src/main.cpp:76-92",
+        "scopes.json",
+        "followup-scope.json",
+        "run.py",
+        "followup.py"
+      ],
+      "consequence": "Ad hoc text augmentation couples experiments to variable numbering and header maintenance. An easy UNSAT slice can simply be inconsistent input, not evidence of difficult-branch feasibility.",
+      "recommendation": "A small typed experiment-cut interface using the existing builder would improve usability. Record every cut and whether it is implied, a covered symmetry choice, or an arbitrary restriction; do not promote these artificial pins into production defaults."
+    },
+    {
+      "id": "io-preflight",
+      "severity": "medium",
+      "title": "Late contradiction and option discovery forces avoidable generation and parsing",
+      "observations": [
+        "Impossible pivot cap generates a 28549175-byte OPB before UNSAT at parsing, with zero search decisions.",
+        "An invalid forwarded solver option is discovered only after a complete default OPB is generated.",
+        "All core rows are built before any optional bound component."
+      ],
+      "evidence": [
+        "impossible-pivot.stderr",
+        "impossible-pivot.stdout",
+        "forward-invalid-option.stdout",
+        "models.json",
+        "src/engine.cpp:200-225",
+        "src/constraints/degrees.cpp:21-22"
+      ],
+      "consequence": "Obvious input contradictions and execution mistakes still incur model construction, serialization and sometimes full core parsing.",
+      "recommendation": "Preflight fixed pivot/bounds and solver availability before large generation, while preserving an explicit infeasible-model mode when requested. Separate generate/solve commands so tuning does not regenerate identical models."
+    },
+    {
+      "id": "batch-provenance",
+      "severity": "high",
+      "title": "One-shot frontend lacks catalogue scheduling and reproducible run records",
+      "observations": [
+        "Frontend handles one B record per invocation. read_record scans from the beginning for each --index.",
+        "OPB metadata records variable map and B graph6 but not active constraint options, source/tool hashes or artificial scope.",
+        "Experiment drivers had to add resource limits, raw logs, status parsing, hashing and compressed model retention.",
+        "Solver path is baked into the engine at build time."
+      ],
+      "evidence": [
+        "src/engine.cpp:104-143,222-230",
+        "src/opb.cpp:63-89",
+        "CMakeLists.txt:72-73",
+        "run.py",
+        "followup.py"
+      ],
+      "consequence": "Naive index-by-index batch use performs quadratic catalogue scanning and cannot safely resume/aggregate a decision frontier. Moving the checkout or swapping solver builds needs manual care.",
+      "recommendation": "Use a sequential catalogue iterator or index, explicit solver path, and a manifest-driven external supervisor with separate model/scope/attempt IDs and resumable undecided cases. Preserve exec signal behavior for the low-level frontend."
+    },
+    {
+      "id": "nauty-budget",
+      "severity": "medium",
+      "title": "Order-18 generation is not yet a measured complete enumeration strategy",
+      "observations": [
+        "The small n6/e6 connected generator completes and countg reports 13 graphs.",
+        "Count-only K4-free/I5-free n18/e84 generation hits the 5-second watchdog without a completed count."
+      ],
+      "evidence": [
+        "nauty-small-count.stdout",
+        "nauty-order18-budget.stderr"
+      ],
+      "consequence": "The tiny control validates local tool plumbing, not scalability or coverage at order 18. Timeout gives no bound on remaining work.",
+      "recommendation": "Measure split-job sizes and retain exact res/mod settings before using generation as a coverage source. No catalogue completeness or nonexistence conclusion is drawn here."
+    }
+  ],
+  "illustrative_catalogue_arithmetic": {
+    "records": 352366,
+    "input_bytes": 16913568,
+    "8_cpu_seconds_each_days": 32.626481481481484,
+    "one_default_opb_per_record_bytes": 10063081761796,
+    "warning": "Arithmetic illustration only, not a projection that 8 seconds decides any record. Most measured cases remained undecided."
+  },
+  "recommended_priority": [
+    "Reliable status/witness/certificate acceptance contract before batch use",
+    "Scope-aware experiment manifests and bounded resumable orchestration",
+    "Typed anchor/fixed-edge cuts and coverage-aware A symmetry experiments",
+    "Only then larger comparative solver/backend benchmarks"
+  ],
+  "validation": {
+    "command": "python3 reports/2026-10-19-scoped-engine-experiments/analyze.py",
+    "checks": [
+      "25 raw run records and log hashes",
+      "All compressed model SHA-256 values, raw hashes and exact constraint counts",
+      "Tiny returned SAT assignment against every actual OPB constraint",
+      "Explicit fixed partial-graph K5/I5 witness for arbitrary pins",
+      "Original source/tool/input hashes still match"
+    ]
+  },
+  "source_sha256": {
+    "src/instance.hpp": "6cacbed2915891c14aa1a5d8f6ae79dbcf179c57f6732d53e01ecf8c3d3bfdea",
+    "src/constraints/degrees.cpp": "c1bd7e044950a4fd36e2d440d1f688f08a23f890ce190986ba3c75acb69591ef",
+    "CMakeLists.txt": "318d609890de09eb7edfb4d475715522547febbb7f90dc20b748702ca6178bf5",
+    "third-party/roundingsat/src/run.cpp": "6d48d474882f1c7e8d939b8289754a538c8dfc6bcdaa307ff7fa2dda2129d9be",
+    "third-party/roundingsat/src/roundingsat.cpp": "8a32057a45981a9c48fb51c719b2c87c06167e184d46c602b6487764565e5943",
+    "third-party/roundingsat/src/quit.cpp": "361d0cdb0163a193704588c67fb7e62ef53320f2aaa05b4f25ae776667d3709b",
+    "third-party/roundingsat/src/version.hpp": "88ad8603e180e9fd0d5b5eeb22068c7115fabd444bc493e786fde8f6a1d360bc",
+    "third-party/nauty/build/nauty.h": "98fb0f714196ed18a4d335f27a91f5c43f14c3fb11cbf46fbb37f14a7106bed7"
+  },
+  "artifacts": {
+    "analyze.py": {
+      "bytes": 18826,
+      "sha256": "3f50c4ae7caa687a58e461927f3c16264790a98543fe9d674cc63681ab58ea31"
+    },
+    "anchor-counting-disabled.opb.gz": {
+      "bytes": 4053602,
+      "sha256": "c113e36df512475b58a2f075cef5f8e24f1395123ed8a89a9563e14466c888d6"
+    },
+    "anchor-counting-disabled.stderr": {
+      "bytes": 1022,
+      "sha256": "fae847d7af9ce7df82bfd5cbe377aa6b73ff77f631e58687fac88eb09f588f9b"
+    },
+    "anchor-counting-disabled.stdout": {
+      "bytes": 8952,
+      "sha256": "97849c25c56089067bbab7efe85398004c6258abf704c5a434cdac1b370abf89"
+    },
+    "anchor-pinned-signatures.opb.gz": {
+      "bytes": 4054051,
+      "sha256": "e80f5f869eb917cc17b46635cb7de5fb343e1956f3612cc7c8b908364409ac8a"
+    },
+    "anchor-pinned-signatures.stderr": {
+      "bytes": 977,
+      "sha256": "f21c7471fd39bcd2a0436c56edf195ef37fb76ef45c44645a571159be8bc3db9"
+    },
+    "anchor-pinned-signatures.stdout": {
+      "bytes": 2372,
+      "sha256": "6cfeba98c2c2ec241daad6fdf51355d8b57f1fd9ddb5e9d955c2db9e50b24206"
+    },
+    "anchor-residual-ordered.opb.gz": {
+      "bytes": 4054395,
+      "sha256": "4e6a3e3c2a4628a5b09d6a7d5c6b2ac3ac2cfdf2782056614fa679ebb0eea784"
+    },
+    "anchor-residual-ordered.stderr": {
+      "bytes": 965,
+      "sha256": "57fa3474fbfcb75dd0ca7029e0ddffd0019a76fbdcf29bda0085b309199d88e3"
+    },
+    "anchor-residual-ordered.stdout": {
+      "bytes": 9435,
+      "sha256": "12da5186a859a29d3b6b7b3acd874044feeb9b5a5847543bb48b823e4a02fb32"
+    },
+    "anchor-x138.opb.gz": {
+      "bytes": 4053602,
+      "sha256": "c113e36df512475b58a2f075cef5f8e24f1395123ed8a89a9563e14466c888d6"
+    },
+    "anchor-x138.stderr": {
+      "bytes": 1005,
+      "sha256": "837b87b35f7c858be203bf855e9ee456eafc78da86ce4ed76f7c9a3f00048cd0"
+    },
+    "anchor-x138.stdout": {
+      "bytes": 8855,
+      "sha256": "1629bffd4968d053c1fc46d0f0f641066e5a28db345f45941e7c61f108ea6f9b"
+    },
+    "b-canonical.g6": {
+      "bytes": 48,
+      "sha256": "b04cedd30eedf4161d397555d7e594822aba9a585dd2e02243e73c705205387c"
+    },
+    "b-first.g6": {
+      "bytes": 48,
+      "sha256": "6c00fbb9510f7dfc517685610146f95496e9509e9c497e45afe8f877a95d0211"
+    },
+    "b-second-anchor.opb.gz": {
+      "bytes": 4055612,
+      "sha256": "f83992034bff063884a03cc5328dfe058227d3dbe74563aa99bf06fc103b7c06"
+    },
+    "b-second-anchor.stderr": {
+      "bytes": 994,
+      "sha256": "ca8e421c9975e8fc463485279ab3ba594af7dd35e5e19e2ba78780090fb94a75"
+    },
+    "b-second-anchor.stdout": {
+      "bytes": 8373,
+      "sha256": "b484ea3681266d80443e961876a6f05721de874339af9f7383dca9809023275c"
+    },
+    "b-second-base.opb.gz": {
+      "bytes": 4055436,
+      "sha256": "8cb92ef7023847440c4521fb361c09b809494a668e4c3876c369f0ddd4d47914"
+    },
+    "b-second-generate.stderr": {
+      "bytes": 1248,
+      "sha256": "e7454352f8e192262f409900f8f0141d1c1818c11079a5c482421b7950317386"
+    },
+    "b-second-generate.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "b-second.g6": {
+      "bytes": 48,
+      "sha256": "2b6308dafdc3d20e68a31dfb3bf5cf24859fa88a2f04ab1d4ab88190aa53a922"
+    },
+    "canonical-anchor-x138.opb.gz": {
+      "bytes": 4053121,
+      "sha256": "47a5068772e8b47a5e622359573906ab4cf97898aad717624106628b964d9891"
+    },
+    "canonical-anchor-x138.stderr": {
+      "bytes": 1014,
+      "sha256": "c1be4e62c44aa38901846e6acbd40ae670536540598b72bbb2ceb37bcfe60695"
+    },
+    "canonical-anchor-x138.stdout": {
+      "bytes": 9562,
+      "sha256": "6f423f1858b26181fdf18037f5dace13c27a77e62351aeb6abca9fdbf100e991"
+    },
+    "canonical-base.opb.gz": {
+      "bytes": 4052903,
+      "sha256": "623bc92d642a707f7c897fef73b05ac7fc4920e47d72547e3e887658e13f2a4a"
+    },
+    "canonical-generate.stderr": {
+      "bytes": 1253,
+      "sha256": "ec7ee8acb26c4b1d313f026fc71f160b42a3dea6b20d280b455b758ff2bb4c2b"
+    },
+    "canonical-generate.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compiler-version.stderr": {
+      "bytes": 777,
+      "sha256": "45619f578e430c13e1fb23ba4808b9451a4856b97601d4db3e5d9ee117a8fe93"
+    },
+    "compiler-version.stdout": {
+      "bytes": 246,
+      "sha256": "88b7c4b67564a146863224148116065fee418539f0a408f3636a68f3bde51805"
+    },
+    "control-sat.opb.gz": {
+      "bytes": 83,
+      "sha256": "ef426c819d7ba6b30800d965a2ea39475ac1fc87cb75c3128841edb03f89e7f8"
+    },
+    "control-sat.stderr": {
+      "bytes": 947,
+      "sha256": "925feb7833b3dbb1ffac734c916a23776fdee4d01c53b388a452b7cec80cca31"
+    },
+    "control-sat.stdout": {
+      "bytes": 2353,
+      "sha256": "63082e0d10e507edf79ff9b0af771cc801ecd0c0e30be7af69379be0cb40ff96"
+    },
+    "default-degree-ordered.opb.gz": {
+      "bytes": 4053162,
+      "sha256": "2375c235aaff2460ee4f652bed9a231867026c584ddd581b828f9ff48e9edd06"
+    },
+    "default-degree-ordered.stderr": {
+      "bytes": 1002,
+      "sha256": "a33892b3e1956c564a390be2ed5f060bbfffd6c7fd5acdf3f19b0416e897919b"
+    },
+    "default-degree-ordered.stdout": {
+      "bytes": 9744,
+      "sha256": "8cd956420e3ce6ca457866ce091b553bdc8a8f8148248c5a8a3d85ebe819df22"
+    },
+    "default.opb.gz": {
+      "bytes": 4052302,
+      "sha256": "70ecbdac5d57418ff1199a1f940e3245277466b2e62b70ac88433ecded476245"
+    },
+    "default.stderr": {
+      "bytes": 1199,
+      "sha256": "c058fcae48f10fbac454df1bfedd9fbf5fac2f7eeb09d2a0672867d4fd93fa36"
+    },
+    "default.stdout": {
+      "bytes": 10121,
+      "sha256": "25f03767c90e9e1a977a5eda05d0e7d479a33a25ebc7a4478ac3e3e65fd7b67d"
+    },
+    "followup-measurements.json": {
+      "bytes": 4555,
+      "sha256": "d4cb9037375c37117e8985a3ec3a501c1a1108a7b34d6c19488367da7ed3751c"
+    },
+    "followup-models.json": {
+      "bytes": 1757,
+      "sha256": "bd3e93a51d28b3c525abed2361b6beb0efdf199e08948383dab979b7f14d0ef6"
+    },
+    "followup-scope.json": {
+      "bytes": 8437,
+      "sha256": "c32a3556266c324c0baeb0d1be540a17e7406d51f934bef1348c10628d4f6490"
+    },
+    "followup.py": {
+      "bytes": 5098,
+      "sha256": "8ab16b7fb37fd39b913b520487d0f8ff41d951512233647794e4ef86f9128d54"
+    },
+    "forward-invalid-option.stderr": {
+      "bytes": 1193,
+      "sha256": "6d9e72ddb7cb8293e87c60d8d04e84bfcec2ea5b85aa9009f1d083e3e934b572"
+    },
+    "forward-invalid-option.stdout": {
+      "bytes": 139,
+      "sha256": "8631ff601135990f62a76f34e91ae744bf746e9d90ef6a99db5261681de279d3"
+    },
+    "forward-invalid.opb.gz": {
+      "bytes": 4052302,
+      "sha256": "70ecbdac5d57418ff1199a1f940e3245277466b2e62b70ac88433ecded476245"
+    },
+    "impossible-pivot.opb.gz": {
+      "bytes": 4049656,
+      "sha256": "6307469a9d1733f5771618279ab11784b51fb72c832ad3881b08baeaa743c13f"
+    },
+    "impossible-pivot.stderr": {
+      "bytes": 1226,
+      "sha256": "82c90c4c743434cda44ec7f2cc46dd71cb843dc34f2010c0646d0e1beea8c81b"
+    },
+    "impossible-pivot.stdout": {
+      "bytes": 2357,
+      "sha256": "8e008a5ef04052f215787e2d6c78477e48445b0c4b119ef8434d2d349a3860e2"
+    },
+    "inputs.json": {
+      "bytes": 2234,
+      "sha256": "dcdbd219b9890c296d5ae66e33214a61cf886ca996ab26340bd1c7bc06aedc09"
+    },
+    "measurements.json": {
+      "bytes": 18530,
+      "sha256": "09313a98ec61196382dfbe74dbe9f6ffc969a48181b088e36ed9d543d4c326f2"
+    },
+    "models.json": {
+      "bytes": 3383,
+      "sha256": "6c45a936ed35a54b802a564846fab1b049ca4c32e50f9c5336d8292253b53b1c"
+    },
+    "nauty-b-properties.stderr": {
+      "bytes": 1080,
+      "sha256": "3db91619d69e3dab989b2c4d60900e1461fd3998a11f6e66997977e51ef0f432"
+    },
+    "nauty-b-properties.stdout": {
+      "bytes": 140,
+      "sha256": "afb1ef0d45b8502043946b8e9bc6df238ad0d452c866c5c858c1f3f2b45bee66"
+    },
+    "nauty-canonical-properties.stderr": {
+      "bytes": 1089,
+      "sha256": "09975b2a1f80ce77ef19609b0bb07011404fd9834fdbb239ab07c4eef26a029e"
+    },
+    "nauty-canonical-properties.stdout": {
+      "bytes": 140,
+      "sha256": "afb1ef0d45b8502043946b8e9bc6df238ad0d452c866c5c858c1f3f2b45bee66"
+    },
+    "nauty-canonical.stderr": {
+      "bytes": 994,
+      "sha256": "af2091c23beddb018587ccd896bfe6072776320e857f34287b1a963484c273d2"
+    },
+    "nauty-canonical.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "nauty-order18-budget.stderr": {
+      "bytes": 953,
+      "sha256": "84e6bf4ffae9f241446f68e2c4de419edb966d8c6f7b6d4ceeb7a3acd1d8ec8c"
+    },
+    "nauty-order18-budget.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "nauty-second-properties.stderr": {
+      "bytes": 1083,
+      "sha256": "1dd0c2a267a78d29b6cd035192f2f6b0fe6c9547df92e74da2d143a55a37202d"
+    },
+    "nauty-second-properties.stdout": {
+      "bytes": 140,
+      "sha256": "b24bb6bb154dd3eccc2e9d95f862c4ef019eacea40b5d0195a85571389cce5e1"
+    },
+    "nauty-small-count.stderr": {
+      "bytes": 1059,
+      "sha256": "1a4361ec3d293e6be468fb3d812511545c9b2fc34408c29dd130433a6cef28a7"
+    },
+    "nauty-small-count.stdout": {
+      "bytes": 66,
+      "sha256": "66ba6cab13df92fa6b2aac47ee1387868a650f39f82e881a5e7ece846ac407b6"
+    },
+    "nauty-small.stderr": {
+      "bytes": 907,
+      "sha256": "2d3be7f4c6b40aa4c2a5dbdf2c68abe02e171321e0f77fdb43fdbbeed8fbdd45"
+    },
+    "nauty-small.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "out-of-range-index.stderr": {
+      "bytes": 1157,
+      "sha256": "7862e35c34f47bf1c496083996b287f191ddf3b8937023df181ca147bf616721"
+    },
+    "out-of-range-index.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "run.py": {
+      "bytes": 7925,
+      "sha256": "994f884ad145c53750c0c696da8c6af0fe8e1a5c33800cad19943aaa19a80da9"
+    },
+    "scopes.json": {
+      "bytes": 4113,
+      "sha256": "5c468d562abc0a465803dfdc2a057f99d0d743df00bc6fffebca4328e25cc944"
+    },
+    "small.g6": {
+      "bytes": 65,
+      "sha256": "0b187ba74cb160cf7e9f78afb523745135d714d88895597f380cc9edaea9a901"
+    },
+    "solver-copyright.stderr": {
+      "bytes": 840,
+      "sha256": "25b8e776a7c2f1d10d564580b7085366e4b82447f449b68fb7a61eeef8df760e"
+    },
+    "solver-copyright.stdout": {
+      "bytes": 438,
+      "sha256": "109b4179ebe64779855fee7460760c25b5054933da5b15ff96141aa16c96a482"
+    },
+    "zero-excess.opb.gz": {
+      "bytes": 4053404,
+      "sha256": "558b16d10a30501eb9433d5679ddfe7303d9bf5abf100519df124d22a57cc3bd"
+    },
+    "zero-excess.stderr": {
+      "bytes": 1234,
+      "sha256": "7197af7c8d1d9cd57ed48665c446dc1eb73e6a1b9d04c4e283eb26f33549fecd"
+    },
+    "zero-excess.stdout": {
+      "bytes": 8459,
+      "sha256": "8905858a96e17df97ea7f5b54b4dd0081a3c8485fbab0820460ac9c9a89c2eb2"
+    },
+    "zero-x138.opb.gz": {
+      "bytes": 4053410,
+      "sha256": "c17490b340af3861ec6b6cb4d2522de6042902481e53ddb5dd16c8f838c25e40"
+    },
+    "zero-x138.stderr": {
+      "bytes": 1322,
+      "sha256": "2f1314c2ef66d8817715b5a2f5189bae4d66abb904f31daf428ff65f35b9d47b"
+    },
+    "zero-x138.stdout": {
+      "bytes": 4894,
+      "sha256": "d021aa41f24793560982d17b381c1cff42085f58a26dc2c59de7c29c36bd3549"
+    }
+  },
+  "replay": [
+    "python3 reports/2026-10-19-scoped-engine-experiments/run.py",
+    "python3 reports/2026-10-19-scoped-engine-experiments/followup.py",
+    "python3 reports/2026-10-19-scoped-engine-experiments/analyze.py"
+  ],
+  "cleanup": "Only evidence reports and WORK.md changed. Temporary uncompressed OPBs removed after gzip retention. Experiment drivers retained as reproducibility evidence. No engine/default constraint changes, dependency changes, downloads, Lean edits, staging or commit."
+}
