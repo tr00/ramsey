@@ -1,6 +1,7 @@
 #include "engine.hpp"
 #include "constraints/zero_excess.hpp"
 #include "opb.hpp"
+#include "solver.hpp"
 
 #include <gtools.h>
 
@@ -224,10 +225,7 @@ int run(const Options &options)
     arguments.insert(arguments.end(), options.solver_arguments.begin(), options.solver_arguments.end());
     arguments.push_back(const_cast<char *>(output.c_str()));
     arguments.push_back(nullptr);
-    ::execv(RAMSEY_ROUNDINGSAT, arguments.data());
-    const int error = errno;
-    std::cerr << "ramsey: cannot execute RoundingSat: " << std::generic_category().message(error) << '\n';
-    return error == ENOENT || error == ENOTDIR ? 127 : 126;
+    return run_solver(RAMSEY_ROUNDINGSAT, arguments.data());
 }
 
 } // namespace ramsey

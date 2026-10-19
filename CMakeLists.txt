@@ -59,7 +59,7 @@ endif()
 
 
 add_library(ramsey_core STATIC
-    src/engine.cpp src/instance.cpp src/core.cpp src/bounds.cpp src/opb.cpp
+    src/engine.cpp src/instance.cpp src/core.cpp src/bounds.cpp src/opb.cpp src/solver.cpp
     src/constraints/degrees.cpp src/constraints/edges.cpp
     src/constraints/excess.cpp src/constraints/zero_excess.cpp)
 target_include_directories(ramsey_core PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src")
@@ -86,4 +86,9 @@ if(BUILD_TESTING)
     target_link_libraries(engine_tests PRIVATE ramsey_core)
     ramsey_warnings(engine_tests)
     add_test(NAME engine COMMAND engine_tests)
+    add_executable(solver_tests tests/test_solver.cpp)
+    target_link_libraries(solver_tests PRIVATE ramsey_core)
+    ramsey_warnings(solver_tests)
+    add_test(NAME solver COMMAND solver_tests)
+    set_tests_properties(solver PROPERTIES TIMEOUT 15)
 endif()

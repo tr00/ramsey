@@ -54,7 +54,10 @@ void usage(const char *program)
               << "  --neighborhood-excess-max N|none Maximum sum_A(d_G(u)-18) (default: none)\n"
               << "  --zero-neighborhood-excess       Force d_G(u)=18 for every u in A\n"
               << "  -h, --help           Show this help\n"
-              << "Arguments after -- go directly to RoundingSat.\n";
+              << "Arguments after -- go directly to RoundingSat.\n"
+              << "Exit status: 0 generated, 10 SAT, 20 UNSAT, 4 timeout, 5 unknown,\n"
+              << "             1 solver/protocol error, 2 frontend error, 3 out of memory,\n"
+              << "             126/127 execution failure, 128+signal interrupted.\n";
 }
 } // namespace
 
