@@ -176,7 +176,20 @@ we can show that it splits into a clique and a smaller connected Ramsey graph.
 	It follows that $\abs{S} + \abs{S^c} < 16 < 18 = \abs{A}$. contradiction.
 
 	We have established that $G[A] = K_m \sqcup R$ and since $G[A]$ is $K_4$-free, $m \leqslant 3$.
-	It remains to be shown that $R$ is connected and $(4,4)$-free.
+	And $R$ is $(4,4)$-free since $G[A]$ is $K_4$-free and $\alpha(K_m) + \alpha(R) = A$ forces $\alpha(R) = 3$.
+	Finally, the claim that $R$ is connect follows from the next lemma.
+\end{proof}
+
+\begin{lemma}
+	Any $G \in R(4, 4, n)$ with $n \geqslant 12$ is connected.
+\end{lemma}
+\begin{proof}
+	Suppose $G$ is disconnected and has a anticonnected cut $S, S^c$.
+	Then each side must be $I_3$-free, otherwise a vertex from the other set extends to a forbidden $I_4$.
+	From $R(4, 3) = 9$ it follows that $\abs{S}, \abs{S^c} \leqslant 8$.
+	If neither $S, S^c$ is a clique, then each side contains an independent pair, which combines to $I_4$.
+	If one of them is a clique, the largest clique would be $K_3$ but then $\abs{S} + \abs{S^c} \leqslant 11$.
+	This proofs that $n \geqslant 12$ necessitates a $(4, 4)$-free $G$ to be connected.
 \end{proof}
 
 \section{Anchor Method}

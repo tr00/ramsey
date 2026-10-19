@@ -67,9 +67,9 @@ shared adjacency patterns, and edge counts gives restrictions that an isolated
 neighborhood analysis can miss.
 
 Much of the current work follows a vertex of degree 18. Its two sides have
-18 and 24 vertices. The original cross-edge floor
-was 136. The reviewed equality-frontier exclusion now gives x>=137, and
-current work studies compatibility above that boundary.
+18 and 24 vertices. The original cross-edge floor was 136; the reviewed
+[x136](n43/d18/x136/README.md) and [x137](n43/d18/x137/README.md) exclusions
+raise it to 138. Higher cross counts remain open.
 Other threads study overlapping vertex neighborhoods, symmetry reductions,
 and the case with minimum degree 20 after choosing between a graph and its
 complement.

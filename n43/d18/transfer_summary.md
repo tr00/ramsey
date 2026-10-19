@@ -90,5 +90,6 @@ branch-closure assertions.
   the x142 adjacent-pivot table, and structural pair/triple compatibility tests.
 
 Each linked claim's metadata and recorded exact-revision review govern its
-permitted use. New claims are necessary filters for a future exhaustive proof;
-no full x137,...,x142 branch has been excluded and order 43 is undecided.
+permitted use. The separate reviewed [full x137 closure](x137/frontier_closure.md)
+now excludes that entire frontier. The x138,...,x142 branches and order 43
+remain undecided.

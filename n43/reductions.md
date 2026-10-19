@@ -109,10 +109,10 @@ d_G(u)=18 for every u in A.
 ```
 
 Update (2026-10-19): the equality case is excluded by the reviewed
-[full-frontier closure](d18/x136/README.md); every degree-18 root now has
-`x>=137`, so the forcing list above records an impossible profile and the
-floor of every `x>=136` bound in this index is 137. Consequences and
-consumer cross-comparison: [closure consequences](d18/x136_closure_consequences.md).
+[x136 closure](d18/x136/README.md), and the single-excess case by the reviewed
+[x137 closure](d18/x137/frontier_closure.md). Every degree-18 root now has
+`x>=138`; the forcing list above records an impossible profile. Earlier
+[x136 closure consequences](d18/x136_closure_consequences.md) remain valid.
 
 For navigable case folders, start at [n43/README.md](README.md) and
 [the x136 r partition](d18/x136/README.md). The proof notes own exact statements and review status; this index summarizes
@@ -428,14 +428,15 @@ The second interval follows by complementing the published 24-vertex
 **[PROVED-HERE]** For every degree-18 root, on the published edge premises:
 
 ```text
-max(137,306-2a,432-2b) <= x <= min(279,414-2a,576-2b),
+max(138,306-2a,432-2b) <= x <= min(279,414-2a,576-2b),
 q=85-a, E_A=sum_A(d_G(u)-18), x=136+2q+E_A.
 ```
 
 The [independent-row cuts](d18/independent_row_cuts.md) first give x<=280
 without an edge census, then exclude both equality profiles; the final one
 uses b>=144 and the all-vertex degree cap 24. The reviewed
-[frontier exclusion](d18/x136/frontier_exclusion_handoff.md) gives x>=137.
+[x136 frontier exclusion](d18/x136/frontier_exclusion_handoff.md) and
+[x137 closure](d18/x137/frontier_closure.md) give x>=138.
 Search use: propagate the interval and branch by x or (q,E_A).
 
 ### 8.3 The `x=136` frontier
@@ -455,6 +456,29 @@ For historical anchor bounds and their census inputs, see
 [frontier-band anchor defects](d18/frontier_band.md#independent-four-anchor-defects).
 The [closure consequences](d18/x136_closure_consequences.md) record further
 rootwise upgrades as separate review-pending claims.
+
+#### Single-excess frontier x=137
+
+**[PROVED-HERE; accepted independent mathematical reviews]** The full x137
+branch is excluded. Thus `138<=x<=279` for every degree-18 root, and
+`2q+E_A>=2`; in particular q=0 requires E_A>=2.
+
+Proof: [single-excess frontier closure](d18/x137/frontier_closure.md), Claims 1--3,
+reviewed at SHA-256 `ff597134e7aa96483ac3894a7bc639480e6490e33e846ac5f5d1716153209ceb` by
+[AnchorAudit](d18/x137/review_frontier_closure_20261019_anchor_audit.md) (Claims 1--2)
+and [CapacityAudit](d18/x137/review_frontier_closure_20261019_capacity_audit.md) (Claim 3).
+Effective-weight-eight anchors double-dominate A; three disjoint anchors
+force the excess vertex to see a triangle in a K(2,2,2) remainder.
+Deletion caps force at most one low-effective-weight vertex. All I4 then
+lie in a set U with at most117 incidences into B, contradicting the
+abstract transversal bound's requirement of at least120.
+
+Scope: actual order43 K5/I5-free graph, arbitrary chosen degree18 root,
+x=137, accepted effective-anchor inputs and recorded literature bounds,
+including published (4,4,11/12) upper caps36/40. Search use: terminate
+x137 entirely and propagate x>=138 with x136 closure. No root-unavoidability,
+novelty, formal certificate, or order43 exclusion is claimed. See the
+[integration report](../reports/2026-10-19-x137-frontier-closure.md).
 
 ### 8.4 Four-vertex transversal bound
 
@@ -577,13 +601,14 @@ selection. Historical arithmetic audit:
 | Result | Scope and use |
 | --- | --- |
 | [Four-column stability](d18/four_column_stability.md) | Excludes r4 at x137; higher-x conclusions require their exact q and exceptional-column hypotheses. |
-| [Effective x137 anchor](d18/x137/effective_anchor.md) | Excludes all r>=1 at x137; r0 remains open. |
+| [Effective x137 anchor](d18/x137/effective_anchor.md) | Excludes all r>=1 at x137; superseded by the [full x137 closure](d18/x137/frontier_closure.md). |
 | [Actual size-three theorem](d18/x142/q3/three_columns.md) | q3 and a size-three column imply E_A>=14, hence x>=156; every x142 column therefore has size>=4. |
 | [Transfer bounds](d18/transfer_bounds.md) | Exact profiles, adjacent-pivot overlap bounds and pair/triple compatibility. |
 | [Exact-census deletion transfer](d18/deletion_degree_transfer.json) | Column floors >=4 for q<=2, >=3 for q3..7, >=2 for q8; q>=9 has only the nonempty floor from this argument. |
 
-These are conditional propagation or subcase exclusions. No complete x137..142
-branch, residual x>=143 branch, or unconditional x<=142 bound is established.
+The full x137 branch is now excluded. The remaining results are conditional
+propagation or subcase exclusions; no complete x138..142 branch, residual
+x>=143 branch, or unconditional x<=142 bound is established.
 
 ### 8.14 Reviewed pairwise pivot and excess refinements
 

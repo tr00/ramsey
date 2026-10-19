@@ -1,5 +1,10 @@
 # Effective-degree rigidity at x=137
 
+Current branch status (2026-10-19): the separately reviewed
+[full-frontier closure](frontier_closure.md) now excludes x137 entirely.
+This note's proof and original scope/limit statements are preserved below;
+it supplies inputs to that closure rather than itself proving it.
+
 Date: 2026-10-18. Author and self-auditor: Main, working alone.
 Task token: `x137-effective-anchor-20261018`.
 

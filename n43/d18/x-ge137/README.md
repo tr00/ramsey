@@ -1,6 +1,6 @@
 # Above the equality frontier
 
-Overview: `n43/d18/x-ge137`, for the range x>=137. State: open.
+Overview: `n43/d18/x-ge137`, for the historical range x>=137. The live range is x>=138; it remains open.
 All case folders are siblings under [degree-18 pivot](../README.md).
 This overview has no case subfolders and is not an additional disjoint child.
 
@@ -11,7 +11,7 @@ contains all its q profiles, each with a README.
 
 | Sibling case | Predicate | All necessary (q,E_A) profiles | Status |
 | --- | --- | --- | --- |
-| [x137](../x137/README.md) | x=137 | (0,1) | Open; r=4 excluded |
+| [x137](../x137/README.md) | x=137 | (0,1) | Excluded by reviewed full-frontier closure |
 | [x138](../x138/README.md) | x=138 | (0,2), (1,0) | Open |
 | [x139](../x139/README.md) | x=139 | (0,3), (1,1) | Open |
 | [x140](../x140/README.md) | x=140 | (0,4), (1,2), (2,0) | Open |
