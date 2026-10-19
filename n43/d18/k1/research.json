@@ -1,0 +1,93 @@
+{
+  "title": "Degree-18 K1 branch: double-core reduction and exact eleven-obstruction partition",
+  "date": "2026-10-19",
+  "task": "research-d18k1-20261019",
+  "kind": "Mathematical research; no novelty claim",
+  "status": "Open: no full exclusion or ambient construction obtained",
+  "scope": "Rooted order-43 K5/I5-free graph (G,v) with d(v)=18 and G[N(v)] disconnected with an isolated vertex u. No maximum-edge-root or minimum-degree normalization is imposed.",
+  "notation": {
+    "C": "N(v)-{u}, order17",
+    "D": "N(u)-{v}, order17",
+    "T": "V(G)-({v,u} union C union D), order7",
+    "r": "e(C,D)",
+    "p": "e(C,T)",
+    "q": "e(D,T), not the parent deficit q_v",
+    "h": "e(T)",
+    "X": "17 by17 Boolean C-D adjacency matrix"
+  },
+  "dependencies": [
+    "n43/d18/neighborhood_connectivity.md#claim-connectivity-01",
+    "n43/d18/neighborhood_connectivity.md#claim-connectivity-02",
+    "n43/d18/neighborhood_connectivity.md#claim-connectivity-03",
+    "n43/reductions.md sections4.1,4.3,4.4",
+    "README.md census table: (5,4,24) edge interval144..160",
+    "Recorded Ramsey bounds R(4,4)=18, R(3,4)=9, R(3,3)=6"
+  ],
+  "claims": [
+    {
+      "id": "claim-k1-double-core",
+      "kind": "local-deduction",
+      "review_state": "ready",
+      "scope": "Every rooted graph in the stated k1 branch",
+      "conclusion": "The partition {v,u},C,D,T has orders2,17,17,7. Both C and D induce 8-regular K4/I4-free graphs, with68 edges each. Edge vu is present; v is complete to C and anticomplete to D union T; u is complete to D and anticomplete to C union T. Both C union T and D union T induce (5,4)-free graphs of order24. Both roots have neighborhood edge count68, hence deficit17.",
+      "proof": [
+        "Connectivity claims01/02 give N(v)={u} disjoint-union C with C a17-vertex (4,4)-free graph. Any vertex of C has at most8 neighbors: its neighborhood is triangle-free and I4-free, so R(3,4)=9 applies. Its nonneighbors among the other16 vertices number at most8 by the complementary argument. Therefore every degree is8 and e(C)=68.",
+        "Connectivity claim03(b) gives d(u)=18 and the17-vertex8-regular (4,4)-free row D=N(u) intersect B. As u has no C-neighbor, N(u)={v} union D, and C,D are disjoint. Removing the36 vertices {v,u} union C union D leaves7 vertices T, adjacent to neither root.",
+        "The antineighborhoods of u and v are respectively C union T and D union T. Any I4 there extends with that root to I5; K5 is forbidden by heredity. Thus both are (5,4)-free. Also N(u)={v} disjoint-union D, so its induced edge count is68, just as for v."
+      ],
+      "search_use": "propagate",
+      "reviews": []
+    },
+    {
+      "id": "claim-k1-budget-obstruction",
+      "kind": "local-deduction",
+      "review_state": "ready",
+      "scope": "Same branch; epsilon_z=d_G(z)-18 and E_S=sum over S of epsilon_z",
+      "conclusion": {
+        "identities": ["r+p=153+E_C", "r+q=153+E_D", "p+q+2h=126+E_T", "W=2(r+p+q+h-216)", "x_v=17+r+p=170+E_C", "x_u=17+r+q=170+E_D"],
+        "side_census": "76<=p+h<=92 and76<=q+h<=92",
+        "seven_cell": "152<=sum_T d_G(t)=p+q+2h<=168;26<=E_T<=42;sum_T(24-d_G(t))<=16",
+        "individual_vertices": "For t in T, |N_C(t)|>=9 and |N_D(t)|>=9. For c in C or d in D,2<=d_T(c),d_T(d)<=7. For c in C,9<=d_D(c)+d_T(c)<=15; symmetrically for D.",
+        "warning": "These necessary conditions are not a contradiction. T is (5,4)-free; no K4 prohibition on T is imposed."
+      },
+      "proof": [
+        "A C-vertex has exactly9 already fixed neighbors: v and its8 C-neighbors. Sum its degree18+epsilon over C to obtain r+p=153+E_C; exchange roots for r+q. A T-vertex has neighbors only in C,D,T, giving the third identity. The fixed edges are vu,34 root-core edges and136 core-internal edges, total171. Thus e(G)=171+r+p+q+h and W=2e(G)-774 gives the fourth identity. For x_v, row u contributes17 and C contributes r+p; exchange roots for x_u.",
+        "The two24-vertex antineighborhoods have68+p+h and68+q+h edges. Apply the recorded144..160 census interval. Adding the lower bounds yields p+q+2h>=152. Seven global degree caps give the upper bound168, proving the E_T and degree-deficit bounds.",
+        "For t in T, the nonneighbors of t in C have no I3, since adding t and u would give I5; they are K4-free by heredity from C. R(4,3)=9 bounds them by8, hence t has at least9 C-neighbors. Exchange C,D and u,v.",
+        "For c in C, common nonneighbors of the nonedge uc consist exactly of the8 C-nonneighbors of c and T-N_T(c). Their union has no I3 (add u,c) and no K5 (heredity), hence has order at most13 by R(3,5)=14, equivalently the recorded nonedge common-cell bound. Thus15-d_T(c)<=13. The upper bound7 is the size of T. The final degree intervals follow by subtracting the9 fixed neighbors."
+      ],
+      "search_use": "propagate",
+      "reviews": []
+    },
+    {
+      "id": "claim-k1-exact-partition",
+      "kind": "local-deduction",
+      "review_state": "ready",
+      "scope": "Root-preserving labelled isomorphism classes represented with v=0,u=1,C=2..18,D=19..35,T=36..42; within each cell all labelings retained, no automorphism quotient asserted",
+      "conclusion": {
+        "branch_key": "(labelled C graph, labelled D graph, labelled T graph, C-T matrix P, D-T matrix Q)",
+        "admissible_keys": "C,D must each be8-regular (4,4)-free on17 vertices. The assembled24-vertex graphs C union T and D union T must each be (5,4)-free. One may further restrict keys by the necessary budget and attachment filters above without losing any actual candidate.",
+        "remaining_variables": "Exactly289 C-D edge bits X; no A-internal or other edge remains unspecified",
+        "clique_types_C_D_T": [[3,2,0],[2,3,0],[3,1,1],[2,2,1],[1,3,1],[2,1,2],[1,2,2],[1,1,3]],
+        "independent_types_C_D_T": [[3,2,0],[2,3,0],[2,2,1]],
+        "clauses": "For each listed clique type, choose internally complete subsets U subset C,V subset D,W subset T of those sizes, with all P/Q edges to W present. Impose OR over (c,d) in U times V of NOT X_cd. For each listed independent type, choose internally independent U,V,W with all P/Q edges to W absent; impose OR over U times V of X_cd. Empty W has its usual vacuous meaning.",
+        "clause_lengths": "Negative clauses have length1,2,3,4,6; positive clauses length4 or6. In particular every triangle in T forces X_cd=0 whenever both c and d are complete to that triangle.",
+        "equivalence": "A Boolean X satisfies all these clauses if and only if the assembled43-vertex graph is K5/I5-free. Global degree bounds and all derived inequalities then follow on the recorded premises; no extra existence assumption is needed.",
+        "coverage": "Every actual rooted k1 candidate has a unique u and cell partition, and after a choice of within-cell labels lies under exactly one key. Different keys are disjoint labelled cases. A key is not asserted feasible merely because its two sides are valid. No catalogue completeness or uniqueness of the17-vertex core is required.",
+        "residual_task": "Exclude all admissible keys'289-bit completion systems, or exhibit and exhaustively verify a satisfying43-vertex graph. The existing catalogue filter only gives existence of some D subset B and does not carry out this completion step."
+      },
+      "proof": [
+        "Fix the key and the root incidences of claim-k1-double-core. The only edges not fixed are C-D. This is a disjoint partition of labelled graphs. The isolated component u is unique because C is connected: if C had two components, each must have at most8 vertices since each vertex has8 internal neighbors, contradicting order17.",
+        "No K5 containing a root exists: its neighborhood is an isolated vertex plus a K4-free core, so has no K4. No I5 containing a root exists: its antineighborhood is the opposite prevalidated (5,4)-free24-side, hence has no I4. An I5 or K5 cannot contain both roots since they are adjacent with no common neighbors (for K5) and adjacent (for I5).",
+        "A K5 without roots cannot lie in C union T or D union T by side validity, so it meets both C,D. Each contributes at most3 vertices by K4-freeness. The nonnegative integer triples a+b+c=5 with a,b>=1,a,b<=3 are exactly the eight listed triples. Its internal/attachment edges are fixed by the key and all remaining requirements are the all-one rectangle X[U,V]. Forbidding that rectangle is exactly the stated negative clause.",
+        "For an I5 without roots, any4 vertices in C union T or D union T are prohibited. If its counts are(a,b,c), this gives a+c<=3 and b+c<=3. Adding yields5+c<=6, hence c<=1. If c=0, the core I4 prohibitions leave(a,b)=(3,2),(2,3); if c=1 the two inequalities force(a,b)=(2,2). For a fixed individually independent selection with missing attachment edges, the remaining obstruction is exactly the all-zero C-D rectangle. Its exclusion is precisely the stated positive clause. This proves necessity and sufficiency.",
+        "There is no converse claim for the budget filters alone, the valid sides alone, or the134112 B-catalogue survivors. The11 obstruction families include every forbidden5-set, not merely necessary local samples."
+      ],
+      "search_use": "branch",
+      "reviews": []
+    }
+  ],
+  "related_notes": ["seven_cell.json", "cross_core.json"],
+  "independent_review": "Pending",
+  "no_exclusion_claim": true
+}

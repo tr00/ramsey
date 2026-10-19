@@ -32,7 +32,7 @@ graph; repeated columns are allowed.
 
 Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-01`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: every graph in the setting, or conversely a proposed pair of
 internal graphs of the stated ambient types with proposed cross columns.
@@ -64,14 +64,14 @@ are covered, including the endpoint `p-t=1` or `q-t=1` that forces an
 empty intersection or empty uncovered set.
 
 Search use: propagate; complete mixed-set checking with the full family
-of homogeneous `Q` sets. Reviews: none.
+of homogeneous `Q` sets. Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
 
 <a id="claim-signature-anchors-02"></a>
 ## 2. Numerical union and intersection consequences
 
 Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-02`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: every actual clique or independent set `Q subset B`, with the
 size ranges in claim 01. Dependencies: claim 01 and Ramsey definitions;
@@ -101,14 +101,14 @@ These numerical consequences alone do not replace the induced-graph
 conditions of claim 01. No `I_(q-1)` prohibition is imposed on `A`, and
 no `K_(p-1)` prohibition is imposed on `B`.
 
-Search use: propagate. Reviews: none.
+Search use: propagate. Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
 
 <a id="claim-signature-anchors-03"></a>
 ## 3. Independent anchors: Hall, capacity, incidence, and exact defects
 
 Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-03`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: any independent anchor `X subset A` of size `k=q-1`. Set
 `S_y=C_y intersect X` for all `y in B`. Dependencies: claim 01 only.
@@ -157,14 +157,14 @@ and it is completely joined to `x`, so it has size at most `p-2`. Thus
 least three proves the displayed identities. Nonnegativity gives the two
 incidence bounds. Equality is read from the respective nonnegative terms.
 
-Search use: propagate. Reviews: none.
+Search use: propagate. Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
 
 <a id="claim-signature-anchors-04"></a>
 ## 4. Weighted anchors give degree and excess certificates
 
 Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-04`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: any family `F` of independent `(q-1)`-anchors in `A`, with arbitrary
 nonnegative real weights `w_X`. Define
@@ -223,14 +223,14 @@ additional conditions. A family need not be disjoint or cover every
 vertex; the zero-weight family is allowed.
 
 Search use: propagate with explicit weights, loads, and degree premises.
-Reviews: none.
+Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
 
 <a id="claim-signature-anchors-05"></a>
 ## 5. Clean clique dual
 
 Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-05`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: any clique `Y subset B` of size `p-1`, with missing signatures
 `T_z=Y minus N_G(z)` for `z in A`. Dependencies: the elementary signature
@@ -266,14 +266,14 @@ counting missing incidences gives
 `e(A,Y)=(p-1)a-sum_z|T_z|`, proving both formulas. No claim is made
 about Hall's condition for noncliques `P`.
 
-Search use: propagate. Reviews: none.
+Search use: propagate. Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
 
 <a id="claim-signature-anchors-06"></a>
 ## 6. `(5,5)` specialization across pivot degrees
 
 Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-06`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: an order-43 `(5,5)`-free graph, any pivot of degree `d`; numerical
 subcases `d=18` and `d=20`; independent four-anchors when they exist.
@@ -325,7 +325,7 @@ must be separately justified; it is not a conclusion of the signature
 count itself.
 
 Search use: propagate with actual anchors and stated degree premises.
-Reviews: none.
+Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
 
 ## Provenance and limits
 

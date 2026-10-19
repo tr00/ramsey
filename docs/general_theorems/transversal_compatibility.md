@@ -33,7 +33,7 @@ Claim ID: `docs/general_theorems/transversal_compatibility.md#claim-transversal-
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: any finite set V, family F of subsets of V, L subset V, and integer
 `1<=t<=|L|`.
@@ -57,7 +57,7 @@ does not assert independence of L.
 Search use: propagate; terminate only if the resulting independent L
 exceeds the ambient independence bound and every hypothesis is certified.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_transversals_20261015.md).
 
 <a id="claim-transversal-compatibility-02"></a>
 ## 2. Weighted occupancy and low-weight exclusion supply the hypotheses
@@ -66,7 +66,7 @@ Claim ID: `docs/general_theorems/transversal_compatibility.md#claim-transversal-
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: a k-uniform family F on V, real vertex weights w, disjoint sets
 P,L subset V, and integers `1<=t<=|L|`, `0<=j<=k`.
@@ -103,7 +103,7 @@ lower bound. Claim 01 applies. Nonnegative weights are not required.
 Search use: propagate occupancy and nontransversality; subsequent
 termination requires the independence bound in Claim 01.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_transversals_20261015.md).
 
 The low-weight exclusion may instead be vertexwise: if all transversals
 of the specified size have every vertex of weight at least a and `c<a`,
@@ -117,7 +117,7 @@ Claim ID: `docs/general_theorems/transversal_compatibility.md#claim-transversal-
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: a graph H of order n and edge count e. Integer parameters
 `s>=1`, `m<=c<M`, `a>c`, B, S, and a real edge upper bound F0 satisfy
@@ -207,7 +207,7 @@ Search use: propagate nonempty overlap between s-set transversals;
 terminate a case that requires disjoint transversals. Every strict gap
 and the induced-subgraph edge premise must be checked for that case.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_transversals_20261015.md).
 
 This is a sufficient theorem with intentionally explicit gaps. It does
 not characterize all pairs of transversals. The induced-subgraph premise
@@ -221,7 +221,7 @@ Claim ID: `docs/general_theorems/transversal_compatibility.md#claim-transversal-
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the full setting of
 `n43/d18/x136/r2/low_excess_columns.md`, before imposing r=2. In particular
@@ -267,7 +267,7 @@ Finally alpha(A)<=4<6=s+2. Every hypothesis of Claim 03 applies.
 Search use: propagate intersection of the two transversals, on the
 recorded frontier/interface premises. This does not close x=136.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_transversals_20261015.md).
 
 ## Singleton overlaps and the limit of this abstraction
 

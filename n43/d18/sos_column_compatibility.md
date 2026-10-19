@@ -62,14 +62,14 @@ the present note assumes actual columns, not speculative completed ones.
 
 Claim ID: `n43/d18/sos_column_compatibility.md#claim-sos-columns-weighted-goodman`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: setting above; any specified S; any nonnegative rational weights w_y;
 any sound open-triple set O containing every monochromatic triple which
 could occur in the candidate under the supplied prohibitions
 Dependencies: K5/I5 prohibitions; weighted counting proved here
 Conclusion: inequality (3), and its degree-interval refinement (4), hold
 Search use: none pending independent review; proposed propagate
-Reviews: none
+Reviews: [review](review_sos_column_compatibility_20261015_pivot.md)
 
 Write
 
@@ -140,14 +140,14 @@ intervals, triple witnesses, and rational violation of (4).
 
 Claim ID: `n43/d18/sos_column_compatibility.md#claim-sos-columns-integer-goodman`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: preceding setting; uniform weights on n distinct occurrences;
 actual/partial internal degree intervals with integral endpoints
 Dependencies: Claim01; integer internal degrees; handshake parity
 Conclusion: equations (6)--(8); in particular six columns with |O|<=1
 are incompatible
 Search use: none pending independent review; proposed propagate
-Reviews: none
+Reviews: [review](review_sos_column_compatibility_20261015_pivot.md)
 
 With d_y=d_(B[S])(y), equation (2) becomes
 
@@ -199,13 +199,13 @@ respect integer-valued aggregate degrees.
 
 Claim ID: `n43/d18/sos_column_compatibility.md#claim-sos-columns-profile-coverage`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: all 24 actual columns of any degree-18 pivot; c_y=|C_y|;
 b=e(B); O defined by (1), or any sound smaller open-triple set
 Dependencies: Claims01--02; inherited global degree range 18..24
 Conclusion: inequalities (9)--(10); the frontier corollary below
 Search use: none pending independent review; proposed propagate
-Reviews: none
+Reviews: [review](review_sos_column_compatibility_20261015_pivot.md)
 
 Put
 
@@ -263,7 +263,7 @@ cell bounds can improve the endpoints before applying (7).
 
 Claim ID: `n43/d18/sos_column_compatibility.md#claim-sos-columns-anchor-first-moment`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: x=136, and an independent four-set I={a1,a2,a3,a4} supplied by
 the reviewed degree-eight-anchor theorem
 Dependencies: exact twelve singleton/twelve double signatures; each
@@ -272,7 +272,7 @@ Conclusion: opposite pair multiplicities agree; the centered incidence
 Gram is PSD exactly when the three independent multiplicities are nonnegative
 Search use: none pending independent review; proposed propagate pair
 balance; remaining observation is a limitation of this chosen relaxation
-Reviews: none
+Reviews: [review](review_sos_column_compatibility_20261015_pivot.md)
 
 Let p_ij count double signatures {ai,aj}. The four equations
 sum_(j!=i)p_ij=6 imply

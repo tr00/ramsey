@@ -43,12 +43,12 @@ name vertices, not the global cross-edge count.
 <a id="claim-intersection-types"></a>
 Claim ID: `n43/d18/cell_intersections.md#claim-intersection-types`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: the actual S above, for every possible order 0<=|S|<=5
 Dependencies: reviewed cell types; R(3,3)=6
 Conclusion: the following table is complete up to graph isomorphism
 Search use: none pending independent review; proposed use: propagate
-Reviews: none
+Reviews: [review](review_cell_intersections_20261015_obligations.md)
 
 | Order of S | Possible induced graphs |
 | --- | --- |
@@ -80,13 +80,13 @@ This does not assert that each type occurs in a full order-43 graph.
 <a id="claim-c5-signatures"></a>
 Claim ID: `n43/d18/cell_intersections.md#claim-c5-signatures`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: the actual cells above with |S|=5
 Dependencies: preceding claim; T is (3,4)-free; U is (5,3)-free
 Conclusion: N_x is empty, a singleton, or a nonadjacent cycle pair;
 the N_x are pairwise disjoint; D_y is empty, a singleton, or a cycle edge
 Search use: none pending independent review; proposed use: propagate
-Reviews: none
+Reviews: [review](review_cell_intersections_20261015_obligations.md)
 
 Proof. Write S as the five-cycle with vertices s_0,...,s_4, indices modulo
 five and edges s_i s_(i+1). The independent sets of S have order at most
@@ -107,13 +107,13 @@ subsets, not interchangeable copies after their cross incidences are fixed.
 <a id="claim-c5-edge-cell-extensions"></a>
 Claim ID: `n43/d18/cell_intersections.md#claim-c5-edge-cell-extensions`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: every (3,4)-free T containing an induced S=C5; X=T-S;
 in the actual anchored setting 0<=|X|<=3
 Dependencies: preceding C5 signature claim; elementary forbidden-subset checks
 Conclusion: the lists below classify every local extension through order eight
 Search use: none pending independent review; proposed use: propagate
-Reviews: none
+Reviews: [review](review_cell_intersections_20261015_obligations.md)
 
 For |X|=0 there is no extension condition. For |X|=1, its N signature can
 be any of the eleven independent subsets of S. For |X|=2:
@@ -200,14 +200,14 @@ without a graph catalogue or an enumeration.
 <a id="claim-exact-mixed-compatibility"></a>
 Claim ID: `n43/d18/cell_intersections.md#claim-exact-mixed-compatibility`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: any graph H on S disjoint union X disjoint union Y for which
 H[S union X] is (3,4)-free and H[S union Y] is (5,3)-free;
 in particular the actual anchored cells above, with arbitrary |S|<=5
 Dependencies: elementary forbidden clique/independent-set partition argument
 Conclusion: H is (5,4)-free if and only if conditions (i)--(iii) below hold
 Search use: none pending independent review; proposed use: propagate
-Reviews: none
+Reviews: [review](review_cell_intersections_20261015_obligations.md)
 
 Here N_x=N_H(x) intersect S and D_y=S-N_H(y). The conditions are:
 
@@ -273,12 +273,12 @@ when no isolated pair of cells exceeds its Ramsey size cap.
 <a id="claim-isolated-mixed-pair-limit"></a>
 Claim ID: `n43/d18/cell_intersections.md#claim-isolated-mixed-pair-limit`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: the graph H in the preceding claim, one x in X and one y in Y
 Dependencies: S union {x} triangle-free; S union {y} has no I3
 Conclusion: H[S union {x,y}] is (5,4)-free for either choice of the pair xy
 Search use: none pending independent review; proposed use: research planning
-Reviews: none
+Reviews: [review](review_cell_intersections_20261015_obligations.md)
 
 Proof. Any forbidden subset would have to contain both x and y, since their
 individual S extensions have the stronger stated types. A K5 would then

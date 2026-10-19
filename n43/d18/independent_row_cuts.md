@@ -43,13 +43,13 @@ No claim uses the reported x136 closure.
 
 Claim ID: `n43/d18/independent_row_cuts.md#claim-independent-row-degree-cuts`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: every G,v above and every independent t-set I in A, t=2,3,4  
 Dependencies: ambient types and R(4,3)=9  
 Conclusion: sum_I d_u>=8,12,20 respectively; equivalently
 sum_I r_u<=26+E_I,39+E_I,48+E_I, where E_I=sum_I epsilon_u  
 Search use: none pending independent review; proposed propagate  
-Reviews: none
+Reviews: [exact-revision review; operative premise-declaration addendum](review_independent_row_cuts_20261017_audit.md)
 
 For t=2, the A vertices outside I missing both anchor vertices form a
 K4/I3-free graph, hence number at most eight. Of the 16 vertices outside I,
@@ -81,12 +81,12 @@ existence of an independent t-set in a prescribed subset is assumed.
 
 Claim ID: `n43/d18/independent_row_cuts.md#claim-independent-row-combined-pairs`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: every pair of actual A vertices and the family L17={u:r_u=17}  
 Dependencies: claim-independent-row-degree-cuts; R(3,4)=9  
 Conclusion: opposing forced-pair tests and the excess thresholds below  
 Search use: none pending independent review; proposed propagate  
-Reviews: none
+Reviews: [exact-revision review; operative premise-declaration addendum](review_independent_row_cuts_20261017_audit.md)
 
 An A edge uw makes B[R_u intersect R_w] K3/I4-free, so its order is at
 most eight. Since its order is at least r_u+r_w-24,
@@ -121,12 +121,12 @@ These exclude entire numerical row/excess profiles for all x.
 
 Claim ID: `n43/d18/independent_row_cuts.md#claim-independent-row-tail-counts`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: every G,v above; t=|L17| and s=|L16|, including t=0  
 Dependencies: claim-independent-row-combined-pairs; ambient I5 prohibition  
 Conclusion: s<=12-3t, 7t+8s<=72, and x<=280; table below  
 Search use: none pending independent review; proposed propagate and terminate x>=281  
-Reviews: none
+Reviews: [exact-revision review; operative premise-declaration addendum](review_independent_row_cuts_20261017_audit.md)
 
 For y in B let O_y={w in L16:y notin R_w} and
 k_y=|{u in L17:y notin R_u}|, m_y=|O_y|. If two L16 vertices are
@@ -169,12 +169,12 @@ remaining row would make the respective upper bound strict.
 
 Claim ID: `n43/d18/independent_row_cuts.md#claim-independent-row-single-seventeen-boundary`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: x=280 and t=1 in the preceding equality table  
 Dependencies: claim-independent-row-tail-counts; exact row degree bounds  
 Conclusion: this profile is impossible; a pivot with exactly one size-17 row has x<=279  
 Search use: none pending independent review; proposed terminate this profile  
-Reviews: none
+Reviews: [exact-revision review; operative premise-declaration addendum](review_independent_row_cuts_20261017_audit.md)
 
 Let L=L16 have eight vertices and Z be the nine size-15 row vertices.
 The total of k_y+m_y is 7+8*8=71. Each is at most three by (6), so
@@ -206,13 +206,13 @@ undecided edges. Combined with the table, x=280 requires t=2,s=6.
 
 Claim ID: `n43/d18/independent_row_cuts.md#claim-independent-row-280-boundary`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: every G,v above; the remaining x=280 profile  
 Dependencies: preceding claims; R(4,4)=18; the all-vertex degree cap
 d_G(z)<=24 from R(4,5)=25; Mantel/Turan bounds; the published e(B)>=144 premise  
 Conclusion: x=280 is impossible, hence x<=279 for every degree-18 pivot  
 Search use: none pending independent review; proposed terminate x>=280 on the stated premises  
-Reviews: none
+Reviews: [exact-revision review; operative premise-declaration addendum](review_independent_row_cuts_20261017_audit.md)
 
 Suppose x=280. By Claims 03--04 there are two size-17 roots u,w, six
 size-16 roots L, and ten size-15 roots Z. The roots u,w are independent

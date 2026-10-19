@@ -48,13 +48,13 @@ x=270+2t+s-D.
 
 Claim ID: `n43/d18/averaging_omission_cuts.md#claim-omission-triple-supply`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every G,v in the setting; every actual y in B
 Dependencies: R(3,4)=9; ambient K5/I5 prohibitions
 Conclusion: the high-row omission sets below are independent of order at
 most three; their deficit controls the number of nonsaturated columns
 Search use: none pending independent review; proposed propagate
-Reviews: none
+Reviews: [independent audit](review_averaging_omission_cuts_20261018_audit.md)
 
 For y in B define J_y={h in H:y in O_h}, j_y=|J_y|,
 S={y:j_y=3}, and U=B-S. Then
@@ -82,12 +82,12 @@ independent high-root triple; it is not an assumed anchor cover.
 
 Claim ID: `n43/d18/averaging_omission_cuts.md#claim-omission-attachment-capacity`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: the setting; every z in Z, and every subset Z0 of Z
 Dependencies: preceding claim; R(3,4)=9; exact row degree identity
 Conclusion: the pointwise and summed demand/capacity inequalities below
 Search use: none pending independent review; proposed propagate
-Reviews: none
+Reviews: [independent audit](review_averaging_omission_cuts_20261018_audit.md)
 
 Let d16(z)=|N_A(z) intersect H16| and d17(z)=|N_A(z) intersect H17|.
 Then
@@ -166,7 +166,7 @@ universal assertion about size-15 roots.
 
 Claim ID: `n43/d18/averaging_omission_cuts.md#claim-omission-endpoint-cover`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every G,v in the setting, with x=279
 Dependencies: reviewed independent-row tail counts and x<=279; the new
 [zero-root bound](tail_zero_one.md#claim-zero-seventeen-bound),
@@ -178,7 +178,7 @@ the final q/E interval also uses the retained published e(A)>=50 minimum
 Conclusion: the following three numerical profiles cover the endpoint;
 all rows have order at least fifteen
 Search use: none pending independent review; proposed branch/propagate
-Reviews: none
+Reviews: [independent audit](review_averaging_omission_cuts_20261018_audit.md)
 
 ```text
  t   s   D   number of size-15 rows

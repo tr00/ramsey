@@ -3,7 +3,8 @@
 Date: 2026-10-18. Author and self-auditor: Main, working alone.
 Task token: `x137-effective-anchor-20261018`.
 
-All three claims are ready for independent review, not accepted. No subagents,
+All three claims were accepted after independent review on 2026-10-18, recorded in
+[the review](review_effective_anchor_20261018_anchor_rigor.md). No subagents,
 solver, graph search, catalogue processing, downloads or Lean changes were used.
 Exact scalar checks and fixed-extremal-graph attachment checks are self-checks,
 not independent review. No novelty claim or complete x137 exclusion is made.
@@ -69,12 +70,12 @@ assertion about the full graph A.
 
 Claim ID: `n43/d18/x137/effective_anchor.md#claim-x137-low-score`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every rooted (G,v) in the setting; L as defined above
 Dependencies: setting; core caps; Turan's theorem with equality
 Conclusion: some independent four-set in A is disjoint from L
-Search use: none pending independent review
-Reviews: none
+Search use: propagate
+Reviews: [independent review](review_effective_anchor_20261018_anchor_rigor.md)
 
 Proof. Since w(u)<=13,
 
@@ -120,15 +121,15 @@ six have H-degree at most five. Thus e(L,H)<=3*6+6*5=48, contradicting
 
 Claim ID: `n43/d18/x137/effective_anchor.md#claim-x137-exact-anchor`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every rooted (G,v) in the setting
 Dependencies: preceding claim; singleton-signature capacity in B
 Conclusion: an independent four-set I has w(u)=8 for all u in I;
 relative to I there are four singleton triangle classes of size three,
 exactly twelve double-signature columns, and no larger signatures;
 each anchor vertex occurs in six double signatures
-Search use: none pending independent review
-Reviews: none
+Search use: propagate
+Reviews: [independent review](review_effective_anchor_20261018_anchor_rigor.md)
 
 Proof. Choose I disjoint from L. Each of its four weights is at least
 eight, whereas sum_I w<=32. Thus all four equal eight, and each anchor
@@ -150,13 +151,13 @@ eight; if p is present, its A-degree is nine and the other three are eight.
 
 Claim ID: `n43/d18/x137/effective_anchor.md#claim-x137-no-four-transversal`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every rooted (G,v) in the setting; every abstract I4-transversal
 Conclusion: no four-set I4-transversal exists; every actual |C_y|>=5
 Dependencies: preceding two claims; four-transversal degree floor;
 core edge maxima; Turan's theorem with equality
-Search use: none pending independent review
-Reviews: none
+Search use: terminate x137 children r>=1
+Reviews: [independent review](review_effective_anchor_20261018_anchor_rigor.md)
 
 Proof. Suppose T is a four-set transversal, and choose the anchor I of
 Claim 2. Every member of T has A-degree at least nine. Every member of
@@ -208,9 +209,9 @@ a transversal, so every column has size at least five.
 
 ## Consequences and limits
 
-After independent acceptance, Claim 3 would exclude all x137 children with
-r>=1, strengthening the current reviewed r4 exclusion. The surviving
-necessary profile would be r=0, s=7..10, H=s-7, where s counts size-five
+With independent acceptance recorded, Claim 3 excludes all x137 children with
+r>=1, strengthening the reviewed r4 exclusion. The surviving
+necessary profile is r=0, s=7..10, H=s-7, where s counts size-five
 columns and H sums column excesses above six. Claim 2 supplies an exact
 anchor despite the single global excess unit, without choosing a canonical
 anchor or assuming which anchor contains p.

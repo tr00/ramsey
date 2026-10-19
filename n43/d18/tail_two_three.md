@@ -67,12 +67,12 @@ Every actual size-17 core induces an 8-regular (4,4)-free graph.
 
 Claim ID: `n43/d18/tail_two_three.md#claim-tail-two-three-profiles`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: the setting above, t>=2 and x=279  
 Dependencies: reviewed independent-row tail counts and x<=279  
 Conclusion: the three profiles below are exhaustive; t=4 has x<=278  
 Search use: none pending independent review; proposed branch/propagate  
-Reviews: none
+Reviews: [independent audit](review_tail_two_three_20261018_audit.md)
 
 The exact identity is x=270+2t+s-D. Thus at x=279,
 s-D=9-2t. Since D>=0 and s<=12-3t, the possibilities are exactly:
@@ -92,12 +92,12 @@ profile reduction, not an assertion that any listed profile is realizable.
 
 Claim ID: `n43/d18/tail_two_three.md#claim-tail-two-three-one-deficit-exclusion`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: the setting above, x=279 and (t,s,D)=(2,6,1)  
 Dependencies: reviewed row cuts, 17-core regularity, b>=144; Mantel and Turan bounds  
 Conclusion: this profile has b<=143, a contradiction  
 Search use: none pending independent review; proposed terminate this profile  
-Reviews: none
+Reviews: [independent audit](review_tail_two_three_20261018_audit.md)
 
 Write T={u,w}. Since sum_y m_y=8s=48 and m_y<=2 on all 24
 vertices, every m_y=2. Then k_y<=1. Consequently O_u and O_w are
@@ -180,12 +180,12 @@ of the reviewed x=280 argument.
 
 Claim ID: `n43/d18/tail_two_three.md#claim-tail-two-three-five-sixteen-residual`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: x=279, t=2, s=5, D=0; the final inequality additionally assumes O_u disjoint O_w  
 Dependencies: reviewed row cuts, two-core balance, and b>=144  
 Conclusion: exact omission deficit and overlap constraints; conditional beta bound below  
 Search use: none pending independent review; proposed propagate  
-Reviews: none
+Reviews: [independent audit](review_tail_two_three_20261018_audit.md)
 
 There are eleven size-15 rows Z. Define q_y=2-m_y, so q_y>=0 and
 
@@ -241,12 +241,12 @@ the disjoint-case degree identity cannot be reused without their edges.
 
 Claim ID: `n43/d18/tail_two_three.md#claim-tail-two-three-three-root-residual`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: x=279, t=3, s=3, D=0  
 Dependencies: reviewed independent-anchor cuts and row bounds  
 Conclusion: L is a clique, E_T>=13, and the omission/attachment bounds below  
 Search use: none pending independent review; proposed propagate  
-Reviews: none
+Reviews: [independent audit](review_tail_two_three_20261018_audit.md)
 
 Write T={u1,u2,u3}; Z has twelve size-15 vertices. Since m_y<=1
 and sum m_y=24, every m_y=1, and k_y<=2. The three omitted

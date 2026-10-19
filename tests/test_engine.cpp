@@ -1,8 +1,10 @@
+#include "constraints/zero_excess.hpp"
 #include "opb.hpp"
 
 #include <bit>
 #include <cstdint>
 #include <iostream>
+#include <limits>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -64,7 +66,7 @@ bool has_homogeneous_set(const ramsey::Graph &graph, int size, bool clique)
 struct Row
 {
     std::vector<std::pair<int, int>> terms;
-    int rhs;
+    std::int64_t rhs;
 };
 
 std::vector<Row> parse_opb(const std::string &text, int variables, std::uint64_t constraints)
@@ -194,7 +196,7 @@ std::uint64_t semantic_equivalence()
     return assignments;
 }
 
-bool feasible(const std::vector<Row> &rows, unsigned mask)
+bool feasible(const std::vector<Row> &rows, std::uint64_t mask)
 {
     for (const auto &row : rows)
     {
@@ -274,6 +276,167 @@ void general_pb_rows()
     require(!feasible(parse_opb(constant_output.str(), 0, 1), 0), "lost an impossible constant constraint");
 }
 
+void degree_semantics()
+{
+    const std::vector<ramsey::CardinalityBounds> global_bounds{
+        {std::nullopt, std::nullopt}, {0, 0}, {2, 4}, {3, 3}, {4, std::nullopt}, {std::nullopt, 2}, {0, 20}};
+    const std::vector<ramsey::CardinalityBounds> neighborhood_bounds{
+        {std::nullopt, std::nullopt}, {0, 0}, {1, 1}, {2, 2}, {3, std::nullopt}, {std::nullopt, 1}};
+    const auto contains = [](const ramsey::CardinalityBounds &bounds, int degree) {
+        return (!bounds.min || degree >= *bounds.min) && (!bounds.max || degree <= *bounds.max);
+    };
+    ramsey::Graph b;
+    b.vertices = 3;
+    add_edge(b, 0, 1);
+    add_edge(b, 1, 2);
+    for (int a = 0; a <= 3; ++a)
+        for (const auto &global : global_bounds)
+            for (const auto &neighborhood : neighborhood_bounds)
+            {
+                ramsey::InstanceBuilder instance(b, a);
+                ramsey::add_degree_constraints(instance, {global, neighborhood});
+                std::ostringstream output;
+                ramsey::write_opb(output, instance, "degrees");
+                const auto rows = parse_opb(output.str(), instance.variable_count(), instance.constraint_count());
+                for (unsigned mask = 0; mask < (1U << instance.variable_count()); ++mask)
+                {
+                    std::vector<int> degrees(1 + a + b.vertices);
+                    std::vector<int> internal(a);
+                    const auto edge = [&](int u, int v) {
+                        ++degrees[u];
+                        ++degrees[v];
+                    };
+                    const auto value = [&](int variable) { return (mask & (1U << (variable - 1))) != 0; };
+                    for (int u = 0; u < a; ++u)
+                    {
+                        edge(0, 1 + u);
+                        for (int v = u + 1; v < a; ++v)
+                            if (value(instance.a_edge(u, v)))
+                            {
+                                edge(1 + u, 1 + v);
+                                ++internal[u];
+                                ++internal[v];
+                            }
+                        for (int y = 0; y < b.vertices; ++y)
+                            if (value(instance.cross_edge(u, y)))
+                                edge(1 + u, 1 + a + y);
+                    }
+                    for (int y = 0; y < b.vertices; ++y)
+                        for (int z = y + 1; z < b.vertices; ++z)
+                            if (b.adjacent(y, z))
+                                edge(1 + a + y, 1 + a + z);
+                    bool expected = true;
+                    for (int degree : degrees)
+                        expected = expected && contains(global, degree);
+                    for (int degree : internal)
+                        expected = expected && contains(neighborhood, degree);
+                    require(feasible(rows, mask) == expected, "degree component disagrees with graph degrees");
+                }
+            }
+    rejects([] { ramsey::DegreeOptions{{4, 3}, {0, 2}}.validate(); }, "accepted reversed global bounds");
+    rejects([] { ramsey::DegreeOptions{{0, 4}, {-1, 2}}.validate(); }, "accepted negative neighborhood bound");
+}
+
+void edge_semantics()
+{
+    const std::vector<ramsey::CardinalityBounds> bounds{
+        {std::nullopt, std::nullopt}, {0, 0}, {1, 2}, {2, 2}, {3, std::nullopt}, {std::nullopt, 1}, {0, 20}};
+    const auto contains = [](const ramsey::CardinalityBounds &interval, int count) {
+        return (!interval.min || count >= *interval.min) && (!interval.max || count <= *interval.max);
+    };
+    for (int a = 0; a <= 3; ++a)
+        for (int b_size = 0; b_size <= 2; ++b_size)
+            for (const auto &internal : bounds)
+                for (const auto &cross : bounds)
+                {
+                    ramsey::Graph b;
+                    b.vertices = b_size;
+                    if (b_size == 2)
+                        add_edge(b, 0, 1);
+                    ramsey::InstanceBuilder instance(b, a);
+                    instance.add_variable();
+                    ramsey::add_edge_constraints(instance, {internal, cross});
+                    std::ostringstream output;
+                    ramsey::write_opb(output, instance, "edges");
+                    const auto rows = parse_opb(output.str(), instance.variable_count(), instance.constraint_count());
+                    for (unsigned mask = 0; mask < (1U << instance.variable_count()); ++mask)
+                    {
+                        const auto value = [&](int variable) { return (mask & (1U << (variable - 1))) != 0; };
+                        int internal_count = 0;
+                        int cross_count = 0;
+                        for (int u = 0; u < a; ++u)
+                        {
+                            for (int v = u + 1; v < a; ++v)
+                                internal_count += value(instance.a_edge(u, v));
+                            for (int y = 0; y < b_size; ++y)
+                                cross_count += value(instance.cross_edge(u, y));
+                        }
+                        const bool expected = contains(internal, internal_count) && contains(cross, cross_count);
+                        require(feasible(rows, mask) == expected, "edge component disagrees with graph edge counts");
+                    }
+                }
+    rejects([] { ramsey::EdgeOptions{{3, 2}, {0, 4}}.validate(); }, "accepted reversed internal edge bounds");
+    rejects([] { ramsey::EdgeOptions{{0, 3}, {-1, 4}}.validate(); }, "accepted negative cross edge bound");
+}
+
+void excess_semantics()
+{
+    ramsey::Graph b;
+    b.vertices = 18;
+    const std::vector<ramsey::CardinalityBounds> bounds{{std::nullopt, std::nullopt},
+                                                        {0, 0},
+                                                        {1, 3},
+                                                        {2, std::nullopt},
+                                                        {std::nullopt, 1},
+                                                        {std::numeric_limits<int>::max(), std::nullopt}};
+    for (const auto &interval : bounds)
+    {
+        ramsey::InstanceBuilder aggregate(b, 2);
+        ramsey::add_excess_constraints(aggregate, interval);
+        std::ostringstream aggregate_output;
+        ramsey::write_opb(aggregate_output, aggregate, "excess");
+        const auto aggregate_rows =
+            parse_opb(aggregate_output.str(), aggregate.variable_count(), aggregate.constraint_count());
+        ramsey::InstanceBuilder zero(b, 2);
+        ramsey::add_zero_excess_constraints(zero);
+        std::ostringstream zero_output;
+        ramsey::write_opb(zero_output, zero, "zero-excess");
+        const auto zero_rows = parse_opb(zero_output.str(), zero.variable_count(), zero.constraint_count());
+        for (bool internal : {false, true})
+            for (int first = 15; first <= 18; ++first)
+                for (int second = 15; second <= 18; ++second)
+                {
+                    std::uint64_t mask = internal ? 1 : 0;
+                    for (int u = 0; u < 2; ++u)
+                        for (int y = 0; y < (u == 0 ? first : second); ++y)
+                            mask |= std::uint64_t{1} << (aggregate.cross_edge(u, y) - 1);
+                    const int first_degree = 1 + internal + first;
+                    const int second_degree = 1 + internal + second;
+                    const int excess = first_degree + second_degree - 36;
+                    const bool aggregate_expected =
+                        (!interval.min || excess >= *interval.min) && (!interval.max || excess <= *interval.max);
+                    require(feasible(aggregate_rows, mask) == aggregate_expected,
+                            "aggregate excess disagrees with signed graph-degree sum");
+                    require(feasible(zero_rows, mask) == (first_degree == 18 && second_degree == 18),
+                            "zero-excess equations disagree with individual global degrees");
+                }
+    }
+    ramsey::InstanceBuilder empty(ramsey::Graph{}, 0);
+    ramsey::add_zero_excess_constraints(empty);
+    ramsey::add_excess_constraints(empty, {0, 0});
+    std::ostringstream empty_output;
+    ramsey::write_opb(empty_output, empty, "empty-excess");
+    require(feasible(parse_opb(empty_output.str(), 0, empty.constraint_count()), 0),
+            "rejected zero excess on an empty neighborhood");
+    ramsey::add_excess_constraints(empty, {1, std::nullopt});
+    std::ostringstream impossible_output;
+    ramsey::write_opb(impossible_output, empty, "impossible-excess");
+    require(!feasible(parse_opb(impossible_output.str(), 0, empty.constraint_count()), 0),
+            "accepted positive excess on an empty neighborhood");
+    rejects([&] { ramsey::add_excess_constraints(empty, {2, 1}); }, "accepted reversed excess bounds");
+    rejects([&] { ramsey::add_excess_constraints(empty, {-1, 2}); }, "accepted negative excess bound");
+}
+
 } // namespace
 
 int main()
@@ -283,6 +446,9 @@ int main()
         graph6_validation();
         component_composition();
         general_pb_rows();
+        degree_semantics();
+        edge_semantics();
+        excess_semantics();
         const auto assignments = semantic_equivalence();
         std::cout << "PASS: graph6 validation and exhaustive OPB equivalence (" << assignments
                   << " rooted assignments)\n";

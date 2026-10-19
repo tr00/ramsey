@@ -61,7 +61,7 @@ Claim ID: `n43/d18/x136/five_column_compatibility.md#claim-five-columns-core-cap
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every K4/I4-free graph H of order m=7,...,13.
 
@@ -138,7 +138,7 @@ These deliberately sufficient bounds need no optimality assertion.
 Search use: none pending independent review; proposed propagation of
 the stated core edge caps.
 
-Reviews: none.
+Reviews: [review](review_five_column_compatibility_20261015_independent.md).
 
 <a id="claim-five-columns-low-transversal"></a>
 ## 2. No degree-at-most-seven transversal of size at most eleven
@@ -147,7 +147,7 @@ Claim ID: `n43/d18/x136/five_column_compatibility.md#claim-five-columns-low-tran
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the full frontier setting; every L subset A with |L|<=11 and
 d_A(u)<=7 for all u in L. Actual-column status is not required.
@@ -192,7 +192,7 @@ needed below.
 Search use: none pending independent review; proposed propagation of
 nontransversality for each named L with the exact degree/size conditions.
 
-Reviews: none.
+Reviews: [review](review_five_column_compatibility_20261015_independent.md).
 
 <a id="claim-five-columns-degree-eight-anchor"></a>
 ## 3. An unavoidable degree-eight independent-four anchor
@@ -201,7 +201,7 @@ Claim ID: `n43/d18/x136/five_column_compatibility.md#claim-five-columns-degree-e
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every full equality-frontier candidate in the setting, before any r
 or s split.
@@ -244,7 +244,7 @@ Search use: none pending independent review; proposed branching on an
 unavoidable anchor, retaining all allowed selections, signatures, actual
 B adjacencies, and completions. No unique canonical anchor is asserted.
 
-Reviews: none.
+Reviews: [review](review_five_column_compatibility_20261015_independent.md).
 
 <a id="claim-five-columns-no-four-transversal"></a>
 ## 4. No four-set transversal; the r=1 branch is excluded conditionally
@@ -253,7 +253,7 @@ Claim ID: `n43/d18/x136/five_column_compatibility.md#claim-five-columns-no-four-
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every full equality-frontier candidate; every abstract four-set
 transversal T of I4(A). No r=1 or actual-column assumption is required.
@@ -282,7 +282,7 @@ Search use: none pending independent review; proposed propagation of
 column size>=5 and termination of the r=1 child after acceptance of the
 entire dependency chain and its external premises.
 
-Reviews: none.
+Reviews: [review](review_five_column_compatibility_20261015_independent.md).
 
 ## Provenance and author audit
 

@@ -33,12 +33,12 @@ column-size lower bound, or unavoidable large-cell hypothesis is imposed.
 <a id="claim-c5-omission-budget"></a>
 Claim ID: `n43/d18/cell_attachments.md#claim-c5-omission-budget`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: any actual U as above with S=C5; t=|Y|, 0<=t<=8
 Dependencies: reviewed cell types; R(4,3)=9; elementary degree counts
 Conclusion: the omission and attachment constraints below hold simultaneously
 Search use: none pending review; proposed use: propagate
-Reviews: none
+Reviews: [review](review_cell_attachments_20261015_obligations.md)
 
 For y in Y set D_y=S-N_B(y). Every D_y is a clique of C5, hence empty,
 a singleton, or a cycle edge. Put r_s=|{y in Y:s in D_y}| and
@@ -79,14 +79,14 @@ would join their triangle to make K5. This proves the pair refinements.
 <a id="claim-u13-c5-rigidity"></a>
 Claim ID: `n43/d18/cell_attachments.md#claim-u13-c5-rigidity`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: actual U of order13 with actual S=C5, Y=U-S of order8
 Dependencies: preceding claim; U is (5,3)-free
 Conclusion: U is8-regular, e(S,Y)=30, e(Y)=17; the signature profiles
 are exactly the three necessary arithmetic possibilities below, and vertices
 with empty D signatures form a clique of order at most two
 Search use: none pending review; proposed use: propagate
-Reviews: none
+Reviews: [review](review_cell_attachments_20261015_obligations.md)
 
 Every vertex of U has degree eight by 13-5<=d_U<=8. Therefore
 
@@ -144,12 +144,12 @@ the table.
 <a id="claim-external-independent-demands"></a>
 Claim ID: `n43/d18/cell_attachments.md#claim-external-independent-demands`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: any actual T,U; vertices Z subset B-U independent in B, |Z|=1,2,3
 Dependencies: B is K5/I4-free; U has no I3; R(4,3)=9
 Conclusion: the union, clique, and capacity constraints below
 Search use: none pending review; proposed use: propagate
-Reviews: none
+Reviews: [review](review_cell_attachments_20261015_obligations.md)
 
 For z outside U, |N_U(z)|<=8: this neighborhood is (4,3)-free. For a
 nonadjacent outside pair p,q, define

@@ -19,7 +19,7 @@ Claim ID: `n43/min-degree20/pair_coverage.md#claim-normalized-pair-01`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: any finite simple graph `G` of order 43 whose minimum degree is at
 least 20 and whose sorted degree sequence `D` satisfies the safe complement
@@ -72,7 +72,7 @@ minimum degree 20; lower-minimum branches remain separate.
 Search use: propagate degree counts and retain complement-normalized branch
 coverage. No lower-degree branch or arbitrary-pivot case is excluded.
 
-Reviews: none.
+Reviews: [review](review_pair_coverage_20261015_transversal.md).
 
 <a id="claim-normalized-pair-02"></a>
 ## 2. A disjoint, exhaustive pair-selection split
@@ -81,7 +81,7 @@ Claim ID: `n43/min-degree20/pair_coverage.md#claim-normalized-pair-02`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every order-43 `(5,5)`-free graph in the normalized branch of Claim 1.
 Write `P_i={z:d_G(z)=i}` and use its `j,t` parameters.
@@ -147,7 +147,7 @@ deficit, a small excess, or an independent anchor not separately supplied.
 Failure of a selected pair search is no nonexistence evidence without
 exhaustive coverage and independently checkable certificates.
 
-Reviews: none.
+Reviews: [review](review_pair_coverage_20261015_transversal.md).
 
 ## Scope and provenance
 

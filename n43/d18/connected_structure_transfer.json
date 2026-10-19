@@ -1,0 +1,208 @@
+{
+  "title": "Small separators of degree-18 neighborhoods and interface transfer",
+  "date": "2026-10-19",
+  "task_token": "cross-branch-connectivity-20261019",
+  "author": "ConnectivityTransfer",
+  "task_kind": "research",
+  "review_state": "accepted",
+  "reviews": ["review_connected_structure_transfer_20261019.json"],
+  "search_use": "propagate; preserve all completion choices",
+  "proposed_search_use_after_review": "propagate; preserve all completion choices",
+  "novelty": "No novelty claim. No external literature review or census recertification.",
+  "result": "Every K4/I5-free graph A of order 18 has vertex connectivity at least 2, 3, 4 when e(A) is at least 70, 75, 81 respectively. These strengthen the recorded connectedness threshold into separator exclusions. Connectedness alone still permits minimum degree one and even a singleton independent-four transversal. Conditional separator profiles also give explicit column dichotomies and adjacent-root filters.",
+  "scope": {
+    "pure_graph": "A is a finite simple K4-free and I5-free graph of order 18. It is not assumed I4-free: alpha(A)=4 by R(4,4)=18.",
+    "ambient_candidate": "Where interface or global degrees are mentioned, G is an actual hypothetical order-43 K5/I5-free graph, v has global degree 18, A=N_G(v), B=M_G(v), |B|=24. All conclusions are necessary conditions, not existence assertions.",
+    "parameters": "a=e(A), q=85-a, epsilon_z=d_G(z)-18, E=sum_{u in A}epsilon_u, x=e(A,B)=136+2q+E. No restriction to an x band, to E=0, or to a selected root is imposed unless explicitly stated.",
+    "separator": "S is any set of t vertices such that A-S is disconnected. The separator need not be minimal. Vertex connectivity kappa(A) is the minimum size of such an S, with kappa(A)=0 for disconnected A.",
+    "witness_limit": "The two explicit connected-A constructions below are isolated (4,5,18) graphs. Neither is asserted to occur as N_G(v) in an actual order-43 candidate."
+  },
+  "premise_ledger": [
+    {
+      "id": "P-ramsey",
+      "source": "README.md, Ramsey table and census table, lines 22-44",
+      "sha256": "c8f01e2f5077c8241212ee05f27397a21d6f9c67ca3c6b514065c51ade12e10c",
+      "used": "R(3,3)=6, R(3,4)=9, R(4,4)=18. Published (4,4) upper edge extrema U(12)=40, U(13)=45, U(14)=50, U(15)=55, U(16)=60, U(17)=68; nonempty order-16 and order-17 classes for the isolated witnesses. McKay-Radziszowski 1992 is the recorded source; retained, not recertified."
+    },
+    {
+      "id": "P-connectivity",
+      "source": "n43/d18/neighborhood_connectivity.md#claim-connectivity-01; #claim-connectivity-02; #claim-connectivity-03",
+      "sha256": "182ab76317e2e669b13f8431065e8b6db7c09ce11ad9d181096d01ee85e5a3de",
+      "used": "Accepted disconnected classification K_m disjoint union C_(18-m), m=1,2,3; disconnected edge slices [53,58], {61}, {68}; alpha(A)=4; actual row identity and disconnected-column triple-hitting obligation. The new separator proofs repeat the partition argument at orders 17,16,15 rather than assuming the order-18 classification applies unchanged."
+    },
+    {
+      "id": "P-interface",
+      "source": "n43/reductions.md, sections 4.1, 4.3, 4.4, 5.1, 5.2",
+      "sha256": "e00118c9890d529f755591b6f8daa823edb2cf3d344f49338155573e4034cf23",
+      "used": "Global degree range 18..24; edge codegree >=max(d_G(u),d_G(w))-18; nonedge codegree in [max(d_G(u),d_G(w))-17,d_G(u)+d_G(w)-28]; r_u=17+epsilon_u-d_A(u)<=17; every actual column meets every I4 in A."
+    },
+    {
+      "id": "P-pivot",
+      "source": "n43/d18/pivot_classes.md, sections 1,2,3",
+      "sha256": "cb941dc985719a66ab3988ea9b0bddeaf6848ac64645e13ff4cfffd0c5ed6f42",
+      "used": "0<=q<=35, q+E<=W/2+4, the deletion floor d_A>=max(0,6-q), higher-excess floor d_A>=epsilon, and the pointed adjacent-degree-18 averaging filter. For W<=10 every degree-18 root has q<=4+W/2 and a degree-18 neighbor."
+    },
+    {
+      "id": "P-selected-pivot",
+      "source": "n43/d18/pairwise_pivot_refinements.md#claim-pivot-pairwise-04",
+      "sha256": "2b357ef5a53588c4e6879078210de4deae564ea22611fc4ffd81c21ecaa572e3",
+      "used": "Accepted maximum-neighborhood-edge root choice: for W=0,2,4,6,8,10 the same selected root has q upper bounds 4,4,4,4,5,5 and a degree-18 neighbor with overlap caps 9,9,10,11,12,12. Companion need not maximize neighborhood edges."
+    },
+    {
+      "id": "P-max-root-transfer",
+      "source": "n43/d18/cliques_augmentation.md, section 3",
+      "sha256": "4cb5c4bd34d7d45a3c42783fdf091ac3aae0acafcc6f6fd6203f83cf9d366b2c",
+      "used": "Choosing a maximum-edge degree-18 root is safe for existence coverage; the selected-root property cannot be imposed on an arbitrary fixed root. Existing maximum-edge interface inequalities are unchanged."
+    },
+    {
+      "id": "L-cw0",
+      "source": "n43/d18/c/w0/research.json#claim-cw0-budgets-and-rerooting; failed_exclusion_routes",
+      "sha256": "88c31770ed2011a82248902ad14f7572bfaaf4b08202fa58c97ed3b89c5661a1",
+      "used": "Unaccepted comparison target only, not a logical premise: E=0 fixes x=136+2q, not q=0, and connectedness alone was not shown to remove q>=2. This note independently obtains topology conditional on q, without importing the q=1 anchor theorem or any closure."
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-separator-profiles",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "Every pure graph A in the stated scope; every separator S with t=|S| in {1,2,3}; no q,E,x restriction.",
+      "dependencies": ["P-ramsey", "P-connectivity, partition method only"],
+      "conclusion": [
+        "A-S has exactly two components. Either its independence profile is (1,3), with components K_m and C, 1<=m<=3, |C|=18-t-m, C K4/I4-free and alpha(C)=3; or its independence profile is (2,2), with both components K4/I3-free.",
+        "The (2,2) case is impossible for t=1; at t=2 its component orders are 8,8; at t=3 they are 7,8 in either order.",
+        "In the (1,3) case, a<=U(18-t-m)+binom(m,2)+8t+t*min(m,2)+binom(t,2). Thus the caps for m=1,2,3 are respectively (69,66,63) at t=1, (74,72,69) at t=2, and (80,79,76) at t=3.",
+        "In the (2,2) case, a<=61 at t=2 and a<=70 at t=3. These two caps are deliberately elementary upper bounds, not claimed sharp."
+      ],
+      "proof": [
+        "Independence is additive over the components of A-S and is at most four. A component of independence number one is complete and has order at most three, because A is K4-free. A component of independence number two is K4/I3-free and has order at most eight by R(3,4)=9. If the total independence number were at most three, a disconnected graph would have profile (1,1), (1,2), or (1,1,1), with total order at most 6,11,9. This cannot equal 18-t>=15.",
+        "The total is therefore four. The disconnected profiles (1,1,2) and (1,1,1,1) have order at most 3+3+8=14 and 12 respectively, so are impossible. Only (1,3) and (2,2) remain, each with exactly two components. In the former case the alpha-three component C is K4/I4-free. In the latter each component has order at most eight, giving exactly the order pairs asserted at total orders 17,16,15.",
+        "For any z in S, N_C(z) is triangle-free: a triangle there together with z gives K4 in A. It is also I4-free as a subset of C. Thus |N_C(z)|<=8 by R(3,4)=9. Its neighbors in K_m number at most min(m,2), since three such neighbors together with z would give K4. There are no edges between the two components. Add the census cap on e(C), the binom(m,2) clique edges, the two attachment bounds summed over S, and the elementary e(S)<=binom(t,2) to get the displayed formula. Substitution of the stated U values gives all nine caps.",
+        "In the (2,2) case, the neighborhood in either component of any vertex of that component, or of S, is triangle-free and I3-free. R(3,3)=6 bounds its order by five. A component on n vertices therefore has at most floor(5n/2) edges, and each S vertex has at most ten neighbors across the two components. At t=2 this gives 20+20+20+1=61. At t=3 it gives 17+20+30+3=70. No adjacency within S or between S and components is assumed attainable simultaneously."
+      ],
+      "search_use": "propagate; separator constraints",
+      "reviews": ["review_connected_structure_transfer_20261019.json"]
+    },
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-density-connectivity",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "Every pure graph A in the stated scope, whether initially assumed connected or not; hence every actual degree-18 root, for every E and x.",
+      "dependencies": ["P-connectivity#claim-connectivity-02", "claim-connected-separator-profiles"],
+      "conclusion": [
+        "a>=70 (q<=15) implies kappa(A)>=2.",
+        "a>=75 (q<=10) implies kappa(A)>=3.",
+        "a>=81 (q<=4) implies kappa(A)>=4.",
+        "When A is explicitly assumed connected, define k(q)=4 for q<=4, 3 for 5<=q<=10, 2 for 11<=q<=15, and 1 for q>=16. Then kappa(A)>=k(q) and d_A(u)>=k(q) for every u. These are not asserted to be best possible minimum-degree bounds."
+      ],
+      "proof": [
+        "The accepted disconnected classification gives a<=68 for disconnected A. The preceding claim bounds a by 69 if a one-vertex separator exists, by 74 if a two-vertex separator exists, and by 80 if a three-vertex separator exists. Excluding separators of all smaller orders proves the successive connectivity conclusions. Translate a=85-q directly.",
+        "For the minimum-degree consequence, suppose some vertex u has degree s<k(q). Deleting N_A(u), a set of s vertices, isolates u while leaving another vertex, since |A|=18 and k(q)<=4. This contradicts the connectivity conclusion. For q>=16 the explicitly assumed connectedness alone supplies minimum degree at least one."
+      ],
+      "concrete_prior_improvement": "n43/d18/neighborhood_connectivity.md#claim-connectivity-02 concluded only connectedness for a>=69. The new thresholds forbid all cuts of orders one, two, three at a>=70,75,81 respectively, uniformly across the full d18 branch.",
+      "search_use": "propagate",
+      "reviews": ["review_connected_structure_transfer_20261019.json"]
+    },
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-separator-columns",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "An actual ambient candidate; every separator S of size t=1,2,3, with the component profiles above; every actual cross column C_y=N_A(y), y in B.",
+      "dependencies": ["claim-connected-separator-profiles", "P-interface, every column meets every I4", "P-ramsey"],
+      "conclusion": [
+        "For profile K_m disjoint union C in A-S, either K_m is a subset of C_y or |C_y intersect C|>=10-t-m. Thus the forced core incidences for a column omitting a clique vertex are (8,7,6) for t=1 and m=1,2,3; (7,6,5) for t=2; (6,5,4) for t=3.",
+        "For profile (2,2) with components X,Y, at least one of X-C_y and Y-C_y is a clique (including the empty set). Consequently at least one of |C_y intersect X|>=|X|-3 and |C_y intersect Y|>=|Y|-3 holds. In particular |C_y|>=5 for t=2 and |C_y|>=4 for t=3."
+      ],
+      "proof": [
+        "If u in K_m is omitted by C_y, every independent triple in C must meet C_y: otherwise u, that triple, and y give I5 in G. Thus C-C_y is K4/I3-free and has order at most eight by R(3,4)=9. Since |C|=18-t-m, at least |C|-8=10-t-m vertices of C belong to the column. This proof does not require A itself to be I4-free, or say anything about column incidences on S.",
+        "In the (2,2) case, if both X-C_y and Y-C_y contain independent pairs, their union is an I4 in A missed by the column, since X,Y are different components of A-S. This is prohibited. Therefore at least one remainder has independence number at most one and is a clique of size at most three by K4-freeness. The two incidence alternatives follow, and the component-order pairs 8,8 and 7,8 give the scalar floors five and four. Edges involving S may impose further obligations but cannot invalidate this necessary argument."
+      ],
+      "concrete_prior_improvement": "This transfers the disconnected claim-connectivity-03(d) column triple-hitting mechanism to connected neighborhoods with separators, and turns it into explicit core-incidence floors. It strengthens generic nonempty-column bounds only under the stated separator profile, not for all connected A.",
+      "search_use": "propagate",
+      "reviews": ["review_connected_structure_transfer_20261019.json"]
+    },
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-row-root-transfer",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "Every actual ambient candidate with connected A; every q,E,x. The companion-root assertion additionally assumes t=m_0(v)>0.",
+      "dependencies": ["claim-connected-density-connectivity", "P-pivot, sections 1,2", "P-interface"],
+      "notation": "L=max(0,6-q), F=max(L,k(q)), m_i=number of A vertices of excess i, t=m_0.",
+      "conclusion": [
+        "For every u in A, d_A(u)>=max(F,epsilon_u), and r_u<=min(17,17+epsilon_u-F). For excess-zero rows this is r_u<=17-F; in particular connectedness alone gives r_u<=16 instead of 17 when the old deletion floor is zero.",
+        "If t>0, some degree-18 neighbor u has lambda_vu=d_A(u)<=min(13,floor((170-2q-sum_{i=1..6}m_i*max(F,i))/t)), and lambda_vu>=F.",
+        "For q=15, m_0=10, m_1=8 and all other m_i=0, E=8 and x=174. The old pivot-class upper overlap filter is 13, while the connected-structure filter is 12; each excess-zero row also has size at most 15 rather than 17. This is an implication conditional on a realized numerical profile, not a feasibility assertion.",
+        "For a separator profile K_m+C, every u in K_m satisfies epsilon_u<=d_A(u)=m-1+|N_A(u) intersect S|<=m-1+|S|. For u in K_m and w in C, put h=|N_A(u) intersect N_A(w) intersect S|. Then max(0,max(epsilon_u,epsilon_w)-h)<=|R_u intersect R_w|<=7+epsilon_u+epsilon_w-h."
+      ],
+      "proof": [
+        "The connectivity result gives d_A>=k(q), and the two existing pivot-class floors give d_A>=L and d_A>=epsilon. Combine them. Substitute into the exact identity r_u=17+epsilon_u-d_A(u), retaining the independent old cap r_u<=17.",
+        "The handshake sum of all internal degrees is 2a=170-2q. Higher-excess neighbors consume at least sum_{i>=1}m_i*max(F,i) of it. The remaining t internal degrees therefore average at most the displayed quotient, and at least one is no larger than its floor. Its global degree is 18 by membership in the m_0 class; adjacency to v makes its internal A degree the global overlap lambda_vu. The cap 13 is the old (3,5) common-neighborhood bound. For the example, a=70, F=2 and the old higher-degree floor is one; min(13,floor((140-8)/10))=13, whereas min(13,floor((140-16)/10))=12. The exact cross identity gives x=136+30+8=174.",
+        "A K_m component vertex u has neighbors inside A only in K_m-u and S. From r_u<=17 and the row identity, epsilon_u<=d_A(u). For w in C, u and w are nonadjacent. Their common neighbors in A all lie in S; their other common neighbors are v and R_u intersect R_w. Thus global codegree is 1+h+|R_u intersect R_w|. Apply the retained nonedge codegree interval [1+max(epsilon_u,epsilon_w),8+epsilon_u+epsilon_w] and rearrange. The existing global edge lower floor on the adjacent pair v,u is only lambda_vu>=epsilon_u; it does not itself rule out internal degree one."
+      ],
+      "concrete_prior_improvement": "The old section-2 pointed filter in pivot_classes.md uses max(0,6-q,i) for each excess-i vertex. Replacing its floor by max(F,i) yields the stated conditional improvement and row caps. Concurrent interior_transfer.json derives stronger minimum-degree information by another method; the vertex-connectivity statement here is stronger structural information, but no numerical improvement over that separate pending note is claimed or used as a premise.",
+      "search_use": "propagate; pointed-family refinement",
+      "reviews": ["review_connected_structure_transfer_20261019.json"]
+    },
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-selected-root-transfer",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "Actual candidates with total excess W<=10; arbitrary degree-18 roots unless a maximum-edge root is explicitly selected.",
+      "dependencies": ["claim-connected-density-connectivity", "P-pivot, section 3", "P-selected-pivot", "P-max-root-transfer"],
+      "conclusion": [
+        "At W=0 every degree-18 neighborhood is at least four-vertex-connected. At W in {2,4,6,8,10}, every degree-18 neighborhood is at least three-vertex-connected.",
+        "For the maximum-edge root of accepted claim-pivot-pairwise-04, its neighborhood is at least four-vertex-connected at W=0,2,4,6 and at least three-vertex-connected at W=8,10. These are the same selected roots as in that claim's cross-count and overlap table.",
+        "The guaranteed adjacent degree-18 companion has a four-connected neighborhood at W=0 and a three-connected neighborhood at W=2,4,6,8,10. The accepted overlap caps 9,9,10,11,12,12 and selected x caps 144,145,146,147,149,150 are unchanged."
+      ],
+      "proof": [
+        "For any degree-18 root, q<=4+W/2 from the existing root budget and E>=0. At W=0 this is q<=4, giving four-connectivity. At W<=10 it gives q<=9, giving three-connectivity. These are universal-root conclusions, so apply to both endpoints of any existing adjacent degree-18 pair.",
+        "The accepted maximum-edge selection table improves the selected root to q<=4 for W=0,2,4,6 and q<=5 for W=8,10. Apply the connectivity thresholds at that root. The original proof ensures a degree-18 companion for W<=10. Its q need not equal the selected root's q; only the universal-root bound is used for it. No pair chosen by an independent family argument is silently identified with this pair."
+      ],
+      "concrete_prior_improvement": "Adds quantified separator exclusions to the same roots of pivot_classes.md section 3 and pairwise_pivot_refinements.md#claim-pivot-pairwise-04, not just existence of some unrelated connected root.",
+      "search_use": "propagate; structural refinement of existing pointed-family branching",
+      "reviews": ["review_connected_structure_transfer_20261019.json"]
+    },
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-shortcut-obstructions",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "Isolated pure (4,5,18) graphs, with ambient-transfer limits stated separately; relevant to the full connected branch, not only E=0 or a small x band.",
+      "dependencies": ["P-ramsey, existence of order-16 and order-17 (4,4) graphs", "P-interface", "P-pivot", "claim-connected-density-connectivity"],
+      "conclusion": [
+        "Connected (4,5,18) does not imply d_A>=2, and does not imply e(A)>=69. A connected example with 62 edges and a leaf follows from any order-16 (4,4) graph by attaching a length-two path.",
+        "There is a connected isolated (4,5,18) graph with 69 edges, a cut vertex, a leaf, and an independent-four transversal of size one. Thus the threshold a>=70 for two-connectivity cannot be lowered to 69 using only the stated pure-graph hypotheses; connectedness alone does not imply actual-column size at least two by transversal reasoning.",
+        "Neither witness is an order-43 Ramsey candidate or a certified ambient neighborhood. The global edge-codegree floor alone does not eliminate the leaf: it requires only epsilon_leaf<=1, already implied by the row cap.",
+        "In the E=0 connected branch, topology yields kappa(A)>=4 for q<=4, >=3 for q<=10, >=2 for q<=15. It yields no contradiction, no upper bound q<=15, and no extension of the q=1 core theorem to q>=2."
+      ],
+      "proof": [
+        "An order-16 or order-17 (4,4)-free graph H is connected. Otherwise independence-number additivity, alpha(H)<=3, K4-freeness, and R(3,4)=9 give disconnected component orders at most 11, exactly as in the first separator proof. Such graphs exist by the recorded nonempty census classes. They have respectively 60 and 68 edges.",
+        "For order-16 H, add vertices z,u and edges zc,zu for any fixed c in H, with no other edges incident to z or u. The result is connected of order 18 and has 60+2=62 edges. Its only possible K4 would lie in H, since the new vertices have degrees two and one. An independent set uses at most one of z,u, so has size at most 1+alpha(H)<=4. It has a leaf. This is a complete mathematical construction from the retained existence premise, not a graph search.",
+        "For order-17 H, add a leaf u adjacent to one fixed z in H. The graph is connected of order 18 with 68+1=69 edges, is K4-free and has independence number at most four. Deleting z isolates u, so z is a cut vertex. Every I4 must contain u because H is I4-free; hence {u} meets every I4. Such an I4 exists: H-z has 16 vertices and is K4-free, so R(3,4)=9 supplies an I3 there, which together with u is independent. This proves every claimed property without supplying or assuming any interface to B.",
+        "If one attempts to place the leaf in an actual A, d_A(u)=1 gives r_u=16+epsilon_u<=17 and thus epsilon_u in {0,1}. The global edge-codegree floor for vu is max(d_G(v),d_G(u))-18=epsilon_u, and lambda_vu=1 is consistent with both values. A singleton actual column would additionally force all the recorded critical-core and degree conditions; the isolated transversal example does not assert these have a valid ambient completion.",
+        "Setting E=0 in x=136+2q+E gives x=136+2q, not q=0. The separator conclusions depend on q and continue to apply, but do not delete any q slice by themselves. In particular the isolated examples cannot be used to assert realizability of q=16 or q=23 in the zero-excess ambient branch. Conversely the q=1 signature theorem in c/w0 cannot be promoted to all connected A by any implication proved here."
+      ],
+      "concrete_prior_improvement": "Rigorously diagnoses the failed connectedness shortcut recorded in c/w0/research.json, while extracting valid all-E separator statements. Distinguishes actual ambient filters from isolated-A counterexamples.",
+      "search_use": "none; obstruction diagnosis only",
+      "reviews": ["review_connected_structure_transfer_20261019.json"]
+    }
+  ],
+  "verification": {
+    "type": "Author proof self-audit and trivial exact scalar arithmetic; not independent review",
+    "performed": [
+      "Read the assigned connectivity, pivot-class, pairwise-pivot, clique-augmentation, and c/w0 source sections before deriving; inspected the ambient codegree floors and workflow claim requirements.",
+      "Evaluated the nine explicit separator cap formulas: t=1 gives 69,66,63; t=2 gives 74,72,69; t=3 gives 80,79,76. Evaluated the two balanced-profile crude caps 61,70 and the disconnected maximum 68.",
+      "Checked the profile q=15,m_0=10,m_1=8: old pointed cap min(13,floor(132/10))=13, new min(13,floor(124/10))=12; E=8 and x=174.",
+      "Checked the component-independence partition coverage and kept the (2,2) profile at separator orders two and three, rather than incorrectly extrapolating the disconnected order-18 classification."
+    ],
+    "not_performed": ["Graph search or enumeration", "Solver or catalogue processing", "Downloads or literature novelty checks", "Lean or engine changes", "Build, formatter, linter, or test suites", "Independent acceptance review"],
+    "limits": "Census values and existence premises remain external and unre-certified. Scalar upper bounds need not be jointly attainable. No candidate, ambient completion, branch closure, or exhaustive certificate is produced. Parameter-landscape claims are not dependencies."
+  },
+  "integration": {
+    "owned_output_only": "n43/d18/connected_structure_transfer.json",
+    "existing_files_modified": [],
+    "shared_indexes_modified": false,
+    "acceptance_changed": false,
+    "review_gate": "An independent author must review the exact file hash, component profiles, attachment bounds, and ambient transfers before any new pruning is enabled.",
+    "comparison_with_concurrent_work": "Main owns interior_transfer.json and has independently derived stronger local minimum-degree floors. This note does not depend on that draft, and does not claim its row-floor consequences improve that draft. The nontrivial cross-document strengthening here is the vertex-connectivity hierarchy and its separator-conditioned column and selected-root transfers."
+  }
+}

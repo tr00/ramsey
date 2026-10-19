@@ -68,7 +68,7 @@ and [frontier defects](frontier_band.md).
 
 Claim ID: `n43/d18/sos_finite_moments.md#claim-finite-triangle-deficits`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: every (4,4)-free graph H of order `7<=m<=17`, every vertex u.
 
@@ -138,7 +138,7 @@ ingredients. In an SOS relaxation they would need justified polynomial
 constraints or derived certificates.
 
 Search use: none; proposed propagation on specified actual (4,4) cores or
-anchored cells, retaining degree and integer slack variables. Reviews: none.
+anchored cells, retaining degree and integer slack variables. Reviews: [review](review_sos_finite_moments_20261015_columns.md).
 
 ## Two strengthened core edge caps
 
@@ -146,7 +146,7 @@ anchored cells, retaining degree and integer slack variables. Reviews: none.
 
 Claim ID: `n43/d18/sos_finite_moments.md#claim-finite-core-caps`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: every (4,4)-free H of order 11 or 13; no census at these orders needed.
 
@@ -235,7 +235,7 @@ neighbors in L by the same common-neighbor argument, giving
 `e(H)<=48`.
 
 Search use: none; proposed core/anchored-cell edge-cap propagation.
-Reviews: none.
+Reviews: [review](review_sos_finite_moments_20261015_columns.md).
 
 ## Uniform low-degree transversal thresholds
 
@@ -243,7 +243,7 @@ Reviews: none.
 
 Claim ID: `n43/d18/sos_finite_moments.md#claim-finite-low-transversal-thresholds`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: degree-18 pivot setting; every L subset A with `5<=ell=|L|<=11`,
 all `d_A(u)<=7`, and L meeting every I4 of A; q arbitrary within the setting.
@@ -302,7 +302,7 @@ exclusion of such a low-degree transversal below x168, not an exclusion
 of all q=1 interfaces there.
 
 Search use: none; proposed transversal thresholds and rejection of a specified
-`q=1,ell=9,E_A<=29` transversal hypothesis. Reviews: none.
+`q=1,ell=9,E_A<=29` transversal hypothesis. Reviews: [review](review_sos_finite_moments_20261015_columns.md).
 
 ## A beyond-equality independent-four anchor
 
@@ -310,7 +310,7 @@ Search use: none; proposed transversal thresholds and rejection of a specified
 
 Claim ID: `n43/d18/sos_finite_moments.md#claim-finite-q1-anchor`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: every degree-18 rooted candidate with `q=1,E_A<=29`; equivalently
 this fixed-q slice has `138<=x<=167`. No assumption that q<=1 or x<=167
@@ -372,7 +372,7 @@ and a four-transversal may intersect. No column size>=5 conclusion,
 unconditional upper bound on x, or order-43 exclusion is claimed.
 
 Search use: none; proposed branching on an unavoidable anchor with all anchor
-choices, actual signatures, overlaps, and completions retained. Reviews: none.
+choices, actual signatures, overlaps, and completions retained. Reviews: [review](review_sos_finite_moments_20261015_columns.md).
 
 ## Author audit and limitations
 

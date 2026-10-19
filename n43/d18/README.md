@@ -8,7 +8,7 @@ Notation and inherited bounds: [reduction index](../reductions.md), sections 2,
 | Child | Predicate | Status |
 | --- | --- | --- |
 | [x136](x136/README.md) | x=136 | Closed per user report; closure proof pending checkout integration |
-| [x137](x137/README.md) | x=137 | Open; r=4 excluded |
+| [x137](x137/README.md) | x=137 | Open; r0 only, r>=1 excluded |
 | [x138](x138/README.md) | x=138 | Open |
 | [x139](x139/README.md) | x=139 | Open |
 | [x140](x140/README.md) | x=140 | Open |
@@ -23,6 +23,11 @@ The [x>=137 overview](x-ge137/README.md) links to these sibling branches.
 External premises and proof status remain those recorded in the reduction index.
 
 Shared proof notes:
+
+- [Cross-branch synthesis: stronger interior degrees, separator exclusions, and transversal thresholds across all x](../../reports/2026-10-19-cross-branch-synthesis.json)
+- [Reviewed interior floors/ceilings and tightened row and pointed-overlap filters](interior_transfer.json) ([audit](review_interior_transfer_20261019.json))
+- [Separator structure, higher vertex connectivity, and selected-root transfer](connected_structure_transfer.json) ([audit](review_connected_structure_transfer_20261019.json))
+- [Reviewed exact-census transversal thresholds, member degrees, and conditional column-excess budgets](deletion_degree_transfer.json) ([audit](review_deletion_degree_transfer_20261019.json))
 
 - [Extension research synthesis: omitted-row exclusions, fixed-B capacity, and unavoidable root cores](../../reports/2026-10-17-d18-extension-research.md)
 - [Fixed-B extension coverage, row multiplicity, exchange-ball capacities and exact certificates](fixed_b_extensions.md)

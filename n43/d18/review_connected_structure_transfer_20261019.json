@@ -1,0 +1,219 @@
+{
+  "title": "Independent review of n43/d18/connected_structure_transfer.json",
+  "date": "2026-10-19",
+  "batch_token": "cross-branch-connectivity-20261019",
+  "review_kind": "independent mathematical review (docs/workflow.md review template and gates)",
+  "author_reviewed": "ConnectivityTransfer",
+  "reviewer": "ConnectivityAudit",
+  "claims": [
+    "n43/d18/connected_structure_transfer.json#claim-connected-separator-profiles",
+    "n43/d18/connected_structure_transfer.json#claim-connected-density-connectivity",
+    "n43/d18/connected_structure_transfer.json#claim-connected-separator-columns",
+    "n43/d18/connected_structure_transfer.json#claim-connected-row-root-transfer",
+    "n43/d18/connected_structure_transfer.json#claim-connected-selected-root-transfer",
+    "n43/d18/connected_structure_transfer.json#claim-connected-shortcut-obstructions"
+  ],
+  "reviewed_revision": {
+    "file": "n43/d18/connected_structure_transfer.json",
+    "sha256": "9add460588de61d7da153196414664090c69d9527c29f9d9e99b31eb5218634d",
+    "git_state": "untracked in the shared worktree; per the workflow template the SHA-256 of the exact file is the reviewed revision",
+    "scope_note": "Read-only review. The reviewer did not edit the proof, its review_state, its reviews array, or any index. Only this sibling review file was created."
+  },
+  "dependencies_reviewed": [
+    {
+      "id": "P-ramsey",
+      "source": "README.md, Ramsey table and census table, lines 22-44",
+      "sha256_recorded": "c8f01e2f5077c8241212ee05f27397a21d6f9c67ca3c6b514065c51ade12e10c",
+      "sha256_computed": "c8f01e2f5077c8241212ee05f27397a21d6f9c67ca3c6b514065c51ade12e10c",
+      "verified": "match. Lines 22-44 contain R(3,3)=6, R(3,4)=9, R(4,4)=18 and the census rows (4,4,12) 40/40, (4,4,13) 33/45, (4,4,14) 41/50, (4,4,15) 50/55, (4,4,16) 60/60, (4,4,17) 68/68 (min and max columns), so both the upper extrema U(12)..U(17)=40,45,50,55,60,68 and the equal min values used by the isolated witnesses are in the cited range. Reference [2] is McKay-Radziszowski 1992 as the ledger states. Nonemptiness of the order-16 and order-17 classes follows from the recorded non-blank extrema (the table states blank entries alone assert nothing about existence)."
+    },
+    {
+      "id": "P-connectivity",
+      "source": "n43/d18/neighborhood_connectivity.md claims 01, 02, 03",
+      "sha256_recorded": "182ab76317e2e669b13f8431065e8b6db7c09ce11ad9d181096d01ee85e5a3de",
+      "sha256_computed": "182ab76317e2e669b13f8431065e8b6db7c09ce11ad9d181096d01ee85e5a3de",
+      "verified": "match. Claim 01: disconnected profile K_m + (4,4)-free C, m in 1..3, alpha(C)=3. Claim 02: edge slices [53,58] union {61} union {68}, hence a<=68 disconnected, a>=69 forces connected. Claim 03: row identity d_B(u)=17+epsilon_u-d_A(u), clique/I4 membership, and item (d) column triple-hitting. The ledger honestly states that the new note re-runs the partition argument at orders 17,16,15 instead of reusing the order-18 classification, which matches claim 1 of the reviewed file."
+    },
+    {
+      "id": "P-interface",
+      "source": "n43/reductions.md, sections 4.3, 4.4, 5.1, 5.2",
+      "sha256_recorded": "e00118c9890d529f755591b6f8daa823edb2cf3d344f49338155573e4034cf23",
+      "sha256_computed": "e00118c9890d529f755591b6f8daa823edb2cf3d344f49338155573e4034cf23",
+      "verified": "match. Section 4.3 gives the edge band max(d)-18 <= c <= 13 and the nonedge band [max(d)-17, d(u)+d(w)-28] exactly as quoted; section 4.4 gives the edge common-neighbor cap 13 used as lambda_vu<=13; section 5.1(2) yields that every actual column meets every I4 of A (take Q a singleton); section 5.2 gives r_u<=min(17,23-s_u), hence r_u<=17, and the row identity is the elementary partition N_G(u)={v} union N_A(u) union N_B(u). One used-bullet, Global degree range 18..24, is NOT in the cited sections: reductions.md states 18<=d_G(v)<=24 only in section 4.1 (verified by reading lines 196-332 and a file-wide search). No claim consumes that bullet through P-interface (see finding F1)."
+    },
+    {
+      "id": "P-pivot",
+      "source": "n43/d18/pivot_classes.md, sections 1,2,3",
+      "sha256_recorded": "cb941dc985719a66ab3988ea9b0bddeaf6848ac64645e13ff4cfffd0c5ed6f42",
+      "sha256_computed": "cb941dc985719a66ab3988ea9b0bddeaf6848ac64645e13ff4cfffd0c5ed6f42",
+      "verified": "match. Section 1: 0<=q<=35, 0<=epsilon_z<=6 (source of the i=1..6 range in claim 4), q+E<=W/2+4, x_v=136+2q+E_v, sum m_i=18. Section 2: deletion floor d_A>=max(0,6-q) from E(4,5,17)=79, mixed-cell floor d_A>=epsilon, and the pointed averaging filter min(13, floor((170-2q-sum m_i*max(0,6-q,i))/t)). Section 3: every degree-18 root has q<=4+W/2 (from E_v>=0) and a degree-18 neighbor for W<=10 (E_v<=W<18); its W-table overlap column is 9,9,10,11,12,12 for W=0,2,4,6,8,10."
+    },
+    {
+      "id": "P-selected-pivot",
+      "source": "n43/d18/pairwise_pivot_refinements.md#claim-pivot-pairwise-04",
+      "sha256_recorded": "2b357ef5a53588c4e6879078210de4deae564ea22611fc4ffd81c21ecaa572e3",
+      "verified": "match. The accepted claim states verbatim that the SAME selected maximum-edge root satisfies the bound and pointed-pair table: q_* upper bounds 4,4,4,4,5,5, x caps 144,145,146,147,149,150, and overlap caps 9,9,10,11,12,12 for W=0,2,4,6,8,10; E_v<=10<18 gives the selected root a degree-18 neighbor; the companion need not be a maximizing root and only the universal W-row bounds apply to it.",
+      "sha256_computed": "2b357ef5a53588c4e6879078210de4deae564ea22611fc4ffd81c21ecaa572e3"
+    },
+    {
+      "id": "P-max-root-transfer",
+      "source": "n43/d18/cliques_augmentation.md, section 3",
+      "sha256_recorded": "4cb5c4bd34d7d45a3c42783fdf091ac3aae0acafcc6f6fd6203f83cf9d366b2c",
+      "sha256_computed": "4cb5c4bd34d7d45a3c42783fdf091ac3aae0acafcc6f6fd6203f83cf9d366b2c",
+      "verified": "match. Section 3 says choosing a maximum-edge degree-18 root is safe for existence coverage, that the choice cannot be silently imposed on an arbitrary fixed root, and gives the unchanged interface transfer inequalities."
+    },
+    {
+      "id": "L-cw0",
+      "source": "n43/d18/c/w0/research.json (claims ready, failed_exclusion_routes)",
+      "sha256_recorded": "88c31770ed2011a82248902ad14f7572bfaaf4b08202fa58c97ed3b89c5661a1",
+      "sha256_computed": "88c31770ed2011a82248902ad14f7572bfaaf4b08202fa58c97ed3b89c5661a1",
+      "verified": "match. Its claims are review_state ready, not accepted, so the ledger correctly labels it an unaccepted comparison target and not a logical premise. Its failed route records verbatim that zero excess fixes x=136+2q, not q, and that no implication deleting q>1 slices from connectedness was proved; the q=1 signature theorem exists (claim-cw0-q1-core) and the reviewed file does not import it."
+    }
+  ],
+  "checks": {
+    "assumptions": "Pure scope (K4-free, I5-free, order 18, alpha=4 via R(4,4)=18) and ambient scope (actual order-43 candidate, v of degree 18, A=N(v), B=M(v)) are kept apart throughout the file; kappa is defined as the minimum disconnecting set with kappa=0 for disconnected A, and A cannot be complete (K4-free on 18 vertices), so kappa is always attained by a separator. Every claim that needs connectedness or a root class states it in its own scope field.",
+    "quantifiers": "Claim 5 separates three quantifier classes exactly as the sources demand: universal (every degree-18 root, from q<=4+W/2), selected (only the maximum-edge root of pairwise-04), and companion (existence guaranteed for every root at W<=10; connectivity derived only from the universal bound). Claim 4's averaging conclusion is an existence statement over the m_0 class and is labeled so. Column claims quantify over genuine columns C_y with y in B, not arbitrary subsets.",
+    "ambient_types": "The reuse of ambient-scoped claim-connectivity-02 inside a pure-scoped claim (claim 2) was checked proof-internally: its inputs are alpha=4 (heredity plus R(4,4)), the (1,3) profile partition, and census maxima, all pure facts, so a<=68 transfers. The c/w0 material is comparison only. interior_transfer.json is explicitly not a premise. The string parameter_landscape appears nowhere in the file, so the unaccepted parameter-landscape note is not a dependency.",
+    "algebra": "Independently replayed: all nine separator caps (t=1: 69,66,63; t=2: 74,72,69; t=3: 80,79,76), the two balanced caps 61 and 70, the disconnected maximum 68, the threshold translations 70/75/81 <-> q<=15/10/4, the example profile (2a=140, old filter min(13,floor(132/10))=13, new filter min(13,floor(124/10))=12, E=8, x=174, r<=15 for excess-zero rows), the codegree decomposition 1+h+|R_u intersect R_w| and its rearrangement to max(0,max(eps)-h) <= |R_u intersect R_w| <= 7+eps_u+eps_w-h, and the selected x caps as 136+q_*+(W/2+4) = 144,145,146,147,149,150.",
+    "case_coverage": "Partition enumeration is complete: every profile of a disconnected A-S with total independence at most four is among (1,3),(2,2),(1,1,2),(1,1,1,1), and every profile with total at most three is among (1,1),(1,2),(1,1,1); order ceilings 6/11/9/14/12/16 vs 18-t>=15 leave exactly the two surviving profiles. The (2,2) order pairs at t=1,2,3 are exhaustive (each component <=8). k(q) covers all integer q>=0 with no gaps. The sums over excess i=1..6 cover all positive excess because epsilon<=6. Ramsey readings used: R(4,3)=R(3,4)=9 for K4-or-I3 forcing and R(3,3)=6, the same convention as the already accepted claim-connectivity-01.",
+    "dependency_applicability": "All seven ledger SHA-256 values recomputed and matched. Section-level citations read in full: reductions.md 4.3-5.2, pivot_classes.md 1-3, pairwise_pivot_refinements.md claim-04 including its table, cliques_augmentation.md 3, neighborhood_connectivity.md claims 01-03, c/w0 research.json claims and failed routes, README lines 22-44 plus reference [2]. Two citation defects found, recorded as F1 and F2.",
+    "witness_handling": "Both isolated constructions were verified at proof level: the order-16/17 connectivity argument for (4,4)-free H (profiles of total alpha<=3 have order at most 11), the K4/I5/leaf/cut-vertex/singleton-transversal arguments, and the census edge counts 60 and 68 (equal min and max in the cited table rows, so from any order-16 or order-17 (4,4)-free graph the stated edge totals hold). No graph search, enumeration, solver, or download was performed; no suite, formatter, or linter was run; only sha256sum, one git status, and file reads were used.",
+    "search_use": "The note keeps search_use at none pending independent review on every claim, and no search-derived input enters any proof. This review does not enable the proposed propagate use; that gate belongs to Main."
+  },
+  "claim_outcomes": [
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-separator-profiles",
+      "outcome": "accepted",
+      "independent_reasoning": [
+        "Independence bookkeeping: alpha(A-S)<=alpha(A)=4 by heredity from I5-freeness, with alpha(A)=4 from R(4,4)=18 on the K4-free order-18 graph; alpha is additive over components of A-S.",
+        "Component ceilings: alpha=1 forces a clique of order at most 3 (K4-free); alpha=2 forbids both I3 and K4, so order at most 8 by R(4,3)=R(3,4)=9, the same convention the accepted claim-connectivity-01 uses when it reads R(3,4)=9 as forcing K4 or I3. An alpha-3 component is K4/I4-free but otherwise unrestricted in order.",
+        "Total at most three is impossible: profiles (1,1),(1,2),(1,1,1) have orders at most 6,11,9, all below 18-t>=15. With total at most four, (1,1,2) caps at 14 and (1,1,1,1) at 12, both below 15, so alpha(A-S)=4 exactly and only (1,3) and (2,2) survive, each with exactly two components (the partition list into at least two parts is complete).",
+        "(2,2) arithmetic: both components are at most 8, so t=1 (order 17) is impossible, t=2 forces 8+8 (sum 16, each capped at 8), t=3 forces 7+8 in either order (sum 15).",
+        "Attachment bound (1,3): for z in S, N_C(z) has no triangle (triangle plus z is K4 in A) and no I4 (alpha(C)=3), so at most 8 vertices by R(3,4)=9; neighbors of z inside K_m are at most min(m,2) (three clique neighbors plus z would be K4). Edge classes of A are disjoint: clique internal C(m,2), C internal bounded by U(18-t-m), S-C attachments at most 8t, S-K_m attachments at most t*min(m,2), S internal at most C(t,2); K_m and C share no edges because they are distinct components of A-S. Replayed all nine substitutions against the census rows U(12)=40, U(13)=45, U(14)=50, U(15)=55, U(16)=60, U(17)=68: 69,66,63 / 74,72,69 / 80,79,76 all match.",
+        "(2,2) ceilings: a component vertex's neighborhood inside its own component is triangle-free (else K4) and I3-free (component alpha=2), hence at most 5 by R(3,3)=6, giving e<=floor(5n/2): 20 at n=8, 17 at n=7; each S vertex has at most 5 neighbors per component, 10 total; e(S)<=C(t,2). Totals 20+20+20+1=61 and 17+20+30+3=70 match, and the claim correctly labels them elementary, not sharp.",
+        "Case coverage and quantifiers are complete and correctly scoped to pure A with t in 1,2,3 and no q,E,x restriction; the proof does not reuse the order-18 disconnected classification for order-17/16/15 components, as the ledger promises."
+      ]
+    },
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-density-connectivity",
+      "outcome": "accepted",
+      "independent_reasoning": [
+        "Dependency applicability first: claim-connectivity-02 is stated for ambient G[A], and this claim's scope is pure. Its proof consumes only alpha=4 (heredity plus R(4,4)), the (1,3) profile partition, and the census maxima U(15)=55, U(16)=60, U(17)=68, all pure-graph facts, so a<=68 for disconnected pure A follows; equivalently it is claim 1's method run at t=0. The cited dependency applies without importing any ambient hypothesis.",
+        "Threshold direction: separator caps are one-directional (separator of size s exists implies a<=cap_s), and the proof uses the contrapositive correctly. Maxima by cut order: 68 (disconnected), 69 (t=1; the (2,2) branch is impossible there), 74 (t=2; max of 74,72,69,61), 80 (t=3; max of 80,79,76,70). Thus a>=70 excludes all cuts of order at most 1 (kappa>=2), a>=75 excludes order at most 2 (kappa>=3), a>=81 excludes order at most 3 (kappa>=4). Translations a=85-q give q<=15, q<=10, q<=4 exactly.",
+        "k(q) is total on integer q>=0 with bands (<=4, 5..10, 11..15, >=16); each of the first three bands maps to an established threshold, and the last band uses only kappa>=1 from explicitly assumed connectedness. The scope flags the connected hypothesis where it is needed.",
+        "Minimum-degree step: if d_A(u)=s<k(q)<=4, deleting N_A(u) leaves u isolated together with 18-1-s>=14 other vertices, a separator of size s<k(q), contradicting kappa>=k(q); at k(q)=1 connectedness alone forbids s=0. The claim does not assert sharpness, and the leaf witnesses at a=69,62 (q=16,23) are consistent because they sit in the k(q)=1 band."
+      ]
+    },
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-separator-columns",
+      "outcome": "accepted",
+      "independent_reasoning": [
+        "(1,3) profile: fix u in K_m omitted by the actual column C_y and an independent triple T in C disjoint from C_y. The five vertices {u} union T union {y} are mutually nonadjacent: u is anticomplete to C because they lie in different components of A-S, y misses u and T by choice, T is independent. That is an I5 in G, forbidden. Hence C minus C_y contains no independent triple and is K4-free, so has order at most 8 by R(4,3)=9, giving |C_y intersect C| >= 18-t-m-8 = 10-t-m. Scalars 10-t-m give (8,7,6), (7,6,5), (6,5,4), all matching. The proof correctly needs neither I4-freeness of A nor any incidence on S, and the conclusion is stated as a dichotomy: K_m subset C_y, or the floor.",
+        "(2,2) profile: if both X minus C_y and Y minus C_y contained independent pairs, those four vertices form an I4 in A (no edges between distinct components of A-S) missed by the column, so {I4, y} is I5 in G, forbidden. Therefore one remainder is I3-free, hence a clique, hence of size at most 3 by K4-freeness (empty set included), giving |C_y intersect X|>=|X|-3 or |C_y intersect Y|>=|Y|-3. Component orders 8,8 yield a column of size at least 5; orders 7,8 yield at least 4.",
+        "The scalar floors are correctly scoped to the (2,2) bullet: a (1,3) column that contains a clique vertex need not reach 5, and the claim does not say so. All conclusions are necessary conditions on genuine columns of actual candidates, not existence assertions."
+      ]
+    },
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-row-root-transfer",
+      "outcome": "accepted",
+      "independent_reasoning": [
+        "Row floors combine correctly for the stated connected-A scope: d_A>=k(q) from the accepted connectivity thresholds, d_A>=L=max(0,6-q) from the E(4,5,17)=79 deletion floor, d_A>=epsilon_u from the mixed-cell floor, giving d_A>=max(F,epsilon_u). With the independent cap r_u<=17 (reductions 5.2) and the exact identity r_u=17+epsilon_u-d_A(u), both r_u<=17 and r_u<=17+epsilon_u-F hold, i.e. r_u<=min(17,17+epsilon_u-F). For excess-zero rows r_u<=17-F; if only connectedness is invoked (min degree 1) while L=0, then F>=1 and r_u<=16, exactly the stated improvement over the old 17.",
+        "Pointed average: 2a=170-2q. Every excess-i neighbor (i=1..6, the full positive-excess range since 0<=epsilon<=6 in pivot section 1) has internal degree at least max(F,i) because both floors apply to it. The t=m_0 remaining internal degrees therefore sum to at most 170-2q-sum_{i}m_i*max(F,i), so one of them is at most the floor of that average. Membership in m_0 fixes global degree 18, and N(v)=A exactly, so for that neighbor lambda_vu=|N(v) intersect N(u)|=d_A(u). The cap 13 is the recorded edge-codegree cap of reductions 4.3 (the (3,5) cell), and the same averaged vertex satisfies lambda_vu>=F from its own floor, so the two-sided statement about one vertex carries no conjunction problem.",
+        "Example profile replay: q=15, m_0=10, m_1=8, all other m_i=0 gives 2a=140, E=8, x=136+30+8=174. Old floors contribute 8*max(0,-9,1)=8, so min(13,floor(132/10))=13; new floors contribute 8*max(2,1)=16, so min(13,floor(124/10))=12; F=2 gives excess-zero rows r_u<=15. All four numbers match the claim, and feasibility is explicitly disclaimed.",
+        "Separator-profile inequalities: a K_m vertex has A-neighbors only in (K_m-u) union S, so d_A(u)=m-1+|N_A(u) intersect S| <= m-1+|S|, and epsilon_u<=d_A(u) follows from r_u<=17 via the identity. For u in K_m and w in C (nonadjacent, different components of A-S): their common A-neighbors lie exactly in S, counted by h; the vertex set partitions as {v} union A union B; v is a common neighbor. So global codegree is exactly 1+h+|R_u intersect R_w|. The nonedge band [1+max(epsilon_u,epsilon_w), 8+epsilon_u+epsilon_w] from reductions 4.3 rearranges to both asserted inequalities, with the lower one clamped at 0.",
+        "Dependency hygiene: the claim cites P-pivot sections 1,2 for the excess range and floors and P-interface for the codegree bands and row cap; the concurrent interior_transfer.json is explicitly not used as a premise, as its concrete_prior_improvement states."
+      ]
+    },
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-selected-root-transfer",
+      "outcome": "accepted",
+      "independent_reasoning": [
+        "Universal-root conclusions: pivot section 3 gives q<=4+W/2 for EVERY degree-18 root (from q+E<=W/2+4 and E>=0), with no selection involved. W=0 gives q<=4, a>=81, kappa>=4; W<=10 gives q<=9, a>=76>=75, kappa>=3. Because the bound is universal it legitimately applies to both endpoints of any guaranteed adjacent pair, including companions of arbitrarily chosen roots.",
+        "Selected-root conclusions: pairwise-04's table, read in full, gives q_*<=4 at the maximum-edge root for W=0,2,4,6 and q_*<=5 for W=8,10, with the verbatim statement that the SAME selected root satisfies the bound and pointed-pair table. q<=4 gives a>=81 and kappa>=4; q<=5 gives a>=80, which supports only kappa>=3, and the claim correctly stops there. The scope restricts this bullet to explicitly selected roots, respecting cliques_augmentation section 3 (safe for existence coverage, not imposable on an arbitrary fixed root).",
+        "Companion conclusions: existence is guaranteed at W<=10 by pivot section 3 (each root has a degree-18 neighbor, E_v<=W<18) and by pairwise-04 (E_v<=10<18) for the selected root. The companion's connectivity uses only the universal q bound; the proof states explicitly that the companion's q need not equal the selected root's and that no independently chosen family pair is identified with this pair. I checked for an unsupported conjunction: every property attributed to one pair is either universal (connectivity of both endpoints) or taken from pairwise-04's own pointed pair (overlap caps), so none is cross-attributed.",
+        "W-table cross-check: pivot section 3's W-table (neighborhood edges 81..85, 80..85, 79..85, 78..85, 77..85, 76..85; overlap column 9,9,10,11,12,12) and pairwise-04's table (q_* 4,4,4,4,5,5; x_* 144,145,146,147,149,150; overlap 9,9,10,11,12,12) both reproduce the numbers the claim calls unchanged. The x caps independently re-derive as 136+q_*+(W/2+4) from q+E<=W/2+4 and x=136+2q+E: 144,145,146,147,149,150. No new caps and no strengthening are claimed, consistent with the wording."
+      ]
+    },
+    {
+      "claim_id": "n43/d18/connected_structure_transfer.json#claim-connected-shortcut-obstructions",
+      "outcome": "changes-requested",
+      "reason_for_changes_requested": "Dependency metadata defect only (finding F2): conclusions 2 and 4 rely on this file's claim-connected-density-connectivity, but the dependencies array lists only P-ramsey, P-interface, P-pivot. Repair: add claim-connected-density-connectivity to the dependencies array. The mathematical content of all four conclusions was independently verified and is correct.",
+      "independent_reasoning": [
+        "Witness 1 (62 edges): an order-16 (4,4)-free H has alpha<=3 and is connected, because a disconnected H would have components under profiles with total alpha<=3, orders at most 6, 11, or 9, all below 16. The census rows (4,4,16): 60 min and 60 max mean EVERY such H has exactly 60 edges, so from any order-16 (4,4) graph attaching c-z-u with edges cz and zu yields exactly 62 edges. Any K4 would lie in H (new vertices have degrees 2 and 1); an independent set uses at most one of z,u (they are adjacent) so alpha<=1+alpha(H)<=4; the graph is connected and u is a leaf. Hence connected (4,5,18) implies neither d_A>=2 nor e>=69.",
+        "Witness 2 (69 edges): order-17 (4,4)-free H has exactly 68 edges (rows 68,68) and is connected by the same partition argument. Attach a leaf u to a fixed z: 69 edges, K4-free, alpha<=4. Deleting z isolates u while H-z retains 16 vertices, so z is a cut vertex: a connected (4,5,18) graph at a=69 with kappa=1, proving the threshold a>=70 cannot be lowered under the pure hypotheses. Every I4 contains u because H is I4-free; such an I4 exists because H-z on 16 vertices is K4-free and R(4,3)=9 supplies an I3, which extends by u (u's only neighbor is z, removed). So {u} is a genuine singleton transversal, tau=1: no column-size at least two conclusion can flow from connectedness through transversal size. The claim correctly frames this as a failure of that reasoning route rather than an ambient impossibility.",
+        "Ambient separation: the scope witness_limit and the conclusions both deny candidate or certified-neighborhood status. For a hypothetical leaf in an actual A, the identity r_u=16+epsilon_u together with r_u<=17 forces epsilon_u in {0,1}; the edge-codegree floor max(d(v),d(u))-18 equals epsilon_u and is satisfied at lambda_vu=1, so the floor alone indeed does not eliminate the leaf. The E=0 arithmetic x=136+2q (not q=0) matches c/w0's recorded failed route verbatim, as does the refusal to delete q>1 slices by connectedness; the q=1 theorem and the x136 closure are not imported. Because the witnesses sit at a=69 (q=16) and a=62 (q=23), the claim correctly bars using them to assert ambient realizability of those slices, and bars promoting the q=1 theorem to all connected A.",
+        "Defect recorded as F2: the kappa thresholds restated in conclusion 4 and the a>=70 threshold invoked in conclusion 2 are this file's claim-connected-density-connectivity; the proof itself says the separator conclusions continue to apply, but the dependencies field omits the claim link that sibling claims 2-5 all carry. Under the workflow dependency gates an unlisted edge would not propagate into pending review if the threshold claim changed, so the metadata must be repaired before acceptance."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "title": "P-interface premise cites sections that do not contain the degree range",
+      "body": "The premise ledger entry P-interface (line 35) cites n43/reductions.md sections 4.3, 4.4, 5.1, 5.2, but its used list (line 37) leads with Global degree range 18..24, which reductions.md states only in section 4.1 (18 <= d_G(v) <= 24). Sections 4.3-5.2 contain the codegree bands, cell caps, rectangle criterion, and row bounds but no degree-range statement; a file-wide search places 18..24 only at lines 120 (branching tree), 147 (branching tree), and 175 (section 4.1). No claim reasoning is affected: the only claim needing the positive-excess range, claim-connected-row-root-transfer's sum over i=1..6, sources it correctly from P-pivot section 1 (0<=epsilon_z<=6). The citation still violates the workflow requirement of precise section citations and would dead-end a future auditor following the ledger.",
+      "repair": "Change the source field of P-interface to: n43/reductions.md, sections 4.1, 4.3, 4.4, 5.1, 5.2 (alternatively drop the degree-range bullet from used and attribute it to P-pivot section 1).",
+      "priority": 3,
+      "confidence": 0.92,
+      "file_path": "n43/d18/connected_structure_transfer.json",
+      "line_start": 35,
+      "line_end": 37
+    },
+    {
+      "id": "F2",
+      "title": "Claim 6 omits its dependency on claim-connected-density-connectivity",
+      "body": "Conclusion 2 of claim-connected-shortcut-obstructions asserts that the threshold a>=70 for two-connectivity cannot be lowered to 69, which presupposes the a>=70 threshold established by this file's claim-connected-density-connectivity, and conclusion 4 restates that claim's kappa thresholds (>=4 at q<=4, >=3 at q<=10, >=2 at q<=15) for the E=0 branch; the proof text itself chains to the separator conclusions. The dependencies array (line 170) lists only P-ramsey, P-interface, P-pivot, while sibling claims in the same file all list their intra-file claim links (claims 2, 3, 4, 5 each do). Impact: under the workflow gate that a changed or withdrawn dependency puts affected dependents into pending review, a future revision of claim-connected-density-connectivity would not flag this claim. The mathematics of all four conclusions verified correct; only the metadata entry is wrong.",
+      "repair": "\"dependencies\": [\"P-ramsey, existence of order-16 and order-17 (4,4) graphs\", \"P-interface\", \"P-pivot\", \"claim-connected-density-connectivity\"],",
+      "priority": 3,
+      "confidence": 0.88,
+      "file_path": "n43/d18/connected_structure_transfer.json",
+      "line_start": 170,
+      "line_end": 170
+    }
+  ],
+  "outcome": "changes-requested for claim-connected-shortcut-obstructions until F2 lands (mathematics verified correct; repair is the dependency entry). Accepted: claim-connected-separator-profiles, claim-connected-density-connectivity, claim-connected-separator-columns, claim-connected-row-root-transfer, claim-connected-selected-root-transfer. Note-level: F1 requires the one-line premise-ledger citation repair; F1 and F2 can land in a single edit, after which a renewed review of the updated hash is required before any propagate use is enabled.",
+  "limits": [
+    "Census extrema, Ramsey values, and E(4,5,17)=79 are retained as recorded premises and were not recertified, matching the author's stated limits.",
+    "No novelty or literature check was performed.",
+    "No ambient realizability, candidate existence, branch closure, or exhaustive certificate is asserted or checked; the two witnesses were verified as pure-graph constructions only, at proof level, without graph search.",
+    "Separator caps are upper bounds only; none is asserted sharp beyond what the claim states.",
+    "This review did not and may not edit the proof file, its review_state, its reviews array, WORK.md, or any shared index; integration and any propagation gate belong to Main.",
+    "The proposed search_use of propagate remains unapproved until F1 and F2 are corrected and this review is re-recorded against the corrected hash."
+  ],
+  "renewed_review_addendum": {
+    "kind": "renewed-hash acceptance addendum after narrow metadata repairs; original review above preserved verbatim",
+    "date": "2026-10-19",
+    "requested_by": "Main (coordinator), after applying the exact repairs of findings F1 and F2; narrow confirmation only, no broader re-review",
+    "renewed_revision": {
+      "file": "n43/d18/connected_structure_transfer.json",
+      "previous_sha256": "9add460588de61d7da153196414664090c69d9527c29f9d9e99b31eb5218634d",
+      "renewed_sha256": "4e9c8c1b1f074b5cb2eaca560d4cbd6832da6cd1d924e703351f750de3a31be9",
+      "git_state": "untracked in the shared worktree; the SHA-256 of the exact file is the revision"
+    },
+    "narrow_checks_performed": [
+      "Line 35 now reads: source n43/reductions.md, sections 4.1, 4.3, 4.4, 5.1, 5.2 - the exact F1 repair. Section 4.1 was verified in the original review as the sole location of 18<=d_G(v)<=24 in reductions.md, and sections 4.3, 4.4, 5.1, 5.2 were already verified for every other bullet of that premise entry.",
+      "Line 170 now lists claim-connected-density-connectivity in the dependencies array of claim-connected-shortcut-obstructions - the exact F2 repair, matching the intra-file claim-link convention used by sibling claims 2 through 5.",
+      "Narrowness proven rather than assumed: reverse-applying exactly these two edits to the renewed file reproduces SHA-256 9add460588de61d7da153196414664090c69d9527c29f9d9e99b31eb5218634d, the originally reviewed hash, and the line count remains 208. Therefore every proof body, conclusion, scope field, premise hash, and all other content are byte-identical to the originally reviewed revision, and no broader re-review was needed or performed."
+    ],
+    "findings_status": [
+      {
+        "id": "F1",
+        "previous_status": "open, priority 3",
+        "status": "corrected",
+        "verification": "The P-interface source field now cites section 4.1 alongside the already-verified sections; the used bullet and the reductions.md premise hash are unchanged (reverse-patch identity proof)."
+      },
+      {
+        "id": "F2",
+        "previous_status": "open, priority 3",
+        "status": "corrected",
+        "verification": "Claim 6 dependencies now include claim-connected-density-connectivity, the exact prescribed repair; scope, conclusions and proof text are unchanged (reverse-patch identity proof)."
+      }
+    ],
+    "original_review_preserved": "The per-claim outcomes, findings, checks and limits recorded above describe the review of SHA 9add460588de61d7da153196414664090c69d9527c29f9d9e99b31eb5218634d and are retained unmodified, per the workflow rule to preserve the old review and record the replacement rather than silently changing its outcome.",
+    "renewed_outcome": "accepted. All six claims are accepted against renewed SHA-256 4e9c8c1b1f074b5cb2eaca560d4cbd6832da6cd1d924e703351f750de3a31be9: claim-connected-separator-profiles, claim-connected-density-connectivity, claim-connected-separator-columns, claim-connected-row-root-transfer, claim-connected-selected-root-transfer, and claim-connected-shortcut-obstructions. The last claim's acceptance supersedes its original changes-requested outcome, which is preserved above and was closed solely by the F2 metadata repair; its mathematics was already verified correct in the original review. F1 and F2 are recorded as corrected with the exact prescribed repairs.",
+    "supersedes": "Only the original outcome field as to claim-connected-shortcut-obstructions and the open status of findings F1 and F2; all independent reasoning, checks and limits otherwise stand unchanged.",
+    "limits_carried": [
+      "All limits of the original review carry over unchanged: census and Ramsey premises and E(4,5,17)=79 retained, not recertified; no novelty check; no ambient realizability asserted or checked; separator caps not asserted sharp; no graph search, suites, formatters or linters run; proof metadata (review_state, reviews) and shared indexes remain Main's to integrate.",
+      "This addendum confirms only the two narrow repairs together with the reverse-patch identity proof; it does not re-open any accepted claim's mathematics."
+    ]
+  }
+}

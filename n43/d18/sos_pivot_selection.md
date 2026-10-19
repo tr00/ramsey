@@ -61,7 +61,7 @@ Claim ID: `n43/d18/sos_pivot_selection.md#claim-sos-pivot-degree-square`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every K5-free simple graph H on h>0 vertices with e edges
 
@@ -105,7 +105,7 @@ sum_z(d_H(z)-2e/h)^2<=V. The left side is nonnegative, establishing V>=0.
 
 Search use: propagate on actual H statistics after independent review
 
-Reviews: none
+Reviews: [review](review_sos_pivot_selection_20261015_finite.md)
 
 <a id="claim-sos-pivot-covariance"></a>
 ## 2. A rational SOS covariance certificate for the excess cut
@@ -114,7 +114,7 @@ Claim ID: `n43/d18/sos_pivot_selection.md#claim-sos-pivot-covariance`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the setting above with h>0; every positive rational t
 
@@ -149,7 +149,7 @@ It is not a full Boolean SOS refutation or a claim about its hierarchy degree.
 
 Search use: propagate, then branch through Claim03, after independent review
 
-Reviews: none
+Reviews: [review](review_sos_pivot_selection_20261015_finite.md)
 
 <a id="claim-sos-pivot-family"></a>
 ## 3. Dense-root families and safe selected roots from any J certificate
@@ -158,7 +158,7 @@ Claim ID: `n43/d18/sos_pivot_selection.md#claim-sos-pivot-family`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the setting, any proved rational lower bound J_lo<=J,
 any integer Q>=0 with 0<=D0=B0-Q-1<U0=min(W,B0)
@@ -221,7 +221,7 @@ Search use: propagate | branch after independent review; safe selection
 must be used explicitly, and a two-root branch must retain all maps and
 completions permitted by the guaranteed profiles
 
-Reviews: none
+Reviews: [review](review_sos_pivot_selection_20261015_finite.md)
 
 <a id="claim-sos-pivot-twelve"></a>
 ## 4. Twelve degree-18 roots suffice for the same-family overlap bound
@@ -230,7 +230,7 @@ Claim ID: `n43/d18/sos_pivot_selection.md#claim-sos-pivot-twelve`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every subset F of P with |F|>=12, with no restrictions on W, h,
 q, x, or how the family is chosen
@@ -321,7 +321,7 @@ Search use: branch | propagate after independent review. This is an
 overlapping unavoidable family theorem. Excluding one representation or
 one overlap map is insufficient to exclude the global family.
 
-Reviews: none
+Reviews: [review](review_sos_pivot_selection_20261015_finite.md)
 
 ## Limits and author audit
 

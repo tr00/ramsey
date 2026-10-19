@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-19",
+  "reviewer": "Main",
+  "author": "DeletionTransfer",
+  "claim_note": "n43/d18/deletion_degree_transfer.json",
+  "reviewed_sha256": "ca4ae4c633b92a419c07d7d288691e36e6b1ac07f79bdfebce89add523549206",
+  "previous_revision": {
+    "sha256": "75144d9c5f61702b96d27d3b3d0d756a48c184f23247a01708357f7aa5fdd319",
+    "outcome": "changes-requested",
+    "finding": "Effective cutoff t lacked an explicit integer quantifier, necessary for the claimed w>=t+1 conclusion. Author repaired the scope to require integer t; Main reread the repaired scope. No proof modification was required."
+  },
+  "dependencies_reviewed": [
+    "Recorded README (4,4) edge extrema at orders11..17 and (4,5) order17 interval41..79; retained as trusted external premises, not recertified.",
+    "docs/general_theorems/transversal_deletion.md general deletion bound and defect identity; checked direction in the target's rederivation.",
+    "n43/d18/x142/q3/three_columns.md core and excess14 proofs; checked the target's self-contained reproduction, not treated as an extension to other q.",
+    "No dependency on unaccepted parameter_landscape. The optional sharper L(q) transfer is explicitly conditional and not required for the five core claims."
+  ],
+  "checks": [
+    "Ambient types: A may contain I4; only A-T is I4-free because T is an I4-transversal. In F=bar A, alpha(F)<=3, hence a deleted vertex has at most8 nonneighbors in the remaining K4-free core. This uses R(4,3)=9 in the correct orientation.",
+    "Thresholds independently recomputed: deleting1/2/3 gives 68+9=77,60+16=76,50+21=71. Strict integer inequalities give q<=8/7/2 exclusions respectively. Empty transversal is excluded by R(4,4)=18 for K4-free A. The new gain is specifically q4..7 for exclusion of size<=2; order15 and17 cutoffs are not falsely advertised as improved.",
+    "Member-degree floor independently derived by deleting t from T: e(A-t)<=U(18-s)+min(8,18-s)(s-1)+floor((s-1)^2/3). Upper bound uses K4-free Turan only on T-t. For s1/2/3 constants17/17/13 result. At s4, the triangle case has empty triple attachment intersection, pair intersections independent and at most3; cut<=23 and e(A-t)<=76, giving constant9. Caps8/9/10/11 follow from attachment<=8 and the other s-1 members.",
+    "Defect arithmetic rederived by a disjoint edge partition in F. Complement endpoints at orders17/16/15 are68/60/55. Singleton and two-set cores have no edge slack at any q because each core census is a singleton interval. At16, degrees7/8 with total120 give exactly eight of each; at17 all degrees8.",
+    "Excess inequalities independently checked from E_S=sum_S d-W_S and e(A-S)=85-q-sum_S d+e(A[S]). Both are lower bounds on the same E_S, so maximum, not sum, is required and used. beta4(s) follows from complement K5-freeness, not complement K4-freeness. The upper budgets min(E_A,6s) are necessary. The all-low-set conclusion uses S equal to that set only after assuming it is a transversal; integer t repairs the concluding threshold.",
+    "q3 actual-column calculation checked separately: size3 equality gives T triangle and a55-edge core; three pair cells of size3 plus private cells2; degree sum on U at least110, actual cross incidences at least108, and 204+E_U-110>=108 gives E_U>=14. No isolated-transversal excess is inferred.",
+    "Independent in-memory exact scalar check PASS: thresholds77/76/71,144 small-member formula checks,4 conditional excess examples,3 core-complement checks. Exact source retained in reports/2026-10-19-cross-branch-synthesis.json. No graph search, solver, catalogue processing, theorem prover, downloads, build, linter or test suite."
+  ],
+  "outcomes": [
+    {"claim": "claim-deletion-transfer-thresholds", "outcome": "accepted"},
+    {"claim": "claim-deletion-transfer-member-degrees", "outcome": "accepted"},
+    {"claim": "claim-deletion-transfer-boundary-stability", "outcome": "accepted"},
+    {"claim": "claim-deletion-transfer-effective-excess", "outcome": "accepted after integer-cutoff scope repair"},
+    {"claim": "claim-deletion-transfer-q3-interface-check", "outcome": "accepted; rederivation, not a new bound"}
+  ],
+  "outcome": "accepted",
+  "permitted_use": "Necessary propagation on the exact hypotheses, including actual-column lower bounds and conditional excess budgets. Optional combination with another degree floor requires its own proof/review. No branch termination beyond the explicit impossible parameter predicates.",
+  "integration": "Review accepts subsequent changes only to review-state/search-use/review-link metadata, provided mathematical claims and proofs remain byte-preserved or their canonical metadata-stripped content remains identical. Such integration hashes must be recorded in the report.",
+  "limits": "Published census and Ramsey premises are retained, not independently certified here. No novelty claim, actual completion, full degree18 exclusion, Lean formalization, or exhaustive nonexistence certificate."
+}

@@ -51,6 +51,28 @@ contrary to e(F)<=71. This is a lower bound of three, with no assertion of
 a three-transversal's existence. Applied to complement A at q=3, it excludes
 columns smaller than three before the actual-column theorem is used.
 
+## Exact-census strengthening across all cross counts
+
+The [reviewed deletion transfer](deletion_degree_transfer.json), with its
+[independent audit](review_deletion_degree_transfer_20261019.json), replaces
+the elementary order-16 lower bound 56 above by the published minimum 60.
+Thus a transversal of size at most two forces e(F)>=60+16=76, proving
+tau_4(F)>=3 whenever q<=7, not only q<=3. This holds for isolated A and
+every actual column, uniformly in E_A and x. The census-free proof above
+retains its original hypotheses and provenance.
+
+Together with the one- and three-deletion arguments, every actual column has
+size at least four for q<=2, at least three for q=3..7, and at least two
+for q=8. For q>=9 these arguments give only the nonempty-column bound.
+The separate q=3,E_A<=13 actual-interface theorem still gives size at least
+four; its E_A threshold is not extended by the census substitution.
+
+Members of size-one, two, three, and four I4-transversals have interior
+degree at least max(0,17-q), max(0,17-q), max(0,13-q), and max(0,9-q),
+respectively. The same note derives exact boundary cores and conditional
+column-excess budgets. These are necessary restrictions, not existence or
+branch-closure assertions.
+
 ## New independently reviewed claims
 
 - [Four-column stability](four_column_stability.md): finite exceptional-column

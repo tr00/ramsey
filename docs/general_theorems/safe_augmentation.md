@@ -42,7 +42,7 @@ uncertified conjectural upper bound, cannot replace `M`.
 
 Claim ID: `docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-01`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: all `n,r,s,G` in the setting; every missing edge `uv` and every
 subset `F` of missing edges. Dependencies: definitions above only.
@@ -60,14 +60,14 @@ absence of `I_s`, so any violation after exceeding the budget is a `K_r`.
 For `q=0`, a safe edge would violate the budget. The same argument uses
 `e(G)+|F|<=M<=U` for the upper-bound version.
 
-Search use: propagate. Reviews: none.
+Search use: propagate. Reviews: [review](review_safe_augmentation_20261015_transversal.md).
 
 <a id="claim-safe-augmentation-02"></a>
 ## 2. One below the maximum: a bounded star forest
 
 Claim ID: `docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-02`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: the setting with `e(G)=M(n;r,s)-1`; equally, an established upper
 bound `U` and `e(G)=U-1`. Dependencies: claim 01.
@@ -110,14 +110,14 @@ in `G`: choose an incident `S` edge at each vertex and apply the disjoint
 edge rule. Hence all chosen vertices form a clique in `G` of size exactly
 `e(S)`. Since `G` has no `K_r`, `e(S)<=r-1`.
 
-Search use: propagate. Reviews: none.
+Search use: propagate. Reviews: [review](review_safe_augmentation_20261015_transversal.md).
 
 <a id="claim-safe-augmentation-03"></a>
 ## 3. The precise generation split at deficit one
 
 Claim ID: `docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-03`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: `G in C(n;r,s)` with `e(G)=M-1`.
 Dependencies: claims 01 and 02.
@@ -142,14 +142,14 @@ version at `U-1`, a safe edge implies `M=U`; if `U` is not attained, every
 graph at `U-1` in the class is saturated. In particular an upper bound
 alone never supplies a catalogue of extremal parents.
 
-Search use: branch. Reviews: none.
+Search use: branch. Reviews: [review](review_safe_augmentation_20261015_transversal.md).
 
 <a id="claim-safe-augmentation-04"></a>
 ## 4. Higher deficit: the exact conflict hypergraph
 
 Claim ID: `docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-04`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: the setting with arbitrary `q>=1`, including every `r`-vertex subset
 of `V(G)`; no restriction to a selected family of clique candidates.
@@ -203,14 +203,14 @@ set. There is no assumption that initial safety alone permits all edges
 of `F` to be added together.
 
 Search use: propagate; branch when used to enumerate all independent
-sets under complete `r`-set coverage. Reviews: none.
+sets under complete `r`-set coverage. Reviews: [review](review_safe_augmentation_20261015_transversal.md).
 
 <a id="claim-safe-augmentation-05"></a>
 ## 5. Exact degree-18 specialization and its limits
 
 Claim ID: `docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-05`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: every 18-vertex `A` with neither `K4` nor `I5`, conditional on the
 published extremal upper bound `e(A)<=85`. For a degree-18 pivot in an
@@ -254,7 +254,7 @@ or the three-edge conclusion. `A` may contain `I4`; the proof prohibits
 only `I5` there. No order-43 branch is closed by these statements.
 
 Search use: propagate; branch for the saturated/augmentable split only
-when both alternatives are retained. Reviews: none.
+when both alternatives are retained. Reviews: [review](review_safe_augmentation_20261015_transversal.md).
 
 ## Provenance, self-check, and handoff
 

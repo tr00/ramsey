@@ -75,12 +75,12 @@ new t=0 or t=1 upper bounds.
 
 Claim ID: `n43/d18/tail_zero_one.md#claim-zero-one-omission-budget`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: the ambient setting, t in {0,1}, every z in Z  
 Dependencies: reviewed high-root omission independence and adjacent-row intersection bound  
 Conclusion: inequalities (1)--(3) below  
 Search use: none pending review; proposed propagate  
-Reviews: none
+Reviews: [independent audit](review_tail_zero_one_20261018_audit.md)
 
 If a,b are adjacent A vertices, their common B-neighborhood is K3/I4-free,
 hence has order at most eight. Taking complements inside the actual B gives
@@ -121,12 +121,12 @@ omission intersections. Finally d_A(z)=2+delta_z+epsilon_z<=8+delta_z.
 
 Claim ID: `n43/d18/tail_zero_one.md#claim-zero-seventeen-bound`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: the ambient setting with t=0  
 Dependencies: preceding claim; reviewed s<=9 and row-count identity  
 Conclusion: s=9 implies D>=9 and x<=270; otherwise x<=278  
 Search use: none pending review; proposed propagate and terminate t=0,x>=279  
-Reviews: none
+Reviews: [independent audit](review_tail_zero_one_20261018_audit.md)
 
 The reviewed count gives s<=9. If s=9, Q=0, so every B vertex is a triple
 column. Suppose a z in Z had delta_z=0. Equations (2)--(3) would give
@@ -148,12 +148,12 @@ profile, not an existence assertion. No bound below 278 is proved for it.
 
 Claim ID: `n43/d18/tail_zero_one.md#claim-one-seventeen-eight-sixteen`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: the ambient setting with t=1,s=8  
 Dependencies: Claim 1; reviewed common-eight classification; row-count identity  
 Conclusion: D>=9 and x<=271; hence x=279,t=1 requires s=7,D=0  
 Search use: none pending review; proposed propagate and terminate t=1,s=8,x>=272  
-Reviews: none
+Reviews: [independent audit](review_tail_zero_one_20261018_audit.md)
 
 Here |Z|=9 and Q=1. Since d_U(z)<=1, (2)--(3) give, for every z in Z,
 
@@ -196,12 +196,12 @@ rows. The next section gives restrictions on this residual, not an exclusion.
 
 Claim ID: `n43/d18/tail_zero_one.md#claim-one-seventeen-residual-attachments`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: t=1,s=7,D=0, x=279, with unique size-17 root u  
 Dependencies: preceding coverage; R(4,3)=9; reviewed 17-core regularity and extension domain; global degree cap; b>=144 only for (10)  
 Conclusion: constraints (6)--(10) and the h=1 specialization below  
 Search use: none pending review; proposed propagate, not terminate  
-Reviews: none
+Reviews: [independent audit](review_tail_zero_one_20261018_audit.md)
 
 Write H=R_u, W=B-H, so |H|=17, |W|=7, and B[H] is 8-regular. The ten
 members of Z all have row size 15. Set

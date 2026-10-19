@@ -1,0 +1,162 @@
+{
+  "title": "Connected degree-18 zero-neighborhood-excess exclusion attempt",
+  "date": "2026-10-19",
+  "task_token": "research-d18cw0-20261019",
+  "author": "Main, working alone at the user's request",
+  "task_kind": "research",
+  "result": "Not excluded. Necessary reductions and an exact first-surviving-slice core theorem, not a nonexistence proof.",
+  "review_state": "ready",
+  "reviews": [],
+  "search_use": "none pending independent review",
+  "novelty": "No novelty claim or external literature review. Existing literature premises are retained as recorded in the cited repository sources.",
+  "scope": {
+    "G": "A simple order-43 graph with no K5 and no independent 5-set",
+    "v": "A degree-18 vertex",
+    "A": "N_G(v), order 18, connected and K4/I5-free. A may contain independent 4-sets and in fact must contain one by R(4,4)=18.",
+    "B": "M_G(v), order 24, K5/I4-free",
+    "zero_excess": "Every u in A has global degree 18. This is W_A=E_A=0, not the assertion that all of G is 18-regular.",
+    "notation": "a=e(A), q=85-a, x=e(A,B), b=e(B), epsilon_z=d_G(z)-18, W=sum_z epsilon_z, R_u=N_B(u), E_u=sum_{z adjacent u}epsilon_z. Here W denotes total graph excess only."
+  },
+  "premise_ledger": [
+    {
+      "source": "../../frontier_band.md#exact-budgets",
+      "used": "Nonnegative epsilon, the identity x=136+2q+E_A, 0<=q<=35, and 144<=b<=160, on the recorded degree and census premises."
+    },
+    {
+      "source": "../../pivot_classes.md#1-complete-numerical-profiles",
+      "used": "At every degree-18 root u: b_u=148+W/2-q_u-E_u and q_u+E_u<=W/2+4."
+    },
+    {
+      "source": "../../sos_finite_moments.md#claim-finite-q1-anchor",
+      "used": "Independently accepted unavoidable independent-four anchor with all internal degrees at least 8 when q=1,E_A<=29. The present use has E_A=0 and does not rely on the separately pending parameter-landscape audit."
+    },
+    {
+      "source": "../../obstruction_coverage.md#claim-coverage-root-cell-types",
+      "used": "For nonadjacent degree-18 roots, common-neighbor overlap is 1..8, the two opposite mixed cells are (4,4)-free of order 18-overlap, and the common-nonneighbor cell is (5,3)-free."
+    },
+    {
+      "source": "../../obstruction_coverage.md#claim-coverage-independent-four-signatures",
+      "used": "Existing independent-four global signature accounting and its exceptional-core alternative. The new q=1 specialization tracks which signatures lie in A versus B and uses the common root v."
+    },
+    {
+      "source": "../../x136/README.md",
+      "used": "C136 denotes the user's reported closure of the whole x=136 case. The report is accepted as supplied, with its proof still pending checkout integration. Only conclusions explicitly marked conditional on C136 use it."
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "claim-cw0-budgets-and-rerooting",
+      "kind": "local-deduction",
+      "review_state": "ready",
+      "scope": "Every rooted graph in the scope above, with no q=1 assumption",
+      "dependencies": ["frontier exact budgets", "pivot-class root budgets", "R(4,4)=18", "K5/I5 prohibitions"],
+      "conclusion": [
+        "x=136+2q is even, b=148-q+W/2, and max(0,2q-8)<=W<=2q+24. Thus W<=94 and at least 19 vertices have degree 18.",
+        "Conditional on C136, q>=1 and x is in {138,140,...,206}. Without C136, retain q=0 as well.",
+        "If W=0, then q<=4. Conditional on C136, the all-18-regular subcase still has q in {1,2,3,4}, with x in {138,140,142,144}.",
+        "For u in A, E_u=sum_{y in R_u}epsilon_y. For every independent four I in A, sum_{u in I}E_u>=W. In particular E_u=0 for all u in A if and only if W=0."
+      ],
+      "proof": [
+        "The original pivot and every A vertex have epsilon 0, so all excess lies in B. Substitute E_A=0 in the exact cross-count identity. Count total edges as 18+a+x+b=387+W/2 to get b=148-q+W/2. Substituting 144<=b<=160 gives 2q-8<=W<=2q+24. Nonnegative W and q<=35 give the stated range and W<=94. The 19 vertices {v} union A all have degree 18.",
+        "C136 deletes q=0 because E_A=0. At W=0 the lower bound 2q-8<=0 gives q<=4. These scalar facts do not assert realizability.",
+        "For u in A, its neighbors in {v} union A carry no excess, leaving exactly R_u in the formula for E_u. Every column C_y=N_A(y) meets every independent four I in A, or y together with I gives I5. Therefore sum_{u in I}E_u=sum_{y in B}epsilon_y*|C_y intersect I|>=sum_{y in B}epsilon_y=W. Such an I exists because A is K4-free of order 18 and R(4,4)=18. If all the E_u vanish then W=0, and the converse is immediate from nonnegative excess."
+      ],
+      "search_use": "none pending independent review",
+      "reviews": []
+    },
+    {
+      "claim_id": "claim-cw0-anchor-defect-transport",
+      "kind": "local-deduction",
+      "review_state": "ready",
+      "scope": "Every independent four I in A in the full zero-excess branch",
+      "dependencies": ["K5/I5 prohibitions", "global degree 18 at every member of I"],
+      "notation": "s=sum_{i in I}d_A(i), eta=32-s. For j=1..4, a_j and b_j count vertices in A-I and B respectively having exactly j neighbors in I.",
+      "conclusion": [
+        "eta>=0, a_1+b_3+2*b_4<=eta, and a_3+2*a_4=4-eta+a_1.",
+        "At eta=0 there are no singleton signatures in A-I and no triple or quadruple signatures in B. All four B singleton classes are triangles of order 3.",
+        "If I has d_A(i)=8 for all i, each I vertex occurs in exactly 6 of the B double signatures."
+      ],
+      "proof": [
+        "No vertex outside I has empty signature, by I5-freeness. A global exact singleton class is a clique: two nonadjacent members together with the other 3 roots give I5. Its size is at most 3, since 4 clique members together with its root give K5. Thus the total global singleton count a_1+b_1 is at most 12.",
+        "Each I vertex has B-degree 17-d_A(i). Consequently e(I,B)=68-s=36+eta. Counting the 24 B vertices gives b_1+b_2+b_3+b_4=24 and -b_1+b_3+2*b_4=eta-12. In particular eta=12-b_1+b_3+2*b_4>=0, since b_1<=12. Combining b_1=12-eta+b_3+2*b_4 with a_1+b_1<=12 gives the first inequality.",
+        "Counting the 14 vertices of A-I and their s incidences gives a_1+a_2+a_3+a_4=14 and -a_1+a_3+2*a_4=s-28=4-eta, proving the exact identity.",
+        "At eta=0 the nonnegative terms a_1,b_3,b_4 vanish, and b_1=12. Each B singleton class attains its global cap 3 and hence is a triangle. If all four internal degrees are 8, each corresponding B row has size 9, consisting of its 3 singleton vertices and 6 double signatures."
+      ],
+      "search_use": "none pending independent review",
+      "reviews": []
+    },
+    {
+      "claim_id": "claim-cw0-q1-core",
+      "kind": "local-deduction",
+      "review_state": "ready",
+      "scope": "The q=1, E_A=0 slice, equivalently a=84 and x=138",
+      "dependencies": ["claim-cw0-anchor-defect-transport", "reviewed claim-finite-q1-anchor", "reviewed degree-18 root-cell types"],
+      "conclusion": [
+        "An independent four I in A exists with all four d_A(i)=8. It 2-dominates A-I: every vertex of A-I has at least 2 neighbors in I.",
+        "Relative to I the B signatures are exactly 12 singletons, 3 of each type, and 12 doubles, with 6 doubles incident to each root. Up to j=1,2,3,4 the A-I signature counts are exactly (0,10,4,0), (0,11,2,1), or (0,12,0,2). In all cases e(A-I)=52.",
+        "Exactly one of the following holds: (i) two members of I have overlap 3..6, yielding opposite actual (4,4)-free mixed cells of orders 12..15; (ii) every pair in I has overlap 7, and the exact exceptional allocation described in the next claim holds."
+      ],
+      "proof": [
+        "The reviewed q=1 anchor theorem applies because E_A=0<=29. It supplies I with all d_A(i)>=8. The defect inequality in the preceding claim forces s<=32, so all four degrees equal 8 and eta=0. All the zero-defect conclusions follow.",
+        "Set t=a_4. The equations a_1=0, a_2+a_3+a_4=14 and 2*a_2+3*a_3+4*a_4=32 give a_3=4-2*t and a_2=10+t. Nonnegativity gives t in {0,1,2}. Deleting the independent anchor removes exactly s=32 edges, so e(A-I)=84-32=52.",
+        "Globally outside I, include v, whose signature is all four. The counts are n_1=12, n_2=22+t, n_3=4-2*t, n_4=1+t. Counting pairs of I neighbors of each external vertex gives the sum of the 6 pair overlaps as n_2+3*n_3+6*n_4=40+t. If every overlap is at least 7, the sum is at least 42, forcing t=2 and every overlap exactly 7. Otherwise some pair has overlap at most 6.",
+        "For any pair i,j in I, their 8-element A neighborhoods lie inside the same 14-element set A-I, so they have at least 2 common A neighbors. The pivot v is an additional common neighbor outside A. Thus every global pair overlap is at least 3. The mixed-cell sizes and types now follow from the reviewed nonadjacent-root cell theorem. No density or zero-neighborhood-excess condition is imposed on the re-rooted pair without proof."
+      ],
+      "search_use": "none pending independent review",
+      "reviews": []
+    },
+    {
+      "claim_id": "claim-cw0-exceptional-five-allocations",
+      "kind": "local-deduction",
+      "review_state": "ready",
+      "scope": "Alternative (ii) of claim-cw0-q1-core only",
+      "dependencies": ["claim-cw0-q1-core", "degree sums at the 4 anchor vertices"],
+      "notation": "For a pair ij of I={1,2,3,4}, let alpha_ij count its exact double signatures in A-I, and beta_ij those in B. Order the 3 opposite-pair matchings as (12,34),(13,24),(14,23).",
+      "conclusion": [
+        "All singleton classes lie in B and have size 3. All triple classes are empty. The all-four class is {v,p,q}, where p,q are in A and all 3 vertices have degree 18. Its induced graph is P3 centered at v or K3.",
+        "alpha_ij+beta_ij=4 for every pair, and alpha and beta separately have equal counts on opposite pairs. Writing the 3 beta matching counts as (r,s,t), they are integers in 0..4 with r+s+t=6, and the alpha matching counts are (4-r,4-s,4-t).",
+        "Up to relabelling I, the 5 beta triples are (0,2,4), (0,3,3), (1,1,4), (1,2,3), (2,2,2). These are count allocations, not 5 graph isomorphism types or certified feasible graphs."
+      ],
+      "proof": [
+        "Alternative (ii) has t=a_4=2 in the preceding notation. Thus the 2 internal all-four vertices together with v give the entire global all-four class, and there are no triples. The two internal vertices are adjacent to v and all have degree 18 by the original zero-excess assumption. Their mutual adjacency is the only undecided edge within this 3-set, giving P3 or K3.",
+        "For each pair of anchor roots, the 3 all-four vertices contribute 3 to its overlap 7, leaving exactly 4 vertices in its exact double class. Hence alpha_ij+beta_ij=4.",
+        "Each anchor root has B-degree 9 and 3 B singleton neighbors, giving beta degree sum 6 at every root. Its A-degree is 8, of which 2 goes to p,q, giving alpha degree sum 6 as well. For 6 pair counts on 4 labels with all 4 row sums equal, subtracting row equations gives equality on opposite pairs. Their 3 matching counts sum to 6. Nonnegativity of alpha and beta bounds each beta matching count by 4. The sorted integer triples with sum 6 and entries between 0 and 4 are precisely the displayed 5. Permutations of anchor labels realize all permutations of the 3 opposite-pair matchings, so sorting loses no count orbit."
+      ],
+      "search_use": "none pending independent review",
+      "reviews": []
+    }
+  ],
+  "failed_exclusion_routes": [
+    {
+      "route": "Identify zero A-excess with the equality frontier",
+      "obstruction": "The exact identity is x=136+2q. Zero excess fixes the parity, not q. C136 removes q=0 only."
+    },
+    {
+      "route": "Propagate zero neighborhood excess through all neighbors",
+      "obstruction": "All neighbors have degree 18, but their own neighborhood excess can be positive. In fact for any independent four I in A, sum_I E_u>=W, so zero at all 18 neighbors would force the strictly stronger W=0 case."
+    },
+    {
+      "route": "Obtain a scalar contradiction from the q=1 saturated anchor",
+      "obstruction": "All 3 signature profiles have explicit nonnegative count assignments satisfying the 4 anchor row sums and the pair-overlap bounds. All 5 exceptional allocations also satisfy these equations. These assignments do not set edges between external vertices and are not Ramsey constructions."
+    },
+    {
+      "route": "Transfer the reported x136 closure wholesale to q=1",
+      "obstruction": "The q=1 anchor has the same saturated B signature pattern, but a=84 and e(A-I)=52, rather than a=85 and e(A-I)=53. The unintegrated closure proof cannot be assumed to survive losing this edge."
+    },
+    {
+      "route": "Use connectedness to delete the remaining q>1 slices",
+      "obstruction": "No such implication was proved. Connectedness is already automatic for q<=16 by the reviewed connectivity threshold. The present deductions deliberately do not claim coverage by the q=1 core theorem for q=2..35."
+    }
+  ],
+  "remaining_obstruction": {
+    "q1": "Must exclude all actual completions of the low-overlap pair branch and all actual completions of the 5 exceptional count allocations. External-vertex adjacencies in A-I, B, and the cross matrix are not determined by signature counts.",
+    "all_q": "Conditional on the supplied x136 closure, q=1..35 remains in the zero-excess branch until further structural exclusion. The q=1 refinement does not cover q>=2.",
+    "next_mathematical_target": "Study compatibility of the actual (4,4) mixed cells of orders 12..15 in the low-overlap branch. In the exceptional branch retain the degree-18 P3/K3 all-four core and all 5 opposite-pair allocations. Any proof must also handle q>=2 rather than declaring the whole branch closed."
+  },
+  "verification": {
+    "type": "Author self-audit of proofs and exact scalar arithmetic, not independent review",
+    "method": "Compare row sums with pair-overlap counts and global singleton capacity, then evaluate the finite integer identities. Reproducer and source hashes retained in the dated report.",
+    "result": "PASS: 3 internal signature profiles, 5 exceptional count orbits, 28 labelled regular B-double assignments, 3 explicit count-only witnesses, 602 budget cells, and 19 labelled exceptional allocations.",
+    "limits": "No graph search or graph realizability check. No solver, Lean, downloads, subagents, or accepted-status changes. No branch is excluded."
+  }
+}

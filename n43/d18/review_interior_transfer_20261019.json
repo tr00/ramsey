@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-19",
+  "reviewer": "InteriorAudit",
+  "author": "Main",
+  "claim_note": "n43/d18/interior_transfer.json",
+  "claims_reviewed": [
+    "claim-interior-transfer-floor",
+    "claim-interior-transfer-ceiling",
+    "claim-interior-transfer-interface"
+  ],
+  "reviewed_sha256": "1d6ff4d2a8e24aa11c946ef639697d688258e62a7a6844d101cf29ef1b9b113f",
+  "revision_note": "SHA-256 of the exact uncommitted working-tree file at review time, computed with sha256sum. Independently corroborated: n43/d18/deletion_degree_transfer.json records the identical hash for interior_transfer.json in its source_sha256 map.",
+  "independence": "Author Main, reviewer InteriorAudit: distinct identities for independent review. Every derivation below was re-derived from the hypotheses and recorded census directions before comparing with the note; no step was accepted on the author's assertion.",
+  "dependencies_reviewed": [
+    {
+      "path": "README.md#state-of-the-art",
+      "sha256": "c8f01e2f5077c8241212ee05f27397a21d6f9c67ca3c6b514065c51ade12e10c",
+      "status": "Repository record of external literature; retained as recorded, not recertified here.",
+      "evidence": "R(s,t) grid line 26 gives R(3,3)=6, R(3,4)=9, R(3,5)=14; line 27 gives R(4,4)=18, R(4,5)=25. Edge table lines 34-48 give max E(4,4,13..17)=45,50,55,60,68 (source [2] McKay-Radziszowski 1992, references lines 210-212) and min/max e(4,5,17)=41/79 (source [1] Angeltveit-McKay, references lines 206-208), plus min e(5,4,17)=57/max=95 and the (4,5,18) interval 50..85 used for 0<=q<=35.",
+      "applicability": "Claim 1 cites this anchor and it records every value claim 1 uses, including R(3,4)=9."
+    },
+    {
+      "path": "docs/mathematical_baseline.md",
+      "sha256": "de981cede9200a6d61fe7c113734bec5f1b2446d904ec5f16d42afa18a5dc7c0",
+      "status": "Foundation record; retained as recorded, not recertified here.",
+      "evidence": "Direct search of the 121-line file: R(4,5)=25 at line 30, R(3,5)=14 at line 52, R(4,4)=18 at line 57. The strings R(3,4), R(4,3) and Mantel do not occur anywhere in the file.",
+      "applicability": "Two of the three values the note attributes to this file are indeed recorded here; R(3,4)=9 is not. See finding 1; the value itself is recorded at README.md#state-of-the-art, a declared dependency of claim 1."
+    },
+    {
+      "path": "n43/d18/pivot_classes.md",
+      "sha256": "cb941dc985719a66ab3988ea9b0bddeaf6848ac64645e13ff4cfffd0c5ed6f42",
+      "status": "Legacy note. Section 2 pointed-pair paragraph was corrected 2026-10-17 and the corrected text independently re-derived in review_adjacent_root_cell_20261017_audit.md (which records pre/post SHA 43d4ff67.../cb941dc9...); the overlap filters were reviewed earlier at the pre-correction SHA by review_pairwise-pivot_2026-10-14_coordinator.md and review_dense_pivot_coverage_20261014_low_s.md. The withdrawn common-nonneighbor (4,4) assertion is explicitly not used by the overlap bounds, so the corrected and reviewed overlap formulas are operative.",
+      "evidence": "Section 2 contains the deletion floor d_A>=max(0,a_v-79)=max(0,6-q_v), the higher-excess floor d_A>=epsilon from the row cap, and the simplified filter min(13,floor((170-2q-max(0,6-q)E)/(18-E))).",
+      "applicability": "Used by claim 1 as provenance of the deletion floor (claim 1 re-derives it directly from the census premise) and by claim 3 as the exact old formula behind the concrete old/new comparisons."
+    },
+    {
+      "path": "n43/d18/independent_row_cuts.md",
+      "sha256": "553b70258b1ce63672d651ae8142ac013b9fb68347f24d372af9cbb922ff306f",
+      "status": "All five claims accepted; integration banner records reviewed-body SHA-256 8cfd9375da0f8bc3afd0c7e7bf123fc829afde62a427514dec7c04c2bf8c04a0 with review_independent_row_cuts_20261017_audit.md and its addendum. Banner and review state the body is preserved verbatim.",
+      "evidence": "Setting records r_u<=17, the row identity d_u+r_u=17+epsilon_u, 0<=epsilon_u<=6; claim-independent-row-combined-pairs records that every size-17 row vertex has d_u=epsilon_u and L17 semantics.",
+      "applicability": "Claim 3's row identity, the r_u<=17 cap, and the size-17-row discussion all originate here. The r_u<=17 cap has an independent rederivation on record in review_tail_two_three_20261018_audit.md: a subset of B of order >=18 contains K4 or I4 by R(4,4)=18, I4 is impossible inside B, and K4 together with u would be K5."
+    },
+    {
+      "path": "n43/d18/parameter_landscape.json / parameter_landscape.md",
+      "status": "Unaccepted; not a required dependency of this note.",
+      "evidence": "Full read of interior_transfer.json: neither file, nor any of its claims, appears in the setting, external_premises, or any dependency list of the three claims.",
+      "applicability": "Confirmed absent; this review required no reading of it."
+    },
+    {
+      "path": "docs/workflow.md",
+      "sha256": "51220632656f91905d0ace361179ea8953a51ea6e544005d723ac7425df7e5b2",
+      "status": "Review template and gates followed for this file.",
+      "evidence": "This review records claim ids, distinct author/reviewer, exact SHA-256, dependency versions, checks, findings, outcome, and limits as the template requires."
+    }
+  ],
+  "checks": [
+    "Pure vs ambient type discipline (claim 1). A is K4/I5-free on 18 vertices; the note explicitly does NOT assume A I4-free, and the proof needs only that H = A-({u} union N_A(u)) is I4-free. I re-derived this: u's neighbors in A are exactly S, so u is anticomplete to H, hence any I4 in H together with u is an I5 in A; K4-freeness of H is heredity. The eight-neighbor cap is then sound: S is triangle-free (a triangle with u gives K4, so Mantel gives e(S)<=floor(s^2/4)); for z in S the induced graph on N_H(z) is triangle-free (triangle plus z is K4) and I4-free as an induced subgraph of H, so R(3,4)=9 forces |N_H(z)|<=8 and e(S,H)<=8s (each S-H edge counted at its S-endpoint).",
+    "Edge partition and ceilings (claim 1). A is the disjoint union {u}, S, H with no u-H edges, so a = s + e(S) + e(S,H) + e(H) exactly. With the recorded caps U(17..13) = 68,60,55,50,45 I recomputed U(17-s)+9s+floor(s^2/4) for s=0..4: 68+0+0=68, 60+9+0=69, 55+18+1=74, 50+27+2=79, 45+36+4=85. The note's caps 68,69,74,79,85 are exact, and because each bound is the maximum over all s' <= s, the strict thresholds a>68, a>69, a>74, a>79 yield s>=1,2,3,4 respectively. Direction check: for n=13,14,15 the README max column is an upper bound on the extremum (open intervals 33..45, 41..50, 50..55), which is exactly the direction a cap needs; n=16,17 are recorded exact (60..60, 68..68).",
+    "Independent deletion bound and the L(q) table (claim 1). A-u is an induced (4,5)-free graph on 17 vertices with e(A-u)=a-s, so the recorded E(4,5,17)<=79 gives s>=a-79=6-q, and 0 bounds it below. I recomputed max(0, 6-q, cap-forced floor) for every q=0..35 from a=85-q: the boundary cases are q=5 (a=80>79 forces s>=4 although 6-q=1), q=6 (a=79 is not >79, caps give only s>=3), q=10 (a=75>74 gives 3), q=11 (a=74 not >74, s>=2 from a=74>69... precisely s<=1 caps at 69<74), q=15 (a=70>69 gives 2), q=16 (a=69>68 gives 1), q=17 (a=68, no cap applies, 6-q<0, so L=0). The resulting table is exactly 6,5,4 at q=0,1,2; 4 at q=3..5; 3 at q=6..10; 2 at q=11..15; 1 at q=16; 0 at q=17..35, matching the note line-for-line, and the stated a-form (L=0 at a<=68, 1 at 69, 2 at 70..74, 3 at 75..79, 4 at 80..83, 5 at 84, 6 at 85) is the same function re-parameterized. The connected clause is elementary (a connected graph on more than one vertex has minimum degree at least 1) and is clearly conditional, not part of the pure scope.",
+    "Ceiling derivation (claim 2). Both bounds check: A-u is (4,5)-free on 17 vertices with e=a-d_A(u), and the recorded min e(4,5,17)=41 is a lower bound for every (4,5)-free graph on 17 vertices (independently, the README min column equals C(17,2)-E(5,4,17)=136-95=41 under complementation, and this identity holds in every row of the README table, e.g. 91-69=22, 276-132=144 - the same reading under which the accepted e(B)>=144 premise operates). Hence d_A(u)<=a-41=44-q. Second bound: N_A(u) is triangle-free (triangle with u gives K4) and I5-free (heredity), so R(3,5)=14 gives d_A(u)<=13. D(q)=min(13,44-q) therefore, and D<13 iff q>=32 iff a in 50..53 with values 12,11,10,9 at q=32,33,34,35, exactly as concluded; for q<=31 the bound 44-q>=13 is slack. The improvement claim (cap13 tightened precisely at a=50..53, no connectivity or cross-count hypothesis) is correct.",
+    "Row identity and row-inequality directions (claim 3). For u in A: d_G(u)=1+d_A(u)+r_u (pivot v, A-neighbors, B-neighbors), so r_u=17+epsilon_u-d_A(u). Substituting L<=d_A(u)<=D flips correctly on both sides: 17+epsilon-D <= r_u <= 17+epsilon-L; intersecting with the recorded r_u<=17 and r_u>=0 gives max(0,17+epsilon-D)<=r_u<=min(17,17+epsilon-L). Direction of every inequality verified. Consequences re-derived: r_u<=17 implies d_A(u)>=epsilon_u; r_u=17 together with r_u<=17+epsilon-L forces epsilon_u>=L; at L=4 (q=2..5) size-17 rows are excluded at excess 0..3. Consistency with the accepted combined-pairs fact (size-17 row has d_u=epsilon_u) holds: the two give epsilon_u=d_u>=L. Also D(q)>=6>=L(q)+... in particular L(q)<=D(q) for all q (L<=6<=9<=D), so no row bound is vacuously contradictory.",
+    "Actual-multiplicity averaging (claim 3, bullet 2). The 18 A-vertices partition into t=m_0 vertices at excess 0 and sum_{i=1..6} m_i vertices at excess i, with sum_i m_i=18. Handshake: total interior degree is 2a=170-2q. Each excess-i vertex satisfies d_A>=max(L,i): the L half is claim 1 (pure scope covers ambient A), the i half is the row identity with r_u<=17 (d_A=17+epsilon-r>=epsilon=i). Therefore the t excess-zero vertices carry total at most 170-2q-sum_{i>=1} m_i max(L,i), some one carries at most the average, its overlap with v is exactly lambda_vu=|N(v) cap N(u)|=N_A(u)=d_A(u), and claim 2 caps every vertex by D. The stated quotient and the min with D follow. The hypothesis t>0 is exactly what the division needs and is explicitly stated (in contrast to bullet 3, where it is derived).",
+    "E-only simplification, monotonic substitution (claim 3, bullet 3). z=sum_{i>0} m_i <= sum_{i>0} i*m_i = E because each i>=1, and z<=E<=17 gives t=18-z>=1 (denominator positive, t>0 derived as claimed). The previous average is at most f(z)=(170-2q-Lz)/(18-z) since sum m_i max(L,i)>=Lz. f'(z) has the sign of 170-2q-18L: I checked this quantity for every q=0..35 against the proved L(q); its minimum over all q is 62 (at q=0), so f is increasing everywhere it is used; equivalently 170-2q is the actual handshake total and 18L is the floor on it, so the nonnegativity is a necessary consequence as the note says. Since z<=E<18 and f increasing, f(z)<=f(E); lambda is an integer so lambda<=floor(f(E)), combined with D. I verified f(q,z)<=f(E) numerically for all q in 0..35 and all 0<=z<=E<=17 with zero violations.",
+    "Concrete transfers q4E4, q5E8, q10E4. Old values reproduce pivot_classes section 2 exactly with L_old=max(0,6-q): min(13,floor((170-8-2*4)/14))=min(13,11)=11; min(13,floor((170-10-1*8)/10))=min(13,15)=13; min(13,floor((170-20-0)/14))=min(13,10)=10. New values with L(q)=4,4,3: min(13,floor((170-8-16)/14))=min(13,10)=10; min(13,floor((170-10-32)/10))=min(13,12)=12; min(13,floor((170-20-12)/14))=min(13,9)=9. All three pairs (11->10, 13->12, 10->9) match the note. Each example satisfies E<=17 (so bullet 3 applies and t>=18-E>0) and D(q)=13 is non-binding at q=4,5,10.",
+    "Census directions (all claims). E(4,4,n) upper caps for H: correct direction (recorded max column). E(4,5,17)<=79 upper: correct for s>=a-79. min e(4,5,17)=41 lower: correct for e(A-u)>=41, and I verified the README min column equals C(n,2) minus the complementary max in all thirteen rows, so it is a bound over all graphs in R(s,t,n) in the README's own semantics, matching the note's premise '41<=e(4,5,17)'. R(3,4)=9 to |N_H(z)|<=8: correct orientation (no K3 and no I4). R(3,5)=14 to d_A<=13: correct. R(4,5)=25 with baseline line 30 (n-25<=d(v)<=24, n=43) to 18<=d_G<=24 and epsilon in [0,6]: correct. Source attributions for the (4,4) and (4,5,17) edge rows (McKay-Radziszowski 1992 [2], Angeltveit-McKay [1]) verified against the README references; the finer 'Appendix A Table 1' attribution matches existing in-repo usage (pivot_classes, transfer_bounds, four_column_stability, pairwise_frontier_refinements) and was not rechecked against the paper (no downloads permitted).",
+    "Comparison with the old pivot_classes formulas. Recomputed L(q) against old max(0,6-q) for all q: strictly larger exactly at q=3..16 and equal at q=0..2 and q=17..35, so 'strictly strengthened for every q=3..16' is exact, and the three advertised instances check (a=82: 4 vs 3; a=80: 4 vs 1; a=75: 3 vs 0). D=min(13,44-q)<=13 pointwise, strictly smaller exactly at q>=32 (a=50..53). For the pointed filters, new caps are <= old caps at every one of the 36x18 (q,E<=17) pairs (zero regressions) and strictly smaller at 63 pairs, so the old formulas are genuinely strengthened, not merely re-derived. The stated limit also holds: over all six W=0,2,4,6,8,10 rows I reproduced the published old per-q lists exactly from the old formula and found the per-W worst-case guarantees unchanged (9,9,10,11,12,12); individual interior entries do improve (e.g. W=8 at q=4: 11->10, W=10 at q=3: 12->11), so 'the worst-case W<=10 overlap table need not improve' is accurate for the table as published.",
+    "Quantifiers and scope discipline (claim 3). The chosen vertex is always an A-neighbor u of v with epsilon_u=0 (a degree-18 root); the note correctly warns that this companion root need not share q or E with v, and no selected-root equality, profile occurrence, worst-case table improvement, or d18 exclusion is claimed (limits field). Bullet 2 requires t>0 and states it; bullet 3 derives it from E<=17. If the simplified numerator were negative the profile itself would be contradictory (sum of t degrees >= t*L >= 0), so the bound is never falsely asserted for realizable profiles. Claim 1 and 2 use no E or x hypothesis (scope fields accurate); claim 3 uses only the pure claims, the recorded row facts, and handshake arithmetic - no census beyond what the setting declares. parameter_landscape (unaccepted) is not used anywhere.",
+    "Notation observation (non-blocking). The symbol U in 'the recorded maximum U(17-s)' is never defined in the note; the stated caps 68,69,74,79,85 pin U(17..13)=68,60,55,50,45 uniquely, which is exactly README max E(4,4,13..17). I recorded the intended reading; no proof content depends on anything beyond those five numbers."
+  ],
+  "independent_arithmetic": {
+    "method": "Exact integer arithmetic in a throwaway in-memory Python cell, plus direct grep/sha256sum over the cited files. No graph search, solver, catalogue access, download, Lean, build, formatter, linter, or test suite; parameter_landscape and sibling notes untouched.",
+    "results": [
+      "Ceilings s=0..4: [68, 69, 74, 79, 85] - matches.",
+      "L(q) table for q=0..35: zero mismatches against the note; a-form equivalence verified on a=50..85.",
+      "D(q)=min(13,44-q): 13 for q<=31, then 12,11,10,9 at q=32..35 - matches.",
+      "Monotonicity 170-2q-18L(q) >= 0 for all q (minimum 62); f(q,z)<=f(E) for all 0<=z<=E<=17: zero violations.",
+      "Concrete transfers: (4,4) old11/new10; (5,8) old13/new12; (10,4) old10/new9 - all match.",
+      "L vs old floor: strict exactly at q=3..16, equal elsewhere; improvement instances a=82/80/75 verified.",
+      "Old-vs-new caps over all (q, E<=17): 0 regressions, 63 strict improvements.",
+      "W-table rows recomputed from both formulas: all six published old rows reproduced exactly; worst-case values 9,9,10,11,12,12 unchanged under the new floor."
+    ],
+    "status": "PASS; independent arithmetic, not a computational certificate of the premises"
+  },
+  "findings": [
+    {
+      "title": "Attribute R(3,4)=9 to README state of the art, not the baseline",
+      "body": "external_premises line 10 states 'R(3,4)=9, R(3,5)=14, R(4,5)=25 as recorded in docs/mathematical_baseline.md'. Direct search of that 121-line file shows only R(4,5)=25 (line 30) and R(3,5)=14 (line 52); R(3,4)=9 and Mantel do not occur. The value is classical and IS recorded at README.md#state-of-the-art (R(s,t) grid line 26), which claim 1 already lists as a dependency and where the eight-neighbor step actually uses it, so no claim is ungrounded and the mathematics is unaffected. Non-blocking (metadata/source pointer; same attribution pattern already present in the accepted n43/d18/independent_row_cuts.md). Minimal exact change, if applied: replace the clause with 'R(3,4)=9 and R(3,5)=14 as recorded in README.md State of the Art; R(4,5)=25 as recorded in docs/mathematical_baseline.md; Mantel's theorem (classical).'",
+      "priority": 3,
+      "confidence": 0.95,
+      "file_path": "n43/d18/interior_transfer.json",
+      "line_start": 10,
+      "line_end": 10
+    }
+  ],
+  "outcomes": [
+    {
+      "claim": "claim-interior-transfer-floor",
+      "outcome": "accepted",
+      "basis": "H-type, triangle-free S, eight-neighbor attachment cap, edge partition, all five ceilings, the deletion bound, and every boundary case of L(q) re-derived independently and matching exactly; census directions correct."
+    },
+    {
+      "claim": "claim-interior-transfer-ceiling",
+      "outcome": "accepted",
+      "basis": "Both bounds (41-edge lower edge count of A-u, R(3,5)=13 cap) re-derived with correct census directions; D(q) and the a=50..53 improvement arithmetic exact."
+    },
+    {
+      "claim": "claim-interior-transfer-interface",
+      "outcome": "accepted",
+      "basis": "Row identity and both row-inequality directions verified; max(L,i) floors justified by claim 1 plus recorded r_u<=17; actual-multiplicity averaging, t>0 bookkeeping, monotonic substitution with the exact monotonicity condition, floors, and all three concrete transfers re-derived; quantifier caveats (companion root shares neither q nor E) correct."
+    }
+  ],
+  "outcome": "accepted",
+  "outcome_scope": "Accepted for the exact SHA-256 above. Finding 1 is a non-blocking source-attribution correction in premise metadata; it grounds at a declared dependency and requires no proof change. If the coordinator treats premise wording as gating, apply the one-clause change in finding 1 and record the renewed SHA (proof bodies unchanged); no mathematical re-derivation would be needed.",
+  "permitted_use": "Propagation permitted on the exact hypotheses, as parameter-conditioned filters only: (a) the pure floor L(q)/a-table (and its conditional connected variant max(1,L)) may replace the old max(0,6-q) floor in new derivations for K4/I5-free 18-vertex A with a=85-q, 0<=q<=35; (b) d_A<=min(13,44-q) may propagate as the interior degree cap, tightening 13 only at a=50..53; (c) the interface row bounds and the two pointed-pair overlap filters (actual-multiplicity form for any t>0; E-only form for E<=17) may replace the pivot_classes section-2 formulas in parameter-conditioned pair filters, weakly stronger everywhere and strictly stronger at the 63 recomputed (q,E) pairs including q4E4, q5E8, q10E4. Explicitly NOT permitted from this note: any claim that the W<=10 worst-case overlap table improves (verified unchanged), that a listed (q,E) profile occurs, that the selected companion root shares q or E with v, that any d18 branch closes, or any isolated-graph existence assertion. All propagation remains conditional on the recorded external census/Ramsey premises and enters pending review again if any proof body changes or a dependency is withdrawn.",
+  "integration": "Acceptance covers review-state, search-use, and review-link metadata edits to the accepted note (byte-preserved proofs, or canonical metadata-stripped content identical), with the new SHA recorded at integration. This review file is owned by InteriorAudit; no index, WORK, or sibling file was edited.",
+  "limits": [
+    "External premises retained, not recertified: E(4,4,n) caps 45/50/55/60/68 at n=13..17 (open intervals at n<=15, sufficient as caps), 41<=e(4,5,17)<=79 and the (4,5,18) interval 50..85 (Angeltveit-McKay Appendix A Table 1 as cited in-repo), R(3,4)=9, R(3,5)=14, R(4,5)=25, R(4,4)=18, Mantel's theorem.",
+    "r_u<=17 and the row identity are taken from the accepted independent_row_cuts Setting (independently rederived on record via R(4,4)=18); this review did not re-audit those accepted claims.",
+    "min e(4,5,17)=41 is read as a universal lower bound over all (4,5)-free graphs on 17 vertices, corroborated by the complement identity min=C(n,2)-E(complement) holding in every README row and by the accepted e(B)>=144 precedent; if that column ever meant a restricted subclass, claim 2 would need re-examination.",
+    "No novelty check, no Lean formalization, no candidate-graph search, no catalogue or parameter_landscape processing, no existence or nonexistence conclusion at any parameter."
+  ]
+}

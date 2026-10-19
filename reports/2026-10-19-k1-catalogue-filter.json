@@ -1,0 +1,402 @@
+{
+  "artifacts": {
+    "data/r45_24/b24.g6": {
+      "bytes": 16913568,
+      "sha256": "c525e6eaf6f7241ef5e4e80ce1bc0108a4b941fd6f3b875c7834bd3dd009b6d7"
+    },
+    "data/r45_24/k1_filter": {
+      "bytes": 65072,
+      "sha256": "dc69ab755d61a7b0eb14fa576b1e74501aa9cf505b14a0d60f286764a7de1d22"
+    },
+    "data/r45_24/k1_row_countg.txt": {
+      "bytes": 21,
+      "sha256": "b0eecad92b005abdbe5eb62a296c2bd73cafa68d83a3350ad41870654155be3b"
+    },
+    "data/r45_24/k1_rows.g6": {
+      "bytes": 3352800,
+      "sha256": "efb3291742ad37b314db6208730158c0e6cf90c0c56754fab16839e01a777166"
+    },
+    "data/r45_24/k1_survivors.g6": {
+      "bytes": 6437376,
+      "sha256": "c4447e14af55ca1dbc43fb5b8f8c03df19afb7ef8de5d654f7cafc15ff659739"
+    },
+    "data/r45_24/k1_witnesses.tsv": {
+      "bytes": 1853051,
+      "sha256": "70615d63d3dae8e2665c06f046fcae0329e49be346b5b572af9fe99a8bfd00d9"
+    },
+    "lean/Ramsey/d18/k1/Rigidity.lean": {
+      "bytes": 3459,
+      "sha256": "9650de455ce436556f88be9c49f80a32ee2e110fa24cfd9f04b861bcb20b3725"
+    },
+    "scripts/filter_k1.c": {
+      "bytes": 5058,
+      "sha256": "9b80f4a03378df2f7eb38b67b427418cb79e3c6749fc531dd9eca21b675eeb1d"
+    },
+    "scripts/verify_b24.py": {
+      "bytes": 6278,
+      "sha256": "bf3af070ca7cfa3e8cae4b1a64d7411f418e15a27d89907f298af6a30088549d"
+    },
+    "scripts/verify_k1.py": {
+      "bytes": 3343,
+      "sha256": "54c13fc1515a710a217a9ef5fbb8825b1bb91facff54dd558484d745213d9e26"
+    },
+    "third-party/nauty/bin/countg": {
+      "bytes": 365552,
+      "sha256": "9314d58218f4d031ec1ab76e68cbbc5c92ee74421cf0a1c5d02b28a160e00366"
+    },
+    "third-party/nauty/build/nauty.a": {
+      "bytes": 867736,
+      "sha256": "089489c4970c963987c74e3367b76b2825dd811a144e4dc671b958d805373888"
+    }
+  },
+  "catalogue": {
+    "description_url": "https://users.cecs.anu.edu.au/~bdm/data/ramsey.html",
+    "license": "No separate dataset license retrieved; no redistribution permission inferred.",
+    "orientation": "b24.g6 is the complement of the downloaded (4,5,24) catalogue: B is (5,4)-free.",
+    "provenance": "reports/2026-10-17-b24-catalogue-filter.json; input hash agrees exactly. Completeness remains an external census premise, not proved here.",
+    "records": 352366,
+    "source_url": "https://users.cecs.anu.edu.au/~bdm/data/r45_24.g6"
+  },
+  "date": "2026-10-19",
+  "development_note": "Initial short run aborted due to incorrectly freeing gtools_getline static storage; removed free before every successful run. That abort is recorded for transparency and has no evidentiary use. Initial compiler diagnostics also caught nauty bit symbol collision, fixed before runs.",
+  "interpretation": [
+    "Useful necessary filter: removes 61.94% of catalogue B graphs in the K1 degree-18 branch; 134112 B graphs still admit at least one qualifying row.",
+    "Not a proof that surviving B graphs extend to 43 vertices. Does not test A=K1 union C or compatibility of all other rows/columns. Does not exclude B graphs from the connected, K2 or K3 branches.",
+    "One witness per surviving B only; no enumeration/count of all row placements or automorphism orbits.",
+    "No new mathematical claim accepted, no Lean proof edits, no solver run, no downloads or installations."
+  ],
+  "kind": "User-authorized catalogue experiment, not a certified Ramsey result",
+  "method": {
+    "input_validation": "Every input four-subset checked for I4; K4 masks enumerated. Prior hash-matched experiment checked K5-freeness. This run does not independently repeat every input five-subset.",
+    "io": "nauty/gtools opengraphfile, gtools_getline, stringtograph; no built-in gtools command performs this existential row search, so a small C search is linked against local nauty.a.",
+    "search": "Exact finite keep/drop partition. Require 17 kept, 7 dropped. Every kept vertex must have exactly 8 kept neighbors; propagate lower/upper degree bounds and cardinality. Every B K4 must meet dropped set. Branch on an uncovered K4, deleting one vertex and keeping earlier alternatives: disjoint exhaustive branches. If no uncovered K4 remains, binary branch on an undecided vertex. Stop after first witness per graph.",
+    "witness_format": "One-based original input index and hexadecimal 24-bit selected-vertex mask, bit v for original zero-based vertex v. Survivor records preserve original input order and labels."
+  },
+  "predicate": "There exists R subset V(B), |R|=17, B[R] is 8-regular and K4/I4-free. Induced subgraphs, not arbitrary edge subgraphs. This is the full row conclusion of Ramsey.d18.k1.rigidity, not just regularity.",
+  "reproduction": {
+    "binary_location": "Compiled initially to /tmp/ramsey-filter-k1 and moved unchanged to data/r45_24/k1_filter after recorded runs.",
+    "compile": "cc -O3 -std=c11 -Wall -Wextra -Werror -Ithird-party/nauty/build -Ithird-party/nauty/src scripts/filter_k1.c third-party/nauty/build/nauty.a -o data/r45_24/k1_filter",
+    "countg": "third-party/nauty/bin/countg -n17 -d8 -D8 -k3 -h3 --nedDkh -1 data/r45_24/k1_rows.g6 data/r45_24/k1_row_countg.txt",
+    "filter": "data/r45_24/k1_filter data/r45_24/b24.g6 data/r45_24/k1_survivors.g6 data/r45_24/k1_witnesses.tsv",
+    "verify": "python3 scripts/verify_k1.py data/r45_24 data/r45_24/k1_rows.g6"
+  },
+  "results": {
+    "first_witness": "91\t5ff5f1",
+    "graphs": 352366,
+    "rejected": 218254,
+    "rejected_percent": 61.939574192742775,
+    "search_nodes": 65432446,
+    "survivor_percent": 38.060425807257225,
+    "survivors": 134112
+  },
+  "run_logs": [
+    {
+      "command": [
+        "/tmp/ramsey-filter-k1",
+        "data/r45_24/b24.g6",
+        "/tmp/k1-small.g6",
+        "/tmp/k1-small.tsv",
+        "8"
+      ],
+      "exit_status": -6,
+      "limits": {
+        "address_space_bytes": 1073741824,
+        "cpu_seconds": 30,
+        "wall_timeout_seconds": 40
+      },
+      "stderr": "double free or corruption (top)\n",
+      "stdout": "",
+      "wall_seconds": 0.12091194000095129
+    },
+    {
+      "command": [
+        "/tmp/ramsey-filter-k1",
+        "data/r45_24/b24.g6",
+        "/tmp/k1-small.g6",
+        "/tmp/k1-small.tsv",
+        "8"
+      ],
+      "exit_status": 0,
+      "limits": {
+        "address_space_bytes": 1073741824,
+        "cpu_seconds": 30,
+        "wall_timeout_seconds": 40
+      },
+      "stderr": "",
+      "stdout": "{\"graphs\":8,\"survivors\":0,\"rejected\":8,\"search_nodes\":1546}\n",
+      "wall_seconds": 0.00584908299788367
+    },
+    {
+      "command": [
+        "/tmp/ramsey-filter-k1",
+        "/tmp/k1-fixtures.g6",
+        "/tmp/k1-fixtures-out.g6",
+        "/tmp/k1-fixtures.tsv"
+      ],
+      "exit_status": 0,
+      "limits": {
+        "address_space_bytes": 1073741824,
+        "cpu_seconds": 30,
+        "wall_timeout_seconds": 40
+      },
+      "stderr": "",
+      "stdout": "{\"graphs\":2,\"survivors\":1,\"rejected\":1,\"search_nodes\":408}\n",
+      "wall_seconds": 0.0057529049954609945
+    },
+    {
+      "command": [
+        "/tmp/ramsey-filter-k1",
+        "data/r45_24/b24.g6",
+        "data/r45_24/k1_survivors.g6",
+        "data/r45_24/k1_witnesses.tsv"
+      ],
+      "exit_status": 0,
+      "limits": {
+        "address_space_bytes": 1073741824,
+        "cpu_seconds": 300,
+        "wall_timeout_seconds": 310
+      },
+      "stderr": "",
+      "stdout": "{\"graphs\":352366,\"survivors\":134112,\"rejected\":218254,\"search_nodes\":65432446}\n",
+      "wall_seconds": 53.66236844200466
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/verify_k1.py",
+        "data/r45_24",
+        "data/r45_24/k1_rows.g6"
+      ],
+      "exit_status": 0,
+      "limits": {
+        "address_space_bytes": 1073741824,
+        "cpu_seconds": 120,
+        "wall_timeout_seconds": 130
+      },
+      "stderr": "",
+      "stdout": "{\"all_row_K4_I4_check\": \"Run gtools countg on output rows separately.\", \"graphs\": 352366, \"independent_exhaustive_samples\": [{\"index\": 1, \"survives\": false}, {\"index\": 2, \"survives\": false}, {\"index\": 3, \"survives\": false}, {\"index\": 4, \"survives\": false}, {\"index\": 5, \"survives\": false}, {\"index\": 6, \"survives\": false}, {\"index\": 7, \"survives\": false}, {\"index\": 8, \"survives\": false}, {\"index\": 11012, \"survives\": false}, {\"index\": 22023, \"survives\": true}, {\"index\": 33035, \"survives\": false}, {\"index\": 44046, \"survives\": false}, {\"index\": 55058, \"survives\": true}, {\"index\": 66069, \"survives\": false}, {\"index\": 77080, \"survives\": false}, {\"index\": 88092, \"survives\": false}, {\"index\": 99103, \"survives\": true}, {\"index\": 110115, \"survives\": false}, {\"index\": 121126, \"survives\": false}, {\"index\": 132137, \"survives\": true}, {\"index\": 143149, \"survives\": false}, {\"index\": 154160, \"survives\": true}, {\"index\": 165172, \"survives\": false}, {\"index\": 176183, \"survives\": true}, {\"index\": 187194, \"survives\": false}, {\"index\": 198206, \"survives\": false}, {\"index\": 209217, \"survives\": true}, {\"index\": 220229, \"survives\": true}, {\"index\": 231240, \"survives\": true}, {\"index\": 242251, \"survives\": false}, {\"index\": 253263, \"survives\": false}, {\"index\": 264274, \"survives\": false}, {\"index\": 275286, \"survives\": false}, {\"index\": 286297, \"survives\": true}, {\"index\": 297308, \"survives\": false}, {\"index\": 308320, \"survives\": true}, {\"index\": 319331, \"survives\": true}, {\"index\": 330343, \"survives\": true}, {\"index\": 341354, \"survives\": true}, {\"index\": 352366, \"survives\": true}], \"verified_witnesses\": 134112}\n",
+      "wall_seconds": 21.265515335995588
+    },
+    {
+      "command": [
+        "third-party/nauty/bin/countg",
+        "-n17",
+        "-d8",
+        "-D8",
+        "-k3",
+        "-h3",
+        "--nedDkh",
+        "-1",
+        "data/r45_24/k1_rows.g6",
+        "data/r45_24/k1_row_countg.txt"
+      ],
+      "exit_status": 0,
+      "limits": {
+        "address_space_bytes": 1073741824,
+        "cpu_seconds": 120,
+        "wall_timeout_seconds": 130
+      },
+      "stderr": ">A third-party/nauty/bin/countg -1 --n,e,d,D,k,h -n17,d8,D8,h3,k3 data/r45_24/k1_rows.g6 data/r45_24/k1_row_countg.txt\n",
+      "stdout": "",
+      "wall_seconds": 0.16817935000290163
+    }
+  ],
+  "scope": "Existing order-24 B antineighborhood catalogue for degree-18 pivots. No A graph or cross-interface completion generated. No conclusion about pivots of other degrees.",
+  "storage": {
+    "estimated_new_output_upper_bytes": 40000000,
+    "proof_traces_or_CNF": false,
+    "retained_experiment_output_bytes": 11708320
+  },
+  "task": "k1-catalogue-filter-20261019",
+  "toolchain": {
+    "cc": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "nauty": "2.9.3 (64 bits)",
+    "python": "Python 3.12.3"
+  },
+  "verification": {
+    "all_row_gtools": "countg computes clique and independence numbers on all 134112 row graphs; exact line: 17 68 8 8 3 3 134112 (n,e,min_degree,max_degree,clique_number,independence_number,count).",
+    "all_witnesses": "Independent Python set-based graph6 decoder checks survivor bytes, mask size/range, and every selected vertex degree; re-encodes every induced row.",
+    "exhaustive_samples": [
+      {
+        "index": 1,
+        "survives": false
+      },
+      {
+        "index": 2,
+        "survives": false
+      },
+      {
+        "index": 3,
+        "survives": false
+      },
+      {
+        "index": 4,
+        "survives": false
+      },
+      {
+        "index": 5,
+        "survives": false
+      },
+      {
+        "index": 6,
+        "survives": false
+      },
+      {
+        "index": 7,
+        "survives": false
+      },
+      {
+        "index": 8,
+        "survives": false
+      },
+      {
+        "index": 11012,
+        "survives": false
+      },
+      {
+        "index": 22023,
+        "survives": true
+      },
+      {
+        "index": 33035,
+        "survives": false
+      },
+      {
+        "index": 44046,
+        "survives": false
+      },
+      {
+        "index": 55058,
+        "survives": true
+      },
+      {
+        "index": 66069,
+        "survives": false
+      },
+      {
+        "index": 77080,
+        "survives": false
+      },
+      {
+        "index": 88092,
+        "survives": false
+      },
+      {
+        "index": 99103,
+        "survives": true
+      },
+      {
+        "index": 110115,
+        "survives": false
+      },
+      {
+        "index": 121126,
+        "survives": false
+      },
+      {
+        "index": 132137,
+        "survives": true
+      },
+      {
+        "index": 143149,
+        "survives": false
+      },
+      {
+        "index": 154160,
+        "survives": true
+      },
+      {
+        "index": 165172,
+        "survives": false
+      },
+      {
+        "index": 176183,
+        "survives": true
+      },
+      {
+        "index": 187194,
+        "survives": false
+      },
+      {
+        "index": 198206,
+        "survives": false
+      },
+      {
+        "index": 209217,
+        "survives": true
+      },
+      {
+        "index": 220229,
+        "survives": true
+      },
+      {
+        "index": 231240,
+        "survives": true
+      },
+      {
+        "index": 242251,
+        "survives": false
+      },
+      {
+        "index": 253263,
+        "survives": false
+      },
+      {
+        "index": 264274,
+        "survives": false
+      },
+      {
+        "index": 275286,
+        "survives": false
+      },
+      {
+        "index": 286297,
+        "survives": true
+      },
+      {
+        "index": 297308,
+        "survives": false
+      },
+      {
+        "index": 308320,
+        "survives": true
+      },
+      {
+        "index": 319331,
+        "survives": true
+      },
+      {
+        "index": 330343,
+        "survives": true
+      },
+      {
+        "index": 341354,
+        "survives": true
+      },
+      {
+        "index": 352366,
+        "survives": true
+      }
+    ],
+    "fixture_definition": "Positive: Paley17 (quadratic residues mod17) joined to a 7-clique; negative: K24. Only the first survives, witness 01ffff. Synthetic fixtures test the filter API, not B24 Ramsey-freeness.",
+    "fixture_input_graph6": "WzlXWmJpZDeJEJbDgp\\EJsWn~~~~~~~~~~~~~~~~~~~~~~~\nW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+    "initial_small_check": {
+      "exhaustive_python_wall_seconds": 1.7687790100026177,
+      "graphs": 8,
+      "survivors": 0
+    },
+    "regressions": [
+      {
+        "command": "ctest --test-dir build --output-on-failure",
+        "exit_status": 0,
+        "result": "1/1 passed"
+      },
+      {
+        "command": "python3 -m unittest discover -s tests -v",
+        "exit_status": 0,
+        "result": "9 tests passed"
+      }
+    ],
+    "sample_method": "All C(24,7)=346104 omitted sets for each of 40 deterministic samples, with independent regularity and exhaustive four-subset checks on degree-valid rows. All agree. Not an independent exhaustive replay of every rejection."
+  }
+}

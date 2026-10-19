@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-19",
+  "task_kind": "engine development",
+  "component": "global and induced-neighborhood degree bounds",
+  "defaults": {
+    "global_min": 18,
+    "global_max": 24,
+    "neighborhood_min": 0,
+    "neighborhood_max": 13
+  },
+  "interface": {
+    "header": "src/degrees.hpp",
+    "function": "add_degree_constraints(InstanceBuilder &, const DegreeOptions &)",
+    "disabled_endpoint": "std::nullopt in C++; none in CLI",
+    "builder_changes": "none"
+  },
+  "encoding": {
+    "extra_default_inequalities": 102,
+    "new_variables": 0,
+    "order": "unchanged Ramsey core, neighborhood A, global A, global B; lower then upper per vertex",
+    "fixed_contributions": "pivot degree is |A|; A global degrees include 1 pivot edge; B global degrees include d_B(y)",
+    "tautologies": "omitted",
+    "inconsistent_interval": "invalid argument",
+    "incompatible_fixed_graph": "infeasible PB model"
+  },
+  "reference_divergence": "scripts/ramsey.py remains the independent direct CNF tool. The existing C++ rooted Ramsey core and variable numbering are unchanged. Degree PB inequalities are appended, changing default output by 102 rows.",
+  "verification": [
+    {
+      "command": "cmake --build build -j 4",
+      "exit_status": 0
+    },
+    {
+      "command": "ctest --test-dir build --output-on-failure",
+      "exit_status": 0,
+      "result": "1/1 passed, including new independent assembled-graph degree equivalence over A orders 0..3, 7 global intervals, 6 neighborhood intervals and every edge assignment"
+    },
+    {
+      "command": "python3 -m unittest discover -s tests -v",
+      "exit_status": 0,
+      "result": "9/9 passed"
+    },
+    {
+      "command": "./build/ramsey --help",
+      "exit_status": 0
+    },
+    {
+      "command_template": "./build/ramsey data/r45_24/b24.g6 -g -o TEMP.opb FLAGS",
+      "exit_status": 0,
+      "cases": {
+        "core": [
+          "--global-degree-min",
+          "none",
+          "--global-degree-max",
+          "none",
+          "--neighborhood-degree-min",
+          "none",
+          "--neighborhood-degree-max",
+          "none"
+        ],
+        "default": [],
+        "custom": [
+          "--global-degree-min",
+          "17",
+          "--global-degree-max",
+          "25",
+          "--neighborhood-degree-min",
+          "5",
+          "--neighborhood-degree-max",
+          "10"
+        ]
+      },
+      "counts": {
+        "variables": 585,
+        "core": 383580,
+        "default": 383682,
+        "custom": 383700
+      },
+      "checks": "Both extended OPBs retain the entire core prefix byte-for-byte. Independently decoded graph6 B degrees and independently mapped A/cross variables reproduce every added row."
+    },
+    {
+      "invalid_cli_cases": [
+        [
+          "--global-degree-min",
+          "-1"
+        ],
+        [
+          "--global-degree-max",
+          "2147483648"
+        ],
+        [
+          "--neighborhood-degree-min",
+          "wat"
+        ],
+        [
+          "--global-degree-min",
+          "25"
+        ],
+        [
+          "--neighborhood-degree-min",
+          "14"
+        ],
+        [
+          "--global-degree-max"
+        ]
+      ],
+      "exit_status": 2,
+      "result": "all 6 reject and preserve pre-existing destination"
+    }
+  ],
+  "smoke_artifacts": {
+    "core": {
+      "bytes": 28528160,
+      "sha256": "9cc14c9080257f9fdfe76803203b7a8e8a46d99aa09adb0ba9357fb15caf9bcd"
+    },
+    "default": {
+      "bytes": 28549430,
+      "sha256": "93d7d48b2c327e08f221ab20c2c4d4e648d3ea9124af54792dd1b37ee6d0c99e"
+    },
+    "custom": {
+      "bytes": 28551770,
+      "sha256": "01daefeeb7a9a5bbfc3813da647eee8acae7bbb0949583a947bf7fae48b88465"
+    }
+  },
+  "source_sha256": {
+    "src/degrees.hpp": "1b62ef877d946480f6e4f6f54509cd7d812d0be27850350db81875be8cdba55f",
+    "src/degrees.cpp": "5b39afc8e3c028bb4e84a1fbaf7a5adf414fca2d7b5f6693dff1de149a3ad2d8",
+    "src/engine.hpp": "06f225eb17a904758b84f169ab850ab4a03c30e948846d85158c8dc406ed8deb",
+    "src/engine.cpp": "a26aa65716591b378cec87ce37f0c4a2c66c43c75b4296a4d3b4655ca24911df",
+    "src/main.cpp": "99d8ca65b3aeb25452d850bcee8796f66a0b754ce0a163d5de2cd3055bf9cb40",
+    "CMakeLists.txt": "d78fefab62e925cc8fdb659d49ed9ed81a140c9ef640edc84d46b55a020ed4e3",
+    "tests/test_engine.cpp": "38bdf5b13d14ea4c36bd23ba54799737709c995f788d3b9e8d56fa2a4cd43203"
+  },
+  "cleanup": "All 3 temporary OPBs and temporary sentinel directory removed. No persistent smoke script.",
+  "not_run": [
+    "solver search",
+    "catalogue-wide processing",
+    "Lean checks (no Lean changes)",
+    "downloads"
+  ],
+  "evidence_scope": "Encoding validation only. No Ramsey existence or nonexistence conclusion."
+}

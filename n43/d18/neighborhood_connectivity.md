@@ -16,6 +16,9 @@ published (4,4) census intervals 50..55, 60..60, 68..68 on 15, 16, 17
 vertices (root README census table; McKay-Radziszowski 1992 as recorded in
 `lean/Ramsey/Premises.lean`).
 
+For u in A write epsilon_u=d_G(u)-18, the branch convention behind the
+row identity used in claim 3.
+
 Preamble (independence is exactly four). An I5 in A would be an I5 in G,
 so alpha(A)<=4. Since A is K4-free on 18 vertices, R(4,4)=18 leaves an I4,
 so alpha(A)>=4. Hence alpha(A)=4. The lower step is the argument already
@@ -76,17 +79,22 @@ disconnected neighborhood is realizable as N(v) in an order-43 candidate.
 ## 3. Recorded filters leave the families live; interface obligations
 
 Claim ID: `n43/d18/neighborhood_connectivity.md#claim-connectivity-03`  
-Kind: local-deduction  
-Review state: ready  
+Kind: local-deduction
+Review state: accepted
 Scope: as claim 1, together with the recorded row identity and universal
-predicates cited below  
-Dependencies: claim-connectivity-01; [reduction index](../reductions.md)
-sections 5.2 and 4.5; row identity d_B(u)=17+epsilon_u-d_A(u)  
+predicates cited below
+Dependencies: claim-connectivity-01; claim-connectivity-02 for a<=68;
+[reduction index](../reductions.md) sections 4.5, 5.1(2), 5.2 and 6.1;
+row identity d_B(u)=17+epsilon_u-d_A(u) with epsilon_u=d_G(u)-18;
+deletion floor d_A>=a-79 from published E(4,5,17)=79, recorded in
+[pivot classes](pivot_classes.md) section 2; R(3,5)=14 for d_A<=13
 Conclusion:
 (a) no recorded unconditional G[A] filter excludes the three families: the
 deletion floor d_A>=a-79 is vacuous for a<=79 and every disconnected case
-has a<=68; clique vertices have d_A=m-1<=2; C-vertices have degree at most
-eight, since N_C(x) is triangle-free and I4-free and R(3,4)=9;
+has a<=68 by claim-connectivity-02; clique vertices have d_A=m-1<=2 and
+C-vertices have degree at most eight, since N_C(x) is triangle-free and
+I4-free and R(3,4)=9; both bounds satisfy the recorded cap d_A<=13 of
+section 5.2;
 (b) for u in K_m: epsilon_u<=m-1 and d_B(u)=18-m+epsilon_u; at m=1 this
 forces epsilon_u=0, d_G(u)=18, d_B(u)=17, and the section 5.2 boundary
 trigger makes G[N_B(u)] a 17-vertex 8-regular (4,4) graph;
@@ -97,10 +105,13 @@ membership is automatic, since u is anticomplete to C and alpha(C)=3;
 (d) every I4 of A consists of exactly one K_m vertex together with an
 independent triple of C, so a cross column missing some clique vertex must
 meet every independent triple of C  
-Search use: propagate  
-Reviews: none
+Search use: propagate
+Reviews: [independent review and 2026-10-19 acceptance addendum](review_neighborhood_connectivity_20261018_conn3_rigor.md)
 
-Proof. For u in K_m, d_A(u)=m-1 and N_G(u)={v} union (K_m-u) union R_u,
+Proof. The deletion floor follows from the published E(4,5,17)=79: A-u is
+(4,5)-free on 17 vertices, so e(A-u)<=79 and d_A(u)>=a-79, nonpositive in
+every disconnected case. For u in K_m, d_A(u)=m-1 and
+N_G(u)={v} union (K_m-u) union R_u,
 since u has no neighbor in C. The recorded row cap r_u<=17 gives
 epsilon_u<=d_A(u)=m-1, and then
 r_u=17+epsilon_u-(m-1)=18-m+epsilon_u; at m=1 this is r_u=17 with
@@ -111,7 +122,8 @@ so a triangle containing v needs two A-neighbors of u beyond v, available
 only at m=3; all other triangles lie in R_u, or at m=2 consist of w and an
 edge inside R_u intersect R_w. For (d), an independent set meets the
 complete component in at most one vertex, alpha(C)=3 excludes an I4 inside
-C, and every column meets every I4 of A by the recorded universal premise.
+C, and every column meets every I4 of A by the recorded universal premise
+(section 5.1(2), equivalently section 6.1, immediate from I5-freeness).
 
 ## Audit
 
@@ -137,3 +149,33 @@ with 50..55 edges, on 16 vertices with exactly 60 edges, and on 17 vertices
 with exactly 68 edges. Whether any family member embeds as N(v) with a
 valid interface is open; item (d) of claim 3 is the first column obligation
 any such embedding must satisfy.
+
+## Reviewed separator strengthening
+
+The [cross-branch separator transfer](connected_structure_transfer.json),
+with its [independent audit](review_connected_structure_transfer_20261019.json),
+strengthens connectedness to the following pure-A structural restrictions,
+uniformly in E_A and x:
+
+|Interior edges a|Deficit q|Guaranteed vertex connectivity|
+|---|---|---|
+|a>=70|q<=15|kappa(A)>=2|
+|a>=75|q<=10|kappa(A)>=3|
+|a>=81|q<=4|kappa(A)>=4|
+
+Deleting a separator of size one, two, or three leaves either K_m plus a
+(4,4)-free component, or the explicitly retained independence profile (2,2).
+The corresponding maximum possible edge counts are 69, 74, and 80. This is
+why the thresholds exclude separators, rather than just isolated components.
+The note also gives separator-conditioned column-incidence restrictions.
+
+Combining these thresholds with the existing root budgets, W<=10 forces
+every degree-18 neighborhood to be at least three-vertex-connected; at W=0
+every such neighborhood is at least four-vertex-connected. The selected
+maximum-edge root is four-connected for W=0,2,4,6. These conclusions refer
+to the same roots as the existing pivot tables, not unrelated chosen pairs.
+
+Connectedness alone gives no minimum-degree-two theorem: a fixed connected
+(4,5,18) graph with 62 edges and a leaf is verified in the
+[cross-branch report](../../reports/2026-10-19-cross-branch-synthesis.json).
+It is an isolated-A counterexample, not an ambient order-43 construction.

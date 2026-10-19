@@ -56,7 +56,7 @@ The last two bounds hold at every cell size, not only at saturation.
 
 Claim ID: `n43/d18/cell_obligation_cuts.md#claim-cell-signed-cut`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: any finite undecided-pair set D; every stated family of proved
 edge/nonedge lower obligations and upper capacities on D
 Dependencies: elementary linear inequalities; each supplied obligation must
@@ -64,7 +64,7 @@ independently have applicable hypotheses
 Conclusion: the signed demand inequality below is necessary; its strict
 failure is an exact finite infeasibility certificate
 Search use: none pending independent review; proposed propagate
-Reviews: none
+Reviews: [review](review_cell_obligation_cuts_20261015_intersections.md)
 
 Write edge and nonedge lower obligations as
 
@@ -116,14 +116,14 @@ failure to find multipliers proves nothing about feasibility.
 
 Claim ID: `n43/d18/cell_obligation_cuts.md#claim-cell-overlap-degree-cut`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: actual T=T_Q, U=U_P, S=T intersect U; every a in S; independently
 proved intervals l_Z<=d_Z(a)<=u_Z for Z=T,U,S,W=T union U
 Dependencies: cell types and degree bounds in
 `anchored_cell_averaging.md#claim-cell-saturation`; exact set inclusion
 Conclusion: interval (2) for d_S(a), and union-degree interval (3)
 Search use: none pending independent review; proposed propagate
-Reviews: none
+Reviews: [review](review_cell_obligation_cuts_20261015_intersections.md)
 
 The following intervals are necessary:
 
@@ -164,7 +164,7 @@ to that specified actual subset.
 
 Claim ID: `n43/d18/cell_obligation_cuts.md#claim-cell-star-cover-cut`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: the two actual-cell patterns below; witness anchors may vary from
 one leaf pair to another; all leaves are distinct occurrences and differ
 from the center
@@ -173,7 +173,7 @@ universal T-neighbor and U-nonneighbor capacities proved above
 Conclusion: any fractional matching of total weight greater than the
 remaining attachment capacity rejects the pattern
 Search use: none pending independent review; proposed propagate
-Reviews: none
+Reviews: [review](review_cell_obligation_cuts_20261015_intersections.md)
 
 First choose an edge cell T=T_Q and center a in T. Let b_1,...,b_n
 be leaves in T whose pairs with a remain undecided. After all other forced
@@ -229,14 +229,14 @@ no assertion of membership in the original F or H.
 
 Claim ID: `n43/d18/cell_obligation_cuts.md#claim-cell-odd-cycle-certificates`
 Kind: local-deduction
-Review state: draft
+Review state: accepted
 Scope: a pattern of the preceding claim, with integer remaining capacity
 h>=1, whose obligation graph H contains a cycle on 2h+1 distinct leaves
 Dependencies: preceding vertex-cover cut
 Conclusion: the pattern is infeasible; the certificate consists of the
 2h+1 witnessed triple inequalities and one vertex capacity inequality
 Search use: none pending independent review; proposed propagate
-Reviews: none
+Reviews: [review](review_cell_obligation_cuts_20261015_intersections.md)
 
 Put lambda=1/2 on the cycle edges and zero on all other edges. Every
 cycle vertex has incident lambda-weight one, while total lambda is

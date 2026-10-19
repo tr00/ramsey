@@ -28,3 +28,9 @@ import Ramsey
 #print axioms Ramsey.d18.isDisconnectedNeighborhood_iff
 #print axioms Ramsey.d18.subcase_cover
 #print axioms Ramsey.d18.excludes_of_subcases
+#print axioms Ramsey.isRamseyGraph_induce_rowSet
+#print axioms Ramsey.card_neighborSet_eq_eight_of_isRamseyGraph_4_4
+#print axioms Ramsey.d18.k1.rigidity
+#print axioms Ramsey.d18.c.w0.zero_excess_iff
+#print axioms Ramsey.d18.c.w0.class_of_zero_excess
+#print axioms Ramsey.d18.c.w0.complete_of_connected

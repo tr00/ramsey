@@ -114,6 +114,13 @@ public theorem indepSetFree_induce {G : SimpleGraph V} (s : Set V) (n : ℕ)
     rw [compl_induce, SimpleGraph.cliqueFree_induce_iff]
     exact fun t _ => (SimpleGraph.cliqueFree_compl G).mpr h t)
 
+/-- Independence exclusion on an induced graph can be checked on ambient
+finite sets. -/
+public theorem indepSetFree_induce_iff (H : SimpleGraph V) (S : Set V) (n : ℕ) :
+    (H.induce S).IndepSetFree n ↔
+      ∀ t : Finset V, (↑t : Set V) ⊆ S → ¬H.IsNIndepSet n t := by
+  rw [← SimpleGraph.cliqueFree_compl, compl_induce, SimpleGraph.cliqueFree_induce_iff]
+  simp only [SimpleGraph.CliqueFreeOn, SimpleGraph.isNClique_compl]
 /-- Neighborhoods of `(5,5)`-Ramsey graphs are `(4,5)`-Ramsey. -/
 public theorem isRamseyGraph_induce_neighborSet {G : SimpleGraph V}
     (hG : IsRamseyGraph 5 5 G) (v : V) :

@@ -26,7 +26,7 @@ Search use remains none until review.
 
 Claim ID: `n43/d18/sos_order12_addendum.md#claim-order12-cap42`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: every simple graph H on twelve vertices with neither K4 nor I4.
 
@@ -79,14 +79,14 @@ the underlying Goodman identity; the contradiction uses the separate
 triangle residue after total slack has vanished.
 
 Search use: none; proposed propagation of the cap on specified actual
-(4,4)-free cores or anchored cells. Reviews: none.
+(4,4)-free cores or anchored cells. Reviews: [review](review_sos_order12_addendum_20261015_columns.md).
 
 <a id="claim-order12-six-transversal"></a>
 ## 2. A low-degree six-set transversal requires q at least three
 
 Claim ID: `n43/d18/sos_order12_addendum.md#claim-order12-six-transversal`
 
-Kind: local-deduction. Review state: ready.
+Kind: local-deduction. Review state: accepted.
 
 Scope: order-43 K5/I5-free G with degree-18 pivot v; A=N(v), B=M(v),
 `q=85-e(A)`; every six-set L subset A with all `d_A(u)<=7` that meets
@@ -113,7 +113,7 @@ Claim01 gives `45-q<=42`, hence q>=3. No actual B endpoint is required
 for L, and no I4 prohibition is transferred to A itself.
 
 Search use: none; proposed rejection of a specified six-set low-degree
-transversal hypothesis when q<=2. Reviews: none.
+transversal hypothesis when q<=2. Reviews: [review](review_sos_order12_addendum_20261015_columns.md).
 
 ## Author audit and limits
 

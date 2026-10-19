@@ -1,0 +1,194 @@
+{
+  "title": "Exact-census deletion thresholds, transversal member degrees, and actual-column excess",
+  "date": "2026-10-19",
+  "task": "cross-branch-synthesis-20261019",
+  "author": "DeletionTransfer",
+  "review_state": "accepted",
+  "reviews": ["review_deletion_degree_transfer_20261019.json"],
+  "novelty": "Not assessed; these are cross-comparisons of recorded arguments and published premises.",
+  "ownership": "Only this new JSON proof note is written. Existing proofs, WORK, shared indexes, Lean, engines and catalogues are unchanged.",
+  "setting": {
+    "pure": "A is any finite simple K4/I5-free graph on 18 vertices with e(A)=85-q and integer 0<=q<=35. F is its complement, so alpha(F)<=3 and e(F)=68+q. An I4-transversal T meets every independent four-set of A; equivalently it is a K4-transversal of F. A is not assumed I4-free.",
+    "ambient": "Additionally G is a K5/I5-free graph on 43 vertices, v has degree18, A=N_G(v), B=M_G(v) has order24, and C_y=N_G(y) intersect A for y in B. Every C_y is an I4-transversal. Set epsilon_u=d_G(u)-18 in [0,6], E_A=sum_A epsilon_u, E_S=sum_S epsilon_u, x=e(A,B)=136+2q+E_A, and w(u)=d_A(u)-epsilon_u=17-|N_B(u)|. An isolated transversal has no epsilon, w, or actual 24-column interface unless that interface is separately given.",
+    "notation": "For a transversal T write s=|T|, h=18-s, H=A-T, a_T=e(A[T]), and W_T=sum_T w. beta4(s) is the sum of binomial(part_size,2) for four balanced parts of total size s; K4/I5-freeness implies a_T>=beta4(s). T3(j)=floor(j^2/3)."
+  },
+  "premises": [
+    {
+      "id": "published-core-extrema",
+      "source": "README.md#state-of-the-art, lines38-44; references [2], lines210-212",
+      "statement": "Recorded (4,4)-free edge intervals at orders11,12,13,14,15,16,17 are respectively [19,36], [26,40], [33,45], [41,50], [50,55], {60}, {68}.",
+      "external_status": "Trusted published input already recorded in the repository, McKay-Radziszowski (1992); no census completeness recertification or external retrieval."
+    },
+    {
+      "id": "published-A17",
+      "source": "README.md#state-of-the-art, line35; references [1], lines206-208",
+      "statement": "Every K4/I5-free graph on17 vertices has between41 and79 edges. Every such graph on18 vertices has between50 and85 edges.",
+      "external_status": "Trusted recorded published input, Angeltveit-McKay; no new external assumption."
+    },
+    {
+      "id": "small-Ramsey",
+      "source": "README.md#state-of-the-art, lines22-28; docs/mathematical_baseline.md, degree and common-neighborhood bounds",
+      "statement": "R(3,4)=R(4,3)=9, R(3,5)=14, R(4,4)=18, R(4,5)=25. These give ambient degrees18..24 and pure A degrees at most13."
+    },
+    {
+      "id": "core-upper-envelope",
+      "statement": "Use U(h)=floor(h^2/3) for 0<=h<=10 and the recorded upper extrema for h=11..17. Thus U=[0,0,1,3,5,8,12,16,21,27,33,36,40,45,50,55,60,68]. All are justified upper bounds for K4/I4-free graphs; exactness is not asserted at orders0..10.",
+      "limit": "The unaccepted landscape's sharper order10 cap31 is deliberately not needed."
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-deletion-transfer-thresholds",
+      "claim_id": "n43/d18/deletion_degree_transfer.json#claim-deletion-transfer-thresholds",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "Every18-vertex F with alpha(F)<=3, without a clique-number assumption; every K4-transversal. In the q table specialize to the pure setting, uniformly over all E_A and x when an ambient interface exists.",
+      "dependencies": ["published-core-extrema", "small-Ramsey", "docs/general_theorems/transversal_deletion.md#claim-transversal-deletion-01"],
+      "conclusion": [
+        "A transversal of size at most1 forces e(F)>=77; one of size at most2 forces e(F)>=76; one of size at most3 forces e(F)>=71.",
+        "Consequently tau4(F)>=4 for q=0..2, >=3 for q=3..7, >=2 for q=8, and >=1 for q=9..35. Equivalently singleton transversals require q>=9, two-set transversals require q>=8, and three-set transversals require q>=3. These are necessary thresholds, not existence or sharpness assertions.",
+        "Every actual column obeys the same piecewise lower bound; at q=3 the separately reviewed actual-interface theorem strengthens it to at least4 whenever E_A<=13."
+      ],
+      "proof": [
+        "If a transversal has size at most s in {1,2,3}, enlarge it to exactly s and put J=F-T, |J|=h=18-s. Then J is K4/I4-free. For t in T, its nonneighbors in J have no K4 and no independent triple, the latter since adding t would give I4 in F. By R(4,3)=9 there are at most8 such nonneighbors, so d_J(t)>=h-8.",
+        "The recorded minima L_h for h=17,16,15 are68,60,50. Since e(F[T])>=0, e(F)>=L_h+s(h-8), giving respectively68+9=77, 60+16=76, and50+21=71. This is the general deletion theorem with s<=3, whose internal-T lower term is zero.",
+        "Now e(F)=68+q. The integer inequalities exclude singleton transversals for q<=8, two-set transversals for q<=7, and three-set transversals for q<=2. R(4,4)=18 and K4-freeness of A guarantee an I4 in A, so the empty set is never a transversal. This proves the full table, including its weak last row.",
+        "For actual C_y, missing an I4 of A would make an I5 with y. Hence every C_y is a transversal. No claim that all isolated transversals are realizable actual columns is used."
+      ],
+      "old_new_comparison": [
+        {"old_claim": "n43/d18/transfer_summary.md#claim-band137-two-transversal", "old": "Uses elementary e(J)>=56 at order16, giving e(F)>=72 and tau>=3 only for e(F)<=71 (q<=3).", "new": "Exact minimum60 raises the deletion-two threshold by4 edges to76 and proves tau>=3 for every q<=7. Newly covered strips are q=4,5,6,7, without an E_A or x restriction."},
+        {"old_claim": "n43/d18/transfer_bounds.md#claim-band137-transfer-scope", "old": "The table lists the elementary isolated three-transversal bound only at q=3; its stated x137..142 coverage is a subband.", "new": "The same necessary isolated bound extends to all q<=7 across the entire d18 branch. The old q3 actual E_A>=14 theorem remains distinct and unchanged."},
+        {"old_claim": "n43/d18/frontier_band.md, Four-transversal extension; docs/general_theorems/transversal_deletion.md#claim-transversal-deletion-03", "old": "q<=2 gives tau>=4 from the exact order15 lower endpoint50.", "new": "Unchanged: the published input was already fully used. Stronger order16/17 inputs do not move this deletion-three cutoff."},
+        {"old_claim": "One-deletion audit; no prior standalone one-deletion claim located in target notes", "old": "Using only the Ramsey min-degree argument at order17 already gives e(J)>=17*8/2=68 and the threshold77.", "new": "The recorded exact17 extremum confirms77 but does not strengthen it. Unlike order16, no additional scalar improvement is claimed at order17."}
+      ],
+      "search_use": "propagate",
+      "reviews": ["review_deletion_degree_transfer_20261019.json"]
+    },
+    {
+      "id": "claim-deletion-transfer-member-degrees",
+      "claim_id": "n43/d18/deletion_degree_transfer.json#claim-deletion-transfer-member-degrees",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "Every pure A, every nonempty I4-transversal T, every t in T; no ambient candidate, connectivity, E_A, or x hypothesis.",
+      "dependencies": ["core-upper-envelope", "published-A17", "small-Ramsey", "n43/d18/four_column_stability.md#claim-four-column-stability-01 (four-set refinement independently rederived below)"],
+      "conclusion": [
+        "For1<=s<=18 put b_h=min(8,h). Every member satisfies d_A(t)>=D_s(q)=max(0,6-q,85-q-U(h)-b_h*(s-1)-T3(s-1)), with the additional term9-q included when s=4.",
+        "For s=1,2,3,4 this simplifies respectively to max(0,17-q), max(0,17-q), max(0,13-q), max(0,9-q). The corresponding upper bounds are8,9,10,11; for general s the bound is min(13,s-1+b_h).",
+        "Every A vertex, including transversal members, also obeys the pure published deletion ceiling d_A(t)<=min(13,44-q)."
+      ],
+      "proof": [
+        "H=A-T is K4/I4-free. For any z in T its H-neighborhood is triangle-free, since a triangle with z gives K4 in A, and I4-free as a subset of H. R(3,4)=9 gives d_H(z)<=min(8,h)=b_h. In particular d_A(t)<=s-1+b_h; the usual K3/I5-free neighborhood argument also gives d_A(t)<=13.",
+        "Fix t and put J=T-{t}. Partition A-t into H, the cut J-H, and J. Since J is K4-free, e(A[J])<=T3(s-1). Therefore e(A-t)<=U(h)+b_h*(s-1)+T3(s-1). Subtract from e(A)=85-q to obtain the displayed floor. Independently A-t is K4/I5-free of order17, so its upper79 gives d_A(t)>=6-q; degrees are nonnegative.",
+        "For s=1,2,3 use U(17)=68,U(16)=60,U(15)=55, b_h=8 and T3(0),T3(1),T3(2)=0,0,1. The resulting constants are17,17,13. For s=4 the raw constant is85-50-24-3=8, sharpened to9 as follows.",
+        "When s=4 and J has at most2 edges, e(A-t)<=50+24+2=76. Otherwise J is a triangle. Its three H-neighborhoods have no triple intersection (that would give K4), and each pair intersection is independent (an edge together with its adjacent J pair gives K4). Each pair intersection is anticomplete to the third J vertex, so its size is at most3: an independent4 there with that vertex would give I5 in A. Inclusion-exclusion on H of order14 gives e(J,H)<=14+3+3+3=23. Thus e(A-t)<=50+23+3=76 also in this case. Therefore d_A(t)>=9-q. This reasoning requires I4-freeness only in H, never in A.",
+        "Finally the published lower41 for A-t gives 85-q-d_A(t)>=41, hence d_A(t)<=44-q."
+      ],
+      "old_new_comparison": [
+        {"old_claim": "n43/d18/transfer_bounds.md#claim-band137-adjacent-pivots, universal d_A>=max(0,6-q)", "new": "For members of size1/2/3 transversals the constants become17,17,13 instead of6. In particular q4 size3 members have degree at least9, not2; q8 size2 members have degree exactly9, not merely0. This does not strengthen nonmember degrees without the separate interior theorem."},
+        {"old_claim": "n43/d18/parameter_landscape.md, premise ledger formula(1), unaccepted lead only", "new": "The generic core-envelope idea is independently proved here from recorded published inputs. The note does not rely on landscape claim acceptance, finite certificate evaluation, or order10 cap31."},
+        {"old_claim": "n43/d18/four_column_stability.md#claim-four-column-stability-01", "new": "The9-q four-set member floor is retained, not presented as a new improvement; its proof applies to isolated transversals as well as actual columns."}
+      ],
+      "search_use": "propagate",
+      "reviews": ["review_deletion_degree_transfer_20261019.json"]
+    },
+    {
+      "id": "claim-deletion-transfer-boundary-stability",
+      "claim_id": "n43/d18/deletion_degree_transfer.json#claim-deletion-transfer-boundary-stability",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "Pure A with a transversal T of size s=1,2,3. Write F=complement A, J=F-T, u=e(J)-L_(18-s), w_t=d_J(t)-(10-s), z=e(F[T]), and delta_1=q-9, delta_2=q-8, delta_3=q-3.",
+      "dependencies": ["claim-deletion-transfer-thresholds", "docs/general_theorems/transversal_deletion.md#claim-transversal-deletion-02", "published-core-extrema"],
+      "conclusion": [
+        "u,z,w_t are nonnegative integers and u+z+sum_T w_t=delta_s. In A, e(A-T)=U(18-s)-u, d_(A-T)(t)=8-w_t, and d_A(t)=s+7-w_t-d_(F[T])(t).",
+        "For s=1,2 the exact core census forces u=0 for every q, not just at threshold. For s=1 this gives d_A(t)=17-q exactly, core e=68, and q>=9. For s=2 one has z=q-8-sum w_t and z in{0,1}.",
+        "At q8,s2 equality forces A[T]=K2, core order16/e60, both attachments8 and both member degrees9. At q9,s1 equality forces a core order17/e68 and member degree8. At q3,s3 equality gives A[T]=K3, core order15/e55, all attachments8 and member degrees10.",
+        "Every (4,4)-free17 core here is8-regular. Every (4,4)-free16 core here has exactly eight vertices of degree7 and eight of degree8."
+      ],
+      "proof": [
+        "Expand e(F)=e(J)+e(F[T])+sum_T d_J(t) and subtract L_(18-s)+s(10-s). The proof of the threshold claim makes each bracket nonnegative, yielding the exact defect identity. At orders17,16,15 the complement of the lower endpoint is the recorded upper endpoint: binom(17,2)-68=68, binom(16,2)-60=60, binom(15,2)-50=55. Complementation across the cut gives d_(A-T)(t)=h-(10-s+w_t)=8-w_t, and complementing within T gives the stated member formula.",
+        "At orders17 and16 the published min and max coincide, so e(J)=L_h and u=0. At delta_s=0 all brackets vanish. Thus F[T] is empty and all A attachments equal8, giving each boundary structure and member degree.",
+        "In a K4/I4-free h-core, every vertex has at most8 neighbors by R(3,4)=9 and at most8 nonneighbors by R(4,3)=9. For h17 this forces degree8. For h16 it forces degree7 or8; e=60 means total degree120=7*16+8, hence exactly eight vertices of each degree."
+      ],
+      "old_new_comparison": "The q3 size-three equality is the reviewed old core theorem, not a new exclusion. New order16 equality and exact degree profile replace the weak56-edge remainder and can constrain any q8 actual two-column without asserting it exists.",
+      "search_use": "propagate",
+      "reviews": ["review_deletion_degree_transfer_20261019.json"]
+    },
+    {
+      "id": "claim-deletion-transfer-effective-excess",
+      "claim_id": "n43/d18/deletion_degree_transfer.json#claim-deletion-transfer-effective-excess",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "Every ambient candidate, any I4-transversal S in A, not necessarily an actual column; s=|S|>=1. In particular applies to every actual C_y. Let D_s be the member floor from the preceding claim, W_S=sum_S w, and t be an integer effective-degree cutoff.",
+      "dependencies": ["claim-deletion-transfer-member-degrees", "core-upper-envelope", "ambient degree identity and nonnegative excess", "Turan theorem"],
+      "conclusion": [
+        "E_S>=max(0,s*D_s(q)-W_S,85-q-U(18-s)+e(A[S])-W_S). This is an actual-interface necessary excess budget, not an assertion about an isolated graph's global degrees.",
+        "If every w(u)<=t on S, then E_S>=B(q,s,t)=max(0,s*max(0,D_s(q)-t),85-q-U(18-s)+beta4(s)-s*t). Thus necessarily B(q,s,t)<=min(E_A,6s) and D_s(q)<=t+6.",
+        "If S consists of vertices with w<=t, a further necessary condition is170-2q-E_A<=s*t+13*(18-s). It follows that if no s=1..18 satisfies these explicit necessary inequalities, the full low-effective-degree set {w<=t} is not a transversal and A has an I4 all of whose members have w>=t+1. For checking only one actual column, use its actual size and do not infer that the low-degree set is itself that column.",
+        "If a sharper independently proved common degree floor L(q) is available, replace D_s by max(D_s,L(q)) everywhere. In particular the ready companion claim n43/d18/interior_transfer.json#claim-interior-transfer-floor proposes such L(q); using that strengthening retains its separate review dependency. The core claims and examples here do not depend on it."
+      ],
+      "proof": [
+        "By definition E_S=sum_S d_A-W_S. The member floor gives sum_S d_A>=s*D_s. Independently the deletion identity e(A-S)=85-q-sum_S d_A+e(A[S]) and the core cap U imply sum_S d_A>=85-q-U+e(A[S]). Nonnegative excess gives the third bound0. These establish the first maximum.",
+        "If w<=t, every member has epsilon=d_A-w>=D_s-t, and epsilon>=0, so E_S>=s*max(0,D_s-t). Replacing W_S by at mosts*t and e(A[S]) by beta4(s) in the deletion inequality gives the other term in B. The beta4 bound follows by applying Turan to the K5-free complement of A[S], since A[S] has no I5. Since E_S<=E_A and E_S<=6s, the budget is necessary. The pointwise cap epsilon<=6 also forces D_s<=t+6.",
+        "Every other vertex has w=d_A-epsilon<=13. Summing w over all A gives170-2q-E_A, proving the displayed global inequality. If the entire low-effective set were a transversal, choose S equal to that set. It is nonempty because A contains an I4. Its actual size would satisfy all the proved necessary inequalities, a contradiction when no size passes. Failure of transversality means an I4 misses the low-effective set. All weights are integers, so its members have w>=t+1.",
+        "This is a symbolic necessary certificate. No parameter-grid evaluation, low-degree-set search, or graph enumeration is performed."
+      ],
+      "concrete_comparisons": [
+        {"q":0,"column_size":4,"effective_cap":8,"new_required_column_excess":4,"old_universal_floor_only_required_excess":0,"explanation":"Each member of a four-transversal has degree at least9; if its effective degree is at most8 it consumes at least one excess unit. This example is conditional, not an exclusion of all size-four columns when E_A<4."},
+        {"q":4,"column_size":3,"effective_cap":8,"new_required_column_excess":3,"old_universal_floor_only_required_excess":0,"explanation":"New member floor9 forces three units on this particular low-effective column. Hence any q4 profile with E_A<=2 excludes a size-three column whose members all have w<=8, but not arbitrary size-three columns."},
+        {"q":8,"column_size":2,"effective_cap":8,"new_required_column_excess":2,"old_universal_floor_only_required_excess":0,"explanation":"The exact boundary forces both internal degrees9. Two low-effective members therefore cost two excess units."},
+        {"q":9,"column_size":1,"effective_cap":7,"new_required_column_excess":1,"old_universal_floor_only_required_excess":0,"explanation":"The exact singleton boundary gives degree8, so w<=7 requires one excess unit."}
+      ],
+      "old_new_comparison": "This independently derives a uniform symbolic excess obstruction of the type suggested by the unaccepted parameter-landscape certificate, but proves it for any individual transversal/actual column, adds the exact singleton/two/three member constants and actual-core edge refinement, and performs no finite landscape sweep. No landscape claim is used as accepted evidence.",
+      "search_use": "propagate",
+      "reviews": ["review_deletion_degree_transfer_20261019.json"]
+    },
+    {
+      "id": "claim-deletion-transfer-q3-interface-check",
+      "claim_id": "n43/d18/deletion_degree_transfer.json#claim-deletion-transfer-q3-interface-check",
+      "kind": "local-deduction",
+      "review_state": "accepted",
+      "scope": "Every ambient candidate with q=3 and an actual size-three column T, without a restriction on E_A. This is a self-contained rederivation of a prior accepted interface theorem, not a new numerical improvement.",
+      "dependencies": ["claim-deletion-transfer-boundary-stability", "n43/d18/x142/q3/three_columns.md#claim-q3-three-column-core", "n43/d18/x142/q3/three_columns.md#claim-q3-three-column-excess-fourteen", "ambient K5/I5 hypotheses"],
+      "conclusion": "There are three disjoint independent four-sets X_i in A whose union U has excess at least14. Thus E_A>=14 and x>=156. Combining with the stronger exact deletion-two theorem still gives the old actual-column lower bound4 at q3,E_A<=13; exact order16 inputs do not by themselves extend E_A<=13 or the q3 hypothesis of the size-three interface proof.",
+      "proof": [
+        "By boundary equality T={t1,t2,t3} is a triangle, H=A-T has15 vertices/e55, and each S_i=N_H(t_i) has size8. Pair intersections S_i intersect S_j are independent, since an edge there with t_i,t_j gives K4. Triple intersection is empty. Each pair intersection has at most3 vertices because H has no I4. Inclusion-exclusion gives15>=|union S_i|=24-sum_pair |intersection|>=24-9=15. Thus all pair intersections D_ij have size3, the private cells P_i have size2, and these six cells partition H.",
+        "D_ij is anticomplete to the remaining t_k, so X_k={t_k} union D_ij is an independent four-set. The three X_k are disjoint; their union U=T union D, where D is the union of the nine pair-cell vertices. Let P be the six private vertices. Every H vertex has degree at most8 by R(3,4)=9, so sum_D d_H=110-sum_P d_H>=110-48=62. The T vertices each have A degree10 and D vertices each have two neighbors in T. Therefore sum_U d_A>=30+18+62=110.",
+        "For any independent four-set X in A every actual column has nonempty X signature. For each u in X, B vertices with exact signature {u} form a clique: two nonadjacent ones with X-{u} would give I5. The clique has at most3 vertices, as four together with u would give K5. Therefore at most12 of the24 columns have singleton signature; all others have at least2 incidences, giving e(X,B)>=12+2*12=36.",
+        "Sum over the three disjoint X_k: e(U,B)>=108. On the other hand the degree identity gives e(U,B)=17*12+E_U-sum_U d_A<=204+E_U-110=94+E_U. Thus E_U>=14, E_A>=14, and x=136+2*3+E_A>=156. Independent four-sets of A were essential, not prohibited."
+      ],
+      "old_new_comparison": "Preserves the stronger reviewed q3 actual theorem intact. The census improvement is to the previously weaker isolated size<=2 exclusion at q4..7, not an unjustified promotion of the ambient E_A>=14 bound to isolated transversals.",
+      "search_use": "propagate; rederivation of an already reviewed claim",
+      "reviews": ["review_deletion_degree_transfer_20261019.json"]
+    }
+  ],
+  "arithmetic_self_checks": {
+    "method": "Exact integer arithmetic in a throwaway in-memory Python cell only. No graph construction, enumeration, solver, catalogue access, downloads, Lean, engine, formatter, linter, or test suite.",
+    "deletion_thresholds": [{"size":1,"core_order":17,"core_min":68,"attachments_min":9,"F_edge_threshold":77,"q_min":9},{"size":2,"core_order":16,"core_min":60,"attachments_min":16,"F_edge_threshold":76,"q_min":8},{"size":3,"core_order":15,"core_min":50,"attachments_min":21,"F_edge_threshold":71,"q_min":3},{"size":4,"core_order":14,"core_min":41,"attachments_min":24,"internal_min":1,"F_edge_threshold":66,"q_min":-2}],
+    "member_raw_constants": [17,17,13,8],
+    "member_refined_constants": [17,17,13,9],
+    "conditional_excess_example_results": [4,3,2,1],
+    "status": "PASS; author arithmetic self-check, not independent proof review"
+  },
+  "source_sha256": {
+    "README.md": "c8f01e2f5077c8241212ee05f27397a21d6f9c67ca3c6b514065c51ade12e10c",
+    "docs/workflow.md": "51220632656f91905d0ace361179ea8953a51ea6e544005d723ac7425df7e5b2",
+    "docs/mathematical_baseline.md": "de981cede9200a6d61fe7c113734bec5f1b2446d904ec5f16d42afa18a5dc7c0",
+    "docs/general_theorems/transversal_deletion.md": "699b21132f1dc10e5b454d69ab45c6b06effa43c2a0a89e8716eacf3735e6eb4",
+    "n43/d18/transfer_bounds.md": "149783596ee7d8f944082e261d8dff70d966e4b2c6548f8af3d06287042d6115",
+    "n43/d18/transfer_summary.md": "dd18ca7a750c8e67ec29fee57858482d1eba400315d5904e42dbe0ca3d809859",
+    "n43/d18/frontier_band.md": "cc3bcc50f5d315d08e667bfd522da9d2eef1560d917bdfce30432119337d3026",
+    "n43/d18/transversal_four.md": "4c084b03583248dc7c7ed56324ec5b6801bdca5278cf4fc17fa7e845dc07825e",
+    "n43/d18/four_column_stability.md": "71fa0ce84eeffff7b7a22790b5d3ce394a9767881269658060f076c13baa902a",
+    "n43/d18/x142/q3/three_columns.md": "00e670d5e5a5943f4f725184634f59be5ddf758b7b084551a9f3fd504ee068ee",
+    "n43/d18/parameter_landscape.md": "6d0af226c0723b698ec5fa033776f216b7953ba4885bf93fba59de21bc6164ca",
+    "n43/d18/interior_transfer.json": "1d6ff4d2a8e24aa11c946ef639697d688258e62a7a6844d101cf29ef1b9b113f"
+  },
+  "limits": [
+    "All five claims independently accepted at the SHA256 recorded in review_deletion_degree_transfer_20261019.json. Integration changes review metadata only; mathematical proof content is unchanged.",
+    "No d18 branch or x value is closed. Thresholds and boundary structures do not prove graph or actual-column existence.",
+    "The new unconditional scalar gain is the deletion-two improvement from q<=3 to q<=7. The one- and three-deletion numerical thresholds do not improve.",
+    "The excess certificate is conditional on observed effective weights or a specified ceiling t. It does not give an unconditional E_A lower bound for arbitrary columns away from the separately proved q3,size3 case.",
+    "The companion interior floor is ready and optional only; the active landscape audit is not used as acceptance evidence.",
+    "Published census extrema and Ramsey inputs are trusted as recorded, not externally recertified. No novelty claim, formal certificate, solver result, or executable pruning is asserted."
+  ]
+}

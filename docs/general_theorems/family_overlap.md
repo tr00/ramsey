@@ -32,7 +32,7 @@ Claim ID: `docs/general_theorems/family_overlap.md#claim-family-overlap-01`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: integers `s>=3`, `n>=1`, `0<=d<=n-1`, and integer `L` with
 `2L=d+s-1`; an `n`-vertex `(5,s)`-free graph `G`; any prescribed subset
@@ -111,7 +111,7 @@ anchor condition is insufficient for this argument. This proves assertion 3.
 Search use: propagate | branch after independent review. This claim describes
 the hypothetical failure of the desired low-overlap edge guarantee.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_family_overlap_20261015.md).
 
 <a id="claim-family-overlap-02"></a>
 ## 2. A structural component theorem
@@ -120,7 +120,7 @@ Claim ID: `docs/general_theorems/family_overlap.md#claim-family-overlap-02`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: integer `k>=2`; a graph `J` that is induced-paw-free and `K4`-free,
 with `alpha(J)<=k` and `alpha(J[N_J(v)])<=k-1` for every vertex `v`.
@@ -184,7 +184,7 @@ their sum is at most `k`. The defining partition bound proves `|J|<=H_k`.
 Search use: propagate | branch after independent review, with applicable
 Ramsey premises recorded; no numerical value of `H_k` is asserted without them.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_family_overlap_20261015.md).
 
 <a id="claim-family-overlap-03"></a>
 ## 3. Parameterized prescribed-family theorem and the order-43 corollary
@@ -193,7 +193,7 @@ Claim ID: `docs/general_theorems/family_overlap.md#claim-family-overlap-03`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the graph, family, parameters and Ramsey upper bounds of Claims 1--2,
 but with no initial hypothesis on edge codegrees. Require `d!=3(s-1)` and
@@ -259,7 +259,7 @@ existence coverage for a two-root family; exhaustion still requires every
 permitted overlap value, overlap map, and completion. It excludes no ambient
 graph by itself and is not a certified order-43 decision.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_family_overlap_20261015.md).
 
 <a id="claim-family-overlap-04"></a>
 ## 4. Strict triangle exclusion and odd-degree families
@@ -268,7 +268,7 @@ Claim ID: `docs/general_theorems/family_overlap.md#claim-family-overlap-04`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: an `n`-vertex `(5,s)`-free graph, `s>=3`, and a prescribed family
 `F` of ambient degree-`d` vertices. Put `k=s-1`, `b=n-d-1`, and
@@ -356,7 +356,7 @@ Search use: branch | propagate after independent review. This is same-family
 existence coverage, with all allowed edge maps and completions retained.
 It does not assert any required family census or exclude order 43.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_family_overlap_20261015.md).
 
 ## Limits of the abstraction
 

@@ -7,11 +7,13 @@ Additional predicate: `q=85-e(A)=0`; the exact degree budget forces
 All parent order-43 Ramsey and chosen-degree-18-pivot assumptions apply.
 
 A has 85 edges and is K4-saturated.
-Every column has size 4..14 under the recorded transversal bounds.
+Every column has size 5..14 under the accepted effective-degree anchor
+and the recorded transversal bounds.
 Here `148<=e(B)<=160` and `E_B=2e(B)-296+1`.
 The positive A excesses partition 1, with each part at most six.
 The reviewed [r4 exclusion](../../four_column_stability.md#claim-four-column-stability-04)
-gives r<=3; this profile remains open.
+and the accepted [effective-degree anchor](../effective_anchor.md#claim-x137-no-four-transversal)
+give r=0; the r0 component with s7..10 remains open.
 
 Coverage: this is one disjoint numerical profile of the parent identity
 `x-136=2q+E_A`, with q and E_A nonnegative integers. The numeric profile

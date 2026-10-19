@@ -1,5 +1,8 @@
 #pragma once
 
+#include "constraints/degrees.hpp"
+#include "constraints/edges.hpp"
+#include "constraints/excess.hpp"
 #include <array>
 #include <cstddef>
 #include <cstdint>
@@ -34,6 +37,10 @@ struct Options
     std::filesystem::path output;
     std::size_t index = 1;
     bool generate_only = false;
+    DegreeOptions degrees;
+    EdgeOptions edges;
+    CardinalityBounds excess;
+    bool zero_neighborhood_excess = false;
     std::vector<char *> solver_arguments;
 };
 

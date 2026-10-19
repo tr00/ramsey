@@ -87,6 +87,24 @@ Audit of the simplification: with L=max(0,6-q_v), the function
 (170-2q_v-L*z)/(18-z) is increasing in z because
 170-2q_v-18L>=0 for every q_v=0,...,35. Use z<=E_v.
 
+The [reviewed interior transfer](interior_transfer.json), with its
+[independent audit](review_interior_transfer_20261019.json), strengthens
+the floor L in both formulas above, uniformly in x and E_v:
+
+|q_v|0|1|2..5|6..10|11..15|16|17..35|
+|---|---|---|---|---|---|---|---|
+|L(q_v)|6|5|4|3|2|1|0|
+
+One may also replace the upper cap 13 by D(q_v)=min(13,44-q_v).
+Thus, for E_v<=17, the strengthened bound is
+lambda_vu<=min(D(q_v),floor((170-2q_v-L(q_v)*E_v)/(18-E_v))).
+The actual-multiplicity formula uses max(L(q_v),i) for each excess-i
+neighbor. At (q_v,E_v)=(4,4),(5,8),(10,4), the upper overlap bounds
+improve from 11,13,10 to 10,12,9 respectively. These remain bounds on
+one adjacent degree-18 companion, not on a companion with matching q or E.
+The older tables remain valid; their worst-case W<=10 overlap caps do not
+improve. The new floor and ceiling also tighten individual row intervals.
+
 For all small frontier classes this yields:
 
 |x_v|(q_v,E_v)|guaranteed degree-18 neighbor with codegree at most|

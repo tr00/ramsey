@@ -34,7 +34,9 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/EvenPivot.lean` | Even-pivot root reduction (d18 ∪ d20, `../n43/reductions.md` §3) on the `Complete` carrier: handshaking + complement symmetry give `exists_degree_18_or_20_up_to_compl` and the class cover `pivot_cover`; `ramsey_5_5_43_of_d18_d20` joins the branch obligations (`ExcludesDegree d`, the completeness of the empty enumeration of the degree-`d` pivot class) via `Complete.cover` and `Complete.forall_not_of_eq_empty`; `ramseyNumber_5_5_le_43_of_d18_d20` into `R(5,5) ≤ 43` |
 | `Ramsey/d18/Exclusion.lean` | d18 branch target `Ramsey.d18.excludes : ExcludesDegree 18`, proved from the four connectivity subcase targets by `Ramsey.d18.excludes_of_subcases`; mirrors `../n43/d18/` (all pivots, not a tie rule) |
 | `Ramsey/d18/c/Exclusion.lean` | Connected d18 subcase target `Ramsey.d18.c.excludes : ExcludesSubcase .conn` — deliberate `sorry` |
+| `Ramsey/d18/c/w0/Exclusion.lean` | Connected degree-18 zero-A-excess branch `Ramsey.d18.c.w0.Class`, with open `Excludes := Complete ∅ Class`. Here `W_A = E_A = 0` means every A vertex has global degree 18, proved by `zero_excess_iff`. Mirrors the exact budgets in `../n43/d18/frontier_band.md`. This is not restricted to `x = 136` and does not cover positive A-excess. No new axioms or sorries. |
 | `Ramsey/d18/k1/Exclusion.lean` | K1 d18 subcase target `Ramsey.d18.k1.excludes : ExcludesSubcase .k1` (exceptional neighborhood with complete component of order 1) — deliberate `sorry` |
+| `Ramsey/d18/k1/Rigidity.lean` | K1 rigidity `Ramsey.d18.k1.rigidity`: in the exceptional disconnected neighborhood with complete component of order 1, its vertex u satisfies `deg G u = 18` and row size 17, and the row `R_u` induces a 17-vertex 8-regular `(4,4)`-Ramsey graph. Mirrors item (b) of the ready (not accepted) claim `../n43/d18/neighborhood_connectivity.md#claim-connectivity-03` at `m = 1`, strengthened by needing no pivot-degree hypothesis. Consumes `R(3,4) ≤ 9`, `R(4,4) ≤ 18`, `R(4,5) ≤ 25` |
 | `Ramsey/d18/k2/Exclusion.lean` | K2 d18 subcase target `Ramsey.d18.k2.excludes : ExcludesSubcase .k2` (complete component of order 2) — deliberate `sorry` |
 | `Ramsey/d18/k3/Exclusion.lean` | K3 d18 subcase target `Ramsey.d18.k3.excludes : ExcludesSubcase .k3` (complete component of order 3) — deliberate `sorry` |
 | `Ramsey/d20/Exclusion.lean` | d20 branch target `Ramsey.d20.excludes : ExcludesDegree 20` — deliberate `sorry`, mirrors `../n43/d20/`; arbitrary even-pivot d20, _not_ the normalized min-degree-20 scheme of `../n43/min-degree20/` |
@@ -49,6 +51,7 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/theorems/LocalReductions.lean` | Proved mixed/common-nonneighbor cells, full pair-codegree intervals and row/column cardinal bounds |
 | `Ramsey/theorems/PivotInterface.lean` | Proved exact forbidden-rectangle criterion with internal graph types and pivot-containing sets handled explicitly |
 | `Ramsey/theorems/PivotCounting.lean` | General proved cross-edge counts, pivot degree sums and complement edge identity |
+| `Ramsey/theorems/RowBounds.lean` | General single-row boundary facts: the row cap `isRamseyGraph_induce_rowSet` (every cross row `R_u = N(u) ∩ M(v)` of a `(5,5)`-Ramsey graph induces a `(4,4)`-Ramsey graph, so `|R_u| ≤ 17` by `R(4,4) ≤ 18`, premise-free) and the regularity trigger `card_neighborSet_eq_eight_of_isRamseyGraph_4_4` (a `(4,4)`-Ramsey graph on 17 vertices is 8-regular, from `R(3,4) ≤ 9` and `R(4,3) ≤ 9`) |
 | `Ramsey/d18/PivotBudget.lean` | Proved degree-18 edge intervals, deficit/excess identity, `136≤x≤288` and equality-frontier consequences, taking a rooted Ramsey graph and its pivot-degree hypothesis |
 | `Ramsey/d18/ConnectivityClassification.lean` | Connectivity classification of degree-18 neighborhoods fused with the d18 subcase split: exceptional family `K_m ⊔ C`, `m=1..3`, the order trichotomy `IsKNeighborhood k` / `isDisconnectedNeighborhood_iff`, `SubcaseBranch` branches `conn`/`k1`/`k2`/`k3`, instance-free subcase classes `ConnClass` and `KClass k` through `deg`, the class cover `subcase_cover`, and `excludes_of_subcases` joining the four subcase obligations by `Complete.cover` and `Complete.forall_not_of_eq_empty` |
 | `Ramsey/d18/CrossEdgeBounds.lean` | Single cross-edge module with public `Ramsey.d18.degree18_cross_le_279`. All row, incidence, critical-core and equality-profile support is private and used by this bound. No new axioms or sorries. |
@@ -166,7 +169,9 @@ premise chains in `reports/2026-10-17-d18-connectivity.md`. The theorem
 names and premise chains of the survivors are included in
 `scripts/Audit.lean` and its expectations. Nothing here asserts that any
 exceptional graph extends to an order-43 Ramsey candidate. The
-interface/filter claims in claim 03 are not formalized by this module.
+interface/filter claims in claim 03 are not formalized by the classification
+module; the m = 1 rigidity of its item (b) is formalized in
+`Ramsey/d18/k1/Rigidity.lean` on top of `Ramsey/theorems/RowBounds.lean`.
 
 ## Connectivity subcases of the d18 branch
 
@@ -184,3 +189,16 @@ subcase obligations `ExcludesSubcase b` by `Complete.cover` and
 the d18 branch target itself is proved. The cover and the join consume only
 the `ramsey_4_3_le_9` premise beyond standard axioms, through the
 classification.
+
+### K1 rigidity
+
+`Ramsey.d18.k1.rigidity` formalizes the m = 1 case of the K_m interface
+analysis: the unique vertex u of the complete component has no neighbor in
+the neighborhood of the pivot, so its degree splits into the pivot edge and
+its cross row. The row cap `|R_u| ≤ 17` and the global degree floor
+`18 ≤ d(u)` force `deg G u = 18` and `|R_u| = 17`, and the row itself is a
+17-vertex 8-regular `(4,4)`-Ramsey graph by the regularity trigger. The
+statement needs no hypothesis on the pivot degree. The source claim
+`n43/d18/neighborhood_connectivity.md#claim-connectivity-03` is ready, not
+accepted; its item (b) arithmetic `epsilon_u ≤ m - 1` and
+`d_B(u) = 18 - m + epsilon_u` collapses at m = 1 to the equalities above.

@@ -9,7 +9,7 @@ This banner resolves their current status: conditional propagation is accepted
 for the companion deductions; this witness has research-planning use only.
 Reviewed and integrated hashes are recorded in
 [the cell integration manifest](overlapping_cells_manifest.json).
-Review state: ready after self-audit; independent review required.
+Review state: accepted; independent review recorded.
 This is an explicit small local graph with an analytic forbidden-subset
 verification. It is not an order-43 construction, an actual rooted candidate,
 or evidence of global satisfiability. No enumeration, solver, installation,
@@ -20,13 +20,13 @@ catalogue, download, or novelty claim.
 <a id="claim-u13-two-complete-cycle-vertices"></a>
 Claim ID: `n43/d18/cell_attachment_boundary_witness.md#claim-u13-two-complete-cycle-vertices`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: the explicitly defined local graph H of order13 below
 Dependencies: elementary clique/independence partition checks
 Conclusion: H is (5,3)-free; H contains S=C5, and exactly two of its
 eight vertices outside S are complete to S; these two vertices are adjacent
 Search use: none pending review; proposed use: research planning only
-Reviews: none
+Reviews: [review](review_cell_attachment_boundary_20261015_coordinator.md)
 
 The vertex order is
 

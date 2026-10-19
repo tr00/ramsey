@@ -33,12 +33,12 @@ Empty H is permitted, with W=Z=0 and empty sums zero.
 
 Claim ID: `docs/general_theorems/cut_capacity.md#claim-cut-capacity-01`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: setting above, actual excess multiset; every integer Q>=0
 Dependencies: degree summation; Turan's theorem; input root inequality
 Conclusion: the capacity inequalities below
 Search use: propagate; terminate only a profile violating a necessary inequality
-Reviews: none
+Reviews: [review](review_cut_capacity_20261015_overlap.md)
 
 Sort eta_1<=...<=eta_h, and put S_m=sum_(i=1..m)eta_i, S_0=0. Define
 
@@ -72,12 +72,12 @@ profile, and otherwise this comparison gives no family lower bound.
 
 Claim ID: `docs/general_theorems/cut_capacity.md#claim-cut-capacity-02`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: setting above; h>0 for eta_min; thresholds specified below
 Dependencies: elementary weighted incidence; Turan's theorem
 Conclusion: exact identity and weighted family bound below
 Search use: propagate
-Reviews: none
+Reviews: [review](review_cut_capacity_20261015_overlap.md)
 
 Let J=sum_(v in P)E_v. Each vertex z in H has
 d_P(z)=d+1-h+eta_z+d_(complement H)(z). Thus
@@ -112,13 +112,13 @@ the profile rather than creating more than p roots.
 
 Claim ID: `docs/general_theorems/cut_capacity.md#claim-cut-capacity-03`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: setting above; an independently proved theorem applying to every
 subset of P of size at least m_0
 Dependencies: claims 01 and 02; the specified family theorem
 Conclusion: if either bound gives M_Q>=m_0, the guaranteed pair is in F_Q
 Search use: branch, retaining all permitted pair maps and completions
-Reviews: none
+Reviews: [review](review_cut_capacity_20261015_overlap.md)
 
 Suppose every subset F of P with |F|>=m_0 contains an edge satisfying
 a specified overlap restriction. Apply that theorem to F_Q itself.

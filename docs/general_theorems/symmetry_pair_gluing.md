@@ -80,7 +80,7 @@ Claim ID: `docs/general_theorems/symmetry_pair_gluing.md#claim-pair-gluing-01`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every two pointed graphs in the setting; ordered roots; exact overlap maps.
 
@@ -116,7 +116,7 @@ do not change the map orbit.
 Search use: symmetry after independent review and a certified double-coset
 enumeration; witness is a pair of explicitly checked pointed automorphisms.
 
-Reviews: none.
+Reviews: [review](review_symmetry_pair_gluing_20261015_gluing_auditor_revised.md).
 
 <a id="claim-pair-gluing-02"></a>
 ## 2. The residual completion group is a fiber product
@@ -125,7 +125,7 @@ Claim ID: `docs/general_theorems/symmetry_pair_gluing.md#claim-pair-gluing-02`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: a chosen phi and t>=0 in the setting, with initially interchangeable
 D vertices and no additional noninvariant fixed data.
@@ -175,7 +175,7 @@ Search use: symmetry after independent review and certified residual orbit
 handling. Kernel factors must be retained: using only overlap image groups
 can miss permutations of side vertices fixing S pointwise.
 
-Reviews: none.
+Reviews: [review](review_symmetry_pair_gluing_20261015_gluing_auditor_revised.md).
 
 <a id="claim-pair-gluing-03"></a>
 ## 3. The staged quotient preserves every admissible pair completion
@@ -184,7 +184,7 @@ Claim ID: `docs/general_theorems/symmetry_pair_gluing.md#claim-pair-gluing-03`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: a nonempty isomorphism-equivariant family of admissible ordered adjacent
 pairs in each target graph, with all allowed pointed neighborhoods, overlap
@@ -223,7 +223,7 @@ inputs, maps and completions. It is unsafe to minimize the two side maps
 independently after fixing their common identification, or to keep one
 arbitrary pointed vertex from several automorphism orbits.
 
-Reviews: none.
+Reviews: [review](review_symmetry_pair_gluing_20261015_gluing_auditor_revised.md).
 
 ## Order-43 applications and exact limits
 

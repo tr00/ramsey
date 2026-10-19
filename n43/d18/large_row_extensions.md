@@ -44,14 +44,14 @@ signature reduction retaining all remaining ambient obligations.
 
 Claim ID: `n43/d18/large_row_extensions.md#claim-seventeen-codegree-moments`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: any (4,4)-free graph H of order seventeen; any subset U of its vertices
 Dependencies: cell saturation; Claim `claim-common-eight-classification`
 only for the final eight-subset specialization
 Conclusion: H has edge codegree three and nonedge codegree four; the
 exact attachment moments and S10 rigidity below follow
 Search use: propagate pending independent review
-Reviews: none
+Reviews: [exact-revision review](review_large_row_extensions_20261017_audit.md)
 
 H is 8-regular and has 68 edges and 68 nonedges. For an edge xy, the
 common neighborhood is independent (otherwise K4), hence has order at
@@ -110,7 +110,7 @@ specified overlap pattern is claimed here.
 
 Claim ID: `n43/d18/large_row_extensions.md#claim-seventeen-extension-domain`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: any u in A with |R_u|=17; put H=B[R_u], W=B-R_u
 Dependencies: scope; cell saturation; R(3,4)=9
 Conclusion: the signature conditions and degree identities below are
@@ -118,7 +118,7 @@ necessary and sufficient for a proposed attachment of W to a specified
 (4,4)-free H to make B K5/I4-free; ambient extension is separately retained
 in Claim `claim-large-row-ambient-lifting`
 Search use: propagate; exact finite reduction pending independent review
-Reviews: none
+Reviews: [exact-revision review](review_large_row_extensions_20261017_audit.md)
 
 H is 8-regular. For each z in W define
 
@@ -180,14 +180,14 @@ uniqueness has been acquired or independently recertified here.
 
 Claim ID: `n43/d18/large_row_extensions.md#claim-two-seventeen-core-balance`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: any K5/I4-free graph B of order 24 and any two vertex sets H,H'
 of order 17 inducing (4,4)-free graphs; they need not be specified as A rows
 Dependencies: cell saturation; the one-vertex missing-signature argument
 of the preceding claim
 Conclusion: the equalities, inequality, and 16-set exclusion below
 Search use: propagate; branch exclusion pending independent review
-Reviews: none
+Reviews: [exact-revision review](review_large_row_extensions_20261017_audit.md)
 
 Put J=H intersect H', X=H-H', Y=H'-H, and t=|X|=|Y|.
 Then |J|=17-t>=10 and 0<=t<=7. Every j in J satisfies
@@ -240,14 +240,14 @@ the unique-17-core census or any bound on x.
 
 Claim ID: `n43/d18/large_row_extensions.md#claim-common-eight-classification`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every triangle-free I4-free graph S of order eight; in particular
 S=B[R_u intersect R_w] for adjacent size-16 rows u,w
 Dependencies: R(3,4)=9 and R(3,3)=6; elementary degree arguments
 Conclusion: up to isomorphism S is one of the following three graphs;
 in particular e(S) in {10,11,12}, with exactly 24-2e(S) vertices of degree 2
 Search use: exact finite branch reduction pending independent review
-Reviews: none
+Reviews: [exact-revision review](review_large_row_extensions_20261017_audit.md)
 
 The descriptions specify all edges; there are no unlisted edges.
 
@@ -320,14 +320,14 @@ from the common-cell type. Their occurrence in an ambient G remains open.
 
 Claim ID: `n43/d18/large_row_extensions.md#claim-sixteen-signature-reduction`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: adjacent u,w in A with |R_u|=|R_w|=16
 Dependencies: reviewed adjacent-sixteen-row observation; cell saturation;
 preceding classification
 Conclusion: the three-type finite attachment reduction, equations, and
 inequalities below; full ambient completion remains as in the next claim
 Search use: propagate; exact finite branch reduction pending review
-Reviews: none
+Reviews: [exact-revision review](review_large_row_extensions_20261017_audit.md)
 
 Write S=R_u intersect R_w, X=R_u-R_w, Y=R_w-R_u. These are a partition
 of B into three eight-sets, with S one of S10,S11,S12. Put T=X union Y
@@ -418,13 +418,13 @@ on B or the other A vertices.
 
 Claim ID: `n43/d18/large_row_extensions.md#claim-large-row-ambient-lifting`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: either of the preceding B-attachment reductions
 Dependencies: preceding exact local criteria; scope
 Conclusion: the completion objects and criterion below are equivalent
 to the full rooted G in the respective large-row branch
 Search use: exact finite branch reduction pending independent review
-Reviews: none
+Reviews: [exact-revision review](review_large_row_extensions_20261017_audit.md)
 
 For a 17-row, the residual object consists of its specified core, seven
 outside signatures and their graph, a graph on A with distinguished u,

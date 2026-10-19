@@ -59,7 +59,7 @@ Claim ID: `n43/d18/obstruction_coverage.md#claim-coverage-root-cell-types`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every pair of distinct roots u,v in P; lambda=|N(u) intersect N(v)|
 
@@ -102,7 +102,7 @@ existing audit is silently promoted by this correction.
 
 Search use: none pending independent review; proposed propagate/branch
 
-Reviews: none
+Reviews: [exact-revision review](review_obstruction_coverage_20261017_audit.md)
 
 <a id="claim-coverage-independent-four-signatures"></a>
 ## Claim02. An independent four of degree-18 roots has only16 aggregate profiles
@@ -111,7 +111,7 @@ Claim ID: `n43/d18/obstruction_coverage.md#claim-coverage-independent-four-signa
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every actual independent set I={v1,v2,v3,v4} contained in P
 
@@ -183,7 +183,7 @@ disjoint. No saturated cell was assumed in this argument.
 
 Search use: none pending independent review; proposed propagate/branch
 
-Reviews: none
+Reviews: [exact-revision review](review_obstruction_coverage_20261017_audit.md)
 
 <a id="claim-coverage-twenty-five-roots"></a>
 ## Claim03. Twenty-five roots force larger opposing cells or the exact core
@@ -192,7 +192,7 @@ Claim ID: `n43/d18/obstruction_coverage.md#claim-coverage-twenty-five-roots`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every specified family F subset P with |F|>=25; no restriction on
 q, E, x, W, root selection, or adjacency to higher-degree vertices
@@ -228,7 +228,7 @@ common-nonneighbor cell must keep the type from Claim01.
 Search use: none pending independent review; proposed branch with all
 maps and completions retained; no termination claim
 
-Reviews: none
+Reviews: [exact-revision review](review_obstruction_coverage_20261017_audit.md)
 
 <a id="claim-coverage-dense-moderate-cells"></a>
 ## Claim04. A dense25-root family needs only orders12..14 in the pair branch
@@ -237,7 +237,7 @@ Claim ID: `n43/d18/obstruction_coverage.md#claim-coverage-dense-moderate-cells`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: two nonadjacent degree-18 roots for the pair bounds; any prescribed
 family F subset P with |F|>=25 and q_v<=2 for every v in F for the coverage conclusion
@@ -297,7 +297,7 @@ for this particular coverage proof.
 Search use: none pending independent review; proposed branch/propagate
 on the stated external premises
 
-Reviews: none
+Reviews: [exact-revision review](review_obstruction_coverage_20261017_audit.md)
 
 <a id="claim-coverage-exceptional-core-obligations"></a>
 ## Claim05. Exact structure and witnessed obligations in the exceptional core
@@ -306,7 +306,7 @@ Claim ID: `n43/d18/obstruction_coverage.md#claim-coverage-exceptional-core-oblig
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the exceptional alternative actually obtained in Claim02 or03
 
@@ -355,7 +355,7 @@ In particular neither the core nor its obligations are claimed impossible.
 Search use: none pending independent review; proposed propagate/branch
 inside the unavoidable exceptional branch
 
-Reviews: none
+Reviews: [exact-revision review](review_obstruction_coverage_20261017_audit.md)
 
 <a id="claim-coverage-closure-barrier"></a>
 ## Claim06. Exact scope of the reported x136 closure and a scalar barrier
@@ -364,7 +364,7 @@ Claim ID: `n43/d18/obstruction_coverage.md#claim-coverage-closure-barrier`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the root-profile identity above; first conclusion additionally
 conditional on the user-reported closure premise C136 defined below;
@@ -420,7 +420,7 @@ additional information; Claim05 records some of it.
 
 Search use: none; limitation of the stated relaxation only
 
-Reviews: none
+Reviews: [exact-revision review](review_obstruction_coverage_20261017_audit.md)
 
 ## Arithmetic self-check and exact remaining coverage
 

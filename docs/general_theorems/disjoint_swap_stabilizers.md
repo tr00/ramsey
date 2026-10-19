@@ -46,7 +46,7 @@ Claim ID: `docs/general_theorems/disjoint_swap_stabilizers.md#claim-disjoint-swa
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every finite simple Z and specified disjoint-pair action above.
 
@@ -94,7 +94,7 @@ Search use: exact symmetry accounting after independent review and validated
 implementation; a completed-state stabilizer computation does not by itself
 justify a partial-state pruning rule.
 
-Reviews: none.
+Reviews: [review](review_disjoint_swap_stabilizers_20261015_swap_auditor.md).
 
 <a id="claim-disjoint-swaps-02"></a>
 ## 2. Pair separation forces large free components and large orbits
@@ -103,7 +103,7 @@ Claim ID: `docs/general_theorems/disjoint_swap_stabilizers.md#claim-disjoint-swa
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the preceding setting with delta_Z(a_i,b_i)>=D for every specified
 pair, where D is a positive integer.
@@ -135,7 +135,7 @@ only equalities and pinned zeros, not general parity equations.
 Search use: symmetry orbit bounds and rejection of impossible claimed
 stabilizers after independent review; not a measured running-time factor.
 
-Reviews: none.
+Reviews: [review](review_disjoint_swap_stabilizers_20261015_swap_auditor.md).
 
 ## Author self-check and limits
 

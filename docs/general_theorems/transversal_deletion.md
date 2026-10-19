@@ -45,7 +45,7 @@ Claim ID: `docs/general_theorems/transversal_deletion.md#claim-transversal-delet
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every n-vertex F with alpha(F)<s, every t-set clique transversal
 T of K_r, and proved R,L as above. F itself may contain K_r.
@@ -86,7 +86,7 @@ Search use: propagate a transversal size lower bound, or terminate a
 case that explicitly requires size at most t, conditional on the
 correct R,L inputs and the strict edge inequality.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_transversals_20261015.md).
 
 <a id="claim-transversal-deletion-02"></a>
 ## 2. Exact edge-defect identity and stability
@@ -95,7 +95,7 @@ Claim ID: `docs/general_theorems/transversal_deletion.md#claim-transversal-delet
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the setting of Claim 01 with a t-set transversal T, integer
 lower bound L, and
@@ -133,7 +133,7 @@ nonneighbors unless h=R-1.
 Search use: propagate exact component/attachment defect budgets; equality
 structure can filter candidate transversals on all stated hypotheses.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_transversals_20261015.md).
 
 <a id="claim-transversal-deletion-03"></a>
 ## 3. The 18-vertex four-transversal threshold
@@ -142,7 +142,7 @@ Claim ID: `docs/general_theorems/transversal_deletion.md#claim-transversal-delet
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every 18-vertex F with alpha(F)<=3 and e(F)<=70.
 For the pivot application F is the complement of A=N(v), where A is
@@ -170,7 +170,7 @@ its B endpoint would form I5 in the ambient graph.
 Search use: propagate size>=4 for independent-four transversals and
 actual cross columns, on the recorded edge/census premises.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_transversals_20261015.md).
 
 <a id="claim-transversal-deletion-04"></a>
 ## 4. Why deleting four does not prove the desired stronger bound
@@ -179,7 +179,7 @@ Claim ID: `docs/general_theorems/transversal_deletion.md#claim-transversal-delet
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: 18-vertex F with alpha(F)<=3; a four-set K4-transversal T;
 the recorded lower bound 41 for 14-vertex (4,4)-free graphs.
@@ -212,7 +212,7 @@ four-transversal exists or that any extension to the full graph exists.
 Search use: propagate the exact four-transversal defect budget;
 no size>=5 or order-43 termination claim.
 
-Reviews: none.
+Reviews: [review](review_audit_pending_transversals_20261015.md).
 
 ## Provenance and self-check
 

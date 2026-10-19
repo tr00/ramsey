@@ -62,7 +62,7 @@ Claim ID: `n43/symmetry_structure.md#claim-symmetry-structure-01`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every distinct u,w in every G in the setting.
 
@@ -97,7 +97,7 @@ two incidence bits can still differ. If this maximum is below the applicable
 lower bound, the state has no completion. The bound may also be encoded by
 XOR indicators; their exact equivalence to differing incidences is required.
 
-Reviews: none.
+Reviews: [structure review](review_symmetry_structure_20261015_structure_auditor.md).
 
 <a id="claim-symmetry-structure-02"></a>
 ## 2. Nonidentity automorphisms move at least ten vertices
@@ -106,7 +106,7 @@ Claim ID: `n43/symmetry_structure.md#claim-symmetry-structure-02`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every automorphism pi of G; every moved u with w=pi(u).
 
@@ -133,7 +133,7 @@ automorphism hypotheses or support types, and propagation in explicitly
 symmetry-constrained branches. This is a restriction on actual automorphisms,
 not on relabelings between distinct isomorphic candidates.
 
-Reviews: none.
+Reviews: [structure review](review_symmetry_structure_20261015_structure_auditor.md).
 
 <a id="claim-symmetry-structure-03"></a>
 ## 3. Every order-43 candidate is prime under modular decomposition
@@ -142,7 +142,7 @@ Claim ID: `n43/symmetry_structure.md#claim-symmetry-structure-03`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every G in the setting; every nonempty proper module S. A module
 means every outside vertex is adjacent to all of S or none of S.
@@ -187,7 +187,7 @@ G candidates or impossibility of a module preserved by every extension.
 A module of a partial induced subgraph can be broken by future vertices or
 edges; its mere presence there does not justify rejection.
 
-Reviews: none.
+Reviews: [structure review](review_symmetry_structure_20261015_structure_auditor.md).
 
 <a id="claim-symmetry-structure-04"></a>
 ## 4. The 24-vertex antineighborhood is prime as well
@@ -196,7 +196,7 @@ Claim ID: `n43/symmetry_structure.md#claim-symmetry-structure-04`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every graph B of order24 with neither K5 nor I4, independently of G.
 
@@ -232,7 +232,7 @@ Search use: none pending independent review; proposed catalogue filter on
 fully specified order24 B or complement B; inherited partial modules must
 not be treated as permanent.
 
-Reviews: none.
+Reviews: [structure review](review_symmetry_structure_20261015_structure_auditor.md).
 
 <a id="claim-symmetry-structure-05"></a>
 ## 5. Duplicate pairs have a guaranteed large completion orbit
@@ -241,7 +241,7 @@ Claim ID: `n43/symmetry_structure.md#claim-symmetry-structure-05`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every G in the setting and any p disjoint pairs of vertices; the
 whole-graph K action is restricted to invariant candidate data when used
@@ -271,7 +271,7 @@ and do not imply equal remaining neighborhoods for duplicate vertices.
 Search use: none pending independent review; proposed exact orbit accounting
 and duplicate-pair XOR lower bounds of8 during completion.
 
-Reviews: none.
+Reviews: [swap review](../docs/general_theorems/review_disjoint_swap_stabilizers_20261015_swap_auditor.md).
 
 <a id="claim-symmetry-structure-06"></a>
 ## 6. Frontier rooted automorphisms have a small kernel
@@ -280,7 +280,7 @@ Claim ID: `n43/symmetry_structure.md#claim-symmetry-structure-06`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: a degree18 root with x=136,...,141 and all premises of the accepted
 signature-multiplicity bound; p is its number of duplicate signatures.
@@ -336,7 +336,7 @@ and orbit-size forecasting. A bound on the stabilizer must not replace the
 larger group acting on candidates: the latter is still Gamma_M, whose order
 can be2^p|H_M|.
 
-Reviews: none.
+Reviews: [swap review](../docs/general_theorems/review_disjoint_swap_stabilizers_20261015_swap_auditor.md).
 
 <a id="claim-symmetry-structure-07"></a>
 ## 7. A smallest free swap component has a rigid ten-vertex support
@@ -345,7 +345,7 @@ Claim ID: `n43/symmetry_structure.md#claim-symmetry-structure-07`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: five disjoint pairs in G whose simultaneous swap fixes all other
 vertices and is an automorphism; each of the five pairs is an edge.
@@ -395,7 +395,7 @@ Search use: none pending independent review; proposed conditional propagation
 for an explicitly hypothesized five-pair automorphism. No occurrence or
 nonexistence of such a support is asserted.
 
-Reviews: none.
+Reviews: [structure review](review_symmetry_structure_20261015_structure_auditor.md).
 
 <a id="claim-symmetry-structure-08"></a>
 ## 8. A five-pair edge component excludes every second edge component
@@ -404,7 +404,7 @@ Claim ID: `n43/symmetry_structure.md#claim-symmetry-structure-08`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: an unpinned five-pair component of the disjoint-swap stabilizer, and
 a second disjoint unpinned component; every pair in both components is an
@@ -457,7 +457,7 @@ Search use: none pending independent review; proposed conditional symmetry
 accounting through x139. Size-ten repeated columns at x140,141 need not be
 edges, so the stronger conclusion is not transferred to those cases.
 
-Reviews: none.
+Reviews: [structure review](review_symmetry_structure_20261015_structure_auditor.md).
 
 <a id="claim-symmetry-structure-09"></a>
 ## 9. Conditional anchor parity excludes twelve duplicate pairs at equality
@@ -466,7 +466,7 @@ Claim ID: `n43/symmetry_structure.md#claim-symmetry-structure-09`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: x=136 with the full actual frontier interface; additionally assume
 the degree-eight independent-four anchor of the concurrent ready proof.
@@ -494,7 +494,7 @@ Search use: none pending independent review of this claim and the anchor
 chain; proposed symmetry accounting only. This deduction does not promote
 the concurrent r1 exclusion or anchor proof to accepted status.
 
-Reviews: none.
+Reviews: [structure review](review_symmetry_structure_20261015_structure_auditor.md).
 
 ## Author audit, provenance, and limits
 

@@ -61,7 +61,7 @@ would only be (5,4). None of the arguments below needs such a typing.
 
 Claim ID: `n43/d18/fixed_b_extensions.md#claim-fixed-b-outer-cover`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: every rooted order-43 degree-18 K5/I5-free candidate; all rooted
 isomorphism classes, with no degree-sequence complement selector
 Dependencies: B is K5/I4-free; external completeness assertion on Brendan
@@ -70,7 +70,7 @@ section “Extremal Ramsey(4,5)-graphs”, read 2026-10-17
 Conclusion: fixing in turn the complements of a complete set of the
 352366 Ramsey(4,5,24) representatives covers every possible B
 Search use: branch, conditional on the external complete-family premise
-Reviews: none
+Reviews: [exact-revision review](review_fixed_b_extensions_20261017_audit.md)
 
 Proof. Complementation interchanges clique and independent-set restrictions,
 so B-bar is K4/I5-free on 24 vertices. The cited page states that the full
@@ -93,7 +93,7 @@ quotient that identifies degree-18 roots with degree-24 roots of G-bar.
 
 Claim ID: `n43/d18/fixed_b_extensions.md#claim-fixed-b-exact-extension`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: fixed labeled K5/I4-free B on 24 vertices; an ordered list of 18
 actual rows; an arbitrary simple edge assignment on those 18 occurrences
 Dependencies: the exact forbidden-rectangle criterion cited above; elementary
@@ -101,7 +101,7 @@ homogeneous-set extension; the small Ramsey values listed in the setting
 Conclusion: conditions (E1)--(E6) below are necessary and sufficient for the
 assembled rooted graph to be K5/I5-free; every actual row lies in D_B below
 Search use: propagate and exact branch specification after review
-Reviews: none
+Reviews: [exact-revision review](review_fixed_b_extensions_20261017_audit.md)
 
 Define the finite full row domain
 
@@ -169,7 +169,7 @@ No equality-frontier premise is used.
 
 Claim ID: `n43/d18/fixed_b_extensions.md#claim-fixed-b-symmetry`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: one fixed labeled B; the complete row and A-edge extension family;
 all extra budgets required to be relabeling-invariant
 Dependencies: Claim 2; the finite permutation argument of
@@ -177,7 +177,7 @@ Dependencies: Claim 2; the finite permutation argument of
 Conclusion: the two-stage quotient below preserves exactly the rooted
 isomorphism classes for this B if both orbit stages are complete
 Search use: symmetry after review and certified orbit handling
-Reviews: none
+Reviews: [exact-revision review](review_fixed_b_extensions_20261017_audit.md)
 
 Order subsets of V(B) by (size, bit tuple), then sort all 18 actual rows.
 Let M have multiplicities n_R and define
@@ -215,13 +215,13 @@ is included here.
 
 Claim ID: `n43/d18/fixed_b_extensions.md#claim-fixed-b-forced-pairs`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: actual rows in D_B of any candidate in the setting; no census or
 x136 premise
 Dependencies: Claim 2; R(3,4)=9 and R(5,3)=14
 Conclusion: the forcing and multiplicity classification below holds
 Search use: propagate after review
-Reviews: none
+Reviews: [exact-revision review](review_fixed_b_extensions_20261017_audit.md)
 
 For two occurrences with masks R,S define the separately witnessed relations
 
@@ -268,7 +268,7 @@ row-first quotient with B fixed, not the earlier column-first quotient.
 
 Claim ID: `n43/d18/fixed_b_extensions.md#claim-fixed-b-mixed-occupancy`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: any clique Q and independent set P in the fixed B; Q,P may be
 empty, and their cross adjacencies are arbitrary
 Dependencies: Claim 2; the homogeneous extension argument; the small Ramsey
@@ -276,7 +276,7 @@ values in the setting
 Conclusion: the cell and numerical capacities below are necessary for the
 row multiplicities, before any A edges are assigned
 Search use: propagate after review
-Reviews: none
+Reviews: [exact-revision review](review_fixed_b_extensions_20261017_audit.md)
 
 Let
 
@@ -323,13 +323,13 @@ occupancy rejections, not guesses about unknown A pairs.
 
 Claim ID: `n43/d18/fixed_b_extensions.md#claim-fixed-b-small-row-capacities`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: arbitrary subfamilies of actual rows; all other rows and all A
 edges may be unknown
 Dependencies: Claims 2, 4, and 5; B has no K5 or I4
 Conclusion: all four domain-capacity statements below hold universally
 Search use: propagate after review
-Reviews: none
+Reviews: [exact-revision review](review_fixed_b_extensions_20261017_audit.md)
 
 1. At most three rows have size at most five.
 2. For each B edge e, at most two rows of size at most six contain e.
@@ -367,7 +367,7 @@ minimum sizes for different h are not additive capacities.
 
 Claim ID: `n43/d18/fixed_b_extensions.md#claim-fixed-b-mask-balls`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: any fixed B as above; any center S subset V(B) of size r; any
 nonnegative integers a_0,b_0; any occurrences whose actual masks lie in
 D(S;a_0,b_0) below, including repeats
@@ -375,7 +375,7 @@ Dependencies: Claims 2 and 4; B's K5/I4 prohibitions; optional rational
 fractional-matching witnesses defined below
 Conclusion: the forcing flags and domain occupancy bounds below hold
 Search use: propagate after review
-Reviews: none
+Reviews: [exact-revision review](review_fixed_b_extensions_20261017_audit.md)
 
 Define the asymmetric exchange ball
 
@@ -460,7 +460,7 @@ to exactly one of them.
 
 Claim ID: `n43/d18/fixed_b_extensions.md#claim-fixed-b-rational-capacity`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: any finite actual-mask domain D subset D_B, with nonnegative
 integer multiplicities n_R and any supplied valid occupancy inequalities;
 all dependencies of each supplied inequality remain explicit
@@ -470,7 +470,7 @@ Conclusion: the strict inequalities described below certify rejection of
 all 18-row multisets supported on D; no A completion is required
 Search use: terminate the specified row domain after review and exact
 verification of the supplied witnesses and multipliers
-Reviews: none
+Reviews: [exact-revision review](review_fixed_b_extensions_20261017_audit.md)
 
 Let L_j(R) be any rational coefficients for which a proved capacity reads
 
@@ -540,14 +540,14 @@ nothing about feasibility.
 
 Claim ID: `n43/d18/fixed_b_extensions.md#claim-fixed-b-finite-relaxation`
 Kind: design
-Review state: ready
+Review state: accepted
 Scope: each B of Claim 1; a finite row domain D, initially all D_B;
 retaining every nonrejected multiset and residual A-edge branch
 Dependencies: Claims 1--8; no implemented procedure or measured performance
 Conclusion: the following staged relaxation is a sound outer cover;
 requiring integral A edges in its last stage recovers exactly Claim 2
 Search use: design only until independent review and implementation
-Reviews: none
+Reviews: [exact-revision review](review_fixed_b_extensions_20261017_audit.md)
 
 ### Occupancy-only stage
 

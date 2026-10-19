@@ -48,14 +48,14 @@ witnesses. H records witnessed obligations, not the graph induced on B.
 
 Claim ID: `n43/d18/sos_obligation_graphs.md#claim-sos-obligation-general`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: either witnessed star pattern above; any graph H on n distinct
 leaves, any rational U and rational PSD matrix M satisfying the affine identity below
 Dependencies: accepted dispersed-star construction; exact PSD positivity
 Conclusion: the supplied identity bounds alpha(H)<=floor(U); if
 n-h>U the actual partial Ramsey state has no completion
 Search use: none pending independent review; proposed conditional propagate
-Reviews: none
+Reviews: [review](review_sos_obligation_graphs_20261015_columns.md)
 
 Suppose there are rational coefficients a_i, c_ij and a rational PSD M
 such that the polynomial identity
@@ -85,12 +85,12 @@ to a numerical eigenvalue computation or a graph catalogue.
 
 Claim ID: `n43/d18/sos_obligation_graphs.md#claim-sos-obligation-wagner`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: the explicitly specified eight-vertex H; every independent-set indicator t
 Dependencies: the explicit rational matrix identity proved here
 Conclusion: sum t_i<=40/11, hence alpha(H)<=3
 Search use: none pending independent review; proposed conditional propagate
-Reviews: none
+Reviews: [review](review_sos_obligation_graphs_20261015_columns.md)
 
 Let K be H's adjacency matrix, and M=K+(5/2)I. We first prove M is
 positive definite by an explicit sum of positively weighted squares.
@@ -132,14 +132,14 @@ no higher-degree polynomial is concealed in the displayed squares.
 
 Claim ID: `n43/d18/sos_obligation_graphs.md#claim-sos-obligation-eight-leaves`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: actual omission-cell star above with remaining nonneighbor capacity
 h<=4 and eight distinct undecided leaves whose obligation graph contains H
 Dependencies: previous claim; actual witnessed triple constraints
 Conclusion: the partial state has no completion; the eight leaves require
 at least five center-nonneighbors
 Search use: none pending independent review; proposed conditional propagate
-Reviews: none
+Reviews: [review](review_sos_obligation_graphs_20261015_columns.md)
 
 A putative completion selects at most four nonneighbor leaves, so at least
 four leaves have t_i=1. They are independent in H by the witnessed pair

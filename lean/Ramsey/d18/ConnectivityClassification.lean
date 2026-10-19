@@ -26,13 +26,6 @@ namespace Ramsey.d18
 
 variable {V : Type*}
 
-/-- Independence exclusion on an induced graph can be checked on ambient finite sets. -/
-private lemma indepFree_induce_iff (H : SimpleGraph V) (S : Set V) (n : ℕ) :
-    (H.induce S).IndepSetFree n ↔
-      ∀ t : Finset V, (↑t : Set V) ⊆ S → ¬H.IsNIndepSet n t := by
-  rw [← SimpleGraph.cliqueFree_compl, compl_induce, SimpleGraph.cliqueFree_induce_iff]
-  simp only [SimpleGraph.CliqueFreeOn, SimpleGraph.isNClique_compl]
-
 /-- Independent sets on opposite sides of an anticomplete cut can be combined. -/
 private lemma indep_union [DecidableEq V] {H : SimpleGraph V} {S : Set V} {s t : Finset V}
     {m n : ℕ} (hs : H.IsNIndepSet m s) (ht : H.IsNIndepSet n t)
@@ -80,7 +73,7 @@ private lemma free_of_opposite {H : SimpleGraph V} {S : Set V} {t : Finset V}
     (hcut : ∀ u ∈ S, ∀ w ∉ S, ¬H.Adj u w) :
     (H.induce S).IndepSetFree m := by
   classical
-  rw [indepFree_induce_iff]
+  rw [indepSetFree_induce_iff]
   intro s hsS hs
   exact hH _ (indep_union hs ht hsS htS hcut)
 

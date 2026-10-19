@@ -1,4 +1,5 @@
 #include "engine.hpp"
+#include "constraints/zero_excess.hpp"
 #include "opb.hpp"
 
 #include <gtools.h>
@@ -186,6 +187,9 @@ void validate_b(const Graph &graph)
 
 int run(const Options &options)
 {
+    options.degrees.validate();
+    options.edges.validate();
+    options.excess.validate("neighborhood excess");
     reject_alias(options.input, options.output);
     const auto record = read_record(options.input, options.index);
     const auto graph = decode_graph6(record);
@@ -200,6 +204,11 @@ int run(const Options &options)
         output.open(temporary.path(), std::ios::binary);
         InstanceBuilder instance(graph);
         add_core_constraints(instance);
+        add_degree_constraints(instance, options.degrees);
+        add_edge_constraints(instance, options.edges);
+        add_excess_constraints(instance, options.excess);
+        if (options.zero_neighborhood_excess)
+            add_zero_excess_constraints(instance);
         write_opb(output, instance, record);
         output.close();
         reject_alias(options.input, options.output);

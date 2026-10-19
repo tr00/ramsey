@@ -11,6 +11,7 @@ public import Ramsey.EvenPivot
 public import Ramsey.Premises
 public import Ramsey.d18.Exclusion
 public import Ramsey.d18.c.Exclusion
+public import Ramsey.d18.c.w0.Exclusion
 public import Ramsey.d18.k1.Exclusion
 public import Ramsey.d18.k2.Exclusion
 public import Ramsey.d18.k3.Exclusion
@@ -22,8 +23,10 @@ public import Ramsey.theorems.TransversalFour
 public import Ramsey.theorems.LocalReductions
 public import Ramsey.theorems.PivotInterface
 public import Ramsey.theorems.PivotCounting
+public import Ramsey.theorems.RowBounds
 public import Ramsey.d18.PivotBudget
 public import Ramsey.d18.ConnectivityClassification
+public import Ramsey.d18.k1.Rigidity
 public import Ramsey.d18.CrossEdgeBounds
 
 @[expose] public section
