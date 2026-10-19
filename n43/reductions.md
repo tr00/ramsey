@@ -108,10 +108,10 @@ a=85,
 d_G(u)=18 for every u in A.
 ```
 
-Update (2026-10-19): the equality case is excluded by the reviewed
-[x136 closure](d18/x136/README.md), and the single-excess case by the reviewed
-[x137 closure](d18/x137/frontier_closure.md). Every degree-18 root now has
-`x>=138`; the forcing list above records an impossible profile. Earlier
+Update (2026-10-20): x136, x137 and x138 are excluded by the reviewed
+[x136 closure](d18/x136/README.md), [x137 closure](d18/x137/frontier_closure.md)
+and [two-profile x138 closure](d18/x138/README.md). Every degree18 root now
+has `x>=139`; the forcing list above records an impossible profile. Earlier
 [x136 closure consequences](d18/x136_closure_consequences.md) remain valid.
 
 For navigable case folders, start at [n43/README.md](README.md) and
@@ -428,15 +428,16 @@ The second interval follows by complementing the published 24-vertex
 **[PROVED-HERE]** For every degree-18 root, on the published edge premises:
 
 ```text
-max(138,306-2a,432-2b) <= x <= min(279,414-2a,576-2b),
+max(139,306-2a,432-2b) <= x <= min(279,414-2a,576-2b),
 q=85-a, E_A=sum_A(d_G(u)-18), x=136+2q+E_A.
 ```
 
 The [independent-row cuts](d18/independent_row_cuts.md) first give x<=280
 without an edge census, then exclude both equality profiles; the final one
 uses b>=144 and the all-vertex degree cap 24. The reviewed
-[x136 frontier exclusion](d18/x136/frontier_exclusion_handoff.md) and
-[x137 closure](d18/x137/frontier_closure.md) give x>=138.
+[x136 frontier exclusion](d18/x136/frontier_exclusion_handoff.md),
+[x137 closure](d18/x137/frontier_closure.md) and
+[x138 closure](d18/x138/README.md) give x>=139.
 Search use: propagate the interval and branch by x or (q,E_A).
 
 ### 8.3 The `x=136` frontier
@@ -479,6 +480,30 @@ including published (4,4,11/12) upper caps36/40. Search use: terminate
 x137 entirely and propagate x>=138 with x136 closure. No root-unavoidability,
 novelty, formal certificate, or order43 exclusion is claimed. See the
 [integration report](../reports/2026-10-19-x137-frontier-closure.md).
+
+#### Two-profile frontier x=138
+
+**[PROVED-HERE; accepted independent mathematical reviews]** Both x138
+profiles are excluded: q0,E_A=2 by [effective-weight theory](d18/tau/q0_effective_reduction.md)
+and q1,E_A=0 by [zero-excess anchors](d18/tau/q1_anchor_reduction.md).
+The exact identity2=2q+E_A makes this coverage exhaustive. The two q0
+reviews cover Claims1..4 and5..10 at reviewed SHA-256
+`491b9c76a125cec320f5adcf3474a53f4d39e5885d455d702385efe6342ce0a8`;
+the q1 review covers all five claims at
+`aca13de84acbdaebc2e64f01d8f3c6a68dcf016aded09488233cbab02a75bcc7`.
+All review links and provenance are in the [report](../reports/2026-10-19-d18c-tau-frontier.md).
+
+Both profiles force abstract tau>=5. Projecting columns to possible I4
+support gives capacity118<120 in the one-low cases. The q0 equality
+cores require additional exact moment and common-anchor obstructions;
+neither valid isolated cores nor signature counts alone are ruled out.
+The reviewed [support theorem](d18/tau/transversal_support.md) records the
+general mechanism and regular-graph consequences.
+
+Search use: terminate all x138 and, with x136/x137, propagate
+`139<=x<=279`, `2q+E_A>=3`, q0=>E_A>=3, q1=>E_A>=1,
+and E_A=0=>q>=2,x>=140. No low-x-root unavoidability, full connected-d18
+exclusion, order43 proof, novelty claim or new formal certificate.
 
 ### 8.4 Four-vertex transversal bound
 
@@ -606,8 +631,8 @@ selection. Historical arithmetic audit:
 | [Transfer bounds](d18/transfer_bounds.md) | Exact profiles, adjacent-pivot overlap bounds and pair/triple compatibility. |
 | [Exact-census deletion transfer](d18/deletion_degree_transfer.json) | Column floors >=4 for q<=2, >=3 for q3..7, >=2 for q8; q>=9 has only the nonempty floor from this argument. |
 
-The full x137 branch is now excluded. The remaining results are conditional
-propagation or subcase exclusions; no complete x138..142 branch, residual
+The full x137 and x138 branches are now excluded. The remaining results are
+conditional propagation or subcase exclusions; no complete x139..142 branch, residual
 x>=143 branch, or unconditional x<=142 bound is established.
 
 ### 8.14 Reviewed pairwise pivot and excess refinements
@@ -1096,6 +1121,7 @@ finite-cap and obligation-graph results; their proof notes own the statements.
   [phase-I/II foundations](../docs/theory_phase_1.md).
 - [Degree-18 proof map](d18/README.md) and [normalized degree20](min-degree20/README.md).
 - [Shared theorem map](../docs/general_theorems/README.md).
+- [Layered theory map and formalization backlog](../docs/theory_map.md).
 - [Engine documentation](../docs/engine.md), [workflow](../docs/workflow.md),
   and [evidence policy](../docs/reproducibility.md).
 - [Reports index](../reports/README.md) for dated handoffs and validation.

@@ -12,8 +12,26 @@ fourteen independently accepted claims in three notes. Its
 [manifest](symmetry_audit_manifest.json) records the revised proof and review
 hashes; these claims are separate from the historical twenty-eight above.
 
+A [2026-10-19 audit](../../reports/2026-10-19-symmetry-quotients-extensions-audit.md)
+adds four independently accepted claims in
+[symmetry_quotients.md](symmetry_quotients.md) and three in the branch note
+[n43/d18/symmetry_extensions.md](../../n43/d18/symmetry_extensions.md),
+each recorded in a sibling review at its exact reviewed revision.
+
+The [2026-10-19 attachment calculus](ramsey_attachment_calculus.md) supplies
+16 independently reviewed statements across four notes, including explicit
+restatements of older interface criteria. The substantive additions are
+finite uniform-context replacement, critical-face-to-colouring transport,
+and structural obstructions lifted through information-equivalent blocks.
+The [report](../../reports/2026-10-19-ramsey-attachment-calculus.md) records
+exact hashes, independent audits, fixed-object validation and limits.
+
 | Theorem family | Abstract hypotheses and conclusion | Original use and limits |
 | --- | --- | --- |
+| [Mixed attachment calculus](ramsey_attachment_calculus.md) | Root cells have types determined by the homogeneous ranks of their root signatures; exact higher-arity port templates compose by homogeneous-rank convolution. | Unifies induced-core refinements and arbitrary mixed joins; pairwise port checks alone are not sufficient. |
+| [Boundary profiles](boundary_profiles.md) | A finite paired truncated profile supports exact complete/anticomplete interior gluing, forgetting, uniform introduction, relabelling and context replacement. | Equal-order replacement preserves order and Ramsey-freeness in the stated uniform language, not under arbitrary mixed attachments. |
+| [Critical-face transport](critical_face_transport.md) | Critical faces have exact residual capacities; saturation yields labels, actual transversal demands, derived conflict graphs and rigid equality partitions. | Unifies anchor singleton capacities and saturated core-pair packing without assuming an SRG in the abstract theorem; necessary, not sufficient attachment conditions. |
+| [Profile obstruction lifting](profile_obstructions.md) | An equal-profile, equal-order representative with an impossible interior symmetry or module excludes the original certified context, even if the original block lacks that feature. | Connects interface replacement to global structural premises; no forbidden state collision is proved unavoidable in every candidate. |
 | [Safe augmentation](safe_augmentation.md) | A K_r/I_s-free graph one edge below a proved edge cap has a star forest of individually safe additions, with at most r-1 edges. At higher deficit an exact minimal-conflict hypergraph describes feasible addition sets. | Recovers q=1 neighborhood generation; saturated alternatives must remain. |
 | [Signature anchors](signature_anchors.md) | General K_p/I_q rooted gluing has exact homogeneous union/intersection tests, anchor Hall conditions, singleton capacities, defect identities and weighted excess certificates. | Covers all pivot degrees; weighted aggregation requires explicit loads and nonnegative excess. No perfect cover is asserted. |
 | [Transversal deletion](transversal_deletion.md) | Deleting a K_r-transversal from an alpha<s graph costs a smaller Ramsey core minimum, mandatory attachments and a balanced internal-edge minimum. Their excess is an exact nonnegative defect budget. | Recovers tau>=4 and the four-set defect budget; the raw four-set threshold is 66, below the needed 68. Smaller-order edge minima remain external inputs. |

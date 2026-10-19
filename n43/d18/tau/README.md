@@ -1,7 +1,8 @@
 # Transversal-size branching (tau scheme)
 
 Branch name: `n43/d18/tau`. Parent: [degree-18 pivot](../README.md).
-State: scaffolding. No run, no exclusion, no computation.
+State: x138 mathematically excluded by reviewed tau/support proofs. Solver
+rungs remain unrun; their relocation/closure scaffold claims are unchanged.
 
 Date: 2026-10-19. Task token: `tau-scaffold-20261019`.
 
@@ -15,8 +16,10 @@ tau_4 = tau(K4(F)),  F = complement of G[A] on A,
 where `K4(F)` is the family of 4-cliques of `F`, equivalently the family of
 independent 4-sets (I4) of `G[A]`. The branches below are predicates added
 on top of a fixed x cell and a fixed B; they are an overlay on the existing
-x-cell and q-profile splits, not a new partition of them. This folder
-records predicates, assumptions, and the coverage argument only.
+x-cell and q-profile splits, not a new partition of them. The rung READMEs
+record predicates, assumptions and coverage. New theory notes supply the
+[full x138 exclusion](../x138/README.md), independently of rung execution
+or the unreviewed label-relocation claim.
 
 ## Shared assumptions
 
@@ -47,6 +50,8 @@ Additionally shared by every child:
 | Input | Status | Source |
 | --- | --- | --- |
 | `tau_4>=4` whenever `q<=2` | proved; formalized | [frontier band](../frontier_band.md), [four-transversal bound](../transversal_four.md), [Lean](../../../lean/Ramsey/theorems/TransversalFour.lean) |
+| Both x138 profiles excluded; x>=139 at every degree18 root | independently accepted 2026-10-19 | [q0 proof](q0_effective_reduction.md), [q1 proof](q1_anchor_reduction.md), [report](../../../reports/2026-10-19-d18c-tau-frontier.md) |
+| Projected I4-support capacity and tripartite attachment obstructions | independently accepted | [general support theorem](transversal_support.md) |
 | Every four-set transversal excluded at x=137 | independently accepted 2026-10-18 | [effective anchor](../x137/effective_anchor.md#claim-x137-no-four-transversal) |
 | Every four-set transversal excluded at x=136 under equality assumptions | reviewed | [five-column compatibility](../x136/five_column_compatibility.md#claim-five-columns-no-four-transversal); x136 itself closed per user report |
 | Deletion budgets for a t-transversal | accepted | [transversal deletion](../../../docs/general_theorems/transversal_deletion.md), [frontier band](../frontier_band.md) |
@@ -97,8 +102,9 @@ Shared reduction: [symmetry.md](symmetry.md) (ready, unreviewed).
 | x | k=x-136 | Rungs | Notes |
 | --- | --- | --- | --- |
 | 136 | 0 | none | Closed: reviewed proof integrated 2026-10-19 ([x136](../x136/README.md)) |
-| 137 | 1 | t5 + closure | `tau_4>=5` already accepted; columns5 is the whole live r0:s7..10 space ([x137](../x137/README.md)) |
-| 138..142 | 2..6 | t4, t5 + closure | All open; per-x q-profile children exist; the ladder itself needs no q premise, including the x=142 q=3 cell |
+| 137 | 1 | none | Closed: reviewed [single-excess proof](../x137/frontier_closure.md) |
+| 138 | 2 | none | Closed: reviewed [two-profile tau/support proof](../x138/README.md) |
+| 139..142 | 3..6 | t4, t5 + closure | Open; per-x q-profile children exist; the ladder itself needs no q premise, including the x=142 q=3 cell |
 | 143 | 7 | t4, t5 + closure | Inside the residual branch [x-ge143](../x-ge143/README.md); `24*6=144>143` |
 | >=144 | >=8 | additionally t6, ... | Cap permits `tau_4=6`; see the extension formula in [closure](closure/README.md). Folders not created. |
 

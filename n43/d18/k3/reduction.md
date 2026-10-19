@@ -33,7 +33,7 @@ n_s=|B_s|, and n_j=sum_{|s|=j}n_s.
 
 Claim ID: `n43/d18/k3/reduction.md#claim-k3-signature-cover`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted
 Scope: every rooted graph in the setting; count feasibility only  
 Dependencies: row and intersection bounds above  
 Conclusion: the sorted excess triple is one of 000,001,002,011,111.
@@ -51,7 +51,7 @@ E_U+n_0+n_3<=3 and n_1=3+n_3-2n_0-E_U.
 If all e_i are positive, the unique profile is e=(1,1,1),
 n_110=n_101=n_011=8 and all other n_s=0.  
 Search use: branch, never terminate from count feasibility  
-Reviews: none
+Reviews: [independent exact-revision audit](review_reduction_20261019.md)
 
 Proof. Inclusion-exclusion on two rows gives
 6+e_i+e_j<=|R_i intersect R_j|<=8, so e_i+e_j<=2.
@@ -72,7 +72,7 @@ is not asserted by any scalar profile.
 
 Claim ID: `n43/d18/k3/reduction.md#claim-k3-reroot-cover`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted
 Scope: every rooted graph in the setting, without any canonical-root assumption  
 Dependencies: claim-k3-signature-cover; recorded (4,4,15) edge lower bound50;
 [connectivity threshold](../neighborhood_connectivity.md#claim-connectivity-02)  
@@ -82,7 +82,7 @@ some ui has degree18 and its neighborhood is connected with at least
 Consequently, if v was selected to maximize neighborhood edges among all
 degree18 vertices, only the balanced three-block profile remains.  
 Search use: propagate; select a denser degree18 root, not terminate  
-Reviews: none
+Reviews: [independent exact-revision audit](review_reduction_20261019.md)
 
 Proof. If the excess triple is not111, one coordinate e_i is zero.
 Then N(ui)={v,u_j,u_k} union R_i. The first three vertices induce a
@@ -117,7 +117,7 @@ unconditional dichotomy.
 
 Claim ID: `n43/d18/k3/reduction.md#claim-k3-exact-completion`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted
 Scope: fixed ordered v,U,C,B as above; full branch, not merely maximizing roots  
 Dependencies: elementary forbidden homogeneous5-set splitting; claims1--2
 only as optional necessary filters  
@@ -126,7 +126,7 @@ parametrization of rooted labelled d18k3 graphs by exactly360 remaining
 Boolean edge positions X in {0,1}^{15 by24}.  
 Search use: branch; terminate only with independently certified coverage and
 unsatisfiability of every residual system  
-Reviews: none
+Reviews: [independent exact-revision audit](review_reduction_20261019.md)
 
 ### Keys
 

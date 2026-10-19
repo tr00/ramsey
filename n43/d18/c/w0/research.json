@@ -1,6 +1,12 @@
 {
   "title": "Connected degree-18 zero-neighborhood-excess exclusion attempt",
   "date": "2026-10-19",
+  "status_update": {
+    "date": "2026-10-20",
+    "current": "The q1,E_A=0 slice is now excluded by a separate independently accepted proof. Every zero-A-excess degree18 root requires q>=2 and x>=140; higher q remains open. The original ready claims below retain their historical review state.",
+    "proof": "../../tau/q1_anchor_reduction.md",
+    "report": "../../../../reports/2026-10-19-d18c-tau-frontier.md"
+  },
   "task_token": "research-d18cw0-20261019",
   "author": "Main, working alone at the user's request",
   "task_kind": "research",

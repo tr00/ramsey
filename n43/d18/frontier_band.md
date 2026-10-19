@@ -124,9 +124,11 @@ The revised anchor intervals additionally use the published maximum
 E(4,5,14)=60. Their local derivation is ready for independent review;
 earlier audits do not certify this changed input or its strengthened bounds.
 Unchanged material retains its original review scope.
-Status update (2026-10-19): x136 is excluded by the reviewed
-[equality-frontier closure](x136/frontier_exclusion_handoff.md), and x137 by
-the independently reviewed [single-excess closure](x137/frontier_closure.md).
-Every degree-18 root therefore has x>=138. All inequalities above retain
-their stated hypotheses; no higher-x exclusion is asserted here. Size-five
-pairs with union ten remain a boundary for forced-adjacency arguments.
+Status update (2026-10-20): x136, x137 and x138 are excluded by the reviewed
+[equality closure](x136/frontier_exclusion_handoff.md),
+[single-excess closure](x137/frontier_closure.md), and
+[two-profile tau/support closure](x138/README.md).
+Every degree18 root therefore has x>=139 and2q+E_A>=3; E_A=0 requires
+q>=2 and x>=140. All inequalities above retain their stated hypotheses;
+no x>=139 exclusion is asserted here. Size-five pairs with union ten remain
+a boundary for forced-adjacency arguments.

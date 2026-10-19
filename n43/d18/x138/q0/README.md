@@ -1,7 +1,10 @@
 # x=138, q=0
 
 Branch name: `n43/d18/x138/q0`.
-Parent: [x=138](../README.md). State: open.
+Parent: [x=138](../README.md). State: **excluded** by the independently
+reviewed [effective-weight proof](../../tau/q0_effective_reduction.md),
+[foundations audit](../../tau/review_q0_foundations_20261019_independent.md)
+and [closure audit](../../tau/review_q0_closure_20261019_independent.md).
 Additional predicate: `q=85-e(A)=0`; the exact degree budget forces
 `e(A)=85` and `E_A=sum_(u in A)(d_G(u)-18)=2`.
 All parent order-43 Ramsey and chosen-degree-18-pivot assumptions apply.

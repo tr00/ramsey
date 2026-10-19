@@ -1,5 +1,14 @@
 # Stronger degree-18 symmetry bounds
 
+Integration status (2026-10-19): all three claims below are independently
+accepted on their stated premises by
+[the review](review_symmetry_extensions_20261019_extension_rigor.md) at
+reviewed SHA-256
+`1f4115db83f8ac1b1f0f21a80213f9fef17076e3b43bfb3a76b3a76d06067497`.
+The author-stage "ready" prose below is preserved so the reviewed text stays
+byte-identical apart from this banner and the claim metadata lines. The
+review records editorial findings; no proof body was changed.
+
 Date: 2026-10-15. Task: symmetry-extensions-20261015. Author: Codex.
 
 These are extensions of the accepted [symmetry note](symmetry_reduction.md),
@@ -44,7 +53,7 @@ Claim ID: `n43/d18/symmetry_extensions.md#claim-d18-symmetry-extensions-01`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: general K_p/I_q-free rooted gluing, p,q>=3, arbitrary pivot
 degree and actual repeated column C; then the order-43 degree-18 setting.
@@ -132,7 +141,7 @@ These are universal upper/lower bounds, not realizability statements.
 
 Search use: multiplicity propagation and kernel-size bounds after review.
 
-Reviews: none.
+Reviews: [independent review](review_symmetry_extensions_20261019_extension_rigor.md).
 
 <a id="claim-d18-symmetry-extensions-02"></a>
 ## 2. Exact duplicate-kernel reduction applies throughout x136..141
@@ -141,7 +150,7 @@ Claim ID: `n43/d18/symmetry_extensions.md#claim-d18-symmetry-extensions-02`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the degree-18 frontier band 136<=x<=141 on the existing
 four-transversal and small-column premises; any full B edge vector.
@@ -167,7 +176,7 @@ equations. No bound on the cost of the H_M stage is asserted.
 
 Search use: exact kernel symmetry after independent review and implementation.
 
-Reviews: none.
+Reviews: [independent review](review_symmetry_extensions_20261019_extension_rigor.md).
 
 <a id="claim-d18-symmetry-extensions-03"></a>
 ## 3. A sharper complement selector, including its equality case
@@ -176,7 +185,7 @@ Claim ID: `n43/d18/symmetry_extensions.md#claim-d18-symmetry-extensions-03`
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: every degree-18 root with the stated global degree and census
 budgets; no transversal premise or complement normalization assumed.
@@ -246,7 +255,7 @@ necessary numerical data are not a graph construction.
 Search use: complement compatibility and degree-count propagation after
 independent review, on exactly the retained census and degree premises.
 
-Reviews: none.
+Reviews: [independent review](review_symmetry_extensions_20261019_extension_rigor.md).
 
 ## Author checks and provenance
 

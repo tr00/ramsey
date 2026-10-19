@@ -8,13 +8,14 @@ these results have been proved in Lean**.
 
 The nine theorem notes contain 30 general claims and five explicitly
 branch-specific specializations, listed separately below. Reviews and manifests
-are provenance, not additional theorem families. Eight notes have independent
-acceptance banners on their stated premises; the four claims in
-`symmetry_quotients.md` remain ready for independent review, with author
-self-checks only. Acceptance is not a formal certificate or a novelty claim.
-See the [integration manifest](../../../docs/general_theorems/integration_manifest.json)
-and [symmetry audit manifest](../../../docs/general_theorems/symmetry_audit_manifest.json)
-for exact reviewed revisions.
+are provenance, not additional theorem families. All nine notes have
+independent acceptance banners on their stated premises; the four claims in
+`symmetry_quotients.md` were accepted on 2026-10-19 in
+[their review](../../../docs/general_theorems/review_symmetry_quotients_20261019_quotient_rigor.md).
+Acceptance is not a formal certificate or a novelty claim.
+See the [integration manifest](../../../docs/general_theorems/integration_manifest.json),
+the [symmetry audit manifest](../../../docs/general_theorems/symmetry_audit_manifest.json)
+and the per-note sibling reviews for exact reviewed revisions.
 
 ## Lean statement status
 
@@ -258,11 +259,13 @@ Fixed colors must agree on identified vertices and all maps preserve them.
   per residual orbit preserve every target with an admissible ordered pair.
   Unique unrooted representatives require a further canonical pair choice.
 
-## Residual symmetry and descent — independent review pending
+## Residual symmetry and descent — accepted
 
 Source: [Exact residual symmetry and arbitrary-domain descent](../../../docs/general_theorems/symmetry_quotients.md).
-These four statements have author proofs and self-checks only; they are not
-accepted pruning rules or implemented algorithms.
+These four statements were independently accepted on 2026-10-19
+([review](../../../docs/general_theorems/review_symmetry_quotients_20261019_quotient_rigor.md)).
+They remain mathematical deductions only: no pruning rule is implemented and
+no algorithm or certificate is validated.
 
 - [01 — Split extension and composed minimization](../../../docs/general_theorems/symmetry_quotients.md#claim-symmetry-quotients-01).
   Ranking repeated columns splits the residual group as `K ⋊ H`, with K

@@ -120,6 +120,8 @@ Restructuring that must not change behavior: moves, renames, consolidation.
 Read these before extending the work:
 
 - `results.md` and `n43/README.md`
+- `docs/theory_map.md` for the layered theory pyramid, the open-obligation
+  ledger, and the formalization backlog
 - `n43/d18/README.md` and `n43/d18/x136/README.md`
 - `n43/d18/frontier_band.md`
 - `n43/d18/x136/small_columns.md`

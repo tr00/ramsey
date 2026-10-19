@@ -1,5 +1,14 @@
 # Exact residual symmetry and arbitrary-domain descent
 
+Integration status (2026-10-19): all four claims below are independently
+accepted on their stated premises by
+[the review](review_symmetry_quotients_20261019_quotient_rigor.md) at
+reviewed SHA-256
+`fa0bdb24eb7f746c81488d3eb56f37713122a926426e83888556ddc32edaa99f`.
+The author-stage "ready" prose below is preserved so the reviewed text stays
+byte-identical apart from this banner and the claim metadata lines. The
+review records editorial precision findings; no proof body was changed.
+
 Date: 2026-10-15. Task: symmetry-extensions-20261015. Author: Codex.
 
 These mathematical deductions extend the accepted
@@ -37,7 +46,7 @@ Claim ID: `docs/general_theorems/symmetry_quotients.md#claim-symmetry-quotients-
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: the complete residual action in the setting; arbitrary multiplicities.
 
@@ -76,7 +85,7 @@ on A. The formula is about the full group orbit, not its cardinality.
 
 Search use: symmetry after independent review and certified implementation.
 
-Reviews: none.
+Reviews: [independent review](review_symmetry_quotients_20261019_quotient_rigor.md).
 
 <a id="claim-symmetry-quotients-02"></a>
 ## 2. Disjoint duplicate swaps admit exact minimization by binary implications
@@ -85,7 +94,7 @@ Claim ID: `docs/general_theorems/symmetry_quotients.md#claim-symmetry-quotients-
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: arbitrary full edge vectors on b vertices, with p specified disjoint
 vertex pairs and all other vertices fixed; no Ramsey assumptions.
@@ -163,7 +172,7 @@ claim only; it is not an order-43 construction or a feasible branch.
 Search use: exact kernel symmetry after independent review and validation;
 not an implemented solver or automorphism procedure.
 
-Reviews: none.
+Reviews: [independent review](review_symmetry_quotients_20261019_quotient_rigor.md).
 
 <a id="claim-symmetry-quotients-03"></a>
 ## 3. Uniform descent prunes arbitrary assigned edge domains
@@ -172,7 +181,7 @@ Claim ID: `docs/general_theorems/symmetry_quotients.md#claim-symmetry-quotients-
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: any invariant finite family F of full bit vectors, a fixed group
 Gamma and full coordinate order, and any partial assignment P on any domain D.
@@ -233,7 +242,7 @@ Search use: symmetry after independent review; permutation and prefix
 witnesses can be checked without trusting a canonicalizer. Computational
 coverage still needs a deterministic tree and checked branch/witness log.
 
-Reviews: none.
+Reviews: [independent review](review_symmetry_quotients_20261019_quotient_rigor.md).
 
 <a id="claim-symmetry-quotients-04"></a>
 ## 4. Hierarchical minimization safely composes breakers and root selection
@@ -242,7 +251,7 @@ Claim ID: `docs/general_theorems/symmetry_quotients.md#claim-symmetry-quotients-
 
 Kind: local-deduction
 
-Review state: ready
+Review state: accepted
 
 Scope: a finite group action on a finite family of complete structured
 objects, with equivariant data maps t_1,...,t_r to totally ordered sets
@@ -298,7 +307,7 @@ Search use: symmetry and canonical root coverage after independent review
 and complete computation/certification of the codes; no such code is
 implemented here.
 
-Reviews: none.
+Reviews: [independent review](review_symmetry_quotients_20261019_quotient_rigor.md).
 
 ## Author's self-check and limits
 
