@@ -1,7 +1,23 @@
 # Independent ambient-type audit: adjacent degree-18 root cells
 
+Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+
 Date: 2026-10-17. Reviewer: LegacyCellAudit (independent of the note authors
 and of the coordinator who applied the correction).
+
+## Decisive independent checks
+
+The adjacent-root common-nonneighbor cell has order 7+lambda and type(5,4),
+not(4,4): no root is adjacent to it, so a K4 there is not forbidden.
+Opposite mixed cells are(4,4), and the common-neighbor cell is(3,5).
+For nonadjacent roots the common-nonneighbor cell is(5,3), order 5+lambda.
+All cell orders sum to41 after removing the roots.
+
+Both corrected paragraphs were compared with the applied diff. The overlap
+tables were recomputed and remain unchanged: their derivations use the
+common-neighbor cap 13, the deletion floor from E(4,5,17)=79, and, where
+needed, opposite mixed-cell bounds. The withdrawn typing affected gluing
+prose only. The x142 overlap list11/10/9/9 was reproduced.
 
 ## Claim(s) under review
 
@@ -45,95 +61,6 @@ runs and re-pinned immediately before this review was written.
 - External premise E(4,5,17)=79 (Angeltveit-McKay) for the displayed
   overlap bounds: recorded in the notes, not recertified here.
 
-## Independent derivation of the actual cell types
-
-Fix adjacent degree-18 roots u,v and lambda = |N(u) intersect N(v)| (neither
-root lies in the intersection). Partition V(G) minus {u,v} into the four
-cells: C common neighbors, X adjacent only to u, Y adjacent only to v, D
-common nonneighbors.
-
-Sizes.
-
-- |N(u) union N(v)| = 36-lambda; because uv is an edge, u lies in N(v) and v
-  lies in N(u), so both roots lie in the union. Hence |D| = 43-(36-lambda) =
-  7+lambda, and X,Y each have order 18-lambda-1 = 17-lambda (the excluded
-  root v lies in N(u) minus N(v)). Check: lambda + 2(17-lambda) +
-  (7+lambda) = 41, plus the two roots gives 43.
-- For comparison, nonadjacent roots: neither root lies in either
-  neighborhood, so |D| = 43-(36-lambda)-2 = 5+lambda, |X| = |Y| =
-  18-lambda, and lambda + 2(18-lambda) + (5+lambda) = 41. The `7+lambda`
-  and `including v and u in the union` statements in both notes are
-  therefore correct exactly for the adjacent case, and the notes are scoped
-  to adjacent roots (pivot section 2 title; transfer section 4 title and
-  `guaranteed adjacent degree-18 u` table header).
-
-Types (all from the two prohibitions only).
-
-- Adjacent C: a triangle in C together with u and v (all mutual edges) is a
-  K5, so C is K3-free; I5-freeness is hereditary. Type (3,5) as the notes
-  state, giving lambda <= 13 by R(3,5)=14.
-- Adjacent X and Y ("opposite mixed cells"): X is a subset of N(u), so a K4
-  in X plus u is K5; every X vertex is nonadjacent to v, so an I4 in X plus
-  v is I5. Type (4,4) — orders 17-lambda <= 17 by R(4,4)=18.
-- Adjacent D: no vertex of D is adjacent to u or v, so an I4 in D plus u is
-  I5: D is I4-free. K5-freeness is hereditary. A K4 in D is NOT excluded:
-  neither root is adjacent to D, so neither root extends a D-clique, and the
-  baseline anchor rule for D has c=0, i=1, yielding only R(5,4). Best
-  derivable type: (5,4)-free. The pre-correction `(4,4)` assertion for D is
-  not provable from the standing hypotheses; the corrected `(5,4)` is exact.
-- Nonadjacent roots (for contrast): C is (4,5) (K4 plus u is K5), X and Y
-  are (4,4) (same argument as above with either root), D is (5,3) (an
-  independent triple in D plus the independent pair {u,v} is I5). No
-  root-pair common-nonneighbor cell is (4,4) in either relation.
-- The corrected sentence `The opposite mixed cells, not this
-  common-nonneighbor cell, are (4,4)-free` matches this derivation, for the
-  adjacent case, cell by cell.
-
-Baseline anchor rule cross-check: edge uv gives C: c=2,i=0 -> R(3,5); X:
-c=1,i=1 -> R(4,4); D: c=0,i=1 -> R(5,4). Nonedge uv gives D: c=0,i=2 ->
-R(5,3). Every entry of the corrected paragraphs agrees.
-
-## Dependence of the displayed overlap bounds on the withdrawn typing
-
-The displayed tables (pivot section 2: x136..x141 with bounds 9,9,9/10,...;
-transfer section 4: x137..x142 with bounds 9..11) were recomputed
-independently:
-
-- Pivot, lambda <= floor((170-2q-L*z)/(18-z)) capped by 13, L=max(0,6-q),
-  z=E_v: (0,0) 170/18=9.4->9; (0,1) 164/17=9.6->9; (0,2) 158/16=9.9->9;
-  (1,0) 168/18=9.3->9; (0,3) 152/15=10.1->10; (1,1) 163/17=9.6->9;
-  (0,4) 146/14=10.4->10; (1,2) 158/16=9.9->9; (2,0) 166/18=9.2->9;
-  (0,5) 140/13=10.8->10; (1,3) 153/15=10.2->10; (2,1) 162/17=9.5->9.
-  All match the tables. Monotonicity in z has the sign of 170-2q-18L,
-  positive for every q=0..35 (checked: worst case q=0 is 62>0; q>=6 gives
-  170-2q>=100>0).
-- Transfer, x142 row: 134/12=11.2->11; 148/14=10.6->10; 158/16=9.9->9;
-  164/18=9.1->9 — the four displayed uncapped fractions reproduce exactly,
-  and every (q,E_A) row satisfies x=136+2q+E_A=142.
-
-What the bounds actually use: (a) the external E(4,5,17)=79 lower bound
-d_A(u) >= 6-q obtained by deleting u; (b) the R(3,5)=14 cap 13, which needs
-the (3,5) type of C — correct in both notes before and after the correction;
-(c) integer arithmetic. The general pivot formula also subtracts
-max(0,6-q,i) for an excess-i neighbor, i.e. it uses the mixed-cell bound
-d_A(u) >= i, which follows from the (4,4) type of the OPPOSITE mixed cell
-(|X| = 17+i-lambda <= 17); that typing is retained and correct, and in every
-displayed row (q <= 3, E <= 6) max(0,6-q,i) equals max(0,6-q) anyway, so the
-displayed numbers do not even need it. The withdrawn common-nonneighbor
-typing is used nowhere in either derivation — it is pure gluing/structural
-prose. The corrected disclaimers `The overlap bounds above do not use that
-assertion` and `The displayed adjacent-pivot overlap bounds do not use the
-withdrawn typing` are therefore verified true.
-
-## Corrected lines as applied (verified verbatim)
-
-pivot_classes.md lines 101-109 and transfer_bounds.md lines 287-297 were
-read after the correction and match the independently derived replacement
-exactly: `(5,4)-free` for the common-nonneighbor cell, the four-line
-withdrawal pointing to this audit, the opposite-mixed-cell (4,4) statement
-(pivot only), and the bound-independence disclaimers. No further edit is
-recommended.
-
 ## Findings
 
 1. Pre-correction defect (both files): the common-nonneighbor cell of two
@@ -145,23 +72,6 @@ recommended.
 2. No other defect found in the scoped paragraphs: sizes 36-lambda and
    7+lambda, the union including both roots, (3,5) for the common
    neighborhood, and both disclaimers are all correct.
-
-## Downstream spot checks (in scope of this audit)
-
-- [fixed_b_extensions](fixed_b_extensions.md) lines 45-46 already state the
-  cell `would only be (5,4)` and need no typing — consistent.
-- [obstruction_coverage](obstruction_coverage.md) Claim01 (lines 66-91)
-  independently derives the full four-cell table for both relations; it
-  agrees cell by cell with this audit and explicitly corrects the legacy
-  pointed-pair paragraphs.
-- Residual `(4,4)` mentions in transfer_bounds lines 111 and 144 belong to
-  different claims (two-vertex transversal remainder, actual-column
-  four-transversal) with their own independent arguments; not the root cell.
-- docs/theory_phase_1.md uses `(4,4)` only for mixed cells and `(5,3)` only
-  for the nonedge common-nonneighbor cell — both correct in context.
-- Text search across n43/, docs/, reports/ for `common-nonneighbor`,
-  `7+lambda`, `36-lambda`, `pointed-pair` found no remaining assertion that
-  an adjacent-root common-nonneighbor cell is (4,4).
 
 ## Outcome
 

@@ -1,7 +1,29 @@
 # Independent audit of large-row attachment reductions
 
+Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+
 Date: 2026-10-17. Reviewer: `LargeRowAudit`. Author: `LargeRowResearch`.
 Owned path: this file only.
+
+## Decisive independent checks
+
+The six claims were checked from the ambient K4/I5-free A and K5/I4-free B
+without transferring I4-freeness to A. The 17-core is 8-regular and the
+codegree saturation proves SRG(17,8,3,4). The three eight-cell moment rows
+reproduce (e,n2,sum h,sum C(h,2))=(10,4,44,86),(11,2,42,81),(12,0,40,76).
+
+The seven-clause 17-core attachment criterion and eight-clause adjacent-16-row
+system cover every forbidden-set split in both directions. They are joint
+criteria, not per-mask realizability guarantees. Two-core balance follows
+by subtracting the regular-degree equations. The S10/S11/S12 classification
+was checked by its degree-2/C5 and cubic cases; the explicit graphs have
+10/11/12 edges and 4/2/0 degree-two vertices.
+
+Ambient lifting preserves all mixed clauses and gives exactly the two stated
+families, potentially overlapping. The shortened subset-size arguments in
+Claims2/3 require R(3,4)=9 on the complement: alpha<=2 inside a (4,4)-free
+core implies order<=8. This completed reasoning, the retracted per-mask
+example, and the resolved tail-audit flag are retained in Findings.
 
 ## Claim(s) and exact revisions
 
@@ -64,148 +86,6 @@ review (the author's trailing scalar audit remains a self-check).
   optional replacements. `q=85-e(A)` and `x` in Claim 5 are declared
   unfixed quantities matching the repository convention (verified against
   `cliques_augmentation.md`, `frontier_band.md`).
-
-## Checks performed (independently rederived)
-
-1. **Ambient types from first principles.** A = N(v) is K4-free (v extends
-   a K4 to K5) and I5-free (inherited); B = M(v) is K5-free (inherited)
-   and I4-free (v extends an I4 to I5). For adjacent roots a,b the cell
-   B[R_a cap R_b] is triangle-free (two roots plus a triangle give K5)
-   and I4-free (v plus the I4 give I5), so R(3,4)=9 bounds it by 8.
-   For a (4,4)-free 17-vertex graph H and any vertex v: N(v) is
-   triangle-free (a triangle there plus v would be a K4) and I4-free, hence
-   (3,4)-free of order at most 8 by R(3,4)=9; the antineighborhood is
-   K4-free and has no I3 (an independent triple there together with v would be an I4), hence (4,3)-free
-   of order at most 8. The two orders sum to 16, so both equal 8:
-   every degree is exactly 8, e = 68, nonedges = 68. All of the note's standing
-   hypotheses used below follow without census input.
-2. **Claim 1 (SRG/moments).** Edge codegree <= 3 (common neighborhood
-   independent, I4-free); nonedge common nonneighborhood is a clique of
-   order <= 3 and has order `c-1` for common-neighbor count c, so c <= 4.
-   `17*C(8,2) = 476 = 68*3 + 68*4` saturates both bounds, giving
-   SRG(17,8,3,4). Moment identities rederived symbolically: summing
-   degrees over U gives `sum h_t = 8r-2e`; summing pair codegrees
-   `4*C(r,2)-e` and subtracting in-U common neighbors
-   `sum_s C(d_s,2)` gives the second identity. Numeric audit of the
-   table: (e,n2,sum h,sum C(h,2)) = (10,4,44,86), (11,2,42,81),
-   (12,0,40,76) — all reproduced. S10 rigidity: sum h^2 = 216,
-   `sum (h-4)(h-5) = 216-396+180 = 0`, integrality forces h in {4,5}
-   with multiplicities (8,1), so H-U has degrees (4,3^8); edge
-   conservation 10+44+14 = 68 confirms. The revised final sentence is
-   correct: moment tables apply to any two triangle-free 8-subsets at
-   once, and no overlap incompatibility is claimed.
-3. **Claim 2 (17-row extension).** The seven-clause criterion is exact by
-   the forbidden-set split: K5 by W-count 0..5 gives (H has no K4) then
-   the edge/triangle/K4 S-clauses then B[W]; I4 by W-count 0..4 gives
-   H-I4-free then the three T-clauses then B[W]; both directions hold,
-   empty intersections included. Domain necessity: H[T_z] has no I3.
-   **Reviewer-completed step:** `|T_z| <= 8` does not follow from
-   no-I3 alone; the valid argument (which I supply) is that a subset of
-   order >= 9 with independence number <= 2 has triangle-free
-   complement, which by R(3,4)=9 contains an independent 4-set, i.e.
-   H contains K4 — contradiction. This uses only declared inputs and
-   makes the statement correct. Domain condition: every actual
-   signature satisfies alpha(H[T]) <= 2 (its T-set carries no I3), and
-   these are exactly the masks the per-vertex filter admits. The
-   exactness the source proves and I verified is the JOINT one: for a
-   proposed attachment (all seven masks together with the graph on W),
-   the seven clauses are necessary and sufficient for B to be
-   K5/I4-free, by the forbidden-set split. The source makes no claim
-   that each admissible mask alone extends to a full 24-vertex B; an
-   earlier draft of this review invented such a witness (edgeless B[W]
-   with six empty masks), which is invalid because an edgeless graph on
-   seven vertices contains I4. The witness is retracted; no per-mask
-   realizability is asserted or needed. Degree
-   budgets verified by arithmetic over all endpoints:
-   `|C_y| = 10+epsilon_y-d_W(y)`, `|C_z| = 1+epsilon_z+|T_z|-d_W(z)`,
-   ranges `1<=|C_y|<=18`, `0<=|C_z|<=17`. Neighbor-row bound
-   `17+|R_w|-24 <= |R_u cap R_w| <= 8` gives |R_w| <= 15; at equality
-   R_w contains all 7 of W and misses exactly 8 in R_u (verified), so
-   no row-17/row-16 edge exists. `d_A(u)=epsilon_u` is equality at
-   |R_u|=17 and is explicitly not claimed zero.
-4. **Claim 3 (two-core balance).** Pointwise `d_X(j)=d_Y(j)` by
-   subtracting the two 8-regular equations; summations give
-   `e(J,X)=e(J,Y)`, `8t = 2e(X)+e(J,X)` gives `e(X)=e(Y)`, and summing
-   `d_Y(x) >= d_X(x)+1` over X (with `sum_X d_X = 2e(X)`) gives
-   `e(X,Y) >= 2e(X)+t`. **Reviewer-completed step:** "nonneighbors in
-   H' cannot contain I3, hence number at most eight" again needs the
-   R(3,4)=9 complement argument (alpha <= 2 subset of a (4,4)-free
-   graph has order <= 8); supplied and valid. t=1: tips adjacent,
-   identical 8-neighborhood in J (pointwise equality), true twins only
-   inside J+{x,y} as stated; P triangle-free because it is a
-   neighborhood in the K4-free core. Fixed-16-set exclusion: three
-   tips would share the same P by pairwise t=1 arguments, be pairwise
-   adjacent by the inequality, P must contain an edge (else I4 in B),
-   edge plus three tips is K5. The scope caveat (distinct subsets, not
-   equal-row multiplicity) is correct.
-5. **Claim 4 (three (3,4)-free 8-types).** Degree bounds 2/3 rederived
-   (independent neighborhood <= 3 by I4-free; antineighborhood is
-   (3,3)-free, order <= 5 by R(3,3)=6). Coverage case analysis checked
-   line by line: degree-2 root — the other five vertices are (3,3)-free
-   on five vertices, and C5 is the only such graph by a direct degree
-   argument: in a triangle-free I3-free graph every neighborhood is
-   independent (size at most 2, or it would contain I3) and every
-   antineighborhood is a clique (two nonadjacent members plus the
-   vertex give I3) of size at most 2 (a clique in a triangle-free
-   graph), so on five vertices every degree is exactly 2, and a
-   2-regular graph on five vertices is a single C5. No enumeration or
-   graph generation was run; my scalar script checked only the three
-   displayed graphs and the closed-form arithmetic; p,q cycle-neighborhoods have sizes in {1,2} (degrees),
-   are independent (triangle-free), common-missed set is a clique
-   (else I4) hence size <= 2, forcing union >= 3; sizes (1,2) force
-   common-missed = exactly an edge (arithmetic: union = 3-int,
-   missed = 2+int <= 2) and P3's unique independent pair is its
-   endpoints, giving S10; sizes (2,2) rule out union 3 (P3 has one
-   independent pair, cannot split into two independent pairs),
-   leaving disjoint pairs over P4's bipartition, giving S11; sizes
-   (1,1) cannot cover three vertices. Cubic case: e(P,Q) = 6, e(Q) = 3,
-   and the only triangle-free I3-free 3-edge graph on four vertices is
-   P4 (star has an independent triple, K3+isolate has a triangle);
-   adjacent Q vertices have disjoint P-neighborhoods, singleton
-   neighborhoods at q2,q3 differ, endpoints forced to complements —
-   S12. Type proofs (triangle-free, I4-free) rechecked for all three,
-   including the S12 common-miss sets (empty, {q3}, {q2} — recomputed
-   from N(p1)={q2,q4}, N(p2)={q1,q3}, N(p3)={q1,q4}). Scalar audit of
-   the three explicit edge lists (no enumeration, no catalogue):
-   S10 e=10 degrees [2,2,2,2,3,3,3,3], S11 e=11 degrees [2,2,3,3,3,3,3,3],
-   S12 e=12 all cubic; each triangle-free and I4-free; n2 = 24-2e holds
-   (4,2,0). The classification is self-contained; no census count is
-   referenced in its proof.
-6. **Claim 5 (adjacent 16-rows).** Partition S,X,Y of B into three
-   8-sets verified from the accepted overlap bound. The eight clauses
-   are exhaustive by split: I4 by T-count 0..4 -> impossible in S,
-   items 2,3,4,1; K5 by T/S split with S-part <= 2 (triangle-free S):
-   5/0,4/1,3/2 -> items 1,6,5; row-K4 splits 4/0,3/1,2/2 -> items
-   1,8,7 (row-I4s are B-I4s, already covered). `|P_z| >= 3` via
-   R(3,3)=6 on S-P_z. Degree equations rederived:
-   `d_X(s)=7-d_S(s)+a_s`, `d_B(s)=14-d_S(s)+a_s+b_s`,
-   `|C_s|=4+d_S(s)+epsilon_s-a_s-b_s`, minima 4 (d_S=2) and 5
-   (d_S=3); `e(S,X)=56-2e(S)+a = 32+2sigma+a`; column sum
-   `56-2sigma+E_S-a-b >= 40-2sigma` (a+b <= 16); roots subtract 16
-   leaving `24-2sigma`; bases/minsums (36,36),(34,38),(32,40) for
-   S10,S11,S12 all reproduced; `|C_x|=11+epsilon_x-c_x-d_Y(x)`,
-   `d_A(u)=1+epsilon_u` verified.
-7. **Claim 6 (ambient lifting).** Mixed-clause coverage closed: K5 with
-   k in A needs a k-clique in A (k <= 3 since A is K4-free) and a
-   K_(5-k) in the common neighborhood — bullets 2; I5 with k in A needs
-   an independent k-set (k <= 4 since A is I5-free) and an I_(5-k) in
-   the common missed set — bullet 3; part-pure forbidden sets are
-   covered by A- and B-side clauses; through-v sets reduce to K4 in A
-   / I4 in B. Degree equations give `d_G in [18,24]` exactly as scoped.
-   Forward direction: an ambient G supplies core/signatures/L/rows and
-   the overlap bound plus my Claim 4 check give the three 8-set types
-   under an explicit bijection (no symmetry quotient assumed).
-   Converse: attaching v yields a 43-vertex K5/I5-free graph with a
-   degree-18 pivot of the right part orders. The note correctly limits
-   coverage to the two stated (possibly overlapping) families and does
-   not claim a partition of all degree-18 graphs; the retained clause
-   list is explicitly labeled as obligations the local reduction does
-   not enforce.
-8. **Limits section.** Verified: the row-17 -> `d_A(u)=0` shortcut is
-   withdrawn; the independent-triple row-union >= 20 statement is
-   correct (missed cell is a clique in K5-free B, order <= 4); no row
-   count, x bound, or nonexistence claim appears anywhere; search use
-   `propagate` only; no closure or certificate is asserted.
 
 ## Findings
 

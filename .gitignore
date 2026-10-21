@@ -2,3 +2,19 @@ __pycache__/
 .codex/
 data/*
 /build/
+/scratch/
+
+# Generated solver models and traces belong in scratch storage. To retain
+# evidence for a named branch closure, add its documented package explicitly.
+*.cnf
+*.cnf.gz
+*.opb
+*.opb.gz
+*.drat
+*.drat.gz
+*.frat
+*.frat.gz
+*.lrat
+*.lrat.gz
+*.pbp
+*.pbp.gz

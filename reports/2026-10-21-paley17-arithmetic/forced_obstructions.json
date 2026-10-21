@@ -1,0 +1,17 @@
+{
+  "results": [
+    {
+      "attachment_total": 68,
+      "families": 5,
+      "forced_T_I4_families": 5,
+      "forced_mixed_I4_families": 5
+    },
+    {
+      "attachment_total": 69,
+      "families": 8371,
+      "forced_T_I4_families": 8371,
+      "forced_mixed_I4_families": 8371
+    }
+  ],
+  "status": "PASS"
+}

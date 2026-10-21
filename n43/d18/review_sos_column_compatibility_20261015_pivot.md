@@ -1,5 +1,7 @@
 # Independent review of dispersed triple-witness positivity
 
+Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+
 Date: 2026-10-15.
 
 Claim(s): all four claims in
@@ -37,88 +39,18 @@ coefficients, integer-degree rounding, handshake parity, all feasible
 column sizes, degree-sum variance, equality-frontier applicability,
 Gram eigenvalues, and precise conditional search use.
 
-## Findings
+## Independent checks
 
-**Claim01 accepted.** A shared A edge for a B triangle gives K5; a
-jointly missed independent A pair for a B independent triple gives I5.
-The witnesses can vary between triples. Therefore every actual
-monochromatic triple belongs to the supplied sound open set O. With the
-two direct witness tests alone, its membership condition is exactly
-absence of an A edge in the common intersection, or absence of an A
-nonedge in the joint omission set. This imposes no I4 prohibition on A.
+All claims accepted. The reviewer retained both Goodman triangle counts,
+weighted degree-square terms and integer-distance corrections. Actual
+triple witnesses may vary across columns; no common witness is assumed.
+The resulting open-triple lower bound is `440+sum_y tau_y(tau_y+1)/2`, with
+`tau_y=max(0,6-|C_y|,|C_y|-13)`; the x136 specialization is `440+s`.
 
-The reviewer reconstructed the weighted identity from scratch. For a
-nonmonochromatic triple, exactly two vertices see one incident edge and
-one incident nonedge, each contributing the same weight product. Thus
-its weighted indicator is subtracted once by
-`(1/2)sum_y w_y*d_y^w*(W-w_y-d_y^w)`. Expanding the elementary symmetric
-cubic and completing squares gives exactly
-
-```text
-M_w=(W^3-6WD+5T)/24
-    +(1/2)sum_y w_y*(d_y^w-(W-w_y)/2)^2.
-```
-
-The squared coefficients are nonnegative even at zero weights. Soundness
-of O and nonnegative weights give M_w<=O_w. Replacing a squared term by
-the distance from an independently justified interval preserves its
-direction. The three-bit identity also checks directly after Boolean
-reduction: its cubic terms cancel. The stated quadratic Gram step does
-not silently lower the degree required to justify all witness constraints.
-
-**Claim02 accepted.** Uniform weights give the stated constant
-`n(n-1)(n-5)/24`. At even n all internal degrees differ from the central
-half-integer by at least1/2; substitution simplifies the lower bound to
-`n(n-2)(n-4)/24`. At n congruent to3 modulo4, the central degree is odd
-and cannot occur at all odd-numbered vertices because their sum would
-be odd. Hence at least one integer squared deviation is at least one.
-For n congruent to1 modulo4, mere nonnegativity suffices.
-
-The reviewer evaluated all displayed n rows using exact rational
-arithmetic only, obtaining the stated minima 0,2,4,8,12,20,28,40,440.
-In particular order six forces two monochromatic triples and therefore
-at least two open triples. The interval version minimizes over justified
-integer degrees; it does not assume pseudoexpectation integrality. At
-order five and O empty, degree two at every vertex plus the absence of
-triangles yields C5, consistently with absence of independent triples.
-
-**Claim03 accepted.** There is no pivot edge to B, so
-`d_B(y)=d_G(y)-c_y` is correct. The global degree interval18..24 and
-the internal interval0..23 give the supplied bounds. For c<=6 the degree
-floor is `12+(6-c)`, and for c>=13 the ceiling is `11-(c-13)`; sizes7..12
-retain the half-integer distance1/2. This gives
-`tau=max(0,6-c,c-13)` and squared distance at least `(tau+1/2)^2`.
-The reviewer checked this expression on every integer c=0,...,18 using
-exact arithmetic; every feasible interval satisfies it.
-
-At n=24 the constant is437 and the universal square contribution is3,
-giving440 plus the triangular-number penalties. The independent
-degree-sum inequality follows from
-`sum_y(d_B(y)-23/2)=2b-276`; Cauchy--Schwarz gives the additional term
-`(2b-276)^2/48=(b-138)^2/12`, with correct ceiling. The exact pair-square
-identity in the note has the correct factor1/24.
-
-The frontier anchor theorem forbids size-four columns, and the retained
-small-column identities at r=0,k=0 give 8<=s<=10 and total positive
-excess above six equal to s-8. Hence all other columns are size6..8;
-exactly the s size-five columns contribute a penalty1. Thus
-`|O|>=440+s>=448` is valid. The note asserts a conditional necessary
-coverage test, not that every interface violates it. The subfamily floor
-`n-6-c_y` subtracts at most24-n outside neighbors, and its ceiling is
-the smaller of n-1 and the whole-B ceiling24-c_y.
-
-**Claim04 accepted.** The reviewed frontier anchor has twelve double
-occurrences and row sum six for each anchor vertex. Subtracting row
-equations gives opposite pair multiplicities equal, and their common
-three values sum to six. For each pair i,j, the number of occurrences
-giving equal signs is `p_ij+p_kl=2p_ij`. Thus the Gram off-diagonal is
-`2p_ij-(12-2p_ij)=4p_ij-12`, with diagonal12.
-Multiplying the four listed orthogonal vectors gives eigenvalues
-0,8a,8b,8c. Their trace is48, consistent with the twelve length-squared
-four vectors. Therefore PSD of this particular matrix is equivalent to
-the already necessary a,b,c>=0. Repeated anchor signatures are not
-mistaken for identical full columns, and the limitation is expressly
-limited to this Gram matrix.
+The affine/degree bounds and all numeric examples were recomputed. Sound
+intervals and permanently witnessed obligations are required for propagation;
+fractional positivity is not a Boolean SOS exhaustion or a column-family
+existence certificate. A/B ambient types were checked separately.
 
 ## Outcome and limits
 

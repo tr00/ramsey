@@ -65,11 +65,15 @@ Solver runs, catalogue processing, searches, and other computations.
 
 - Computational exploration is paused by default; get explicit user
   authorization for each run beyond trivial validation.
-- Follow `docs/reproducibility.md`: retain exact commands, tool versions and
-  hashes, resource limits, exit status, and logs. Estimate artifact sizes
-  before generating anything large.
+- Follow `docs/reproducibility.md`. Keep full reproducibility artifacts when
+  a computation closes a named mathematical subbranch: exact inputs,
+  commands, tool revisions, limits, logs, checked certificates, and coverage.
+  Exploratory runs need only a concise scope/result note; their generated
+  models, traces, and bulky logs may be discarded. Estimate sizes before
+  generating anything large and use ignored scratch storage for experiments.
 - A timeout, crash, or empty result is no evidence of nonexistence.
-- Record every run in a dated `reports/` artifact and a `WORK.md` row.
+- Summarize an experimental session in one dated report. Use `WORK.md` for
+  active ownership, not a permanent per-run history.
 
 ### Refactoring
 
@@ -79,6 +83,9 @@ Restructuring that must not change behavior: moves, renames, consolidation.
   scope growth.
 - No semantic changes. Preserve proof bodies, claim anchors, review
   provenance, and recorded hashes unless the request says otherwise.
+  Reviews and reports may be condensed when requested: retain the exact
+  reviewed revision, claim-level outcomes, substantive findings and repairs,
+  decisive checks, and limits; reference Git history for the original audit.
 - Update every inbound reference and verify with the checks of each touched
   area: `check.sh`, `ctest`, the Python tests, and link checks.
 
@@ -120,7 +127,7 @@ Read these before extending the work:
 - `n43/d18/pivot_classes.md`
 - `docs/reproducibility.md` and `docs/workflow.md`
 - `lean/AGENTS.md` for Lean style, comment rules and file placement
-- `README.md` for engine build, test, and solver-invocation commands
+- `docs/engine.md` for engine build, test, and solver-invocation commands
 - `WORK.md` for active ownership in this shared worktree
 
 Record substantial deductions beside the applicable mathematical branch, with

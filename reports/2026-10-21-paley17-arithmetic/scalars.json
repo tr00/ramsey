@@ -1,0 +1,10 @@
+{
+  "h_max": 14,
+  "h_min": 5,
+  "p_max": 87,
+  "p_min": 70,
+  "profile_count": 678,
+  "r_max": 185,
+  "r_min": 74,
+  "scope": "Exact integer projections of strengthened necessary aggregate inequalities only."
+}

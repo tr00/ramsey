@@ -25,48 +25,25 @@ in the frontier-band work or reports. The residual x>=143 branch is retained.
 The [x>=137 overview](x-ge137/README.md) links to these sibling branches.
 External premises and proof status remain those recorded in the reduction index.
 
-Shared proof notes:
+## Shared proof notes
 
-- [K1 subbranch: double regular cores, seven-cell obstruction and exact 289-bit completion partition](k1/research.json) ([attachment and scalar bounds](k1/cross_core.json), [seven-cell structure](k1/seven_cell.json)); no full exclusion claimed.
+These results may have narrower hypotheses than the parent branch. Follow
+each proof's preconditions before applying a filter; reviews are linked in
+the proof notes. Dated synthesis and validation records are in the
+[report index](../../reports/README.md).
 
-- [Cross-branch synthesis: stronger interior degrees, separator exclusions, and transversal thresholds across all x](../../reports/2026-10-19-cross-branch-synthesis.json)
-- [Reviewed interior floors/ceilings and tightened row and pointed-overlap filters](interior_transfer.json) ([audit](review_interior_transfer_20261019.json))
-- [Separator structure, higher vertex connectivity, and selected-root transfer](connected_structure_transfer.json) ([audit](review_connected_structure_transfer_20261019.json))
-- [Reviewed exact-census transversal thresholds, member degrees, and conditional column-excess budgets](deletion_degree_transfer.json) ([audit](review_deletion_degree_transfer_20261019.json))
+| Topic | Proof homes |
+| --- | --- |
+| Cross-count budgets and tail | [Frontier band](frontier_band.md), [excess](excess_bounds.md), [independent-row upper bound](independent_row_cuts.md), [omission supply](averaging_omission_cuts.md), [tails t=0/1](tail_zero_one.md) and [t=2/3](tail_two_three.md) |
+| Anchors, columns and transfer | [Four-transversal bound](transversal_four.md), [clique budgets](cliques_augmentation.md), [pairwise refinements](pairwise_refinements.md), [four-column stability](four_column_stability.md), [above-frontier transfer](transfer_summary.md), [x136 closure](x136/frontier_exclusion_handoff.md) and [consequences](x136_closure_consequences.md) |
+| Root choice and connectivity | [Pivot classes](pivot_classes.md), [dense families](dense_pivot_coverage.md), [connectivity classification](neighborhood_connectivity.md), [interior degrees](interior_transfer.json), [separator/root transfer](connected_structure_transfer.json), [deletion thresholds](deletion_degree_transfer.json) |
+| Extension coverage and finite cores | [Fixed-B extensions](fixed_b_extensions.md), [independent-root alternatives](obstruction_coverage.md), [large-row cores](large_row_extensions.md), [K1 structure and completion](k1/research.json), [K1 scalar bounds](k1/cross_core.json), [seven-cell structure](k1/seven_cell.json) |
+| Averaging and attachment cuts | [Weighted averaging](weighted_averaging.md), [anchored cells](anchored_cell_averaging.md), [overlapping cells](overlapping_cells.md), [cell intersections](cell_intersections.md), [attachments](cell_attachments.md), [obligation cuts](cell_obligation_cuts.md) |
+| SDP/SOS theory | [Pivot covariance/coverage](sos_pivot_selection.md), [column triple witnesses](sos_column_compatibility.md), [finite moments](sos_finite_moments.md), [order-twelve cap](sos_order12_addendum.md), [obligation-graph certificates](sos_obligation_graphs.md) |
+| Symmetry | [Column multiset coverage](symmetry_reduction.md), [order43 structure](../symmetry_structure.md), [two-root quotient](../../docs/general_theorems/symmetry_pair_gluing.md) |
 
-- [Extension research synthesis: omitted-row exclusions, fixed-B capacity, and unavoidable root cores](../../reports/2026-10-17-d18-extension-research.md)
-- [Fixed-B extension coverage, row multiplicity, exchange-ball capacities and exact certificates](fixed_b_extensions.md)
-- [Independent-root coverage: opposite cells or an exact exceptional four-root core](obstruction_coverage.md)
-- [Large-row core moments, exact eight-cell types and finite attachments](large_row_extensions.md)
-- [Reviewed SDP/SOS theory: pivot selection, varying-x triple moments, finite core caps and attachment certificates](../../reports/2026-10-15-sos-theory.md)
-- [Reviewed twelve-root overlap coverage and rational excess covariance](sos_pivot_selection.md)
-- [Reviewed dispersed triple-witness SOS filters across x](sos_column_compatibility.md)
-- [Reviewed finite core caps and q=1 anchor through x167](sos_finite_moments.md)
-- [Reviewed order-twelve cap42 and six-set transversal threshold](sos_order12_addendum.md)
-- [Reviewed rational SOS on attachment-obligation graphs](sos_obligation_graphs.md)
-- [Reviewed cross-count upper bound x<=279 and omitted-row tail exclusions](independent_row_cuts.md) ([Lean proof](../../lean/Ramsey/d18/CrossEdgeBounds.lean))
-- [Averaging continuation: omission-supply cuts and three remaining x279 row profiles](averaging_omission_cuts.md) ([report](../../reports/2026-10-18-averaging-tail.md))
-- [Reviewed weighted averaging](weighted_averaging.md)
-- [Reviewed anchored cells and corrected implication closure](anchored_cell_averaging.md)
-- [Reviewed overlapping-cell compatibility and dispersed attachment cuts across x](overlapping_cells.md)
-- [Neighborhood connectivity classification](neighborhood_connectivity.md) ([Lean proof](../../lean/Ramsey/d18/ConnectivityClassification.lean))
-- [Frontier band](frontier_band.md)
-- [Pivot classes and conditional coverage](pivot_classes.md)
-- [Excess bounds](excess_bounds.md)
-- [Clique budgets and augmentation](cliques_augmentation.md)
-- [Four-transversal bound](transversal_four.md)
-- [Reviewed full x136 frontier exclusion: double domination, three-anchor and low-degree lemmas, column-incidence closure](x136/frontier_exclusion_handoff.md) ([review](x136/review_frontier_exclusion_handoff_20261019_main.md))
-- [Reviewed equality-frontier degree-eight anchor and column size>=5](x136/five_column_compatibility.md)
-- [Pairwise refinements and reviewed claim connections](pairwise_refinements.md)
-- [Four-column stability beyond equality](four_column_stability.md)
-- [Above-frontier transfer scope and reviewed deductions](transfer_summary.md)
-- [Dense degree-18 families with a simultaneous overlap bound](dense_pivot_coverage.md)
-- [Reviewed column-multiset symmetry coverage](symmetry_reduction.md)
-- [Reviewed frontier duplicate-orbit and rooted automorphism bounds](../symmetry_structure.md)
-- [Reviewed exact two-root overlap-map and completion quotient](../../docs/general_theorems/symmetry_pair_gluing.md)
-
-These results may have narrower hypotheses than this parent branch. Follow the
-preconditions in each proof before applying a filter.
+Lean formalizations include the [cross-count upper bound](../../lean/Ramsey/d18/CrossEdgeBounds.lean)
+and [connectivity classification](../../lean/Ramsey/d18/ConnectivityClassification.lean).
 
 ## Pending independent review
 

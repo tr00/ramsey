@@ -1,113 +1,41 @@
-# Equality-frontier size-four exclusion and forced anchor handoff
+# Equality-frontier forced anchor and size-four exclusion
 
-Integration status (2026-10-15): the user requested an independent subagent
-audit and a commit if the revised claims survived. The independent reviewer
-accepted all four claims at the original proof hash below, without mathematical
-changes. See [the exact-revision review](../n43/d18/x136/review_five_column_compatibility_20261015_independent.md),
-SHA-256 `c6b7e29afaa61a1be112b1ecb47938c7be7452fe6eff96d09564e2834f19a14f`.
-The historical handoff below is retained. Its ready/pending labels describe
-the author stage; the current state is independently accepted on the recorded
-external premises. A banner was added to the proof, preserving its entire
-reviewed body. Branch navigation, Section8.7 of the reduction index, and the
-theory map now record r1 excluded, only r0:s8..10 live, and the unavoidable
-degree-eight anchor. The complete equality frontier remains open.
+Date: 2026-10-15. Task: `five-columns-20261015`. Author/self-auditor: Codex.
+Starting revision: `7ebbef265ef9b55746b798b337b86e4fd6140045`.
 
-Integrated proof SHA-256:
-`2ac70b04e861d31e141e5b475e71245e9e0fe019a7e2f5a0572b517bdaa5ed6e`.
-Integration checked the reviewed body byte-for-byte after removing only the
-added banner, replayed the independent review's arithmetic script, and checked
-all new local links and anchors. The user-authorized commit contains this
-proof, its independent review and historical report, frontier navigation,
-the reduction/theory updates, and this task's WORK row. Unrelated concurrent
-cell and symmetry work is excluded from the commit and preserved in place.
+All four claims in [the proof](../n43/d18/x136/five_column_compatibility.md)
+were independently accepted without mathematical changes by
+[the sibling reviewer](../n43/d18/x136/review_five_column_compatibility_20261015_independent.md).
+The original author-stage ready/pending labels are historical.
 
-Date: 2026-10-15. Task token: `five-columns-20261015`.
-Author and self-auditor: Codex. Starting revision:
-`7ebbef265ef9b55746b798b337b86e4fd6140045`.
+| Stable claim anchor | Result |
+| --- | --- |
+| `claim-five-columns-core-caps` | Corrected census-free core caps at orders7..13:16,21,27,31,37,43,49. Later finite-moment work sharpens the last three. |
+| `claim-five-columns-low-transversal` | In the full x136 interface, <=11 vertices of A-degree<=7 cannot meet every I4. |
+| `claim-five-columns-degree-eight-anchor` | An unavoidable degree-eight I4 has twelve singleton and twelve pair column signatures; singleton classes are triangles of size 3. |
+| `claim-five-columns-no-four-transversal` | Every four-transversal has degrees>=9, misses that anchor and is impossible. Thus tau>=5 and all actual columns have size>=5. |
 
-The selected handoff was joint size-five-column compatibility in the live
-x136/r0,r1 branches from
-[the previous joint research report](2026-10-14-d18-joint-discoveries.md).
-The continuation produced a shorter full-interface argument, recorded in
-[five_column_compatibility.md](../n43/d18/x136/five_column_compatibility.md).
+This excluded all r>=1 children, leaving r0,s8..10 at that date. The
+[later reviewed full closure](2026-10-19-x136-frontier-closure.md) excludes
+the remaining x136 branch. The anchor argument uses actual24-column
+incidences and does not prove the isolated universal transversal-five
+conjecture for all 85-edge K4/I5-free graphs of order 18.
 
-## Principal deductions and exact scope
+The author's initial Goodman calculation omitted independent triples.
+Self-audit caught it before integration or pruning; the reviewed proof counts
+both triangles and independent triples in their correct neighborhoods. That
+discarded intermediate argument has no search use.
 
-Four claims are ready for independent review:
+Provenance:
 
-1. Elementary neighborhood and complementary-neighborhood triangle bounds
-   imply that K4/I4-free graphs of orders7..13 have at most
-   16,21,27,31,37,43,49 edges respectively. No new census input is used.
-2. In the full degree18 equality frontier, a set of at most eleven vertices,
-   all of internal degree at most seven, cannot meet every I4 of A.
-   Its deletion leaves more edges than the first claim permits.
-3. The set of all degree-at-most-seven vertices has size at most ten by
-   total degree170 and the degree ceiling13. Some I4 avoids it. The
-   actual-interface degree-sum cap32 forces all four of its degrees to
-   be eight. Relative to this anchor, the24 actual columns have exactly
-   twelve singleton signatures, in four triangle classes of size three,
-   and twelve two-element signatures. Each anchor vertex occurs in six
-   two-element signatures.
-4. Every four-set I4 transversal has internal degrees at least nine by the
-   already accepted deletion/attachment lemma. It therefore misses the
-   forced degree-eight I4. Hence tau(I4(A))>=5, every column has size>=5,
-   and the entire x136/r1 branch is excluded **conditional on review**.
-   All r>=1 are covered; only r0,s8..10 remains in the equality frontier.
+- Reviewed proof: `a688d0b96de80dba90e77b6a0f918aa93754635d8e81e369f93e9b480de9789b`.
+- Original audit: `c6b7e29afaa61a1be112b1ecb47938c7be7452fe6eff96d09564e2834f19a14f`.
+- Integrated proof: `2ac70b04e861d31e141e5b475e71245e9e0fe019a7e2f5a0572b517bdaa5ed6e`.
 
-The actual24-column anchor degree-sum bound is essential. This does not
-prove the isolated universal transversal-five conjecture for every85-edge
-K4/I5-free order18 graph. Nor does it exclude r0, all x136, the unrestricted
-degree18 branch, or order43. No change to the known global R(5,5) interval
-is claimed. Novelty was not checked.
-
-## Review state, correction, and provenance
-
-Exact proof SHA-256 at handoff:
-
-```text
-a688d0b96de80dba90e77b6a0f918aa93754635d8e81e369f93e9b480de9789b
-```
-
-The four anchors are `claim-five-columns-core-caps`,
-`claim-five-columns-low-transversal`,
-`claim-five-columns-degree-eight-anchor`, and
-`claim-five-columns-no-four-transversal`. All have Kind local-deduction,
-Review state ready, and Search use none pending independent review.
-Input hashes and numerical literature dependencies are recorded in the proof.
-No new dependency or changed existing claim is silently introduced.
-
-An initial author calculation omitted independent triples from Goodman's
-identity. The self-audit caught the error before integration or pruning.
-The final argument explicitly counts both triangles and independent triples,
-bounding the former in H neighborhoods and the latter in complement-H
-neighborhoods. Both types are triangle-free with maximum degree at most3.
-This supplies corrected, stronger sufficient edge bounds. The erroneous
-intermediate argument is superseded and has no search use.
-
-Exact rational arithmetic checked every allowed degree value in all seven
-affine-bound rows, every integer floor, and every strict deletion inequality.
-Local proof links and claim anchors resolve; git diff --check passed.
-This is arithmetic validation and author self-check, not independent review
-or graph enumeration. No solver, proof checker, theorem prover, graph
-canonicalizer, downloads, installations, CNFs or proof traces were used.
-
-## Integration and next focused task
-
-Independent exact-revision review is the remaining evidence gate. The root
-[workflow](../docs/workflow.md) requires distinct author/reviewer identities;
-this single-author continuation has not supplied that review. Consequently
-accepted branch navigation, reduction index, and theory map were left intact.
-After acceptance, integrate the forced degree-eight anchor and the r1
-exclusion with their precise external premises and coverage; do not mark the
-whole x136 branch closed.
-
-The next breakthrough target is compatibility of the forced anchor's four
-singleton triangles with its twelve two-element columns, especially the
-eight to ten size-five columns in the remaining r0 branch. The unavoidable
-anchor now gives exact signatures; all actual B adjacencies, A induced
-graphs, and anchor choices must remain covered.
-
-Owned changes are the new proof, this historical report, and the task's own
-WORK row. Other concurrent cell integration files and shared navigation
-changes were preserved. Ownership is released at handoff. Nothing was
-staged or committed.
+Author checks used exact rational arithmetic on affine bounds, integer floors
+and strict deletion comparisons. Integration matched the reviewed body after
+removing only its banner, replayed the audit arithmetic and resolved links.
+External numerical inputs remain those in the proof. No solver, graph
+enumeration or formal certificate was involved; no novelty or global Ramsey
+bound was claimed. The original author handoff and integration details remain
+in Git at `3eebcca5e627fdc3df5f26fd2a1925a7c121153f`.

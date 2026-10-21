@@ -1,5 +1,7 @@
 # Independent review of normalized same-degree pair coverage
 
+Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+
 Date: 2026-10-15. Author: overlap-author agent.
 Reviewer: `transversal_compatibility`, a distinct agent.
 
@@ -24,60 +26,17 @@ Checks: complement selector including maximum-degree inference, parity,
 parameter coverage, same-family applicability, exact anchor values,
 disjointness/exhaustiveness, ambient graph types, and permitted search use.
 
-## Findings
+## Independent checks
 
-**Claim 01 accepted.** If maximum degree is at least 23, the first entry
-of the sorted complementary sequence is at most 19, whereas the first
-entry of D is at least 20. Thus the strict smaller-sequence selector
-excludes that maximum degree without a Ramsey premise. All degrees lie
-in 20,21,22. Complementation exchanges the outer counts. When n20<n22,
-the first difference after the initial shared degree-20 entries favors
-the complementary sequence; when n20=n22 both sequences are equal.
-Both contradict the selector. Therefore n20>n22 and minimum degree is
-exactly 20.
+Both claims were independently checked. Complement degree-sequence
+normalization gives only degrees20/21/22 and n20>n22, with the exact j/r
+counts and edge total 451-j. The n20>=13 / n20<=12 predicates are disjoint
+and exhaustive within this normalized branch; the second gives n21>=20.
 
-Handshake implies n21 is even. Since n20+n22=43-n21 is odd,
-n20-n22 is a positive odd integer 2j+1. Setting t=n22 gives
-
-```text
-n20=t+2j+1, n21=42-2(j+t), n22=t,
-j>=0, t>=0, j+t<=21.
-```
-
-The exact degree sum is 20n20+21n21+22n22
-=21*43-(n20-n22)=902-2j, so e(G)=451-j. Independently, if D=D^c
-then the sum of D equals half the sum of D and D^c, namely 903,
-contradicting handshake. Thus every complement orbit of order-43
-(5,5)-free graphs has exactly one smaller sorted sequence. The proof
-correctly keeps other normalized minimum-degree branches: normalization
-itself does not force the minimum to be 20.
-
-**Claim 02 accepted.** If n20>=13, the prescribed family P20 has enough
-members for family-overlap Claim 03. Its parameters obey triangle equality
-`2L=24=d+k` for d=20,k=4,L=12. The excluded equality-case degree 3k=12
-is absent. With b=43-20-1=22, the exact anchor is
-`max(22,44-12)=32>4(20-1-12)=28`. Hence the same family contains an
-adjacent pair of ambient codegree at most 11.
-
-If n20<=12 then t+2j<=11; equivalently t<=11-2j. Therefore
-j+t<=11-j<=11 and n21=42-2(j+t)>=20. Thus the degree-21 family has
-at least thirteen members without any extra census or excess assumption.
-For family-overlap Claim 04, d=21,k=4,L=13 gives strict triangle exclusion
-`2L=26>25=d+k`. With b=21 the anchor is
-`max(21,42-12)=30>4(21-1-13)=28`. Consequently the degree-21 family
-contains an adjacent pair of ambient codegree at most 12. The sharper
-thirteen-root threshold is justified by the accepted family theorem's
-triangle-free component envelope; using only its elementary k^2+1
-threshold would not establish the stated arbitrary thirteen-subset
-conclusion, so the dependency on that refinement is material.
-
-The two degree-count predicates are disjoint and exhaustive for integral
-n20. In each one, every prescribed thirteen-element subset of the
-indicated family satisfies the same equal-degree and ambient Ramsey
-hypotheses, so the guaranteed edge and its codegree occur within that
-same subset. The argument never combines a separately selected edge
-with a separately proved overlap bound. No low-excess, neighborhood edge
-extremum, or independent-four prohibition in N(v) is introduced.
+The prescribed-family theorem then supplies a same-degree 20 edge of
+codegree<=11 or same-degree 21 edge of codegree<=12. Every scalar count,
+family substitution and overlap-cell bound was recomputed. This does not
+apply to an arbitrary degree 20 pivot or classify all completions.
 
 Outcome: **accepted**, both claims at the exact reviewed hash, on the
 recorded family-overlap theorem and its explicit classical Ramsey premises.

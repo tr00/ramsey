@@ -86,7 +86,7 @@ For an OPB serializer that emits only `>=`, rewrite the first inequality as `sum
 
 The unsimplified Ramsey component has exactly 1,925,196 constraints. Substitute root constants, remove true constraints, and retain an explicit contradiction if a false constant constraint occurs. Constraint counts after simplification must be measured, not guessed.
 
-This route gives a simple independent semantic reference for the specialized route. It is not necessary to retain both unsimplified and simplified full models unless storage allows it; the exact source, recipe and hashes must remain reproducible.
+This route gives a simple independent semantic reference for the specialized route. For a closure package, one exact model plus checked regeneration and translation data suffices; both unsimplified and simplified full models need not be stored. Exploratory models follow the retention scope in section8.
 
 ### Route B: specialized cells, no missing root cases
 
@@ -246,18 +246,20 @@ Do not assume core uniqueness, sort rows/columns by sums independently of their 
 
 ## 8. Artifacts and receiving-agent handoff
 
-Before starting, claim distinct generator/checker/report paths in `WORK.md` following coordinator policy. Suggested artifact directory: `reports/<actual-run-date>-k1-pb-pilot/`; use the actual run date rather than this handoff date. Do not overwrite historical runs or mutate the source notes to match solver behavior.
+Before starting, claim distinct generator/checker/report paths in `WORK.md` following coordinator policy. Generate pilot models and logs in ignored `scratch/<actual-run-date>-k1-pb-pilot/` or outside the repo; record one concise dated session report. Do not overwrite historical runs or mutate the source notes to match solver behavior.
 
-Retain at least:
+For exploration, record the source/configuration, executed and skipped pilot rows, limits, measured sizes, outcomes, validation and useful findings. Generated OPB files, traces and bulky logs may be discarded after that summary. Follow [the retention policy](../docs/reproducibility.md#retention-scope).
+
+If a computation closes a named mathematical subbranch or produces a verified Ramsey construction, retain the full package:
 
 - Source revision, dirty-source patch, transferred-file manifest and SHA-256 hashes of generator, checker, mathematical sources, input data and executable binaries.
 - Hardware/OS, solver/compiler/checker versions and build flags; LP availability and exact limits.
 - Full model-generation argv, determinism check hashes, OPB files and variable maps, family counts, fixed/active variable counts and model scope (`whole-k1`, `fixed-core-pair`, or `fixed-key`).
 - For each run: exact argv/cwd, model SHA-256, timestamps, wall/CPU/RSS, resource limits and limit events, raw exit status, parsed status, complete stdout/stderr, solver statistics and whether proof logging was enabled.
 - All witness/proof/checker artifacts required for any claimed decision, with hashes; if none, state that explicitly.
-- A dated concise report and `WORK.md` row identifying every executed/skipped run and why, validation outcomes, retained byte totals, coverage limits, and the next concrete decision.
+- A dated concise report identifying the exact branch predicate, validation outcomes, retained byte totals and coverage limits. Use `WORK.md` only while the task is active.
 
-Do not delete the only evidence copy to save space. Compress closed artifacts only with lossless verification and recorded hashes. Report skipped tests/tools honestly. A checkpoint or partial log is not a completed case.
+Keep potentially useful UNSAT inputs and proof logs temporarily until deciding whether to promote them to checked closure evidence. Do not delete the only evidence copy for a recorded closure. Compress retained evidence only with lossless verification and recorded hashes. An arbitrary fixed-key UNSAT run covers only that key; whole-k1 closure still requires complete key coverage. A checkpoint or partial log is not a completed case.
 
 ### Acceptance checklist for the remote agent
 
@@ -267,7 +269,7 @@ Do not delete the only evidence copy to save space. Compress closed artifacts on
 - [ ] Model sizes measured and disk/RAM/process limits enforced before solving.
 - [ ] At most the approved four pilot rows executed, with honest early-stop/skip statuses.
 - [ ] SAT independently checked exhaustively, or UNSAT clearly marked uncertified unless the full proof chain was checked.
-- [ ] Source, models, logs, manifests and dated result report retained; no unsupported branch-closure claim.
+- [ ] Concise session report retained; full reproducibility package retained for any claimed subbranch closure or verified construction.
 
 ## Authoring validation
 

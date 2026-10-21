@@ -1699,5 +1699,70 @@
     "python3 reports/2026-10-19-scoped-engine-experiments/followup.py",
     "python3 reports/2026-10-19-scoped-engine-experiments/analyze.py"
   ],
-  "cleanup": "Only evidence reports and WORK.md changed. Temporary uncompressed OPBs removed after gzip retention. Experiment drivers retained as reproducibility evidence. No engine/default constraint changes, dependency changes, downloads, Lean edits, staging or commit."
+  "cleanup": "Only evidence reports and WORK.md changed. Temporary uncompressed OPBs removed after gzip retention. Experiment drivers retained as reproducibility evidence. No engine/default constraint changes, dependency changes, downloads, Lean edits, staging or commit.",
+  "retention_update": {
+    "date": "2026-10-21",
+    "policy": "docs/reproducibility.md#retention-scope",
+    "reason": "Exploratory runs closed no mathematical subbranch. Large generated models discarded; original commands, model hashes/counts, drivers, measurements and small logs retained.",
+    "removed_bytes": 56746958,
+    "removed_artifacts": {
+      "anchor-counting-disabled.opb.gz": {
+        "bytes": 4053602,
+        "sha256": "c113e36df512475b58a2f075cef5f8e24f1395123ed8a89a9563e14466c888d6"
+      },
+      "anchor-pinned-signatures.opb.gz": {
+        "bytes": 4054051,
+        "sha256": "e80f5f869eb917cc17b46635cb7de5fb343e1956f3612cc7c8b908364409ac8a"
+      },
+      "anchor-residual-ordered.opb.gz": {
+        "bytes": 4054395,
+        "sha256": "4e6a3e3c2a4628a5b09d6a7d5c6b2ac3ac2cfdf2782056614fa679ebb0eea784"
+      },
+      "anchor-x138.opb.gz": {
+        "bytes": 4053602,
+        "sha256": "c113e36df512475b58a2f075cef5f8e24f1395123ed8a89a9563e14466c888d6"
+      },
+      "b-second-anchor.opb.gz": {
+        "bytes": 4055612,
+        "sha256": "f83992034bff063884a03cc5328dfe058227d3dbe74563aa99bf06fc103b7c06"
+      },
+      "b-second-base.opb.gz": {
+        "bytes": 4055436,
+        "sha256": "8cb92ef7023847440c4521fb361c09b809494a668e4c3876c369f0ddd4d47914"
+      },
+      "canonical-anchor-x138.opb.gz": {
+        "bytes": 4053121,
+        "sha256": "47a5068772e8b47a5e622359573906ab4cf97898aad717624106628b964d9891"
+      },
+      "canonical-base.opb.gz": {
+        "bytes": 4052903,
+        "sha256": "623bc92d642a707f7c897fef73b05ac7fc4920e47d72547e3e887658e13f2a4a"
+      },
+      "default-degree-ordered.opb.gz": {
+        "bytes": 4053162,
+        "sha256": "2375c235aaff2460ee4f652bed9a231867026c584ddd581b828f9ff48e9edd06"
+      },
+      "default.opb.gz": {
+        "bytes": 4052302,
+        "sha256": "70ecbdac5d57418ff1199a1f940e3245277466b2e62b70ac88433ecded476245"
+      },
+      "forward-invalid.opb.gz": {
+        "bytes": 4052302,
+        "sha256": "70ecbdac5d57418ff1199a1f940e3245277466b2e62b70ac88433ecded476245"
+      },
+      "impossible-pivot.opb.gz": {
+        "bytes": 4049656,
+        "sha256": "6307469a9d1733f5771618279ab11784b51fb72c832ad3881b08baeaa743c13f"
+      },
+      "zero-excess.opb.gz": {
+        "bytes": 4053404,
+        "sha256": "558b16d10a30501eb9433d5679ddfe7303d9bf5abf100519df124d22a57cc3bd"
+      },
+      "zero-x138.opb.gz": {
+        "bytes": 4053410,
+        "sha256": "c17490b340af3861ec6b6cb4d2522de6042902481e53ddb5dd16c8f838c25e40"
+      }
+    },
+    "manifest_semantics": "artifacts, storage and validation describe the original 2026-10-19 run. Entries listed here are historical records, not files currently retained. Original validation is not a current replay check."
+  }
 }

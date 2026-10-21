@@ -1,5 +1,7 @@
 # Independent audit of the degree-18 cross upper bound
 
+Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+
 Date: 2026-10-15. Task: `audit-pending-20261015`.
 
 Claim(s): `cross_upper_bound.md#claim-cross-upper-corridor` and
@@ -35,61 +37,17 @@ verifies application and algebra, conditional on those external theorems.
 No theorem proof, census completeness certificate, solver, graph enumeration,
 download, installation, or formal checker was run.
 
-## Cross-upper-corridor
+## Decisive independent checks
 
-Outcome: **accepted** conditional on the stated external premises.
+Both surviving claims were accepted on their declared external premises.
+The B degree sum gives `2b+x<=576`; the published complement cap132 gives
+`b>=144`, hence `x<=288`. Equality requires b=144 and every B vertex of
+global degree24. The A sum separately gives `x>=306-2a>=136`, using a<=85.
 
-The degree range follows with the correct ambient types: each neighborhood
-is `(4,5)`-free and has order at most 24; each antineighborhood is
-`(5,4)`-free and has order at most 24 by Ramsey symmetry. At order 43 this
-gives `18<=d_G(z)<=24`. In particular, for a degree-18 root,
-`|A|=18` and `|B|=24`. No `I4` prohibition is imposed on `A`.
-
-There are no root-to-`B` edges. Internal `B` edges count twice in the
-ambient degree sum over `B`, and cross edges count once. Thus
-`2b+x=sum_B d_G(y)<=576`. The complement of `G[B]` is `(4,5)`-free
-of order 24, and its edge count is `276-b`. Its maximum 132 gives
-`b>=144`, yielding `x<=576-288=288`.
-
-At `x=288`, both the degree-sum and internal-edge inequalities must attain
-equality: `b=144` and every `B` vertex has degree 24. Conversely those two
-conditions give `x=288`. Since every deficit is nonnegative, there is no
-compensating mixed-degree equality case. The equivalence is conditional on
-the existence of a graph in the stated setting and asserts no realizability.
-
-The independently displayed lower endpoint uses
-`18+2a+x=sum_A d_G(u)>=324`, hence `x>=306-2a>=136`.
-Here the 18 root-to-`A` edges contribute one each, as required. This lower
-endpoint additionally uses `a<=85`; it is not a consequence of the
-metadata's two upper-bound dependencies alone. The premise is explicitly
-recorded in the setting, so no proof gap results.
-
-## Cross-upper-defects
-
-Outcome: **accepted** conditional on the stated external premises.
-
-Define `D_B=sum_B(24-d_G(y))>=0`. Replacing the degree sum by
-`576-D_B` gives exactly
-
-```text
-x=576-2b-D_B,
-288-x=2(b-144)+D_B.
-```
-
-Both right-hand terms are nonnegative integers. Consequently `b>=145`
-gives `x<=286`; at least `t` vertices of degree at most 23 contribute
-at least `t` to `D_B`, giving `x<=288-t`; degree at most 23 throughout
-`B` gives `D_B>=24` and `x<=264`; degree at most 22 throughout `G`
-gives `D_B>=48` and `x<=240`. The last row would even hold if the
-degree-at-most-22 premise were restricted to `B`, but the stronger stated
-premise is valid. None of these extra degree restrictions is automatic.
-
-For the `A` refinement, its degree sum is at most `18*24=432`, so
-`18+2a+x<=432` gives `x<=414-2a`. Substituting `a=85-q` gives
-`x<=244+2q`, and combining this with the independently established bound
-gives `x<=min(288,244+2q)`. The values `244,246,248` for `q=0,1,2`
-are exact substitutions. The definition of `q` is local to the actual
-neighborhood; no small-`q` coverage or excess restriction is smuggled in.
+The exact nonnegative defect identity is
+`288-x=2(b-144)+sum_B(24-d_G(y))`. Conditional degree refinements, the A
+upper bound `x<=414-2a`, and all integer substitutions were checked.
+No extra degree, small-q or root-selection restriction is automatic.
 
 ## Previously withdrawn stronger attempts
 

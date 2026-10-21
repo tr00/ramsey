@@ -1,0 +1,295 @@
+{
+  "claims": [
+    {
+      "source": "docs/general_theorems/symmetry_quotients.md",
+      "claim": "claim-symmetry-quotients-01",
+      "task": "claim_review_01",
+      "review": "docs/general_theorems/review_symmetry_quotients_01_20261021_cr01.md",
+      "state": "completed",
+      "agent": "/root/claim_review_01",
+      "outcome": "accepted",
+      "review_sha256": "84753a2f6d29b6dc79b91a2639917fd493f9b34535ccf518dc36d57e4fa9fdf6"
+    },
+    {
+      "source": "docs/general_theorems/symmetry_quotients.md",
+      "claim": "claim-symmetry-quotients-02",
+      "task": "claim_review_02",
+      "review": "docs/general_theorems/review_symmetry_quotients_02_20261021_cr02.md",
+      "state": "completed",
+      "agent": "/root/claim_review_02",
+      "outcome": "accepted",
+      "review_sha256": "f9341df94b639657dacb54a4131cdf942a92812d5b619f7181406c8422f876e2"
+    },
+    {
+      "source": "docs/general_theorems/symmetry_quotients.md",
+      "claim": "claim-symmetry-quotients-03",
+      "task": "claim_review_03",
+      "review": "docs/general_theorems/review_symmetry_quotients_03_20261021_cr03.md",
+      "state": "completed",
+      "agent": "/root/claim_review_03",
+      "outcome": "accepted",
+      "review_sha256": "d532d55b0cee96c0008b93c18d8de9e9f581e28708654ea5dd3a71cab3693f13"
+    },
+    {
+      "source": "docs/general_theorems/symmetry_quotients.md",
+      "claim": "claim-symmetry-quotients-04",
+      "task": "claim_review_04",
+      "review": "docs/general_theorems/review_symmetry_quotients_04_20261021_cr04.md",
+      "state": "completed",
+      "agent": "/root/claim_review_04",
+      "review_sha256": "c6c2912da7c1fcc85fcb933a9f94fd1b7aed1abcbc0830072c17fcad9ba531b4",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/symmetry_extensions.md",
+      "claim": "claim-d18-symmetry-extensions-01",
+      "task": "claim_review_05",
+      "review": "n43/d18/review_d18_symmetry_extensions_01_20261021_cr05.md",
+      "state": "completed",
+      "agent": "/root/claim_review_05",
+      "review_sha256": "a0ba56d9ef016b83e8913f1ff81c8b32f8b17a5543e522d20a0a5f8160f4a484",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/symmetry_extensions.md",
+      "claim": "claim-d18-symmetry-extensions-02",
+      "task": "claim_review_06",
+      "review": "n43/d18/review_d18_symmetry_extensions_02_20261021_cr06.md",
+      "state": "completed",
+      "agent": "/root/claim_review_06",
+      "review_sha256": "03f054b1c00e40b6e2213b3be916b30fa1682301489c99e2b0bc9c03e9aa6df3",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/symmetry_extensions.md",
+      "claim": "claim-d18-symmetry-extensions-03",
+      "task": "claim_review_07",
+      "review": "n43/d18/review_d18_symmetry_extensions_03_20261021_cr07.md",
+      "state": "completed",
+      "review_sha256": "654da70143ef7177f029630560fd09667075d83cb60a90607866f8591cd32e65",
+      "outcome": "accepted",
+      "agent": "/root/claim_review_07"
+    },
+    {
+      "source": "n43/d18/x136_closure_consequences.md",
+      "claim": "claim-closure-consequences-root-profiles",
+      "task": "claim_review_08",
+      "review": "n43/d18/review_closure_consequences_root_profiles_20261021_cr08.md",
+      "state": "completed",
+      "agent": "/root/claim_review_08",
+      "review_sha256": "16fb771ff248d2077d973205244c3508a8f2b817cc0b88571dee44ef0834ffea",
+      "outcome": "changes-requested"
+    },
+    {
+      "source": "n43/d18/x136_closure_consequences.md",
+      "claim": "claim-closure-consequences-floors",
+      "task": "claim_review_09",
+      "review": "n43/d18/review_closure_consequences_floors_20261021_cr09.md",
+      "state": "completed",
+      "agent": "/root/claim_review_09",
+      "review_sha256": "9c21b042069a92970b934e9310dff6d43cd0389d24e109ed94379cfa03da0503",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/x136_closure_consequences.md",
+      "claim": "claim-closure-consequences-forced-q0",
+      "task": "claim_review_10",
+      "review": "n43/d18/review_closure_consequences_forced_q0_20261021_cr10.md",
+      "state": "completed",
+      "agent": "/root/claim_review_10",
+      "review_sha256": "758225507628823b9b0ea03de1b2bd8b2066e9fdfe33600c9ca40e5d765dbc3f",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/a69_decomposition.md",
+      "claim": "claim-a69-core-connectivity",
+      "task": "claim_review_11",
+      "review": "n43/d18/review_a69_core_connectivity_20261021_cr11.md",
+      "state": "completed",
+      "review_sha256": "288f43e8f404e8f40f38ed64f1fa98814a75ec2ea88dde0ac3fa7932110dfa6a",
+      "outcome": "accepted",
+      "agent": "/root/claim_review_11"
+    },
+    {
+      "source": "n43/d18/a69_decomposition.md",
+      "claim": "claim-a69-cut-classification",
+      "task": "claim_review_12",
+      "review": "n43/d18/review_a69_cut_classification_20261021_cr12.md",
+      "state": "completed",
+      "review_sha256": "c9789f2370f62ebde0fac4b13fac07c4aa4ba8fbbf62cedf48b4cd8800fda3fd",
+      "outcome": "accepted",
+      "agent": "/root/claim_review_12"
+    },
+    {
+      "source": "n43/d18/a69_decomposition.md",
+      "claim": "claim-a69-singleton-classification",
+      "task": "claim_review_13",
+      "review": "n43/d18/review_a69_singleton_classification_20261021_cr13.md",
+      "state": "completed",
+      "review_sha256": "59475b7d25cbb473f518c83e2ddcd91e370f4eeeee142b4989471c38b22cdc28",
+      "outcome": "accepted",
+      "agent": "/root/claim_review_13"
+    },
+    {
+      "source": "n43/d18/a69_decomposition.md",
+      "claim": "claim-a69-two-transversal",
+      "task": "claim_review_14",
+      "review": "n43/d18/review_a69_two_transversal_20261021_cr14.md",
+      "state": "completed",
+      "agent": "/root/claim_review_14",
+      "review_sha256": "5dc0f04f373510e82150f7852628d71d986ae93b2bd2908a0ff0ffad757c4380",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/a69_decomposition.md",
+      "claim": "claim-a69-minimum-core",
+      "task": "claim_review_15",
+      "review": "n43/d18/review_a69_minimum_core_20261021_cr15.md",
+      "state": "completed",
+      "agent": "/root/claim_review_15",
+      "review_sha256": "647475ec1ae0e9391b33049e49b7c4da1407dc8df3aee75204b25b2f9281e7de",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/a69_decomposition.md",
+      "claim": "claim-a69-attachment-tests",
+      "task": "claim_review_16",
+      "review": "n43/d18/review_a69_attachment_tests_20261021_cr16.md",
+      "state": "completed",
+      "agent": "/root/claim_review_16",
+      "review_sha256": "0f8922432acd5b10e7db7f9ec210cdc2c2821bb0314247aae2aaa706ed0c09e6",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/a69_decomposition.md",
+      "claim": "claim-a69-low-degree-panel",
+      "task": "claim_review_17",
+      "review": "n43/d18/review_a69_low_degree_panel_20261021_cr17.md",
+      "state": "completed",
+      "review_sha256": "3a12c941e1a0195269ceff254525b627c647b3a30a08782391de0f5665fc630a",
+      "outcome": "accepted",
+      "agent": "/root/claim_review_17"
+    },
+    {
+      "source": "n43/d18/a69_decomposition.md",
+      "claim": "claim-a69-ambient-transfer",
+      "task": "claim_review_18",
+      "review": "n43/d18/review_a69_ambient_transfer_20261021_cr18.md",
+      "state": "completed",
+      "review_sha256": "c6457e99ec4a7a59dbb6123fb94e8516d53ca2f99620140e2f77d563381d20e1",
+      "outcome": "accepted",
+      "agent": "/root/claim_review_18"
+    },
+    {
+      "source": "n43/d18/a69_decomposition.md",
+      "claim": "claim-a69-exhaustive-split",
+      "task": "claim_review_19",
+      "review": "n43/d18/review_a69_exhaustive_split_20261021_cr19.md",
+      "state": "completed",
+      "agent": "/root/claim_review_19",
+      "review_sha256": "47b01bea38ac21db7227130baba563993add283b110e9ddc35d321007d74a36d",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/tau/symmetry.md",
+      "claim": "claim-tau-symmetry-01",
+      "task": "claim_review_20",
+      "review": "n43/d18/tau/review_tau_symmetry_01_20261021_cr20.md",
+      "state": "completed",
+      "review_sha256": "cf2d567ae5ab6dd766e02c42a6d55efa6d11711af2b42faffdb0131e323a8765",
+      "outcome": "accepted",
+      "agent": "/root/claim_review_20"
+    },
+    {
+      "source": "n43/d18/tau/closure/README.md",
+      "claim": "claim-tau-closure-01",
+      "task": "claim_review_21",
+      "review": "n43/d18/tau/closure/review_tau_closure_01_20261021_cr21.md",
+      "state": "completed",
+      "agent": "/root/claim_review_21",
+      "review_sha256": "b7fcd6cb0c54bb3a9daf3bab7a9feabc33edc69ca21218c1f89821ccc4829550",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/parameter_landscape.md",
+      "claim": "claim-landscape-template-cap",
+      "task": "claim_review_22",
+      "review": "n43/d18/review_landscape_template_cap_20261021_cr22.md",
+      "state": "completed",
+      "agent": "/root/claim_review_22",
+      "review_sha256": "166a5c74469390321e8533337d6f5fc97a6b9d951f819229c36aa25de3590e61",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/parameter_landscape.md",
+      "claim": "claim-landscape-uniform-certificate",
+      "task": "claim_review_23",
+      "review": "n43/d18/review_landscape_uniform_certificate_20261021_cr23.md",
+      "state": "completed",
+      "agent": "/root/claim_review_23",
+      "review_sha256": "e926a056c2fa49e618b2b03ceef774ec359f211b3527964e26caa6a9394a4f7c",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/parameter_landscape.md",
+      "claim": "claim-landscape-internal-anchors",
+      "task": "claim_review_24",
+      "review": "n43/d18/review_landscape_internal_anchors_20261021_cr24.md",
+      "state": "completed",
+      "agent": "/root/claim_review_24",
+      "review_sha256": "aaeb5cb0787bbf1ff2f6256c75e9def6d83d0a0ec4622aa2136694ef32d1655e",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/c/w0/research.json",
+      "claim": "claim-cw0-budgets-and-rerooting",
+      "task": "claim_review_25",
+      "review": "n43/d18/c/w0/review_cw0_budgets_and_rerooting_20261021_cr25.md",
+      "state": "completed",
+      "agent": "/root/claim_review_25",
+      "review_sha256": "8a0a087a3782e486152cc90dc066e85b492d68e4c6b5af581d5235e8848ab8f3",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/c/w0/research.json",
+      "claim": "claim-cw0-anchor-defect-transport",
+      "task": "claim_review_26",
+      "review": "n43/d18/c/w0/review_cw0_anchor_defect_transport_20261021_cr26.md",
+      "state": "completed",
+      "agent": "/root/claim_review_26",
+      "review_sha256": "ac83b71330590ef96cd63c4d7e86760055c40123d6789f71c8be13587e19057f",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/c/w0/research.json",
+      "claim": "claim-cw0-q1-core",
+      "task": "claim_review_27",
+      "review": "n43/d18/c/w0/review_cw0_q1_core_20261021_cr27.md",
+      "state": "completed",
+      "agent": "/root/claim_review_27",
+      "review_sha256": "f86f15c85f006dcad2e9854e19b9e462a9eac4ca8c716cba4b8b70c808eb0efe",
+      "outcome": "accepted"
+    },
+    {
+      "source": "n43/d18/c/w0/research.json",
+      "claim": "claim-cw0-exceptional-five-allocations",
+      "task": "claim_review_28",
+      "review": "n43/d18/c/w0/review_cw0_exceptional_five_allocations_20261021_cr28.md",
+      "state": "completed",
+      "agent": "/root/claim_review_28",
+      "review_sha256": "0f2171d45dbad35a5313375aeabe6661e0393dc6521faa7faf0fc2fcd19d5d33",
+      "outcome": "accepted"
+    }
+  ],
+  "summary": {
+    "agents_spawned": 28,
+    "accepted": 27,
+    "changes_requested": 1,
+    "source_metadata_updated": false,
+    "excluded_existing_reviews": [
+      "density_rerooting: all nine",
+      "parameter_landscape: claims point-avoidance and column-bands",
+      "historical ready labels resolved by integration banners"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "A_omission_family_count": 17,
+  "A_pair_multiplicity_edge": [
+    4
+  ],
+  "A_pair_multiplicity_nonedge": [
+    3
+  ],
+  "B_omission_family_count": 34,
+  "B_pair_multiplicity_edge": [
+    9
+  ],
+  "B_pair_multiplicity_nonedge": [
+    5
+  ],
+  "character_signature_moments_checked": 7991,
+  "fourth_powers": [
+    1,
+    4,
+    13,
+    16
+  ],
+  "independent_AP_count": 68,
+  "triangle_AP_count": 68
+}

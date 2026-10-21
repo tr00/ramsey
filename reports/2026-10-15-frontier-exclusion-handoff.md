@@ -1,60 +1,33 @@
-# Handoff: candidate exclusion of the equality frontier
+# Handoff: full equality-frontier exclusion
 
 Date: 2026-10-15. Task: `frontier-exclusion-handoff-20261015`.
-Author and self-auditor: Codex. Base HEAD:
-`ab4941bd3e4b4b0bcd89098482f5767bd3fc5925`.
+Author/self-auditor: Codex. Base HEAD: `ab4941bd3e4b4b0bcd89098482f5767bd3fc5925`.
 
-The user asked for a mathematical breakthrough, then requested documentation
-and a commit as a handoff to end the day. The result is a candidate proof
-excluding the **entire** degree-18 `x=136` branch, including its sole
-remaining `r=0` child. This is an author-stage result awaiting independent
-review. No accepted branch status or theory-map entry has been changed.
+This was an author-stage candidate closure of the entire degree-18 x136
+branch. [Independent acceptance on 2026-10-19](2026-10-19-x136-frontier-closure.md)
+now establishes x>=137 on the proof's external premises. The original ready
+state did not itself authorize accepted navigation or pruning.
 
-The complete proof is
-[frontier_exclusion_handoff.md](../n43/d18/x136/frontier_exclusion_handoff.md),
-SHA-256:
+Proof: [frontier_exclusion_handoff.md](../n43/d18/x136/frontier_exclusion_handoff.md).
+Reviewed source SHA-256:
+`c07f097358bd42e8c11957660f4f25dce3784608b143a87bc86a16d2bc0561cb`.
 
-```text
-c07f097358bd42e8c11957660f4f25dce3784608b143a87bc86a16d2bc0561cb
-```
+| Stable claim anchor | Closure step |
+| --- | --- |
+| `claim-frontier-handoff-double-domination` | An all-degree-eight I4 has >=2 neighbors at every other A vertex, using its saturated B singleton triangles. |
+| `claim-frontier-handoff-three-anchors` | Three disjoint such anchors force e(A)<=84<85. |
+| `claim-frontier-handoff-low-degrees` | Deletion caps exclude two degree<=7 vertices; Turán equality excludes a sole degree 6 vertex. At most one degree 7 remains. |
+| `claim-frontier-handoff-exclusion` | Projected columns require >=120 support incidences. With one degree 7, the support has only 109; the no-degree 7 case also exceeds its budget. |
 
-Its four stable claim anchors have review state ready and search use none:
+Dependencies are the accepted degree-eight anchor, full-interface tau>=5,
+core caps36/42/48 at orders11/12/13, and recorded smaller Ramsey and
+neighborhood extrema. Exact dependency hashes are in the proof. Author
+checks did not independently recertify those premises.
 
-1. `claim-frontier-handoff-double-domination`: every all-degree-eight I4
-   anchor has at least two neighbors at every other A vertex. Its saturated
-   B singleton triangle prevents a further singleton signature inside A.
-2. `claim-frontier-handoff-three-anchors`: three disjoint such anchors would
-   give at least24 edges between them; their degree sum96 and a six-vertex
-   K4-free remainder cap12 give `e(A)<=84`, contradicting85.
-3. `claim-frontier-handoff-low-degrees`: deletion caps repeatedly produce
-   three disjoint anchors if at least two vertices have degree<=7. A separate
-   Turan equality argument excludes a sole degree-six vertex. Thus at most
-   one vertex has degree7 and all others have degree>=8.
-4. `claim-frontier-handoff-exclusion`: with no degree7 vertex, all I4s are
-   supported on D8, so projected columns and tau>=5 demand at least120
-   incidences, exceeding the available degree budget. With one degree7
-   vertex, adjoin it to each D8 projection as an abstract transversal. This
-   forces exactly11 degree8 vertices; the six others have degree>=10 and
-   cannot belong to any I4. The full support then has only109 B incidences
-   against the necessary120.
-
-The proof uses existing independently accepted all-degree-eight-anchor and
-abstract-transversal-five results and K4/I4 core edge caps36,42,48 at orders
-11,12,13. It also retains the existing external order17/18 neighborhood
-extrema and small Ramsey numbers. Exact full dependency file hashes are
-recorded in the proof. Their independent review records were read during
-the handoff preparation; those premises have not been recertified here.
-
-## Verification performed
-
-The author rechecked forbidden-set witnesses, deletion identities, ambient
-types, and projected-transversal quantifiers. A Python3 standard-library
-formula check verified all18 strict deletion comparisons and both final
-incidence contradictions. Exact Fraction arithmetic also rechecked
-nonnegativity of the inherited affine core residuals and their published
-vectors at orders11,12,13. All assertions passed. `git diff --check` passed.
-
-The new arithmetic checks can be replayed from the repository root with:
+Author validation rechecked witnesses, ambient types, deletion and projection
+quantifiers; standard-library arithmetic checked18 strict deletion comparisons
+and both incidence contradictions, while exact Fraction checks covered inherited
+core residuals. All passed, as did `git diff --check`. The scalar check remains:
 
 ```sh
 python3 - <<'PY'
@@ -87,25 +60,9 @@ Formula checks are not independent mathematical review or formal proof
 certificates. No graph enumeration, solver, proof checker, canonicalizer,
 download, installation, or novelty review took place.
 
-## Next-agent instructions and use limits
 
-Start by independently auditing the full proof at the exact hash above;
-record a sibling review following [the workflow](../docs/workflow.md).
-Prioritize the full-graph singleton witness, the single-degree-six Turan
-equality case, and the degree-seven projected-transversal quantifiers.
-The proof includes a detailed review order and dependency links.
-
-If all four claims and their exact dependency chain are accepted, the
-coordinator can close x136 and record `x>=137` for every degree-18 root in
-an order-43 candidate. Update branch navigation, reduction index, dashboard,
-and theory map only after that review. If an error is found, retain the
-valid deductions and mark affected claims changes-requested.
-
-The author currently knows no unresolved algebraic gap. This handoff does
-not claim independent acceptance, a new exact value of R(5,5), or complete
-coverage of all order-43 graphs. No work was performed at orders44 or45.
-The x>=137 branch and other order-43 schemes remain open. The user
-authorized a selective commit of this handoff and its WORK.md row; no
-shared accepted indexes are included. Ownership is released for the next
-agent. The containing Git commit records the final revision without a
-self-referential commit hash in these files.
+These are formula checks, not graph enumeration, independent review or formal
+proof certificates. No solver, download or novelty review occurred. The user
+authorized the selective handoff commit; full integration followed the later
+independent review. Higher-x d18 and other order-43 schemes remain open, and
+the global Ramsey interval is unchanged.

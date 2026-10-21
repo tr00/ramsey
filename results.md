@@ -1,36 +1,26 @@
 # Research status
 
-The project targets the order-43 decision. Computational exploration is paused.
-The working expectation R(5,5)=43 remains a conjecture.
+The project targets the order-43 decision; `43 <= R(5,5) <= 46` remains the
+global bound. The working expectation `R(5,5)=43` is a conjecture.
+Computational exploration is paused unless explicitly authorized.
 
-- [Order-43 branch navigation](n43/README.md)
-- [Detailed reduction index and existing status labels](n43/reductions.md)
-- [Degree-18 work](n43/d18/README.md)
-- [K1/d18 remains open: double-core obstruction and complete 289-bit residual partition](reports/2026-10-19-d18k1-research.json)
-- [Cross-branch synthesis across all d18 cross counts: interior degrees, higher connectivity, and improved transversal thresholds](reports/2026-10-19-cross-branch-synthesis.json)
-- [Degree-18 extension research: reviewed x<=279 bound, fixed-B capacity and unavoidable four-root alternatives](reports/2026-10-17-d18-extension-research.md)
-- [Averaging continuation: omitted-triple supply, conditional tail bounds and the three remaining x279 profiles](reports/2026-10-18-averaging-tail.md)
-- [Reviewed x137 effective-degree anchor excluding r>=1, and connectivity claim 03](reports/2026-10-19-x137-connectivity-reviews.md)
-- [Reviewed theory-only SDP/SOS progress: twelve-root coverage, covariance, varying-x witnesses and finite anchor reductions](reports/2026-10-15-sos-theory.md)
-- [Reviewed overlapping cells and dispersed attachment cuts across x](n43/d18/overlapping_cells.md)
-- [Degree-18 sibling x branches and residual x>=143](n43/d18/README.md)
-- [Reviewed above-frontier deductions: r4 exclusion at x137 and column lower bound at x142](n43/d18/transfer_summary.md)
-- [Reviewed full x136 frontier exclusion: every degree-18 root has x>=137](n43/d18/x136/frontier_exclusion_handoff.md) ([review](n43/d18/x136/review_frontier_exclusion_handoff_20261019_main.md), [report](reports/2026-10-19-x136-frontier-closure.md))
-- [x137 propagation: rootwise profile consequences and floor sharpenings for existing claims](n43/d18/x136_closure_consequences.md) ([report](reports/2026-10-19-x137-propagation.md))
-- [Reviewed degree-eight anchor and exclusion of all size-four columns at x136](n43/d18/x136/five_column_compatibility.md)
-- [Reviewed r2 closure covering every former s=4..7 child](n43/d18/x136/r2/README.md)
-- [Dense degree-18 families with overlap at most ten in the same edge](n43/d18/dense_pivot_coverage.md)
-- [Reviewed column-multiset symmetry and its certification obligations](n43/d18/symmetry_reduction.md)
-- [Reviewed symmetry structure and frontier duplicate-orbit bounds](n43/symmetry_structure.md)
-- [Reviewed double-coset quotient for two-root gluing](docs/general_theorems/symmetry_pair_gluing.md)
-- [Pairwise d18 refinements and their exact reviews](n43/d18/pairwise_refinements.md)
-- [Normalized minimum-degree-20 work](n43/min-degree20/README.md)
-- [Audited general theorem synthesis](docs/general_theorems/README.md)
-- [Complete normalized minimum-degree-20 same-degree pair coverage](n43/min-degree20/pair_coverage.md)
-- [Independent pending-claim audit, corrected cell implication, and retained withdrawals](reports/2026-10-15-pending-claim-audit.md)
-- [Workflow, naming, and proof review](docs/workflow.md)
+| Area | Recorded state | Details |
+| --- | --- | --- |
+| Order 43 | Open; even-pivot and normalized minimum-degree schemes have distinct coverage obligations | [Branch map](n43/README.md), [reductions](n43/reductions.md) |
+| Degree-18 cross count | Reviewed corridor `137 <= x <= 279`; full x136 excluded, x137 has only r0 open | [d18 branches](n43/d18/README.md), [x136 closure](n43/d18/x136/frontier_exclusion_handoff.md), [upper bound](n43/d18/independent_row_cuts.md) |
+| K1/d18 | Open; double-core obstruction and exact 289-bit residual partition | [Research record](n43/d18/k1/research.json) |
+| Normalized minimum degree 20 | Reviewed degree20/21 pair coverage; full gluing remains | [Branch](n43/min-degree20/README.md), [pair coverage](n43/min-degree20/pair_coverage.md) |
+| Parameter landscape | Five new claims ready for independent review; outer-envelope cells are not a feasibility classification | [Pending scope](n43/d18/README.md#pending-independent-review) |
 
-This dashboard does not independently certify branch coverage or any proof.
-Legacy audit assertions retain their original meaning; the reorganization did
-not perform a mathematical audit. Detailed statements and assumptions remain
-in the linked reduction index and proof notes.
+For all recorded results on 17-vertex (4,4)-free graphs, see the
+[R(4,4,17) collection](docs/r_4_4_17_results.md), including core structure,
+attachment reductions, K1 applications and historical computations.
+
+For shared tools and their hypotheses, use the [general theorem map](docs/general_theorems/README.md)
+and the topic links in the [d18 index](n43/d18/README.md). The
+[report index](reports/README.md) organizes research, formalization and engine
+history. [Workflow](docs/workflow.md) defines review states and
+[reproducibility](docs/reproducibility.md) defines computational evidence.
+
+This dashboard is navigation, not an independent proof audit or coverage
+certificate. Apply each result only on the premises recorded in its proof.

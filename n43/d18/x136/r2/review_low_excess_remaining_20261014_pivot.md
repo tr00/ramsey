@@ -1,5 +1,7 @@
 # Independent review of the remaining s=6 normal form
 
+Editorially condensed on 2026-10-21; [original audit and lineage](../../../../reports/2026-10-21-research-cleanup.md).
+
 Date: 2026-10-14. Reviewer: `pivot_coverage` agent, distinct from the
 `r2_low_s` author and the coordinator who supplied the two-degree-eleven
 observation.
@@ -22,50 +24,19 @@ overlap resource bound in `../pairwise_small_refinements.md`, SHA-256
 the equality row identity; pair-union reasoning; R(3,4)=9. Numerical
 census premises remain those of the earlier review, without recertification.
 
-Checks and findings:
+## Independent checks
 
-- The preliminary arbitrary-transversal assertion is valid. Two degree11
-  vertices would each be adjacent to all other members of T. K4-freeness
-  makes T a diamond with the two degree11 vertices as its shared-edge
-  endpoints. They have internal degree3 and attachment size8. The tips
-  have internal degree2 and attachment at least7 by the arbitrary-
-  transversal degree lower bound9. Each diamond triangle would therefore
-  have attachment sum at least23, exceeding Claim01's independently
-  accepted bound22. No actual B column is needed for this argument.
-- At s=6 the H=2 partition and the earlier sole-large exclusion force
-  exactly two size7 columns. Nonempty overlap is supplied by the disjoint
-  transversal exclusion. Every overlap has degree10 or11 by the resource
-  bound; degree10 requires membership in both size7 columns. If all were
-  degree11 there could be at most one by the preliminary assertion, and
-  the singleton degree11 exclusion then contradicts nonempty overlap.
-  Thus a degree10 overlap exists before the common-neighborhood saturation
-  is used.
-- Its cross degree is7, leaving exactly three small-column neighbors
-  after q1,q2,W1,W2. Pair-union places all three in K, and a B edge
-  between two of them would give K5 with a,q1,q2. At most one belongs
-  to L5 since two intersecting size5 columns force an edge. The
-  triangle-free, I4-free common B neighborhood K has order at most8;
-  its six L5 vertices leave at most two ordinary vertices. Therefore
-  the independent triple comprises one L5 vertex and exactly those two
-  ordinary vertices, K has order8, and both ordinary columns have size6.
-  No large-column membership in K is assumed: the saturation derives
-  its exclusion.
-- A hypothetical degree11 overlap b is universal inside T_1 and is
-  adjacent to a. Its cross degree6, after two q endpoints and at least
-  one large neighbor, leaves at least two small-column neighbors in K.
-  At most one is in L5, so b shares at least one of the two ordinary
-  neighbors with a. The five vertices a,b,q1,q2 and that ordinary
-  neighbor form K5. This rules out every degree11 overlap.
-- Repeating the saturated row count for each degree10 overlap proves
-  the displayed complete row, including membership in both ordinary
-  columns and exactly one size5 column. Any two adjacent overlap vertices
-  with q1,q2,z1 would give K5, so the overlap is independent. A degree10
-  member of any T_i has internal degree at least2, since attachment is
-  at most8. Three independent overlap vertices in a four-set would each
-  have internal degree at most1; this forbids overlap size at least3.
-  With two overlap vertices, internal degree at least2 requires all four
-  edges to the other two vertices, and their optional edge gives exactly
-  C4 or a diamond with the overlap as its tips.
+Claim 05 was independently checked. Two degree 11 transversal vertices would
+make a diamond triangle with attachment sum>=23 against cap 22. At s6,
+H2 plus the sole-large exclusion forces two size 7 columns. A degree 10 overlap
+saturates the common B neighborhood with six L5 and two ordinary size 6
+vertices; its three other small neighbors are independent. Any degree 11
+overlap would share an ordinary vertex with it, giving K5.
+
+All overlaps are therefore independent degree 10 vertices in both ordinary
+columns, of size1/2; three independent overlap vertices would have insufficient
+internal degree. At size 2 the transversal type is C4 or a diamond with the
+overlap as tips. This is a necessary form, not an s6 contradiction.
 
 Outcome: accepted on the recorded premises. Permitted search use:
 propagate the prohibition on two degree11 vertices in any four-set

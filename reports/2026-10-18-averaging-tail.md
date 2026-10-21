@@ -14,29 +14,14 @@ No novelty claim, graph search, solver, catalogue processing, download,
 installation, Lean change, engine change, staging or commit.
 
 Write t for the number of size-17 rows, s for size-16 rows, and
-D=sum_(other rows)(15-row size). The new notes prove:
-
-* [Omission cuts](../n43/d18/averaging_omission_cuts.md):
-  Delta=72-7t-8s guarantees at least max(0,24-Delta) actual independent
-  high-root omission triples. For a size-(15-delta) residual row, each
-  size-16 A-neighbor witnesses at most 1+delta omitted-column obligations,
-  and each size-17 neighbor at most delta. Pointwise and summed capacities
-  retain actual row/column membership.
-* [Zero/one 17-root](../n43/d18/tail_zero_one.md): t=0 implies x<=278;
-  the subcase t=0,s=9 has x<=270. The subcase t=1,s=8 has x<=271.
-  At t=1,x=279 the only remaining numerical profile is (s,D)=(7,0).
-  Its unique 17-root has h A-neighbors with 1<=h<=6 and its omitted
-  seven-set carries at least ceil(7+7/h) size-16 omissions, counted with
-  multiplicity. Additional degree/signature restrictions are retained.
-* [Two/three 17-roots](../n43/d18/tail_two_three.md): the x=279 profile
-  (t,s,D)=(2,6,1) would have b=e(B)<=143, contradicting the retained
-  published b>=144 premise. The unique size-14 row is handled with the
-  correct two-omission capacity on 14--16 edges, plus actual restrictions
-  from its 17-root attachments. The remaining two-root profile has
-  conditional deficit-location restrictions; disjoint 17-root omissions
-  are not assumed universally. The three-root profile forces L16 to be
-  a triangle, every size-15 root to meet L17, and total L17 excess at
-  least13, with explicit equality structure.
+D=sum_(other rows)(15-row size). The new notes establish omission-supply and actual attachment capacities,
+then exclude three of the six initial x279 profiles. Proof homes:
+[omission cuts](../n43/d18/averaging_omission_cuts.md),
+[zero/one 17-root](../n43/d18/tail_zero_one.md),
+[two/three 17-roots](../n43/d18/tail_two_three.md).
+The conditional tail bounds are x<=278 at t0 and x<=271 at t1,s8;
+(t,s,D)=(2,6,1) fails because b<=143<144. The proofs retain actual
+membership and the correct two-omission capacity on14--16 edges.
 
 The new endpoint cover has exactly three remaining numerical profiles:
 
@@ -90,11 +75,10 @@ review_tail_two_three_20261018_audit.md
   aa3256a1d12dc71a225d883007d4cf25de210a9779b68195e133e8a430db6a3d
 ```
 
-All three banner-stripped bodies were checked byte-for-byte against their
-accepted revisions. Existing accepted proof bodies in independent_row_cuts.md
-and large_row_extensions.md are not edited. The original two accepted
-claim bodies in averaging_future_work.md are preserved; only planning,
-continuation and handoff text is updated.
+Integration preserved all three accepted bodies and the preexisting
+independent-row, large-row and two averaging-agenda claim bodies.
+The audit hashes above identify the original reviews, before editorial
+condensation; see [cleanup lineage](2026-10-21-research-cleanup.md).
 
 Input SHA-256 values before this continuation:
 

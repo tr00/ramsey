@@ -25,32 +25,15 @@ hashes; these claims are separate from the historical twenty-eight above.
 | [Two-root symmetry gluing](symmetry_pair_gluing.md) | Compatible overlap maps are double cosets of the two pointed-neighborhood restriction images; the residual group is a fiber product times the uniform D-cell permutation group. | Exact ordered-root coverage with complete inputs/maps/completions; fixed nonlocal data require the actual enriched-state group. |
 | [Order43 symmetry structure](../../n43/symmetry_structure.md) | Pair separation at least8, automorphism support at least10, prime G and order24 B, and conditional frontier duplicate-stabilizer bounds. | Kernel at most4 through x141; at x136 the accepted anchor gives p<=10, at least4 singletons and kernel at most2. No new branch closure. |
 
-## What the synthesis adds
+## Further use
 
-The most consequential application is the normalized pair-coverage theorem.
-It combines degree counts with the extended family theorem, so it needs no
-small-excess or neighborhood-density assumption. It applies to the globally
-normalized minimum-degree20 branch, not an arbitrary degree20 pivot.
+Normalized pair coverage combines degree counts with prescribed-family
+overlap, without a small-excess or neighborhood-density assumption. Every
+allowed degree20/21 pair, overlap map and completion still needs coverage.
 
-The proofs repeatedly turn a scalar budget into a structural statement:
-signature surplus becomes missing/oversized-signature defects; a deletion
-budget becomes attachment rigidity; high codegree becomes triangle equality;
-and root capacities become a usable family count. Transversal avoidance then
-turns local degree restrictions into a large forbidden independent set.
-
-The basic tools are standard extremal graph and set-system methods: incidence
-counts, Ramsey bounds, Hall, Turan, equality analysis, greedy independence,
-and weighted sums. Potentially distinctive results are the precise transversal
-compatibility criteria, prescribed-family overlap theorem, and their branch
-coverage synthesis. Establishing novelty requires a literature review.
-
-## Scope of further work
-
-Use actual size-five columns in the live r0/r1 frontier to seek the occupancy
-and nontransversality hypotheses of the abstract compatibility theorem. At
-higher deficits, analyze the safe-addition conflict hypergraph while retaining
-saturated alternatives. For root coverage, prove application-specific q+E
-bounds and feed the resulting family counts into the overlap theorem. In the
-normalized branch, every allowed degree20/21 pair and overlap map remains a
-future generation obligation. None of these directions authorizes a solver,
-catalogue download, or larger-order computation.
+The full x136 frontier is now [excluded](../../n43/d18/x136/frontier_exclusion_handoff.md).
+At higher x, actual columns may supply the occupancy and nontransversality
+hypotheses of the compatibility theorem. Higher-deficit augmentation must
+retain saturated alternatives and the full conflict hypergraph. Root-family
+applications require their own q+E bounds before using cut capacity and
+overlap. These are mathematical directions, not computation authorization.
