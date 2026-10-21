@@ -2,6 +2,7 @@ module
 
 public import Ramsey.n43.d18.PivotBudget
 public import Ramsey.n09.R43
+public import Ramsey.theorems.CliqueBounds
 public import Mathlib.Tactic
 public import Mathlib.Combinatorics.SimpleGraph.Extremal.Turan
 
@@ -50,10 +51,8 @@ private lemma crossRow_card (G : SimpleGraph (Fin 43)) (v u : Fin 43) :
 /-- An independent set in a candidate graph has at most 4 vertices. -/
 private lemma independent_card_le_four {G : SimpleGraph (Fin 43)}
     (hG : IsRamseyGraph 5 5 G) {S : Finset (Fin 43)} (hS : G.IsIndepSet S) :
-    S.card ≤ 4 := by
-  by_contra h
-  obtain ⟨T, hTS, hT⟩ := Finset.exists_subset_card_eq (by omega : 5 ≤ S.card)
-  exact hG.2 T ⟨fun _ ha _ hb hab ↦ hS (hTS ha) (hTS hb) hab, hT⟩
+    S.card ≤ 4 :=
+  independent_finset_card_le_of_indepSetFree hG.2 hS
 
 /-- An independent triple missing 2 distinct vertices forces a neighbor between them. -/
 private lemma independent_triple_neighbor {G : SimpleGraph (Fin 43)}
@@ -84,33 +83,6 @@ section Incidences
 
 variable (G : SimpleGraph (Fin 43)) [DecidableRel G.Adj]
 
-/-- Directed adjacency incidences between 2 finite vertex sets. -/
-private noncomputable def links (S T : Finset (Fin 43)) : ℕ := by
-  classical
-  exact ∑ u ∈ S, (T.filter (G.Adj u)).card
-
-/-- Reversing the 2 sides preserves their adjacency incidence count. -/
-private lemma links_comm (S T : Finset (Fin 43)) :
-    links G S T = links G T S := by
-  classical
-  simp only [links, Finset.card_filter]
-  rw [Finset.sum_comm]
-  simp only [SimpleGraph.adj_comm]
-
-/-- Summing finite rows counts directed adjacency incidences. -/
-private lemma links_eq_crossEdgeCount (S T : Finset (Fin 43)) (hST : Disjoint S T) :
-    links G S T = crossEdgeCount G (S : Set _) (T : Set _) := by
-  classical
-  rw [crossEdgeCount_eq_sum_rows G _ _ (by simpa using hST)]
-  unfold links
-  rw [Finset.sum_subtype S (fun _ ↦ Iff.rfl) (fun u ↦ (T.filter (G.Adj u)).card)]
-  apply Finset.sum_congr rfl
-  intro u hu
-  rw [Nat.card_eq_fintype_card, Fintype.card_subtype]
-  congr 1
-  ext y
-  simp [rowSet, and_comm]
-
 /-- Distinct obligations require distinct neighbors when 1 edge covers at most 1 column. -/
 private lemma omission_obligation_card_le (O L : Finset (Fin 43)) (z : Fin 43)
     (hw : ∀ y ∈ O, ∃ w ∈ L, G.Adj z w ∧ ¬G.Adj w y)
@@ -137,15 +109,6 @@ private lemma omission_obligation_card_le (O L : Finset (Fin 43)) (z : Fin 43)
       rw [hab]
       exact Finset.mem_filter.mpr ⟨hb, (hf b hb).2.2⟩
     exact (Finset.card_le_one.mp hsmall) a hya b hyb
-
-/-- Finite incidence counts agree with filtered neighbor counts for any decidability instance. -/
-private lemma links_filter_sum (S T : Finset (Fin 43)) :
-    links G S T = ∑ u ∈ S, (T.filter (G.Adj u)).card := by
-  classical
-  unfold links
-  apply Finset.sum_congr rfl
-  intro u hu
-  congr 1
 
 end Incidences
 
@@ -565,62 +528,6 @@ section Cores
 
 variable (G)
 
-/-- Induced degrees are ambient finite neighbor-intersection counts. -/
-private lemma core_induced_degree (S : Finset (Fin 43)) (x : (S : Set (Fin 43))) :
-    (G.induce (S : Set (Fin 43))).degree x = (G.neighborFinset x ∩ S).card := by
-  classical
-  calc
-    (G.induce (S : Set (Fin 43))).degree x =
-        ((G.induce (S : Set (Fin 43))).neighborFinset x).card :=
-      (SimpleGraph.card_neighborFinset_eq_degree _ _).symm
-    _ = (((G.induce (S : Set (Fin 43))).neighborFinset x).map
-        (.subtype (· ∈ (S : Set (Fin 43))))).card := (Finset.card_map _).symm
-    _ = (G.neighborFinset x ∩ S).card := by
-      apply congrArg Finset.card
-      ext y
-      simp only [Finset.mem_map, SimpleGraph.mem_neighborFinset, Finset.mem_inter,
-        Function.Embedding.coe_subtype, SimpleGraph.induce_adj]
-      constructor
-      · rintro ⟨z, hz, rfl⟩
-        exact ⟨hz, z.2⟩
-      · rintro ⟨hxy, hyS⟩
-        exact ⟨⟨y, hyS⟩, hxy, rfl⟩
-
-/-- Directed incidences can be written as ambient neighbor intersections. -/
-private lemma links_neighbor_sum (S T : Finset (Fin 43)) :
-    links G S T = ∑ x ∈ S, (G.neighborFinset x ∩ T).card := by
-  classical
-  unfold links
-  apply Finset.sum_congr rfl
-  intro x hx
-  congr 1
-  ext y
-  simp [and_comm]
-
-/-- A disjoint union in the source adds the directed counts. -/
-private lemma links_union_left (S T U : Finset (Fin 43))
-    (h : Disjoint S T) : links G (S ∪ T) U = links G S U + links G T U := by
-  classical
-  exact Finset.sum_union h
-
-/-- A disjoint union in the target adds the directed counts. -/
-private lemma links_union_right (S T U : Finset (Fin 43))
-    (h : Disjoint T U) : links G S (T ∪ U) = links G S T + links G S U := by
-  rw [links_comm G S, links_union_left G T U S h,
-    links_comm G T S, links_comm G U S]
-
-/-- The diagonal directed count is twice the induced edge count. -/
-private lemma links_self (S : Finset (Fin 43)) :
-    links G S S = 2 * inducedEdgeCount G (S : Set (Fin 43)) := by
-  classical
-  have hs := (G.induce (S : Set (Fin 43))).sum_degrees_eq_twice_card_edges
-  simp only [SimpleGraph.edgeFinset_card, ← Nat.card_eq_fintype_card] at hs
-  simp_rw [core_induced_degree] at hs
-  rw [links_neighbor_sum]
-  rw [Finset.sum_subtype S (fun _ ↦ Iff.rfl)
-    (fun x ↦ (G.neighborFinset x ∩ S).card)]
-  exact hs
-
 variable (hG : IsRamseyGraph 5 5 G)
 
 include hG
@@ -643,7 +550,7 @@ private lemma crossRow_regular (v u : Fin 43) (hu : (crossRow G v u).card = 17)
   have hd := core_degree_le_eight _ hr ⟨y, hy⟩
   have hc := core_degree_le_eight _ ((isRamseyGraph_compl _).mp hr) ⟨y, hy⟩
   rw [SimpleGraph.degree_compl, hn] at hc
-  rw [core_induced_degree] at hd hc
+  rw [induced_degree_eq_neighbor_inter_card] at hd hc
   change (G.neighborFinset y ∩ crossRow G v u).card ≤ 8 at hd
   change 17 - 1 - (G.neighborFinset y ∩ crossRow G v u).card ≤ 8 at hc
   omega

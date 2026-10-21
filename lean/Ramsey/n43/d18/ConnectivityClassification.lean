@@ -2,6 +2,7 @@ module
 
 public import Ramsey.n43.EvenPivot
 public import Ramsey.n09.R43
+public import Ramsey.theorems.CliqueBounds
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 public import Mathlib.Data.Set.Card
 public import Mathlib.SetTheory.Cardinal.NatCard
@@ -80,15 +81,8 @@ private lemma free_of_opposite {H : SimpleGraph V} {S : Set V} {t : Finset V}
 
 /-- A clique in a `K4`-free graph has at most three vertices. -/
 private lemma clique_card_le_three [Finite V] {H : SimpleGraph V}
-    (hH : H.CliqueFree 4) {S : Set V} (hS : H.IsClique S) : Nat.card S ≤ 3 := by
-  classical
-  by_contra hc
-  obtain ⟨t, ht, hcard⟩ := Finset.exists_subset_card_eq
-    (s := S.toFinite.toFinset) (n := 4) (by
-      have hc' : 3 < S.ncard := by simpa using hc
-      rw [← Set.ncard_eq_toFinset_card S S.toFinite]
-      omega)
-  exact hH t ⟨hS.subset (by simpa using ht), hcard⟩
+    (hH : H.CliqueFree 4) {S : Set V} (hS : H.IsClique S) : Nat.card S ≤ 3 :=
+  clique_card_le_of_cliqueFree hH hS
 
 /-- The two sides of a finite cut partition the vertex count. -/
 private lemma card_cut [Finite V] (S : Set V) :

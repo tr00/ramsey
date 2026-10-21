@@ -20,92 +20,16 @@ attribute [local instance] Classical.propDecidable
 
 variable {G : SimpleGraph (Fin 43)}
 
-/-- Directed incidences between finite vertex sets. -/
-private noncomputable def links (G : SimpleGraph (Fin 43))
-    (S T : Finset (Fin 43)) : ℕ := by
-  classical
-  exact ∑ x ∈ S, (T.filter (G.Adj x)).card
-
-/-- Reversing incidence endpoints preserves the count. -/
-private lemma links_comm (S T : Finset (Fin 43)) : links G S T = links G T S := by
-  classical
-  simp only [links, Finset.card_filter]
-  rw [Finset.sum_comm]
-  simp only [SimpleGraph.adj_comm]
-
-/-- A disjoint source union adds incidence counts. -/
-private lemma links_union_left (S T U : Finset (Fin 43)) (h : Disjoint S T) :
-    links G (S ∪ T) U = links G S U + links G T U := by
-  classical
-  exact Finset.sum_union h
-
-/-- A disjoint target union adds incidence counts. -/
-private lemma links_union_right (S T U : Finset (Fin 43)) (h : Disjoint T U) :
-    links G S (T ∪ U) = links G S T + links G S U := by
-  rw [links_comm S, links_union_left T U S h, links_comm T S, links_comm U S]
-
-/-- Finite directed incidences between disjoint sets are the unordered cross-edge count. -/
-private lemma links_cross (S T : Finset (Fin 43)) (h : Disjoint S T) :
-    links G S T = crossEdgeCount G (S : Set _) (T : Set _) := by
-  classical
-  rw [crossEdgeCount_eq_sum_rows G _ _ (by simpa using h)]
-  unfold links
-  rw [Finset.sum_subtype S (fun _ ↦ Iff.rfl) (fun x ↦ (T.filter (G.Adj x)).card)]
-  apply Finset.sum_congr rfl
-  intro x hx
-  rw [Nat.card_eq_fintype_card, Fintype.card_subtype]
-  congr 1
-  ext y
-  simp [rowSet, and_comm]
-
-/-- Induced degrees count neighbors in the finite induced vertex set. -/
-private lemma induced_degree (S : Finset (Fin 43)) (x : (S : Set (Fin 43))) :
-    (G.induce (S : Set (Fin 43))).degree x = (G.neighborFinset x ∩ S).card := by
-  classical
-  calc
-    (G.induce (S : Set (Fin 43))).degree x =
-        ((G.induce (S : Set (Fin 43))).neighborFinset x).card :=
-      (SimpleGraph.card_neighborFinset_eq_degree _ _).symm
-    _ = (((G.induce (S : Set (Fin 43))).neighborFinset x).map
-        (.subtype (· ∈ (S : Set (Fin 43))))).card := (Finset.card_map _).symm
-    _ = (G.neighborFinset x ∩ S).card := by
-      apply congrArg Finset.card
-      ext y
-      simp only [Finset.mem_map, SimpleGraph.mem_neighborFinset, Finset.mem_inter,
-        Function.Embedding.coe_subtype, SimpleGraph.induce_adj]
-      constructor
-      · rintro ⟨z, hz, rfl⟩
-        exact ⟨hz, z.2⟩
-      · rintro ⟨hxy, hyS⟩
-        exact ⟨⟨y, hyS⟩, hxy, rfl⟩
-
-/-- Diagonal directed incidences count each internal edge twice. -/
-private lemma links_self (S : Finset (Fin 43)) :
-    links G S S = 2 * inducedEdgeCount G (S : Set (Fin 43)) := by
-  classical
-  have hs := (G.induce (S : Set (Fin 43))).sum_degrees_eq_twice_card_edges
-  simp only [SimpleGraph.edgeFinset_card, ← Nat.card_eq_fintype_card] at hs
-  simp_rw [induced_degree] at hs
-  have he : links G S S = ∑ x ∈ S, (G.neighborFinset x ∩ S).card := by
-    apply Finset.sum_congr rfl
-    intro x hx
-    congr 1
-    ext y
-    simp [and_comm]
-  rw [he, Finset.sum_subtype S (fun _ ↦ Iff.rfl)
-    (fun x ↦ (G.neighborFinset x ∩ S).card)]
-  exact hs
-
 /-- The edges of a disjoint induced union split into the 2 interiors and their cross edges. -/
 private lemma edges_union (S T : Set (Fin 43)) (h : Disjoint S T) :
     inducedEdgeCount G (S ∪ T) = inducedEdgeCount G S + inducedEdgeCount G T +
       crossEdgeCount G S T := by
   classical
   have hd : Disjoint S.toFinset T.toFinset := Set.disjoint_toFinset.mpr h
-  have hs := links_self (G := G) (S.toFinset ∪ T.toFinset)
-  rw [links_union_left _ _ _ hd, links_union_right _ _ _ hd,
-    links_union_right _ _ _ hd, links_comm T.toFinset S.toFinset,
-    links_self, links_self, links_cross _ _ hd] at hs
+  have hs := links_self G (S.toFinset ∪ T.toFinset)
+  rw [links_union_left G _ _ _ hd, links_union_right G _ _ _ hd,
+    links_union_right G _ _ _ hd, links_comm G T.toFinset S.toFinset,
+    links_self, links_self, links_eq_crossEdgeCount G _ _ hd] at hs
   simp only [Set.coe_toFinset, ← Set.toFinset_union] at hs
   omega
 
@@ -155,8 +79,8 @@ private lemma links_partition (F : Frame G) (S : Finset (Fin 43)) :
     simpa only [Set.toFinset_union, Set.toFinset_insert, Set.toFinset_singleton,
       Set.toFinset_univ] using
       congrArg (fun S : Set (Fin 43) ↦ S.toFinset) hp.2.2.2.2
-  rw [← he, links_union_right _ _ _ ht, links_union_right _ _ _ hd,
-    links_union_right _ _ _ hc]
+  rw [← he, links_union_right G _ _ _ ht, links_union_right G _ _ _ hd,
+    links_union_right G _ _ _ hc]
 
 /-- The root pair contributes 1 incidence per core vertex. -/
 private lemma links_core_roots (F : Frame G) (S : Set (Fin 43))
@@ -219,7 +143,7 @@ public theorem degree_sum_C (F : Frame G) (hF : F.Admissible) :
   have hcd := Set.disjoint_toFinset.mpr F.disjoint_CD
   have hct := Set.disjoint_toFinset.mpr F.disjoint_CT
   rw [degree_sum_links, links_partition, links_core_roots F F.C (Or.inl rfl),
-    links_self, links_cross _ _ hcd, links_cross _ _ hct]
+    links_self, links_eq_crossEdgeCount G _ _ hcd, links_eq_crossEdgeCount G _ _ hct]
   simp only [Set.coe_toFinset, hF.card_C, (F.core_edge_counts hF).1]
 
 /-- The second core has the symmetric degree-sum identity. -/
@@ -229,8 +153,8 @@ public theorem degree_sum_D (F : Frame G) (hF : F.Admissible) :
   have hcd := Set.disjoint_toFinset.mpr F.disjoint_CD
   have hdt := Set.disjoint_toFinset.mpr F.disjoint_DT
   rw [degree_sum_links, links_partition, links_core_roots F F.D (Or.inr rfl),
-    links_comm F.D.toFinset F.C.toFinset, links_cross _ _ hcd,
-    links_self, links_cross _ _ hdt]
+    links_comm G F.D.toFinset F.C.toFinset, links_eq_crossEdgeCount G _ _ hcd,
+    links_self, links_eq_crossEdgeCount G _ _ hdt]
   simp only [Set.coe_toFinset, hF.card_D, (F.core_edge_counts hF).2]
   omega
 
@@ -241,8 +165,8 @@ public theorem degree_sum_T (F : Frame G) :
   have hct := Set.disjoint_toFinset.mpr F.disjoint_CT
   have hdt := Set.disjoint_toFinset.mpr F.disjoint_DT
   rw [degree_sum_links, links_partition, links_T_roots,
-    links_comm F.T.toFinset F.C.toFinset, links_comm F.T.toFinset F.D.toFinset,
-    links_cross _ _ hct, links_cross _ _ hdt, links_self]
+    links_comm G F.T.toFinset F.C.toFinset, links_comm G F.T.toFinset F.D.toFinset,
+    links_eq_crossEdgeCount G _ _ hct, links_eq_crossEdgeCount G _ _ hdt, links_self]
   simp only [Set.coe_toFinset, zero_add]
 
 /-- The 2 core excesses give the exact attachment budgets with constant 153. -/

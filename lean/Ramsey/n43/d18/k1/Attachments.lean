@@ -3,6 +3,8 @@ module
 public import Ramsey.n43.d18.k1.Core
 public import Ramsey.n09.R43
 public import Ramsey.theorems.PivotCounting
+public import Ramsey.theorems.CliqueBounds
+public import Ramsey.theorems.RowBounds
 public import Mathlib.Tactic.IntervalCases
 
 /-!
@@ -19,16 +21,6 @@ open scoped BigOperators
 variable {V : Type*} [Fintype V] {G : SimpleGraph V} {K U : Set V}
 
 omit [Fintype V] in
-/-- An anticomplete vertex extends an independent finite set. -/
-private lemma indep_insert [DecidableEq V] {n : ℕ} {t : Finset V} {z : V}
-    (ht : G.IsNIndepSet n t) (hz : z ∉ t) (hn : ∀ w ∈ t, ¬G.Adj z w) :
-    G.IsNIndepSet (n + 1) (insert z t) := by
-  refine ⟨?_, by rw [Finset.card_insert_of_notMem hz, ht.card_eq]⟩
-  rw [Finset.coe_insert]
-  exact Set.Pairwise.insert_of_notMem hz ht.isIndepSet
-    (fun w hw ↦ ⟨hn w hw, fun h ↦ hn w hw h.symm⟩)
-
-omit [Fintype V] in
 /-- A finite independent set with 4 named vertices contradicts the side bound. -/
 private lemma no_independent_quad (hside : IsRamseyGraph 5 4 (G.induce (K ∪ U)))
     {a b c d : V} (ha : a ∈ K ∪ U) (hb : b ∈ K ∪ U)
@@ -39,9 +31,10 @@ private lemma no_independent_quad (hside : IsRamseyGraph 5 4 (G.induce (K ∪ U)
     (nbc : ¬G.Adj b c) (nbd : ¬G.Adj b d) (ncd : ¬G.Adj c d) : False := by
   classical
   have h1 : G.IsNIndepSet 1 {d} := ⟨by simp, by simp⟩
-  have h2 := indep_insert h1 (z := c) (by simpa using hcd) (by simpa using ncd)
-  have h3 := indep_insert h2 (z := b) (by simp [hbc, hbd]) (by simpa using And.intro nbc nbd)
-  have h4 := indep_insert h3 (z := a) (by simp [hab, hac, had])
+  have h2 := isNIndepSet_insert (z := c) (by simpa using hcd) h1 (by simpa using ncd)
+  have h3 := isNIndepSet_insert (z := b) (by simp [hbc, hbd]) h2
+    (by simpa using And.intro nbc nbd)
+  have h4 := isNIndepSet_insert (z := a) (by simp [hab, hac, had]) h3
     (by simpa using And.intro nab (And.intro nac nad))
   apply (indepSetFree_induce_iff G (K ∪ U) 4).mp hside.2 _ ?_ h4
   intro z hz
@@ -136,15 +129,8 @@ public theorem attachment_common_omissions_clique
 
 /-- A clique in a graph with no 4-clique has at most 3 vertices. -/
 private lemma clique_card_le_three {W : Type*} [Fintype W] {H : SimpleGraph W}
-    (hH : H.CliqueFree 4) {S : Set W} (hS : H.IsClique S) : Nat.card S ≤ 3 := by
-  classical
-  by_contra h
-  have hc : 4 ≤ S.toFinset.card := by
-    rw [Set.toFinset_card, ← Nat.card_eq_fintype_card]
-    omega
-  obtain ⟨t, ht, hcard⟩ := Finset.exists_subset_card_eq hc
-  exact hH t ⟨fun a ha b hb hab ↦ hS (Set.mem_toFinset.mp (ht ha))
-    (Set.mem_toFinset.mp (ht hb)) hab, hcard⟩
+    (hH : H.CliqueFree 4) {S : Set W} (hS : H.IsClique S) : Nat.card S ≤ 3 :=
+  clique_card_le_of_cliqueFree hH hS
 
 /-- The common omissions of 2 distinct cell vertices have cardinality at most 3. -/
 public theorem attachment_common_omissions_le_three
@@ -171,7 +157,7 @@ public theorem attachment_degree_ge_nine
     · apply (indepSetFree_induce_iff G S 3).mpr
       intro q hq hind
       have htq : t ∉ q := fun hm ↦ (hq hm).2.1 rfl
-      have h4 := indep_insert hind htq (fun x hx ↦ (hq hx).2.2)
+      have h4 := isNIndepSet_insert htq hind (fun x hx ↦ (hq hx).2.2)
       apply (indepSetFree_induce_iff G (K ∪ U) 4).mp hside.2 _ ?_ h4
       intro x hx
       rcases Finset.mem_insert.mp hx with rfl | hx

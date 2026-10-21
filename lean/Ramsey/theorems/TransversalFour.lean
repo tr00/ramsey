@@ -23,16 +23,6 @@ namespace Ramsey.TransversalFour
 
 variable {V : Type*}
 
-private theorem indepFree_induce (F : SimpleGraph V) {k : ℕ}
-    (hF : F.IndepSetFree k) (A : Set V) : (F.induce A).IndepSetFree k := by
-  have heq : (F.induce A)ᶜ = Fᶜ.induce A := by
-    ext a b
-    simp only [SimpleGraph.compl_adj, SimpleGraph.induce_adj]
-    exact and_congr_left fun _ ↦ ⟨fun h e ↦ h (Subtype.ext e),
-      fun h e ↦ h (congrArg Subtype.val e)⟩
-  rw [← SimpleGraph.cliqueFree_compl, heq, SimpleGraph.cliqueFree_induce_iff]
-  exact fun t _ ↦ (SimpleGraph.cliqueFree_compl F).mpr hF t
-
 /-- A bundled Ramsey graph has order below any explicit Ramsey upper bound. -/
 private theorem ramsey_card_lt [Fintype V] {r s R : ℕ} (F : RamseyGraph r s V)
     (hR : RamseyUpperBound r s R) : Fintype.card V < R := by
@@ -159,7 +149,7 @@ theorem edge_lower_bound_of_three_transversal [Fintype V] [DecidableEq V]
   have hHcard : Fintype.card ↥((T : Set V)ᶜ) = 15 := by
     simpa only [Fintype.card_subtype, Set.mem_compl_iff, Finset.mem_coe] using hU
   have hcore := census_bound
-    ⟨F.induce (T : Set V)ᶜ, deleted_cliqueFree F T hT, indepFree_induce F hF _⟩ hHcard
+    ⟨F.induce (T : Set V)ᶜ, deleted_cliqueFree F T hT, indepSetFree_induce _ _ hF⟩ hHcard
   change 50 ≤ Nat.card (F.induce (T : Set V)ᶜ).edgeSet at hcore
   have hdegree : ∀ t : T, 7 ≤ Nat.card {u : V // u ∉ T ∧ F.Adj t u} := by
     intro t

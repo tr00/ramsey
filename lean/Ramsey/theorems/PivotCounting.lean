@@ -55,7 +55,7 @@ theorem crossEdgeCount_comm (G : SimpleGraph V) (A B : Set V) :
   · exact ⟨he, w, hw, u, hu, Sym2.eq_swap⟩
 
 /-- Internal degree is the number of neighbors in the induced vertex set. -/
-private theorem induced_degree_eq_row_card [Fintype V] (G : SimpleGraph V)
+lemma induced_degree_eq_row_card [Fintype V] (G : SimpleGraph V)
     [DecidableRel G.Adj] (A : Set V) [DecidablePred (· ∈ A)] (u : A) :
     (G.induce A).degree u = Nat.card (rowSet G A u) := by
   classical
@@ -72,6 +72,91 @@ private theorem induced_degree_eq_row_card [Fintype V] (G : SimpleGraph V)
       ext w
       simp only [Finset.mem_inter, SimpleGraph.mem_neighborFinset, Set.mem_toFinset]
       rfl
+
+/-- Induced degrees count ambient neighbors in the finite induced vertex set. -/
+lemma induced_degree_eq_neighbor_inter_card [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj] (S : Finset V) (x : (S : Set V)) :
+    (G.induce (S : Set V)).degree x = (G.neighborFinset x ∩ S).card := by
+  have h := induced_degree_eq_row_card G (S : Set V) x
+  simp only [← SimpleGraph.card_neighborSet_eq_degree, ← Nat.card_eq_fintype_card] at h ⊢
+  rw [h]
+  classical
+  rw [Nat.card_eq_fintype_card, Fintype.card_subtype]
+  congr 1
+  ext y
+  simp [rowSet]
+
+/-- Directed adjacency incidences between 2 finite vertex sets. -/
+noncomputable def links (G : SimpleGraph V) (S T : Finset V) : ℕ := by
+  classical
+  exact ∑ x ∈ S, (T.filter (G.Adj x)).card
+
+/-- Reversing the 2 sides preserves their adjacency incidence count. -/
+lemma links_comm (G : SimpleGraph V) (S T : Finset V) :
+    links G S T = links G T S := by
+  classical
+  simp only [links, Finset.card_filter]
+  rw [Finset.sum_comm]
+  simp only [SimpleGraph.adj_comm]
+
+/-- Finite incidences agree with filtered counts for every adjacency decidability instance. -/
+lemma links_filter_sum (G : SimpleGraph V) [DecidableRel G.Adj] (S T : Finset V) :
+    links G S T = ∑ x ∈ S, (T.filter (G.Adj x)).card := by
+  classical
+  unfold links
+  apply Finset.sum_congr rfl
+  intro x hx
+  congr 1
+  ext y
+  simp
+
+/-- A disjoint union in the source adds the directed counts. -/
+lemma links_union_left [DecidableEq V] (G : SimpleGraph V) (S T U : Finset V)
+    (h : Disjoint S T) : links G (S ∪ T) U = links G S U + links G T U := by
+  classical
+  exact Finset.sum_union h
+
+/-- A disjoint union in the target adds the directed counts. -/
+lemma links_union_right [DecidableEq V] (G : SimpleGraph V) (S T U : Finset V)
+    (h : Disjoint T U) : links G S (T ∪ U) = links G S T + links G S U := by
+  rw [links_comm G S, links_union_left G T U S h, links_comm G T S, links_comm G U S]
+
+/-- Finite incidences between disjoint sets count their unordered cross edges. -/
+lemma links_eq_crossEdgeCount [Fintype V] (G : SimpleGraph V) (S T : Finset V)
+    (h : Disjoint S T) : links G S T = crossEdgeCount G (S : Set V) (T : Set V) := by
+  classical
+  rw [crossEdgeCount_eq_sum_rows G _ _ (by simpa using h)]
+  unfold links
+  rw [Finset.sum_subtype S (fun _ ↦ Iff.rfl) (fun x ↦ (T.filter (G.Adj x)).card)]
+  apply Finset.sum_congr rfl
+  intro x hx
+  rw [Nat.card_eq_fintype_card, Fintype.card_subtype]
+  congr 1
+  ext y
+  simp [rowSet, and_comm]
+
+/-- Directed incidences can be written as ambient neighbor intersections. -/
+lemma links_neighbor_sum [Fintype V] [DecidableEq V] (G : SimpleGraph V)
+    [DecidableRel G.Adj] (S T : Finset V) :
+    links G S T = ∑ x ∈ S, (G.neighborFinset x ∩ T).card := by
+  classical
+  unfold links
+  apply Finset.sum_congr rfl
+  intro x hx
+  congr 1
+  ext y
+  simp [and_comm]
+
+/-- The diagonal directed count is twice the induced edge count. -/
+lemma links_self [Fintype V] (G : SimpleGraph V) (S : Finset V) :
+    links G S S = 2 * inducedEdgeCount G (S : Set V) := by
+  classical
+  have hs := (G.induce (S : Set V)).sum_degrees_eq_twice_card_edges
+  simp only [SimpleGraph.edgeFinset_card, ← Nat.card_eq_fintype_card] at hs
+  simp_rw [induced_degree_eq_neighbor_inter_card] at hs
+  rw [links_neighbor_sum]
+  rw [Finset.sum_subtype S (fun _ ↦ Iff.rfl) (fun x ↦ (G.neighborFinset x ∩ S).card)]
+  exact hs
 
 /-- A neighbor of the pivot has one edge to the pivot, internal edges and cross edges. -/
 theorem pivot_neighbor_degree_split [Fintype V] (G : SimpleGraph V)

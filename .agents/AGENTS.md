@@ -1,6 +1,8 @@
 # R(5,5) Research Instructions
 
-These instructions apply to all work in this repository.
+These instructions apply to all work in this repository. Claims, reviews,
+ownership, and handoffs: `docs/workflow.md`. Evidence content, retention, and
+computation gates: `docs/reproducibility.md`.
 
 ## Objective
 
@@ -27,11 +29,10 @@ Operational Constraints apply to every kind; the rules below are additional.
 Mathematical work: new lemmas, bounds, case analyses, and proof reviews.
 
 - Read the Starting Points below before extending any branch.
-- Use the claim and review templates in `docs/workflow.md`; record each claim
-  beside its mathematical branch, shared lemmas at the nearest parent.
+- Use the claim and review templates in `docs/workflow.md`.
 - Independent review precedes `accepted` status; a changed proof requires
   renewed review.
-- Add a dated report under `reports/`; the coordinator updates shared indexes.
+- Add a dated report under `reports/`.
 
 ### Formalization
 
@@ -54,8 +55,7 @@ Code in `src/`, `scripts/`, `tests/`, and the root `CMakeLists.txt`.
 - Keep output formats, variable numbering, and ordering deterministic. An
   encoding change must stay byte-identical to the Python reference in
   `scripts/ramsey.py` or record the divergence in a report.
-- Verify with `ctest --test-dir build --output-on-failure` and
-  `python3 -m unittest discover -s tests -v` before handing off. Follow
+- Verify with the checks listed in `docs/engine.md` before handing off. Follow
   `.clang-format`.
 - The build never downloads or configures dependencies and never modifies
   `third-party/` sources.
@@ -67,15 +67,9 @@ Solver runs, catalogue processing, searches, and other computations.
 
 - Computational exploration is paused by default; get explicit user
   authorization for each run beyond trivial validation.
-- Follow `docs/reproducibility.md`. Keep full reproducibility artifacts when
-  a computation closes a named mathematical subbranch: exact inputs,
-  commands, tool revisions, limits, logs, checked certificates, and coverage.
-  Exploratory runs need only a concise scope/result note; their generated
-  models, traces, and bulky logs may be discarded. Estimate sizes before
-  generating anything large and use ignored scratch storage for experiments.
-- A timeout, crash, or empty result is no evidence of nonexistence.
-- Summarize an experimental session in one dated report. Use `WORK.md` for
-  active ownership, not a permanent per-run history.
+- Follow `docs/reproducibility.md` for evidence content, retention, and
+  storage discipline.
+- Summarize an experimental session in one dated report under `reports/`.
 
 ### Refactoring
 
@@ -85,9 +79,8 @@ Restructuring that must not change behavior: moves, renames, consolidation.
   scope growth.
 - No semantic changes. Preserve proof bodies, claim anchors, review
   provenance, and recorded hashes unless the request says otherwise.
-  Reviews and reports may be condensed when requested: retain the exact
-  reviewed revision, claim-level outcomes, substantive findings and repairs,
-  decisive checks, and limits; reference Git history for the original audit.
+  Condense reviews or reports only as `docs/workflow.md` permits, and
+  reference Git history for the original audit.
 - Update every inbound reference and verify with the checks of each touched
   area: `check.sh`, `ctest`, the Python tests, and link checks.
 
@@ -114,8 +107,11 @@ Restructuring that must not change behavior: moves, renames, consolidation.
   canonicalizer.
 - Avoid large CNFs or proof traces until storage and certificate growth have
   been measured.
-- Other agents may edit this folder concurrently. Re-read files before
-  patching, prefer narrow edits or new files, and never overwrite newer work.
+- Other agents share this worktree. Assign distinct owned paths (`WORK.md`),
+  re-read files before patching, prefer narrow edits or new files, and never
+  overwrite another agent's or the user's newer work. Never reset, clean,
+  stash, or switch the shared checkout to isolate a task. Coordinate Git-index
+  changes; see `docs/workflow.md` for handoffs.
 
 ## Starting Points
 
@@ -136,14 +132,6 @@ Read these before extending the work:
 
 Record substantial deductions beside the applicable mathematical branch, with
 shared lemmas at the nearest appropriate parent. Global or mixed-scope notes
-may remain in `docs/`. Follow the claim/review templates in `docs/workflow.md`.
-Research and experiments add a concise historical report under `reports/`;
-Lean formalization records outcomes in the Lean tree and writes no report.
-Have the coordinator update shared indexes with assumptions and search use
-after integration. Update the
-theory map only after the deduction is audited.
-
-All agents use this same worktree. Assign distinct owned paths, re-read before
-editing, and coordinate edits to shared indexes and the Git index. Never reset,
-clean, stash, or switch the shared checkout to isolate a task. Do not overwrite
-another agent's or the user's newer work. See `docs/workflow.md` for handoffs.
+may remain in `docs/`. Have the coordinator update shared indexes with
+assumptions and search use after integration. Update the theory map only after
+the deduction is audited.

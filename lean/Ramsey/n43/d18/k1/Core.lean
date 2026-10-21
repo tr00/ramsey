@@ -2,6 +2,7 @@ module
 
 public import Ramsey.theorems.RowBounds
 public import Ramsey.theorems.LocalReductions
+public import Ramsey.theorems.CliqueBounds
 public import Mathlib.Combinatorics.SimpleGraph.StronglyRegular
 public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 
@@ -32,16 +33,8 @@ private lemma edge_common_independent {G : SimpleGraph V} (hG : G.CliqueFree 4)
 
 /-- An independent set in a graph with no independent 4-set has size at most 3. -/
 private lemma independent_card_le_three [Finite V] {G : SimpleGraph V}
-    (hG : G.IndepSetFree 4) {S : Set V} (hS : G.IsIndepSet S) : Nat.card S ≤ 3 := by
-  classical
-  have := Fintype.ofFinite V
-  by_contra h
-  have hc : 4 ≤ S.toFinset.card := by
-    rw [Set.toFinset_card, ← Nat.card_eq_fintype_card]
-    omega
-  obtain ⟨t, ht, hcard⟩ := Finset.exists_subset_card_eq hc
-  exact hG t ⟨fun a ha b hb hab ↦ hS (Set.mem_toFinset.mp (ht ha))
-    (Set.mem_toFinset.mp (ht hb)) hab, hcard⟩
+    (hG : G.IndepSetFree 4) {S : Set V} (hS : G.IsIndepSet S) : Nat.card S ≤ 3 :=
+  independent_card_le_of_indepSetFree hG hS
 
 /-- Adjacent vertices of a (4,4)-free graph have at most 3 common neighbors. -/
 public theorem core_edge_codegree_le_three [Finite V] {G : SimpleGraph V}

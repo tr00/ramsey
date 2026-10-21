@@ -2,6 +2,7 @@ module
 
 public import Ramsey.n43.d18.PivotBudget
 public import Ramsey.n18.R44
+public import Ramsey.theorems.CliqueBounds
 public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 
 /-!
@@ -29,10 +30,8 @@ variable (R : RootedRamseyGraph 5 5 (Fin 43)) [DecidableRel R.graph.Adj]
 omit [DecidableRel R.graph.Adj] in
 /-- An independent set in the ambient graph has at most 4 vertices. -/
 private lemma independent_card_le_four {J : Finset (Fin 43)}
-    (hJ : R.graph.IsIndepSet J) : J.card ≤ 4 := by
-  by_contra h
-  obtain ⟨T, hTJ, hT⟩ := Finset.exists_subset_card_eq (by omega : 5 ≤ J.card)
-  exact R.ramsey.2 T ⟨fun _ hu _ hw hne ↦ hJ (hTJ hu) (hTJ hw) hne, hT⟩
+    (hJ : R.graph.IsIndepSet J) : J.card ≤ 4 :=
+  independent_finset_card_le_of_indepSetFree R.ramsey.2 hJ
 
 /-- Every degree-18 neighborhood contains an independent 4-set. -/
 public theorem exists_independent_anchor (hv : R.graph.degree R.pivot = 18) :

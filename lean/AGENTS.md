@@ -31,20 +31,9 @@ branches really use it. Otherwise it stays with its branch.
 - Branch modules state their completeness as `Complete`; do not inline ad hoc
   completeness statements.
 
-## Visibility
-
-- New files do not open a blanket `@[expose] public section`. That block
-  publishes every unmarked declaration in the file.
-- Use the most local visibility that applies. A declaration used only in
-  its own file is `private`. A declaration that other modules may import
-  directly stays unmarked. `public` is only for the intended interface of
-  a module.
-- On this toolchain `private` declarations stay hidden from importers
-  even under `@[expose]`, and only `public` declarations are re-exported
-  through `public import`.
-
 ## lemma and theorem
 
+- Every lemma and theorem is public by default.
 - Use `lemma` for simple support results. Reserve `theorem` for major
   statements: branch targets, mirrored claims and interface criteria.
 - `lemma` is provided by Mathlib, not by the Lean prelude. A file with no

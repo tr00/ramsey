@@ -20,7 +20,7 @@ namespace Ramsey
 variable {V : Type*}
 
 /-- A vertex anticomplete to a finite independent set extends it. -/
-private theorem isNIndepSet_insert {G : SimpleGraph V} {n : ℕ} {t : Finset V} {z : V}
+public theorem isNIndepSet_insert {G : SimpleGraph V} {n : ℕ} {t : Finset V} {z : V}
     [DecidableEq V] (hz : z ∉ t) (ht : G.IsNIndepSet n t)
     (hnon : ∀ w ∈ t, ¬G.Adj z w) :
     G.IsNIndepSet (n + 1) (insert z t) where

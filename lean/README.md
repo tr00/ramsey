@@ -59,11 +59,12 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/theorems/TransversalFour.lean` | Proved four-vertex transversal bounds and frontier cross-column application, consuming the published edge-census axiom and the proved order-9 Ramsey bound |
 | `Ramsey/theorems/LocalReductions.lean` | Proved mixed/common-nonneighbor cells, full pair-codegree intervals and row/column cardinal bounds |
 | `Ramsey/theorems/PivotInterface.lean` | Proved exact forbidden-rectangle criterion with internal graph types and pivot-containing sets handled explicitly |
-| `Ramsey/theorems/PivotCounting.lean` | General proved cross-edge counts, pivot degree sums and complement edge identity |
+| `Ramsey/theorems/PivotCounting.lean` | General proved cross-edge counts, shared finite-set `links` API, Set/Finset induced-degree identities, pivot degree sums and complement edge identity |
 | `Ramsey/theorems/RowBounds.lean` | General single-row boundary facts: the row cap `isRamseyGraph_induce_rowSet` (every cross row `R_u = N(u) ∩ M(v)` of a `(5,5)`-Ramsey graph induces a `(4,4)`-Ramsey graph, so `|R_u| ≤ 17` by `R(4,4) ≤ 18`, premise-free) and the regularity trigger `card_neighborSet_eq_eight_of_isRamseyGraph_4_4` (a `(4,4)`-Ramsey graph on 17 vertices is 8-regular, from `R(3,4) ≤ 9` and `R(4,3) ≤ 9`) |
+| `Ramsey/theorems/CliqueBounds.lean` | Shared forbidden-size cardinality bound for finite cliques, its independent-set dual and the Finset specialization |
 | `Ramsey/n43/d18/PivotBudget.lean` | Proved degree-18 edge intervals, deficit/excess identity, `136≤x≤288` and equality-frontier consequences, taking a rooted Ramsey graph and its pivot-degree hypothesis |
 | `Ramsey/n43/d18/ConnectivityClassification.lean` | Connectivity classification of degree-18 neighborhoods fused with the d18 subcase split: exceptional family `K_m ⊔ C`, `m=1..3`, the order trichotomy `IsKNeighborhood k` / `isDisconnectedNeighborhood_iff`, `SubcaseBranch` branches `conn`/`k1`/`k2`/`k3`, instance-free subcase classes `ConnClass` and `KClass k` through `deg`, the class cover `subcase_cover`, and `excludes_of_subcases` joining the four subcase obligations by `Complete.cover` and `Complete.forall_not_of_eq_empty` |
-| `Ramsey/n43/d18/CrossEdgeBounds.lean` | Single cross-edge module with public `Ramsey.d18.degree18_cross_le_279`. All row, incidence, critical-core and equality-profile support is private and used by this bound. No new axioms or sorries. |
+| `Ramsey/n43/d18/CrossEdgeBounds.lean` | Single cross-edge module with public `Ramsey.d18.degree18_cross_le_279`. Branch-specific support remains local. Generic incidences and induced-degree identities come from `PivotCounting`. No new axioms or sorries. |
 
 The small bounds above use only `propext`, `Classical.choice`, and `Quot.sound`.
 `Ramsey.ramsey_4_3_le_9` and `Ramsey.ramsey_4_4_le_18` are theorems, not
@@ -136,7 +137,20 @@ example (R : Ramsey.RootedRamseyGraph 5 5 (Fin 43)) [DecidableRel R.graph.Adj]
 
 The former `CrossEdgeSupport`, `CrossEdgeTail`, `CrossEdgeSingle`,
 `CrossEdgeCores` and `CrossEdgeDouble` modules have been removed.
-Their internal lemmas are no longer part of the public API.
+Their branch-specific internal lemmas are no longer part of the public API.
+
+The 2026-10-21 theorem deduplication shares the `links` API between the d18 cross-edge
+bound and K1 budgets through `PivotCounting`. Its Finset induced-degree identity
+derives from `induced_degree_eq_row_card`. The 5 branch cardinality helpers now
+specialize `CliqueBounds`, and K1 attachments use the public
+`Ramsey.isNIndepSet_insert` theorem from `RowBounds`.
+`TransversalFour` uses the existing `Ramsey.indepSetFree_induce` directly.
+An external `import Ramsey` consumer checked incidence decomposition, induced
+degrees, generic cardinality bounds, insertion from the empty set and induced
+freeness. Axiom checks of the shared helpers used only `propext`,
+`Classical.choice` and `Quot.sound`.
+`sh scripts/check.sh` passed with the existing sorry ledger and expected axiom
+sets unchanged.
 
 ## K1 completion reduction
 
