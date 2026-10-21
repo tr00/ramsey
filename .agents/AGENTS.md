@@ -44,6 +44,8 @@ Lean work under `lean/`.
 - Mirror the reviewed markdown statement exactly. Do not weaken or restate a
   claim to make it provable; a statement change requires renewed review of the
   source claim.
+- Lean work does not require a report under `reports/`; record outcomes in
+  the Lean tree as directed by `lean/AGENTS.md`.
 
 ### Engine development
 
@@ -135,8 +137,10 @@ Read these before extending the work:
 Record substantial deductions beside the applicable mathematical branch, with
 shared lemmas at the nearest appropriate parent. Global or mixed-scope notes
 may remain in `docs/`. Follow the claim/review templates in `docs/workflow.md`.
-Add a concise historical report under `reports/`; have the coordinator update
-shared indexes with assumptions and search use after integration. Update the
+Research and experiments add a concise historical report under `reports/`;
+Lean formalization records outcomes in the Lean tree and writes no report.
+Have the coordinator update shared indexes with assumptions and search use
+after integration. Update the
 theory map only after the deduction is audited.
 
 All agents use this same worktree. Assign distinct owned paths, re-read before

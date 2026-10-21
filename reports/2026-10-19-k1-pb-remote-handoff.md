@@ -22,10 +22,10 @@ Required mathematical sources:
 - [Reviewed packing and budget bounds](../n43/d18/k1/cross_core.json).
 - [Seven-cell analysis](../n43/d18/k1/seven_cell.json).
 - [Formalization correspondence and axiom report](2026-10-19-lean-d18k1-reduction.json).
-- [Frame and admissibility](../lean/Ramsey/d18/k1/Frame.lean).
-- [Exact completion equivalence](../lean/Ramsey/d18/k1/Completion.lean).
-- [Complete reduction](../lean/Ramsey/d18/k1/Reduction.lean).
-- [Scalar envelope](../lean/Ramsey/d18/k1/Parameters.lean).
+- [Frame and admissibility](../lean/Ramsey/n43/d18/k1/Frame.lean).
+- [Exact completion equivalence](../lean/Ramsey/n43/d18/k1/Completion.lean).
+- [Complete reduction](../lean/Ramsey/n43/d18/k1/Reduction.lean).
+- [Scalar envelope](../lean/Ramsey/n43/d18/k1/Parameters.lean).
 
 Operational sources:
 

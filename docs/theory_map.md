@@ -37,18 +37,18 @@ flowchart TD
 
 | Layer | Content | Primary math sources | Lean modules |
 | --- | --- | --- | --- |
-| L0 | Published premises: Ramsey numbers, edge censuses, the 42-vertex witness | [mathematical baseline](mathematical_baseline.md), [reduction index §15](../n43/reductions.md) | `Ramsey/Premises.lean` |
+| L0 | Published premises: Ramsey numbers and edge censuses | [mathematical baseline](mathematical_baseline.md), [reduction index §15](../n43/reductions.md) | `Ramsey/Premises.lean` |
 | L1 | General `(r,s)`-free graph toolkit, block/attachment calculus, witness transport and replacement obstructions | [general theorems](general_theorems/README.md), [attachment calculus](general_theorems/ramsey_attachment_calculus.md) | `Ramsey/theorems/` (2 statement-only modules; attachment calculus not formalized) |
-| L2 | Universal theory of an order-43 `(5,5)`-free graph: degree window, ambient types, codegrees, cells, counting identities, primality | [reduction index §4, §10.1-10.2, §11](../n43/reductions.md), [theory phase I](theory_phase_1.md) | `Ramsey/D18.lean`, `theorems/LocalReductions.lean` |
+| L2 | Universal theory of an order-43 `(5,5)`-free graph: degree window, ambient types, codegrees, cells, counting identities, primality | [reduction index §4, §10.1-10.2, §11](../n43/reductions.md), [theory phase I](theory_phase_1.md) | `Ramsey/n43/D18.lean`, `theorems/LocalReductions.lean` |
 | L3 | Rooted interface theory for a fixed pivot: partition identities, exact rectangle criterion, row/column bounds, 4-bit anchors, transversal bounds | [reduction index §2, §5-§7, §8.4](../n43/reductions.md), [theory phase I §3-4](theory_phase_1.md) | `defs/RootedRamseyGraph.lean`, `theorems/{PivotCounting,PivotInterface,RowBounds,TransversalFour}.lean` |
-| L4 | Root-selection covers and symmetry machinery: even-pivot cover, canonical selectors, residual quotients, gluing | [reduction index §3, §10.3-10.6](../n43/reductions.md), [symmetry structure](../n43/symmetry_structure.md) | `Ramsey/EvenPivot.lean` |
-| L5 | Branch theories: d18 (corridor, x-closures, connectivity subcases, tau overlay) and d20 / min-degree20 | [d18 index](../n43/d18/README.md) and children | `Ramsey/d18/*`, `Ramsey/d20/*` |
+| L4 | Root-selection covers and symmetry machinery: even-pivot cover, canonical selectors, residual quotients, gluing | [reduction index §3, §10.3-10.6](../n43/reductions.md), [symmetry structure](../n43/symmetry_structure.md) | `Ramsey/n43/EvenPivot.lean` |
+| L5 | Branch theories: d18 (corridor, x-closures, connectivity subcases, tau overlay) and d20 / min-degree20 | [d18 index](../n43/d18/README.md) and children | `Ramsey/n43/d18/*`, `Ramsey/n43/d20/*` |
 | L6 | Exclusion obligations and the certificate ladder: `Complete` carrier, sorry ledger, SAT proof obligations | [reduction index §14](../n43/reductions.md), [workflow](workflow.md) | `defs/Completeness.lean`, branch `Exclusion.lean` targets |
-| Apex | Order-43 exclusion + Exoo witness gives `ramseyNumber 5 5 = 43` | [lemma phase II](lemma_phase_2.md) | `Ramsey.lean`, `Ramsey/Endgame.lean` |
+| Apex | Order-43 exclusion + Exoo witness gives `ramseyNumber 5 5 = 43` | [lemma phase II](lemma_phase_2.md) | `Ramsey.lean` (exclusion half; equality assembly not formalized) |
 
 The Lean file tree already mirrors the pyramid: `defs/` holds L0-L3 vocabulary,
-`theorems/` holds L1-L3 proofs, `EvenPivot.lean` is L4, `d18/`/`d20/` are L5,
-and the obligation glue plus apex are L6. New formalization should keep this
+`theorems/` holds L1-L3 proofs, `n43/EvenPivot.lean` is L4, and
+`n43/d18/`/`n43/d20/` are L5. The obligation glue plus apex are L6. New formalization should keep this
 correspondence (see [lean/AGENTS.md](../lean/AGENTS.md)).
 
 ## 2. Layer 0 — trusted premises
@@ -59,17 +59,22 @@ named premises it consumes ([evidence rules](../lean/README.md#evidence-rules-fo
 
 | Premise | Status | Math source | Lean axiom |
 | --- | --- | --- | --- |
-| `R(4,3) ≤ 9`, `R(3,5) ≤ 14`, `R(4,4) ≤ 18` | published (Greenwood-Gleason 1955) | [baseline](mathematical_baseline.md) | `ramsey_4_3_le_9`, `ramsey_3_5_le_14`, `ramsey_4_4_le_18` |
+| `R(3,5) ≤ 14` | published (Greenwood-Gleason 1955) | [baseline](mathematical_baseline.md) | `ramsey_3_5_le_14` |
 | `R(4,5) ≤ 25` | published (McKay-Radziszowski 1995; HOL4 formalization exists) | [baseline](mathematical_baseline.md) | `ramsey_4_5_le_25` |
 | `(4,5)` edge intervals, orders 14 / 17 / 18 / 24 | published census (Angeltveit-McKay, arXiv:2409.15709v2, App. A, Table 1) | [reduction index §15](../n43/reductions.md) | `edges_ramsey_4_5_{14,17,18,24}_*` |
 | `(4,4)` edge intervals, orders 11-17 | published census (McKay-Radziszowski 1992, Table 1) | [reduction index §15](../n43/reductions.md) | `edges_ramsey_4_4_{11..17}_*` |
-| 42-vertex `(5,5)` witness | published (Exoo 1989) | [baseline](mathematical_baseline.md) | `exoo_5_5_42` |
+
+The published bounds `R(4,3) ≤ 9` and `R(4,4) ≤ 18` are now proved in
+[n09/R43.lean](../lean/Ramsey/n09/R43.lean) and
+[n18/R44.lean](../lean/Ramsey/n18/R44.lean), using only standard logical axioms.
+The order-9 proof uses smaller bounds and handshaking parity. The order-18 proof
+uses the additive Ramsey recurrence. Neither remains a trusted premise.
 
 Rules recorded by the sources:
 
 - `R(5,5) ≤ 46` is deliberately **not** a premise of this project; the target
   is an independent order-43 decision.
-- `43 ≤ R(5,5)` is carried by the Exoo witness and used only in the endgame.
+- `43 ≤ R(5,5)` is carried by the Exoo witness ([Exoo 1989](mathematical_baseline.md)), cited by publication only; no Lean premise carries it.
 - A new premise enters only through `lean/Ramsey/Premises.lean` (with source)
   or `docs/mathematical_baseline.md`, never inline in a branch proof.
 
@@ -111,7 +116,7 @@ Hypothesis: only "G on 43 vertices with no `K5` and no `I5`". No pivot chosen.
 
 | Node | Content | Status | Source | Lean |
 | --- | --- | --- | --- | --- |
-| U1 | degree window `18 ≤ d(v) ≤ 24` | published | [index §4.1](../n43/reductions.md) | `Ramsey.D18` `degree_mem` |
+| U1 | degree window `18 ≤ d(v) ≤ 24` | published | [index §4.1](../n43/reductions.md) | `Ramsey.n43.D18` `degree_mem` |
 | U2 | ambient types: `G[N(v)]` is `(4,5)`-free, `G[M(v)]` is `(5,4)`-free; complement of `G[B]` is `(4,5)`-free | published | [index §4.2](../n43/reductions.md) | `defs/RootedRamseyGraph.lean` bundles |
 | U3 | pair codegree intervals (edge and nonedge) | proved-here from published numbers | [index §4.3](../n43/reductions.md) | `theorems/LocalReductions.lean` |
 | U4 | common-cell caps (edge 13, triangle 4, mixed cell 17) with equality rigidity (4-regular `(3,5)` at 13; 8-regular `(4,4)` at 17) | proved-here from published numbers | [index §4.4](../n43/reductions.md) | `theorems/LocalReductions.lean` |
@@ -150,7 +155,7 @@ q or x. Never encode `|C_y|>=5` without the exact proved hypotheses.
 
 | Node | Content | Status | Source | Lean |
 | --- | --- | --- | --- | --- |
-| S1 | even-pivot cover: a 43-vertex graph has an even-degree vertex; allowed even degrees 18/20/22/24; complementation maps 22 to 20 and 24 to 18; so `d18 ∪ d20` covers everything | proved-here | [index §3](../n43/reductions.md) | `Ramsey/EvenPivot.lean` (`pivot_cover`, `exists_degree_18_or_20_up_to_compl`) |
+| S1 | even-pivot cover: a 43-vertex graph has an even-degree vertex; allowed even degrees 18/20/22/24; complementation maps 22 to 20 and 24 to 18; so `d18 ∪ d20` covers everything | proved-here | [index §3](../n43/reductions.md) | `Ramsey/n43/EvenPivot.lean` (`pivot_cover`, `exists_degree_18_or_20_up_to_compl`) |
 | S2 | canonical complement selector and minimum-degree split (18 / 19 / 20 cases with degree-count sign conditions) | proved-here | [index §10.2](../n43/reductions.md), [theory I §2](theory_phase_1.md) | not formalized (alternative scheme) |
 | S3 | rooted residual action `Aut(G[A]) x Aut(G[B])` on the cross matrix; five listed **unsafe** reductions; canonical-parent generation is design | proved-here + design | [index §10.3-10.4](../n43/reductions.md) | not formalized |
 | S4 | duplicate-column multiplicities at most 2 through `x=141`; duplicate-swap kernel bounds; rooted automorphism bound `|Aut(G)_v| ≤ 4|Aut(A)|` (`p ≤ 12` through x141); at `x=136`: `p ≤ 10`, kernel order at most 2 | accepted | [d18 symmetry 01-06](../n43/d18/symmetry_reduction.md), [symmetry extensions](../n43/d18/symmetry_extensions.md), [symmetry structure 05-09](../n43/symmetry_structure.md) | not formalized |
@@ -298,11 +303,11 @@ must be discharged before any final `d18`/`d20` certificate is complete.
 
 ## 9. Apex
 
-`Ramsey.R_5_5_43` (root module) is proved from the two branch obligations;
-`Ramsey.ramsey_5_5_eq_43` ([Endgame.lean](../lean/Ramsey/Endgame.lean))
-combines the order-43 exclusion with `exoo_5_5_42` to give
-`ramseyNumber 5 5 = 43`. Axiom chain today: standard axioms plus named
-premises plus `sorryAx` from exactly the five branch obligations.
+`Ramsey.R_5_5_43` (root module) is proved from the two branch obligations.
+Axiom chain today: standard axioms plus named premises plus `sorryAx` from
+exactly the five branch obligations. The `ramseyNumber 5 5 = 43` equality
+assembly is not formalized; the lower-bound half rests on the published
+Exoo 1989 witness, cited in the baseline, with no Lean premise.
 
 ## 10. Formalization blueprint
 
@@ -341,7 +346,7 @@ The pyramid is complete when all of the following hold.
    coverage for the chosen covers.
 3. Formal: the five branch sorries discharged through `Complete`; sorry
    ledger empty except deliberate toolkit statements; `#print axioms` on
-   `ramsey_5_5_eq_43` reports only standard axioms and named premises.
+   `R_5_5_43` reports only standard axioms and named premises.
 4. Certificate: every computational input carries provenance, hashes, and a
    checkable proof per [reproducibility](reproducibility.md) and
    [index §14.4](../n43/reductions.md).

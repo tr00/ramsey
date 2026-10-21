@@ -43,8 +43,8 @@ the proof notes. Dated synthesis and validation records are in the
 | SDP/SOS theory | [Pivot covariance/coverage](sos_pivot_selection.md), [column triple witnesses](sos_column_compatibility.md), [finite moments](sos_finite_moments.md), [order-twelve cap](sos_order12_addendum.md), [obligation-graph certificates](sos_obligation_graphs.md) |
 | Symmetry | [Column multiset coverage](symmetry_reduction.md), [order43 structure](../symmetry_structure.md), [two-root quotient](../../docs/general_theorems/symmetry_pair_gluing.md) and [signature multiplicities, duplicate-kernel reduction and complement selection](symmetry_extensions.md) |
 
-Lean formalizations include the [cross-count upper bound](../../lean/Ramsey/d18/CrossEdgeBounds.lean)
-and [connectivity classification](../../lean/Ramsey/d18/ConnectivityClassification.lean).
+Lean formalizations include the [cross-count upper bound](../../lean/Ramsey/n43/d18/CrossEdgeBounds.lean)
+and [connectivity classification](../../lean/Ramsey/n43/d18/ConnectivityClassification.lean).
 
 ## Pending independent review
 

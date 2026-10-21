@@ -9,9 +9,18 @@
 -- Add a #print line whenever a new theorem becomes part of a handoff.
 import Ramsey
 
+#print axioms Ramsey.isRamseyGraph_induce_neighborSet_succ
+#print axioms Ramsey.RamseyUpperBound.card_neighborSet_lt
+#print axioms Ramsey.ramsey_two_left
+#print axioms Ramsey.RamseyUpperBound.add
+#print axioms Ramsey.ramsey_3_2_le_3
+#print axioms Ramsey.ramsey_4_2_le_4
+#print axioms Ramsey.ramsey_3_3_le_6
+#print axioms Ramsey.ramsey_4_3_le_9
+#print axioms Ramsey.ramsey_4_4_le_18
+
 #print axioms Ramsey.R_5_5_43
 #print axioms Ramsey.ramseyNumber_5_5_le_43_of_d18_d20
-#print axioms Ramsey.ramsey_5_5_eq_43
 #print axioms Ramsey.exists_degree_18_or_20_up_to_compl
 #print axioms Ramsey.degree_mem
 #print axioms Ramsey.degree18_frontier_iff

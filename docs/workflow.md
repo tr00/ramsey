@@ -10,8 +10,8 @@ split scheme, and coverage source. Different schemes use different paths;
 
 Place shared proofs at the nearest parent where their hypotheses apply.
 Keep concise historical reports in `reports/`, global foundations and mixed
-phase notes in `docs/`, and branch-specific proofs beside the branch README. Do not create
-separate claim, task, or source trees merely to satisfy a template.
+phase notes in `docs/`, and branch-specific proofs beside the branch README.
+Do not create separate claim, task, or source trees merely to satisfy a template.
 
 Use descriptive lowercase snake_case proof filenames. Give independently
 reviewable statements stable anchors such as `claim-small-columns-01`.

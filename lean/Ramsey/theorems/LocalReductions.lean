@@ -1,6 +1,7 @@
 module
 
-public import Ramsey.D18
+public import Ramsey.n43.D18
+public import Ramsey.n18.R44
 public import Ramsey.defs.RootedRamseyGraph
 public import Mathlib.Data.Set.Card
 

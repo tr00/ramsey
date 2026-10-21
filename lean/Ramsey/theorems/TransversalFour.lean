@@ -2,6 +2,7 @@ module
 
 public import Ramsey.defs.Transversals
 public import Ramsey.Premises
+public import Ramsey.n09.R43
 public import Mathlib.Combinatorics.SimpleGraph.Copy
 public import Mathlib.Data.Finset.Card
 public import Mathlib.Algebra.Order.BigOperators.Group.Finset
@@ -10,8 +11,8 @@ public import Mathlib.Algebra.Order.BigOperators.Group.Finset
 # Four-vertex transversals
 
 Formalization of `n43/d18/transversal_four.md`. The published 15-vertex census
-edge bound and `R(4,3) ≤ 9` are the named axioms `edges_ramsey_4_4_15_ge_50`
-and `ramsey_4_3_le_9` from `Ramsey.Premises`. No clique bound is imposed on the
+edge bound is the named axiom `edges_ramsey_4_4_15_ge_50` from `Ramsey.Premises`.
+The bound `R(4,3) ≤ 9` is proved in `Ramsey.n09.R43`. No clique bound is imposed on the
 ambient 18-vertex graph. This module does not import the unproved
 transversal-deletion statements.
 -/

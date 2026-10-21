@@ -1097,8 +1097,8 @@ The [Lean coverage catalogue](../lean/Ramsey/theorems/README.md#proved-reduction
 records 33 proved public reduction theorems for the basic pivot counting,
 pair codegree intervals, two-anchor cells, row/column inequalities, exact
 forbidden-rectangle criterion, and degree-18 deficit/excess and equality budgets.
-The [verification report](../reports/2026-10-15-lean-reductions.json) records
-source hashes and an axiom audit of all 33 theorems plus three shared helpers.
+Source hashes and an axiom audit of all 33 theorems plus three shared helpers
+were recorded in the removed verification report, preserved in Git history.
 Those declarations contain no `sorryAx` and retain explicit published premises.
 This is partial formal coverage of this index, not a formal proof of the later
 small-column exclusions, exhaustive search coverage, or order-43 nonexistence.

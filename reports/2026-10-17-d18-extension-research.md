@@ -44,7 +44,7 @@ or changes `43 <= R(5,5) <= 46`.
 
 ## Subsequent Lean formalization
 
-[`CrossEdgeBounds.lean`](../lean/Ramsey/d18/CrossEdgeBounds.lean) exports
+[`CrossEdgeBounds.lean`](../lean/Ramsey/n43/d18/CrossEdgeBounds.lean) exports
 `Ramsey.d18.degree18_cross_le_279` for an actual Ramsey graph on `Fin 43`
 and degree-18 pivot. Supporting modules prove x<=280, both equality-profile
 exclusions and the finite incidence/Turán facts; no x136 closure is used.

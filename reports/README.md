@@ -15,7 +15,7 @@ recorded separately.
 | General theorems, cells and symmetry | [General theorem synthesis](2026-10-15-general-theorems.md), [overlapping cells](2026-10-15-overlapping-cells.md), [symmetry audit](2026-10-15-symmetry-audit.md), [symmetry extensions](2026-10-15-symmetry-extensions.md) |
 | SDP/SOS theory | [Reviewed synthesis](2026-10-15-sos-theory.md), [pivot author report](2026-10-15-sos-pivot-selection.md), [column author report](2026-10-15-sos-column-compatibility.md), [finite-moment author report](2026-10-15-sos-finite-moments.md) |
 | Tau schemes | [Scaffolding](2026-10-19-tau-scheme-scaffolding.md), [follow-up and limits](2026-10-19-tau-followup.md) |
-| Lean formalization | [Initial scaffolding](2026-10-14-lean-scaffolding.md), [d18 corridor](2026-10-16-lean-d18-corridor.md), [connectivity fusion](2026-10-18-lean-d18-connectivity-fusion.md), [K1 rigidity](2026-10-19-lean-d18-k1-rigidity.md), [formalization tree](../lean/README.md) |
+| Lean formalization | [formalization tree](../lean/README.md); Lean work records no reports |
 | Engine and experiments | [Current engine reference](../docs/engine.md), [scoped experiment record](2026-10-19-scoped-engine-experiments.json), [retained experiment files](2026-10-19-scoped-engine-experiments/README.md), [status/SoPlex work](2026-10-19-engine-status-soplex.json) |
 | Documentation history | [Layout migration](2026-10-14-d18-layout.md), [previous consolidation](2026-10-18-markdown-consolidation.md), [claim-state reconciliation](2026-10-19-claim-state-reconciliation.md), [this cleanup](2026-10-21-research-cleanup.md) |
 

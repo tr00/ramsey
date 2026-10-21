@@ -14,7 +14,7 @@ comments you write or rewrite.
   transversal vocabulary. Open a new file there for a new topic instead of
   growing an existing one.
 - Everything else goes into the directory of its branch, for example
-  `Ramsey/d18/` for d18 material and `Ramsey/d20/` for d20 material.
+  `Ramsey/n43/d18/` for d18 material and `Ramsey/n43/d20/` for d20 material.
 
 A theorem or a definition is general, or widely used, only when several
 branches really use it. Otherwise it stays with its branch.

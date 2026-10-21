@@ -46,12 +46,18 @@ Its `graph` and `ramsey` fields replace separate graph and Ramsey-proof argument
 three-vertex clique transversal forces at least 71 edges, so an 18-vertex graph
 with no independent four-set and at most 70 edges has transversal size at least
 four. It includes the source's 68-edge theorem and the actual cross-column
-application from an 85-edge neighborhood. Its published inputs are the named
-axioms `edges_ramsey_4_4_15_ge_50 : RamseyEdgeLowerBound 15 4 4 50` and
-`ramsey_4_3_le_9 : RamseyUpperBound 4 3 9` from `Ramsey.Premises`, rather than
-caller-supplied hypotheses. All proofs in this module are complete; it does not
+application from an 85-edge neighborhood. Its published input is the named
+axiom `edges_ramsey_4_4_15_ge_50 : RamseyEdgeLowerBound 15 4 4 50` from
+`Ramsey.Premises`. The bound `ramsey_4_3_le_9 : RamseyUpperBound 4 3 9` is
+proved in [n09/R43.lean](../n09/R43.lean). All proofs in this module are complete. It does not
 import either transversal module. Those general modules retain explicit
 bound hypotheses, keeping their general formulations independent of the premises.
+
+[RamseyBounds.lean](RamseyBounds.lean) proves the elementary 2-clique base case,
+neighborhood restriction, neighborhood cardinality cap, and additive Ramsey recurrence
+without published premises. The order-specific proofs in `n03/`, `n04/`, `n06/`,
+`n09/`, and `n18/` instantiate these results. The order-9 proof additionally uses
+handshaking parity. None of these bounds is an axiom.
 
 ## Uniform boundary calculus
 
@@ -85,7 +91,7 @@ statement-only transversal modules or the unproved branch exclusions.
 | [LocalReductions.lean](LocalReductions.lean) | §4.3 full adjacent/nonadjacent codegree intervals, §4.4 mixed and common-nonneighbor cells, §§5.2–5.3 row/column cardinal inequalities |
 | [PivotInterface.lean](PivotInterface.lean) | §5.1 exact equivalence between the full Ramsey property and correct internal types plus forbidden rectangles, including empty sides and pivot-containing five-sets |
 | [PivotCounting.lean](PivotCounting.lean) | §2 general degree sums over both pivot parts, cross-edge row counting and complement edge counting |
-| [d18/PivotBudget.lean](../d18/PivotBudget.lean) | §§2, 8.1–8.3 and the basic §8.6 identity: `50≤a≤85`, `144≤b≤160`, `x+2a=306+Δ_A`, `x=136+2(85-a)+Δ_A`, `x≥136`, `x=136 ↔ a=85 ∧ ∀u∈A,d(u)=18`, and `148≤b≤160` at equality |
+| [n43/d18/PivotBudget.lean](../n43/d18/PivotBudget.lean) | §§2, 8.1–8.3 and the basic §8.6 identity: `50≤a≤85`, `144≤b≤160`, `x+2a=306+Δ_A`, `x=136+2(85-a)+Δ_A`, `x≥136`, `x=136 ↔ a=85 ∧ ∀u∈A,d(u)=18`, and `148≤b≤160` at equality |
 
 Shared counting and rectangle predicates are in
 [defs/Transversals.lean](../defs/Transversals.lean).

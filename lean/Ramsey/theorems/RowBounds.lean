@@ -1,6 +1,6 @@
 module
 
-public import Ramsey.Premises
+public import Ramsey.n09.R43
 public import Ramsey.defs.Transversals
 public import Mathlib.Data.Set.Card
 

@@ -1,6 +1,6 @@
 module
 
-public import Ramsey.D18
+public import Ramsey.n43.D18
 
 /-!
 # Exact pivot-interface criterion

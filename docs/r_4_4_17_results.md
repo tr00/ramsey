@@ -60,7 +60,7 @@ every bound. This is the source's census-free argument, not a uniqueness proof.
 The generic Lean theorem
 `Ramsey.card_neighborSet_eq_eight_of_isRamseyGraph_4_4` lives in
 [RowBounds.lean](../lean/Ramsey/theorems/RowBounds.lean).
-[Core.lean](../lean/Ramsey/d18/k1/Core.lean) supplies
+[Core.lean](../lean/Ramsey/n43/d18/k1/Core.lean) supplies
 `core_isSRGWith`, `core_nonedge_common_anti_triangle`,
 `core_paircodegree_mass`, and `core_total_paircodegrees`.
 
@@ -126,7 +126,7 @@ sum_(t in W) [binom(|T_t|,2)-e(H[T_t])] <= 68.
 An eight-vertex missed signature contains at least ten core nonedges, so at
 most six outside vertices have exactly nine core neighbors. Consequently
 `e(H,W)>=64`. This is a necessary lower bound; attainability is not established.
-[Attachments.lean](../lean/Ramsey/d18/k1/Attachments.lean) formalizes the
+[Attachments.lean](../lean/Ramsey/n43/d18/k1/Attachments.lean) formalizes the
 common-omission, nonedge packing consequence and 64-edge bound.
 
 ### Two induced 17-cores in the same B
@@ -294,14 +294,12 @@ small case lists and checks are in the
 | [Large-row review](../n43/d18/review_large_row_extensions_20261017_audit.md) | Acceptance and exact reviewed body for codegrees, moments, extension domain, two-core balance and eight-cell classification |
 | [K1 research review](../n43/d18/k1/review_research_20261019.json) | Double-core structure, budgets and exact eleven-obstruction partition |
 | [K1 attachment review](../n43/d18/k1/review_attachments_20261019.json) | Cross-core and seven-cell claims, scope and exact hashes |
-| [K1 rigidity report](../reports/2026-10-19-lean-d18-k1-rigidity.md) | Historical formal check of the isolated-neighbor boundary |
-| [K1 formalization report](../reports/2026-10-19-lean-d18k1-reduction.json) | Markdown correspondence, audited axioms, build and smoke-check evidence |
-| [K1 Lean directory](../lean/Ramsey/d18/k1/) | Rigidity, Core, Frame, Structure, Attachments, VertexBounds, Budgets, Totals, Parameters, Completion and Reduction |
+| [K1 Lean directory](../lean/Ramsey/n43/d18/k1/) | Rigidity, Core, Frame, Structure, Attachments, VertexBounds, Budgets, Totals, Parameters, Completion and Reduction |
 | [Remote PB handoff](../reports/2026-10-19-k1-pb-remote-handoff.md) | Exact whole-K1/fixed-core/fixed-key encodings and required coverage; proposed runs are not completed evidence |
 | [Cross-branch synthesis](../reports/2026-10-19-cross-branch-synthesis.json) | Historical connections to the wider degree-18 program |
 
 The recorded K1 formalization passed the repository Lean gate without adding
-axioms or sorries. Its structural/completion theorems do not prove the open
+axioms or sorries; the removed formalization reports remain in Git history. Its structural/completion theorems do not prove the open
 exclusion; the global endgame still has unfinished obligations. No new Lean,
 solver, catalogue, canonicalizer or graph-search run was performed for this
 editorial collection. Source review states and computational limitations are

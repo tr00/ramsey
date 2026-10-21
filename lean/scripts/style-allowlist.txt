@@ -2,5 +2,5 @@
 # contain em-dashes. Remove an entry once its comments are rewritten;
 # scripts/check.sh fails on any new em-dash outside this list.
 Ramsey/Premises.lean
-Ramsey/EvenPivot.lean
-Ramsey/d20/Exclusion.lean
+Ramsey/n43/EvenPivot.lean
+Ramsey/n43/d20/Exclusion.lean

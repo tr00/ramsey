@@ -14,7 +14,7 @@ and which rely on published exhaustive computation.
 Status labels: every axiom here is **[PUBLISHED]**, used as a trusted input and not re-proved.
 The derived census interval theorems below are proved from these inputs.
 Sources include Radziszowski, *Small Ramsey Numbers*, DS1 rev. 18,
-Exoo 1989, Angeltveit & McKay 2026 / arXiv:2409.15709, and McKay's Ramsey graph data.
+Angeltveit & McKay 2026 / arXiv:2409.15709, and McKay's Ramsey graph data.
 The upper bounds and edge extrema cite the sources listed at the end of this file.
 
 Ramsey upper bounds and edge bounds use `RamseyUpperBound`,
@@ -31,8 +31,8 @@ Deliberately **not** included:
 * `R(5, 5) ≤ 46` (order-46 nonexistence) — not needed for the order-43
   target.
 * Lower-bound halves of the Ramsey numbers below (witness graphs) — not
-  consumed by the planned reductions; the one exception is the 42-vertex
-  witness for the final `R(5, 5) = 43` assembly.
+  consumed by the planned reductions. Exoo's 42-vertex `(5, 5)` witness is
+  cited by publication only and carries no Lean premise.
 -/
 
 @[expose] public section
@@ -41,14 +41,8 @@ namespace Ramsey
 
 /-! ### Ramsey numbers -/
 
-/-- `R(4, 3) ≤ 9` [Greenwood & Gleason 1955]. -/
-axiom ramsey_4_3_le_9 : RamseyUpperBound 4 3 9
-
 /-- `R(3, 5) ≤ 14` [Greenwood & Gleason 1955]. -/
 axiom ramsey_3_5_le_14 : RamseyUpperBound 3 5 14
-
-/-- `R(4, 4) ≤ 18` [Greenwood & Gleason 1955]. -/
-axiom ramsey_4_4_le_18 : RamseyUpperBound 4 4 18
 
 /-- `R(4, 5) ≤ 25` [McKay & Radziszowski 1995]. -/
 axiom ramsey_4_5_le_25 : RamseyUpperBound 4 5 25
@@ -138,12 +132,6 @@ theorem edges_ramsey_4_5_24_range {V : Type*} [Finite V] (hn : Nat.card V = 24)
   · exact_mod_cast edges_ramsey_4_5_24_ge_116.on_finite_type hn G hG
   · exact_mod_cast edges_ramsey_4_5_24_le_132.on_finite_type hn G hG
 
-/-! ### The lower-bound witness -/
-
-/-- R(5,5,42)  [Exoo] -/
-axiom exoo_5_5_42 :
-    ∃ G : SimpleGraph (Fin 42), IsRamseyGraph 5 5 G
-
 end Ramsey
 
 /-! ### Sources
@@ -153,8 +141,8 @@ end Ramsey
 Mathematics **7** (1955) 1-7, <https://doi.org/10.4153/cjm-1955-001-4>.
 Establishes `R(3, 4) = 9`, `R(3, 5) = 14`, and `R(4, 4) = 18`; credited in
 Radziszowski, *Small Ramsey Numbers*, DS1 rev. 18, §2.1(b). Supplies
-`ramsey_4_3_le_9` (via `R(4, 3) = R(3, 4)`), `ramsey_3_5_le_14`, and
-`ramsey_4_4_le_18`. Note: Kéry 1964 is `R(3, 6) = 18`, a different number.
+`ramsey_3_5_le_14`. The bounds `R(4,3) ≤ 9` and `R(4,4) ≤ 18` are proved
+without published premises. Note: Kéry 1964 is `R(3,6) = 18`, a different number.
 
 [McKay & Radziszowski 1995] B. D. McKay and S. P. Radziszowski,
 *R(4, 5) = 25*, Journal of Graph Theory **19** (1995) 309-322,
