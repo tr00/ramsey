@@ -24,6 +24,8 @@ public import Ramsey.theorems.LocalReductions
 public import Ramsey.theorems.PivotInterface
 public import Ramsey.theorems.PivotCounting
 public import Ramsey.theorems.RowBounds
+public import Ramsey.theorems.BoundaryProfileContexts
+public import Ramsey.theorems.BoundaryProfileTransport
 public import Ramsey.d18.PivotBudget
 public import Ramsey.d18.ConnectivityClassification
 public import Ramsey.d18.k1.Rigidity

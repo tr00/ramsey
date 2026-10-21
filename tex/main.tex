@@ -3,7 +3,7 @@
 
 % DO NOT MODIFY!! THIS IS A HUMAN-ONLY WRITE UP
 
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm, amsfonts}
 \usepackage{tikz}
 \usepackage{url}
 
@@ -35,8 +35,10 @@ we instead devise combinatorial arguments to disect the search space.
 Let $G = (V, E)$ be a finite simple graph.
 We write $u \sim_G v$ to denote two vertices being adjacent.
 For a fixed vertex $v \in V$, the \emph{neighborhood} of $v$ is $N_G(v) = \{u \in V \mid u \sim_G v\}$,
-the \emph{anti-neighborhood} is $M_G(v) = \{u \in V \setminus \{ v \} \mid u \not\sim_G v \}$ and the degree $d_G(v) = |N_G(v)|$.
-The number of edges is given by $e(G)$ or $e_G(V)$
+the \emph{anti-neighborhood} is $M_G(v) = \{u \in V \setminus \{ v \} \mid u \not\sim_G v \}$.
+We also define the generalized neighborhood as $N_G(W) = \{ u \in V \mid \forall v \in W \colon u \sim_G v \}$
+and the generalized anti-neighborhood $M_G(W) = \{ u \in V \mid \forall v \in W \colon \not\sim_G v\}$.
+The degree is $d_G(v) = |N_G(v)|$ and the number of edges is given by $e(G)$ or $e_G(V)$
 and number of cross edges $e_G(A, B) = |\{ (u,v) \in A \times B \mid u \sim_G v \}|$ for $A, B \subsetneq V$ and $A \cap B = \emptyset$.
 
 
@@ -191,6 +193,22 @@ we can show that it splits into a clique and a smaller connected Ramsey graph.
 	If one of them is a clique, the largest clique would be $K_3$ but then $\abs{S} + \abs{S^c} \leqslant 11$.
 	This proofs that $n \geqslant 12$ necessitates a $(4, 4)$-free $G$ to be connected.
 \end{proof}
+
+\newpage
+\section{Graph Gluing Calculus}
+
+Suppose we want to construct an $(s,t)$-free graph by gluing together smaller graphs.
+We provide a simple calculus for combining and altering graphs in a way that preserves $(s, t)$-freeness.
+Let $G$ be a graph.
+% Define the \emph{boundary} $B \subseteq V(G)$ and an injective \emph{labelling} $\ell \colon B \rightarrow \Lambda$.
+Define an injective \emph{partial labelling} $\ell \colon V(G) \rightharpoonup \Lambda$,
+where $\Lambda$ is a finite set of labels. Further define the \emph{boundary}
+$B = \text{dom}(\ell) \subseteq V(G)$ and the \emph{interior} $X = V(G) - B$.
+
+\begin{align*}
+	% G \circ H = \left(V(G) \cup V(H), \right) & \text{if } G[\text{dom}(\ell)] \cong H[\text{dom}(\ell)] \\
+	\rho_{(s,t)}(G; B) = (\qquad G[B], \qquad \omega_s(G[N_X^+(U)]), \qquad \alpha_t(G[N_X^-(U)]) \qquad)
+\end{align*}
 
 \section{Anchor Method}
 

@@ -60,6 +60,36 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/d18/ConnectivityClassification.lean` | Connectivity classification of degree-18 neighborhoods fused with the d18 subcase split: exceptional family `K_m ⊔ C`, `m=1..3`, the order trichotomy `IsKNeighborhood k` / `isDisconnectedNeighborhood_iff`, `SubcaseBranch` branches `conn`/`k1`/`k2`/`k3`, instance-free subcase classes `ConnClass` and `KClass k` through `deg`, the class cover `subcase_cover`, and `excludes_of_subcases` joining the four subcase obligations by `Complete.cover` and `Complete.forall_not_of_eq_empty` |
 | `Ramsey/d18/CrossEdgeBounds.lean` | Single cross-edge module with public `Ramsey.d18.degree18_cross_le_279`. All row, incidence, critical-core and equality-profile support is private and used by this bound. No new axioms or sorries. |
 
+## Uniform boundary profiles
+
+The 4 accepted claims in [boundary_profiles.md](../docs/general_theorems/boundary_profiles.md)
+are formalized in namespace `Ramsey.Boundary` and re-exported by `import Ramsey`.
+Vertices use `B ⊕ X`, separating retained boundary labels from a finite interior.
+The profile stores the exact boundary graph and 2 capped tables indexed only by
+homogeneous boundary sets. Interior names and graph order are not stored.
+
+| Module | Scope |
+| --- | --- |
+| `defs/BoundaryProfiles.lean` | Concrete eligible-set maxima, dependent-domain profiles and observations |
+| `theorems/BoundaryProfiles.lean` | Explicit finite-state bound, exact capped maxima and Ramsey freeness, including empty and threshold-1 cases |
+| `defs/BoundaryProfileGluing.lean`, `theorems/BoundaryProfileGluing.lean` | Concrete shared-boundary gluing, 4 exact table formulas and order identities |
+| `defs/BoundaryProfileOperations.lean`, `theorems/BoundaryProfileOperations.lean` | Forgetting, uniform introduction and fixed boundary relabelling |
+| `theorems/BoundaryProfileTransport.lean` | Profile independence of interior names and of reindexings retaining the same boundary, including forgetting order |
+| `defs/BoundaryProfileContexts.lean`, `theorems/BoundaryProfileContexts.lean` | Typed paired-expression grammar and simultaneous replacement, clipped observations, Ramsey freeness and separate equal-order preservation |
+
+`UniformDerivation R G H` pairs finite expressions with identical operation data,
+fixed leaves or `R`-related replacement leaves, and compatible labelled boundaries
+at gluing nodes. `uniform_replacement` uses equal-profile leaves and proves equal
+output profiles. This covers a 1-hole context and any finite family of replacements.
+`UniformDerivation.glue_of_profiles` derives compatibility of the replacement side
+from compatibility of the original side. `uniform_ordered_replacement` additionally
+requires equal orders at replacement leaves. No arbitrary mixed attachment,
+minimal-state characterization, bounded-width decomposition or new Ramsey bound
+is asserted. The source's illustrative examples and decomposition discussion are
+not additional formalized claims.
+See the [formalization report](../reports/2026-10-20-lean-boundary-profiles.json)
+for exact source hashes, claim coverage, axiom targets and the composed consumer proof.
+
 ## Bundled Ramsey graphs
 
 `RamseyGraph s t V` packages `graph : SimpleGraph V` with

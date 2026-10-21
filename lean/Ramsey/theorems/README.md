@@ -53,6 +53,26 @@ caller-supplied hypotheses. All proofs in this module are complete; it does not
 import either transversal module. Those general modules retain explicit
 bound hypotheses, keeping their general formulations independent of the premises.
 
+## Uniform boundary calculus
+
+All 4 accepted claims of
+[boundary_profiles.md](../../../docs/general_theorems/boundary_profiles.md)
+have proved interfaces in namespace `Ramsey.Boundary`:
+
+| Claim | Main interfaces |
+| --- | --- |
+| 01 | `card_profile_le`, `capped_homogeneousNumber`, `isRamseyGraph_iff_candidates`, endpoint lemmas in [BoundaryProfiles.lean](BoundaryProfiles.lean) |
+| 02 | `entry_glue`, 4 colour-specific formulas, whole-number corollaries and `glue_order_sub` in [BoundaryProfileGluing.lean](BoundaryProfileGluing.lean) and its definition module |
+| 03 | Exact unary recurrences and profile congruences in [BoundaryProfileOperations.lean](BoundaryProfileOperations.lean), retained-boundary reindexing invariance in [BoundaryProfileTransport.lean](BoundaryProfileTransport.lean) |
+| 04 | `uniform_replacement`, `uniform_replacement_observations`, `uniform_replacement_isRamseyGraph`, `uniform_ordered_replacement` in [BoundaryProfileContexts.lean](BoundaryProfileContexts.lean) |
+
+Concrete definitions live in the corresponding `defs/BoundaryProfile*.lean` modules.
+The expression grammar includes both join bits and all 3 unary operations, retaining
+the fixed labels, adjacency data and gluing compatibility. Replacement leaves may
+have unrelated finite interior types. Exact order is a separate hypothesis, not
+part of the finite profile. No arbitrary mixed-attachment or decomposition theorem
+is included. The source's examples are explanatory rather than extra claim interfaces.
+
 ## Proved reduction-index basics
 
 The following modules formalize scoped parts of
