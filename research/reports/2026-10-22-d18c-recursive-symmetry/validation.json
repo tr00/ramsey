@@ -1,0 +1,33 @@
+{
+  "coupled_row_orbits_with_generator": 10,
+  "coupled_row_orbits_without_swaps": 16,
+  "d18_first_A_raw_row_count": 16777216,
+  "d18_first_A_row_representatives": 25,
+  "degree8_first_A_allowed_size_classes": 7,
+  "degree8_first_A_labelled_rows": 14233964,
+  "derivative_equivariance_cases": 29184,
+  "exhaustive_representative_invariance_cases": 4032,
+  "hashes": {
+    "docs/general_theorems/symmetry_quotients.md": "48af51afa7bb2ca4d578d015537da93e086ec7a5dc8f8adaca15e67e1d3e3bff",
+    "docs/mathematical_baseline.md": "de981cede9200a6d61fe7c113734bec5f1b2446d904ec5f16d42afa18a5dc7c0",
+    "research/n43/d18/c/recursive_ramsey.md": "9d33f9e42bc8aa5850d8e81995e68dc5505d0d1f5779ef8690a715bb268085e5",
+    "research/n43/d18/c/recursive_ramsey.py": "cd7cc7616619686a2265fa2acf1b3583953ce4e2cfbd55f9e9e21fa3ab70de35",
+    "research/n43/d18/c/recursive_symmetry.md": "bbfec6f5b0fe249a301e09de8556bf5f04a0880f9ea29f6332f69b26f57d89c0",
+    "research/n43/d18/c/recursive_symmetry.py": "44ac06c2491b38f23bfe5086d75aa57793c5e89bdd45623622f35681ffafccd0",
+    "research/n43/d18/symmetry_reduction.md": "be619ddd43d7f31e653c5e0c9c0354cbc134a7fbf9edbe6c2ecbd5793a422dc4",
+    "research/reports/2026-10-22-d18c-recursive-symmetry/tiny_symmetry_dag.json": "56baf2861aa565a2a956d0996fc11c5714b602d523bd67823ba82d2f8185fac2",
+    "research/reports/2026-10-22-d18c-recursive-symmetry/validate.py": "e443a4dac41197016bb2eafe444ca8575cb659e45ac3e47c80812846687b497d"
+  },
+  "maximum_general_counted_completion_order": 4,
+  "maximum_prescribed_coupled_fixture_order": 5,
+  "order43_computation": "fixed initializer, forced root derivative and25 row orbits only; no completion recursion",
+  "pure24_symmetric_image_candidates": 1,
+  "replayed_quotient_dag_nodes": 5304,
+  "review": "author semantic self-check only",
+  "row_representatives_checked": 3656,
+  "schreier_stabilizer_cases": 12,
+  "split_weight_identity_cases": 256,
+  "status": "PASS",
+  "tiny_count_cases": 516,
+  "transport_truth_cases": 258048
+}
