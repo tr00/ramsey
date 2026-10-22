@@ -1,6 +1,6 @@
 # R(5,5) Search Results and Reduction Index
 
-Last updated: 2026-10-21
+Last updated: 2026-10-22
 
 This is the operational index for a future certified order-43 search. It
 collects:
@@ -130,12 +130,21 @@ degree-18 vertices in the fixed orientation of G, as specified in the
 imposed.
 
 - [d18](d18/README.md): x136 is excluded; x137..142 and x>=143 remain open.
-- [d20](d20/README.md): a general degree-20 pivot, with global degrees 18..24.
+- [d20](d20/README.md): the requested residual degree-20 branch has no
+  degree-18 vertices, hence degrees 19..24. Giving d18 priority whenever
+  either complementary orientation has a degree-18 vertex restricts the
+  residual to 19..23. The [new routing proof](d20/residual_coverage.md#claim-d20-residual-routing)
+  and [first deductions](d20/README.md#first-deductions-pending-independent-review)
+  are ready for independent review; no executable pruning is enabled.
 - [Minimum-degree normalization](#102-canonical-complement-selector) is an
   alternative scheme, including [min-degree20](min-degree20/README.md).
 
 These schemes are alternatives, not one disjoint partition. A canonical
 pivot requires an invariant tie rule or explicit coverage of every choice.
+Global K5-saturation is not preserved by complementation; the
+[saturated routing alternatives](d20/residual_coverage.md#claim-d20-saturation-routing)
+retain this additional coverage obligation. Maximum neighborhood-edge
+selection within a degree class is a separate root-choice hypothesis.
 
 ## 4. Universal pruning predicates
 

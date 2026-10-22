@@ -1,0 +1,83 @@
+{
+  "task": "d20-first-deductions-20261022",
+  "author": "Main, alone",
+  "review_state": "ready; author self-check only",
+  "validation": "finite integer arithmetic; no graph enumeration or solver",
+  "tail_profiles": [
+    {
+      "n17": 0,
+      "scalar_profiles": 31,
+      "maximum_bonus": 10,
+      "minimum_deficit_used": 0,
+      "cross_upper": 290
+    },
+    {
+      "n17": 1,
+      "scalar_profiles": 21,
+      "maximum_bonus": 11,
+      "minimum_deficit_used": 2,
+      "cross_upper": 289
+    },
+    {
+      "n17": 2,
+      "scalar_profiles": 12,
+      "maximum_bonus": 12,
+      "minimum_deficit_used": 10,
+      "cross_upper": 282
+    },
+    {
+      "n17": 3,
+      "scalar_profiles": 5,
+      "maximum_bonus": 12,
+      "minimum_deficit_used": 10,
+      "cross_upper": 282
+    },
+    {
+      "n17": 4,
+      "scalar_profiles": 1,
+      "maximum_bonus": 12,
+      "minimum_deficit_used": 10,
+      "cross_upper": 282
+    }
+  ],
+  "row_degree_tuples_checked": 62,
+  "column_degree_tuples_checked": 59,
+  "size_three_degree_options": [
+    19,
+    20
+  ],
+  "complement_closed_degree_count_envelope": {
+    "handshake_compatible_count_vectors": 89056,
+    "pair_partition_counts": [
+      58592,
+      22512,
+      7952
+    ],
+    "meaning": "arithmetic envelope, not graph realizability"
+  },
+  "claim_ids": [
+    "n43/d20/residual_coverage.md#claim-d20-residual-routing  ",
+    "n43/d20/residual_coverage.md#claim-d20-saturation-routing  ",
+    "n43/d20/residual_coverage.md#claim-d20-mixed-low-degree-family  ",
+    "n43/d20/residual_coverage.md#claim-d20-complete-pair-selection  ",
+    "n43/d20/neighborhood_structure.md#claim-d20-neighborhood-connectivity  ",
+    "n43/d20/neighborhood_structure.md#claim-d20-complement-side-connectivity  ",
+    "n43/d20/neighborhood_structure.md#claim-d20-three-column-core  ",
+    "n43/d20/interface_bounds.md#claim-d20-degree-corridor  ",
+    "n43/d20/interface_bounds.md#claim-d20-small-column-competition  ",
+    "n43/d20/interface_bounds.md#claim-d20-cross-upper  ",
+    "n43/d20/interface_bounds.md#claim-d20-saturation-witnesses  ",
+    "n43/d20/interface_bounds.md#claim-d20-anchor-budgets  ",
+    "n43/d20/interface_bounds.md#claim-d20-column-partition  "
+  ],
+  "sha256": {
+    "n43/d20/residual_coverage.md": "e3231cba8cdd419cf28459649c2a9bbd1ad0c13c2b645de19ac333e8d72d63b2",
+    "n43/d20/neighborhood_structure.md": "4043e01e9cdddbf98ef0142201e60c149d8db3dbcd5c1ae73654f460daff4662",
+    "n43/d20/interface_bounds.md": "e46289629e87a4a0b76a29b9af9b917cbe49bdab46591475a44abbbf496c1895",
+    "docs/general_theorems/family_overlap.md": "e619d570b03fc9f667bd95c685c000ee6bab3c17cabb4fc1956802a621af65b7",
+    "docs/general_theorems/safe_augmentation.md": "35120daf644d7d859e0bc7bea77382b56abe36ce2835458baebe6a9c113e948a",
+    "docs/theory_phase_1.md": "d752949e05035e2efe6350bd8e701416df7784e7721c6b99ac117944ccdb62ef",
+    "docs/mathematical_baseline.md": "de981cede9200a6d61fe7c113734bec5f1b2446d904ec5f16d42afa18a5dc7c0",
+    "docs/workflow.md": "68cb023b675e7b00469b89bf23dc2c7919c2d4eb4ea9fd656b4a5e083b034c0a"
+  }
+}

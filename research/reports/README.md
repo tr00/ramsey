@@ -8,6 +8,7 @@ recorded separately.
 
 | Topic | Synthesis and follow-up |
 | --- | --- |
+| Residual d20 first deductions | [Coverage, connectivity, interface bounds and saturation witnesses](2026-10-22-d20-first-deductions.md); all new claims pending independent review |
 | Early foundations and corrections | [Early sessions, Oct 13–14](early_session_reports.md), [published edge inputs](2026-10-16-published-edge-bounds.md), [pending-claim audit](2026-10-15-pending-claim-audit.md) |
 | x136 closure and x137 propagation | [Forced anchor](2026-10-15-five-column-compatibility.md), [author handoff](2026-10-15-frontier-exclusion-handoff.md), [accepted full closure](2026-10-19-x136-frontier-closure.md), [propagation](2026-10-19-x137-propagation.md), [x137/connectivity reviews](2026-10-19-x137-connectivity-reviews.md) |
 | Extension coverage and high-x tail | [Four-note synthesis](2026-10-17-d18-extension-research.md) and [manifest](2026-10-17-d18-extension-research.json), [averaging continuation](2026-10-18-averaging-tail.md), [B-maximality limits](2026-10-18-b-maximality-analogy.md) |

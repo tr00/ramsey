@@ -10,7 +10,7 @@ new proof of exhaustive case coverage.
 | Path | Scope | Coverage distinction |
 | --- | --- | --- |
 | [d18](d18/README.md) | A degree-18 pivot maximizing e(G[N_G(v)]) among degree-18 vertices | Even-pivot scheme; ties unrestricted; no claim that minimum degree is exactly the pivot degree |
-| [d20](d20/README.md) | A chosen pivot has degree 20 | General even-pivot scheme |
+| [d20](d20/README.md) | Degree-20 pivot with no degree-18 vertices | Residual even-pivot scheme; excluding degree 24 additionally needs d18 priority in both complementary orientations |
 | [min-degree20](min-degree20/README.md) | Complement-normalized minimum degree 20 | Alternative scheme; do not impose these assumptions on d20 |
 
 The even-pivot and normalized minimum-degree schemes are alternatives, not
