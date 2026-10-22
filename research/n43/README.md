@@ -23,3 +23,8 @@ frontier duplicate-orbit bounds. The
 [reviewed two-root gluing quotient](../../docs/general_theorems/symmetry_pair_gluing.md)
 classifies compatible overlap maps and full ordered-root completions; its
 input-family coverage assumptions remain explicit.
+
+The [degree-19 cross-edge bound](degree19_row_ceiling.md) applies to any
+actual degree-19 pivot, including graphs with degree-18 vertices: `x<=289`,
+with a single necessary equality profile. Its two claims are ready for
+independent review. This is a rerooting tool, not a new global routing scheme.

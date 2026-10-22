@@ -1,0 +1,218 @@
+{
+  "status": "passed",
+  "date": "2026-10-22",
+  "task": "d20-pair-transfer-20261022",
+  "base_revision": "d6d6ee085b701171362b6de8ea16f32383f09d9c",
+  "limits": "Author arithmetic self-check; no independent review, graph search, graph realizability, branch closure or global Ramsey result.",
+  "proof_sha256": {
+    "research/n43/d20/pair_density_transfer.md": "6a70dc09a761062af44675bdd11d88d040b489d606f96b7b852b757c4f8f4fa2",
+    "research/n43/d20/cross_tail_stability.md": "4232c17e1edb9bef3640e6fc44c140791d5439380bda5f9e10bea4f9f2fb206b"
+  },
+  "dependency_sha256": {
+    "docs/mathematical_baseline.md": "de981cede9200a6d61fe7c113734bec5f1b2446d904ec5f16d42afa18a5dc7c0",
+    "README.md": "9534621e872d042e79ce98c133321c8bd965dc4a0488ecb4fdcc53a5785fcf51",
+    "research/n43/reductions.md": "330e004ac16d3678719ef375643ff96fae5c0676ce9b550f3e9f5ed008daed80",
+    "research/n43/d20/large_row_tail.md": "493444f7c993aec6c5a4eae08de781e2fa65d5c0a273aeb49bdf3ea07921a18c",
+    "research/n43/d20/interface_bounds.md": "016bc2ee19c032b5eb7973685b5d56609d41bc42815ba684d666f939819cee6e",
+    "research/n43/d20/residual_coverage.md": "10446d84c9b44fd90416141dfbdccc33dc0abbc4fd328d6f7af97052c432f061"
+  },
+  "driver_sha256": "856e33b5e333f85b669444a302be7ac16fbf56aee58f2c325700d461434dfcaf",
+  "affine_pair_identity_cases": 110,
+  "adjacent_q2_through_q8": {
+    "24": [
+      282,
+      282,
+      288,
+      294,
+      300,
+      306,
+      314
+    ],
+    "23": [
+      265,
+      266,
+      273,
+      280,
+      287,
+      294,
+      303
+    ]
+  },
+  "nonadjacent_q3_through_q9": {
+    "24": [
+      270,
+      272,
+      280,
+      288,
+      296,
+      296,
+      296
+    ],
+    "23": [
+      253,
+      256,
+      265,
+      274,
+      283,
+      284,
+      285
+    ]
+  },
+  "one_triangle_q3_through_q9": {
+    "24": [
+      268,
+      269,
+      276,
+      283,
+      290,
+      292,
+      294
+    ],
+    "23": [
+      251,
+      253,
+      261,
+      269,
+      277,
+      280,
+      283
+    ]
+  },
+  "disjoint_packing_examples": [
+    {
+      "q": 5,
+      "triangles": 1,
+      "edges": 1,
+      "M24": 275,
+      "M23": 260
+    },
+    {
+      "q": 6,
+      "triangles": 1,
+      "edges": 1,
+      "M24": 281,
+      "M23": 267
+    },
+    {
+      "q": 6,
+      "triangles": 2,
+      "edges": 0,
+      "M24": 278,
+      "M23": 264
+    }
+  ],
+  "edge_marginal_cells": 416,
+  "triangle_marginal_cells": 1330,
+  "disjoint_packing_cells": 98,
+  "one_size16_omission_bands_n0_n1_n2_n3": [
+    [
+      0,
+      0,
+      4,
+      18
+    ]
+  ],
+  "one_size16_stability_cells_eH_ePQ_ePH_slackH": [
+    [
+      7,
+      3,
+      47,
+      3
+    ],
+    [
+      7,
+      3,
+      48,
+      2
+    ],
+    [
+      7,
+      3,
+      49,
+      1
+    ],
+    [
+      7,
+      3,
+      50,
+      0
+    ],
+    [
+      7,
+      4,
+      48,
+      2
+    ],
+    [
+      7,
+      4,
+      49,
+      1
+    ],
+    [
+      7,
+      4,
+      50,
+      0
+    ],
+    [
+      7,
+      5,
+      49,
+      1
+    ],
+    [
+      7,
+      5,
+      50,
+      0
+    ],
+    [
+      7,
+      6,
+      50,
+      0
+    ],
+    [
+      8,
+      3,
+      47,
+      1
+    ],
+    [
+      8,
+      3,
+      48,
+      0
+    ],
+    [
+      8,
+      4,
+      48,
+      0
+    ]
+  ],
+  "one_size16_surviving_cells_after_eH7_shape_exclusion": [
+    [
+      8,
+      3,
+      47,
+      1
+    ],
+    [
+      8,
+      3,
+      48,
+      0
+    ],
+    [
+      8,
+      4,
+      48,
+      0
+    ]
+  ],
+  "one_size16_forced_degree24_in_high_rows": 7,
+  "complement_closed_existing_ceiling": 272,
+  "new_claim_review_states": "ready; no independent reviews"
+}

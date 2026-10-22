@@ -25,6 +25,9 @@ the exact assumptions and permitted use; no search filters have been added.
 | Topic | Conclusion and proof |
 | --- | --- |
 | Numerical interface | [Exact excess identities and corridor](interface_bounds.md): `160 <= x <= 290`, with sharper bounds depending on `a,b`; the upper bound needs no side-edge census |
+| Large-row tail | [Row deficits and rerooting](large_row_tail.md): three/four size-17 rows force `x<=278/276`; a degree20 pair of codegree two gives a neighborhood-edge gain of at least `x-282`, hence `x<=282` at a maximum-density root; any size-17 row there forces `x<=288` |
+| General pair transfer | [Exact pair identities and clique cut certificates](pair_density_transfer.md): every degree20 pair has explicit degree/cut defects; at a maximum-density root with `x>=289`, degree20 neighbors have overlap at least 5 and nonneighbors at least 7; triangle-containing nonedge overlaps 3..6 give `x<=251/253/261/269` in degrees 19..23 |
+| x290 stability | [One-size-16 profile](cross_tail_stability.md): the eight size-15 endpoints span exactly 8 edges, contain a triangle and include at least seven degree24 vertices; an exact 18+4 omission partition and narrow cuts are forced; neither x290 profile is excluded |
 | Connectivity | [Structure](neighborhood_structure.md): `A` and complement `G[B]` are two-vertex-connected; the latter is three-vertex-connected when degrees lie in 19..23 |
 | Column coverage | [Five-way split](interface_bounds.md#claim-d20-column-partition); `a>=96` excludes size-three columns, `a>=98` forces every column size at least five |
 | Small columns | [Competition](interface_bounds.md#claim-d20-small-column-competition): at most one size-three column; it excludes all size-four columns; at most three size-four columns occur |
