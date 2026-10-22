@@ -152,3 +152,7 @@ the unresolved completions inside the present branch.
 The retained [validation](../../reports/2026-10-22-d20-saturated-categorization/validate.py)
 checks the category counts, five-set splits, and scalar example. It is
 not an independent proof review or a satisfiability check.
+
+The [large-column follow-up](large_columns.md) adds restrictions within category L,
+including simultaneous five/six counts, an equality B frame and triangle resources.
+It leaves the category open.

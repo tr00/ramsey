@@ -46,3 +46,8 @@ cross matrix for fixed labelled sides. No category has closure evidence.
 The note identifies the unresolved matrix exclusions and the separate
 saturation/orientation coverage limitation. Claims are ready for independent
 review, with an author's finite self-check.
+
+The [large-column follow-up](large_columns.md) sharpens the all-columns-at-least-five
+case: simultaneous five/six count bounds, a rigid B frame for four five-columns,
+dense-neighborhood shape exclusions, and shared-triangle compatibility. The
+branch remains open; the new deductions are ready for independent review.
