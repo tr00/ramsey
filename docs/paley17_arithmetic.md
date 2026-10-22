@@ -6,7 +6,7 @@ Author and self-checker: /root, working alone.
 All new claims below are **ready for independent review**, with search use
 **none until review**. Exact fixed-core computations have two implementations
 but no independent author review or Lean formalization. No novelty claim is
-made. The [session report](../reports/2026-10-21-paley17-arithmetic.md) records
+made. The [session report](../research/reports/2026-10-21-paley17-arithmetic.md) records
 commands, scope, checks and artifacts.
 
 ## Setting and applicability
@@ -24,7 +24,7 @@ These results are standalone arithmetic or conditional statements about
 extensions of this specified H. Applying them to every member of R(4,4,17)
 uses the published unique-core classification as an additional external
 premise. This session does not recertify that classification. Existing
-[census-free SRG proofs](../n43/d18/large_row_extensions.md#claim-seventeen-codegree-moments)
+[census-free SRG proofs](../research/n43/d18/large_row_extensions.md#claim-seventeen-codegree-moments)
 supply some of the same character-matrix identities for an arbitrary 17-core,
 but the exact signature classification below specifically uses Paley labels.
 
@@ -83,14 +83,14 @@ If W_t contains a nonedge `b +/- a`, then t must meet all of
 Two outside vertices cannot both omit that nonedge: if adjacent, the
 associated triangle makes K5; if nonadjacent, the omitted pair makes I4.
 This recovers the accepted
-[nonedge packing lemma](../n43/d18/k1/cross_core.json) with explicit modular
+[nonedge packing lemma](../research/n43/d18/k1/cross_core.json) with explicit modular
 arithmetic witnesses for every forced edge or contradiction.
 
 For an outside edge ts, `P_t intersect P_s` must contain no square-step
 progression. Thus common signatures can force ts to be a nonedge by displaying
 just three residues. A T triangle has an independent common H-neighborhood;
 a T independent triple has empty common W-intersection. These retain the
-[exact local extension criterion](../n43/d18/large_row_extensions.md#claim-seventeen-extension-domain).
+[exact local extension criterion](../research/n43/d18/large_row_extensions.md#claim-seventeen-extension-domain).
 
 <a id="claim-paley-character-transform"></a>
 ## 2. The quadratic-character transform is an exact attachment coordinate system
@@ -200,7 +200,7 @@ subsets, with two different I3 tests, gives:
 | 8 | 51 | 2 |
 | **Total** | **7,991** | **72** |
 
-The [subset results](../reports/2026-10-21-paley17-arithmetic/subsets.json)
+The [subset results](../research/reports/2026-10-21-paley17-arithmetic/subsets.json)
 retain every orbit representative, its size, edge count and orbit cardinality.
 A legal single signature remains only one component of the exact local
 extension criterion.
@@ -261,9 +261,9 @@ have at least eleven core neighbors. Checking all eleven compatible
 three-family orbits also shows that none admits four mutually compatible
 size-seven omissions.
 
-[packing.json](../reports/2026-10-21-paley17-arithmetic/packing.json),
-[high_signatures.json](../reports/2026-10-21-paley17-arithmetic/high_signatures.json)
-and [verify_finite.json](../reports/2026-10-21-paley17-arithmetic/verify_finite.json)
+[packing.json](../research/reports/2026-10-21-paley17-arithmetic/packing.json),
+[high_signatures.json](../research/reports/2026-10-21-paley17-arithmetic/high_signatures.json)
+and [verify_finite.json](../research/reports/2026-10-21-paley17-arithmetic/verify_finite.json)
 record the complete checks. There is no claim that four size-eight omissions
 extend to a seven-cell: they do form valid four-vertex local extensions, but
 more outside vertices impose additional obligations.
@@ -311,7 +311,7 @@ orbit counts, and duplicate equivalent cases are harmless.
 Every retained family forces an I4 in T. Specifically, for each pair t,s
 whose common present core set contains a square-step progression, ts must
 be absent to avoid K5. The retained
-[finite certificates](../reports/2026-10-21-paley17-arithmetic/forced_obstructions.json)
+[finite certificates](../research/reports/2026-10-21-paley17-arithmetic/forced_obstructions.json)
 exhibit, for every family, four T vertices with all six edges forced absent,
 and the six corresponding core triangles. They also exhibit three forced
 independent T vertices with a commonly missed core vertex, a second I4 witness.
@@ -358,7 +358,7 @@ The h upper bound follows from `p+q+2h<=168`. The r lower bound is unchanged: `m
 h=5,L=R=84. The upper bound follows from
 `r<=255+h-max(L,R)`, with `max(L,R)>=70+h` for h>=6;
 at h=5, `max(L,R)>=76` gives r<=184. The retained
-[scalar audit](../reports/2026-10-21-paley17-arithmetic/scalars.json)
+[scalar audit](../research/reports/2026-10-21-paley17-arithmetic/scalars.json)
 checks 678 (h,L,R) profiles and the stated projections.
 
 These are projections of necessary inequalities, not graph feasibility.

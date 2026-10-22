@@ -85,7 +85,7 @@ theorem exists_even_degree {V : Type*} [Fintype V] (G : SimpleGraph V)
   rw [Nat.odd_iff] at hodd
   omega
 
-/-- Even-pivot root selection (`../n43/reductions.md` §3): a 43-vertex
+/-- Even-pivot root selection (`../research/n43/reductions.md` §3): a 43-vertex
 `(5,5)`-Ramsey graph has, itself or in its complement, a vertex of degree
 18 or 20. -/
 theorem exists_degree_18_or_20_up_to_compl (G : SimpleGraph (Fin 43))
@@ -160,7 +160,7 @@ theorem complete_pivotSet (h18 : ExcludesDegree 18) (h20 : ExcludesDegree 20) :
 theorem pivotSet_eq_empty (b : PivotBranch) : PivotSet b = ∅ := by
   cases b <;> simp [PivotSet]
 
-/-- Pivot selection as a class cover (`../n43/reductions.md` §3): every
+/-- Pivot selection as a class cover (`../research/n43/reductions.md` §3): every
 43-vertex `(5,5)`-Ramsey graph lies in one of the four pivot classes. -/
 theorem pivot_cover (G : SimpleGraph (Fin 43)) [DecidableRel G.Adj]
     (hG : IsRamseyGraph 5 5 G) : ∃ b : PivotBranch, PivotClass b G := by
@@ -170,7 +170,7 @@ theorem pivot_cover (G : SimpleGraph (Fin 43)) [DecidableRel G.Adj]
   · exact ⟨.compl18, hG, v, (deg_eq_degree Gᶜ v).trans hv⟩
   · exact ⟨.compl20, hG, v, (deg_eq_degree Gᶜ v).trans hv⟩
 
-/-- **Even-pivot reduction of order 43** (`../n43/reductions.md` §3),
+/-- **Even-pivot reduction of order 43** (`../research/n43/reductions.md` §3),
 assembled on the `Complete` carrier: a complete enumeration for the d18 case
 (`ExcludesDegree 18`) and one for the d20 case (`ExcludesDegree 20`) together
 prove the entire order-43 statement — no 43-vertex graph is `(5,5)`-Ramsey.

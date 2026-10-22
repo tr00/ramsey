@@ -1,7 +1,7 @@
 module
 
-public import Ramsey.defs.RamseyGraph
-public import Ramsey.defs.Transversals
+public import Ramsey.basics.RamseyTheory
+public import Ramsey.basics.Transversals
 public import Mathlib.Algebra.Order.BigOperators.Group.Finset
 public import Mathlib.Tactic.Linarith
 
@@ -35,28 +35,14 @@ public theorem exact_intersection_of_avoidance
     ∀ T : Finset V, T ⊆ L → T.card = t →
       ∃ I : Finset V, (I : Set V) ∈ F ∧ I ∩ L = T := by
   intro T hTsub hTcard
-  have hnon := havoidance T hTsub hTcard
-  rw [IsTransversal] at hnon
-  push Not at hnon
-  obtain ⟨S, hSF, hSempty⟩ := hnon
-  classical
-  let I : Finset V := Finset.filter (· ∈ S) Finset.univ
-  have hIset : (I : Set V) = S := by
-    ext x; simp [I]
-  have hIF : (I : Set V) ∈ F := by rwa [hIset]
+  obtain ⟨I, hIF, hdisjoint⟩ :=
+    (not_isTransversal_iff_exists_finset _ F).mp (havoidance T hTsub hTcard)
   refine ⟨I, hIF, ?_⟩
   have hsubset : I ∩ L ⊆ T := by
     intro x hx
     rcases Finset.mem_inter.mp hx with ⟨hxI, hxL⟩
-    have hxS : x ∈ S := by
-      simpa [I] using hxI
-    have hx_not_sdiff : x ∉ (L \ T : Finset V) := by
-      intro hxLminusT
-      have hx_inter : x ∈ S ∩ ((L \ T : Finset V) : Set V) := ⟨hxS, by simpa using hxLminusT⟩
-      rw [hSempty] at hx_inter
-      simp at hx_inter
-    rw [Finset.mem_sdiff] at hx_not_sdiff
-    simpa [hxL] using hx_not_sdiff
+    by_contra hxT
+    exact Set.disjoint_left.mp hdisjoint hxI (Finset.mem_sdiff.mpr ⟨hxL, hxT⟩)
   have hcard_le : (I ∩ L).card ≤ T.card := Finset.card_le_card hsubset
   have hcard_ge : t ≤ (I ∩ L).card := hoccupancy I hIF
   exact Finset.eq_of_subset_of_card_le hsubset (by omega)
@@ -93,6 +79,8 @@ public theorem independent_of_indep_family_avoidance
     (havoidance : ∀ T : Finset V, T ⊆ L → T.card = t →
       ¬IsIndepTransversal G k (L \ T)) :
     G.IsIndepSet (L : Set V) := by
+  have hexact := exact_intersection_of_avoidance (indepSetFamily G k) L t (by omega) htL
+    (fun I hI ↦ hoccupancy I ((mem_indepSetFamily G k I).mp hI)) havoidance
   rw [SimpleGraph.isIndepSet_iff]
   intro u hu v hv hne
   have hpair_sub : ({u, v} : Finset V) ⊆ L := by
@@ -106,38 +94,8 @@ public theorem independent_of_indep_family_avoidance
     omega
   obtain ⟨T, hTsub_uv_T, hTsub_T_L, hTcard⟩ :=
     Finset.exists_subsuperset_card_eq hpair_sub hpair_card (by omega)
-  have h_not_trans := havoidance T hTsub_T_L hTcard
-  rw [IsIndepTransversal] at h_not_trans
-  rw [IsTransversal] at h_not_trans
-  push Not at h_not_trans
-  obtain ⟨S, hS_indep_set, hS_empty⟩ := h_not_trans
-  classical
-  let I : Finset V := Finset.filter (· ∈ S) Finset.univ
-  have hIset : (I : Set V) = S := by
-    ext x; simp [I]
-  have hI_indep : G.IsNIndepSet k I := by
-    rcases hS_indep_set with ⟨J, hJset, hJ_indep⟩
-    have hIJ : I = J := by
-      exact Finset.coe_injective (hIset.trans hJset.symm)
-    rw [hIJ]
-    exact hJ_indep
-  rcases hI_indep with ⟨hI_indep_set, hI_card⟩
-  have h_occupancy := hoccupancy I ⟨hI_indep_set, hI_card⟩
-  have h_subset : I ∩ L ⊆ T := by
-    intro x hx
-    rcases Finset.mem_inter.mp hx with ⟨hxI, hxL⟩
-    have hxS : x ∈ S := by
-      simpa [I] using hxI
-    have hx_not_sdiff : x ∉ (L \ T : Finset V) := by
-      intro hxLminusT
-      have hx_inter : x ∈ S ∩ ((L \ T : Finset V) : Set V) := ⟨hxS, by simpa using hxLminusT⟩
-      rw [hS_empty] at hx_inter
-      simp at hx_inter
-    rw [Finset.mem_sdiff] at hx_not_sdiff
-    simpa [hxL] using hx_not_sdiff
-  have hcard_le : (I ∩ L).card ≤ T.card := Finset.card_le_card h_subset
-  have hcard_ge : t ≤ (I ∩ L).card := h_occupancy
-  have h_eq : I ∩ L = T := Finset.eq_of_subset_of_card_le h_subset (by omega)
+  obtain ⟨I, hIF, h_eq⟩ := hexact T hTsub_T_L hTcard
+  have hI_indep_set := ((mem_indepSetFamily G k I).mp hIF).isIndepSet
   have huT : u ∈ T := hTsub_uv_T (by simp)
   have hvT : v ∈ T := hTsub_uv_T (by simp)
   have huI : u ∈ I := (Finset.mem_inter.mp (h_eq.symm ▸ huT)).1
@@ -335,7 +293,7 @@ public structure DegreeCompatibilityHypotheses
   induced : ∀ K : Finset V,
     (K.card : ℤ) = (Nat.card V : ℤ) - (s : ℤ) - 1 →
     (G.induce (K : Set V)).IndepSetFree 4 →
-    (Nat.card (G.induce (K : Set V)).edgeSet : ℝ) ≤ F₀
+    (inducedEdgeCount G (K : Set V) : ℝ) ≤ F₀
   indep : G.IndepSetFree (s + 2)
 
 /-- Numerical order, deletion and degree gaps used by the compatibility criterion. -/

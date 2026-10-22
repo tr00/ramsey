@@ -25,7 +25,7 @@ cmake --build third-party/roundingsat/build --parallel 4
 Dependency setup is explicit and separate from the root engine build. The exact
 SoPlex download, archive hash, bounded build/install commands, and RoundingSat
 `-Dsoplex=ON` configuration are retained in
-[`reports/2026-10-19-soplex-build.json`](../reports/2026-10-19-soplex-build.json).
+[`research/reports/2026-10-19-soplex-build.json`](../research/reports/2026-10-19-soplex-build.json).
 That setup preserves vendored sources and avoids the upstream unbounded nested
 build. No SoPlex shared-library path is required. Pass `-- --lp=0` to disable
 LP reasoning for an individual run.
@@ -160,7 +160,7 @@ Global A degrees include the pivot edge, and global B degrees include the fixed
 B edges. Neighborhood bounds concern only G[A], not all vertex neighborhoods.
 The default edge component adds 4 inequalities and no variables, bounding each
 internal A edge once and each A-to-B edge once. It excludes pivot and fixed B
-edges. The bounds [50..85 for a and the current x corridor](../n43/reductions.md#8-degree-18-branch)
+edges. The bounds [50..85 for a and the current x corridor](../research/n43/reductions.md#8-degree-18-branch)
 apply to d18 generally. The x upper
 bound retains the recorded B edge-minimum and global degree-cap premises.
 

@@ -23,11 +23,11 @@ All findings concern this exact text; a changed proof requires renewed review;
 the precision edits listed below, if applied, must be recorded and rechecked.
 
 Dependencies reviewed:
-- `n43/d18/symmetry_reduction.md` SHA-256
+- `research/n43/d18/symmetry_reduction.md` SHA-256
   `6b9072c4a9b1f54042bd6d7e4913d4aedd5b0a8e8c04a2d18b994c2dc2d31d1b`
   (recomputed; matches the hash the target file cites at lines 318-321).
   Claim `#claim-d18-symmetry-01` (lines 72-119, state accepted, review
-  `n43/d18/review_d18_symmetry_20261014_pivot.md` SHA-256
+  `research/n43/d18/review_d18_symmetry_20261014_pivot.md` SHA-256
   `b1c63e0bc08605ca9378221f1616e27c6705a71810ea01e22782416f8f60acf8`,
   recomputed) was read for applicability: its `Gamma_M` binds `g in Aut(A)`
   explicitly (line 99) with `sigma` a full permutation of the 24 positions,
@@ -47,8 +47,8 @@ Dependencies reviewed:
   branch-restricted family is equivariant).
 - The target's cited input revision `f98a1285b7adc9720a693ae3a54fba212a021bdf`
   is a real commit; its reduction index `b64a7aec9950ec483e124fda44356a23ae35e913be89a7dfba131a0be76a62ba`
-  is exactly `n43/reductions.md` at that commit (recomputed). Current
-  `n43/reductions.md` hashes to `4d7ddf5fce27a8c569df443855262c8751505018e0e4828e915383b42405bdf9`
+  is exactly `research/n43/reductions.md` at that commit (recomputed). Current
+  `research/n43/reductions.md` hashes to `4d7ddf5fce27a8c569df443855262c8751505018e0e4828e915383b42405bdf9`
   and has since changed; it is not used in any of the four proofs.
 - Unresolved external premises: none. The four claims need no Ramsey value,
   extremum, or census. The d18 acceptance's external premises were not
@@ -134,7 +134,7 @@ claim); no formal certificate or proof-assistant artifact exists for these
 claims; the accepted d18 dependency's external premises (Ramsey values,
 extrema, census bounds) were not re-certified and are not needed by these
 proofs; the target's cited reduction index is stale relative to the current
-`n43/reductions.md` but is not a dependency of these four claims; the
+`research/n43/reductions.md` but is not a dependency of these four claims; the
 reviewer's finite-instance scripts supplement but do not replace the general
 hand-derivations; no solver, canonicalizer, automorphism procedure, orbit
 coverage log, or timing claim is validated by this review; the repository's
@@ -150,6 +150,6 @@ integration-status banner added under the title. No proof body, claim
 statement, or author prose was edited. The byte-preservation gate
 (strip the banner, revert those metadata lines) reproduces the reviewed
 SHA-256 exactly; gate result and post-integration hashes are recorded in
-[the audit report](../../reports/2026-10-19-symmetry-quotients-extensions-audit.md).
+[the audit report](../../research/reports/2026-10-19-symmetry-quotients-extensions-audit.md).
 The editorial precision findings above remain open as optional wording fixes;
 if applied, the file hash changes and a renewed check is required.

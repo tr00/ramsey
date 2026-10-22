@@ -11,8 +11,8 @@ Task token: `abstraction-20261015-transversal-deletion`.
 Base revision: `b12925f7a96d24e18d06b0237930a32e30660ca2`.
 
 This parameterizes the deletion proof in
-[the four-transversal note](../../n43/d18/transversal_four.md) and its
-[frontier-band extension](../../n43/d18/frontier_band.md). Purely
+[the four-transversal note](../../research/n43/d18/transversal_four.md) and its
+[frontier-band extension](../../research/n43/d18/frontier_band.md). Purely
 mathematical work; no computation, download, installation, or literature
 review was performed. No novelty is claimed.
 
@@ -150,7 +150,7 @@ For the pivot application F is the complement of A=N(v), where A is
 
 Dependencies: Claim 01; `R(4,3)=9`; the published lower bound 50 for
 15-vertex (4,4)-free graphs recorded in
-[transversal_four.md](../../n43/d18/transversal_four.md#published-input).
+[transversal_four.md](../../research/n43/d18/transversal_four.md#published-input).
 The census is not recertified here.
 
 Conclusion: Every K4-transversal of F has size at least four.
@@ -185,7 +185,7 @@ Scope: 18-vertex F with alpha(F)<=3; a four-set K4-transversal T;
 the recorded lower bound 41 for 14-vertex (4,4)-free graphs.
 
 Dependencies: Claims 01--02; `R(4,3)=9`; the 14-vertex lower bound
-recorded in [frontier_band.md](../../n43/d18/frontier_band.md),
+recorded in [frontier_band.md](../../research/n43/d18/frontier_band.md),
 section "Size-four columns". No external census recertification here.
 
 Conclusion: Such a transversal forces e(F)>=66. At e(F)=68+q,
@@ -219,12 +219,12 @@ Reviews: [review](review_audit_pending_transversals_20261015.md).
 Read source hashes:
 
 ```text
-0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54  n43/d18/frontier_band.md
-4c084b03583248dc7c7ed56324ec5b6801bdca5278cf4fc17fa7e845dc07825e  n43/d18/transversal_four.md
+0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54  research/n43/d18/frontier_band.md
+4c084b03583248dc7c7ed56324ec5b6801bdca5278cf4fc17fa7e845dc07825e  research/n43/d18/transversal_four.md
 ```
 
 The other source is the published-input/proof note
-`n43/d18/transversal_four.md` as present at the base revision above.
+`research/n43/d18/transversal_four.md` as present at the base revision above.
 The independent audit of the present abstract claims remains pending.
 Author self-check covered enlargement of a small transversal, exact
 Ramsey type of each nonneighbor set, b=0 boundary, Turan complement

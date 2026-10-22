@@ -435,7 +435,7 @@ x >= 136.
 
 Update (2026-10-19): the reviewed x136 closure strengthens this floor to
 `x >= 137` for every degree-18 root
-([closure](../n43/d18/x136/README.md)).
+([closure](../research/n43/d18/x136/README.md)).
 
 This is a tighter branch bound than the catalogue-free matching lemma, though
 it relies on the established computational census.
@@ -559,9 +559,9 @@ The accumulated per-task status summaries that previously filled this
 section were removed on 2026-10-18: they duplicated the operational index
 and had grown stale (pre-migration file names, superseded x136
 r-partition status). Current statuses of every deduction live in the
-[reduction index](../n43/reductions.md), the
-[results dashboard](../results.md), the branch READMEs under `n43/`, the
-dated reports under `reports/`, and the
+[reduction index](../research/n43/reductions.md), the
+[results dashboard](../results.md), the branch READMEs under `research/n43/`, the
+dated reports under `research/reports/`, and the
 [general theorem catalogue](general_theorems/README.md).
 
 The following are proof targets, not established facts:

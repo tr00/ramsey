@@ -11,7 +11,7 @@ Author: transversal compatibility agent. Base revision:
 `b12925f7a96d24e18d06b0237930a32e30660ca2`.
 
 These are theorem abstractions of the reviewed arguments in
-[low-excess columns](../../n43/d18/x136/r2/low_excess_columns.md), especially
+[low-excess columns](../../research/n43/d18/x136/r2/low_excess_columns.md), especially
 Claims 02, 04, and 06. No graph computation, installation, download, or
 literature review was performed. No novelty is claimed. Numerical order-43
 premises remain dependencies of the specialization, not premises of the
@@ -224,13 +224,13 @@ Kind: local-deduction
 Review state: accepted
 
 Scope: the full setting of
-`n43/d18/x136/r2/low_excess_columns.md`, before imposing r=2. In particular
+`research/n43/d18/x136/r2/low_excess_columns.md`, before imposing r=2. In particular
 H=A is (4,5)-free on 18 vertices, e(H)=85, and the full actual-interface
 anchor bound holds. The transversals need not be actual columns.
 
 Dependencies: Claim 03;
-[low-excess setting and Claim 01](../../n43/d18/x136/r2/low_excess_columns.md#claim-r2-low-excess-01);
-[four-transversal bound](../../n43/d18/transversal_four.md);
+[low-excess setting and Claim 01](../../research/n43/d18/x136/r2/low_excess_columns.md#claim-r2-low-excess-01);
+[four-transversal bound](../../research/n43/d18/transversal_four.md);
 the recorded literature value `R(3,4)=9`. Numerical census premises
 underlying the degree/transversal facts are not recertified here.
 
@@ -290,7 +290,7 @@ degree-ten theorem or universal tau>=5 theorem is asserted here.
 
 ## Provenance and self-check
 
-Source `n43/d18/x136/r2/low_excess_columns.md` was read at SHA-256
+Source `research/n43/d18/x136/r2/low_excess_columns.md` was read at SHA-256
 `e855ca074447be16c6d42a1924d067702972e1d7147b7522f121bf08c2fb9dff`.
 Its existing independent reviews support the original numerical-premise
 specialization; they do not constitute review of these new abstractions.

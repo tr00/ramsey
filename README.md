@@ -68,7 +68,7 @@ neighborhood analysis can miss.
 
 Much of the current work follows a vertex of degree 18. Its two sides have
 18 and 24 vertices. The original cross-edge floor was 136; the reviewed
-[x136](n43/d18/x136/README.md) and [x137](n43/d18/x137/README.md) exclusions
+[x136](research/n43/d18/x136/README.md) and [x137](research/n43/d18/x137/README.md) exclusions
 raise it to 138. Higher cross counts remain open.
 Other threads study overlapping vertex neighborhoods, symmetry reductions,
 and the case with minimum degree 20 after choosing between a graph and its
@@ -110,11 +110,11 @@ when a computation closes a named subbranch.
 | Location                                        | What you will find                                                      |
 | ----------------------------------------------- | ----------------------------------------------------------------------- |
 | [results.md](results.md)                        | Current progress and links to recent deductions                         |
-| [n43/](n43/README.md)                           | The 43-vertex case, organized by mathematical assumptions               |
-| [n43/d18/](n43/d18/README.md)                   | Degree-18 neighborhoods, cross-column compatibility, and frontier cases |
-| [n43/min-degree20/](n43/min-degree20/README.md) | The complementary line of work on normalized minimum degree 20          |
+| [research/n43/](research/n43/README.md)                           | The 43-vertex case, organized by mathematical assumptions               |
+| [research/n43/d18/](research/n43/d18/README.md)                   | Degree-18 neighborhoods, cross-column compatibility, and frontier cases |
+| [research/n43/min-degree20/](research/n43/min-degree20/README.md) | The complementary line of work on normalized minimum degree 20          |
 | [docs/](docs/)                                  | Background, shared theorems, and evidence standards                     |
-| [reports/](reports/README.md)                    | Topic index of dated research, validation and handoffs                  |
+| [research/reports/](research/reports/README.md)                    | Topic index of dated research, validation and handoffs                  |
 | [src/](src/) and [tests/](tests/)               | C++ fixed-B OPB frontend and semantic regression tests                  |
 | [scripts/](scripts/)                            | Independent Python graph checker and reference CNF utilities            |
 
@@ -122,7 +122,7 @@ For background and references, start with the
 [mathematical baseline](docs/mathematical_baseline.md) and the shared
 [definitions and notation](docs/notation.md). For a concrete example
 of the approach, read the
-[degree-18 equality frontier](n43/d18/x136/README.md), whose full-interface proof excludes the entire x=136 branch.
+[degree-18 equality frontier](research/n43/d18/x136/README.md), whose full-interface proof excludes the entire x=136 branch.
 The degree-18 branch and order-43 problem remain open.
 
 ## Contributing

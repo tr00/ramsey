@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Machine verification for n43/d18/catalogue_edge_maximality.md.
+"""Machine verification for research/n43/d18/catalogue_edge_maximality.md.
 
 Deterministic, standard library only, no downloads. Verifies that restricting
 the B-side catalogue to edge-maximal members destroys completeness of the

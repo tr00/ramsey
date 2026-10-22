@@ -1,6 +1,6 @@
 # Independent audit of the prescribed-family overlap claims
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Date: 2026-10-15. Task: `audit-pending-20261015`.
 
@@ -29,7 +29,7 @@ formula one may also take `rho_1=3`, using the elementary `R(3,2)=3`.
 The source theorem was consulted for comparison at:
 
 ```text
-e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a  n43/d18/dense_pivot_coverage.md
+e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a  research/n43/d18/dense_pivot_coverage.md
 e6ea1c070e32ac04a73eb53a5634921acb7fe6d02123a3c7d35a710f262a698e  docs/mathematical_baseline.md
 51220632656f91905d0ace361179ea8953a51ea6e544005d723ac7425df7e5b2  docs/workflow.md
 ```

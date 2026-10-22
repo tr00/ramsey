@@ -2,9 +2,8 @@ module
 
 public import Ramsey.n43.d18.k1.Core
 public import Ramsey.n09.R43
-public import Ramsey.theorems.PivotCounting
-public import Ramsey.theorems.CliqueBounds
-public import Ramsey.theorems.RowBounds
+public import Ramsey.theorems.Counting
+public import Ramsey.basics.GraphTheory
 public import Mathlib.Tactic.IntervalCases
 
 /-!
@@ -77,7 +76,8 @@ public theorem core_nonedge_miss_unique
       (fun he ↦ hts (Subtype.ext he)) hxy (fun h ↦ htx h.symm)
       (fun h ↦ hsx h.symm) (fun h ↦ hty h.symm) (fun h ↦ hsy h.symm) hn
   let Z := antiNeighborSet (G.induce K) x ∩ antiNeighborSet (G.induce K) y
-  obtain ⟨hZcard, hZclique⟩ := core_nonedge_common_anti_triangle hK hcard hne hxy
+  obtain ⟨hZcard, hZclique⟩ : Nat.card Z = 3 ∧ (G.induce K).IsClique Z :=
+    n17.nonedge_common_anti_triangle (G := G.induce K) hK hcard hne hxy
   have hZ : (G.induce K).IsNClique 3 Z.toFinset := by
     refine ⟨?_, ?_⟩
     · simpa only [Set.coe_toFinset] using hZclique
@@ -127,11 +127,6 @@ public theorem attachment_common_omissions_clique
   by_contra hn
   exact hts (core_nonedge_miss_unique hK hcard hside hdis hxy hn hx.1 hy.1 hx.2 hy.2)
 
-/-- A clique in a graph with no 4-clique has at most 3 vertices. -/
-private lemma clique_card_le_three {W : Type*} [Fintype W] {H : SimpleGraph W}
-    (hH : H.CliqueFree 4) {S : Set W} (hS : H.IsClique S) : Nat.card S ≤ 3 :=
-  clique_card_le_of_cliqueFree hH hS
-
 /-- The common omissions of 2 distinct cell vertices have cardinality at most 3. -/
 public theorem attachment_common_omissions_le_three
     (hK : IsRamseyGraph 4 4 (G.induce K)) (hcard : Nat.card K = 17)
@@ -139,7 +134,8 @@ public theorem attachment_common_omissions_le_three
     {t s : U} (hts : t ≠ s) :
     Nat.card {x : K | ¬G.Adj t x ∧ ¬G.Adj s x} ≤ 3 := by
   classical
-  exact clique_card_le_three hK.1 (attachment_common_omissions_clique hK hcard hside hdis hts)
+  exact clique_card_le_of_cliqueFree hK.1
+    (attachment_common_omissions_clique hK hcard hside hdis hts)
 
 /-- Every cell vertex has at least 9 neighbors in the core. -/
 public theorem attachment_degree_ge_nine

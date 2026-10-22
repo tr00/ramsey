@@ -1,6 +1,6 @@
 # Independent review of two-root symmetry gluing: original revision
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Date: 2026-10-15. Review task: `audit_pair_gluing`.
 
@@ -39,8 +39,8 @@ for the repair and all-three-claim acceptance.
 
 | File | SHA-256 |
 | --- | --- |
-| `n43/min-degree20/pair_coverage.md` | `dcc49b82fd216c9db70de88d0d8f0dc33e25a82c0eb75e671d47542d4c30cbde` |
-| `n43/d18/dense_pivot_coverage.md` | `e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a` |
+| `research/n43/min-degree20/pair_coverage.md` | `dcc49b82fd216c9db70de88d0d8f0dc33e25a82c0eb75e671d47542d4c30cbde` |
+| `research/n43/d18/dense_pivot_coverage.md` | `e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a` |
 | `docs/mathematical_baseline.md` | `e6ea1c070e32ac04a73eb53a5634921acb7fe6d02123a3c7d35a710f262a698e` |
 
 Pair-family assumptions and the application formulas |D|=43-2d+lambda,

@@ -57,8 +57,8 @@
       "claims": 6
     },
     {
-      "proof": "n43/min-degree20/pair_coverage.md",
-      "review": "n43/min-degree20/review_pair_coverage_20261015_transversal.md",
+      "proof": "research/n43/min-degree20/pair_coverage.md",
+      "review": "research/n43/min-degree20/review_pair_coverage_20261015_transversal.md",
       "reviewed_sha256": "2d0856ed1586302fa1b493a2aefe20993847784148a0674ddb42911ed7d09d9d",
       "integrated_sha256": "dcc49b82fd216c9db70de88d0d8f0dc33e25a82c0eb75e671d47542d4c30cbde",
       "review_sha256": "688cf4ba772d8ef5180c966dd063a2b9f34d2c189401a0648c35e6adb32f0376",

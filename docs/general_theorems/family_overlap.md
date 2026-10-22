@@ -12,7 +12,7 @@ Pure mathematics; no graph computations, downloads, installations, or novelty
 review. The claims below await independent exact-revision review.
 
 This note abstracts the accepted
-[degree-18 prescribed-family claim](../../n43/d18/dense_pivot_coverage.md#claim-dense-pivot-01).
+[degree-18 prescribed-family claim](../../research/n43/d18/dense_pivot_coverage.md#claim-dense-pivot-01).
 The proof has two distinct ingredients: equality in a triangle forces a rigid
 attachment pattern, and a separate component bound limits the family. The
 constant three in the second ingredient is verified for the original

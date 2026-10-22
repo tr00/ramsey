@@ -2,6 +2,8 @@ module
 
 public import Ramsey.n43.d18.k1.Frame
 import Ramsey.theorems.PivotInterface
+import Ramsey.basics.GraphTheory
+import Ramsey.basics.RamseyTheory
 
 /-!
 # Exact cross-core completion
@@ -56,26 +58,25 @@ private lemma card_lt_of_free {H : SimpleGraph (Fin 43)} {A : Set (Fin 43)} {n :
 
 /-- Disjoint selections form a clique exactly when the missing rectangle is complete. -/
 private lemma mixed_clique (F : Frame G) (H : SimpleGraph (Fin 43))
-    {P Q R : Finset (Fin 43)} (_hP : (P : Set _) ⊆ F.C)
-    (_hQ : (Q : Set _) ⊆ F.D) (_hR : (R : Set _) ⊆ F.T)
+    {P Q R : Finset (Fin 43)} (hP : (P : Set _) ⊆ F.C)
+    (hQ : (Q : Set _) ⊆ F.D) (hR : (R : Set _) ⊆ F.T)
     (hb : MixedBase H P Q R) (hx : ∀ p ∈ P, ∀ q ∈ Q, H.Adj p q) :
     H.IsClique ((P ∪ Q ∪ R : Finset _) : Set _) := by
-  intro x hx' y hy hxy
-  rcases Finset.mem_union.mp hx' with hx' | hx' <;>
-    rcases Finset.mem_union.mp hy with hy | hy
-  · rcases Finset.mem_union.mp hx' with hx' | hx' <;>
-      rcases Finset.mem_union.mp hy with hy | hy
-    · exact hb.1 hx' hy hxy
-    · exact hx x hx' y hy
-    · exact (hx y hy x hx').symm
-    · exact hb.2.1 hx' hy hxy
-  · rcases Finset.mem_union.mp hx' with hx' | hx'
-    · exact hb.2.2.2.1 x hx' y hy
-    · exact hb.2.2.2.2 x hx' y hy
-  · rcases Finset.mem_union.mp hy with hy | hy
-    · exact (hb.2.2.2.1 y hy x hx').symm
-    · exact (hb.2.2.2.2 y hy x hx').symm
-  · exact hb.2.2.1 hx' hy hxy
+  have hd : Disjoint P Q := Finset.disjoint_left.mpr fun _ hp hq ↦
+    Set.disjoint_left.mp F.disjoint_CD (hP hp) (hQ hq)
+  have he : Disjoint (P ∪ Q) R := by
+    apply Finset.disjoint_left.mpr
+    intro x hx hr
+    rcases Finset.mem_union.mp hx with hp | hq
+    · exact Set.disjoint_left.mp F.disjoint_CT (hP hp) (hR hr)
+    · exact Set.disjoint_left.mp F.disjoint_DT (hQ hq) (hR hr)
+  have hpq := isNClique_union (⟨hb.1, rfl⟩ : H.IsNClique P.card P)
+    (⟨hb.2.1, rfl⟩ : H.IsNClique Q.card Q) hd hx
+  apply (isNClique_union hpq (⟨hb.2.2.1, rfl⟩ : H.IsNClique R.card R) he ?_).isClique
+  intro x hx r hr
+  rcases Finset.mem_union.mp hx with hp | hq
+  · exact hb.2.2.2.1 x hp r hr
+  · exact hb.2.2.2.2 x hq r hr
 
 /-- The 3 cell cardinalities add without overlap. -/
 private lemma mixed_card (F : Frame G) {P Q R : Finset (Fin 43)}

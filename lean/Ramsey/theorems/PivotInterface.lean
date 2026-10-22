@@ -1,6 +1,8 @@
 module
 
 public import Ramsey.n43.D18
+public import Ramsey.basics.GraphTheory
+public import Ramsey.basics.RamseyTheory
 
 /-!
 # Exact pivot-interface criterion
@@ -58,14 +60,9 @@ theorem cliqueRectangleFree_iff_cliqueFreeOn (G : SimpleGraph V) {A B : Set V}
       rcases Finset.mem_union.mp hx with hx | hx
       · exact Or.inl (hP hx)
       · exact Or.inr (hQ hx)
-    · refine ⟨?_, by rw [Finset.card_union_of_disjoint hd, hcard]⟩
-      intro x hx y hy hxy
-      rcases Finset.mem_union.mp hx with hx | hx <;>
-        rcases Finset.mem_union.mp hy with hy | hy
-      · exact hcP hx hy hxy
-      · exact hcross x hx y hy
-      · exact (hcross y hy x hx).symm
-      · exact hcQ hx hy hxy
+    · simpa only [hcard] using
+        isNClique_union (⟨hcP, rfl⟩ : G.IsNClique P.card P)
+          (⟨hcQ, rfl⟩ : G.IsNClique Q.card Q) hd hcross
 
 /-- On disjoint parts, complementing changes all-one rectangles into all-zero rectangles. -/
 theorem cliqueRectangleFree_compl_iff (G : SimpleGraph V) {A B : Set V}
@@ -129,8 +126,8 @@ theorem isRamseyGraph_five_five_iff_pivot_interface (G : SimpleGraph V) (v : V) 
   have hd := pivot_neighbor_antiNeighbor_disjoint G v
   constructor
   · intro hG
-    refine ⟨isRamseyGraph_induce_neighborSet hG v,
-      isRamseyGraph_induce_antiNeighborSet hG v, ?_, ?_⟩
+    refine ⟨isRamseyGraph_induce_neighborSet_succ hG v,
+      isRamseyGraph_induce_antiNeighborSet_succ hG v, ?_, ?_⟩
     · apply (cliqueRectangleFree_iff_cliqueFreeOn G hd 5).mpr
       exact fun _ _ ↦ hG.1 _
     · apply (cliqueRectangleFree_compl_iff G hd 5).mp

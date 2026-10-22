@@ -31,7 +31,7 @@ The starting mechanisms already exist in the project: the
 [exact signature criterion](signature_anchors.md#claim-signature-anchors-01),
 [transversal deletion](transversal_deletion.md#claim-transversal-deletion-01),
 [pointed overlap gluing](symmetry_pair_gluing.md#claim-pair-gluing-01), and
-[saturated core-pair packing](../../n43/d18/critical_core_exterior.md).
+[saturated core-pair packing](../../research/n43/d18/critical_core_exterior.md).
 The purpose here is to put their interfaces and composition rules in one
 language, and prove which information can safely be discarded.
 
@@ -277,7 +277,7 @@ If u is isolated inside an 18-vertex N(v), then the signature-{v}
 cell for the root edge uv has order 17 and type (4,4). Its further
 critical regularity is a separate theorem, not part of the type calculus.
 
-In [the K3 component setting](../../n43/d18/k3/core_interface.md), let
+In [the K3 component setting](../../research/n43/d18/k3/core_interface.md), let
 N(v)=U disjoint-union C with U a K3, anticomplete to C. For root graph
 G[{v} union U]=K4, the C signature is {v}, so C again has type (4,4),
 now of order 15. If y outside N[v] misses some u in U, the part of C
@@ -286,7 +286,7 @@ has type (4,3). More generally, if independent Q outside N[v] has a
 common missed u in U, its common missed C region has type (4,4-|Q|).
 For |Q|=1,2,3 these are respectively (4,3), (4,2), and empty.
 This is precisely the nested-core mechanism behind the
-[joint missing-column theorem](../../n43/d18/k3/core_interface.md#claim-k3-core-02).
+[joint missing-column theorem](../../research/n43/d18/k3/core_interface.md#claim-k3-core-02).
 
 ### 5.3 A transversal is an alternative way to expose a smaller block
 
@@ -307,7 +307,7 @@ clique capacity. The [critical-face theorem](critical_face_transport.md)
 turns these capacities into an incidence resource system. Unit capacities
 give missing-set labels; label constraints can rule out a whole outside
 pattern rather than merely tighten an edge count. This generalizes the
-[critical-core exterior proof](../../n43/d18/critical_core_exterior.md)
+[critical-core exterior proof](../../research/n43/d18/critical_core_exterior.md)
 without assuming an SRG core in the abstract theorem.
 
 ## 6. What a useful Lego theory can and cannot mean here
@@ -320,7 +320,7 @@ Complementation exchanges c with a and positive with negative colour.
 
 Uniform substitution alone cannot factor an order-43 candidate into
 proper nontrivial modules: the
-[reviewed primeness theorem](../../n43/symmetry_structure.md#claim-symmetry-structure-03)
+[reviewed primeness theorem](../../research/n43/symmetry_structure.md#claim-symmetry-structure-03)
 already excludes such modules. A module in a partial graph can still be
 broken by future attachments; it must not be rejected as permanent.
 Overlapping blocks and labelled interfaces avoid that restriction, but

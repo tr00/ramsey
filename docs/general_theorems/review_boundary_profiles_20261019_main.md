@@ -28,7 +28,7 @@ They require no numerical Ramsey theorem, catalogue or uniqueness premise.
 The contextual links to [signature anchors](signature_anchors.md) and
 [two-root gluing](symmetry_pair_gluing.md) describe distinct pre-existing
 mechanisms, not additional premises of the four claims. Section 7 uses
-[the accepted module obstruction](../../n43/symmetry_structure.md#claim-symmetry-structure-03)
+[the accepted module obstruction](../../research/n43/symmetry_structure.md#claim-symmetry-structure-03)
 only for its stated completed-graph consequence: an order-43 K5/I5-free
 graph has no proper module with at least two vertices. The source statement
 and proof were read; its literature Ramsey premises are retained, not
@@ -139,7 +139,7 @@ The scripted operator checks covered p,q=1..4, including threshold 1:
 introduction entries and 112 relabelling entries. All passed. The broader
 calculus validation also exercised the C5 versus identically ported,
 relabelled P4 distinction. The dated
-[research report](../../reports/2026-10-19-ramsey-attachment-calculus.md)
+[research report](../../research/reports/2026-10-19-ramsey-attachment-calculus.md)
 retains the full validation source, commands, a corrected separate dual
 capacity-fixture assertion, and exact outputs. The correction concerned
 an erroneous fixture expectation, not this manuscript or its four claims.

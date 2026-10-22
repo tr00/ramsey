@@ -1,6 +1,6 @@
 # Independent audit of cross signatures and homogeneous anchors
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Date: 2026-10-15. Author: `augmentation_author`. Reviewer: audit-pending
 coordinator (distinct from the author and this session's three subagent auditors).

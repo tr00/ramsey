@@ -1,6 +1,7 @@
 module
 
-public import Ramsey.theorems.PivotCounting
+public import Ramsey.theorems.Counting
+public import Ramsey.theorems.LocalReductions
 
 /-!
 # Degree-18 pivot budgets

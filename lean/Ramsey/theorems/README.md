@@ -20,8 +20,8 @@ and the per-note sibling reviews for exact reviewed revisions.
 ## Lean statement status
 
 [TransversalDeletion.lean](TransversalDeletion.lean) states Claims 01–04 of its note.
-Its 17 theorem declarations retain deliberate `by sorry` bodies. General inputs use
-`DeletionHypotheses` and `IsSizedCliqueTransversal`, with external edge bounds kept
+Its 15 substantive and numerical declarations retain deliberate `by sorry` bodies.
+General inputs use `DeletionHypotheses` and `IsSizedCliqueTransversal`, with external edge bounds kept
 explicit. Named threshold and defect definitions preserve natural-number truncation
 and integer casts. Component, defect, stability, equality and four-set budget results
 have named fields instead of nested conjunctions.
@@ -33,16 +33,17 @@ transversality. `DegreeCompatibilityHypotheses` and `DegreeCompatibilityGaps` se
 graph properties from numerical gaps. The degree-gap theorem and its frontier
 specialization retain two deliberate `sorry` bodies.
 
-Shared graph definitions live in [defs/RamseyGraph.lean](../defs/RamseyGraph.lean)
-and [defs/Transversals.lean](../defs/Transversals.lean). The packages above stay
-with their theorem topics. The root module re-exports both transversal modules,
-but the existing order-43 target does not use them.
+Repository graph vocabulary lives in [defs/RamseyGraph.lean](../defs/RamseyGraph.lean)
+and [defs/Transversals.lean](../defs/Transversals.lean). Standard background lives in
+`basics/`, including the proved transversal deletion equivalence and complement duality.
+The packages above stay with their non-standard theorem topics. The root module
+re-exports both transversal theorem modules, but the order-43 target does not use them.
 The Ramsey-specific declarations `eighteen_pivot_indep_transversal_card_ge_four`
 and `frontier_four_transversals_intersect` take a bundled `RamseyGraph`.
 Its `graph` and `ramsey` fields replace separate graph and Ramsey-proof arguments.
 
 [TransversalFour.lean](TransversalFour.lean) proves
-[`n43/d18/transversal_four.md`](../../../n43/d18/transversal_four.md): a
+[`research/n43/d18/transversal_four.md`](../../../research/n43/d18/transversal_four.md): a
 three-vertex clique transversal forces at least 71 edges, so an 18-vertex graph
 with no independent four-set and at most 70 edges has transversal size at least
 four. It includes the source's 68-edge theorem and the actual cross-column
@@ -53,7 +54,7 @@ proved in [n09/R43.lean](../n09/R43.lean). All proofs in this module are complet
 import either transversal module. Those general modules retain explicit
 bound hypotheses, keeping their general formulations independent of the premises.
 
-[RamseyBounds.lean](RamseyBounds.lean) proves the elementary 2-clique base case,
+[basics/RamseyTheory.lean](../basics/RamseyTheory.lean) proves the elementary 2-clique base case,
 neighborhood restriction, neighborhood cardinality cap, and additive Ramsey recurrence
 without published premises. The order-specific proofs in `n03/`, `n04/`, `n06/`,
 `n09/`, and `n18/` instantiate these results. The order-9 proof additionally uses
@@ -82,7 +83,7 @@ is included. The source's examples are explanatory rather than extra claim inter
 ## Proved reduction-index basics
 
 The following modules formalize scoped parts of
-[`n43/reductions.md`](../../../n43/reductions.md), not the entire index.
+[`research/n43/reductions.md`](../../../research/n43/reductions.md), not the entire index.
 Every declaration in these modules has a proof. They do not import the two
 statement-only transversal modules or the unproved branch exclusions.
 
@@ -90,7 +91,7 @@ statement-only transversal modules or the unproved branch exclusions.
 | --- | --- |
 | [LocalReductions.lean](LocalReductions.lean) | §4.3 full adjacent/nonadjacent codegree intervals, §4.4 mixed and common-nonneighbor cells, §§5.2–5.3 row/column cardinal inequalities |
 | [PivotInterface.lean](PivotInterface.lean) | §5.1 exact equivalence between the full Ramsey property and correct internal types plus forbidden rectangles, including empty sides and pivot-containing five-sets |
-| [PivotCounting.lean](PivotCounting.lean) | §2 general degree sums over both pivot parts, cross-edge row counting and complement edge counting |
+| [Counting.lean](Counting.lean) | General row counts, induced-union and cut edge decompositions, degree sums, two-anchor identities and complement edge counting |
 | [n43/d18/PivotBudget.lean](../n43/d18/PivotBudget.lean) | §§2, 8.1–8.3 and the basic §8.6 identity: `50≤a≤85`, `144≤b≤160`, `x+2a=306+Δ_A`, `x=136+2(85-a)+Δ_A`, `x≥136`, `x=136 ↔ a=85 ∧ ∀u∈A,d(u)=18`, and `148≤b≤160` at equality |
 
 Shared counting and rectangle predicates are in
@@ -337,8 +338,8 @@ independent acceptance on their explicit numerical and interface premises.
   need not themselves be actual cross columns.
 
 The source index also links the
-[normalized minimum-degree-20 pair-coverage theorem](../../../n43/min-degree20/pair_coverage.md)
-and [order-43 symmetry structure](../../../n43/symmetry_structure.md).
+[normalized minimum-degree-20 pair-coverage theorem](../../../research/n43/min-degree20/pair_coverage.md)
+and [order-43 symmetry structure](../../../research/n43/symmetry_structure.md).
 Those are order-specific applications outside the nine general theorem notes,
 not additional general results. No entry here closes an order-43 branch.
 

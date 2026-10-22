@@ -7,15 +7,15 @@ in the proof bodies, with an integration banner resolving their current state.
 [The manifest](integration_manifest.json) records reviewed and integrated hashes.
 No novelty claim, formal certificate, or new global Ramsey bound is made.
 
-A separate [symmetry audit](../../reports/2026-10-15-symmetry-audit.md) adds
+A separate [symmetry audit](../../research/reports/2026-10-15-symmetry-audit.md) adds
 fourteen independently accepted claims in three notes. Its
 [manifest](symmetry_audit_manifest.json) records the revised proof and review
 hashes; these claims are separate from the historical twenty-eight above.
 
-A [2026-10-19 audit](../../reports/2026-10-19-symmetry-quotients-extensions-audit.md)
+A [2026-10-19 audit](../../research/reports/2026-10-19-symmetry-quotients-extensions-audit.md)
 adds four independently accepted claims in
 [symmetry_quotients.md](symmetry_quotients.md) and three in the branch note
-[n43/d18/symmetry_extensions.md](../../n43/d18/symmetry_extensions.md),
+[research/n43/d18/symmetry_extensions.md](../../research/n43/d18/symmetry_extensions.md),
 each recorded in a sibling review at its exact reviewed revision.
 
 The [2026-10-19 attachment calculus](ramsey_attachment_calculus.md) supplies
@@ -23,7 +23,7 @@ The [2026-10-19 attachment calculus](ramsey_attachment_calculus.md) supplies
 restatements of older interface criteria. The substantive additions are
 finite uniform-context replacement, critical-face-to-colouring transport,
 and structural obstructions lifted through information-equivalent blocks.
-The [report](../../reports/2026-10-19-ramsey-attachment-calculus.md) records
+The [report](../../research/reports/2026-10-19-ramsey-attachment-calculus.md) records
 exact hashes, independent audits, fixed-object validation and limits.
 
 | Theorem family | Abstract hypotheses and conclusion | Original use and limits |
@@ -38,10 +38,10 @@ exact hashes, independent audits, fixed-object validation and limits.
 | [Transversal compatibility](transversal_compatibility.md) | Weighted occupancy plus failure of complementary subsets as transversals forces every small subset of a low-weight set to occur in an independent member. Explicit degree gaps exclude disjoint transversals. | Recovers frontier disjointness without actual-column status. Singleton proofs still require their preliminary case analysis; no isolated tau>=5 theorem follows. |
 | [Prescribed-family overlap](family_overlap.md) | Equal-degree families with high edge codegrees have either triangle equality and paw-free structure, or no triangles. Anchor and component bounds force a low-overlap edge inside the prescribed family. | At order43, thirteen roots of degree18,19,20,21 give codegree at most10,11,11,12. Family counts are separate hypotheses. |
 | [Cut capacity](cut_capacity.md) | An input root inequality plus cut demand and multiset/weighted capacities forces counts of the same prescribed root family. | The input q+E bound must be proved at each application; composing with overlap gives both endpoint properties on the same edge. |
-| [Normalized pair coverage](../../n43/min-degree20/pair_coverage.md) | The normalized minimum-degree20 branch splits into n20>=13 and n20<=12. The latter forces n21>=20. | Complete conditional branch coverage by a degree20 edge of overlap<=11 or degree21 edge of overlap<=12. Gluing all permitted maps/completions is still required. |
+| [Normalized pair coverage](../../research/n43/min-degree20/pair_coverage.md) | The normalized minimum-degree20 branch splits into n20>=13 and n20<=12. The latter forces n21>=20. | Complete conditional branch coverage by a degree20 edge of overlap<=11 or degree21 edge of overlap<=12. Gluing all permitted maps/completions is still required. |
 | [Disjoint-swap stabilizers](disjoint_swap_stabilizers.md) | Stabilizers of disjoint pair swaps are partition subspaces with pinned components. Pair separation D forces each free component to contain at least 1+ceil(D/2) pairs. | Exact completed-state orbit accounting; partial-state pruning needs separate validation. |
 | [Two-root symmetry gluing](symmetry_pair_gluing.md) | Compatible overlap maps are double cosets of the two pointed-neighborhood restriction images; the residual group is a fiber product times the uniform D-cell permutation group. | Exact ordered-root coverage with complete inputs/maps/completions; fixed nonlocal data require the actual enriched-state group. |
-| [Order43 symmetry structure](../../n43/symmetry_structure.md) | Pair separation at least8, automorphism support at least10, prime G and order24 B, and conditional frontier duplicate-stabilizer bounds. | Kernel at most4 through x141; at x136 the accepted anchor gives p<=10, at least4 singletons and kernel at most2. No new branch closure. |
+| [Order43 symmetry structure](../../research/n43/symmetry_structure.md) | Pair separation at least8, automorphism support at least10, prime G and order24 B, and conditional frontier duplicate-stabilizer bounds. | Kernel at most4 through x141; at x136 the accepted anchor gives p<=10, at least4 singletons and kernel at most2. No new branch closure. |
 
 ## Further use
 
@@ -49,7 +49,7 @@ Normalized pair coverage combines degree counts with prescribed-family
 overlap, without a small-excess or neighborhood-density assumption. Every
 allowed degree20/21 pair, overlap map and completion still needs coverage.
 
-The full x136 frontier is now [excluded](../../n43/d18/x136/frontier_exclusion_handoff.md).
+The full x136 frontier is now [excluded](../../research/n43/d18/x136/frontier_exclusion_handoff.md).
 At higher x, actual columns may supply the occupancy and nontransversality
 hypotheses of the compatibility theorem. Higher-deficit augmentation must
 retain saturated alternatives and the full conflict hypergraph. Root-family

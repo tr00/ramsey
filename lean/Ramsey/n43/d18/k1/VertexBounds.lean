@@ -14,43 +14,10 @@ namespace Ramsey.d18.k1
 
 variable {V : Type*} [Finite V] {H : SimpleGraph V}
 
-/-- Disjoint target cells add their neighbor counts. -/
-private lemma row_union_card (K U : Set V) (hdis : Disjoint K U) (x : V) :
-    Nat.card (rowSet H (K ∪ U) x) =
-      Nat.card (rowSet H K x) + Nat.card (rowSet H U x) := by
-  have he : rowSet H (K ∪ U) x = rowSet H K x ∪ rowSet H U x := by
-    ext y
-    simp [rowSet, and_or_left]
-  have hd : Disjoint (rowSet H K x) (rowSet H U x) :=
-    hdis.mono Set.inter_subset_right Set.inter_subset_right
-  rw [he, Nat.card_coe_set_eq, Set.ncard_union_eq hd,
-    ← Nat.card_coe_set_eq, ← Nat.card_coe_set_eq]
-
-omit [Finite V] in
-/-- An induced neighborhood counts the ambient row in its vertex set. -/
-private lemma induced_row_card (K : Set V) (x : K) :
-    Nat.card ((H.induce K).neighborSet x) = Nat.card (rowSet H K x) := by
-  let e : (H.induce K).neighborSet x ≃ rowSet H K x :=
-    { toFun := fun y ↦ ⟨y.1.1, y.2, y.1.2⟩
-      invFun := fun y ↦ ⟨⟨y.1, y.2.2⟩, y.2.1⟩
-      left_inv := fun _ ↦ rfl
-      right_inv := fun _ ↦ rfl }
-  exact Nat.card_congr e
-
 /-- A (5,4)-Ramsey graph on 24 vertices has minimum degree at least 10. -/
 private lemma side_degree_ge_ten (hH : IsRamseyGraph 5 4 H) (hn : Nat.card V = 24)
     (x : V) : 10 ≤ Nat.card (H.neighborSet x) := by
-  classical
-  have h53 : IsRamseyGraph 5 3 (H.induce (antiNeighborSet H x)) := by
-    rw [isRamseyGraph_compl, compl_induce, antiNeighborSet_eq_compl]
-    refine ⟨?_, indepSetFree_induce _ _ ((isRamseyGraph_compl H).mp hH).2⟩
-    apply (SimpleGraph.cliqueFree_induce_iff _ _ _).mpr
-    intro q hq hcl
-    exact ((isRamseyGraph_compl H).mp hH).1 _
-      (hcl.insert (fun y hy ↦ hq hy))
-  have hcap : Nat.card (antiNeighborSet H x) ≤ 13 := by
-    by_contra h
-    exact ramsey_3_5_le_14.compl.not_isRamseyGraph (by omega) _ h53
+  have hcap := ramsey_3_5_le_14.compl.card_antiNeighborSet_lt hH x
   have hs := card_neighborSet_add_antiNeighborSet H x
   omega
 

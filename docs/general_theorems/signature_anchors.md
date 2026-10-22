@@ -7,8 +7,8 @@ keep the exact reviewed proof text unchanged. See the
 and [integration manifest](integration_manifest.json).
 
 Date: 2026-10-15. Author: `augmentation_author`. Purely mathematical
-parameterization of [four-bit anchors](../../n43/reductions.md), section 6,
-and [frontier anchor defects](../../n43/d18/frontier_band.md).
+parameterization of [four-bit anchors](../../research/n43/reductions.md), section 6,
+and [frontier anchor defects](../../research/n43/d18/frontier_band.md).
 No computation, installation, download, or novelty review was performed.
 All claims are ready for independent review, not yet accepted.
 
@@ -332,9 +332,9 @@ Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
 Input revision: `b12925f7a96d24e18d06b0237930a32e30660ca2`. SHA-256 read:
 
 ```text
-492e4ce1fb5ea8e4f7292153f927089d632587eb734e4f8354ab61bdd5d6f29b  n43/reductions.md
-0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54  n43/d18/frontier_band.md
-e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a  n43/d18/dense_pivot_coverage.md
+492e4ce1fb5ea8e4f7292153f927089d632587eb734e4f8354ab61bdd5d6f29b  research/n43/reductions.md
+0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54  research/n43/d18/frontier_band.md
+e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a  research/n43/d18/dense_pivot_coverage.md
 ```
 
 Author self-check: The exact criterion includes sets through `v` and

@@ -36,7 +36,7 @@ public theorem degree_u_eq_eighteen (F : Frame G) (hG : IsRamseyGraph 5 5 G) :
     deg G F.u = 18 := by
   classical
   have h44 : IsRamseyGraph 4 4 (G.induce F.D) :=
-    isRamseyGraph_induce_rowSet hG F.v F.u
+    isRamseyGraph_induce_mixedCell hG F.u F.v
   have hcap : Nat.card F.D ≤ 17 := by
     by_contra h
     exact ramsey_4_4_le_18.not_isRamseyGraph (by omega) _ h44
@@ -70,9 +70,9 @@ public theorem admissible_of_degrees (F : Frame G) (hG : IsRamseyGraph 5 5 G)
   have hC : Nat.card F.C = 17 := by have h := F.degree_v; omega
   have hD : Nat.card F.D = 17 := by have h := F.degree_u; omega
   have h44C : IsRamseyGraph 4 4 (G.induce F.C) :=
-    isRamseyGraph_induce_rowSet hG F.u F.v
+    isRamseyGraph_induce_mixedCell hG F.v F.u
   have h44D : IsRamseyGraph 4 4 (G.induce F.D) :=
-    isRamseyGraph_induce_rowSet hG F.v F.u
+    isRamseyGraph_induce_mixedCell hG F.u F.v
   have hsum := card_neighborSet_add_antiNeighborSet G F.v
   have hanti : Nat.card (antiNeighborSet G F.v) = Nat.card F.D + Nat.card F.T := by
     rw [F.anti_v, Nat.card_coe_set_eq, Nat.card_coe_set_eq, Nat.card_coe_set_eq,
@@ -85,9 +85,9 @@ public theorem admissible_of_degrees (F : Frame G) (hG : IsRamseyGraph 5 5 G)
     card_neighborSet_eq_eight_of_isRamseyGraph_4_4 h44C hC,
     card_neighborSet_eq_eight_of_isRamseyGraph_4_4 h44D hD, ?_, ?_⟩
   · rw [← F.anti_u]
-    exact isRamseyGraph_induce_antiNeighborSet hG F.u
+    exact isRamseyGraph_induce_antiNeighborSet_succ hG F.u
   · rw [← F.anti_v]
-    exact isRamseyGraph_induce_antiNeighborSet hG F.v
+    exact isRamseyGraph_induce_antiNeighborSet_succ hG F.v
 
 /-- The second root is the unique isolated vertex in the first root neighborhood. -/
 public theorem isolated_neighbor_unique (F : Frame G) (hF : F.Admissible) {w : Fin 43}

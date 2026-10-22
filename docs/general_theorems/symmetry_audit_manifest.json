@@ -40,13 +40,13 @@
       ]
     },
     {
-      "proof": "n43/symmetry_structure.md",
+      "proof": "research/n43/symmetry_structure.md",
       "reviewed_sha256": "ed61d3fd5b87aac35e6bfb41c31aaaf55ff34ed57e72a03ac0cfcba857b49062",
       "integrated_sha256": "99ecbfe6f79cf072dfbca5d3c465bb4cb6ceb18332c5ee8ff1c916e4691b17ea",
       "integration_change": "status banner only; exact reviewed body unchanged",
       "reviews": [
         {
-          "path": "n43/review_symmetry_structure_20261015_structure_auditor.md",
+          "path": "research/n43/review_symmetry_structure_20261015_structure_auditor.md",
           "sha256": "6ffbf2a5c4e1d77487cfad8fea679a65e7f6294554d7388aed8c862fdb386806",
           "claims": [
             "claim-symmetry-structure-01",

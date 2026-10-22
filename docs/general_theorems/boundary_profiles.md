@@ -501,7 +501,7 @@ complete join and disjoint union. Recursively using these two operations from
 singletons is the usual cograph construction, whose last nontrivial operation
 exhibits modules. This is a serious limitation for large Ramsey graphs, not a
 reason to assume they have such a decomposition. In particular,
-[n43/symmetry_structure.md, claim 03](../../n43/symmetry_structure.md#claim-symmetry-structure-03)
+[research/n43/symmetry_structure.md, claim 03](../../research/n43/symmetry_structure.md#claim-symmetry-structure-03)
 proves that any `K_5/I_5`-free graph with a proper module of size at least 2 has
 order at most 39. Thus an order-43 `K_5/I_5`-free graph cannot have a top-level
 empty-boundary complete or anticomplete split into two nonempty interiors:

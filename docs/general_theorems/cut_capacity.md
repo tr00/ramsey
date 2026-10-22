@@ -8,8 +8,8 @@ and [integration manifest](integration_manifest.json).
 
 Date: 2026-10-15. Author: Codex coordinator.
 
-This abstracts [degree excess cuts](../../n43/d18/excess_bounds.md) and
-[pairwise family refinements](../../n43/d18/pairwise_pivot_refinements.md).
+This abstracts [degree excess cuts](../../research/n43/d18/excess_bounds.md) and
+[pairwise family refinements](../../research/n43/d18/pairwise_pivot_refinements.md).
 It uses no graph computation or new external data. No novelty is claimed.
 All claims are ready for independent review.
 
@@ -133,7 +133,7 @@ neighborhood/antineighborhood extrema dependencies; it is not proved here.
 Claims 01 and 02 recover the existing multiset and weighted bounds.
 For h=3,W=18 and excesses (6,6,6), Q=1 gives B=13,
 t(0)=2,t(2)=1,C_lo=66,p=40, hence M_1>=26. The accepted
-[thirteen-root overlap theorem](../../n43/d18/dense_pivot_coverage.md)
+[thirteen-root overlap theorem](../../research/n43/d18/dense_pivot_coverage.md)
 then supplies an edge with both neighborhood edge counts at least 84
 and codegree at most ten. This is a conditional existing case, not an
 unconditional upper bound on h,W,x or an order-43 exclusion.

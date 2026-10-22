@@ -1,6 +1,6 @@
 # Independent review of disjoint swaps and frontier rooted kernels
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Date: 2026-10-15. Reviewer: `audit_swap_groups_clean`, an independent
 review agent distinct from the `symmetry-hour-20261015` proof author.
@@ -13,7 +13,7 @@ Claims reviewed:
 
 - `docs/general_theorems/disjoint_swap_stabilizers.md#claim-disjoint-swaps-01`
   and `#claim-disjoint-swaps-02`.
-- `n43/symmetry_structure.md#claim-symmetry-structure-05`
+- `research/n43/symmetry_structure.md#claim-symmetry-structure-05`
   and `#claim-symmetry-structure-06`.
 
 The working-tree base commit when the review began was
@@ -58,11 +58,11 @@ The orbit-stabilizer tables and 24! label factors were recomputed.
 | Dependency read | SHA-256 |
 | --- | --- |
 | `docs/mathematical_baseline.md` | `e6ea1c070e32ac04a73eb53a5634921acb7fe6d02123a3c7d35a710f262a698e` |
-| `n43/d18/symmetry_reduction.md` | `6b9072c4a9b1f54042bd6d7e4913d4aedd5b0a8e8c04a2d18b994c2dc2d31d1b` |
-| `n43/d18/review_d18_symmetry_20261014_pivot.md` | `b1c63e0bc08605ca9378221f1616e27c6705a71810ea01e22782416f8f60acf8` |
-| `n43/d18/frontier_band.md` | `0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54` |
-| `n43/d18/x136/small_columns.md` | `f542dc5f73640d4d9b9da8790638dfd2d546feed79c5d8633d2ed3155f680733` |
-| `n43/d18/transversal_four.md` | `4c084b03583248dc7c7ed56324ec5b6801bdca5278cf4fc17fa7e845dc07825e` |
+| `research/n43/d18/symmetry_reduction.md` | `6b9072c4a9b1f54042bd6d7e4913d4aedd5b0a8e8c04a2d18b994c2dc2d31d1b` |
+| `research/n43/d18/review_d18_symmetry_20261014_pivot.md` | `b1c63e0bc08605ca9378221f1616e27c6705a71810ea01e22782416f8f60acf8` |
+| `research/n43/d18/frontier_band.md` | `0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54` |
+| `research/n43/d18/x136/small_columns.md` | `f542dc5f73640d4d9b9da8790638dfd2d546feed79c5d8633d2ed3155f680733` |
+| `research/n43/d18/transversal_four.md` | `4c084b03583248dc7c7ed56324ec5b6801bdca5278cf4fc17fa7e845dc07825e` |
 | `docs/theory_phase_1.md` | `cab844f31da5aca53b1ed674ea04bc56ce6c9a0e271e4a8ef085568f1d9596e1` |
 
 The d18 symmetry proof at commit49bd363 hashes to

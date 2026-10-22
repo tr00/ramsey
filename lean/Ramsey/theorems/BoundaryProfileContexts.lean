@@ -61,7 +61,7 @@ public theorem UniformDerivation.order_eq
 
 /-- The replacement relation retains the profile but deliberately does not retain graph order. -/
 public abbrev ProfileRelation (p q : ℕ) : GraphRelation.{u} :=
-  fun G H ↦ profile G p q = profile H p q
+  fun G H ↦ SameProfile G H p q
 
 /-- Equal-profile replacements are a congruence for all 5 specified operations. -/
 public theorem uniform_replacement
@@ -90,7 +90,7 @@ public theorem UniformDerivation.glue_of_profiles
 /-- Order-sensitive replacement adds an explicit equal-order condition to each leaf pair. -/
 public abbrev OrderedProfileRelation (p q : ℕ) : GraphRelation.{u} :=
   fun {B X Y} _ _ _ G H ↦
-    profile G p q = profile H p q ∧ Fintype.card (B ⊕ X) = Fintype.card (B ⊕ Y)
+    SameProfile G H p q ∧ Fintype.card (B ⊕ X) = Fintype.card (B ⊕ Y)
 
 /-- Any finite family of equal-profile and equal-order replacements preserves both quantities. -/
 public theorem uniform_ordered_replacement

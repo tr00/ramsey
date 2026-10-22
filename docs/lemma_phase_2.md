@@ -55,8 +55,8 @@ x >= 136.
 ```
 
 Update (2026-10-19): the reviewed x136 closure raises the effective floor
-to `x >= 137` ([closure](../n43/d18/x136/README.md),
-[consequences](../n43/d18/x136_closure_consequences.md)); the equality
+to `x >= 137` ([closure](../research/n43/d18/x136/README.md),
+[consequences](../research/n43/d18/x136_closure_consequences.md)); the equality
 block below records a profile that cannot occur.
 
 If `x=136`, then necessarily:
@@ -107,11 +107,11 @@ Hence, in the `x=136` branch, every independent 4-set satisfies
 
 These strengthened bounds are local deductions from the published maximum
 and the unchanged degree/signature arguments. The revised intervals received
-[independent acceptance](../n43/d18/review_frontier_anchor_20261016_main.md).
+[independent acceptance](../research/n43/d18/review_frontier_anchor_20261016_main.md).
 Earlier audits retain their original scope. The unchanged lemmas elsewhere
 retain their existing audit status.
 The general excess-sensitive version is
-[the frontier anchor claim](../n43/d18/frontier_band.md#claim-frontier-anchor-defects).
+[the frontier anchor claim](../research/n43/d18/frontier_band.md#claim-frontier-anchor-defects).
 
 ## 2. A four-vertex transversal lemma
 
@@ -167,7 +167,7 @@ in the `x=136` branch,
 |N_A(y)| >= 4 for every y in B.
 ```
 
-The detailed proof and source information are in `n43/d18/transversal_four.md`.
+The detailed proof and source information are in `research/n43/d18/transversal_four.md`.
 
 ## 3. Superseded three-transversal reduction
 

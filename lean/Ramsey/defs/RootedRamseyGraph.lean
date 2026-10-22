@@ -1,6 +1,6 @@
 module
 
-public import Ramsey.defs.Transversals
+public import Ramsey.basics.RamseyTheory
 
 /-!
 # Rooted Ramsey graphs
@@ -75,11 +75,11 @@ public lemma card_parts [Finite V] (R : RootedRamseyGraph s t V) :
 
 /-- The neighborhood of a rooted `(5,5)` graph is bundled as a `(4,5)` graph. -/
 @[expose] public def neighborhood (R : RootedRamseyGraph 5 5 V) : RamseyGraph 4 5 R.A :=
-  ⟨R.graph.induce R.A, isRamseyGraph_induce_neighborSet R.ramsey R.pivot⟩
+  ⟨R.graph.induce R.A, isRamseyGraph_induce_neighborSet_succ R.ramsey R.pivot⟩
 
 /-- The antineighborhood of a rooted `(5,5)` graph is bundled as a `(5,4)` graph. -/
 @[expose] public def antineighborhood (R : RootedRamseyGraph 5 5 V) : RamseyGraph 5 4 R.B :=
-  ⟨R.graph.induce R.B, isRamseyGraph_induce_antiNeighborSet R.ramsey R.pivot⟩
+  ⟨R.graph.induce R.B, isRamseyGraph_induce_antiNeighborSet_succ R.ramsey R.pivot⟩
 
 end RootedRamseyGraph
 

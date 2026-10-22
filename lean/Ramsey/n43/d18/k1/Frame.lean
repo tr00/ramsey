@@ -1,7 +1,7 @@
 module
 
 public import Ramsey.defs.RootedRamseyGraph
-public import Ramsey.theorems.RowBounds
+public import Ramsey.n17.Regularity
 
 /-!
 # Double-core frames for the K1 reduction

@@ -1,6 +1,6 @@
 # Independent review of signatures and weighted homogeneous anchors
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Claim(s): `signature_anchors.md#claim-signature-anchors-01` through
 `signature_anchors.md#claim-signature-anchors-06`.
@@ -16,7 +16,7 @@ Dependencies reviewed: all six direct proofs, the definitions of Ramsey
 numbers including `R(i,1)=R(1,j)=1`, and the stated small Ramsey premises
 `R(4,3)=9`, `R(3,5)=14` in the numerical specialization. The source
 four-bit anchor and frontier-defect arguments were read in
-`n43/reductions.md`, section 6, and `n43/d18/frontier_band.md` while checking
+`research/n43/reductions.md`, section 6, and `research/n43/d18/frontier_band.md` while checking
 the companion abstractions. No published small Ramsey certificates or the
 optional global degree floor 18 were independently recertified.
 

@@ -6,7 +6,7 @@ This is the dependency-ordered view of the project's mathematics and its
 formalization: every proof note, general theorem, and Lean declaration is
 attached to one layer of a single pyramid whose apex is `R(5,5) = 43`. It
 complements, and does not replace, the predicate-level
-[reduction index](../n43/reductions.md) and the per-branch READMEs.
+[reduction index](../research/n43/reductions.md) and the per-branch READMEs.
 
 Read it in two directions:
 
@@ -37,18 +37,18 @@ flowchart TD
 
 | Layer | Content | Primary math sources | Lean modules |
 | --- | --- | --- | --- |
-| L0 | Published premises: Ramsey numbers and edge censuses | [mathematical baseline](mathematical_baseline.md), [reduction index §15](../n43/reductions.md) | `Ramsey/Premises.lean` |
+| L0 | Published premises: Ramsey numbers and edge censuses | [mathematical baseline](mathematical_baseline.md), [reduction index §15](../research/n43/reductions.md) | `Ramsey/Premises.lean` |
 | L1 | General `(r,s)`-free graph toolkit, block/attachment calculus, witness transport and replacement obstructions | [general theorems](general_theorems/README.md), [attachment calculus](general_theorems/ramsey_attachment_calculus.md) | `Ramsey/theorems/` (2 statement-only modules; attachment calculus not formalized) |
-| L2 | Universal theory of an order-43 `(5,5)`-free graph: degree window, ambient types, codegrees, cells, counting identities, primality | [reduction index §4, §10.1-10.2, §11](../n43/reductions.md), [theory phase I](theory_phase_1.md) | `Ramsey/n43/D18.lean`, `theorems/LocalReductions.lean` |
-| L3 | Rooted interface theory for a fixed pivot: partition identities, exact rectangle criterion, row/column bounds, 4-bit anchors, transversal bounds | [reduction index §2, §5-§7, §8.4](../n43/reductions.md), [theory phase I §3-4](theory_phase_1.md) | `defs/RootedRamseyGraph.lean`, `theorems/{PivotCounting,PivotInterface,RowBounds,TransversalFour}.lean` |
-| L4 | Root-selection covers and symmetry machinery: even-pivot cover, canonical selectors, residual quotients, gluing | [reduction index §3, §10.3-10.6](../n43/reductions.md), [symmetry structure](../n43/symmetry_structure.md) | `Ramsey/n43/EvenPivot.lean` |
-| L5 | Branch theories: d18 (corridor, x-closures, connectivity subcases, tau overlay) and d20 / min-degree20 | [d18 index](../n43/d18/README.md) and children | `Ramsey/n43/d18/*`, `Ramsey/n43/d20/*` |
-| L6 | Exclusion obligations and the certificate ladder: `Complete` carrier, sorry ledger, SAT proof obligations | [reduction index §14](../n43/reductions.md), [workflow](workflow.md) | `defs/Completeness.lean`, branch `Exclusion.lean` targets |
+| L2 | Universal theory of an order-43 `(5,5)`-free graph: degree window, ambient types, codegrees, cells, counting identities, primality | [reduction index §4, §10.1-10.2, §11](../research/n43/reductions.md), [theory phase I](theory_phase_1.md) | `Ramsey/n43/D18.lean`, `theorems/LocalReductions.lean` |
+| L3 | Rooted interface theory for a fixed pivot: partition identities, exact rectangle criterion, row/column bounds, 4-bit anchors, transversal bounds | [reduction index §2, §5-§7, §8.4](../research/n43/reductions.md), [theory phase I §3-4](theory_phase_1.md) | `defs/RootedRamseyGraph.lean`, `theorems/{Counting,PivotInterface,TransversalFour}.lean`, `n17/Regularity.lean` |
+| L4 | Root-selection covers and symmetry machinery: even-pivot cover, canonical selectors, residual quotients, gluing | [reduction index §3, §10.3-10.6](../research/n43/reductions.md), [symmetry structure](../research/n43/symmetry_structure.md) | `Ramsey/n43/EvenPivot.lean` |
+| L5 | Branch theories: d18 (corridor, x-closures, connectivity subcases, tau overlay) and d20 / min-degree20 | [d18 index](../research/n43/d18/README.md) and children | `Ramsey/n43/d18/*`, `Ramsey/n43/d20/*` |
+| L6 | Exclusion obligations and the certificate ladder: `Complete` carrier, sorry ledger, SAT proof obligations | [reduction index §14](../research/n43/reductions.md), [workflow](workflow.md) | `defs/Completeness.lean`, branch `Exclusion.lean` targets |
 | Apex | Order-43 exclusion + Exoo witness gives `ramseyNumber 5 5 = 43` | [lemma phase II](lemma_phase_2.md) | `Ramsey.lean` (exclusion half; equality assembly not formalized) |
 
 The Lean file tree already mirrors the pyramid: `defs/` holds L0-L3 vocabulary,
-`theorems/` holds L1-L3 proofs, `n43/EvenPivot.lean` is L4, and
-`n43/d18/`/`n43/d20/` are L5. The obligation glue plus apex are L6. New formalization should keep this
+`theorems/` holds L1-L3 proofs, `research/n43/EvenPivot.lean` is L4, and
+`research/n43/d18/`/`research/n43/d20/` are L5. The obligation glue plus apex are L6. New formalization should keep this
 correspondence (see [lean/AGENTS.md](../lean/AGENTS.md)).
 
 ## 2. Layer 0 — trusted premises
@@ -61,8 +61,8 @@ named premises it consumes ([evidence rules](../lean/README.md#evidence-rules-fo
 | --- | --- | --- | --- |
 | `R(3,5) ≤ 14` | published (Greenwood-Gleason 1955) | [baseline](mathematical_baseline.md) | `ramsey_3_5_le_14` |
 | `R(4,5) ≤ 25` | published (McKay-Radziszowski 1995; HOL4 formalization exists) | [baseline](mathematical_baseline.md) | `ramsey_4_5_le_25` |
-| `(4,5)` edge intervals, orders 14 / 17 / 18 / 24 | published census (Angeltveit-McKay, arXiv:2409.15709v2, App. A, Table 1) | [reduction index §15](../n43/reductions.md) | `edges_ramsey_4_5_{14,17,18,24}_*` |
-| `(4,4)` edge intervals, orders 11-17 | published census (McKay-Radziszowski 1992, Table 1) | [reduction index §15](../n43/reductions.md) | `edges_ramsey_4_4_{11..17}_*` |
+| `(4,5)` edge intervals, orders 14 / 17 / 18 / 24 | published census (Angeltveit-McKay, arXiv:2409.15709v2, App. A, Table 1) | [reduction index §15](../research/n43/reductions.md) | `edges_ramsey_4_5_{14,17,18,24}_*` |
+| `(4,4)` edge intervals, orders 11-17 | published census (McKay-Radziszowski 1992, Table 1) | [reduction index §15](../research/n43/reductions.md) | `edges_ramsey_4_4_{11..17}_*` |
 
 The published bounds `R(4,3) ≤ 9` and `R(4,4) ≤ 18` are now proved in
 [n09/R43.lean](../lean/Ramsey/n09/R43.lean) and
@@ -82,7 +82,7 @@ Rules recorded by the sources:
 
 The historical inventory in [docs/general_theorems/](general_theorems/README.md)
 listed 30 general claims and 5 specializations. The independently audited
-[attachment-calculus bundle](../reports/2026-10-19-ramsey-attachment-calculus.md)
+[attachment-calculus bundle](../research/reports/2026-10-19-ramsey-attachment-calculus.md)
 now supplies 16 reviewed statements in four further notes, including explicit
 restatements of existing criteria rather than 16 novelty claims. Every result
 keeps its stated premises; no Ramsey/census input is implicit.
@@ -116,14 +116,14 @@ Hypothesis: only "G on 43 vertices with no `K5` and no `I5`". No pivot chosen.
 
 | Node | Content | Status | Source | Lean |
 | --- | --- | --- | --- | --- |
-| U1 | degree window `18 ≤ d(v) ≤ 24` | published | [index §4.1](../n43/reductions.md) | `Ramsey.n43.D18` `degree_mem` |
-| U2 | ambient types: `G[N(v)]` is `(4,5)`-free, `G[M(v)]` is `(5,4)`-free; complement of `G[B]` is `(4,5)`-free | published | [index §4.2](../n43/reductions.md) | `defs/RootedRamseyGraph.lean` bundles |
-| U3 | pair codegree intervals (edge and nonedge) | proved-here from published numbers | [index §4.3](../n43/reductions.md) | `theorems/LocalReductions.lean` |
-| U4 | common-cell caps (edge 13, triangle 4, mixed cell 17) with equality rigidity (4-regular `(3,5)` at 13; 8-regular `(4,4)` at 17) | proved-here from published numbers | [index §4.4](../n43/reductions.md) | `theorems/LocalReductions.lean` |
-| U5 | every vertex lies in a `K4` and an `I4`; globally at least 33 of each | proved-here | [index §4.5](../n43/reductions.md), [theory I §1](theory_phase_1.md) | not formalized |
-| U6 | Goodman and degree-energy identities: `2e = 903+Delta`, `T+I=(5719+V)/2`, `6T ≥ 5418+13Delta+3V` (and dual), `2h_v = 399-D+delta_v+delta_v^2+2s_v`, `2P` energy sandwich | proved-here (identities), not pruning-strong | [index §11](../n43/reductions.md), [theory I §1](theory_phase_1.md), [lemma II §5](lemma_phase_2.md) | not formalized |
-| U7 | global symmetry `S_43 x C_2`, free complement action (`C(43,2)` odd); canonical complement selector `D <lex D^c` | proved-here | [index §10.1-10.2](../n43/reductions.md), [theory I §2](theory_phase_1.md) | not formalized (selector is prose) |
-| U8 | every candidate is prime; every 24-vertex `(5,4)`-free `B` is prime; pair separation at least 8; a nonidentity automorphism moves at least 10 vertices | accepted | [symmetry structure 01-04](../n43/symmetry_structure.md) | not formalized |
+| U1 | degree window `18 ≤ d(v) ≤ 24` | published | [index §4.1](../research/n43/reductions.md) | `Ramsey.n43.D18` `degree_mem` |
+| U2 | ambient types: `G[N(v)]` is `(4,5)`-free, `G[M(v)]` is `(5,4)`-free; complement of `G[B]` is `(4,5)`-free | published | [index §4.2](../research/n43/reductions.md) | `defs/RootedRamseyGraph.lean` bundles |
+| U3 | pair codegree intervals (edge and nonedge) | proved-here from published numbers | [index §4.3](../research/n43/reductions.md) | `theorems/LocalReductions.lean` |
+| U4 | common-cell caps (edge 13, triangle 4, mixed cell 17) with equality rigidity (4-regular `(3,5)` at 13; 8-regular `(4,4)` at 17) | proved-here from published numbers | [index §4.4](../research/n43/reductions.md) | `theorems/LocalReductions.lean` |
+| U5 | every vertex lies in a `K4` and an `I4`; globally at least 33 of each | proved-here | [index §4.5](../research/n43/reductions.md), [theory I §1](theory_phase_1.md) | not formalized |
+| U6 | Goodman and degree-energy identities: `2e = 903+Delta`, `T+I=(5719+V)/2`, `6T ≥ 5418+13Delta+3V` (and dual), `2h_v = 399-D+delta_v+delta_v^2+2s_v`, `2P` energy sandwich | proved-here (identities), not pruning-strong | [index §11](../research/n43/reductions.md), [theory I §1](theory_phase_1.md), [lemma II §5](lemma_phase_2.md) | not formalized |
+| U7 | global symmetry `S_43 x C_2`, free complement action (`C(43,2)` odd); canonical complement selector `D <lex D^c` | proved-here | [index §10.1-10.2](../research/n43/reductions.md), [theory I §2](theory_phase_1.md) | not formalized (selector is prose) |
+| U8 | every candidate is prime; every 24-vertex `(5,4)`-free `B` is prime; pair separation at least 8; a nonidentity automorphism moves at least 10 vertices | accepted | [symmetry structure 01-04](../research/n43/symmetry_structure.md) | not formalized |
 
 Standing caveat (tracked by the index and workflow): `N(v)` is `(4,5)`-free
 and **may contain `I4`**; `M(v)` is `(5,4)`-free. No `I4` prohibition may be
@@ -137,17 +137,17 @@ Hypothesis: a pivot `v` is fixed; `A = N(v)`, `B = M(v)`, `d = |A|`,
 
 | Node | Content | Status | Source | Lean |
 | --- | --- | --- | --- | --- |
-| R1 | partition and counting identities: `sum_(u in A) d(u) = 2a + x + d`, hence `x = 306-2a+Delta_A = 136+2q+E_A` at `d=18`; complement edge identity for `b` | proved-here | [index §2](../n43/reductions.md) | `theorems/PivotCounting.lean`, `d18/PivotBudget.lean` |
-| R2 | **exact forbidden-rectangle criterion**: given internal types, the interface is valid iff no all-one and no all-zero `(P,Q)` rectangle with `|P|+|Q|=5` | proved-here | [index §5.1](../n43/reductions.md) | `theorems/PivotInterface.lean` |
-| R3 | single-row/column cardinal bounds with boundary rigidity triggers (`r_u=17`, `r_u=4`, `s_u=13`, `c_y=d-17`) | proved-here | [index §5.2-5.3](../n43/reductions.md) | `theorems/LocalReductions.lean`, `theorems/RowBounds.lean` |
-| R4 | pair and higher row/column intersections (edge-intersection `(3,4)`-free at most 8, etc.) | proved-here | [index §5.4](../n43/reductions.md) | partially (`LocalReductions`) |
-| R5 | signature-forced adjacency (triangle in `C_y ∩ C_z` forces nonedge, etc.) | proved-here | [index §5.5](../n43/reductions.md) | not formalized |
-| R6 | 4-bit anchor theory: Hall condition, class caps 3/8/17/24, `e(X,B) ≥ 2|B|-12` and dual, simultaneous-equality rigidity (`C8` or `C4 ⊔ C4`, not a contradiction) | proved-here | [index §6](../n43/reductions.md), [lemma II §4](lemma_phase_2.md) | not formalized (general versions stated in toolkit) |
-| R7 | catalogue-free quadratic interface inequalities | proved-here | [index §7](../n43/reductions.md) | not formalized |
-| R8 | transversal theory: `tau_4(F) ≥ 4` at `e(F)=68`, `alpha(F) ≤ 3` (15-vertex census); `tau ≥ 4` for all `q ≤ 2`; graded thresholds `tau ≥ 3` for `q ≤ 7`, `tau ≥ 2` at `q = 8`, `tau ≥ 1` at `q ≥ 9` | proved-here; thresholds accepted | [index §8.4-8.6](../n43/reductions.md), [deletion-degree transfer](../n43/d18/deletion_degree_transfer.json) | `theorems/TransversalFour.lean` (the 68-edge theorem) |
+| R1 | partition and counting identities: `sum_(u in A) d(u) = 2a + x + d`, hence `x = 306-2a+Delta_A = 136+2q+E_A` at `d=18`; complement edge identity for `b` | proved-here | [index §2](../research/n43/reductions.md) | `theorems/Counting.lean`, `d18/PivotBudget.lean` |
+| R2 | **exact forbidden-rectangle criterion**: given internal types, the interface is valid iff no all-one and no all-zero `(P,Q)` rectangle with `|P|+|Q|=5` | proved-here | [index §5.1](../research/n43/reductions.md) | `theorems/PivotInterface.lean` |
+| R3 | single-row/column cardinal bounds with boundary rigidity triggers (`r_u=17`, `r_u=4`, `s_u=13`, `c_y=d-17`) | proved-here | [index §5.2-5.3](../research/n43/reductions.md) | `theorems/LocalReductions.lean`, `n17/Regularity.lean` |
+| R4 | pair and higher row/column intersections (edge-intersection `(3,4)`-free at most 8, etc.) | proved-here | [index §5.4](../research/n43/reductions.md) | partially (`LocalReductions`) |
+| R5 | signature-forced adjacency (triangle in `C_y ∩ C_z` forces nonedge, etc.) | proved-here | [index §5.5](../research/n43/reductions.md) | not formalized |
+| R6 | 4-bit anchor theory: Hall condition, class caps 3/8/17/24, `e(X,B) ≥ 2|B|-12` and dual, simultaneous-equality rigidity (`C8` or `C4 ⊔ C4`, not a contradiction) | proved-here | [index §6](../research/n43/reductions.md), [lemma II §4](lemma_phase_2.md) | not formalized (general versions stated in toolkit) |
+| R7 | catalogue-free quadratic interface inequalities | proved-here | [index §7](../research/n43/reductions.md) | not formalized |
+| R8 | transversal theory: `tau_4(F) ≥ 4` at `e(F)=68`, `alpha(F) ≤ 3` (15-vertex census); `tau ≥ 4` for all `q ≤ 2`; graded thresholds `tau ≥ 3` for `q ≤ 7`, `tau ≥ 2` at `q = 8`, `tau ≥ 1` at `q ≥ 9` | proved-here; thresholds accepted | [index §8.4-8.6](../research/n43/reductions.md), [deletion-degree transfer](../research/n43/d18/deletion_degree_transfer.json) | `theorems/TransversalFour.lean` (the 68-edge theorem) |
 
 The `tau ≥ 5` strengthening is **open** (four surviving families,
-[index §8.5 / §13.5](../n43/reductions.md)); branch-specific anchors establish
+[index §8.5 / §13.5](../research/n43/reductions.md)); branch-specific anchors establish
 it inside the excluded x136/x137/x138 cases (Section7.2), not for unrestricted
 q or x. Never encode `|C_y|>=5` without the exact proved hypotheses.
 
@@ -155,16 +155,16 @@ q or x. Never encode `|C_y|>=5` without the exact proved hypotheses.
 
 | Node | Content | Status | Source | Lean |
 | --- | --- | --- | --- | --- |
-| S1 | even-pivot cover: a 43-vertex graph has an even-degree vertex; allowed even degrees 18/20/22/24; complementation maps 22 to 20 and 24 to 18; so `d18 ∪ d20` covers everything | proved-here | [index §3](../n43/reductions.md) | `Ramsey/n43/EvenPivot.lean` (`pivot_cover`, `exists_degree_18_or_20_up_to_compl`) |
-| S2 | canonical complement selector and minimum-degree split (18 / 19 / 20 cases with degree-count sign conditions) | proved-here | [index §10.2](../n43/reductions.md), [theory I §2](theory_phase_1.md) | not formalized (alternative scheme) |
-| S3 | rooted residual action `Aut(G[A]) x Aut(G[B])` on the cross matrix; five listed **unsafe** reductions; canonical-parent generation is design | proved-here + design | [index §10.3-10.4](../n43/reductions.md) | not formalized |
-| S4 | duplicate-column multiplicities at most 2 through `x=141`; duplicate-swap kernel bounds; rooted automorphism bound `|Aut(G)_v| ≤ 4|Aut(A)|` (`p ≤ 12` through x141); at `x=136`: `p ≤ 10`, kernel order at most 2 | accepted | [d18 symmetry 01-06](../n43/d18/symmetry_reduction.md), [symmetry extensions](../n43/d18/symmetry_extensions.md), [symmetry structure 05-09](../n43/symmetry_structure.md) | not formalized |
-| S5 | two-root gluing quotient (double cosets, fiber-product completion, staged coverage) | accepted | [index §10.6](../n43/reductions.md), [pair gluing](general_theorems/symmetry_pair_gluing.md) | not formalized |
+| S1 | even-pivot cover: a 43-vertex graph has an even-degree vertex; allowed even degrees 18/20/22/24; complementation maps 22 to 20 and 24 to 18; so `d18 ∪ d20` covers everything | proved-here | [index §3](../research/n43/reductions.md) | `Ramsey/n43/EvenPivot.lean` (`pivot_cover`, `exists_degree_18_or_20_up_to_compl`) |
+| S2 | canonical complement selector and minimum-degree split (18 / 19 / 20 cases with degree-count sign conditions) | proved-here | [index §10.2](../research/n43/reductions.md), [theory I §2](theory_phase_1.md) | not formalized (alternative scheme) |
+| S3 | rooted residual action `Aut(G[A]) x Aut(G[B])` on the cross matrix; five listed **unsafe** reductions; canonical-parent generation is design | proved-here + design | [index §10.3-10.4](../research/n43/reductions.md) | not formalized |
+| S4 | duplicate-column multiplicities at most 2 through `x=141`; duplicate-swap kernel bounds; rooted automorphism bound `|Aut(G)_v| ≤ 4|Aut(A)|` (`p ≤ 12` through x141); at `x=136`: `p ≤ 10`, kernel order at most 2 | accepted | [d18 symmetry 01-06](../research/n43/d18/symmetry_reduction.md), [symmetry extensions](../research/n43/d18/symmetry_extensions.md), [symmetry structure 05-09](../research/n43/symmetry_structure.md) | not formalized |
+| S5 | two-root gluing quotient (double cosets, fiber-product completion, staged coverage) | accepted | [index §10.6](../research/n43/reductions.md), [pair gluing](general_theorems/symmetry_pair_gluing.md) | not formalized |
 | S6 | residual symmetry and descent: `K ⋊ H` split, exact 2-CNF lex minimization, uniform descent, hierarchical root selection | accepted (2026-10-19) | [symmetry quotients](general_theorems/symmetry_quotients.md) | not formalized |
 
 **Coverage warning (open obligation).** The even-pivot split is complete, but
 choosing a *canonical* pivot among many candidates still requires a verified
-tie rule or explicit all-pivot coverage ([index §3](../n43/reductions.md)).
+tie rule or explicit all-pivot coverage ([index §3](../research/n43/reductions.md)).
 Branch closures state rooted predicates; any final certificate must discharge
 this selection obligation (Section 8).
 
@@ -195,8 +195,8 @@ The x-split and the connectivity split are **orthogonal complete covers** of
 the same class; the tau scheme is an **overlay** (predicate added to a fixed
 x-cell and fixed B), not a third partition. A closure of d18 may proceed along
 either cover; whichever is used, coverage must be proved for that cover alone
-([tau interaction note](../n43/d18/tau/README.md), [connectivity
-classification](../n43/d18/neighborhood_connectivity.md)). Geography
+([tau interaction note](../research/n43/d18/tau/README.md), [connectivity
+classification](../research/n43/d18/neighborhood_connectivity.md)). Geography
 (derived, unreviewed, tau README): every disconnected neighborhood sits at
 `a ≤ 68` (`x ≥ 170`), so the `x ≤ 143` territory lies entirely inside `c`.
 
@@ -204,41 +204,41 @@ classification](../n43/d18/neighborhood_connectivity.md)). Geography
 
 | Node | Exclusion argument | Claims and status |
 | --- | --- | --- |
-| `x=136` (with all r-children r0..r4) | degree-8 `I4` anchors 2-dominate `A-I`; three disjoint anchors impossible; low-degree structure; both surviving profiles contradict `tau ≥ 5` against the row budget | [frontier exclusion handoff](../n43/d18/x136/frontier_exclusion_handoff.md), 4 claims accepted (review + report 2026-10-19); earlier r1/r2/r3/r4 closures retained |
-| `x=137` (single profile `q=0, E_A=1`) | exact effective-degree-8 anchor; low-weight set is not a transversal; projected column capacity `117 < 120` | [frontier closure](../n43/d18/x137/frontier_closure.md), 3 claims accepted (two reviews 2026-10-19; the exclusion claim's review is conditional on the `ell ≤ 1` claim, itself accepted) |
-| `x=138` (q0,E_A=2 and q1,E_A=0) | saturated effective anchors; projected support118<120; q0 extremal-core moment defects and common-anchor four-transversal obstruction | [two-profile closure](../n43/d18/x138/README.md),15 closure claims accepted in three independent reviews;3 general support/transfer claims independently accepted ([report](../reports/2026-10-19-d18c-tau-frontier.md)); not yet formalized |
+| `x=136` (with all r-children r0..r4) | degree-8 `I4` anchors 2-dominate `A-I`; three disjoint anchors impossible; low-degree structure; both surviving profiles contradict `tau ≥ 5` against the row budget | [frontier exclusion handoff](../research/n43/d18/x136/frontier_exclusion_handoff.md), 4 claims accepted (review + report 2026-10-19); earlier r1/r2/r3/r4 closures retained |
+| `x=137` (single profile `q=0, E_A=1`) | exact effective-degree-8 anchor; low-weight set is not a transversal; projected column capacity `117 < 120` | [frontier closure](../research/n43/d18/x137/frontier_closure.md), 3 claims accepted (two reviews 2026-10-19; the exclusion claim's review is conditional on the `ell ≤ 1` claim, itself accepted) |
+| `x=138` (q0,E_A=2 and q1,E_A=0) | saturated effective anchors; projected support118<120; q0 extremal-core moment defects and common-anchor four-transversal obstruction | [two-profile closure](../research/n43/d18/x138/README.md),15 closure claims accepted in three independent reviews;3 general support/transfer claims independently accepted ([report](../research/reports/2026-10-19-d18c-tau-frontier.md)); not yet formalized |
 
 Consequence in force: **every degree18 root has x>=139** and2q+E_A>=3.
 Zero A-excess requires q>=2 and x>=140. These new consequences are accepted
-in the [frontier proof](../n43/d18/tau/q0_effective_reduction.md) and
-[support theorem](../n43/d18/tau/transversal_support.md); earlier ready
-[x136 closure consequences](../n43/d18/x136_closure_consequences.md) retain
+in the [frontier proof](../research/n43/d18/tau/q0_effective_reduction.md) and
+[support theorem](../research/n43/d18/tau/transversal_support.md); earlier ready
+[x136 closure consequences](../research/n43/d18/x136_closure_consequences.md) retain
 their original scope and review state.
 
 ### 7.3 Open x-frontier
 
 - `x=139..142`: case folders with q-profile children
-  ([x-ge137 overview](../n43/d18/x-ge137/README.md)); all open. Available
+  ([x-ge137 overview](../research/n43/d18/x-ge137/README.md)); all open. Available
   accepted filters: exact profile budgets and adjacent-pivot tables
-  ([transfer bounds](../n43/d18/transfer_bounds.md)), four-column stability,
+  ([transfer bounds](../research/n43/d18/transfer_bounds.md)), four-column stability,
   `x142/q3` size-three column theorem (`E_A ≥ 14`, so `q=3` excludes size-3
   columns through `x=155`), interior degree floors/ceilings `L(q)` and
   `d_A ≤ min(13,44-q)`, connectivity thresholds `kappa(A) ≥ 2/3/4` at
-  `a ≥ 70/75/81` ([cross-branch synthesis](../reports/2026-10-19-cross-branch-synthesis.json)).
+  `a ≥ 70/75/81` ([cross-branch synthesis](../research/reports/2026-10-19-cross-branch-synthesis.json)).
 - `x ≥ 143` residual: open; no unconditional `x ≤ 142` bound exists.
 - Upper-tail sharpenings (accepted, formalized in part): `t=0` gives
   `x ≤ 278`; `t=1, s=8` gives `x ≤ 271`; profile `(2,6,1)` excluded; 3 row
   profiles remain at `x=279`
-  ([tail notes](../n43/d18/averaging_omission_cuts.md)).
+  ([tail notes](../research/n43/d18/averaging_omission_cuts.md)).
 
 ### 7.4 Connectivity deep reductions
 
 | Subbranch | State | Deepest accepted results |
 | --- | --- | --- |
-| `c` (connected `A`) | open; contains the whole `x<=143` territory | x138 fully excluded by reviewed tau/support theory; the zero-A-excess [q1 slice is excluded](../n43/d18/tau/q1_anchor_reduction.md), forcing q>=2 and x>=140 in w0. Earlier [w0 research](../n43/d18/c/w0/research.json) remains historical ready work; higher q remains open. No unified c exclusion |
-| `k1` (`K1 ⊔ C17`) | open; no exclusion, no construction | partition `{v,u} | C | D | T = 2|17|17|7`; both 17-cores are `SRG(17,8,3,4)`; at least 64 attachment edges per side (65 by signature geometry); 7-cell excess `26..42`; whole-branch `91 ≤ r ≤ 182`; exact completion to **289 Boolean positions** with 8 clique + 3 independent rectangle obstruction types ([k1 research](../n43/d18/k1/research.json) and siblings). Formalized as a `Complete` reduction (`d18/k1/Reduction.lean`). The exterior and T-triangle capacity premises are reviewed ([exterior capacity review](../n43/d18/k1/review_triangle_capacity_20261019_exterior_audit.md), [report](../reports/2026-10-19-k1-whole-branch-obstruction.md)); dense-cell stability is accepted conditional on them. File labels lag (Section 12) |
+| `c` (connected `A`) | open; contains the whole `x<=143` territory | x138 fully excluded by reviewed tau/support theory; the zero-A-excess [q1 slice is excluded](../research/n43/d18/tau/q1_anchor_reduction.md), forcing q>=2 and x>=140 in w0. Earlier [w0 research](../research/n43/d18/c/w0/research.json) remains historical ready work; higher q remains open. No unified c exclusion |
+| `k1` (`K1 ⊔ C17`) | open; no exclusion, no construction | partition `{v,u} | C | D | T = 2|17|17|7`; both 17-cores are `SRG(17,8,3,4)`; at least 64 attachment edges per side (65 by signature geometry); 7-cell excess `26..42`; whole-branch `91 ≤ r ≤ 182`; exact completion to **289 Boolean positions** with 8 clique + 3 independent rectangle obstruction types ([k1 research](../research/n43/d18/k1/research.json) and siblings). Formalized as a `Complete` reduction (`d18/k1/Reduction.lean`). The exterior and T-triangle capacity premises are reviewed ([exterior capacity review](../research/n43/d18/k1/review_triangle_capacity_20261019_exterior_audit.md), [report](../research/reports/2026-10-19-k1-whole-branch-obstruction.md)); dense-cell stability is accepted conditional on them. File labels lag (Section 12) |
 | `k2` (`K2 ⊔ C16`) | open; **no markdown theory exists** (Lean stub only) | none; sits at `q=24`, `x ≥ 170` by the unreviewed geography note |
-| `k3` (`K3 ⊔ C15`) | open | reroot to three 8-vertex B-blocks or a denser connected reroot; balanced case forces total excess `W ≥ 88`; 71 to 68 scalar profiles by the 17-row zero-triple obstruction; exact **360-bit** completion; explicit sharp 20-vertex partial graph showing the 7-neighbor column bound cannot reach 8 ([k3 notes](../n43/d18/k3/README.md), all accepted) |
+| `k3` (`K3 ⊔ C15`) | open | reroot to three 8-vertex B-blocks or a denser connected reroot; balanced case forces total excess `W ≥ 88`; 71 to 68 scalar profiles by the 17-row zero-triple obstruction; exact **360-bit** completion; explicit sharp 20-vertex partial graph showing the 7-neighbor column bound cannot reach 8 ([k3 notes](../research/n43/d18/k3/README.md), all accepted) |
 
 Cross-cutting accepted material feeding every subbranch: pivot-class and
 excess bounds (index §8.11-8.12), pairwise refinements (§8.14-8.15),
@@ -249,23 +249,23 @@ filters, not closures.
 
 ### 7.5 d20 and min-degree20
 
-- [d20](../n43/d20/README.md): open; no branch-specific predicate or proof
+- [d20](../research/n43/d20/README.md): open; no branch-specific predicate or proof
   exists. This is the largest single theory gap below the apex.
-- [min-degree20](../n43/min-degree20/README.md): alternative normalized
+- [min-degree20](../research/n43/min-degree20/README.md): alternative normalized
   scheme (selector-based, not interchangeable with d20). Same-degree
   pair-selection coverage accepted
-  ([pair coverage](../n43/min-degree20/pair_coverage.md)); branch decision
+  ([pair coverage](../research/n43/min-degree20/pair_coverage.md)); branch decision
   open.
 
 ### 7.6 tau overlay and reviewed support theory
 
-[tau scheme](../n43/d18/tau/README.md): per fixed B and x-cell, UNSAT of the
+[tau scheme](../research/n43/d18/tau/README.md): per fixed B and x-cell, UNSAT of the
 `t4` and `t5` rungs forces `tau_4 ≥ 6`, hence `x ≥ 24*6 = 144`, closing every
 live cell139<=x<=143 (three sound orderings; coverage argument recorded).
 Solver-rung execution remains scaffolding; the closure cap and A-label
 relocation claims are ready, unreviewed. Independently of those claims,
 the reviewed mathematical tau/support proofs exclude both x138 profiles.
-[General support capacity](../n43/d18/tau/transversal_support.md) and
+[General support capacity](../research/n43/d18/tau/transversal_support.md) and
 tripartite attachment obstructions are accepted, with rootwise and regular
 consequences. Any rung run remains a Layer6 certificate obligation subject
 to the paused-computation policy.
@@ -287,7 +287,7 @@ toolkit statement-only sorries (Section 3) are not obligations of the main
 target.
 
 How a computation may discharge an obligation (design,
-[index §14](../n43/reductions.md)):
+[index §14](../research/n43/reductions.md)):
 
 1. branch coverage proved mathematically (one complete cover per branch);
 2. symmetry omissions proved equivalent to retained cases (L4 machinery);
@@ -349,7 +349,7 @@ The pyramid is complete when all of the following hold.
    `R_5_5_43` reports only standard axioms and named premises.
 4. Certificate: every computational input carries provenance, hashes, and a
    checkable proof per [reproducibility](reproducibility.md) and
-   [index §14.4](../n43/reductions.md).
+   [index §14.4](../research/n43/reductions.md).
 
 None of these holds today. Closed so far: `x=136`, `x=137`, and the formal
 spine from premises to the apex modulo the five obligations.
@@ -359,17 +359,17 @@ spine from premises to the apex modulo the five obligations.
 Statuses in this section reflect reviews; the source files' own labels lag.
 Do not re-flip labels here; reconciliation is a separate task.
 
-- [x137/frontier_closure.md](../n43/d18/x137/frontier_closure.md): labels
+- [x137/frontier_closure.md](../research/n43/d18/x137/frontier_closure.md): labels
   `ready` / `Reviews: none`, but both sibling reviews accepted and the
   closure is integrated (report 2026-10-19).
-- [k1/mixed_core_obstruction.md](../n43/d18/k1/mixed_core_obstruction.md),
-  [k1/signature_geometry.md](../n43/d18/k1/signature_geometry.md),
-  [critical_core_exterior.md](../n43/d18/critical_core_exterior.md) and
-  [k1/triangle_capacity.md](../n43/d18/k1/triangle_capacity.md): accepted by
+- [k1/mixed_core_obstruction.md](../research/n43/d18/k1/mixed_core_obstruction.md),
+  [k1/signature_geometry.md](../research/n43/d18/k1/signature_geometry.md),
+  [critical_core_exterior.md](../research/n43/d18/critical_core_exterior.md) and
+  [k1/triangle_capacity.md](../research/n43/d18/k1/triangle_capacity.md): accepted by
   their reviews; file labels `ready`.
-  [k1/dense_cell_stability.md](../n43/d18/k1/dense_cell_stability.md) is
+  [k1/dense_cell_stability.md](../research/n43/d18/k1/dense_cell_stability.md) is
   accepted **conditional** on the exterior and capacity premises.
-- [parameter_landscape](../n43/d18/parameter_landscape.md): claims 4-5
+- [parameter_landscape](../research/n43/d18/parameter_landscape.md): claims 4-5
   conditionally accepted pending a core audit of claims 1-3; the JSON's
   `reported_x136_closure` field predates integration.
 
@@ -378,7 +378,7 @@ Do not re-flip labels here; reconciliation is a separate task.
 - Update a node here only after the underlying claim's audit or integration;
   mirror the source's status words exactly (`accepted`, `ready`, `open`,
   `excluded`, plus the index's bracket labels where used).
-- New layers or nodes require a dated report under `reports/` and a WORK.md
+- New layers or nodes require a dated report under `research/reports/` and a WORK.md
   row; shared-index edits follow [workflow](workflow.md).
 - This file never substitutes for the reduction index, branch READMEs,
   reviews, or the Lean audit; if they disagree, they win and this map is

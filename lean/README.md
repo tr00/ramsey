@@ -31,16 +31,19 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/n04/R42.lean` | Proved `R(4,2) ≤ 4` by the same base case |
 | `Ramsey/n06/R33.lean` | Proved `R(3,3) ≤ 6` by recurrence |
 | `Ramsey/n09/R43.lean` | Proved `R(4,3) ≤ 9` by forced degree 5 and handshaking parity |
+| `Ramsey/n17/Signatures.lean` | Wagner-neighborhood signature classification by finite sum normalization, the split `c 1 = 0`, and Lean's internal `lia` tactic. No external solver or Boolean encoding. |
 | `Ramsey/n18/R44.lean` | Proved `R(4,4) ≤ 18` by recurrence from the order-9 bound |
-| `Ramsey/theorems/RamseyBounds.lean` | Premise-free neighborhood restriction, degree cap, 2-clique base case, and additive recurrence |
-| `Ramsey/n43/D18.lean`      | Degree-18 frontier on top of `Premises` and the `defs` transfer lemmas: `18 ≤ d(v) ≤ 24` on 43 vertices (`degree_mem`) and the adjacent common-neighbor bound `card_commonNeighbors_le_13` Ramsey.lean — imports Ramsey.defs.Completeness; R_5_5_43's docstring now names the carrier flow (branch Complete proofs → cover → forall_not_of_eq_empty) with the two branch sorries as the only open |
+| `Ramsey/basics/GraphTheory.lean` | Premise-free induced-subgraph transport, independent-set insertion, complete and anticomplete unions, and forbidden-size cardinality bounds |
+| `Ramsey/basics/Transversals.lean` | Standard hitting-set definitions, monotonicity, missed-member witnesses, complement duality and deletion equivalences |
+| `Ramsey/basics/RamseyTheory.lean` | Premise-free Ramsey restrictions, pivot identities, finite-type order and edge bounds, 2-clique base case and additive recurrence |
+| `Ramsey/n43/D18.lean` | Degree-18 frontier using `Premises` and `basics/RamseyTheory.lean`: degree window `18 ≤ d(v) ≤ 24` on 43 vertices and adjacent common-neighbor bound `card_commonNeighbors_le_13` |
 
                                                                                                                |
 
-| `Ramsey/n43/EvenPivot.lean` | Even-pivot root reduction (d18 ∪ d20, `../n43/reductions.md` §3) on the `Complete` carrier: handshaking + complement symmetry give `exists_degree_18_or_20_up_to_compl` and the class cover `pivot_cover`; `ramsey_5_5_43_of_d18_d20` joins the branch obligations (`ExcludesDegree d`, the completeness of the empty enumeration of the degree-`d` pivot class) via `Complete.cover` and `Complete.forall_not_of_eq_empty`; `ramseyNumber_5_5_le_43_of_d18_d20` into `R(5,5) ≤ 43` |
-| `Ramsey/n43/d18/Exclusion.lean` | d18 branch target `Ramsey.d18.excludes : ExcludesDegree 18`, proved from the four connectivity subcase targets by `Ramsey.d18.excludes_of_subcases`; mirrors `../n43/d18/` (all pivots, not a tie rule) |
+| `Ramsey/n43/EvenPivot.lean` | Even-pivot root reduction (d18 ∪ d20, `../research/n43/reductions.md` §3) on the `Complete` carrier: handshaking + complement symmetry give `exists_degree_18_or_20_up_to_compl` and the class cover `pivot_cover`; `ramsey_5_5_43_of_d18_d20` joins the branch obligations (`ExcludesDegree d`, the completeness of the empty enumeration of the degree-`d` pivot class) via `Complete.cover` and `Complete.forall_not_of_eq_empty`; `ramseyNumber_5_5_le_43_of_d18_d20` into `R(5,5) ≤ 43` |
+| `Ramsey/n43/d18/Exclusion.lean` | d18 branch target `Ramsey.d18.excludes : ExcludesDegree 18`, proved from the four connectivity subcase targets by `Ramsey.d18.excludes_of_subcases`; mirrors `../research/n43/d18/` (all pivots, not a tie rule) |
 | `Ramsey/n43/d18/c/Exclusion.lean` | Connected d18 subcase target `Ramsey.d18.c.excludes : ExcludesSubcase .conn` — deliberate `sorry` |
-| `Ramsey/n43/d18/c/w0/Exclusion.lean` | Connected degree-18 zero-A-excess branch `Ramsey.d18.c.w0.Class`, with open `Excludes := Complete ∅ Class`. Here `W_A = E_A = 0` means every A vertex has global degree 18, proved by `zero_excess_iff`. Mirrors the exact budgets in `../n43/d18/frontier_band.md`. This is not restricted to `x = 136` and does not cover positive A-excess. No new axioms or sorries. |
+| `Ramsey/n43/d18/c/w0/Exclusion.lean` | Connected degree-18 zero-A-excess branch `Ramsey.d18.c.w0.Class`, with open `Excludes := Complete ∅ Class`. Here `W_A = E_A = 0` means every A vertex has global degree 18, proved by `zero_excess_iff`. Mirrors the exact budgets in `../research/n43/d18/frontier_band.md`. This is not restricted to `x = 136` and does not cover positive A-excess. No new axioms or sorries. |
 | `Ramsey/n43/d18/k1/Exclusion.lean` | K1 d18 subcase target `Ramsey.d18.k1.excludes : ExcludesSubcase .k1` (exceptional neighborhood with complete component of order 1) — deliberate `sorry` |
 | `Ramsey/n43/d18/k1/Rigidity.lean` | K1 rigidity: the isolated neighbor has global degree 18 and a 17-vertex 8-regular `(4,4)` cross row. Mirrors accepted connectivity claim 03(b), with no pivot-degree hypothesis. |
 | `Ramsey/n43/d18/k1/{Frame,Structure}.lean` | Canonical adjacent-root cells and the proved 17+17+7 decomposition with both regular cores and both `(5,4)` sides. |
@@ -49,28 +52,49 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/n43/d18/k1/{Completion,Parameters,Reduction}.lean` | Exact 8/3 mixed obstruction types, arbitrary cross-core replacement, the scalar outer envelope, and `Complete` reductions to admissible erased keys with 289 Boolean positions. No exclusion or realizability claim. |
 | `Ramsey/n43/d18/k2/Exclusion.lean` | K2 d18 subcase target `Ramsey.d18.k2.excludes : ExcludesSubcase .k2` (complete component of order 2) — deliberate `sorry` |
 | `Ramsey/n43/d18/k3/Exclusion.lean` | K3 d18 subcase target `Ramsey.d18.k3.excludes : ExcludesSubcase .k3` (complete component of order 3) — deliberate `sorry` |
-| `Ramsey/n43/d20/Exclusion.lean` | d20 branch target `Ramsey.d20.excludes : ExcludesDegree 20` — deliberate `sorry`, mirrors `../n43/d20/`; arbitrary even-pivot d20, _not_ the normalized min-degree-20 scheme of `../n43/min-degree20/` |
+| `Ramsey/n43/d20/Exclusion.lean` | d20 branch target `Ramsey.d20.excludes : ExcludesDegree 20` — deliberate `sorry`, mirrors `../research/n43/d20/`; arbitrary even-pivot d20, _not_ the normalized min-degree-20 scheme of `../research/n43/min-degree20/` |
 | `Ramsey/defs/Completeness.lean` | Enumeration completeness carrier `Complete S P` with premise-free glue lemmas (`mono`, `of_imp`, `sep`, `union`, `iUnion`, `cover`, `forall_not_of_eq_empty`); every branch states its obligation as a `Complete` proof |
-| `Ramsey/defs/RamseyGraph.lean` | Core vocabulary and premise-free transfer lemmas: bundled `RamseyGraph s t V`, predicate `IsRamseyGraph`, `ramseyNumber`, explicit bound predicates, balanced-clique definitions, and complement, embedding and induced-subgraph transfers |
-| `Ramsey/defs/Transversals.lean` | Pivot and transversal vocabulary: `antiNeighborSet` (`M(v)`), `crossEdgeSet` (`x = e(A,B)`), `rowSet` / `columnSet`, counting (`inducedEdgeCount`, `crossEdgeCount`, `degreeExcess`), rectangle predicates, set-family and transversal definitions, and the pivot partition lemma |
+| `Ramsey/defs/RamseyGraph.lean` | Repository Ramsey graph, bound-predicate and balanced-clique vocabulary. Elementary results live in `basics/RamseyTheory.lean`. |
+| `Ramsey/defs/Transversals.lean` | Repository pivot-interface vocabulary: antineighborhood, rows, edge counts, degree excess, deletion counts and rectangle predicates |
 | `Ramsey/defs/RootedRamseyGraph.lean` | `RootedRamseyGraph s t V` with its pivot, canonical parts `A` and `B`, partition facts and bundled `(4,5)` neighborhood and `(5,4)` antineighborhood for `(5,5)` graphs |
-| `Ramsey/theorems/TransversalDeletion.lean` | 17 unproved deletion statements with a shared `DeletionHypotheses` package, named thresholds/defects and named result fields; external edge bounds remain explicit |
+| `Ramsey/theorems/TransversalDeletion.lean` | 15 unproved deletion statements with explicit external bounds. The elementary deletion equivalence and complement duality are proved in `basics/Transversals.lean`. |
 | `Ramsey/theorems/TransversalCompatibility.lean` | Proved avoidance and weighted criteria using separate `WeightOccupancy`/`ComplementExclusion` packages; degree compatibility and frontier intersection retain two deliberate `sorry`s |
 | `Ramsey/theorems/TransversalFour.lean` | Proved four-vertex transversal bounds and frontier cross-column application, consuming the published edge-census axiom and the proved order-9 Ramsey bound |
-| `Ramsey/theorems/LocalReductions.lean` | Proved mixed/common-nonneighbor cells, full pair-codegree intervals and row/column cardinal bounds |
+| `Ramsey/theorems/LocalReductions.lean` | Numerical mixed/common-nonneighbor cell bounds, full pair-codegree intervals and row/column bounds, using `basics/RamseyTheory.lean` restrictions |
 | `Ramsey/theorems/PivotInterface.lean` | Proved exact forbidden-rectangle criterion with internal graph types and pivot-containing sets handled explicitly |
-| `Ramsey/theorems/PivotCounting.lean` | General proved cross-edge counts, shared finite-set `links` API, Set/Finset induced-degree identities, pivot degree sums and complement edge identity |
-| `Ramsey/theorems/RowBounds.lean` | General single-row boundary facts: the row cap `isRamseyGraph_induce_rowSet` (every cross row `R_u = N(u) ∩ M(v)` of a `(5,5)`-Ramsey graph induces a `(4,4)`-Ramsey graph, so `|R_u| ≤ 17` by `R(4,4) ≤ 18`, premise-free) and the regularity trigger `card_neighborSet_eq_eight_of_isRamseyGraph_4_4` (a `(4,4)`-Ramsey graph on 17 vertices is 8-regular, from `R(3,4) ≤ 9` and `R(4,3) ≤ 9`) |
-| `Ramsey/theorems/CliqueBounds.lean` | Shared forbidden-size cardinality bound for finite cliques, its independent-set dual and the Finset specialization |
+| `Ramsey/theorems/Counting.lean` | Premise-free row and incidence counts, induced-union and cut edge decompositions, induced-degree identities, two-anchor identities, pivot degree sums and complement edge counts |
+| `Ramsey/n17/Regularity.lean` | Every 17-vertex `(4,4)`-Ramsey graph is 8-regular, by the generic neighborhood bounds and the proved order-9 Ramsey bounds |
 | `Ramsey/n43/d18/PivotBudget.lean` | Proved degree-18 edge intervals, deficit/excess identity, `136≤x≤288` and equality-frontier consequences, taking a rooted Ramsey graph and its pivot-degree hypothesis |
 | `Ramsey/n43/d18/ConnectivityClassification.lean` | Connectivity classification of degree-18 neighborhoods fused with the d18 subcase split: exceptional family `K_m ⊔ C`, `m=1..3`, the order trichotomy `IsKNeighborhood k` / `isDisconnectedNeighborhood_iff`, `SubcaseBranch` branches `conn`/`k1`/`k2`/`k3`, instance-free subcase classes `ConnClass` and `KClass k` through `deg`, the class cover `subcase_cover`, and `excludes_of_subcases` joining the four subcase obligations by `Complete.cover` and `Complete.forall_not_of_eq_empty` |
-| `Ramsey/n43/d18/CrossEdgeBounds.lean` | Single cross-edge module with public `Ramsey.d18.degree18_cross_le_279`. Branch-specific support remains local. Generic incidences and induced-degree identities come from `PivotCounting`. No new axioms or sorries. |
+| `Ramsey/n43/d18/CrossEdgeBounds.lean` | Single cross-edge module with public `Ramsey.d18.degree18_cross_le_279`. Branch-specific support remains local. Generic incidences and induced-degree identities come from `Counting`. No new axioms or sorries. |
 
 The small bounds above use only `propext`, `Classical.choice`, and `Quot.sound`.
 `Ramsey.ramsey_4_3_le_9` and `Ramsey.ramsey_4_4_le_18` are theorems, not
 axioms in `Premises`. Import their order-specific modules directly, or use
 `import Ramsey`. `R(3,5) ≤ 14` and `R(4,5) ≤ 25` remain published axioms.
-See the [formalization report](../reports/2026-10-21-lean-small-ramsey-bounds.md).
+See the [formalization report](../research/reports/2026-10-21-lean-small-ramsey-bounds.md).
+
+## Paley-17 uniqueness
+
+`Ramsey.n17.isomorphic_paley17` in [research/n17/R44.lean](Ramsey/n17/R44.lean) proves
+that every finite 17-vertex `(4,4)`-Ramsey graph is isomorphic to `paley17`.
+`Ramsey.n17.paley17_isRamseyGraph` supplies the concrete quadratic-residue construction.
+Both declarations use only `propext`, `Classical.choice`, and `Quot.sound`, with no `sorry`.
+
+The proof derives `SRG(17,8,3,4)`, classifies the cubic 8-vertex neighborhood,
+extracts its 38 possible outside signatures, and applies the internal `lia`
+classification before reconstructing the Paley isomorphism. Finite signature
+coverage uses kernel reduction, not `native_decide`, an external solver, or a graph catalogue.
+An external consumer checked the arbitrary-vertex theorem, pairwise uniqueness
+on `Fin 17`, and the complement case. K1's `Frame.paley_cores` now consumes this theorem.
+
+Verified on 2026-10-21 with `LEAN_NUM_THREADS=2 sh lean/scripts/check.sh`
+from the repository root. The full build, unchanged sorry ledger, style check,
+and axiom audit passed. Audit expectations now include the Paley construction,
+uniqueness theorem, and K1 core isomorphisms, all with only the 3 standard axioms.
+
+The source [uniqueness argument](../research/n17/r44.md) retains its separate `ready`
+review status. Kernel checking does not change that review metadata.
 
 ## Uniform boundary profiles
 
@@ -139,24 +163,42 @@ The former `CrossEdgeSupport`, `CrossEdgeTail`, `CrossEdgeSingle`,
 `CrossEdgeCores` and `CrossEdgeDouble` modules have been removed.
 Their branch-specific internal lemmas are no longer part of the public API.
 
-The 2026-10-21 theorem deduplication shares the `links` API between the d18 cross-edge
-bound and K1 budgets through `PivotCounting`. Its Finset induced-degree identity
-derives from `induced_degree_eq_row_card`. The 5 branch cardinality helpers now
-specialize `CliqueBounds`, and K1 attachments use the public
-`Ramsey.isNIndepSet_insert` theorem from `RowBounds`.
-`TransversalFour` uses the existing `Ramsey.indepSetFree_induce` directly.
-An external `import Ramsey` consumer checked incidence decomposition, induced
-degrees, generic cardinality bounds, insertion from the empty set and induced
-freeness. Axiom checks of the shared helpers used only `propext`,
-`Classical.choice` and `Quot.sound`.
-`sh scripts/check.sh` passed with the existing sorry ledger and expected axiom
-sets unchanged.
+The shared `links` API and graph counting identities live in `theorems/Counting.lean`.
+Elementary cardinality, insertion and induced-freeness helpers live in `basics/GraphTheory.lean`.
+The standard transversal vocabulary and API live in `basics/Transversals.lean`.
+Generic restrictions and explicit Ramsey bounds live in `basics/RamseyTheory.lean`.
+The former `CliqueBounds`, `RamseyBounds` and `RowBounds` module paths have no compatibility shims.
+Order-17 regularity lives with its branch in `n17/Regularity.lean`.
+`Counting` replaces `PivotCounting` without a shim and does not import order-specific modules.
+The pre-consolidation 2026-10-21 external consumer checked incidence decomposition,
+induced degrees, generic cardinality bounds, insertion and induced freeness.
+Its axiom checks and consistency gate passed with the then-current ledgers.
+The 2026-10-22 consolidation proves the 2 elementary transversal facts in `basics/`,
+reducing the deletion module's sorry count from 17 to 15 without adding an axiom.
+Verified from `lean/` with `env LEAN_NUM_THREADS=2 sh scripts/check.sh` on 2026-10-22.
+The build, per-file elaboration, updated sorry ledger, style and axiom audit passed.
+A standalone consumer exercised the new background imports and the empty-graph boundary.
+Existing audited axiom sets are unchanged. The 22 added audit targets use only standard axioms.
+
+The concept deduplication uses `rowSet` for both row and column restrictions;
+the finite `crossRow` and `anchorSignature` representations delegate to its
+`toFinset`. `IsDisconnectedNeighborhood` is the disjunction of
+`IsKNeighborhood 1`, `IsKNeighborhood 2` and `IsKNeighborhood 3`.
+Boundary `ProfileRelation` delegates to `SameProfile`. Deletion counts live
+in `defs/Transversals`, and deletion and compatibility statements reuse
+`inducedEdgeCount` and `crossEdgeCount`. `outsideNonneighborCount` still counts
+the vertex itself when it lies outside the deletion set.
+A separate consumer proof checked these interfaces, signature equality and
+the nonneighbor self-counting boundary; all affected modules built.
+The full `sh scripts/check.sh` gate passed after the cutover: build, sorry
+ledger, style and expected axiom audit all green. No new axioms or sorries
+were introduced by this refactor.
 
 ## K1 completion reduction
 
-The accepted claims in [the double-core research note](../n43/d18/k1/research.json),
-[cross-core bounds](../n43/d18/k1/cross_core.json), and
-[seven-cell structure](../n43/d18/k1/seven_cell.json) now have proved reduction interfaces.
+The accepted claims in [the double-core research note](../research/n43/d18/k1/research.json),
+[cross-core bounds](../research/n43/d18/k1/cross_core.json), and
+[seven-cell structure](../research/n43/d18/k1/seven_cell.json) now have proved reduction interfaces.
 The exact source correspondence and axiom audit were recorded in the removed
 formalization report, preserved in Git history.
 
@@ -244,7 +286,7 @@ reproducible. `.lake/` is ignored.
 ## Neighborhood connectivity classification
 
 `Ramsey.d18.connectivity_classification` formalizes
-`n43/d18/neighborhood_connectivity.md#claim-connectivity-01` for every finite
+`research/n43/d18/neighborhood_connectivity.md#claim-connectivity-01` for every finite
 18-vertex `(4,5)`-Ramsey graph. Its exceptional predicate
 `IsDisconnectedNeighborhood` gives a nonempty clique of order at most three,
 no edges across its complement, and a connected `(4,4)` core on the remaining
@@ -256,20 +298,20 @@ The claim-02 census edge slices and the sufficient-connectivity wrappers
 here until the 2026-10-18 fusion and removed: the d18 branch now handles
 disconnected neighborhoods through the subcase obligations instead of
 proving connectivity from edge counts. The informal claims remain in
-`n43/d18/neighborhood_connectivity.md` and the removed theorem names and
-premise chains in `reports/2026-10-17-d18-connectivity.md`. The theorem
+`research/n43/d18/neighborhood_connectivity.md` and the removed theorem names and
+premise chains in `research/reports/2026-10-17-d18-connectivity.md`. The theorem
 names and premise chains of the survivors are included in
 `scripts/Audit.lean` and its expectations. Nothing here asserts that any
 exceptional graph extends to an order-43 Ramsey candidate. The
 interface/filter claims in claim 03 are not formalized by the classification
 module; the m = 1 rigidity of its item (b) is formalized in
-`Ramsey/n43/d18/k1/Rigidity.lean` on top of `Ramsey/theorems/RowBounds.lean`.
+`Ramsey/n43/d18/k1/Rigidity.lean` on top of `Ramsey/n17/Regularity.lean`.
 
 ## Connectivity subcases of the d18 branch
 
-`Ramsey.n43.d18.ConnectivityClassification` refines `IsDisconnectedNeighborhood` by the
-exact complete-component order through `IsKNeighborhood k` and
-`isDisconnectedNeighborhood_iff` (`k = 1, 2, 3`), then splits the d18 pivot
+`Ramsey.n43.d18.ConnectivityClassification` defines `IsDisconnectedNeighborhood`
+through the three exact complete-component orders `IsKNeighborhood k`
+(`k = 1, 2, 3`); `isDisconnectedNeighborhood_iff` is definitional. It splits the d18 pivot
 class into the four `SubcaseBranch` classes: `ConnClass` (connected
 neighborhood) and `KClass k` (exceptional shape at order `k`), both stated
 instance-free through `deg`. `subcase_cover` is the resulting cover of the
@@ -290,6 +332,6 @@ its cross row. The row cap `|R_u| ≤ 17` and the global degree floor
 `18 ≤ d(u)` force `deg G u = 18` and `|R_u| = 17`, and the row itself is a
 17-vertex 8-regular `(4,4)`-Ramsey graph by the regularity trigger. The
 statement needs no hypothesis on the pivot degree. The source claim
-`n43/d18/neighborhood_connectivity.md#claim-connectivity-03` is independently
+`research/n43/d18/neighborhood_connectivity.md#claim-connectivity-03` is independently
 accepted. Its item (b) arithmetic `epsilon_u ≤ m - 1` and
 `d_B(u) = 18 - m + epsilon_u` collapses at m = 1 to the equalities above.

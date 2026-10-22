@@ -1,6 +1,6 @@
 # Independent review of weighted avoidance and transversal compatibility
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Date: 2026-10-15. Reviewer: `augmentation_author`.
 
@@ -17,7 +17,7 @@ Reviewed revision: exact uncommitted theorem SHA-256
 
 Dependencies reviewed: The family and degree-gap arguments are proved directly.
 For the numerical recovery, the source
-`n43/d18/x136/r2/low_excess_columns.md` was independently reread at SHA-256
+`research/n43/d18/x136/r2/low_excess_columns.md` was independently reread at SHA-256
 `e855ca074447be16c6d42a1924d067702972e1d7147b7522f121bf08c2fb9dff`,
 especially its setting and claims 01–02. The four-transversal source was
 read at SHA-256

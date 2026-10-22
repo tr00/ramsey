@@ -1,6 +1,6 @@
 # Independent review of cut-capacity family bounds
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Claim(s): `cut_capacity.md#claim-cut-capacity-01`,
 `cut_capacity.md#claim-cut-capacity-02`, and
@@ -15,9 +15,9 @@ Input project revision: `b12925f7a96d24e18d06b0237930a32e30660ca2`.
 
 Dependencies reviewed: direct proofs in the three claims; Turan's theorem
 for a `K_r`-free graph; the input statistic inequality `q_v+E_v<=B`.
-The order-43 illustration was compared with `n43/d18/excess_bounds.md`
-and `n43/d18/pairwise_pivot_refinements.md`. The accepted source
-`n43/d18/dense_pivot_coverage.md#claim-dense-pivot-01` and its existing
+The order-43 illustration was compared with `research/n43/d18/excess_bounds.md`
+and `research/n43/d18/pairwise_pivot_refinements.md`. The accepted source
+`research/n43/d18/dense_pivot_coverage.md#claim-dense-pivot-01` and its existing
 independent review were read; its structural proof was also checked directly
 in the reviewer's parallel abstraction work. Published census extrema remain
 input premises, not independently recertified facts of this review.

@@ -1,7 +1,7 @@
 module
 
 public import Ramsey.n43.d18.ConnectivityClassification
-public import Ramsey.theorems.RowBounds
+public import Ramsey.n17.Regularity
 public import Ramsey.n18.R44
 public import Mathlib.Data.Set.Card
 
@@ -66,7 +66,7 @@ public theorem rigidity {G : SimpleGraph (Fin 43)} (hG : IsRamseyGraph 5 5 G)
     rw [hNSeq, Nat.card_coe_set_eq, Nat.card_coe_set_eq,
       Set.ncard_insert_of_notMem hvR]
   have h44 : IsRamseyGraph 4 4 (G.induce (rowSet G (antiNeighborSet G v) u)) :=
-    isRamseyGraph_induce_rowSet hG v u
+    isRamseyGraph_induce_mixedCell hG u v
   have hcap : Nat.card ↥(rowSet G (antiNeighborSet G v) u) ≤ 17 := by
     by_contra h
     exact ramsey_4_4_le_18.not_isRamseyGraph (by omega) _ h44

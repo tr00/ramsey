@@ -3,9 +3,11 @@ module
 import Mathlib
 
 public import Ramsey.defs.Completeness
-public import Ramsey.defs.RamseyGraph
-public import Ramsey.defs.Transversals
+public import Ramsey.basics.GraphTheory
+public import Ramsey.basics.Transversals
+public import Ramsey.basics.RamseyTheory
 public import Ramsey.defs.RootedRamseyGraph
+public import Ramsey.n17.R44
 public import Ramsey.n18.R44
 public import Ramsey.n43.D18
 public import Ramsey.n43.EvenPivot
@@ -22,8 +24,8 @@ public import Ramsey.theorems.TransversalCompatibility
 public import Ramsey.theorems.TransversalFour
 public import Ramsey.theorems.LocalReductions
 public import Ramsey.theorems.PivotInterface
-public import Ramsey.theorems.PivotCounting
-public import Ramsey.theorems.RowBounds
+public import Ramsey.theorems.Counting
+public import Ramsey.n17.Regularity
 public import Ramsey.theorems.BoundaryProfileContexts
 public import Ramsey.theorems.BoundaryProfileTransport
 public import Ramsey.n43.d18.PivotBudget

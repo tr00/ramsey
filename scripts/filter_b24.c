@@ -7,8 +7,8 @@
  * Input/output graph indices are one-based; vertex witnesses are zero-based.
  *
  * Necessary predicates: 144<=e(B)<=160, 10<=d_B<=17, and every K4
- * has internal degree sum <=60. Sources: n43/reductions.md sections
- * 5.3, 8.1 and n43/d18/cliques_augmentation.md section 1.
+ * has internal degree sum <=60. Sources: research/n43/reductions.md sections
+ * 5.3, 8.1 and research/n43/d18/cliques_augmentation.md section 1.
  * The scalar degree-sum relaxation is 432<=2e(B)+x<=576 for some
  * integer 136<=x<=279. It does NOT construct or certify an extension.
  * Saturation diagnostic: adding a missing F-edge is safe iff its common

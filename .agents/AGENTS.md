@@ -32,7 +32,7 @@ Mathematical work: new lemmas, bounds, case analyses, and proof reviews.
 - Use the claim and review templates in `docs/workflow.md`.
 - Independent review precedes `accepted` status; a changed proof requires
   renewed review.
-- Add a dated report under `reports/`.
+- Add a dated report under `research/reports/`.
 
 ### Formalization
 
@@ -45,7 +45,7 @@ Lean work under `lean/`.
 - Mirror the reviewed markdown statement exactly. Do not weaken or restate a
   claim to make it provable; a statement change requires renewed review of the
   source claim.
-- Lean work does not require a report under `reports/`; record outcomes in
+- Lean work does not require a report under `research/reports/`; record outcomes in
   the Lean tree as directed by `lean/AGENTS.md`.
 
 ### Engine development
@@ -69,7 +69,7 @@ Solver runs, catalogue processing, searches, and other computations.
   authorization for each run beyond trivial validation.
 - Follow `docs/reproducibility.md` for evidence content, retention, and
   storage discipline.
-- Summarize an experimental session in one dated report under `reports/`.
+- Summarize an experimental session in one dated report under `research/reports/`.
 
 ### Refactoring
 
@@ -117,14 +117,14 @@ Restructuring that must not change behavior: moves, renames, consolidation.
 
 Read these before extending the work:
 
-- `results.md` and `n43/README.md`
+- `results.md` and `research/n43/README.md`
 - `docs/theory_map.md` for the layered theory pyramid, the open-obligation
   ledger, and the formalization backlog
-- `n43/d18/README.md` and `n43/d18/x136/README.md`
-- `n43/d18/frontier_band.md`
-- `n43/d18/x136/small_columns.md`
-- `n43/d18/x136/r4/exclusion.md`
-- `n43/d18/pivot_classes.md`
+- `research/n43/d18/README.md` and `research/n43/d18/x136/README.md`
+- `research/n43/d18/frontier_band.md`
+- `research/n43/d18/x136/small_columns.md`
+- `research/n43/d18/x136/r4/exclusion.md`
+- `research/n43/d18/pivot_classes.md`
 - `docs/reproducibility.md` and `docs/workflow.md`
 - `lean/AGENTS.md` for Lean style, comment rules and file placement
 - `docs/engine.md` for engine build, test, and solver-invocation commands

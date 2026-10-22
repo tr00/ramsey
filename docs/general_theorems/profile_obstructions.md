@@ -24,7 +24,7 @@ can obstruct **every** occurrence of the state in a permitted context,
 even when the original block has no such feature.
 
 This note combines exact replacement with the project's reviewed
-[symmetry and module obstructions](../../n43/symmetry_structure.md).
+[symmetry and module obstructions](../../research/n43/symmetry_structure.md).
 It is a structural bridge, not another degree/cross-edge budget.
 
 ## Setting
@@ -166,9 +166,9 @@ already suffices to create the symmetric replacement.
 ## Order-43 instance: no small profile collisions in such an expression
 
 For n=43,p=q=5, the reviewed
-[support theorem](../../n43/symmetry_structure.md#claim-symmetry-structure-02)
+[support theorem](../../research/n43/symmetry_structure.md#claim-symmetry-structure-02)
 gives s=10 and the reviewed
-[pair-separation theorem](../../n43/symmetry_structure.md#claim-symmetry-structure-01)
+[pair-separation theorem](../../research/n43/symmetry_structure.md#claim-symmetry-structure-01)
 gives D=8. Thus sibling blocks as in Claim 3 cannot have k<=4.
 In fact k=5 is impossible too: an anticomplete join would force F to
 have minimum degree 4 on five vertices, hence F=K5; a complete join
@@ -184,7 +184,7 @@ information-equivalent completed representative, not from asserting that
 a partial symmetry extends to the original graph.
 
 The reviewed
-[prime-graph theorem](../../n43/symmetry_structure.md#claim-symmetry-structure-03)
+[prime-graph theorem](../../research/n43/symmetry_structure.md#claim-symmetry-structure-03)
 likewise supplies the premise of Claim 2's module form. All numerical
 Ramsey premises of those source theorems are inherited, not recertified.
 There is no new global bound or claim that a forbidden collision is

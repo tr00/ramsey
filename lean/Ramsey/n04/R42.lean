@@ -1,6 +1,6 @@
 module
 
-public import Ramsey.theorems.RamseyBounds
+public import Ramsey.basics.RamseyTheory
 
 /-!
 # The bound R(4,2) ≤ 4

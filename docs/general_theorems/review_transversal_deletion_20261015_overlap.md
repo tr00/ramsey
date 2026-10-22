@@ -1,6 +1,6 @@
 # Independent review of transversal deletion and defect budgets
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Claim(s): `transversal_deletion.md#claim-transversal-deletion-01` through
 `transversal_deletion.md#claim-transversal-deletion-04`.
@@ -17,9 +17,9 @@ revision initially named in the assignment. Input project revision:
 
 Dependencies reviewed:
 
-- `n43/d18/transversal_four.md`, SHA-256
+- `research/n43/d18/transversal_four.md`, SHA-256
   `4c084b03583248dc7c7ed56324ec5b6801bdca5278cf4fc17fa7e845dc07825e`;
-- `n43/d18/frontier_band.md`, SHA-256
+- `research/n43/d18/frontier_band.md`, SHA-256
   `0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54`;
 - the supplied Ramsey and lower-edge-bound interface, Turan's balanced
   extremal theorem and equality characterization.

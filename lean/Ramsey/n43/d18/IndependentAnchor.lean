@@ -2,7 +2,7 @@ module
 
 public import Ramsey.n43.d18.PivotBudget
 public import Ramsey.n18.R44
-public import Ramsey.theorems.CliqueBounds
+public import Ramsey.basics.GraphTheory
 public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 
 /-!
@@ -20,18 +20,21 @@ open scoped BigOperators
 variable (R : RootedRamseyGraph 5 5 (Fin 43)) [DecidableRel R.graph.Adj]
 
 /-- The neighbors of a vertex within a chosen independent anchor. -/
-@[expose] public def anchorSignature (I : Finset (Fin 43)) (y : Fin 43) : Finset (Fin 43) :=
-  I.filter (fun u ↦ R.graph.Adj y u)
+@[expose] public def anchorSignature (I : Finset (Fin 43)) (y : Fin 43) : Finset (Fin 43) := by
+  letI : DecidablePred (· ∈ rowSet R.graph (I : Set (Fin 43)) y) :=
+    fun u ↦ inferInstanceAs (Decidable (R.graph.Adj y u ∧ u ∈ I))
+  exact (rowSet R.graph (I : Set (Fin 43)) y).toFinset
+
+/-- Signature membership records anchor membership and adjacency. -/
+@[simp] public lemma mem_anchorSignature (I : Finset (Fin 43)) (y u : Fin 43) :
+    u ∈ anchorSignature R I y ↔ u ∈ I ∧ R.graph.Adj y u := by
+  classical
+  simp only [anchorSignature, Set.mem_toFinset]
+  exact and_comm
 
 /-- The antineighbors with exactly the prescribed anchor signature. -/
 @[expose] public noncomputable def anchorClass (I S : Finset (Fin 43)) : Finset (Fin 43) :=
   R.B.toFinset.filter (fun y ↦ anchorSignature R I y = S)
-
-omit [DecidableRel R.graph.Adj] in
-/-- An independent set in the ambient graph has at most 4 vertices. -/
-private lemma independent_card_le_four {J : Finset (Fin 43)}
-    (hJ : R.graph.IsIndepSet J) : J.card ≤ 4 :=
-  independent_finset_card_le_of_indepSetFree R.ramsey.2 hJ
 
 /-- Every degree-18 neighborhood contains an independent 4-set. -/
 public theorem exists_independent_anchor (hv : R.graph.degree R.pivot = 18) :
@@ -41,9 +44,7 @@ public theorem exists_independent_anchor (hv : R.graph.degree R.pivot = 18) :
   have hnot : ¬(R.graph.induce R.A).IndepSetFree 4 := by
     intro h
     exact ramsey_4_4_le_18.not_isRamseyGraph (by omega) _ ⟨R.neighborhood.ramsey.1, h⟩
-  rw [← SimpleGraph.cliqueFree_compl, compl_induce,
-    SimpleGraph.cliqueFree_induce_iff] at hnot
-  simp only [SimpleGraph.CliqueFreeOn, SimpleGraph.isNClique_compl] at hnot
+  rw [indepSetFree_induce_iff] at hnot
   push Not at hnot
   exact hnot
 
@@ -55,19 +56,9 @@ public theorem anchorSignature_nonempty {I : Finset (Fin 43)}
   by_contra h
   have hmiss : ∀ u ∈ I, ¬R.graph.Adj y u := by
     intro u hu hadj
-    exact h ⟨u, Finset.mem_filter.mpr ⟨hu, hadj⟩⟩
+    exact h ⟨u, (mem_anchorSignature R I y u).mpr ⟨hu, hadj⟩⟩
   have hyI : y ∉ I := fun hyI ↦ hy.2 (hIA hyI)
-  have hind : R.graph.IsIndepSet (insert y I : Finset (Fin 43)) := by
-    intro u hu w hw hne
-    simp only [Finset.coe_insert, Set.mem_insert_iff, Finset.mem_coe] at hu hw
-    rcases hu with rfl | hu <;> rcases hw with rfl | hw
-    · exact (hne rfl).elim
-    · exact hmiss w hw
-    · exact fun hadj ↦ hmiss u hu hadj.symm
-    · exact hI.isIndepSet hu hw hne
-  have hc := independent_card_le_four R hind
-  rw [Finset.card_insert_of_notMem hyI, hI.card_eq] at hc
-  omega
+  exact R.ramsey.2 _ (isNIndepSet_insert hyI hI hmiss)
 
 /-- Two antineighbors with the same singleton signature must be adjacent. -/
 public theorem singleton_anchorClass_isClique {I : Finset (Fin 43)}
@@ -88,32 +79,21 @@ public theorem singleton_anchorClass_isClique {I : Finset (Fin 43)}
     obtain ⟨hba, hbI⟩ := Finset.mem_erase.mp hb
     constructor
     · intro hadj
-      have : b ∈ anchorSignature R I y := Finset.mem_filter.mpr ⟨hbI, hadj⟩
+      have : b ∈ anchorSignature R I y := (mem_anchorSignature R I y b).mpr ⟨hbI, hadj⟩
       rw [hys] at this
       exact hba (Finset.mem_singleton.mp this)
     · intro hadj
-      have : b ∈ anchorSignature R I z := Finset.mem_filter.mpr ⟨hbI, hadj⟩
+      have : b ∈ anchorSignature R I z := (mem_anchorSignature R I z b).mpr ⟨hbI, hadj⟩
       rw [hzs] at this
       exact hba (Finset.mem_singleton.mp this)
-  have hind : R.graph.IsIndepSet (insert y (insert z (I.erase a)) : Finset (Fin 43)) := by
-    intro u hu w hw hne
-    simp only [Finset.coe_insert, Set.mem_insert_iff, Finset.mem_coe] at hu hw
-    rcases hu with rfl | rfl | hu <;> rcases hw with rfl | rfl | hw
-    · exact (hne rfl).elim
-    · exact hn
-    · exact (hmiss w hw).1
-    · exact fun hadj ↦ hn hadj.symm
-    · exact (hne rfl).elim
-    · exact (hmiss w hw).2
-    · exact fun hadj ↦ (hmiss u hu).1 hadj.symm
-    · exact fun hadj ↦ (hmiss u hu).2 hadj.symm
-    · exact hI.isIndepSet (Finset.mem_of_mem_erase hu) (Finset.mem_of_mem_erase hw) hne
-  have hc := independent_card_le_four R hind
-  have hyE : y ∉ insert z (I.erase a) := by simp [hyz, hyI]
+  have hE : R.graph.IsNIndepSet 3 (I.erase a) := ⟨
+    Set.Pairwise.mono (fun _ hw ↦ Finset.mem_of_mem_erase hw) hI.isIndepSet, by
+      rw [Finset.card_erase_of_mem ha, hI.card_eq]⟩
   have hzE : z ∉ I.erase a := fun h ↦ hzI (Finset.mem_of_mem_erase h)
-  rw [Finset.card_insert_of_notMem hyE, Finset.card_insert_of_notMem hzE,
-    Finset.card_erase_of_mem ha, hI.card_eq] at hc
-  omega
+  have h4 := isNIndepSet_insert hzE hE (fun b hb ↦ (hmiss b hb).2)
+  have hyE : y ∉ insert z (I.erase a) := by simp [hyz, hyI]
+  exact R.ramsey.2 _ (isNIndepSet_insert hyE h4 (by
+    simpa using And.intro hn (fun b hb ↦ (hmiss b hb).1)))
 
 /-- Each singleton signature class has at most 3 vertices. -/
 public theorem singleton_anchorClass_card_le_three {I : Finset (Fin 43)}
@@ -129,7 +109,7 @@ public theorem singleton_anchorClass_card_le_three {I : Finset (Fin 43)}
   intro y hy
   have hs := (Finset.mem_filter.mp (hTC hy)).2
   have : a ∈ anchorSignature R I y := by rw [hs]; simp
-  exact (Finset.mem_filter.mp this).2.symm
+  exact ((mem_anchorSignature R I y a).mp this).2.symm
 
 /-- Independent antineighbor subfamilies satisfy the signature Hall inequality. -/
 public theorem independent_anchor_hall {I Q : Finset (Fin 43)}
@@ -141,7 +121,7 @@ public theorem independent_anchor_hall {I Q : Finset (Fin 43)}
   have hTI : T ⊆ I := by
     intro a ha
     obtain ⟨y, _, hy⟩ := Finset.mem_biUnion.mp ha
-    exact (Finset.mem_filter.mp hy).1
+    exact ((mem_anchorSignature R I y a).mp hy).1
   have hdis : Disjoint Q (I \ T) := by
     apply Finset.disjoint_left.mpr
     intro y hy hyI
@@ -149,17 +129,13 @@ public theorem independent_anchor_hall {I Q : Finset (Fin 43)}
   have hmiss : ∀ y ∈ Q, ∀ a ∈ I \ T, ¬R.graph.Adj y a := by
     intro y hy a ha hadj
     exact (Finset.mem_sdiff.mp ha).2 (Finset.mem_biUnion.mpr
-      ⟨y, hy, Finset.mem_filter.mpr ⟨(Finset.mem_sdiff.mp ha).1, hadj⟩⟩)
-  have hind : R.graph.IsIndepSet (Q ∪ (I \ T) : Finset (Fin 43)) := by
-    intro u hu w hw hne
-    rcases Finset.mem_union.mp hu with hu | hu <;>
-      rcases Finset.mem_union.mp hw with hw | hw
-    · exact hQ hu hw hne
-    · exact hmiss u hu w hw
-    · exact fun hadj ↦ hmiss w hw u hu hadj.symm
-    · exact hI.isIndepSet (Finset.mem_sdiff.mp hu).1 (Finset.mem_sdiff.mp hw).1 hne
-  have hc := independent_card_le_four R hind
-  rw [Finset.card_union_of_disjoint hdis] at hc
+      ⟨y, hy, (mem_anchorSignature R I y a).mpr ⟨(Finset.mem_sdiff.mp ha).1, hadj⟩⟩)
+  have hind := isNIndepSet_union (G := R.graph) (⟨hQ, rfl⟩ :
+    R.graph.IsNIndepSet Q.card Q)
+    (⟨Set.Pairwise.mono (fun _ hw ↦ (Finset.mem_sdiff.mp hw).1) hI.isIndepSet, rfl⟩ :
+      R.graph.IsNIndepSet (I \ T).card (I \ T)) hdis hmiss
+  have hc := independent_finset_card_le_of_indepSetFree R.ramsey.2 hind.isIndepSet
+  rw [hind.card_eq] at hc
   have ht := Finset.card_sdiff_add_card_eq_card hTI
   rw [hI.card_eq] at ht
   change Q.card ≤ T.card
@@ -177,7 +153,7 @@ public theorem singleton_anchor_count_le_twelve {I : Finset (Fin 43)}
     obtain ⟨a, ha⟩ := Finset.card_eq_one.mp hy
     have haI : a ∈ I := by
       have : a ∈ anchorSignature R I y := by rw [ha]; simp
-      exact (Finset.mem_filter.mp this).1
+      exact ((mem_anchorSignature R I y a).mp this).1
     exact Finset.mem_biUnion.mpr ⟨a, haI, Finset.mem_filter.mpr ⟨hyB, ha⟩⟩
   calc
     _ ≤ (I.biUnion (fun a ↦ anchorClass R I {a})).card := Finset.card_le_card hsub
@@ -197,12 +173,7 @@ public lemma anchor_crossEdgeCount_eq_sum (I : Finset (Fin 43))
   rw [Finset.sum_set_coe (f := fun y ↦ Nat.card (rowSet R.graph (I : Set (Fin 43)) y)) R.B]
   apply Finset.sum_congr rfl
   intro y _
-  have he : rowSet R.graph (I : Set (Fin 43)) y =
-      (anchorSignature R I y : Set (Fin 43)) := by
-    ext a
-    simp [rowSet, anchorSignature, and_comm]
-  rw [he]
-  simp [Nat.card_eq_fintype_card]
+  simp only [anchorSignature, Set.toFinset_card, ← Nat.card_eq_fintype_card]
 
 /-- Every independent 4-set has at least 36 cross edges at a degree-18 pivot. -/
 public theorem independent_anchor_cross_ge_thirty_six (hv : R.graph.degree R.pivot = 18)
@@ -317,7 +288,7 @@ private lemma singleton_count_eq_sum_classes (I : Finset (Fin 43)) :
   · obtain ⟨a, ha⟩ := Finset.card_eq_one.mp hs
     have haI : a ∈ I := by
       have : a ∈ anchorSignature R I y := by rw [ha]; simp
-      exact (Finset.mem_filter.mp this).1
+      exact ((mem_anchorSignature R I y a).mp this).1
     simp [ha, haI]
   · have hne : ∀ a ∈ I, anchorSignature R I y ≠ {a} := by
       intro a _ he

@@ -2,7 +2,8 @@ module
 
 public import Ramsey.n43.EvenPivot
 public import Ramsey.n09.R43
-public import Ramsey.theorems.CliqueBounds
+public import Ramsey.basics.GraphTheory
+public import Ramsey.basics.RamseyTheory
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 public import Mathlib.Data.Set.Card
 public import Mathlib.SetTheory.Cardinal.NatCard
@@ -28,23 +29,6 @@ namespace Ramsey.d18
 
 variable {V : Type*}
 
-/-- Independent sets on opposite sides of an anticomplete cut can be combined. -/
-private lemma indep_union [DecidableEq V] {H : SimpleGraph V} {S : Set V} {s t : Finset V}
-    {m n : ℕ} (hs : H.IsNIndepSet m s) (ht : H.IsNIndepSet n t)
-    (hsS : (↑s : Set V) ⊆ S) (htS : (↑t : Set V) ⊆ Sᶜ)
-    (hcut : ∀ u ∈ S, ∀ w ∉ S, ¬H.Adj u w) :
-    H.IsNIndepSet (m + n) (s ∪ t) := by
-  classical
-  have hd : Disjoint s t := Finset.disjoint_left.mpr fun u hu hv ↦ htS hv (hsS hu)
-  refine ⟨?_, by rw [Finset.card_union_of_disjoint hd, hs.card_eq, ht.card_eq]⟩
-  intro u hu w hw hne
-  simp only [Finset.coe_union, Set.mem_union] at hu hw
-  rcases hu with hu | hu <;> rcases hw with hw | hw
-  · exact hs.isIndepSet hu hw hne
-  · exact hcut u (hsS hu) w (htS hw)
-  · exact fun hadj ↦ hcut w (hsS hw) u (htS hu) hadj.symm
-  · exact ht.isIndepSet hu hw hne
-
 /-- A noncomplete side of a cut contains an independent pair. -/
 private lemma pair_of_not_clique {H : SimpleGraph V} {S : Set V}
     (h : ¬H.IsClique S) :
@@ -59,14 +43,8 @@ private lemma pair_of_not_clique {H : SimpleGraph V} {S : Set V}
     rcases hx with rfl | rfl
     · exact hu
     · exact hw
-  · refine ⟨?_, by simp [hval]⟩
-    intro x hx y hy hxy
-    simp only [Finset.coe_pair, Set.mem_insert_iff, Set.mem_singleton_iff] at hx hy
-    rcases hx with rfl | rfl <;> rcases hy with rfl | rfl
-    · exact (hxy rfl).elim
-    · exact hn
-    · exact fun ha ↦ hn ha.symm
-    · exact (hxy rfl).elim
+  · exact isNIndepSet_insert (by simpa using hval)
+      (⟨by simp, by simp⟩ : H.IsNIndepSet 1 {w}) (by simpa using hn)
 
 /-- An independent witness on one side excludes larger independent sets on the other side. -/
 private lemma free_of_opposite {H : SimpleGraph V} {S : Set V} {t : Finset V}
@@ -77,12 +55,9 @@ private lemma free_of_opposite {H : SimpleGraph V} {S : Set V} {t : Finset V}
   classical
   rw [indepSetFree_induce_iff]
   intro s hsS hs
-  exact hH _ (indep_union hs ht hsS htS hcut)
-
-/-- A clique in a `K4`-free graph has at most three vertices. -/
-private lemma clique_card_le_three [Finite V] {H : SimpleGraph V}
-    (hH : H.CliqueFree 4) {S : Set V} (hS : H.IsClique S) : Nat.card S ≤ 3 :=
-  clique_card_le_of_cliqueFree hH hS
+  exact hH _ (isNIndepSet_union hs ht
+    (Finset.disjoint_left.mpr fun u hu hv ↦ htS hv (hsS hu))
+    (fun u hu w hw ↦ hcut u (hsS hu) w (htS hw)))
 
 /-- The two sides of a finite cut partition the vertex count. -/
 private lemma card_cut [Finite V] (S : Set V) :
@@ -150,23 +125,30 @@ private lemma connected_of_ramsey44 [Finite V] {H : SimpleGraph V}
     exact ramsey_4_3_le_9.not_isRamseyGraph (by omega) _ ⟨hcT, hT3⟩
   have hsum := card_cut S
   by_cases hs : H.IsClique S
-  · have := clique_card_le_three hH.1 hs
+  · have := clique_card_le_of_cliqueFree hH.1 hs
     omega
   by_cases ht : H.IsClique Sᶜ
-  · have := clique_card_le_three hH.1 ht
+  · have := clique_card_le_of_cliqueFree hH.1 ht
     omega
   obtain ⟨s, hsS, hs⟩ := pair_of_not_clique hs
   obtain ⟨t, htS, ht⟩ := pair_of_not_clique ht
-  exact hH.2 _ (indep_union hs ht hsS htS hcut)
+  exact hH.2 _ (isNIndepSet_union hs ht
+    (Finset.disjoint_left.mpr fun u hu hv ↦ htS hv (hsS hu))
+    (fun u hu w hw ↦ hcut u (hsS hu) w (htS hw)))
 
-/-- The exceptional family is a small complete component and a large Ramsey component.
-The second component contains an independent triple and has no independent four-set. -/
-@[expose] public def IsDisconnectedNeighborhood (H : SimpleGraph V) : Prop :=
-  ∃ S : Set V, 1 ≤ Nat.card S ∧ Nat.card S ≤ 3 ∧ H.IsClique S ∧
+/-- The exceptional disconnected-neighborhood shape with the complete
+component of order exactly `k`. -/
+@[expose] public def IsKNeighborhood (k : ℕ) (H : SimpleGraph V) : Prop :=
+  ∃ S : Set V, Nat.card S = k ∧ H.IsClique S ∧
     (∀ u ∈ S, ∀ w ∉ S, ¬H.Adj u w) ∧
     Nat.card S + Nat.card ↥Sᶜ = 18 ∧
     (H.induce Sᶜ).Connected ∧ IsRamseyGraph 4 4 (H.induce Sᶜ) ∧
     ¬(H.induce Sᶜ).IndepSetFree 3
+
+/-- The exceptional family is a small complete component and a large Ramsey component.
+The second component contains an independent triple and has no independent four-set. -/
+@[expose] public def IsDisconnectedNeighborhood (H : SimpleGraph V) : Prop :=
+  IsKNeighborhood 1 H ∨ IsKNeighborhood 2 H ∨ IsKNeighborhood 3 H
 
 /-- Every disconnected 18-vertex `(4,5)`-Ramsey graph has the exceptional shape. -/
 public theorem disconnected_neighborhood_classification [Finite V] (F : RamseyGraph 4 5 V)
@@ -202,68 +184,55 @@ public theorem disconnected_neighborhood_classification [Finite V] (F : RamseyGr
     · exact ⟨S, hS, hs, hcut⟩
     · exact ⟨Sᶜ, hT, ht, hcut'⟩
   obtain ⟨T, hT, hclique, hcut⟩ := hshape
-  have hsmall := clique_card_le_three hH.1 hclique
+  have hsmall := clique_card_le_of_cliqueFree hH.1 hclique
   have hpos : 1 ≤ Nat.card T := Finite.card_pos_iff.mpr hT.to_subtype
   have hsum : Nat.card T + Nat.card ↥Tᶜ = 18 := by rw [card_cut, hn]
   have hramsey : IsRamseyGraph 4 4 (H.induce Tᶜ) :=
     ⟨(SimpleGraph.cliqueFree_induce_iff _ _ _).mpr (fun t _ ↦ hH.1 t),
       free_of_nonempty hH.2 hT hcut⟩
-  refine ⟨T, hpos, hsmall, hclique, hcut, hsum,
-    connected_of_ramsey44 hramsey (by omega), hramsey, ?_⟩
-  intro hf
-  exact ramsey_4_3_le_9.not_isRamseyGraph (by omega) _ ⟨hramsey.1, hf⟩
+  have hk : IsKNeighborhood (Nat.card T) F.graph := by
+    refine ⟨T, rfl, hclique, hcut, hsum,
+      connected_of_ramsey44 hramsey (by omega), hramsey, ?_⟩
+    intro hf
+    exact ramsey_4_3_le_9.not_isRamseyGraph (by omega) _ ⟨hramsey.1, hf⟩
+  rcases (show Nat.card T = 1 ∨ Nat.card T = 2 ∨ Nat.card T = 3 by omega) with h | h | h
+  · exact Or.inl (by simpa only [h] using hk)
+  · exact Or.inr (Or.inl (by simpa only [h] using hk))
+  · exact Or.inr (Or.inr (by simpa only [h] using hk))
 
 /-- Every member of the exceptional family is disconnected. -/
 public theorem IsDisconnectedNeighborhood.not_connected [Finite V] {H : SimpleGraph V}
     (hH : IsDisconnectedNeighborhood H) : ¬H.Connected := by
   classical
-  obtain ⟨S, hpos, _, _, hcut, _, hconn, _⟩ := hH
-  obtain ⟨u⟩ := Finite.card_pos_iff.mp hpos
-  let w : ↥Sᶜ := Classical.choice hconn.nonempty
-  intro hall
-  obtain ⟨p⟩ := hall (u : V) (w : V)
-  have hclosed : ∀ {x y : V}, H.Walk x y → x ∈ S → y ∈ S := by
-    intro x y q
-    induction q with
-    | nil => exact id
-    | @cons x y z hxy q ih =>
-      intro hx
-      apply ih
-      by_contra hy
-      exact hcut x hx y hy hxy
-  exact w.property (hclosed p u.property)
+  rcases hH with hH | hH | hH
+  all_goals
+    obtain ⟨S, hcard, _, hcut, _, hconn, _⟩ := hH
+    have hpos : 1 ≤ Nat.card S := by omega
+    obtain ⟨u⟩ := Finite.card_pos_iff.mp hpos
+    let w : ↥Sᶜ := Classical.choice hconn.nonempty
+    intro hall
+    obtain ⟨p⟩ := hall (u : V) (w : V)
+    have hclosed : ∀ {x y : V}, H.Walk x y → x ∈ S → y ∈ S := by
+      intro x y q
+      induction q with
+      | nil => exact id
+      | @cons x y z hxy q ih =>
+        intro hx
+        apply ih
+        by_contra hy
+        exact hcut x hx y hy hxy
+    exact w.property (hclosed p u.property)
 
 /-- Disconnection is equivalent to the rigid exceptional family at order 18. -/
 public theorem connectivity_classification [Finite V] (H : RamseyGraph 4 5 V)
     (hn : Nat.card V = 18) : ¬H.graph.Connected ↔ IsDisconnectedNeighborhood H.graph :=
   ⟨disconnected_neighborhood_classification H hn, IsDisconnectedNeighborhood.not_connected⟩
 
-/-- The exceptional disconnected-neighborhood shape with the complete
-component of order exactly `k`. -/
-@[expose] public def IsKNeighborhood (k : ℕ) (H : SimpleGraph V) : Prop :=
-  ∃ S : Set V, Nat.card S = k ∧ H.IsClique S ∧
-    (∀ u ∈ S, ∀ w ∉ S, ¬H.Adj u w) ∧
-    Nat.card S + Nat.card ↥Sᶜ = 18 ∧
-    (H.induce Sᶜ).Connected ∧ IsRamseyGraph 4 4 (H.induce Sᶜ) ∧
-    ¬(H.induce Sᶜ).IndepSetFree 3
-
 /-- The exceptional family is exactly the union of the order-1, order-2 and
 order-3 complete-component families. -/
 public theorem isDisconnectedNeighborhood_iff {H : SimpleGraph V} :
     IsDisconnectedNeighborhood H ↔
-      IsKNeighborhood 1 H ∨ IsKNeighborhood 2 H ∨ IsKNeighborhood 3 H := by
-  constructor
-  · rintro ⟨S, hlo, hhi, hclique, hcut, hsum, hconn, hcore, hfree⟩
-    rcases (show Nat.card S = 1 ∨ Nat.card S = 2 ∨ Nat.card S = 3 by omega) with h | h | h
-    · exact Or.inl ⟨S, h, hclique, hcut, hsum, hconn, hcore, hfree⟩
-    · exact Or.inr (Or.inl ⟨S, h, hclique, hcut, hsum, hconn, hcore, hfree⟩)
-    · exact Or.inr (Or.inr ⟨S, h, hclique, hcut, hsum, hconn, hcore, hfree⟩)
-  · rintro (⟨S, hs, hclique, hcut, hsum, hconn, hcore, hfree⟩ |
-      ⟨S, hs, hclique, hcut, hsum, hconn, hcore, hfree⟩ |
-      ⟨S, hs, hclique, hcut, hsum, hconn, hcore, hfree⟩)
-    · exact ⟨S, by omega, by omega, hclique, hcut, hsum, hconn, hcore, hfree⟩
-    · exact ⟨S, by omega, by omega, hclique, hcut, hsum, hconn, hcore, hfree⟩
-    · exact ⟨S, by omega, by omega, hclique, hcut, hsum, hconn, hcore, hfree⟩
+      IsKNeighborhood 1 H ∨ IsKNeighborhood 2 H ∨ IsKNeighborhood 3 H := Iff.rfl
 
 /-- The four connectivity subcases of the d18 branch: the connected
 neighborhood and the three disconnected shapes. -/
@@ -316,7 +285,7 @@ public theorem subcase_cover (G : SimpleGraph (Fin 43)) (hG : IsRamseyGraph 5 5 
   classical
   have hn : Nat.card ↥(G.neighborSet v) = 18 := hv
   have hN : IsRamseyGraph 4 5 (G.induce (G.neighborSet v)) :=
-    isRamseyGraph_induce_neighborSet hG v
+    isRamseyGraph_induce_neighborSet_succ hG v
   by_cases hconn : (G.induce (G.neighborSet v)).Connected
   · exact ⟨.conn, hG, v, hv, hconn⟩
   · have hdisc : IsDisconnectedNeighborhood (G.induce (G.neighborSet v)) :=

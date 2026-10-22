@@ -2,7 +2,8 @@ module
 
 public import Ramsey.n43.d18.PivotBudget
 public import Ramsey.n09.R43
-public import Ramsey.theorems.CliqueBounds
+public import Ramsey.basics.GraphTheory
+public import Ramsey.basics.RamseyTheory
 public import Mathlib.Tactic
 public import Mathlib.Combinatorics.SimpleGraph.Extremal.Turan
 
@@ -19,7 +20,7 @@ namespace Ramsey.d18
 private noncomputable def crossRow (G : SimpleGraph (Fin 43)) (v u : Fin 43) :
     Finset (Fin 43) := by
   classical
-  exact Finset.univ.filter (fun y ↦ G.Adj u y ∧ y ∈ antiNeighborSet G v)
+  exact (rowSet G (antiNeighborSet G v) u).toFinset
 
 /-- Neighborhood vertices with a prescribed cross-row size. -/
 private noncomputable def rowClass (G : SimpleGraph (Fin 43)) (v : Fin 43) (k : ℕ) :
@@ -31,28 +32,20 @@ private noncomputable def rowClass (G : SimpleGraph (Fin 43)) (v : Fin 43) (k : 
 private lemma crossRow_card (G : SimpleGraph (Fin 43)) (v u : Fin 43) :
     (crossRow G v u).card = Nat.card (rowSet G (antiNeighborSet G v) u) := by
   classical
-  rw [Nat.card_eq_fintype_card, Fintype.card_subtype]
-  congr 1
-  ext y
-  simp [crossRow, rowSet]
+  simp [crossRow, Nat.card_eq_fintype_card]
 
 /-- Membership in a cross row means adjacency and antineighborhood membership. -/
 @[simp] private lemma mem_crossRow (G : SimpleGraph (Fin 43)) (v u y : Fin 43) :
     y ∈ crossRow G v u ↔ G.Adj u y ∧ y ∈ antiNeighborSet G v := by
   classical
-  simp [crossRow]
+  rw [crossRow, Set.mem_toFinset]
+  rfl
 
 /-- Membership in a row class records neighborhood membership and exact row size. -/
 @[simp] private lemma mem_rowClass (G : SimpleGraph (Fin 43)) (v u : Fin 43) (k : ℕ) :
     u ∈ rowClass G v k ↔ G.Adj v u ∧ (crossRow G v u).card = k := by
   classical
   simp [rowClass]
-
-/-- An independent set in a candidate graph has at most 4 vertices. -/
-private lemma independent_card_le_four {G : SimpleGraph (Fin 43)}
-    (hG : IsRamseyGraph 5 5 G) {S : Finset (Fin 43)} (hS : G.IsIndepSet S) :
-    S.card ≤ 4 :=
-  independent_finset_card_le_of_indepSetFree hG.2 hS
 
 /-- An independent triple missing 2 distinct vertices forces a neighbor between them. -/
 private lemma independent_triple_neighbor {G : SimpleGraph (Fin 43)}
@@ -63,21 +56,11 @@ private lemma independent_triple_neighbor {G : SimpleGraph (Fin 43)}
   classical
   by_contra hn
   push Not at hn
-  have hind : G.IsIndepSet (insert y (insert z J) : Finset (Fin 43)) := by
-    intro a ha b hb hab
-    simp only [Finset.coe_insert, Set.mem_insert_iff, Finset.mem_coe] at ha hb
-    rcases ha with rfl | rfl | ha <;> rcases hb with rfl | rfl | hb
-    · exact (hab rfl).elim
-    · exact fun h ↦ hzn h.symm
-    · exact fun h ↦ hyn b hb h.symm
-    · exact hzn
-    · exact (hab rfl).elim
-    · exact hn b hb
-    · exact hyn a ha
-    · exact fun h ↦ hn a ha h.symm
-    · exact hJ ha hb hab
-  have hc := independent_card_le_four hG hind
-  simp [hy, hz, hyz, hcard] at hc
+  have h3 : G.IsNIndepSet 3 J := ⟨hJ, hcard⟩
+  have h4 := isNIndepSet_insert hz h3 hn
+  exact hG.2 _ (isNIndepSet_insert (z := y) (by simp [hyz, hy]) h4 (by
+    simpa using And.intro (fun h ↦ hzn h.symm)
+      (fun u hu h ↦ hyn u hu h.symm)))
 
 section Incidences
 
@@ -249,7 +232,7 @@ private lemma adjacent_crossRow_inter_le_eight {u w : Fin 43} (huw : G.Adj u w) 
       have hB : (Gᶜ.induce (antiNeighborSet G v)).CliqueFree 4 := by
         rw [← compl_induce]
         exact (SimpleGraph.cliqueFree_compl _).mpr
-          (isRamseyGraph_induce_antiNeighborSet hG v).2
+          (isRamseyGraph_induce_antiNeighborSet_succ hG v).2
       exact (SimpleGraph.cliqueFree_induce_iff Gᶜ _ 4).mp hB
         (fun x hx ↦ hsubB (hT hx))
   have hc : Nat.card (S : Set (Fin 43)) ≤ 8 := by
@@ -329,16 +312,10 @@ private lemma omitted_highRows_card_le_three {y : Fin 43}
     obtain ⟨h, _⟩ := Finset.mem_filter.mp h
     rcases Finset.mem_union.mp h with h | h <;>
       exact hy.2 ((mem_rowClass G v y _).mp h).1
-  have hind : G.IsIndepSet (insert y S : Finset (Fin 43)) := by
-    intro a ha b hb hab
-    simp only [Finset.coe_insert, Set.mem_insert_iff, Finset.mem_coe] at ha hb
-    rcases ha with rfl | ha <;> rcases hb with rfl | hb
-    · exact (hab rfl).elim
-    · exact fun h ↦ (Finset.mem_filter.mp hb).2 h.symm
-    · exact (Finset.mem_filter.mp ha).2
-    · exact hS ha hb hab
-  have hc := independent_card_le_four hG hind
-  rw [Finset.card_insert_of_notMem hyS] at hc
+  have hind := isNIndepSet_insert hyS (⟨hS, rfl⟩ : G.IsNIndepSet S.card S)
+    (fun u hu h ↦ (Finset.mem_filter.mp hu).2 h.symm)
+  have hc := independent_finset_card_le_of_indepSetFree hG.2 hind.isIndepSet
+  rw [hind.card_eq] at hc
   change S.card + 1 ≤ 4 at hc
   change S.card ≤ 3
   omega
@@ -349,24 +326,26 @@ private lemma rowClass17_union_omitted16_independent {y : Fin 43}
     G.IsIndepSet (↑(rowClass G v 17 ∪
       (rowClass G v 16).filter (fun u ↦ ¬G.Adj u y) : Finset (Fin 43))) := by
   classical
-  intro u hu w hw hne
-  rcases Finset.mem_union.mp hu with hu | hu <;>
-    rcases Finset.mem_union.mp hw with hw | hw
-  · exact rowClass17_independent hG v hv hu hw hne
-  · exact rowClass17_anticomplete_rowClass16 hG v hv hu (Finset.mem_filter.mp hw).1
-  · exact fun h ↦ rowClass17_anticomplete_rowClass16 hG v hv hw
-      (Finset.mem_filter.mp hu).1 h.symm
-  · apply omitted_highRows_independent hG v hv hy _ _ hne
-    · exact Finset.mem_filter.mpr ⟨Finset.mem_union_right _ (Finset.mem_filter.mp hu).1,
-        (Finset.mem_filter.mp hu).2⟩
-    · exact Finset.mem_filter.mpr ⟨Finset.mem_union_right _ (Finset.mem_filter.mp hw).1,
-        (Finset.mem_filter.mp hw).2⟩
+  let T := (rowClass G v 16).filter (fun u ↦ ¬G.Adj u y)
+  have hT : G.IsIndepSet (T : Set (Fin 43)) := by
+    refine Set.Pairwise.mono ?_ (omitted_highRows_independent hG v hv hy)
+    intro u hu
+    exact Finset.mem_filter.mpr ⟨Finset.mem_union_right _ (Finset.mem_filter.mp hu).1,
+      (Finset.mem_filter.mp hu).2⟩
+  exact (isNIndepSet_union
+    (⟨rowClass17_independent hG v hv, rfl⟩ :
+      G.IsNIndepSet (rowClass G v 17).card (rowClass G v 17))
+    (⟨hT, rfl⟩ : G.IsNIndepSet T.card T)
+    ((rowClass17_disjoint_rowClass16 (G := G) v).mono_right (Finset.filter_subset _ _))
+    (fun u hu w hw ↦ rowClass17_anticomplete_rowClass16 hG v hv hu
+      (Finset.mem_filter.mp hw).1)).isIndepSet
 
 /-- At most 4 roots occur in the union used by the first omission budget. -/
 private lemma rowClass17_union_omitted16_card_le_four {y : Fin 43}
     (hy : y ∈ antiNeighborSet G v) :
     (rowClass G v 17 ∪ (rowClass G v 16).filter (fun u ↦ ¬G.Adj u y)).card ≤ 4 :=
-  independent_card_le_four hG (rowClass17_union_omitted16_independent hG v hv hy)
+  independent_finset_card_le_of_indepSetFree hG.2
+    (rowClass17_union_omitted16_independent hG v hv hy)
 
 /-- The high-row class sizes satisfy both independent omission budgets. -/
 private lemma degree18_high_row_budgets :
@@ -374,7 +353,8 @@ private lemma degree18_high_row_budgets :
       8 * (rowClass G v 16).card ≤ 24 * (4 - (rowClass G v 17).card) ∧
       7 * (rowClass G v 17).card + 8 * (rowClass G v 16).card ≤ 72 := by
   classical
-  have ht := independent_card_le_four hG (rowClass17_independent hG v hv)
+  have ht := independent_finset_card_le_of_indepSetFree hG.2
+    (rowClass17_independent hG v hv)
   have hb : (antiNeighborSet G v).toFinset.card = 24 := by
     simpa only [RootedRamseyGraph.B, Nat.card_eq_fintype_card, Set.toFinset_card] using
       degree18_antiNeighbor_card
@@ -512,11 +492,8 @@ end Tail
 private lemma core_degree_le_eight {V : Type*} [Fintype V] (H : SimpleGraph V)
     [DecidableRel H.Adj] (hH : IsRamseyGraph 4 4 H) (x : V) : H.degree x ≤ 8 := by
   classical
-  have hr : IsRamseyGraph 3 4 (H.induce (H.neighborSet x)) := by
-    refine ⟨?_, indepSetFree_induce _ _ hH.2⟩
-    rw [SimpleGraph.cliqueFree_induce_iff]
-    intro t ht hc
-    exact hH.1 _ (hc.insert (fun y hy ↦ ht hy))
+  have hr : IsRamseyGraph 3 4 (H.induce (H.neighborSet x)) :=
+    isRamseyGraph_induce_neighborSet_succ hH x
   by_contra hn
   apply ramsey_4_3_le_9.not_isRamseyGraph
     (G := (H.induce (H.neighborSet x))ᶜ)
@@ -540,7 +517,8 @@ private lemma crossRow_regular (v u : Fin 43) (hu : (crossRow G v u).card = 17)
   have he : (crossRow G v u : Set (Fin 43)) =
       G.neighborSet u ∩ antiNeighborSet G v := by
     ext z
-    simp [crossRow]
+    simp only [Finset.mem_coe, mem_crossRow, Set.mem_inter_iff,
+      SimpleGraph.mem_neighborSet]
   have hr : IsRamseyGraph 4 4 (G.induce (crossRow G v u : Set (Fin 43))) := by
     rw [he]
     exact isRamseyGraph_induce_mixedCell hG u v
@@ -572,7 +550,7 @@ private lemma seven_edges_ge_five (v : Fin 43) (S : Finset (Fin 43))
   have hB : (Gᶜ.induce (antiNeighborSet G v)).CliqueFree 4 := by
     rw [← compl_induce]
     exact (SimpleGraph.cliqueFree_compl _).mpr
-      (isRamseyGraph_induce_antiNeighborSet hG v).2
+      (isRamseyGraph_induce_antiNeighborSet_succ hG v).2
   have hi : (G.induce (S : Set (Fin 43))).IndepSetFree 4 := by
     rw [← SimpleGraph.cliqueFree_compl, compl_induce,
       SimpleGraph.cliqueFree_induce_iff]
@@ -977,26 +955,17 @@ private lemma double_profile_structure
     change (H.filter (fun a ↦ ¬G.Adj a y)).card + 2 ≤ 3 at hc
     omega
   have hfree : (G.induce (L : Set (Fin 43))).IndepSetFree 3 := by
-    rw [← SimpleGraph.cliqueFree_compl, compl_induce,
-      SimpleGraph.cliqueFree_induce_iff]
+    rw [indepSetFree_induce_iff]
     intro T hTL hc
-    have hTi : G.IsIndepSet (T : Set (Fin 43)) :=
-      (SimpleGraph.isClique_compl _).mp hc.isClique
     have hHT : Disjoint H T := by
       apply Finset.disjoint_left.mpr
       intro a ha ht
       exact (Finset.disjoint_left.mp hdis) ha (hTL ht)
-    have hind : G.IsIndepSet (H ∪ T : Finset (Fin 43)) := by
-      intro a ha b hb hab
-      rcases Finset.mem_union.mp ha with ha | ha <;>
-        rcases Finset.mem_union.mp hb with hb | hb
-      · exact rowClass17_independent hG v hv ha hb hab
-      · exact rowClass17_anticomplete_rowClass16 hG v hv ha (hTL hb)
-      · exact fun h ↦ rowClass17_anticomplete_rowClass16 hG v hv hb (hTL ha) h.symm
-      · exact hTi ha hb hab
-    have hcard := independent_card_le_four hG hind
-    rw [Finset.card_union_of_disjoint hHT, hH, hc.card_eq] at hcard
-    omega
+    have hind := isNIndepSet_union
+      (⟨rowClass17_independent hG v hv, hH⟩ : G.IsNIndepSet 2 H)
+      hc hHT
+      (fun a ha b hb ↦ rowClass17_anticomplete_rowClass16 hG v hv ha (hTL hb))
+    exact hG.2 _ hind
   obtain ⟨u, w, huw, hpair⟩ := Finset.card_eq_two.mp hH
   refine ⟨u, w, huw, hpair, hL, ?_, hm, hfree⟩
   ext y
@@ -1018,7 +987,7 @@ private lemma antiNeighbor_edges_ge_144 :
   classical
   have hn := degree18_antiNeighbor_card
     (({graph := G, ramsey := hG} : RamseyGraph 5 5 _).root v) hv
-  have hr := (isRamseyGraph_compl _).mp (isRamseyGraph_induce_antiNeighborSet hG v)
+  have hr := (isRamseyGraph_compl _).mp (isRamseyGraph_induce_antiNeighborSet_succ hG v)
   have hc : Nat.card (G.induce (antiNeighborSet G v))ᶜ.edgeSet ≤ 132 := by
     exact_mod_cast edges_ramsey_4_5_24_le_132.on_finite_type hn _ hr
   have he := card_edges_add_card_edges_compl (G.induce (antiNeighborSet G v))

@@ -15,10 +15,10 @@ no 43-vertex `(5,5)`-Ramsey graph has *any* vertex of degree exactly 20
 `Ramsey.ramsey_5_5_43_of_d18_d20`; the root target `Ramsey.R_5_5_43` is
 proved modulo this `sorry` and the d18 one.
 
-Scope warning (`../n43/README.md`, coverage-distinction column): this is
+Scope warning (`../research/n43/README.md`, coverage-distinction column): this is
 the *arbitrary even-pivot* d20 branch — the pivot has degree 20 and global
 degrees may be anything in `18..24`. It is **not** the complement-normalized
-minimum-degree-20 scheme of `../n43/min-degree20/` (only degrees 20, 21,
+minimum-degree-20 scheme of `../research/n43/min-degree20/` (only degrees 20, 21,
 22). Do not import that scheme's hypotheses here; merging the two schemes
 requires the separate coverage argument flagged in
 `../docs/proof_review_2026_10_13.md`.

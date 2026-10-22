@@ -9,7 +9,7 @@ Reviewed revision: worktree at commit
 `3eebcca5e627fdc3df5f26fd2a1925a7c121153f`; exact source SHA-256
 `fa0bdb24eb7f746c81488d3eb56f37713122a926426e83888556ddc32edaa99f`.
 
-Dependency reviewed: [d18 symmetry Claim 01](../../n43/d18/symmetry_reduction.md#claim-d18-symmetry-01),
+Dependency reviewed: [d18 symmetry Claim 01](../../research/n43/d18/symmetry_reduction.md#claim-d18-symmetry-01),
 exact SHA-256 `6b9072c4a9b1f54042bd6d7e4913d4aedd5b0a8e8c04a2d18b994c2dc2d31d1b`.
 Its residual-group proof was independently read for the rooted specialization.
 Claims 01--03 of the reviewed source are optional algorithms, and their

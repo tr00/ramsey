@@ -1,6 +1,6 @@
 # Independent renewed review of two-root symmetry gluing
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Date: 2026-10-15. Review task: `audit_pair_gluing`.
 
@@ -53,12 +53,12 @@ dependencies were read at these exact versions:
 
 | Dependency | SHA-256 |
 | --- | --- |
-| `n43/min-degree20/pair_coverage.md` | `dcc49b82fd216c9db70de88d0d8f0dc33e25a82c0eb75e671d47542d4c30cbde` |
-| `n43/d18/dense_pivot_coverage.md` | `e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a` |
+| `research/n43/min-degree20/pair_coverage.md` | `dcc49b82fd216c9db70de88d0d8f0dc33e25a82c0eb75e671d47542d4c30cbde` |
+| `research/n43/d18/dense_pivot_coverage.md` | `e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a` |
 | `docs/mathematical_baseline.md` | `e6ea1c070e32ac04a73eb53a5634921acb7fe6d02123a3c7d35a710f262a698e` |
 | `docs/general_theorems/family_overlap.md` | `6fbd343167de8f0d43985ecf11d39fff9060b867680a91c12347772ffda86e87` |
-| `n43/min-degree20/review_pair_coverage_20261015_transversal.md` | `688cf4ba772d8ef5180c966dd063a2b9f34d2c189401a0648c35e6adb32f0376` |
-| `n43/d18/review_dense_pivot_coverage_20261014_low_s.md` | `9d23cb041c1d128c24236916f75dbe4c469111945c4d1941daba4c83bb813d59` |
+| `research/n43/min-degree20/review_pair_coverage_20261015_transversal.md` | `688cf4ba772d8ef5180c966dd063a2b9f34d2c189401a0648c35e6adb32f0376` |
+| `research/n43/d18/review_dense_pivot_coverage_20261014_low_s.md` | `9d23cb041c1d128c24236916f75dbe4c469111945c4d1941daba4c83bb813d59` |
 
 The previous independent reviews concern their recorded exact proof revisions;
 current integration banners are not themselves mathematical evidence. For

@@ -13,7 +13,7 @@ Ramsey number is R(4,4)=18. See [notation](notation.md).
 The [root census table](../README.md#state-of-the-art) records exactly 68
 edges for every member of R(4,4,17). Its cited source is McKay–Radziszowski,
 *A New Upper Bound for the Ramsey Number R(5,5)* (1992), Table 1, p. 16.
-The [published-input report](../reports/2026-10-16-published-edge-bounds.md)
+The [published-input report](../research/reports/2026-10-16-published-edge-bounds.md)
 records direct inspection of the source table; it does not replay the census.
 
 The [Lean premise ledger](../lean/Ramsey/Premises.lean) retains
@@ -25,7 +25,7 @@ Paley-17 is an explicit example recorded and checked in
 [the maximality analogue script](../scripts/verify_maximality_analogues.py):
 vertices are residues modulo 17, and two distinct vertices are adjacent when
 their difference belongs to `{1,2,4,8,9,13,15,16}`. The historical
-[analogue report](../reports/2026-10-18-b-maximality-analogy.md) records the
+[analogue report](../research/reports/2026-10-18-b-maximality-analogy.md) records the
 verification passing. This collection does not rerun it.
 
 **Uniqueness is not a proved-here or recertified premise.** The large-row note
@@ -37,9 +37,9 @@ retain all (4,4)-free 17-cores and do not identify every core with Paley-17.
 
 These statements apply to any `H in R(4,4,17)`, independently of an order-43
 ambient graph. Their accepted source is
-[seventeen-core codegrees and moments](../n43/d18/large_row_extensions.md#claim-seventeen-codegree-moments),
+[seventeen-core codegrees and moments](../research/n43/d18/large_row_extensions.md#claim-seventeen-codegree-moments),
 with an additional accepted derivation in
-[cross_core.json](../n43/d18/k1/cross_core.json), claim `critical-core-srg`.
+[cross_core.json](../research/n43/d18/k1/cross_core.json), claim `critical-core-srg`.
 
 | Quantity | Exact value or structure |
 | --- | --- |
@@ -59,7 +59,7 @@ every bound. This is the source's census-free argument, not a uniqueness proof.
 
 The generic Lean theorem
 `Ramsey.card_neighborSet_eq_eight_of_isRamseyGraph_4_4` lives in
-[RowBounds.lean](../lean/Ramsey/theorems/RowBounds.lean).
+[Regularity.lean](../lean/Ramsey/n17/Regularity.lean).
 [Core.lean](../lean/Ramsey/n43/d18/k1/Core.lean) supplies
 `core_isSRGWith`, `core_nonedge_common_anti_triangle`,
 `core_paircodegree_mass`, and `core_total_paircodegrees`.
@@ -78,7 +78,7 @@ sum_(t outside U) binom(h_t,2)
 
 Every triangle-free I4-free graph on eight vertices is one of the three
 explicit graphs S10, S11, S12 in the accepted
-[eight-cell classification](../n43/d18/large_row_extensions.md#claim-common-eight-classification).
+[eight-cell classification](../research/n43/d18/large_row_extensions.md#claim-common-eight-classification).
 They have respectively 10, 11, 12 edges. When such an eight-set occurs in H,
 its attachment moments on the other nine vertices are:
 
@@ -98,7 +98,7 @@ or that every displayed eight-type occurs inside every 17-core.
 Let B be K5/I4-free of order 24, H an induced (4,4)-free 17-core, and
 W the other seven vertices. For `z in W`, put
 `S_z=N_H(z)` and `T_z=V(H)-S_z`. The accepted
-[exact extension domain](../n43/d18/large_row_extensions.md#claim-seventeen-extension-domain)
+[exact extension domain](../research/n43/d18/large_row_extensions.md#claim-seventeen-extension-domain)
 gives the following necessary and sufficient conditions for the specified
 core, W graph and signatures to form such a B:
 
@@ -113,8 +113,8 @@ core, W graph and signatures to form such a B:
 These are exact local conditions for B. They do not ensure extension to a
 43-vertex (5,5)-free graph.
 
-The accepted [strict seven-signature budget](../n43/d18/k1/cross_core.json)
-and [seven-cell analysis](../n43/d18/k1/seven_cell.json) strengthen the conditions:
+The accepted [strict seven-signature budget](../research/n43/d18/k1/cross_core.json)
+and [seven-cell analysis](../research/n43/d18/k1/seven_cell.json) strengthen the conditions:
 each nonedge of H is missed by at most one outside vertex, even when the
 outside vertices are adjacent. Thus, for distinct t,s in W, their common
 omitted core set is always a clique of size at most three, and
@@ -131,7 +131,7 @@ common-omission, nonedge packing consequence and 64-edge bound.
 
 ### Two induced 17-cores in the same B
 
-The accepted [two-core balance claim](../n43/d18/large_row_extensions.md#claim-two-seventeen-core-balance)
+The accepted [two-core balance claim](../research/n43/d18/large_row_extensions.md#claim-two-seventeen-core-balance)
 applies to any two induced cores H,H' in the same (5,4)-free B24. Put
 `J=H intersect H'`, `X=H-H'`, `Y=H'-H`, and `t=|X|=|Y|<=7`.
 
@@ -156,25 +156,25 @@ A is (4,5)-free and can contain I4; B is (5,4)-free.
 For `u in A`, set `R_u=N_B(u)` and `epsilon_u=d_G(u)-18`.
 
 An actual row of size 17 induces a (4,4)-free 17-core. The accepted
-[large-row note](../n43/d18/large_row_extensions.md#claim-seventeen-extension-domain)
+[large-row note](../research/n43/d18/large_row_extensions.md#claim-seventeen-extension-domain)
 gives `d_A(u)=epsilon_u<=6`. Every A-neighbor w of u has row size at most
 15. If its row size is 15, w meets the 17-core in exactly eight vertices
 and is complete to the seven outside vertices. A row-17/row-16 edge cannot
 occur. A general size-17 row is not proved to have `d_A(u)=0`.
 
 Further conditional profile restrictions are collected in
-[averaging omission cuts](../n43/d18/averaging_omission_cuts.md),
-[zero/one size-17 row tails](../n43/d18/tail_zero_one.md), and
-[two/three size-17 row tails](../n43/d18/tail_two_three.md).
+[averaging omission cuts](../research/n43/d18/averaging_omission_cuts.md),
+[zero/one size-17 row tails](../research/n43/d18/tail_zero_one.md), and
+[two/three size-17 row tails](../research/n43/d18/tail_two_three.md).
 These are restrictions on the full A/B interface, not a classification of H.
-The [reduction index](../n43/reductions.md) also uses regular 17-vertex
+The [reduction index](../research/n43/reductions.md) also uses regular 17-vertex
 (4,4) cells at saturation boundaries.
 
 ### The K1 double-core branch
 
 If u is isolated in G[A], the accepted
-[connectivity rigidity](../n43/d18/neighborhood_connectivity.md#claim-connectivity-03)
-and [K1 research](../n43/d18/k1/research.json) force the partition
+[connectivity rigidity](../research/n43/d18/neighborhood_connectivity.md#claim-connectivity-03)
+and [K1 research](../research/n43/d18/k1/research.json) force the partition
 
 ```text
 V(G) = {v,u} disjoint-union C disjoint-union D disjoint-union T,
@@ -190,7 +190,7 @@ Both C+T and D+T are (5,4)-free B24 sides. Each root neighborhood has
 Write `r=e(C,D)`, `p=e(C,T)`, `q=e(D,T)`, `h=e(T)`, and
 `E_S=sum_(z in S)(d_G(z)-18)`. Here q is an attachment edge count,
 not the root neighborhood deficit. The accepted
-[budget and matrix analysis](../n43/d18/k1/cross_core.json) gives
+[budget and matrix analysis](../research/n43/d18/k1/cross_core.json) gives
 
 ```text
 r+p=153+E_C,  r+q=153+E_D,  p+q+2h=126+E_T,
@@ -205,7 +205,7 @@ p,q>=64,
 Each T vertex meets each core in at least nine neighbors, or at least ten
 if isolated in T. Each core vertex has between two and seven T-neighbors;
 its combined degree into the opposite core and T lies between nine and 15.
-[seven_cell.json](../n43/d18/k1/seven_cell.json) records the complete local
+[seven_cell.json](../research/n43/d18/k1/seven_cell.json) records the complete local
 homogeneous-subset obligations on both sides, nonedge packing, pair/triangle
 constraints, and the census offsets `i=p+h-76`, `j=q+h-76`, with
 `i,j>=0`, `i+j<=16` and T degree-deficit sum `16-i-j`.
@@ -228,7 +228,7 @@ triple intersection filters; those are necessary and do not replace completion.
 
 For fixed labelled cores, T graph, and attachments satisfying both side
 conditions, exactly the 17-by-17 C-D matrix remains: 289 Boolean positions.
-The accepted [exact partition](../n43/d18/k1/research.json) proves that all
+The accepted [exact partition](../research/n43/d18/k1/research.json) proves that all
 remaining forbidden sets have the following cell counts `(C,D,T)`:
 
 | Obstruction | Counts |
@@ -245,7 +245,7 @@ there is no established automatic orbit quotient or unique-core substitution.
 
 ## 5. Historical computations and rejected reductions
 
-The [2026-10-19 K1 catalogue filter](../reports/2026-10-19-k1-catalogue-filter.json)
+The [2026-10-19 K1 catalogue filter](../research/reports/2026-10-19-k1-catalogue-filter.json)
 tested existence of an induced 8-regular (4,4)-free 17-row in each of 352,366
 recorded B24 graphs. It retained 134,112 and rejected 218,254 (61.94%).
 It found one witness per survivor, not all placements or orbits. All recorded
@@ -258,7 +258,7 @@ The implementation and independent checker remain in
 The report's data paths are historical artifact locations, not an assertion
 that those data files are present in the current checkout.
 
-The draft [maximality analogue](../n43/d18/catalogue_edge_maximality.md#claim-catalogue-max-02)
+The draft [maximality analogue](../research/n43/d18/catalogue_edge_maximality.md#claim-catalogue-max-02)
 records a failed normalization: at every pivot of a valid 17-core,
 `e(M(v))=e(N(v))+4 in {14,15,16}`. In the complete eight-vertex (4,3)
 analogue catalogue the sole K4-saturated class has 22 edges. Paley-17 has
@@ -267,7 +267,7 @@ antineighborhoods would therefore discard all valid 17-core examples.
 The associated script/report record verification, but the proof note remains
 draft with no independent review or pruning authority.
 
-The new [density re-rooting note](../n43/d18/density_rerooting.md) also uses
+The new [density re-rooting note](../research/n43/d18/density_rerooting.md) also uses
 17-core rigidity in its K1 family certificate and proposes conditional
 improvements from a 68-edge K1 root to a denser degree-18 neighborhood.
 It is ready for independent review and has **no accepted pruning authority**.
@@ -285,18 +285,18 @@ any K5/I4-free seven-cell extension; applying it to every K1 core retains
 the external unique-core classification premise. The new claims are ready
 for independent review and have no pruning authority yet. Sources, complete
 small case lists and checks are in the
-[session report](../reports/2026-10-21-paley17-arithmetic.md).
+[session report](../research/reports/2026-10-21-paley17-arithmetic.md).
 
 ## 6. Formalization, reviews and further source navigation
 
 | Source | Role |
 | --- | --- |
-| [Large-row review](../n43/d18/review_large_row_extensions_20261017_audit.md) | Acceptance and exact reviewed body for codegrees, moments, extension domain, two-core balance and eight-cell classification |
-| [K1 research review](../n43/d18/k1/review_research_20261019.json) | Double-core structure, budgets and exact eleven-obstruction partition |
-| [K1 attachment review](../n43/d18/k1/review_attachments_20261019.json) | Cross-core and seven-cell claims, scope and exact hashes |
+| [Large-row review](../research/n43/d18/review_large_row_extensions_20261017_audit.md) | Acceptance and exact reviewed body for codegrees, moments, extension domain, two-core balance and eight-cell classification |
+| [K1 research review](../research/n43/d18/k1/review_research_20261019.json) | Double-core structure, budgets and exact eleven-obstruction partition |
+| [K1 attachment review](../research/n43/d18/k1/review_attachments_20261019.json) | Cross-core and seven-cell claims, scope and exact hashes |
 | [K1 Lean directory](../lean/Ramsey/n43/d18/k1/) | Rigidity, Core, Frame, Structure, Attachments, VertexBounds, Budgets, Totals, Parameters, Completion and Reduction |
-| [Remote PB handoff](../reports/2026-10-19-k1-pb-remote-handoff.md) | Exact whole-K1/fixed-core/fixed-key encodings and required coverage; proposed runs are not completed evidence |
-| [Cross-branch synthesis](../reports/2026-10-19-cross-branch-synthesis.json) | Historical connections to the wider degree-18 program |
+| [Remote PB handoff](../research/reports/2026-10-19-k1-pb-remote-handoff.md) | Exact whole-K1/fixed-core/fixed-key encodings and required coverage; proposed runs are not completed evidence |
+| [Cross-branch synthesis](../research/reports/2026-10-19-cross-branch-synthesis.json) | Historical connections to the wider degree-18 program |
 
 The recorded K1 formalization passed the repository Lean gate without adding
 axioms or sorries; the removed formalization reports remain in Git history. Its structural/completion theorems do not prove the open

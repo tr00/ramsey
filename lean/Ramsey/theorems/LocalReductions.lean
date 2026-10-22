@@ -3,6 +3,7 @@ module
 public import Ramsey.n43.D18
 public import Ramsey.n18.R44
 public import Ramsey.defs.RootedRamseyGraph
+public import Ramsey.theorems.Counting
 public import Mathlib.Data.Set.Card
 
 /-!
@@ -17,48 +18,13 @@ namespace Ramsey
 
 variable {V : Type*}
 
-/-- A mixed cell is `(4,4)`-Ramsey without any edge or distinctness assumption on its anchors. -/
-theorem isRamseyGraph_induce_mixedCell {G : SimpleGraph V}
-    (hG : IsRamseyGraph 5 5 G) (u w : V) :
-    IsRamseyGraph 4 4 (G.induce (G.neighborSet u ∩ antiNeighborSet G w)) := by
-  refine ⟨?_, ?_⟩
-  · rw [SimpleGraph.cliqueFree_induce_iff]
-    intro t ht
-    exact (SimpleGraph.cliqueFree_induce_iff _ _ _).mp
-      (isRamseyGraph_induce_neighborSet hG u).1 (fun x hx ↦ (ht hx).1)
-  · rw [← SimpleGraph.cliqueFree_compl, compl_induce,
-      SimpleGraph.cliqueFree_induce_iff]
-    intro t ht
-    apply (SimpleGraph.cliqueFree_induce_iff _ _ _).mp
-      (isRamseyGraph_induce_neighborSet ((isRamseyGraph_compl G).mp hG) w).1
-    intro x hx
-    rw [← antiNeighborSet_eq_compl]
-    exact (ht hx).2
-
 /-- A mixed two-anchor cell has at most 17 vertices, by `R(4,4) ≤ 18`.
 The nonadjacency anchor itself is excluded, even when the anchors are adjacent. -/
 theorem card_mixedCell_le_17 {G : SimpleGraph V} [Finite V]
     (hG : IsRamseyGraph 5 5 G) (u w : V) :
     Nat.card ↥(G.neighborSet u ∩ antiNeighborSet G w) ≤ 17 := by
-  by_contra h
-  exact ramsey_4_4_le_18.not_isRamseyGraph (by omega) _
-    (isRamseyGraph_induce_mixedCell hG u w)
-
-/-- The common antineighborhood is the common neighborhood in the complement.
-Both anchors are excluded. -/
-theorem commonAntiNeighborSet_eq_compl (G : SimpleGraph V) (u w : V) :
-    antiNeighborSet G u ∩ antiNeighborSet G w = Gᶜ.commonNeighbors u w := by
-  rw [antiNeighborSet_eq_compl, antiNeighborSet_eq_compl]
-  rfl
-
-/-- Distinct nonadjacent anchors have a `(5,3)`-Ramsey common antineighborhood. -/
-theorem isRamseyGraph_induce_commonAntiNeighbors {G : SimpleGraph V}
-    (hG : IsRamseyGraph 5 5 G) {u w : V} (hne : u ≠ w) (hnadj : ¬G.Adj u w) :
-    IsRamseyGraph 5 3 (G.induce (antiNeighborSet G u ∩ antiNeighborSet G w)) := by
-  have hc := isRamseyGraph_induce_commonNeighbors ((isRamseyGraph_compl G).mp hG)
-    (show Gᶜ.Adj u w from ⟨hne, hnadj⟩)
-  rw [commonAntiNeighborSet_eq_compl]
-  exact (isRamseyGraph_compl _).mpr (by simpa [compl_induce] using hc)
+  have h := ramsey_4_4_le_18.card_lt (isRamseyGraph_induce_mixedCell hG u w)
+  omega
 
 /-- Distinct nonadjacent anchors have at most 13 common nonneighbors.
 There is no order-43 hypothesis: only finiteness is needed. -/
@@ -68,41 +34,6 @@ theorem card_commonAntiNeighbors_le_13 {G : SimpleGraph V} [Finite V]
   rw [commonAntiNeighborSet_eq_compl]
   exact card_commonNeighbors_le_13 ((isRamseyGraph_compl G).mp hG)
     (show Gᶜ.Adj u w from ⟨hne, hnadj⟩)
-
-/-- Exact degree partition into common neighbors, the mixed cell, and the other
-anchor if adjacent. Valid for all anchors in every finite graph. -/
-theorem degree_eq_common_add_mixed {G : SimpleGraph V} [Fintype V]
-    [DecidableRel G.Adj] (u w : V) :
-    G.degree u = Nat.card ↥(G.commonNeighbors u w) +
-      Nat.card ↥(G.neighborSet u ∩ antiNeighborSet G w) +
-      (if G.Adj u w then 1 else 0) := by
-  classical
-  have h := Set.ncard_inter_add_ncard_sdiff_eq_ncard (G.neighborSet u) (G.neighborSet w)
-  have hdeg : (G.neighborSet u).ncard = G.degree u := by
-    rw [← Nat.card_coe_set_eq, Nat.card_eq_fintype_card,
-      SimpleGraph.card_neighborSet_eq_degree]
-  rw [hdeg] at h
-  change (G.commonNeighbors u w).ncard +
-    (G.neighborSet u \ G.neighborSet w).ncard = G.degree u at h
-  by_cases huw : G.Adj u w
-  · have heq : G.neighborSet u \ G.neighborSet w =
-        insert w (G.neighborSet u ∩ antiNeighborSet G w) := by
-      ext x
-      simp only [Set.mem_sdiff, SimpleGraph.mem_neighborSet, Set.mem_insert_iff,
-        Set.mem_inter_iff, antiNeighborSet, Set.mem_ofPred_eq]
-      by_cases hx : x = w <;> simp_all
-    have hw : w ∉ G.neighborSet u ∩ antiNeighborSet G w := by
-      simp [antiNeighborSet]
-    rw [heq, Set.ncard_insert_of_notMem hw] at h
-    simpa only [huw, ite_true, ← Nat.card_coe_set_eq, Nat.add_assoc] using h.symm
-  · have heq : G.neighborSet u \ G.neighborSet w =
-        G.neighborSet u ∩ antiNeighborSet G w := by
-      ext x
-      simp only [Set.mem_sdiff, SimpleGraph.mem_neighborSet, Set.mem_inter_iff,
-        antiNeighborSet, Set.mem_ofPred_eq]
-      by_cases hx : x = w <;> simp_all
-    rw [heq] at h
-    simpa only [huw, ite_false, Nat.add_zero, ← Nat.card_coe_set_eq] using h.symm
 
 /-- Adjacent anchors satisfy the full codegree interval in every finite `(5,5)`-Ramsey graph. -/
 theorem adjacent_codegree_interval {G : SimpleGraph V} [Fintype V]
@@ -119,32 +50,6 @@ theorem adjacent_codegree_interval {G : SimpleGraph V} [Fintype V]
   rw [hcomm] at hw
   simp only [huw, huw.symm, ite_true] at hu hw
   refine ⟨?_, card_commonNeighbors_le_13 hG huw⟩
-  omega
-
-/-- For distinct nonadjacent anchors, inclusion-exclusion relates the two common
-cells and the two degrees. There is no fixed-order or Ramsey hypothesis. -/
-theorem nonadjacent_common_cell_identity {G : SimpleGraph V} [Fintype V]
-    [DecidableRel G.Adj] {u w : V} (hne : u ≠ w) (hnadj : ¬G.Adj u w) :
-    Nat.card ↥(G.commonNeighbors u w) + Nat.card V = G.degree u + G.degree w +
-      Nat.card ↥(antiNeighborSet G u ∩ antiNeighborSet G w) + 2 := by
-  classical
-  let s := G.neighborSet u ∪ G.neighborSet w
-  have hu : u ∉ s := by simp [s, hnadj, SimpleGraph.adj_comm]
-  have hw : w ∉ insert u s := by simp [s, hne.symm, hnadj]
-  have heq : antiNeighborSet G u ∩ antiNeighborSet G w = (insert w (insert u s))ᶜ := by
-    ext x
-    simp only [Set.mem_inter_iff, antiNeighborSet, Set.mem_ofPred_eq,
-      Set.mem_compl_iff, Set.mem_insert_iff, s, Set.mem_union, SimpleGraph.mem_neighborSet]
-    tauto
-  have hcomp := Set.ncard_add_ncard_compl (insert w (insert u s))
-  rw [Set.ncard_insert_of_notMem hw, Set.ncard_insert_of_notMem hu, ← heq] at hcomp
-  have hunion := Set.ncard_union_add_ncard_inter (G.neighborSet u) (G.neighborSet w)
-  have hd (v : V) : (G.neighborSet v).ncard = G.degree v := by
-    rw [← Nat.card_coe_set_eq, Nat.card_eq_fintype_card,
-      SimpleGraph.card_neighborSet_eq_degree]
-  rw [hd u, hd w] at hunion
-  change s.ncard + (G.commonNeighbors u w).ncard = _ at hunion
-  simp only [← Nat.card_coe_set_eq] at hcomp hunion
   omega
 
 /-- On exactly 43 vertices, distinct nonadjacent anchors satisfy the full codegree
@@ -172,7 +77,7 @@ theorem nonadjacent_codegree_interval {G : SimpleGraph V} [Fintype V]
 /-- On 43 vertices, a row at a pivot neighbor satisfies the internal and cross-degree bounds. -/
 theorem pivot_row_card_bounds (R : RootedRamseyGraph 5 5 (Fin 43))
     [DecidableRel R.graph.Adj] {u : Fin 43} (hu : u ∈ R.A) :
-    let s := Nat.card ↥(columnSet R.graph R.A u)
+    let s := Nat.card ↥(rowSet R.graph R.A u)
     let r := Nat.card ↥(rowSet R.graph R.B u)
     R.graph.degree R.pivot - 18 ≤ s ∧ s ≤ 13 ∧ 17 - s ≤ r ∧ r ≤ min 17 (23 - s) := by
   have hadj : R.graph.Adj u R.pivot := hu.symm
@@ -196,7 +101,7 @@ theorem pivot_column_card_bounds (R : RootedRamseyGraph 5 5 (Fin 43))
     [DecidableRel R.graph.Adj] {y : Fin 43} (hy : y ∈ R.B) :
     let b := Nat.card R.B
     let t := Nat.card ↥(rowSet R.graph R.B y)
-    let c := Nat.card ↥(columnSet R.graph R.A y)
+    let c := Nat.card ↥(rowSet R.graph R.A y)
     b - 14 ≤ t ∧ t ≤ 17 ∧
       max (R.graph.degree R.pivot - 17) (18 - t) ≤ c ∧
         c ≤ min (R.graph.degree R.pivot - 4) (24 - t) := by

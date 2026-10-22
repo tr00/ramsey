@@ -12,7 +12,7 @@ review records editorial precision findings; no proof body was changed.
 Date: 2026-10-15. Task: symmetry-extensions-20261015. Author: Codex.
 
 These mathematical deductions extend the accepted
-[column-multiset symmetry note](../../n43/d18/symmetry_reduction.md).
+[column-multiset symmetry note](../../research/n43/d18/symmetry_reduction.md).
 All claims are **ready for independent review**, with an author's self-check
 only. They are not accepted pruning rules, implemented algorithms or
 certificates. No graph search, enumeration, solver, canonicalizer, package,
@@ -50,7 +50,7 @@ Review state: accepted
 
 Scope: the complete residual action in the setting; arbitrary multiplicities.
 
-Dependencies: [d18 symmetry Claim 01](../../n43/d18/symmetry_reduction.md#claim-d18-symmetry-01)
+Dependencies: [d18 symmetry Claim 01](../../research/n43/d18/symmetry_reduction.md#claim-d18-symmetry-01)
 for the existing exact sequence; the proof below also derives the splitting directly.
 
 Conclusion: the exact sequence splits after occurrence ranks are chosen:
@@ -327,5 +327,5 @@ new Ramsey bound or literature novelty follows from these statements.
 Input revision: `f98a1285b7adc9720a693ae3a54fba212a021bdf`.
 Exact accepted note read: SHA-256
 `6b9072c4a9b1f54042bd6d7e4913d4aedd5b0a8e8c04a2d18b994c2dc2d31d1b`
-for `n43/d18/symmetry_reduction.md`; reduction index SHA-256
+for `research/n43/d18/symmetry_reduction.md`; reduction index SHA-256
 `b64a7aec9950ec483e124fda44356a23ae35e913be89a7dfba131a0be76a62ba`.

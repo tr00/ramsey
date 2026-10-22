@@ -1,6 +1,6 @@
 # Independent audit of pending transversal claims
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Date: 2026-10-15. Task token: `audit-pending-20261015`.
 
@@ -31,11 +31,11 @@ any mathematical change requires renewed review.
 Dependencies reviewed:
 
 ```text
-4c084b03583248dc7c7ed56324ec5b6801bdca5278cf4fc17fa7e845dc07825e  n43/d18/transversal_four.md
-0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54  n43/d18/frontier_band.md
-e855ca074447be16c6d42a1924d067702972e1d7147b7522f121bf08c2fb9dff  n43/d18/x136/r2/low_excess_columns.md
-fdae3de53cd7d68e9d7d414829d13be4cae4928e70b3f1aac3986e88b6a7727b  n43/d18/x136/r2/review_low_excess_columns_20261014_triples.md
-0d95f98f6682272b1bf2ec561d6f87018f6c74b5bb2f0c57d0cbfcd48f6b6f61  n43/d18/x136/r2/review_low_excess_columns_20261014_pivot.md
+4c084b03583248dc7c7ed56324ec5b6801bdca5278cf4fc17fa7e845dc07825e  research/n43/d18/transversal_four.md
+0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54  research/n43/d18/frontier_band.md
+e855ca074447be16c6d42a1924d067702972e1d7147b7522f121bf08c2fb9dff  research/n43/d18/x136/r2/low_excess_columns.md
+fdae3de53cd7d68e9d7d414829d13be4cae4928e70b3f1aac3986e88b6a7727b  research/n43/d18/x136/r2/review_low_excess_columns_20261014_triples.md
+0d95f98f6682272b1bf2ec561d6f87018f6c74b5bb2f0c57d0cbfcd48f6b6f61  research/n43/d18/x136/r2/review_low_excess_columns_20261014_pivot.md
 ```
 
 The starting points and workflow were read. The retained external inputs are

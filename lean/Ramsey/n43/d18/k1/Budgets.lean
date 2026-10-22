@@ -20,33 +20,6 @@ attribute [local instance] Classical.propDecidable
 
 variable {G : SimpleGraph (Fin 43)}
 
-/-- The edges of a disjoint induced union split into the 2 interiors and their cross edges. -/
-private lemma edges_union (S T : Set (Fin 43)) (h : Disjoint S T) :
-    inducedEdgeCount G (S ∪ T) = inducedEdgeCount G S + inducedEdgeCount G T +
-      crossEdgeCount G S T := by
-  classical
-  have hd : Disjoint S.toFinset T.toFinset := Set.disjoint_toFinset.mpr h
-  have hs := links_self G (S.toFinset ∪ T.toFinset)
-  rw [links_union_left G _ _ _ hd, links_union_right G _ _ _ hd,
-    links_union_right G _ _ _ hd, links_comm G T.toFinset S.toFinset,
-    links_self, links_self, links_eq_crossEdgeCount G _ _ hd] at hs
-  simp only [Set.coe_toFinset, ← Set.toFinset_union] at hs
-  omega
-
-/-- Summing degrees on a finite set counts its incidences with the whole graph. -/
-private lemma degree_sum_links (S : Set (Fin 43)) :
-    (∑ x : S, G.degree x) = links G S.toFinset Finset.univ := by
-  classical
-  unfold links
-  rw [← Finset.sum_subtype S.toFinset (fun _ ↦ Set.mem_toFinset)
-    (fun x ↦ G.degree x)]
-  apply Finset.sum_congr rfl
-  intro x hx
-  have he : Finset.univ.filter (G.Adj x) = G.neighborFinset x := by
-    ext y
-    simp
-  rw [he, SimpleGraph.card_neighborFinset_eq_degree]
-
 /-- The root pair and the 3 cells split every target incidence. -/
 private lemma links_partition (F : Frame G) (S : Finset (Fin 43)) :
     links G S Finset.univ = links G S {F.v, F.u} + links G S F.C.toFinset +
@@ -217,8 +190,8 @@ public theorem side_edge_budgets (F : Frame G) (hF : F.Admissible) :
     omega
   have hC := sideRange _ hcardC hF.side_C
   have hD := sideRange _ hcardD hF.side_D
-  have ec := edges_union (G := G) F.C F.T F.disjoint_CT
-  have ed := edges_union (G := G) F.D F.T F.disjoint_DT
+  have ec := inducedEdgeCount_union G F.C F.T F.disjoint_CT
+  have ed := inducedEdgeCount_union G F.D F.T F.disjoint_DT
   change 144 ≤ inducedEdgeCount G (F.C ∪ F.T) ∧
     inducedEdgeCount G (F.C ∪ F.T) ≤ 160 at hC
   change 144 ≤ inducedEdgeCount G (F.D ∪ F.T) ∧

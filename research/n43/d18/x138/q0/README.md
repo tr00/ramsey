@@ -1,0 +1,27 @@
+# x=138, q=0
+
+Branch name: `research/n43/d18/x138/q0`.
+Parent: [x=138](../../README.md). State: **excluded** by the independently
+reviewed [effective-weight proof](../../tau/q0_effective_reduction.md),
+[foundations audit](../../tau/review_q0_foundations_20261019_independent.md)
+and [closure audit](../../tau/review_q0_closure_20261019_independent.md).
+Additional predicate: `q=85-e(A)=0`; the exact degree budget forces
+`e(A)=85` and `E_A=sum_(u in A)(d_G(u)-18)=2`.
+All parent order-43 Ramsey and chosen-degree-18-pivot assumptions apply.
+
+A has 85 edges and is K4-saturated.
+Every column has size 4..14 under the recorded transversal bounds.
+Here `147<=e(B)<=160` and `E_B=2e(B)-296+2`.
+The positive A excesses partition 2, with each part at most six.
+If r=4, the reviewed [stability proof](../../four_column_stability.md#claim-four-column-stability-04)
+forces exactly two size-seven external columns and eighteen size-six
+external columns. The four size-four columns must overlap.
+
+Coverage: this is one disjoint numerical profile of the parent identity
+`x-136=2q+E_A`, with q and E_A nonnegative integers. The numeric profile
+is not an isomorphism classification or an existence claim.
+
+Use [transfer bounds](../../transfer_bounds.md) for exact count and pivot
+filters.
+New deductions and their review state are collected in
+[the transfer summary](../../transfer_summary.md).

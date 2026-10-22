@@ -11,7 +11,7 @@ completed-state stabilizer and orbit accounting, and conditional support
 restrictions. Partial-state pruning, generation and certificate implementation
 require separate validation. No novelty or Ramsey branch closure is asserted.
 
-See the [audit report](../../reports/2026-10-15-symmetry-audit.md) and its exact-hash manifest.
+See the [audit report](../../research/reports/2026-10-15-symmetry-audit.md) and its exact-hash manifest.
 <!-- symmetry-audit-integration:end -->
 
 # Exact stabilizers of disjoint vertex swaps

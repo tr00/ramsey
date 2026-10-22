@@ -477,8 +477,8 @@ It is the dual of this same mechanism, not our second worked mechanism.
 
 This is a different mechanism: the resources are overlapping core
 nonedges, and transport forces an exterior-row obstruction. We recover
-[the triangle obstruction](../../n43/d18/critical_core_exterior.md#claim-critical-exterior-triangle-free)
-and [four-vertex exterior bound](../../n43/d18/critical_core_exterior.md#claim-critical-exterior-four)
+[the triangle obstruction](../../research/n43/d18/critical_core_exterior.md#claim-critical-exterior-triangle-free)
+and [four-vertex exterior bound](../../research/n43/d18/critical_core_exterior.md#claim-critical-exterior-four)
 from explicit local hypotheses, not from a catalogue representative.
 
 Let `B` be `K_5/I_4`-free and contain an induced core `H`. Suppose that
@@ -508,7 +508,7 @@ sum_(t in T) [binom(|U_t|,2)-e(H[U_t])] <= 68,
 ```
 
 which is the saturated nonedge packing in
-[cross_core.json, strict-seven-signature-budget](../../n43/d18/k1/cross_core.json).
+[cross_core.json, strict-seven-signature-budget](../../research/n43/d18/k1/cross_core.json).
 It holds for adjacent as well as nonadjacent exterior pairs. Its defect
 is literally the number of core nonedges used by no exterior vertex;
 it does not certify that every packing is realizable.

@@ -1,6 +1,6 @@
 module
 
-public import Ramsey.defs.RamseyGraph
+public import Ramsey.basics.RamseyTheory
 
 /-!
 # Trusted premises

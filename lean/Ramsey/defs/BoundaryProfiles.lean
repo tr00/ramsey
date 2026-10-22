@@ -1,6 +1,6 @@
 module
 
-public import Ramsey.defs.RamseyGraph
+public import Ramsey.basics.RamseyTheory
 public import Mathlib.Data.Finset.Lattice.Fold
 public import Mathlib.Data.Fintype.Powerset
 public import Mathlib.Tactic

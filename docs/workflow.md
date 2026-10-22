@@ -2,14 +2,14 @@
 
 ## Organization
 
-Mathematical case paths are the primary names: `n43/d18/x136/r0` means the
+Mathematical case paths are the primary names: `research/n43/d18/x136/r0` means the
 order-43, chosen-degree-18-pivot, equality-frontier case with no size-four
 cross columns. Each branch README defines its predicate, parent assumptions,
 split scheme, and coverage source. Different schemes use different paths;
-`n43/d20` and `n43/min-degree20` are not interchangeable.
+`research/n43/d20` and `research/n43/min-degree20` are not interchangeable.
 
 Place shared proofs at the nearest parent where their hypotheses apply.
-Keep concise historical reports in `reports/`, global foundations and mixed
+Keep concise historical reports in `research/reports/`, global foundations and mixed
 phase notes in `docs/`, and branch-specific proofs beside the branch README.
 Do not create separate claim, task, or source trees merely to satisfy a template.
 
@@ -21,7 +21,7 @@ files and record the move. Reviews are sibling files named
 historical; migration does not promote their status.
 
 Each result has one home: its proof note. Branch READMEs and
-`n43/reductions.md` link to that note and summarize only the assumptions,
+`research/n43/reductions.md` link to that note and summarize only the assumptions,
 conclusion, and permitted use needed for navigation. Reports record what
 changed, validation, and unresolved work without repeating the proof.
 
@@ -98,7 +98,7 @@ supersession history; it is not a new mathematical review. The original
 reviews and indexes before the 2026-10-21 cleanup are available at Git commit
 `3eebcca5e627fdc3df5f26fd2a1925a7c121153f`. Historical manifests still
 identify those original bytes; do not replace their hashes with hashes of
-the condensed presentation. The [cleanup manifest](../reports/2026-10-21-research-cleanup.json)
+the condensed presentation. The [cleanup manifest](../research/reports/2026-10-21-research-cleanup.json)
 maps original and condensed document hashes. Proof changes continue to require
 renewed review.
 

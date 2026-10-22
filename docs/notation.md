@@ -4,7 +4,7 @@ This file is the shared notation reference for the repository. Use these
 symbols in new and revised mathematical notes, and link here instead of
 introducing a competing convention. State the ambient graph and all additional
 hypotheses at each application. Definitions here do not supply proof premises;
-the [reduction index](../n43/reductions.md) records bounds and their status.
+the [reduction index](../research/n43/reductions.md) records bounds and their status.
 
 Existing reviewed proofs, dated reports, and source code retain their local
 notation. The aliases below explain how to read them without changing reviewed
@@ -115,7 +115,7 @@ mean `E_A`. Existing `q_85` means `q`. Some degree-excess tables use `n_i`
 for the number of vertices of degree `18+i`; translate this to `n_(18+i)`.
 Do not confuse `E_A` with an edge maximum `E(s,t,n)` or the edge set `E(G)`.
 The historical `x=136` profile is excluded; its notation remains useful for
-reading the [frontier proofs](../n43/d18/x136/README.md).
+reading the [frontier proofs](../research/n43/d18/x136/README.md).
 
 ## Columns, anchors, and transversals
 
@@ -176,7 +176,7 @@ stabilizer of a completed graph are different objects; specify the state.
 
 ## Other scopes and notation collisions
 
-The [normalized minimum-degree-20 branch](../n43/reductions.md#9-complement-normalized-minimum-degree-20-branch)
+The [normalized minimum-degree-20 branch](../research/n43/reductions.md#9-complement-normalized-minimum-degree-20-branch)
 uses `j,r` for degree-count parameters and `s` for
 `sum_(u in A)(d_G(u)-20)`. These are local aliases, distinct from
 `ell_4,ell_5` and `E_A` measured above the degree floor 18. In new text write

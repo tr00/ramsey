@@ -1,7 +1,7 @@
 module
 
-public import Ramsey.defs.RamseyGraph
-public import Ramsey.defs.Transversals
+public import Ramsey.basics.RamseyTheory
+public import Ramsey.basics.Transversals
 public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 
 /-!
@@ -26,14 +26,6 @@ open scoped BigOperators
 namespace Ramsey.TransversalDeletion
 
 variable {V : Type*}
-
-/-- The number of neighbors of `x` outside the finite deletion set `T`. -/
-noncomputable def outsideDegree (F : SimpleGraph V) (T : Finset V) (x : V) : ℕ :=
-  Nat.card {y : V // y ∉ T ∧ F.Adj x y}
-
-/-- The number of nonneighbors of `x` outside `T`, excluding `x` when `x ∈ T`. -/
-noncomputable def outsideNonneighborCount (F : SimpleGraph V) (T : Finset V) (x : V) : ℕ :=
-  Nat.card {y : V // y ∉ T ∧ ¬F.Adj x y}
 
 /-- The common size, independence and Ramsey upper-bound hypotheses for deletion. -/
 structure DeletionHypotheses (F : SimpleGraph V) (n r s t R : ℕ) : Prop where
@@ -67,11 +59,11 @@ noncomputable def totalDefect (F : SimpleGraph V) (n s t R : ℕ) (L : ℤ) : �
 
 /-- The core defect measures edges outside `T` above the integral external bound. -/
 noncomputable def coreDefect (F : SimpleGraph V) (T : Finset V) (L : ℤ) : ℤ :=
-  (Nat.card (F.induce (T : Set V)ᶜ).edgeSet : ℤ) - L
+  (inducedEdgeCount F (T : Set V)ᶜ : ℤ) - L
 
 /-- The internal defect measures edges on `T` above the balanced-clique lower bound. -/
 noncomputable def internalDefect (F : SimpleGraph V) (T : Finset V) (s t : ℕ) : ℤ :=
-  (Nat.card (F.induce (T : Set V)).edgeSet : ℤ) - (balancedCliqueEdges t (s - 1) : ℤ)
+  (inducedEdgeCount F (T : Set V) : ℤ) - (balancedCliqueEdges t (s - 1) : ℤ)
 
 /-- The attachment defect of one vertex is an integer difference, not Nat subtraction. -/
 noncomputable def attachmentDefect (F : SimpleGraph V) (T : Finset V)
@@ -86,21 +78,21 @@ noncomputable def totalAttachmentDefect (F : SimpleGraph V) (T : Finset V)
 /-- The cross-edge defect measures the entire cut above its attachment floor. -/
 noncomputable def crossAttachmentDefect (F : SimpleGraph V) (T : Finset V)
     (n t R : ℕ) : ℤ :=
-  (Nat.card (crossEdgeSet F (T : Set V) (T : Set V)ᶜ) : ℤ) -
+  (crossEdgeCount F (T : Set V) (T : Set V)ᶜ : ℤ) -
     (t : ℤ) * (attachmentFloor n t R : ℤ)
 
 /-- The Ramsey types and edge bounds of the core, nonneighbor sets and deletion set. -/
 structure DeletionComponentBounds (F : SimpleGraph V) (T : Finset V)
     (n r s t R : ℕ) (L : ℝ) : Prop where
   core_ramsey : IsRamseyGraph r s (F.induce (T : Set V)ᶜ)
-  core_lower : L ≤ (Nat.card (F.induce (T : Set V)ᶜ).edgeSet : ℝ)
+  core_lower : L ≤ (inducedEdgeCount F (T : Set V)ᶜ : ℝ)
   nonneighbor_ramsey : ∀ x ∈ T,
     IsRamseyGraph r (s - 1) (F.induce {y | y ∉ T ∧ ¬F.Adj x y})
   nonneighbor_count_le : ∀ x ∈ T, outsideNonneighborCount F T x ≤ R - 1
   attachment_lower : ∀ x ∈ T, attachmentFloor n t R ≤ outsideDegree F T x
-  internal_lower : balancedCliqueEdges t (s - 1) ≤ Nat.card (F.induce (T : Set V)).edgeSet
+  internal_lower : balancedCliqueEdges t (s - 1) ≤ inducedEdgeCount F (T : Set V)
   cross_lower : t * attachmentFloor n t R ≤
-    Nat.card (crossEdgeSet F (T : Set V) (T : Set V)ᶜ)
+    crossEdgeCount F (T : Set V) (T : Set V)ᶜ
 
 /-- The exact integer decomposition and nonnegative bounds for every component defect. -/
 structure DeletionDefectIdentity (F : SimpleGraph V) (T : Finset V)
@@ -120,9 +112,9 @@ structure DeletionDefectIdentity (F : SimpleGraph V) (T : Finset V)
 /-- Stability caps component edges, attachment degrees and the number of positive defects. -/
 structure DeletionDefectStability [DecidableEq V] (F : SimpleGraph V) (T : Finset V)
     (n s t R : ℕ) (L : ℤ) : Prop where
-  core_upper : (Nat.card (F.induce (T : Set V)ᶜ).edgeSet : ℤ) ≤
+  core_upper : (inducedEdgeCount F (T : Set V)ᶜ : ℤ) ≤
     L + totalDefect F n s t R L
-  internal_upper : (Nat.card (F.induce (T : Set V)).edgeSet : ℤ) ≤
+  internal_upper : (inducedEdgeCount F (T : Set V) : ℤ) ≤
     (balancedCliqueEdges t (s - 1) : ℤ) + totalDefect F n s t R L
   attachment_lower : ∀ x ∈ T, (attachmentFloor n t R : ℤ) ≤ (outsideDegree F T x : ℤ)
   attachment_upper : ∀ x ∈ T, (outsideDegree F T x : ℤ) ≤
@@ -134,20 +126,15 @@ structure DeletionDefectStability [DecidableEq V] (F : SimpleGraph V) (T : Finse
 /-- Equality fixes each component and gives balanced cliques, with empty parts allowed. -/
 structure DeletionEqualityStructure (F : SimpleGraph V) (T : Finset V)
     (n s t R : ℕ) (L : ℤ) : Prop where
-  core_eq : (Nat.card (F.induce (T : Set V)ᶜ).edgeSet : ℤ) = L
-  internal_eq : Nat.card (F.induce (T : Set V)).edgeSet = balancedCliqueEdges t (s - 1)
-  cross_eq : Nat.card (crossEdgeSet F (T : Set V) (T : Set V)ᶜ) =
+  core_eq : (inducedEdgeCount F (T : Set V)ᶜ : ℤ) = L
+  internal_eq : inducedEdgeCount F (T : Set V) = balancedCliqueEdges t (s - 1)
+  cross_eq : crossEdgeCount F (T : Set V) (T : Set V)ᶜ =
     t * attachmentFloor n t R
   attachment_eq : ∀ x ∈ T, outsideDegree F T x = attachmentFloor n t R
   balanced : IsBalancedCliqueUnion (F.induce (T : Set V)) (s - 1)
   nonneighbor_eq_of_pos : 0 < attachmentFloor n t R →
     ∀ x ∈ T, outsideNonneighborCount F T x = R - 1
   attachment_eq_zero : attachmentFloor n t R = 0 → ∀ x ∈ T, outsideDegree F T x = 0
-
-/-- A clique transversal is exactly a deletion set leaving a clique-free graph. -/
-theorem isCliqueTransversal_iff_cliqueFree_deleted (F : SimpleGraph V) (T : Finset V)
-    (r : ℕ) :
-    IsCliqueTransversal F r T ↔ (F.induce (T : Set V)ᶜ).CliqueFree r := by sorry
 
 section GeneralDeletion
 
@@ -202,11 +189,6 @@ theorem deletion_equality_structure {L : ℤ} (h : DeletionHypotheses F n r s t 
 
 end GeneralDeletion
 
-/-- Complementation interchanges clique transversals and independent-set transversals. -/
-theorem cliqueTransversal_iff_indepTransversal_compl (F : SimpleGraph V) (r : ℕ)
-    (T : Finset V) :
-    IsCliqueTransversal F r T ↔ IsIndepTransversal Fᶜ r T := by sorry
-
 /-- The three-set threshold is 71 when the explicit external inputs are 9 and 50. -/
 theorem eighteen_three_transversal_edge_lower_bound (F : SimpleGraph (Fin 18))
     (hF : F.IndepSetFree 4) (hR : RamseyUpperBound 4 3 9)
@@ -245,7 +227,7 @@ theorem eighteen_cross_column_card_ge_four [Finite V] [DecidableEq V]
     (y : V) (hy : y ∉ A) (C : Finset A)
     (hC : ∀ x : A, x ∈ C ↔ G.Adj y x.1) :
     IsIndepTransversal (G.induce A) 4 C ∧
-      4 ≤ C.card ∧ 4 ≤ Nat.card (columnSet G A y) := by sorry
+      4 ≤ C.card ∧ 4 ≤ Nat.card (rowSet G A y) := by sorry
 
 /-- The four-set threshold is 66, including the edge forced by clique sizes `2, 1, 1`. -/
 theorem eighteen_four_transversal_edge_lower_bound (F : SimpleGraph (Fin 18))
@@ -265,9 +247,9 @@ structure FourTransversalDefectBudget (F : SimpleGraph (Fin 18)) (T : Finset (Fi
   vertex_nonneg : ∀ x ∈ T, 0 ≤ attachmentDefect F T 18 4 9 x
   cross_eq_attachment : crossAttachmentDefect F T 18 4 9 = totalAttachmentDefect F T 18 4 9
   cross_nonneg : 0 ≤ crossAttachmentDefect F T 18 4 9
-  internal_lower : 1 ≤ (Nat.card (F.induce (T : Set (Fin 18))).edgeSet : ℤ)
+  internal_lower : 1 ≤ (inducedEdgeCount F (T : Set (Fin 18)) : ℤ)
   frontier_budget : coreDefect F T 41 + crossAttachmentDefect F T 18 4 9 +
-    (Nat.card (F.induce (T : Set (Fin 18))).edgeSet : ℤ) = 3 + q
+    (inducedEdgeCount F (T : Set (Fin 18)) : ℤ) = 3 + q
 
 /-- At `68 + q` edges, the four-set defect is `2 + q` and the frontier budget is `3 + q`. -/
 theorem eighteen_four_transversal_defect_budget (F : SimpleGraph (Fin 18))

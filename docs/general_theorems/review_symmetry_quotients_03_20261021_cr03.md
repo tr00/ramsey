@@ -14,7 +14,7 @@ Dependencies checked: the source's common setting and action convention
 element in each nonempty finite orbit. No substantive result from Claims
 01, 02, or 04 is needed for this claim. The residual-action interpretation
 was cross-checked against
-`n43/d18/symmetry_reduction.md#claim-d18-symmetry-01`, whose source SHA-256 is
+`research/n43/d18/symmetry_reduction.md#claim-d18-symmetry-01`, whose source SHA-256 is
 `6b9072c4a9b1f54042bd6d7e4913d4aedd5b0a8e8c04a2d18b994c2dc2d31d1b`;
 its historical independent review was not re-audited here.
 

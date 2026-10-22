@@ -9,7 +9,7 @@ and [integration manifest](integration_manifest.json).
 Date: 2026-10-15. Author: `augmentation_author`.
 
 This parameterizes the safe-addition argument in
-[degree-18 clique budgets and augmentation](../../n43/d18/cliques_augmentation.md),
+[degree-18 clique budgets and augmentation](../../research/n43/d18/cliques_augmentation.md),
 section 2. It is mathematical work only: no graph enumeration, solver,
 installation, download, or literature search was performed. No novelty claim
 is made. The statements below are ready for independent review, rather than
@@ -219,7 +219,7 @@ cross-column, or root-selection hypothesis is needed.
 
 Dependencies: claims 01–04; the upper bound 85 recorded in
 [theory phase 1](../theory_phase_1.md), section containing the interval
-`50<=a<=85`, and [reduction index](../../n43/reductions.md), sections 8
+`50<=a<=85`, and [reduction index](../../research/n43/reductions.md), sections 8
 and 15. Those notes attribute the census extrema to Angeltveit–McKay,
 *R(5,5)<=46*, arXiv:2409.15709v2, Appendix A, Table 1. The external table
 has not been independently rechecked in this task.
@@ -262,8 +262,8 @@ Source revision at start: `b12925f7a96d24e18d06b0237930a32e30660ca2`.
 The exact input SHA-256 values read for this derivation were:
 
 ```text
-4cb5c4bd34d7d45a3c42783fdf091ac3aae0acafcc6f6fd6203f83cf9d366b2c  n43/d18/cliques_augmentation.md
-0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54  n43/d18/frontier_band.md
+4cb5c4bd34d7d45a3c42783fdf091ac3aae0acafcc6f6fd6203f83cf9d366b2c  research/n43/d18/cliques_augmentation.md
+0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54  research/n43/d18/frontier_band.md
 51220632656f91905d0ace361179ea8953a51ea6e544005d723ac7425df7e5b2  docs/workflow.md
 ```
 

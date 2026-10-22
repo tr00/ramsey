@@ -1,6 +1,6 @@
 # Independent review of prescribed equal-degree families
 
-Editorially condensed on 2026-10-21; [original audit and lineage](../../reports/2026-10-21-research-cleanup.md).
+Editorially condensed on 2026-10-21; [original audit and lineage](../../research/reports/2026-10-21-research-cleanup.md).
 
 Date: 2026-10-15. Reviewer: `augmentation_author`.
 
