@@ -3,8 +3,8 @@
 Date: 2026-10-21. Task: `reroot-density-20261021`.
 Author and self-auditor: Main, working alone.
 
-These claims are **ready for independent review**, with no acceptance or
-executable pruning change. The aim is to replace an actual degree-18 root
+Section 6 is **accepted** after independent review by K2Audit. The other claims
+remain **ready for independent review**. The aim is to replace an actual degree-18 root
 by another actual degree-18 root with strictly more neighborhood edges.
 The graph stays fixed. No complementation or edge augmentation is involved.
 The user supplied the closure of x137 and x138; neither closure is needed
@@ -397,14 +397,19 @@ choosing a new root and recalculating its q, E, x, and connectivity.
 
 Claim ID: `research/n43/d18/density_rerooting.md#claim-reroot-k2`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted
 Scope: d(v)=18 and N(v)=K2 disjoint-union C_16, with C_16 (4,4)-free  
 Dependencies: connectivity classification; (4,4,16) exact edge count 60;
 row cap 17; R(3,4)=9  
 Conclusion: both K2 vertices have degree 18 and neighborhood edge count 69  
-Search use: none pending independent review; proposed strict re-rooting
-and removal of this branch under maximum-density root selection  
-Reviews: none
+Search use: strict re-rooting and removal of the K2 branch under maximum-density
+root selection over the degree-18 vertices of the fixed graph
+Reviews: K2Audit, accepted after independent audit of the retained statement and proof
+Lean correspondence: [`Ramsey.d18.k2.strict_reroot`](../../../lean/Ramsey/n43/d18/k2/Rerooting.lean)
+records the existence of a degree-18 destination with 69 edges from a source with 61;
+[`Ramsey.d18.k2.excludes`](../../../lean/Ramsey/n43/d18/k2/Exclusion.lean) closes the
+maximizing K2 class. The symmetric 2-destination and connected-destination conclusions
+are covered by the review, but are not needed by the formal exclusion theorem.
 
 Proof. Write the K2 vertices as u,w. Their A-degrees are one, so their
 B rows have sizes r_u=16+epsilon_u, r_w=16+epsilon_w, with epsilon in
@@ -423,6 +428,22 @@ a_v = 1+60 = 61.
 The 1 counts vw, the 8 counts w's edges into R_u, and v has none
 there. Exchange u,w for the other destination. Density increases by
 eight, q drops from 24 to 16, and the destination is connected.
+
+### Independent review
+
+K2Audit checked the full statement of this section, including both destinations and
+their connected neighborhoods. Outcome: accepted, with no mathematical changes required.
+The audit checked the degree floor and row identity, the exact ambient `(3,4)` type of
+the common B cell, the inclusion-exclusion arithmetic, and applicability of the existing
+order-16 `(4,4)` census bounds to both the core and the rows. It also checked all edge
+contributions and the connectivity consequence from the disconnected edge slices.
+
+The row cap 17 justifies the source's intermediate `epsilon<=1`; the conclusion also
+follows directly from the row floors, union size at most 24 and intersection size at
+most 8. The displayed disjoint union is a vertex partition, not an anticomplete graph
+union. The 8 cross edges are explicitly retained. The census remains a literature premise,
+not a newly certified enumeration. This review does not accept other sections or assert
+nonexistence of arbitrary nonmaximal K2 roots. No novelty claim is made.
 
 <a id="claim-reroot-k3"></a>
 ## 7. K3 disconnected neighborhoods improve whenever a small vertex is eligible
@@ -677,12 +698,17 @@ Existing theorem chains can be applied anew to the actual destination.
 
 The accompanying [report](../../reports/2026-10-21-density-rerooting.md)
 records the exact arithmetic audit, dependency hashes, and scope.
-The claims have author self-checks only. No solver, graph search,
-catalogue processing, Lean changes, downloads, or independent review
-was performed, and accepted branch/navigation status is unchanged.
+Section 6 has the independent review recorded above. The other claims retain their
+author self-check status. No solver, graph search, catalogue processing or download
+was needed for that review. The review does not decide the remaining branches.
 
 The retained gaps are general connected roots with no triggered pair or
 transport certificate, K1 with both cores outside the displayed low-count
 regime, and K3 with small-component degrees (19,19,19) and at least three
 higher-degree core vertices. No theorem
 here forces q<=2 in every degree-18 graph or decides order 43.
+
+## Changelog
+
+- Accepted the strict K2 re-rooting claim after independent review, with removal of
+  the K2 branch permitted only under maximum-density degree-18 root selection.

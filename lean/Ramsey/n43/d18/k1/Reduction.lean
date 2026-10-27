@@ -144,22 +144,26 @@ public theorem Key.valid_filters (K : Key) (X : K.Matrix) (h : K.Valid X) :
   Frame.filters_of_ramsey _ (replace_admissible K.frame K.admissible _)
     ((K.assemble_ramsey_iff X).mpr h)
 
-/-- The reduced class is the set of compatible matrix completions of admissible partial keys. -/
+/-- The reduced class retains a maximizing pivot in each compatible admissible-key completion. -/
 @[expose] public def ReducedClass (G : SimpleGraph (Fin 43)) : Prop :=
-  ∃ K : Key, ∃ X : K.Matrix, K.Valid X ∧ (K.assembledFrame X).Filters ∧ K.assemble X = G
+  ∃ K : Key, ∃ X : K.Matrix, K.Valid X ∧ (K.assembledFrame X).Filters ∧
+    IsMaximalDegree18Pivot (K.assemble X) (K.assembledFrame X).v ∧ K.assemble X = G
 
 /-- Every K1 candidate is caught by the explicit admissible-key and 289-bit completion reduction. -/
 public theorem reduction : Complete {G | ReducedClass G} (KClass 1) := by
   intro G hG
   obtain ⟨hRamsey, v, hv, hK⟩ := hG
-  obtain ⟨F, -, hF⟩ := exists_admissible hRamsey v hv hK
+  obtain ⟨F, hroot, hF⟩ := exists_admissible hRamsey v hv.1 hK
   let K := Key.ofFrame F hF
   let X := Key.actualMatrix F hF
   have hvalid : K.Valid X := by
     apply (K.assemble_ramsey_iff X).mp
     rw [Key.ofFrame_reconstruct]
     exact hRamsey
-  exact ⟨K, X, hvalid, K.valid_filters X hvalid, Key.ofFrame_reconstruct F hF⟩
+  refine ⟨K, X, hvalid, K.valid_filters X hvalid, ?_, Key.ofFrame_reconstruct F hF⟩
+  change IsMaximalDegree18Pivot (K.assemble X) F.v
+  rw [Key.ofFrame_reconstruct, hroot]
+  exact hv
 
 /-- Completeness of a reduced enumeration transfers to the original K1 branch. -/
 public theorem complete_of_reduced {S : Set (SimpleGraph (Fin 43))}

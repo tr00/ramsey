@@ -92,7 +92,7 @@ Kind: local-deduction
 Review state: ready  
 Scope: any G in R(5,5,43), any prescribed vertex family F  
 Dependencies: R(3,3)=6, R(3,4)=9, R(3,5)=14; the accepted structural
-component bound [family overlap, Claim2](../../../docs/general_theorems/family_overlap.md#claim-family-overlap-02)  
+component bound [family overlap, Claim2](../../foundations/family_overlap.md#claim-family-overlap-02)  
 Conclusion: |F|>=13 and all degrees<=20 gives a family edge of codegree<=11;
 all degrees<=21 gives a family edge of codegree<=12  
 Search use: none pending review; proposed pair-selection coverage  

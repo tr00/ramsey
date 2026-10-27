@@ -97,8 +97,8 @@ keeps its stated premises; no Ramsey/census input is implicit.
 | Signature anchors | [signature_anchors.md](../research/foundations/signature_anchors.md) | exact mixed homogeneous-set criterion; Hall condition, singleton class caps, weighted degree-excess certificates; clique dual | L3 anchor theory, frontier bands |
 | Transversal deletion | [transversal_deletion.md](../research/foundations/transversal_deletion.md) | edge lower bound after deleting a t-transversal; exact defect budget and equality structure | tau rungs, index §8.4-8.6 |
 | Transversal compatibility | [transversal_compatibility.md](../research/foundations/transversal_compatibility.md) | avoidance forces occurrence; weighted occupancy; degree-gap obstruction to disjoint transversals | x136 r2 closure, w0 |
-| Family overlap | [family_overlap.md](general_theorems/family_overlap.md) | equal-degree prescribed families contain a low-codegree edge past a component threshold | d18 dense families |
-| Cut capacity | [cut_capacity.md](general_theorems/cut_capacity.md) | degree cut demand across the non-root set forces many low-q roots; composes with family overlap | index §8.12, §8.14 |
+| Family overlap | [family_overlap.md](../research/foundations/family_overlap.md) | equal-degree prescribed families contain a low-codegree edge past a component threshold | d18 dense families |
+| Cut capacity | [cut_capacity.md](../research/foundations/cut_capacity.md) | degree cut demand across the non-root set forces many low-q roots; composes with family overlap | index §8.12, §8.14 |
 | Swap stabilizers | [disjoint_swap_stabilizers.md](general_theorems/disjoint_swap_stabilizers.md) | exact `(C2)^p` swap stabilizer structure; pair-separation orbit bounds | symmetry layer L4 |
 | Two-root gluing | [symmetry_pair_gluing.md](general_theorems/symmetry_pair_gluing.md) | overlap maps classified by double cosets; fiber-product completion group; staged quotient coverage | two-root reductions |
 | Residual quotients | [symmetry_quotients.md](general_theorems/symmetry_quotients.md) | split extension `K ⋊ H`; exact 2-CNF lex minimization; uniform descent; hierarchical root selection | generator canonicalization (design) |
@@ -186,7 +186,7 @@ flowchart TD
     D18 --> KAP["connectivity cover of G[A]"]
     KAP --> C["c: connected, open (contains all x<=143)"]
     KAP --> K1["k1: K1 + C17, open, reduced to 289 bits"]
-    KAP --> K2["k2: K2 + C16, open, no math theory yet"]
+    KAP --> K2["k2: excluded for a maximizing d18 pivot"]
     KAP --> K3["k3: K3 + C15, open, 68 scalar profiles"]
     TAU["tau overlay: t4/t5 rungs per fixed B"] --> XOP
 ```
@@ -237,7 +237,7 @@ their original scope and review state.
 | --- | --- | --- |
 | `c` (connected `A`) | open; contains the whole `x<=143` territory | x138 fully excluded by reviewed tau/support theory; the zero-A-excess [q1 slice is excluded](../research/n43/d18/tau/q1_anchor_reduction.md), forcing q>=2 and x>=140 in w0. Earlier [w0 research](../research/n43/d18/c/w0/research.json) remains historical ready work; higher q remains open. No unified c exclusion |
 | `k1` (`K1 ⊔ C17`) | open; no exclusion, no construction | partition `{v,u} | C | D | T = 2|17|17|7`; both 17-cores are `SRG(17,8,3,4)`; at least 64 attachment edges per side (65 by signature geometry); 7-cell excess `26..42`; whole-branch `91 ≤ r ≤ 182`; exact completion to **289 Boolean positions** with 8 clique + 3 independent rectangle obstruction types ([k1 research](../research/n43/d18/k1/research.json) and siblings). Formalized as a `Complete` reduction (`d18/k1/Reduction.lean`). The exterior and T-triangle capacity premises are reviewed ([exterior capacity review](../research/n43/d18/k1/review_triangle_capacity_20261019_exterior_audit.md), [report](../research/reports/2026-10-19-k1-whole-branch-obstruction.md)); dense-cell stability is accepted conditional on them. File labels lag (Section 12) |
-| `k2` (`K2 ⊔ C16`) | open; **no markdown theory exists** (Lean stub only) | none; sits at `q=24`, `x ≥ 170` by the unreviewed geography note |
+| `k2` (`K2 ⊔ C16`) | excluded under maximum-density degree-18 pivot selection | Accepted [strict re-rooting](../research/n43/d18/density_rerooting.md#claim-reroot-k2) raises the neighborhood edge count from 61 to 69 at a degree-18 destination. Formalized without `sorry` in `d18/k2/{Structure,Rerooting,Exclusion}.lean` using existing order-16 `(4,4)` census premises. Does not exclude arbitrary nonmaximal K2 roots. |
 | `k3` (`K3 ⊔ C15`) | open | reroot to three 8-vertex B-blocks or a denser connected reroot; balanced case forces total excess `W ≥ 88`; 71 to 68 scalar profiles by the 17-row zero-triple obstruction; exact **360-bit** completion; explicit sharp 20-vertex partial graph showing the 7-neighbor column bound cannot reach 8 ([k3 notes](../research/n43/d18/k3/README.md), all accepted) |
 
 Cross-cutting accepted material feeding every subbranch: pivot-class and
@@ -276,9 +276,9 @@ set `S`", [defs/Completeness.lean](../lean/Ramsey/defs/Completeness.lean)):
   element-wise.
 
 Current obligation ledger ([sorry ledger](../lean/scripts/sorry-ledger.txt)):
-`d20.excludes`, and `d18.{c,k1,k2,k3}.excludes` — five branch targets, one
-deliberate `sorry` each. Everything else on the formal side is proved. The 19
-toolkit statement-only sorries (Section 3) are not obligations of the main
+`d20.excludes`, and `d18.{c,k1,k3}.excludes` — 4 open branch targets, 1
+deliberate `sorry` each. `d18.k2.excludes` is proved by strict re-rooting.
+The 19 toolkit statement-only sorries (Section 3) are not obligations of the main
 target.
 
 How a computation may discharge an obligation (design,
@@ -300,7 +300,8 @@ must be discharged before any final `d18`/`d20` certificate is complete.
 
 `Ramsey.R_5_5_43` (root module) is proved from the two branch obligations.
 Axiom chain today: standard axioms plus named premises plus `sorryAx` from
-exactly the five branch obligations. The `ramseyNumber 5 5 = 43` equality
+the 4 remaining branch obligations. The proved K2 branch adds the existing order-16
+`(4,4)` edge census bounds to the root dependency chain. The `ramseyNumber 5 5 = 43` equality
 assembly is not formalized; the lower-bound half rests on the published
 Exoo 1989 witness, cited in the baseline, with no Lean premise.
 
@@ -321,7 +322,6 @@ Backlog, dependency-ordered (sources accepted unless noted):
 | B3 | formalize the x137 closure; floor to `x ≥ 138` | accepted; review conditionality already resolved (Section 7.2) |
 | B3a | formalize the two-profile x138 tau/support closure; floor to x>=139, zero-A-excess floor to x>=140 | all18 new claims independently accepted; exact proofs/reviews in the dated tau-frontier report, not mirrored into Lean yet |
 | B4 | connectivity claims 02 (census slices) and 03 items (a)/(c); item (b) at `m=1` is already in `k1/Rigidity.lean` | completes the connectivity interface the four subcases share |
-| B5 | k2 branch theory (mathematics first, then mirror; the Lean stub already exists) | largest d18 subbranch with zero markdown content |
 | B6 | d20 branch theory (mathematics first) | the other half of the even-pivot cover has no predicates to mirror yet |
 | B7 | optional: accepted tail theorems (`x ≤ 278` etc.), interior/connectivity transfers | sharpening and alternative-scheme support, not obligations |
 
@@ -339,7 +339,7 @@ The pyramid is complete when all of the following hold.
    `d20` likewise.
 2. Pivot selection: a verified canonical tie rule or explicit all-pivot
    coverage for the chosen covers.
-3. Formal: the five branch sorries discharged through `Complete`; sorry
+3. Formal: the 4 remaining branch sorries discharged through `Complete`; sorry
    ledger empty except deliberate toolkit statements; `#print axioms` on
    `R_5_5_43` reports only standard axioms and named premises.
 4. Certificate: every computational input carries provenance, hashes, and a

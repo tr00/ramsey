@@ -78,17 +78,19 @@ public theorem Frame.total_projections {G : SimpleGraph (Fin 43)} (F : Frame G)
   have hw := F.total_excess_add hF hG
   omega
 
-/-- A scalar branch retains the actual admissible frame and all 11 mixed rectangle obligations. -/
+/-- A scalar branch retains a maximizing pivot, its admissible frame and mixed obligations. -/
 @[expose] public def ParameterClass (p : Parameters) (G : SimpleGraph (Fin 43)) : Prop :=
-  ∃ F : Frame G, F.Admissible ∧ CliqueCompatible F ∧ IndepCompatible F ∧ F.parameters = p
+  ∃ F : Frame G, IsMaximalDegree18Pivot G F.v ∧ F.Admissible ∧
+    CliqueCompatible F ∧ IndepCompatible F ∧ F.parameters = p
 
 /-- The allowed scalar branches cover every K1 candidate without a realizability assumption. -/
 public theorem parameter_cover (G : SimpleGraph (Fin 43)) (hG : KClass 1 G) :
     ∃ p : Parameters, p.Allowed ∧ ParameterClass p G := by
   obtain ⟨hRamsey, v, hv, hK⟩ := hG
-  obtain ⟨F, -, hF⟩ := exists_admissible hRamsey v hv hK
+  obtain ⟨F, hroot, hF⟩ := exists_admissible hRamsey v hv.1 hK
   obtain ⟨hc, hi⟩ := (ramsey_iff_compatible F hF).mp hRamsey
-  exact ⟨F.parameters, F.parameters_allowed hF hRamsey, F, hF, hc, hi, rfl⟩
+  exact ⟨F.parameters, F.parameters_allowed hF hRamsey, F,
+    hroot.symm ▸ hv, hF, hc, hi, rfl⟩
 
 /-- Complete scalar-branch enumerations give a complete enumeration of the original K1 class. -/
 public theorem complete_by_parameters

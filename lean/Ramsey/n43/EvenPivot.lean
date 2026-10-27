@@ -23,9 +23,9 @@ master reduction `Ramsey.ramsey_5_5_43_of_d18_d20` joins the branch
 enumerations with `Complete.cover` and refutes the ambient class with
 `Complete.forall_not_of_eq_empty`. The branch obligation remains
 `Ramsey.ExcludesDegree d`, now literally the completeness of the empty
-enumeration of the degree-`d` pivot class. This reduction is *existence of a
-pivot*, not a canonical-pivot tie rule: the branch hypotheses must hold for
-every vertex of degree 18 (resp. 20).
+enumeration of the degree-`d` pivot class. The d18 connectivity split selects
+a pivot maximizing neighborhood edges among vertices of degree 18. The d20
+branch still allows an arbitrary degree-20 pivot.
 
 Degrees inside classes are stated instance-free through `Ramsey.deg`
 (neighbor-set cardinality, equal to `SimpleGraph.degree` under any adjacency
@@ -55,6 +55,24 @@ theorem deg_eq_degree (G : SimpleGraph (Fin 43)) [DecidableRel G.Adj] (v : Fin 4
     deg G v = G.degree v := by
   show Nat.card ↥(G.neighborSet v) = G.degree v
   simp only [Nat.card_eq_fintype_card, SimpleGraph.card_neighborSet_eq_degree]
+
+/-- A degree-18 pivot with the most neighborhood edges among degree-18 vertices. -/
+def IsMaximalDegree18Pivot (G : SimpleGraph (Fin 43)) (v : Fin 43) : Prop :=
+  deg G v = 18 ∧ ∀ w : Fin 43, deg G w = 18 →
+    inducedEdgeCount G (G.neighborSet w) ≤ inducedEdgeCount G (G.neighborSet v)
+
+/-- Any graph with a degree-18 vertex has a neighborhood-edge-maximizing degree-18 pivot. -/
+theorem exists_maximal_degree18_pivot (G : SimpleGraph (Fin 43))
+    (h : ∃ v : Fin 43, deg G v = 18) : ∃ v : Fin 43, IsMaximalDegree18Pivot G v := by
+  classical
+  let P := Finset.univ.filter (fun v ↦ deg G v = 18)
+  have hP : P.Nonempty := by
+    obtain ⟨v, hv⟩ := h
+    exact ⟨v, Finset.mem_filter.mpr ⟨Finset.mem_univ v, hv⟩⟩
+  obtain ⟨v, hv, hmax⟩ := P.exists_max_image
+    (fun w ↦ inducedEdgeCount G (G.neighborSet w)) hP
+  exact ⟨v, (Finset.mem_filter.mp hv).2,
+    fun w hw ↦ hmax w (Finset.mem_filter.mpr ⟨Finset.mem_univ w, hw⟩)⟩
 
 /-- Complement degrees on 43 vertices: `d_G(v) + d_{Gᶜ}(v) = 42`. -/
 theorem degree_add_compl_degree (G : SimpleGraph (Fin 43)) [DecidableRel G.Adj]

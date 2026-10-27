@@ -6,8 +6,8 @@ public import Ramsey.n43.d18.PivotBudget
 /-!
 # The zero-A-excess connected d18 subcase
 
-This branch has a degree-18 pivot with a connected neighborhood A and W_A = 0,
-also written E_A = 0. Every vertex in A has global degree 18.
+This branch has a maximizing degree-18 pivot with a connected neighborhood A
+and W_A = 0, also written E_A = 0. Every vertex in A has global degree 18.
 
 `Excludes` is the open exclusion obligation, not an asserted proof. This branch
 does not cover connected neighborhoods with positive A-excess and does not
@@ -16,9 +16,9 @@ require the equality frontier x = 136.
 
 namespace Ramsey.d18.c.w0
 
-/-- The connected degree-18 case with global degree 18 at every vertex in A. -/
+/-- The maximizing connected degree-18 case with global degree 18 at every vertex in A. -/
 @[expose] public def Class (G : SimpleGraph (Fin 43)) : Prop :=
-  IsRamseyGraph 5 5 G ∧ ∃ v : Fin 43, deg G v = 18 ∧
+  IsRamseyGraph 5 5 G ∧ ∃ v : Fin 43, IsMaximalDegree18Pivot G v ∧
     (G.induce (G.neighborSet v)).Connected ∧ ∀ u ∈ G.neighborSet v, deg G u = 18
 
 /-- The open branch obligation is completeness of the empty enumeration. -/
@@ -41,13 +41,12 @@ public theorem zero_excess_iff (R : RootedRamseyGraph 5 5 (Fin 43))
     rw [Nat.card_eq_fintype_card, SimpleGraph.card_neighborSet_eq_degree, h u u.2,
       Nat.sub_self]
 
-/-- A connected degree-18 pivot with zero A-excess belongs to this branch. -/
+/-- A maximizing connected degree-18 pivot with zero A-excess belongs to this branch. -/
 public theorem class_of_zero_excess (R : RootedRamseyGraph 5 5 (Fin 43))
-    [DecidableRel R.graph.Adj] (hv : R.graph.degree R.pivot = 18)
+    [DecidableRel R.graph.Adj] (hv : IsMaximalDegree18Pivot R.graph R.pivot)
     (hc : R.neighborhood.graph.Connected) (hw : degreeExcess R.graph 18 R.A = 0) :
     Class R.graph := by
-  refine ⟨R.ramsey, R.pivot, ?_, hc, ?_⟩
-  · simpa only [deg_eq_degree] using hv
+  refine ⟨R.ramsey, R.pivot, hv, hc, ?_⟩
   · simpa only [deg_eq_degree] using (zero_excess_iff R).mp hw
 
 /-- Any complete enumeration of the connected parent also covers this branch. -/

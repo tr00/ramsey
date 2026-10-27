@@ -19,8 +19,8 @@ The classification is refined by the exact complete-component order
 (`IsKNeighborhood k`, `isDisconnectedNeighborhood_iff`) and turned into the
 connectivity branching of the d18 case: `SubcaseBranch` indexes the four
 subcases, `ConnClass` and `KClass k` are their classes of 43-vertex graphs
-(stated instance-free through `deg`), `subcase_cover` covers the d18 pivot
-class, and `excludes_of_subcases` derives `Ramsey.ExcludesDegree 18` from the
+(stated instance-free through `IsMaximalDegree18Pivot`), `subcase_cover` selects
+a maximizing d18 pivot, and `excludes_of_subcases` derives `Ramsey.ExcludesDegree 18` from the
 four subcase obligations `ExcludesSubcase b` by `Complete.cover` and
 `Complete.forall_not_of_eq_empty`.
 -/
@@ -239,17 +239,14 @@ neighborhood and the three disconnected shapes. -/
 public inductive SubcaseBranch : Type
   | conn | k1 | k2 | k3
 
-/-- The connected subcase class: 43-vertex `(5,5)`-Ramsey graphs with a
-degree-18 pivot whose neighborhood is connected. -/
+/-- The connected subcase class has a maximizing degree-18 pivot with a connected neighborhood. -/
 @[expose] public def ConnClass (G : SimpleGraph (Fin 43)) : Prop :=
-  IsRamseyGraph 5 5 G ∧ ∃ v : Fin 43, deg G v = 18 ∧
+  IsRamseyGraph 5 5 G ∧ ∃ v : Fin 43, IsMaximalDegree18Pivot G v ∧
     (G.induce (G.neighborSet v)).Connected
 
-/-- The disconnected subcase class for complete-component order `k`:
-43-vertex `(5,5)`-Ramsey graphs with a degree-18 pivot whose neighborhood
-has the exceptional shape with complete component of order `k`. -/
+/-- The disconnected subcase has a maximizing degree-18 pivot with complete component order `k`. -/
 @[expose] public def KClass (k : ℕ) (G : SimpleGraph (Fin 43)) : Prop :=
-  IsRamseyGraph 5 5 G ∧ ∃ v : Fin 43, deg G v = 18 ∧
+  IsRamseyGraph 5 5 G ∧ ∃ v : Fin 43, IsMaximalDegree18Pivot G v ∧
     IsKNeighborhood k (G.induce (G.neighborSet v))
 
 /-- The subcase class of a branch. -/
@@ -262,6 +259,10 @@ public def SubcaseClass : SubcaseBranch → SimpleGraph (Fin 43) → Prop
 /-- The K1 subcase classifier is exactly its complete-component class. -/
 public theorem subcaseClass_k1 (G : SimpleGraph (Fin 43)) :
     SubcaseClass .k1 G ↔ KClass 1 G := Iff.rfl
+
+/-- The K2 subcase classifier is exactly its complete-component class. -/
+public theorem subcaseClass_k2 (G : SimpleGraph (Fin 43)) :
+    SubcaseClass .k2 G ↔ KClass 2 G := Iff.rfl
 
 /-- The enumeration set of each subcase branch: the empty set, since the
 obligation of every subcase is the refutation of its class. -/
@@ -277,24 +278,24 @@ enumerates the subcase class, so no graph of the class exists. -/
 public abbrev ExcludesSubcase (b : SubcaseBranch) : Prop :=
   Complete (SubcaseSet b) (SubcaseClass b)
 
-/-- The connectivity split covers the d18 pivot class: every 43-vertex
-`(5,5)`-Ramsey graph with a vertex of degree 18 has, at that vertex, the
-connected neighborhood shape or one of the three exceptional shapes. -/
+/-- Every graph in the d18 class has a maximizing pivot with the connected
+neighborhood shape or one of the 3 exceptional shapes. -/
 public theorem subcase_cover (G : SimpleGraph (Fin 43)) (hG : IsRamseyGraph 5 5 G)
     {v : Fin 43} (hv : deg G v = 18) : ∃ b : SubcaseBranch, SubcaseClass b G := by
   classical
+  obtain ⟨v, hv, hmax⟩ := exists_maximal_degree18_pivot G ⟨v, hv⟩
   have hn : Nat.card ↥(G.neighborSet v) = 18 := hv
   have hN : IsRamseyGraph 4 5 (G.induce (G.neighborSet v)) :=
     isRamseyGraph_induce_neighborSet_succ hG v
   by_cases hconn : (G.induce (G.neighborSet v)).Connected
-  · exact ⟨.conn, hG, v, hv, hconn⟩
+  · exact ⟨.conn, hG, v, ⟨hv, hmax⟩, hconn⟩
   · have hdisc : IsDisconnectedNeighborhood (G.induce (G.neighborSet v)) :=
       (connectivity_classification
         (⟨G.induce (G.neighborSet v), hN⟩ : RamseyGraph 4 5 ↥(G.neighborSet v)) hn).mp hconn
     rcases isDisconnectedNeighborhood_iff.mp hdisc with h1 | h2 | h3
-    · exact ⟨.k1, hG, v, hv, h1⟩
-    · exact ⟨.k2, hG, v, hv, h2⟩
-    · exact ⟨.k3, hG, v, hv, h3⟩
+    · exact ⟨.k1, hG, v, ⟨hv, hmax⟩, h1⟩
+    · exact ⟨.k2, hG, v, ⟨hv, hmax⟩, h2⟩
+    · exact ⟨.k3, hG, v, ⟨hv, hmax⟩, h3⟩
 
 /-- The d18 branch obligation follows from the four subcase obligations: the
 subcase classes cover the d18 class, every subcase enumeration is empty, and

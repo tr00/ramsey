@@ -671,9 +671,8 @@ require the richer interface, not these smaller tables.
 
 ## Existing Lean correspondence
 
-The [Lean overview](../../lean/README.md#uniform-boundary-profiles) and
-[theorem-module documentation](../../lean/Ramsey/theorems/README.md#uniform-boundary-calculus)
-record proved interfaces for all four claims in namespace `Ramsey.Boundary`,
+The [theorem-module documentation](../../lean/Ramsey/theorems/README.md#uniform-boundary-calculus)
+records proved interfaces for all four claims in namespace `Ramsey.Boundary`,
 re-exported by `import Ramsey`. This is existing repository correspondence, not a
 new build or axiom audit performed during this consolidation.
 

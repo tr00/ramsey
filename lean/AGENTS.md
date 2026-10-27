@@ -57,3 +57,13 @@ branches really use it. Otherwise it stays with its branch.
 
 - A `.lean` file never links to or names a markdown file.
 - Markdown files may link to and name `.lean` files.
+
+## README.md
+
+`README.md` is a static overview: purpose, layout, build and evidence rules.
+Do not update it continuously with proof status, results or claim
+correspondence. Sorry and axiom status live in `scripts/sorry-ledger.txt`
+and `scripts/expected-axioms.txt` behind `scripts/check.sh`; claim
+correspondence and review decisions live in the authoritative topic file
+under `../research/`. Update `README.md` only when its own content changes,
+that is, the purpose, layout, build steps or evidence rules.

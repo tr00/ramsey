@@ -40,6 +40,10 @@ import Ramsey
 #print axioms Ramsey.isRamseyGraph_induce_mixedCell
 #print axioms Ramsey.card_neighborSet_eq_eight_of_isRamseyGraph_4_4
 #print axioms Ramsey.d18.k1.rigidity
+#print axioms Ramsey.d18.subcaseClass_k2
+#print axioms Ramsey.d18.k2.exists_structure
+#print axioms Ramsey.d18.k2.strict_reroot
+#print axioms Ramsey.d18.k2.excludes
 #print axioms Ramsey.d18.c.w0.zero_excess_iff
 #print axioms Ramsey.d18.c.w0.class_of_zero_excess
 #print axioms Ramsey.d18.c.w0.complete_of_connected

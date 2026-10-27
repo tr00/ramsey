@@ -205,27 +205,27 @@ Source: [Weighted avoidance and two-transversal incompatibility](../../../resear
 
 ## Prescribed-family overlap — accepted
 
-Source: [Prescribed equal-degree families with a simultaneous overlap bound](../../../docs/general_theorems/family_overlap.md).
+Source: [Prescribed equal-degree families with a simultaneous overlap bound](../../../research/foundations/family_overlap.md).
 These results concern a prescribed family `F` of ambient degree-d vertices
 in a `(5,s)`-free graph; put `k=s-1`, `b=n-d-1`, and
 `A₀=max(b,2b-3k)`.
 
-- [01 — Triangle equality, four-clique exception and anchor](../../../docs/general_theorems/family_overlap.md#claim-family-overlap-01).
+- [01 — Triangle equality, four-clique exception and anchor](../../../research/foundations/family_overlap.md#claim-family-overlap-01).
   If all family edges have codegree at least `L` and `2L=d+k`, triangles
   force exact codegrees, k common neighbors and induced-paw-freeness.
   `d≠3k` excludes `K4` in the family; `A₀>k(d-1-L)` additionally excludes
   independent k-sets from its internal neighborhoods.
-- [02 — Structural component bound](../../../docs/general_theorems/family_overlap.md#claim-family-overlap-02).
+- [02 — Structural component bound](../../../research/foundations/family_overlap.md#claim-family-overlap-02).
   An induced-paw-free, `K4`-free graph with independence number at most k
   and neighborhood independence numbers at most `k-1` has order at most
   an explicit partition bound `H_k` from supplied triangle Ramsey bounds.
   Triangle-containing components are complete tripartite; suitable numerical
   premises give `H_k≤3k`.
-- [03 — Low-overlap edge in the prescribed family](../../../docs/general_theorems/family_overlap.md#claim-family-overlap-03).
+- [03 — Low-overlap edge in the prescribed family](../../../research/foundations/family_overlap.md#claim-family-overlap-03).
   Under the equality-threshold anchor and nonexceptional-degree hypotheses,
   `|F|≥H_k+1` forces an edge of codegree at most `L-1`. The edge lies in
   the original prescribed family, preserving properties at both endpoints.
-- [04 — Strict threshold and odd degrees](../../../docs/general_theorems/family_overlap.md#claim-family-overlap-04).
+- [04 — Strict threshold and odd degrees](../../../research/foundations/family_overlap.md#claim-family-overlap-04).
   When `2L>d+k` with the same strict anchor condition, a hypothetical
   high-codegree family is triangle-free. Size `k²+1`, or a sharper
   Ramsey-based component threshold, therefore forces an edge of codegree
@@ -233,20 +233,20 @@ in a `(5,s)`-free graph; put `k=s-1`, `b=n-d-1`, and
 
 ## Cut capacity — accepted
 
-Source: [Cut capacities force prescribed root families](../../../docs/general_theorems/cut_capacity.md).
+Source: [Cut capacities force prescribed root families](../../../research/foundations/cut_capacity.md).
 Let `P` be the minimum-degree-d vertices of a `K_r`-free graph, `H=V\P`,
 and `η_z=d(z)-d` on `H`. These results require a separately proved root
 inequality `q_v+E_v≤B`, where `q_v` is a nonnegative integer and
 `E_v=Σ_{z∈N(v)∩H}η_z`.
 
-- [01 — Cut demand and multiset capacity](../../../docs/general_theorems/cut_capacity.md#claim-cut-capacity-01).
+- [01 — Cut demand and multiset capacity](../../../research/foundations/cut_capacity.md#claim-cut-capacity-01).
   Degree summation and Turán bound the demand across `P–H`. The sorted excess
   multiset bounds each root's capacity, forcing a lower bound on the number
   of roots in the same family `F_Q={v∈P:q_v≤Q}`.
-- [02 — Weighted cut demand](../../../docs/general_theorems/cut_capacity.md#claim-cut-capacity-02).
+- [02 — Weighted cut demand](../../../research/foundations/cut_capacity.md#claim-cut-capacity-02).
   An exact weighted-incidence identity, including squared excesses and
   weighted H-nonedges, gives a second lower bound on `|F_Q|`.
-- [03 — Composition with family overlap](../../../docs/general_theorems/cut_capacity.md#claim-cut-capacity-03).
+- [03 — Composition with family overlap](../../../research/foundations/cut_capacity.md#claim-cut-capacity-03).
   Once either valid count reaches an overlap theorem's family threshold,
   that theorem supplies one edge whose two endpoints both satisfy `q_v≤Q`
   and whose codegree satisfies the required bound.
