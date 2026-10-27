@@ -1,9 +1,0 @@
-{
-  "status": "PASS",
-  "triangle_free_six_vertex_neighborhoods_checked": 2898,
-  "surplus_cells_checked": 9,
-  "minimum_degree_bound": 5,
-  "degree_five_edge_floor": 59,
-  "degree_six_neighbor_surplus_floor": 4,
-  "saturated_18_vertex_edge_floor": 58
-}
