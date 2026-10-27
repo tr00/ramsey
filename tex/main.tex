@@ -15,6 +15,7 @@
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
 
 \title{Progress on $R(5, 5)$ with pivots of degree $18$}
 \author{Tarik Y. Rosin}
@@ -98,8 +99,8 @@ The table below lists the Ramsey numbers $R(s,t)$ for $s, t \le 5$.
 In order to prove $R(5,5) = 43$, one has to make a statement about all graphs with $43$ vertices.
 To get a handle on the enormous search space, we fix a vertex $v$, the \emph{pivot},
 and study the interface between its neighborhood $A = N_G(v)$ and its anti-neighborhood $B = M_G(v)$.
+% TODO: maximize e(N(v))
 
-% Pivot-decomposition figure lives in figures/pivot-decomposition.tex.
 \input{figures/pivot-decomposition}
 
 \begin{lemma}\label{R_5_5_43_degree_mem}
@@ -346,6 +347,14 @@ Our fork of \texttt{geng} is customized to efficiently prune graphs with cliques
 	A \emph{transversal} of $\F$ is a set $T$ such that $\forall S \in \F \colon S \cap T \neq \emptyset$.
 	We write $\tau(\F)$ to denote the cardinality of the smallest transversal of $\F$.
 \end{definition}
+
+\begin{lemma}[Handshake Lemma]
+	$\sum_{v \in V} \text{deg}(v) = 2 \abs{E}$
+\end{lemma}
+
+\begin{lemma}[Ramsey Hereditary Lemma]
+	Let $G$ be a $(s, t)$-Ramsey graph. Then any induced subgraph $H$ is also $(s, t)$-free.
+\end{lemma}
 
 \nocite{angeltveit_mckay_2026}
 \nocite{mckay_radziszowski_1992}
