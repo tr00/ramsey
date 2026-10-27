@@ -38,6 +38,12 @@ records exact proof/review hashes, validation and limits.
   7d_F(t)+8h<=140 for every t. At h=15 the complete complement-shape list
   is P7, C3+P4, C4+P3, C5+P2, C6+P1, and2C3+P1. These are unresolved
   cases, not certified feasible graphs.
+- [Paley-core attachment arithmetic](../../../../docs/paley17_arithmetic.md#claim-paley-k1-consequences):
+  with both cores fixed Paley-17 (accepted 2026-10-27), each side needs
+  p,q>=70 for any K5/I4-free core+seven-cell extension; hence
+  max(76,70+h)<=L,R<=92 with L+R<=168 and 5<=h<=14, conjoined with the
+  moment bounds above. Necessary conditions only; reviewed with all
+  limits recorded in that note.
 
 Direct substitution in the accepted identities gives E_C,E_D>=3,
 W=sum_G(d_G-18)>=32 and e(G)>=403. The two specified roots have

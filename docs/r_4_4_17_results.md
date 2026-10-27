@@ -295,8 +295,10 @@ A finite local check proposes the stronger bound `e(Paley17,T)>=70` for
 any K5/I4-free seven-cell extension; applying it to every K1 core is now
 licensed in-repo by the accepted
 [core classification](../research/foundations/paley17_uniqueness.md), which
-identifies each core with Paley-17. The new claims are ready
-for independent review and have no pruning authority yet. Sources, complete
+identifies each core with Paley-17. All claims of the arithmetic note were
+accepted in independent review (2026-10-27), so these restrictions now
+carry necessary-condition pruning authority, with no sufficiency or
+termination use. Sources, complete
 small case lists and checks are in the
 [session report](../research/reports/2026-10-21-paley17-arithmetic.md).
 

@@ -273,7 +273,8 @@ or census premise is used.
   needs re-derivation, and their recorded hashes are unchanged.
 - The arithmetic restrictions of `docs/paley17_arithmetic.md`, previously
   conditional on an unacquired published unique-core classification, now apply
-  to every k1 core in-repo. That note's own claims remain ready, not accepted.
+  to every k1 core in-repo; they were accepted in independent review on
+  2026-10-27 and carry necessary-condition pruning authority.
 - The k1 branch itself remains **open** (`Ramsey.d18.k1.excludes`): core
   identification does not decide the 289-bit `C-D` completion.
 

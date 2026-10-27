@@ -3,9 +3,10 @@
 Date: 2026-10-21. Task: `paley-arithmetic-20261021`.
 Author and self-checker: /root, working alone.
 
-All new claims below are **ready for independent review**, with search use
-**none until review**. Exact fixed-core computations have two implementations
-but no independent author review or Lean formalization. No novelty claim is
+All claims below are **accepted** after independent review (Main, 2026-10-27;
+inline review record near the end of this file). Search use is permitted as
+stated per claim: exact necessary-condition propagation only, never
+sufficiency, termination, or coverage replacement. No novelty claim is
 made. The [session report](../research/reports/2026-10-21-paley17-arithmetic.md) records
 commands, scope, checks and artifacts.
 
@@ -48,12 +49,12 @@ by the accepted core classification, so no further premise is retained.
 
 Claim ID: `docs/paley17_arithmetic.md#claim-paley-ap-obstructions`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: the specified Paley-17, distinct vertices and nonzero progression step
 Dependencies: explicit residues; existing SRG(17,8,3,4) parameters
 Conclusion: all triangles/independent triples and their pair completions below
-Search use: none pending review; proposed exact propagation/encoding
-Reviews: none
+Search use: permitted as stated (2026-10-27 review); proposed exact propagation/encoding
+Reviews: Main 2026-10-27 (independent; see review record)
 
 Since chi(-1)=chi(2)=1, every nonconstant progression
 `{b-a,b,b+a}` is a triangle if a is square and an independent triple if a
@@ -100,12 +101,12 @@ a T independent triple has empty common W-intersection. These retain the
 
 Claim ID: `docs/paley17_arithmetic.md#claim-paley-character-transform`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: fixed Paley-17; arbitrary real vectors or subset incidence matrices
 Dependencies: quadratic-character correlation sum; explicit residues
 Conclusion: exact matrix, signature, Fourier and mixed-codegree identities
-Search use: none pending review; proposed exact propagation
-Reviews: none
+Search use: permitted as stated (2026-10-27 review); proposed exact propagation
+Reviews: Main 2026-10-27 (independent; see review record)
 
 Let S_xy=chi(y-x), A the adjacency matrix, J the all-one matrix. Then
 
@@ -178,12 +179,12 @@ assume that M is circulant or affine invariant.
 
 Claim ID: `docs/paley17_arithmetic.md#claim-paley-signature-orbits`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: subsets W of the fixed Paley-17 containing no I3
 Dependencies: explicit residues; complete 2^17-subset check in retained sources
 Conclusion: count/orbit table and quartic-coset eight-signature classification
-Search use: none pending review; proposed exact signature branching
-Reviews: none
+Search use: permitted as stated (2026-10-27 review); proposed exact signature branching
+Reviews: Main 2026-10-27 (independent; see review record)
 
 The explicit automorphisms `x -> ax+b` for a in Q act simultaneously on all
 incident state. This subgroup has order 136; using it is sound without proving
@@ -232,13 +233,13 @@ graphs and did not assert that all types embed in a 17-core.
 
 Claim ID: `docs/paley17_arithmetic.md#claim-paley-eight-packing`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: H+T K5/I4-free, H fixed Paley-17; any number of outside vertices
 Dependencies: exact eight-signature domain; accepted core nonedge packing
 Conclusion: at most four size-eight omissions; four forbid size-seven omissions;
 three forbid four size-seven omissions
-Search use: none pending review; proposed necessary propagation
-Reviews: none
+Search use: permitted as stated (2026-10-27 review); proposed necessary propagation
+Reviews: Main 2026-10-27 (independent; see review record)
 
 For every distinct t,s, W_t intersect W_s is a clique. Equivalently, the
 sets of nonedges induced by the two omissions are disjoint. Every size-eight
@@ -276,12 +277,12 @@ more outside vertices impose additional obligations.
 
 Claim ID: `docs/paley17_arithmetic.md#claim-paley-seventy-attachments`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: H+T K5/I4-free, H fixed Paley-17, |T|=7
 Dependencies: preceding finite signature/packing claims; exact local criterion
 Conclusion: `e(H,T)>=70`
-Search use: none pending review; proposed necessary propagation
-Reviews: none
+Search use: permitted as stated (2026-10-27 review); proposed necessary propagation
+Reviews: Main 2026-10-27 (independent; see review record)
 
 First the packing facts prove `p>=68`. Let m be the number of size-eight
 omissions. For m<=2 the total omissions are at most `49+m<=51`.
@@ -326,8 +327,9 @@ resources and nonsquare arithmetic progressions. They agree on the five and
 8,371 families. A second whole-side homogeneous-subset encoding also checks
 all allowed T edge assignments and finds no local extensions. This is an
 exhaustive fixed-core finite deduction, not a timeout or heuristic failure.
-The full sources, family lists and witnesses are retained; independent proof
-review is still pending. No 43-vertex completion is constructed or excluded.
+The full sources, family lists and witnesses are retained; independent
+review completed 2026-10-27 (accepted). No 43-vertex completion is
+constructed or excluded.
 
 The bound 70 is not asserted sharp. Even an attachment total of 70 need not
 admit T edges, satisfy the published B24 edge interval, or glue to another side.
@@ -337,13 +339,13 @@ admit T edges, satisfy the published B24 edge interval, or glue to another side.
 
 Claim ID: `docs/paley17_arithmetic.md#claim-paley-k1-consequences`
 Kind: local-deduction
-Review state: ready
+Review state: accepted
 Scope: existing K1 double-core frame; both cores isomorphic to Paley-17;
 published (5,4,24) edge interval 144..160
 Dependencies: preceding 70-edge bound; accepted K1 budgets
 Conclusion: strengthened necessary scalar restrictions below
-Search use: none pending review; proposed necessary propagation
-Reviews: none
+Search use: permitted as stated (2026-10-27 review); proposed necessary propagation
+Reviews: Main 2026-10-27 (independent; see review record)
 
 Use the existing notation `p=e(C,T)`, `q=e(D,T)`, `h=e(T)`,
 `r=e(C,D)`, `L=p+h`, `R=q+h`. The new local bound applies to each side:
@@ -374,12 +376,12 @@ the size-eight signatures now have an explicit two-type domain.
 
 Claim ID: `docs/paley17_arithmetic.md#claim-paley-search-design`
 Kind: design
-Review state: ready
+Review state: accepted
 Scope: fixed-core local extensions and K1 gluing
 Dependencies: all preceding conditional claims
 Conclusion: explicit design opportunities and retained obligations
-Search use: none pending review; proposed branching and heuristic organization
-Reviews: none
+Search use: permitted as stated (2026-10-27 review); proposed branching and heuristic organization
+Reviews: Main 2026-10-27 (independent; see review record)
 
 The most immediate use is to choose omission signatures from the 7,991-mask
 domain, attach nonedge resource masks, and propagate the modular three-vertex
@@ -405,3 +407,105 @@ The useful number-theoretic gain here is explicit low-order obstruction
 geometry, quartic-coset signature classes, and joint packing. Generic spectral
 bounds mainly restate SRG information. No claim of novelty, certified K1
 closure, or classification-free global pruning is made.
+
+## Independent review record
+
+Reviewer: Main, 2026-10-27. The author of this note is /root, so the
+reviewer is distinct. Method: independent finite reimplementation from the
+displayed statements; the author's retained artifacts and check code were
+not consulted for any verdict. All checks are exact finite computations
+over the specified Paley-17 (the 2^17 subset lattice, the 68 triangles and
+68 nonedges, the affine square subgroup of order 136). No solver, catalogue
+scan, download, or probabilistic argument was used.
+
+Decisive checks per claim:
+
+- Claim 1 (`claim-paley-ap-obstructions`): exhaustive verification that the
+  68 triangles are exactly the square-step progressions and the 68
+  independent triples exactly the nonsquare-step progressions (center
+  unique, steps `a` and `-a` identified); the common-neighbor formula
+  `{b-3a,b,b+3a}` for all 68 edges and the common-nonneighbor formula for
+  all 68 nonedges; `{x,y,z}` independent for every `z` in the
+  antineighbor triangle of the nonedge `xy`; and the two-vertex dichotomy
+  making "compatible" (disjoint induced nonedge sets) exact: two outside
+  vertices sharing a nonedge force either the K5 `Z plus {t,s}` or the I4
+  `{t,s,x,y}`.
+- Claim 2 (`claim-paley-character-transform`): `S = 2A-J+I`,
+  `S^2 = 17I-J`, `S 1 = 0`; all four `g = Sf` identities and the parity
+  congruence over 5,000 random subsets; the Gram identity
+  `(SF)^T(SF) = 17F^TF - rr^T`; Fourier eigenvalues `sqrt(17)chi(k)` and 0;
+  the centered-vector bound over 20,000 random pairs; and the
+  mixed-codegree formula `2k_cd = r_c+c_d-2M_cd+(SM+MS)_cd+2(PQ^T)_cd`
+  verified entrywise against direct common-neighbor computation in the
+  accepted k1 frame for 50 random `(M,P,Q)`.
+- Claim 3 (`claim-paley-signature-orbits`): independent recount of all
+  131,072 subsets with a direct independent-triple test: sizes
+  1/17/136/612/1632/2550/2176/816/51, total 7,991, and affine orbits
+  1/1/2/5/16/20/19/6/2, total 72 — all matching the table. The 51
+  eight-signatures are exactly `{b+N}` (17, 16 edges) and
+  `{b+a(K union 3K)}` for `a in {1,2}` (34, 18 edges), pairwise distinct.
+  No legal eight-mask has 17 edges, so the S11 non-embedding argument is
+  sound.
+- Claim 4 (`claim-paley-eight-packing`): recomputed compatibility graph on
+  the 51 eight-signatures: clique counts 1/51/561/1292/136 and no clique of
+  size 5 or 6; a single four-family affine orbit with composition ABBB; no
+  legal seven- or eight-omission compatible with its four vertices; eleven
+  three-family orbits, none admitting four mutually compatible sevens; and
+  the representative four-family does admit a valid four-vertex T, matching
+  the note's boundary statement.
+- Claim 5 (`claim-paley-seventy-attachments`): independent exhaustion of
+  every 7-omission family with `sum |W_t| >= 50` over all 30 size profiles
+  with parts at most 8 and sums 50..56, not relying on the note's profile
+  lists or packing shortcuts. Every profile was exhausted with zero
+  complete pairwise-compatible families. The m=1 profile `(8,7,7,7,7,7,7)`
+  was exhausted by two anchor runs (one type-A and one type-B eight), the
+  affine group making these two representatives cover all 51 anchors; both
+  completed with zero families. Soundness of the eliminations rests only
+  on: pairwise nonedge-disjointness (the accepted cross-core packing lemma
+  plus the claim-1 dichotomy), the resource cap of 68 core nonedges, and
+  forced-obstruction certificates (a triangle in `P_t intersect P_s` forces
+  `ts` absent; a K4 in the forced graph is an I4 in T; a forced independent
+  triple with a common omitted core vertex is an I4). Hence no K5/I4-free
+  `H+T` with `sum |W_t| >= 50` exists and `p = 119 - sum >= 70`.
+- Claim 6 (`claim-paley-k1-consequences`): the 678 `(h,L,R)` profiles were
+  recounted exactly, and the displayed box was re-derived from claim 5 per
+  side plus the accepted `cross_core.json` budgets (`76<=L,R<=92`,
+  `L+R<=168`, `153+h-min(L,R)<=r<=255+h-max(L,R)`, `h>=5`). Conjoined with
+  the accepted mixed-core moment bounds (`91<=r<=182`), the live k1
+  envelope gains `p,q>=70` and `5<=h<=14`; the accepted moment bounds on r
+  remain stronger than the claim-6 aggregate r interval and stay in force.
+- Claim 7 (`claim-paley-search-design`): design guidance checked for
+  consistency with the verified facts, including the caution against
+  replacing signatures by orbit representatives independently of relative
+  position; no coverage-changing advice found.
+
+Findings:
+
+1. The mixed-codegree identity in claim 2 presupposes the accepted k1 root
+   convention (complete v-C and u-D, no u-C or v-D, no root-T edges). It
+   was verified under exactly that convention and must be re-derived
+   before any reuse under a different attachment pattern.
+2. The review search eliminates the claim-5 profiles already at the
+   pairwise-compatible-family stage and therefore did not reproduce the
+   retained-family counts (five at p=68, 8,371 at p=69). Those counts are
+   internal to the author's cover normalization, are not needed for the
+   conclusion, and no discrepancy with the stated bound arises.
+3. The 70 bound was confirmed as a necessity statement only; sharpness,
+   realizability of p=70, T-edge admissibility, and gluing remain open,
+   exactly as the note states.
+
+Outcome: claims 1-6 accepted; claim 7 accepted as design guidance.
+Limits: one-side necessary conditions on fixed Paley-17 cores; applied to
+k1 via the accepted Paley-17 classification, both sides independently; no
+43-vertex completion is constructed or excluded; permitted search use is
+necessary-condition propagation, never sufficiency, termination, or
+coverage replacement.
+
+## Changelog
+
+- 2026-10-27: Independent review (Main) accepted all seven claims on the
+  basis of the decisive checks recorded above. Review states, search-use
+  lines, and the claim-5 pending-review sentence updated. Consumer notes
+  updated in `docs/r_4_4_17_results.md`, the foundation topic
+  `research/foundations/paley17_uniqueness.md`, and the k1 branch README
+  (strengthened scalar envelope bullet).
