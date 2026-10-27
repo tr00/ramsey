@@ -1,0 +1,124 @@
+c #Conflicts:    3325000 | #Constraints:      43261
+c #Conflicts:    3326000 | #Constraints:      44261
+c #Conflicts:    3327000 | #Constraints:      45261
+c #Conflicts:    3328000 | #Constraints:      46261
+c #Conflicts:    3329000 | #Constraints:      47261
+c #Conflicts:    3330000 | #Constraints:      48261
+c #Conflicts:    3331000 | #Constraints:      49261
+c #Conflicts:    3332000 | #Constraints:      50261
+c #Conflicts:    3333000 | #Constraints:      51261
+c #Conflicts:    3334000 | #Constraints:      52261
+c #Conflicts:    3335000 | #Constraints:      53261
+c #Conflicts:    3336000 | #Constraints:      54261
+c #Conflicts:    3337000 | #Constraints:      55261
+c #Conflicts:    3338000 | #Constraints:      56261
+c #Conflicts:    3339000 | #Constraints:      57261
+c #Conflicts:    3340000 | #Constraints:      58261
+c #Conflicts:    3341000 | #Constraints:      59261
+c #Conflicts:    3342000 | #Constraints:      60261
+c #Conflicts:    3343000 | #Constraints:      61261
+c #Conflicts:    3344000 | #Constraints:      62261
+c #Conflicts:    3345000 | #Constraints:      63261
+c #Conflicts:    3346000 | #Constraints:      64261
+c #Conflicts:    3347000 | #Constraints:      65261
+c #Conflicts:    3348000 | #Constraints:      66261
+c #Conflicts:    3349000 | #Constraints:      67261
+c #Conflicts:    3350000 | #Constraints:      68261
+c #Conflicts:    3351000 | #Constraints:      69261
+c #Conflicts:    3352000 | #Constraints:      70261
+c #Conflicts:    3353000 | #Constraints:      71261
+c #Conflicts:    3354000 | #Constraints:      72261
+c #Conflicts:    3355000 | #Constraints:      73261
+c #Conflicts:    3356000 | #Constraints:      74261
+c #Conflicts:    3357000 | #Constraints:      75261
+c #Conflicts:    3358000 | #Constraints:      76261
+c INPROCESSING
+c GARBAGE COLLECT
+c #Conflicts:    3359000 | #Constraints:      40860
+c cpu time 74.7066 s
+c deterministic time 6242403876 6.24e+09
+c optimization time 0.019847 s
+c total solve time 74.6837 s
+c core-guided solve time 0 s
+c propagation time 47.0679 s
+c conflict analysis time 22.7093 s
+c propagations 55159667
+c resolve steps 32680807
+c decisions 4556573
+c conflicts 3359258
+c restarts 6041
+c inprocessing phases 174
+c input clauses 3640
+c input cardinalities 1
+c input general constraints 0
+c input average constraint length 6.03
+c input average constraint degree 1.02
+c learned clauses 3357583
+c learned cardinalities 894
+c learned general constraints 780
+c learned average constraint length 41.40
+c learned average constraint degree 1.02
+c watched constraints 377
+c counting constraints 403
+c gcd simplifications 43
+c detected cardinalities 0
+c weakened non-implied lits 275295
+c weakened non-implying lits 209
+c original variables 120
+c clausal propagations 51783229
+c cardinality propagations 12927
+c watched propagations 1337
+c counting propagations 1713
+c watch lookups 2024471108
+c watch backjump lookups 29843811
+c watch checks 3593746929
+c propagation checks 52679605
+c constraint additions 418870758
+c trail pops 63075424
+c formula constraints 3641
+c learned constraints 3359257
+c bound constraints 0
+c core-guided constraints 0
+c encountered formula constraints 24326464
+c encountered learned constraints 11713601
+c encountered bound constraints 0
+c encountered core-guided constraints 0
+c LP total time 0 s
+c LP solve time 0 s
+c LP constraints added 0
+c LP constraints removed 0
+c LP pivots internal 0
+c LP pivots root 0
+c LP calls 0
+c LP optimalities 0
+c LP no pivot count 0
+c LP infeasibilities 0
+c LP valid Farkas constraints 0
+c LP learned Farkas constraints 0
+c LP basis resets 0
+c LP cycling count 0
+c LP singular count 0
+c LP no primal count 0
+c LP no farkas count 0
+c LP other issue count 0
+c LP Gomory cuts 0
+c LP learned cuts 0
+c LP deleted cuts 0
+c LP encountered Gomory constraints 0
+c LP encountered Farkas constraints 0
+c LP encountered learned Farkas constraints 0
+c CG auxiliary variables introduced 0
+c CG solutions found 0
+c CG cores constructed 0
+c CG core cardinality constraints returned 0
+c CG unit cores 0
+c CG single cores 0
+c CG blocks removed during cardinality reduction 0
+c CG first core best 0
+c CG decision core best 0
+c CG core reduction tie 0
+c CG core degree average 0.00
+c CG core slack average 0.00
+c CG core upper bound improvements 0
+s UNKNOWN
+c Program interrupted by user.

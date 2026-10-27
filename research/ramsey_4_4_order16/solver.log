@@ -1,0 +1,960 @@
+c GimSATul SAT Solver
+c Copyright (c) 2022-2023 Armin Biere University of Freiburg
+c
+c Version 1.1.3
+c gcc (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2) -Wall -O3 -DNDEBUG
+c Tue Oct 27 06:34:49 PM CET 2026 Linux fedora.fritz.box 6.19.10-300.fc44.x86_64 x86_64
+c
+c parsing DIMACS file '/home/tarik/workspace/c/ramsey/scratch/order16/order16-ge61.cnf'
+c parsed 'p cnf 5610 25420' header
+c parsing took 0.00 seconds
+c
+c starting full simplification #1
+c
+c [1] substituted 1 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 199 variables 4% with bound 0 in 0.01 seconds
+c [1] all candidate variables 100% tried
+c
+c [2] substituted 0 variables 0% in 0.00 seconds
+c [2] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [2] subsumed 59 clauses 0% and strengthened 59 clauses 0% in 0.00 seconds
+c [2] eliminated 60 variables 1% with bound 0 in 0.01 seconds
+c [2] all candidate variables 100% tried
+c
+c [3] substituted 0 variables 0% in 0.00 seconds
+c [3] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [3] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [3] eliminated 59 variables 1% with bound 0 in 0.00 seconds
+c [3] all candidate variables 100% tried
+c
+c [4] substituted 0 variables 0% in 0.00 seconds
+c [4] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [4] subsumed 2 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [4] eliminated 57 variables 1% with bound 0 in 0.00 seconds
+c [4] all candidate variables 100% tried
+c
+c [5] substituted 0 variables 0% in 0.00 seconds
+c [5] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [5] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [5] eliminated 57 variables 1% with bound 0 in 0.00 seconds
+c [5] all candidate variables 100% tried
+c
+c [6] substituted 0 variables 0% in 0.00 seconds
+c [6] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [6] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [6] eliminated 55 variables 1% with bound 0 in 0.00 seconds
+c [6] all candidate variables 100% tried
+c
+c [7] substituted 0 variables 0% in 0.00 seconds
+c [7] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [7] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [7] eliminated 54 variables 1% with bound 0 in 0.00 seconds
+c [7] all candidate variables 100% tried
+c
+c [8] substituted 0 variables 0% in 0.00 seconds
+c [8] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [8] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [8] eliminated 54 variables 1% with bound 0 in 0.00 seconds
+c [8] all candidate variables 100% tried
+c
+c [9] substituted 0 variables 0% in 0.00 seconds
+c [9] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [9] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [9] eliminated 52 variables 1% with bound 0 in 0.00 seconds
+c [9] all candidate variables 100% tried
+c
+c [10] substituted 0 variables 0% in 0.00 seconds
+c [10] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [10] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [10] eliminated 51 variables 1% with bound 0 in 0.00 seconds
+c [10] all candidate variables 100% tried
+c
+c [11] substituted 0 variables 0% in 0.00 seconds
+c [11] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [11] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [11] eliminated 51 variables 1% with bound 0 in 0.00 seconds
+c [11] all candidate variables 100% tried
+c
+c [12] substituted 0 variables 0% in 0.00 seconds
+c [12] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [12] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [12] eliminated 49 variables 1% with bound 0 in 0.00 seconds
+c [12] all candidate variables 100% tried
+c
+c [13] substituted 0 variables 0% in 0.00 seconds
+c [13] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [13] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [13] eliminated 48 variables 1% with bound 0 in 0.00 seconds
+c [13] all candidate variables 100% tried
+c
+c [14] substituted 0 variables 0% in 0.00 seconds
+c [14] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [14] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [14] eliminated 48 variables 1% with bound 0 in 0.00 seconds
+c [14] all candidate variables 100% tried
+c
+c [15] substituted 0 variables 0% in 0.00 seconds
+c [15] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [15] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [15] eliminated 46 variables 1% with bound 0 in 0.00 seconds
+c [15] all candidate variables 100% tried
+c
+c [16] substituted 0 variables 0% in 0.00 seconds
+c [16] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [16] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [16] eliminated 45 variables 1% with bound 0 in 0.00 seconds
+c [16] all candidate variables 100% tried
+c
+c removed 986 variables 18% with 4623 remaining 82%
+c removed 3521 clauses 14% with 21898 remaining 86%
+c
+c simplification #1 took 0.04 seconds
+c
+c cloning first ring solver
+c cloning 31 rings from first to support 32 threads
+c memory increased by 11.36 from 5.03 MB to 57.12 MB
+c
+c
+c starting and running 32 ring threads
+c0  ring 0 on CPU 00000001
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 {    0.05   57     0      0         0           0         0   0%   2    0.0    0.0     21898      4623  82%
+c1  ring 1 on CPU 00000001
+c2  ring 2 on CPU 00000001
+c3  ring 3 on CPU 00000001
+c4  ring 4 on CPU 00000001
+c5  ring 5 on CPU 00000001
+c6  ring 6 on CPU 00000001
+c7  ring 7 on CPU 00000001
+c8  ring 8 on CPU 00000001
+c9  ring 9 on CPU 00000001
+c10 ring 10 on CPU 00000001
+c11 ring 11 on CPU 00000001
+c12 ring 12 on CPU 00000001
+c13 ring 13 on CPU 00000001
+c14 ring 14 on CPU 00000001
+c15 ring 15 on CPU 00000001
+c16 ring 16 on CPU 00000001
+c17 ring 17 on CPU 00000001
+c18 ring 18 on CPU 00000001
+c19 ring 19 on CPU 00000001
+c20 ring 20 on CPU 00000001
+c21 ring 21 on CPU 00000001
+c22 ring 22 on CPU 00000001
+c23 ring 23 on CPU 00000001
+c24 ring 24 on CPU 00000001
+c25 ring 25 on CPU 00000001
+c26 ring 26 on CPU 00000001
+c27 ring 27 on CPU 00000001
+c28 ring 28 on CPU 00000001
+c29 ring 29 on CPU 00000001
+c30 ring 30 on CPU 00000001
+c31 ring 31 on CPU 00000001
+c0 -    0.11   75   284      1       233        1001      1247  59%  10   15.4   20.3     21171      4410  79%
+c0 }    0.11   75   284      1       234        1001      1247  59%  10   15.4   20.3     21171      4410  79%
+c0 [    0.11   75     0      1       234        1001      1247   0%   2    0.0    0.0     21171      4410  79%
+c0 B    0.11   75     0      1       234        1001      1247   0%   2    0.0    0.0     21171      4410  79%
+c0 i    0.11   75  2344      1       234        1188      1456  69%   3    6.8   13.6     21171      4407  79%
+c0 u    0.14   84  1340      1       234        1885      2190  60%   3    9.3   16.6     21171      3906  70%
+c0 v    0.15   86  1340      1       234        1885      2205  60%   3    9.3   16.6     21171      3701  66%
+c0 -    0.15   87  1181      2       234        2004      1969  59%   4    8.8   15.8     19113      3701  66%
+c0 W    0.15   89  1181      2       234        2004      1969  59%   4    8.8   15.8     19113      3701  66%
+c0 ]    0.19   93   572      2       236        3141      3641  63%   4   14.4   25.5     19113      3700  66%
+c0 {    0.19   93   284      2       236        3141      3641  59%  10   15.4   20.3     19113      3700  66%
+c0 -    0.20   94   233      3       282        3421      3715  61%  10   15.8   20.7     18703      3559  63%
+c0 u    0.22   96   195      3       321        3759      4217  63%  10   16.1   21.3     18703      3432  61%
+c0 v    0.23   97   195      3       321        3759      4226  63%  10   16.1   21.3     18703      3422  61%
+c0 -    0.29  103   127      4       481        5157      5972  66%  10   16.9   22.5     18258      3403  61%
+c0 -    0.40  114    96      5       657        7158      8216  68%  10   17.5   23.8     18144      3365  60%
+c0 }    0.40  115    95      5       661        7245      8357  68%  10   17.5   23.8     18144      3361  60%
+c0 [    0.40  115   572      5       661        7245      8357  63%   4   14.4   25.5     18144      3361  60%
+c0 I    0.40  115   572      5       661        7245      8357  63%   4   14.4   25.5     18144      3361  60%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 u    0.43  117   502      5       661        7560      8785  64%   4   14.6   25.2     18144      3360  60%
+c0 v    0.43  118   502      5       661        7560      8803  64%   4   14.6   25.2     18144      3360  60%
+c0 -    0.49  123   302      6       663        9395      9798  70%   8   18.8   29.5     18129      3360  60%
+c
+c starting full simplification #2
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 31 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 81 variables 2% with bound 0 in 0.01 seconds
+c [1] all candidate variables 100% tried
+c
+c [2] substituted 0 variables 0% in 0.00 seconds
+c [2] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [2] subsumed 22 clauses 0% and strengthened 22 clauses 0% in 0.00 seconds
+c [2] eliminated 2 variables 0% with bound 0 in 0.01 seconds
+c [2] all candidate variables 100% tried
+c
+c [3] substituted 0 variables 0% in 0.00 seconds
+c [3] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [3] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [3] eliminated 1 variables 0% with bound 0 in 0.00 seconds
+c [3] all candidate variables 100% tried
+c
+c [4] substituted 0 variables 0% in 0.00 seconds
+c [4] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [4] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [4] eliminated 0 variables 0% with bound 0 in 0.00 seconds
+c [4] all candidate variables 100% tried
+c
+c removed 84 variables 2% with 3276 remaining 58%
+c removed 1526 clauses 8% with 16603 remaining 65%
+c increasing elimination bound to 1
+c
+c simplification #2 took 0.06 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s    0.56  131   301      6       663        9421      9490  70%   2   18.8   29.5     16603      3276  58%
+c0 B    0.61  133   230      6       663       11016     11709  67%   2   22.2   32.3     16603      3276  58%
+c0 -    0.64  134   207      7       664       11849     10895  66%   8   23.2   33.2     16603      3276  58%
+c0 ]    0.69  136   178      7       665       13221     12759  66%   8   24.7   34.4     16603      3276  58%
+c0 {    0.69  136    95      7       665       13221     12759  68%   2   17.5   23.8     16603      3276  58%
+c0 u    0.72  139    93      7       683       13419     12989  68%   2   17.5   23.9     16603      3276  58%
+c0 v    0.73  140    93      7       683       13419     12975  68%   2   17.5   23.9     16603      3276  58%
+c0 -    0.79  148    85      8       797       14497     13038  66%  10   17.8   24.1     16603      3276  58%
+c0 -    0.94  155    73      9      1052       17328     16062  63%  10   18.2   24.8     16603      3276  58%
+c
+c starting full simplification #3
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 11 variables 0% with bound 1 in 0.01 seconds
+c [1] all candidate variables 100% tried
+c
+c [2] substituted 0 variables 0% in 0.00 seconds
+c [2] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [2] subsumed 1 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [2] eliminated 0 variables 0% with bound 1 in 0.00 seconds
+c [2] all candidate variables 100% tried
+c
+c [3] substituted 0 variables 0% in 0.00 seconds
+c [3] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [3] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [3] eliminated 0 variables 0% with bound 1 in 0.00 seconds
+c [3] all candidate variables 100% tried
+c
+c removed 11 variables 0% with 3265 remaining 58%
+c simplification ADDED 1 clauses 0% with 16604 remaining 65%
+c increasing elimination bound to 2
+c
+c simplification #3 took 0.06 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s    1.06  165    72      9      1092       18328     17580  63%   2   18.2   25.0     16604      3265  58%
+c0 }    1.16  171    70      9      1193       20107     20282  63%   2   18.3   25.4     16604      3265  58%
+c0 [    1.16  171   178      9      1193       20107     20282  66%   2   24.7   34.4     16604      3265  58%
+c0 W    1.17  171   178      9      1193       20107     20282  66%   2   24.7   34.4     16604      3265  58%
+c0 -    1.18  173   175     10      1193       20329     18441  66%   8   24.9   34.6     16604      3265  58%
+c0 u    1.25  179   160     10      1194       21346     19703  65%   8   25.4   35.0     16604      3265  58%
+c0 v    1.27  180   160     10      1194       21346     19613  65%   8   25.4   35.0     16604      3265  58%
+c0 -    1.36  186   137     11      1195       23492     20188  64%   8   25.9   35.3     16604      3265  58%
+c0 -    1.49  192   115     12      1198       26811     22731  63%   9   26.9   36.3     16604      3265  58%
+c0 O    1.53  195   110     12      1198       27635     23822  63%   9   27.1   36.4     16604      3265  58%
+c0 ]    1.60  198   103     12      1199       29200     26043  63%   9   26.8   36.1     16604      3265  58%
+c0 {    1.60  198    70     12      1199       29200     26043  63%   2   18.3   25.4     16604      3265  58%
+c0 -    1.70  208    68     13      1269       30277     25005  63%  10   18.4   25.6     16604      3265  58%
+c0 f    1.83  218    66     13      1361       31553     26942  62%  10   18.5   25.7     16604      3264  58%
+c0 u    1.86  221    66     13      1361       31553     26639  62%  10   18.5   25.7     16604      3262  58%
+c0 v    1.89  222    66     13      1361       31553     26661  62%  10   18.5   25.7     16604      3234  58%
+c0 -    2.08  233    64     14      1507       33883     28008  61%  10   18.6   25.9     16496      3232  58%
+c0 -    2.38  251    61     15      1726       37625     30922  61%   9   18.7   26.2     16496      3232  58%
+c0 }    2.38  251    61     15      1728       37637     30941  61%   9   18.7   26.2     16496      3232  58%
+c0 [    2.38  251   103     15      1728       37637     30941  63%   9   26.8   36.1     16496      3232  58%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 B    2.38  251   103     15      1728       37637     30941  63%   9   26.8   36.1     16496      3232  58%
+c
+c starting full simplification #4
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 18 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 24 variables 1% with bound 2 in 0.01 seconds
+c [1] all candidate variables 100% tried
+c
+c [2] substituted 0 variables 0% in 0.00 seconds
+c [2] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [2] subsumed 7 clauses 0% and strengthened 7 clauses 0% in 0.00 seconds
+c [2] eliminated 0 variables 0% with bound 2 in 0.00 seconds
+c [2] all candidate variables 100% tried
+c
+c [3] substituted 0 variables 0% in 0.00 seconds
+c [3] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [3] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [3] eliminated 0 variables 0% with bound 2 in 0.00 seconds
+c [3] all candidate variables 100% tried
+c
+c removed 24 variables 1% with 3208 remaining 57%
+c removed 72 clauses 0% with 16424 remaining 65%
+c increasing elimination bound to 4
+c
+c simplification #4 took 0.10 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s    2.52  263   103     15      1728       37637     30838  63%   2   26.8   36.1     16424      3208  57%
+c0 -    2.75  270    91     16      1730       41499     32767  62%   8   26.9   36.5     16424      3208  57%
+c0 u    2.97  276    84     16      1733       44111     36145  61%   8   26.8   36.4     16424      3208  57%
+c0 v    3.01  277    84     16      1733       44111     36034  61%   8   26.8   36.4     16424      3208  57%
+c0 -    3.10  282    81     17      1733       45500     34480  61%   8   26.8   36.5     16424      3208  57%
+c0 ]    3.31  289    75     17      1734       48948     39091  61%   8   26.9   36.7     16424      3208  57%
+c0 {    3.31  289    61     17      1734       48948     39091  61%   2   18.7   26.2     16424      3208  57%
+c0 -    3.38  290    60     18      1781       49624     37276  61%   9   18.8   26.2     16424      3208  57%
+c0 -    3.99  311    59     19      2084       53867     41202  61%   9   19.0   26.4     16424      3208  57%
+c0 }    4.60  329    57     19      2358       58145     47686  60%   9   19.1   26.7     16424      3207  57%
+c0 [    4.60  329    75     19      2358       58145     47686  61%   8   26.9   36.7     16424      3207  57%
+c0 W    4.62  330    75     19      2358       58145     47685  61%   8   26.9   36.7     16421      3207  57%
+c0 -    4.64  330    75     20      2358       58226     44059  61%   8   26.9   36.7     16421      3207  57%
+c0 u    4.80  337    74     20      2358       59077     44683  61%   8   26.8   36.7     16421      3207  57%
+c0 v    4.86  339    74     20      2358       59077     44724  61%   8   26.8   36.7     16421      3207  57%
+c0 -    5.10  343    70     21      2361       62699     46020  61%   8   26.8   36.7     16421      3207  57%
+c0 -    5.41  349    66     22      2364       67284     48188  60%   8   27.1   37.0     16421      3207  57%
+c
+c starting full simplification #5
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 3 clauses 0% and strengthened 1 clauses 0% in 0.00 seconds
+c [1] eliminated 850 variables 26% with bound 4 in 0.01 seconds
+c [1] all candidate variables 100% tried
+c
+c [2] substituted 0 variables 0% in 0.00 seconds
+c [2] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [2] subsumed 867 clauses 3% and strengthened 857 clauses 3% in 0.00 seconds
+c [2] eliminated 0 variables 0% with bound 4 in 0.01 seconds
+c [2] all candidate variables 100% tried
+c
+c [3] substituted 0 variables 0% in 0.00 seconds
+c [3] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [3] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [3] eliminated 0 variables 0% with bound 4 in 0.00 seconds
+c [3] all candidate variables 100% tried
+c
+c removed 850 variables 27% with 2357 remaining 42%
+c simplification ADDED 1683 clauses 10% with 18104 remaining 71%
+c increasing elimination bound to 8
+c
+c simplification #5 took 0.14 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s    5.74  371    65     22      2364       68667     48167  60%   2   27.2   37.1     18104      2357  42%
+c0 -    6.05  378    63     23      2366       71976     48569  59%   8   27.6   37.4     18104      2357  42%
+c0 ]    6.11  380    63     23      2367       72861     49760  59%   8   27.7   37.5     18104      2357  42%
+c0 {    6.11  380    57     23      2367       72861     49760  60%   2   19.1   26.7     18104      2357  42%
+c0 u    6.89  399    56     23      2593       76566     54622  60%   2   19.2   26.8     18104      2357  42%
+c0 v    6.98  402    56     23      2593       76566     54527  60%   2   19.2   26.8     18104      2357  42%
+c0 -    7.03  403    56     24      2603       76773     52252  60%   9   19.2   26.9     18104      2357  42%
+c0 -    7.94  419    56     25      2910       81672     56875  61%   9   19.3   27.1     17988      2337  42%
+c0 }    8.35  430    55     25      3043       84028     60418  60%   9   19.3   27.1     17988      2337  42%
+c0 [    8.35  430    63     25      3043       84028     60418  59%   8   27.7   37.5     17988      2337  42%
+c0 I    8.35  430    63     25      3043       84028     60418  59%   8   27.7   37.5     17988      2337  42%
+c0 -    8.54  435    61     26      3045       86673     59507  59%   8   27.5   37.3     17966      2334  42%
+c0 -    8.95  446    58     27      3048       91774     61982  60%   8   27.5   37.4     17959      2333  42%
+c0 -    9.42  456    56     28      3050       96972     65154  60%   8   27.3   37.5     17959      2333  42%
+c0 u    9.60  458    56     28      3050       97036     64671  60%   8   27.3   37.5     17959      2304  41%
+c0 v    9.70  460    56     28      3050       97036     64671  60%   8   27.3   37.5     17959      2302  41%
+c0 B   10.11  467    54     28      3054      101831     71317  59%   8   27.7   37.7     17959      2302  41%
+c0 -   10.15  467    54     29      3054      102265     67388  59%   8   27.7   37.7     17783      2302  41%
+c0 ]   10.21  468    54     29      3055      102927     68311  59%   8   27.7   37.7     17783      2302  41%
+c0 {   10.21  468    55     29      3055      102927     68311  60%   9   19.3   27.1     17783      2302  41%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 -   11.47  494    54     30      3425      107651     71716  60%   9   19.5   27.3     17783      2302  41%
+c0 -   12.83  521    54     31      3759      113130     74874  60%   8   19.6   27.6     17783      2302  41%
+c
+c starting full simplification #6
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 11 clauses 0% in 0.00 seconds
+c [1] eliminated 49 variables 2% with bound 8 in 0.02 seconds
+c [1] all candidate variables 100% tried
+c
+c [2] substituted 0 variables 0% in 0.00 seconds
+c [2] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [2] subsumed 97 clauses 0% and strengthened 81 clauses 0% in 0.00 seconds
+c [2] eliminated 3 variables 0% with bound 8 in 0.01 seconds
+c [2] all candidate variables 100% tried
+c
+c [3] substituted 0 variables 0% in 0.00 seconds
+c [3] removed 3 duplicated binary clauses 0% in 0.00 seconds
+c [3] subsumed 10 clauses 0% and strengthened 11 clauses 0% in 0.00 seconds
+c [3] eliminated 1 variables 0% with bound 8 in 0.00 seconds
+c [3] all candidate variables 100% tried
+c
+c [4] substituted 0 variables 0% in 0.00 seconds
+c [4] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [4] subsumed 4 clauses 0% and strengthened 5 clauses 0% in 0.00 seconds
+c [4] eliminated 0 variables 0% with bound 8 in 0.00 seconds
+c [4] all candidate variables 100% tried
+c
+c removed 53 variables 2% with 2249 remaining 40%
+c simplification ADDED 126 clauses 1% with 17909 remaining 70%
+c
+c simplification #6 took 0.17 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s   13.27  548    55     31      3801      113653     75485  61%   2   19.6   27.6     17909      2249  40%
+c0 }   13.32  548    55     31      3808      113781     75673  61%   2   19.6   27.6     17909      2249  40%
+c0 [   13.32  548    54     31      3808      113781     75673  59%   2   27.7   37.7     17909      2249  40%
+c0 -   13.70  550    53     32      3811      118699     78305  59%   8   27.6   37.6     17909      2249  40%
+c0 u   14.11  552    53     32      3813      120170     79909  59%   8   27.6   37.6     17909      2249  40%
+c0 v   14.30  553    53     32      3813      120170     79696  59%   8   27.6   37.6     17909      2249  40%
+c0 W   14.58  555    52     32      3814      122742     83315  59%   8   27.7   37.7     17909      2249  40%
+c0 -   14.76  557    52     33      3814      124356     80452  59%   8   27.8   37.7     17909      2249  40%
+c0 -   15.36  564    51     34      3817      130102     82814  58%   8   28.2   38.1     17909      2249  40%
+c0 -   15.91  571    51     35      3821      135934     85143  58%   8   28.7   38.5     17909      2249  40%
+c0 ]   15.98  572    51     35      3821      136593     86042  58%   8   28.7   38.5     17909      2249  40%
+c0 {   15.98  572    55     35      3821      136593     86042  61%   2   19.6   27.6     17909      2249  40%
+c0 -   17.35  594    53     36      4097      141851     87954  60%   8   19.7   27.8     17909      2249  40%
+c0 u   19.10  609    53     36      4404      146058     93303  60%   8   19.8   27.9     17909      2249  40%
+c0 v   19.33  609    53     36      4404      146058     93376  60%   8   19.8   27.9     17909      2249  40%
+c0 -   19.90  615    53     37      4507      147854     91545  60%   8   19.8   28.0     17909      2249  40%
+c0 }   20.28  618    53     37      4579      148999     93284  60%   8   19.8   28.0     17909      2249  40%
+c0 [   20.28  618    51     37      4579      148999     93284  58%   8   28.7   38.5     17909      2249  40%
+c0 O   20.28  618    51     37      4579      148999     93284  58%   8   28.7   38.5     17909      2249  40%
+c0 -   20.81  625    50     38      4582      153938     95865  57%   8   28.4   38.3     17909      2249  40%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 -   21.51  634    49     39      4585      160103     98622  56%   8   28.2   38.3     17909      2249  40%
+c0 -   22.25  642    48     40      4589      166348    100914  56%   8   28.2   38.5     17909      2249  40%
+c0 ]   22.88  648    47     40      4592      171992    109120  55%   8   28.2   38.6     17909      2249  40%
+c0 {   22.88  648    53     40      4592      171992    109120  60%   8   19.8   28.0     17909      2249  40%
+c0 -   23.17  650    53     41      4649      172674    101609  60%   8   19.8   28.0     17909      2249  40%
+c
+c starting full simplification #7
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 2 clauses 0% in 0.00 seconds
+c [1] eliminated 1 variables 0% with bound 8 in 0.00 seconds
+c [1] all candidate variables 100% tried
+c
+c [2] substituted 0 variables 0% in 0.00 seconds
+c [2] removed 1 duplicated binary clauses 0% in 0.00 seconds
+c [2] subsumed 2 clauses 0% and strengthened 1 clauses 0% in 0.00 seconds
+c [2] eliminated 0 variables 0% with bound 8 in 0.00 seconds
+c [2] all candidate variables 100% tried
+c
+c [3] substituted 0 variables 0% in 0.00 seconds
+c [3] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [3] subsumed 0 clauses 0% and strengthened 1 clauses 0% in 0.00 seconds
+c [3] eliminated 0 variables 0% with bound 8 in 0.00 seconds
+c [3] all candidate variables 100% tried
+c
+c [4] substituted 0 variables 0% in 0.00 seconds
+c [4] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [4] subsumed 0 clauses 0% and strengthened 2 clauses 0% in 0.00 seconds
+c [4] eliminated 1 variables 0% with bound 8 in 0.00 seconds
+c [4] all candidate variables 100% tried
+c
+c removed 2 variables 0% with 2247 remaining 40%
+c simplification ADDED 9 clauses 0% with 17918 remaining 70%
+c
+c simplification #7 took 0.17 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s   23.57  679    53     41      4682      173064    102206  60%   2   19.9   28.0     17918      2247  40%
+c0 u   24.59  682    53     41      4797      174750    103895  60%   2   19.9   28.1     17918      2247  40%
+c0 v   24.87  682    53     41      4797      174750    103699  60%   2   19.9   28.1     17918      2247  40%
+c0 -   26.43  689    53     42      5063      179078    104138  60%   8   20.0   28.2     17918      2247  40%
+c0 }   28.51  703    52     42      5421      184725    112660  60%   8   20.1   28.3     17918      2247  40%
+c0 [   28.51  703    47     42      5421      184725    112660  55%   2   28.2   38.6     17918      2247  40%
+c0 B   28.51  703    47     42      5421      184725    112660  55%   2   28.2   38.6     17918      2247  40%
+c0 -   28.65  704    47     43      5421      185562    109353  55%   8   28.2   38.6     17918      2247  40%
+c0 -   29.56  710    47     44      5426      192120    112129  55%   8   28.5   38.6     17918      2247  40%
+c0 -   30.53  714    47     45      5429      198754    113964  55%   8   28.7   38.8     17918      2247  40%
+c0 -   31.44  716    47     46      5434      205463    116219  56%   8   28.9   39.0     17918      2247  40%
+c0 u   32.02  718    47     46      5434      206322    116338  56%   8   29.0   39.0     17918      2247  40%
+c0 v   32.31  719    47     46      5434      206322    116361  56%   8   29.0   39.0     17918      2247  40%
+c0 -   33.15  723    46     47      5435      212248    117582  56%   8   29.1   39.0     17918      2247  40%
+c0 ]   33.30  723    46     47      5435      213327    118998  56%   8   29.1   39.0     17918      2247  40%
+c0 {   33.30  723    52     47      5435      213327    118998  60%   8   20.1   28.3     17918      2247  40%
+c0 -   36.05  743    52     48      5875      219104    120151  59%   8   20.2   28.4     17918      2247  40%
+c0 -   38.94  757    52     49      6301      226033    124669  59%   8   20.3   28.7     17918      2247  40%
+c0 }   39.31  759    52     49      6341      227195    126398  59%   8   20.3   28.8     17918      2247  40%
+c0 [   39.31  759    46     49      6341      227195    126398  56%   8   29.1   39.0     17918      2247  40%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 W   39.36  759    46     49      6341      227195    126398  56%   8   29.1   39.0     17918      2247  40%
+c0 -   40.23  761    46     50      6345      233035    127880  56%   8   29.0   38.9     17918      2247  40%
+c0 -   41.33  769    45     51      6348      240107    129814  56%   8   29.0   39.0     17918      2247  40%
+c0 u   42.05  776    45     51      6349      240807    129261  56%   8   29.0   39.0     17918      2247  40%
+c0 v   42.44  780    45     51      6349      240807    129320  56%   8   29.0   39.0     17918      2247  40%
+c0 -   43.48  788    45     52      6353      247250    126692  55%   7   29.0   38.9     17918      2247  40%
+c
+c starting full simplification #8
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 1 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 2 clauses 0% and strengthened 3 clauses 0% in 0.00 seconds
+c [1] eliminated 0 variables 0% with bound 8 in 0.00 seconds
+c [1] all candidate variables 100% tried
+c
+c [2] substituted 0 variables 0% in 0.00 seconds
+c [2] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [2] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [2] eliminated 0 variables 0% with bound 8 in 0.00 seconds
+c [2] all candidate variables 100% tried
+c
+c removed 0 variables 0% with 2247 remaining 40%
+c removed 3 clauses 0% with 17915 remaining 70%
+c increasing elimination bound to maximum 16
+c
+c simplification #8 took 0.20 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s   43.90  828    45     52      6354      248130    127907  56%   2   28.9   38.9     17915      2247  40%
+c0 -   44.89  829    45     53      6355      254462    127729  55%   7   29.0   38.9     17915      2247  40%
+c0 ]   45.48  831    45     53      6355      258265    133102  55%   7   28.9   39.0     17915      2247  40%
+c0 {   45.48  831    52     53      6355      258265    133102  59%   2   20.3   28.8     17915      2247  40%
+c0 -   47.04  834    52     54      6568      261744    128147  59%   7   20.3   28.8     17915      2247  40%
+c0 -   51.06  849    52     55      7152      269094    131594  59%   7   20.5   29.0     17915      2247  40%
+c0 }   52.63  857    52     55      7410      272052    135999  59%   7   20.5   29.0     17915      2247  40%
+c0 [   52.63  857    45     55      7410      272052    135999  55%   7   28.9   39.0     17915      2247  40%
+c0 I   52.63  857    45     55      7410      272052    135999  55%   7   28.9   39.0     17915      2247  40%
+c0 -   53.43  862    44     56      7413      276515    135304  55%   7   28.8   39.0     17915      2247  40%
+c0 u   54.40  867    44     56      7415      278260    135644  55%   7   28.8   39.0     17915      2247  40%
+c0 v   54.91  868    44     56      7415      278260    135714  55%   7   28.8   39.0     17915      2247  40%
+c0 -   55.75  870    44     57      7416      284002    135378  55%   7   28.9   39.0     17915      2247  40%
+c0 -   56.88  874    45     58      7422      291555    137085  55%   7   29.3   39.3     17915      2247  40%
+c0 -   58.07  877    45     59      7424      299171    138584  55%   7   29.5   39.5     17915      2247  40%
+c0 -   59.30  883    44     60      7426      306853    141106  55%   7   29.4   39.5     17915      2247  40%
+c0 ]   59.54  883    44     60      7427      308274    143121  55%   7   29.4   39.5     17915      2247  40%
+c0 {   59.54  883    52     60      7427      308274    143121  59%   7   20.5   29.0     17915      2247  40%
+c0 -   63.23  900    51     61      7928      314599    142575  59%   7   20.7   29.2     17915      2247  40%
+c0 u   65.44  911    53     61      8091      318717    147303  59%   7   20.5   29.2     17915      2247  40%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 v   65.88  915    53     61      8091      318717    147395  59%   7   20.5   29.2     17915      2247  40%
+c0 -   67.90  924    53     62      8341      322411    144507  59%   7   20.5   29.3     17915      2247  40%
+c0 }   69.33  928    53     62      8552      324716    147931  59%   7   20.6   29.4     17915      2247  40%
+c0 [   69.33  928    44     62      8552      324716    147931  55%   7   29.4   39.5     17915      2247  40%
+c0 B   69.33  928    44     62      8552      324716    147931  55%   7   29.4   39.5     17915      2247  40%
+c0 -   70.31  931    44     63      8556      330286    147792  54%   7   29.5   39.6     17915      2247  40%
+c0 -   71.66  939    44     64      8560      338224    149304  54%   7   29.8   39.8     17915      2247  40%
+c
+c starting full simplification #9
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 345 variables 15% with bound 16 in 0.02 seconds
+c [1] all candidate variables 100% tried
+c
+c [2] substituted 0 variables 0% in 0.00 seconds
+c [2] removed 7 duplicated binary clauses 0% in 0.00 seconds
+c [2] subsumed 1320 clauses 5% and strengthened 562 clauses 2% in 0.00 seconds
+c [2] eliminated 1 variables 0% with bound 16 in 0.02 seconds
+c [2] all candidate variables 100% tried
+c
+c [3] substituted 0 variables 0% in 0.00 seconds
+c [3] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [3] subsumed 11 clauses 0% and strengthened 7 clauses 0% in 0.00 seconds
+c [3] eliminated 1 variables 0% with bound 16 in 0.00 seconds
+c [3] all candidate variables 100% tried
+c
+c [4] substituted 0 variables 0% in 0.00 seconds
+c [4] removed 1 duplicated binary clauses 0% in 0.00 seconds
+c [4] subsumed 6 clauses 0% and strengthened 4 clauses 0% in 0.00 seconds
+c [4] eliminated 0 variables 0% with bound 16 in 0.00 seconds
+c [4] all candidate variables 100% tried
+c
+c removed 347 variables 15% with 1900 remaining 34%
+c simplification ADDED 2257 clauses 13% with 20172 remaining 79%
+c
+c simplification #9 took 0.27 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s   72.47  978    44     64      8561      339932    148815  54%   2   29.9   39.9     20172      1900  34%
+c0 -   73.99  980    45     65      8565      346226    148321  54%   7   30.2   40.0     20172      1900  34%
+c0 -   75.63  984    45     66      8566      354289    151017  54%   7   30.2   40.0     20172      1900  34%
+c0 u   78.32  990    45     66      8570      362232    160402  55%   7   30.3   40.2     20172      1900  34%
+c0 v   78.92  991    45     66      8570      362232    160134  55%   7   30.3   40.2     20172      1900  34%
+c0 -   79.02  991    45     67      8570      362415    151162  55%   7   30.3   40.2     20172      1900  34%
+c0 ]   79.06  991    45     67      8570      362604    151429  55%   7   30.3   40.2     20172      1900  34%
+c0 {   79.06  991    53     67      8570      362604    151429  59%   2   20.6   29.4     20172      1900  34%
+c0 -   84.23 1002    52     68      9209      370601    152301  59%   7   20.7   29.6     20172      1900  34%
+c0 -   88.81 1012    52     69      9676      378849    149731  59%   6   20.8   29.7     20172      1900  34%
+c0 }   89.52 1013    52     69      9770      380398    152062  59%   6   20.9   29.8     20172      1900  34%
+c0 [   89.52 1013    45     69      9770      380398    152062  55%   7   30.3   40.2     20172      1900  34%
+c0 W   89.57 1013    45     69      9770      380398    152062  55%   7   30.3   40.2     20172      1900  34%
+c0 -   91.06 1017    45     70      9775      387156    152048  55%   7   30.3   40.1     20172      1900  34%
+c0 -   92.73 1021    45     71      9779      395523    153659  55%   7   30.4   40.1     20172      1900  34%
+c0 -   94.33 1024    45     72      9783      403950    155277  55%   7   30.5   40.2     20172      1900  34%
+c0 u   96.61 1035    44     72      9784      409973    161460  55%   7   30.4   40.2     20172      1900  34%
+c0 v   97.32 1038    44     72      9784      409973    161538  55%   7   30.4   40.2     20172      1900  34%
+c0 -   97.92 1040    44     73      9784      412436    154714  55%   7   30.4   40.1     20172      1900  34%
+c0 -   99.73 1045    44     74      9790      420981    156120  55%   7   30.5   40.2     20172      1900  34%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 ]  100.69 1048    44     74      9792      425552    162091  55%   7   30.5   40.2     20172      1900  34%
+c0 {  100.69 1048    52     74      9792      425552    162091  59%   6   20.9   29.8     20172      1900  34%
+c0 -  102.95 1054    51     75     10004      429584    154138  59%   6   20.9   29.9     20172      1900  34%
+c0 -  108.20 1070    51     76     10531      438245    157815  59%   6   21.0   30.0     20172      1900  34%
+c0 }  113.01 1085    50     76     10981      446909    170562  59%   6   21.1   30.2     20172      1900  34%
+c0 [  113.01 1085    44     76     10981      446909    170562  55%   7   30.5   40.2     20172      1900  34%
+c0 O  113.01 1085    44     76     10981      446909    170562  55%   7   30.5   40.2     20172      1900  34%
+c0 -  113.06 1086    44     77     10981      446964    163708  55%   7   30.5   40.2     20172      1900  34%
+c
+c starting full simplification #10
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 3 clauses 0% in 0.00 seconds
+c [1] eliminated 0 variables 0% with bound 16 in 0.00 seconds
+c [1] all candidate variables 100% tried
+c
+c [2] substituted 0 variables 0% in 0.00 seconds
+c [2] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [2] subsumed 0 clauses 0% and strengthened 2 clauses 0% in 0.00 seconds
+c [2] eliminated 1 variables 0% with bound 16 in 0.00 seconds
+c [2] all candidate variables 100% tried
+c
+c [3] substituted 0 variables 0% in 0.00 seconds
+c [3] removed 1 duplicated binary clauses 0% in 0.00 seconds
+c [3] subsumed 6 clauses 0% and strengthened 5 clauses 0% in 0.00 seconds
+c [3] eliminated 0 variables 0% with bound 16 in 0.00 seconds
+c [3] all candidate variables 100% tried
+c
+c [4] substituted 0 variables 0% in 0.00 seconds
+c [4] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [4] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [4] eliminated 0 variables 0% with bound 16 in 0.00 seconds
+c [4] all candidate variables 100% tried
+c
+c removed 1 variables 0% with 1899 remaining 34%
+c simplification ADDED 5 clauses 0% with 20177 remaining 79%
+c
+c simplification #10 took 0.27 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s  114.47 1133    44     77     10985      452167    171007  56%   2   30.3   40.0     20177      1899  34%
+c0 -  115.19 1133    44     78     10987      455741    167512  56%   7   30.2   40.0     20177      1899  34%
+c0 u  117.29 1137    44     78     10989      460920    172718  56%   7   30.2   40.0     20177      1899  34%
+c0 v  118.15 1139    44     78     10989      460920    172351  56%   7   30.2   40.0     20177      1899  34%
+c0 -  119.08 1143    44     79     10992      464574    165932  56%   7   30.2   40.0     20177      1899  34%
+c0 -  120.93 1148    43     80     10995      473463    165992  56%   7   30.2   40.0     20177      1899  34%
+c0 -  122.96 1150    43     81     10998      482408    167679  55%   7   30.1   39.8     20177      1899  34%
+c0 -  124.90 1151    43     82     11002      491409    170463  55%   7   30.0   39.8     20177      1899  34%
+c0 ]  125.60 1152    43     82     11005      495052    175535  55%   7   30.1   39.8     20177      1899  34%
+c0 {  125.60 1152    50     82     11005      495052    175535  59%   2   21.1   30.2     20177      1899  34%
+c0 -  129.09 1155    50     83     11387      500465    168960  59%   6   21.2   30.3     20177      1899  34%
+c0 -  134.87 1162    50     84     11973      509576    172363  59%   6   21.3   30.4     20177      1899  34%
+c0 u  139.66 1174    50     84     12351      515113    178017  58%   6   21.4   30.5     20177      1899  34%
+c0 v  140.57 1176    50     84     12351      515113    178111  58%   6   21.4   30.5     20177      1899  34%
+c0 }  140.70 1178    50     84     12367      515280    178347  58%   6   21.4   30.5     20177      1899  34%
+c0 [  140.70 1178    43     84     12367      515280    178347  55%   7   30.1   39.8     20177      1899  34%
+c0 B  140.70 1178    43     84     12367      515280    178347  55%   7   30.1   39.8     20177      1899  34%
+c0 -  141.56 1179    43     85     12369      518744    174420  55%   7   30.1   39.8     20177      1899  34%
+c0 -  143.90 1184    43     86     12374      527966    175648  56%   7   30.2   40.0     20177      1899  34%
+c0 -  145.99 1188    43     87     12380      537240    176156  56%   7   30.3   40.1     20177      1899  34%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 -  148.12 1192    42     88     12381      546568    178325  56%   7   30.1   40.0     20177      1899  34%
+c0 -  150.20 1193    42     89     12387      555951    180783  55%   7   30.2   40.0     20177      1899  34%
+c0 -  152.10 1197    42     90     12392      565386    182980  56%   7   30.2   40.0     20177      1899  34%
+c0 ]  152.11 1197    42     90     12392      565415    183020  56%   7   30.2   40.0     20177      1899  34%
+c0 {  152.11 1197    50     90     12392      565415    183020  58%   6   21.4   30.5     20177      1899  34%
+c0 u  156.60 1204    49     90     12684      572586    192218  59%   6   21.4   30.7     20177      1899  34%
+c0 v  157.30 1206    49     90     12684      572586    192292  59%   6   21.4   30.7     20177      1899  34%
+c0 -  157.94 1207    49     91     12690      574875    181959  59%   6   21.3   30.7     20177      1899  34%
+c
+c starting full simplification #11
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 0 variables 0% with bound 16 in 0.00 seconds
+c [1] all candidate variables 100% tried
+c
+c removed 0 variables 0% with 1899 remaining 34%
+c removed 0 clauses 0% with 20177 remaining 79%
+c
+c simplification #11 took 0.30 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s  162.14 1255    48     91     12950      583570    194708  59%   2   21.2   31.1     20177      1899  34%
+c0 -  162.91 1255    48     92     13024      584415    184767  59%   6   21.2   31.1     20177      1899  34%
+c0 }  169.28 1259    48     92     13564      593451    198240  59%   6   21.3   31.3     20177      1899  34%
+c0 [  169.28 1259    42     92     13564      593451    198240  56%   2   30.2   40.0     20177      1899  34%
+c0 W  169.35 1259    42     92     13564      593451    198240  56%   2   30.2   40.0     20177      1899  34%
+c0 -  169.55 1260    42     93     13564      594007    188907  56%   7   30.2   40.0     20177      1899  34%
+c0 -  171.85 1261    43     94     13570      603653    190279  56%   7   30.3   40.0     20177      1899  34%
+c0 -  174.42 1265    43     95     13576      613349    192130  57%   7   30.1   39.9     20177      1899  34%
+c0 -  176.61 1267    42     96     13578      623096    194751  57%   7   29.9   39.8     20177      1899  34%
+c0 -  179.04 1271    42     97     13584      632894    197344  56%   7   29.7   39.7     20177      1899  34%
+c0 u  180.38 1273    42     97     13584      633377    195535  56%   7   29.7   39.7     20177      1899  34%
+c0 v  181.33 1275    42     97     13584      633377    195663  56%   7   29.7   39.7     20177      1899  34%
+c0 -  184.08 1278    42     98     13589      642743    197724  56%   7   29.7   39.7     20177      1899  34%
+c0 ]  185.01 1280    42     98     13592      647023    203615  56%   7   29.6   39.7     20177      1899  34%
+c0 {  185.01 1280    48     98     13592      647023    203615  59%   6   21.3   31.3     20177      1899  34%
+c0 -  189.60 1283    48     99     14039      652643    183567  59%   5   21.4   31.3     20177      1899  34%
+c0 -  196.50 1286    48    100     14684      662593    181637  59%   5   21.6   31.4     20177      1899  34%
+c0 }  202.07 1294    49    100     15175      671183    194304  59%   5   21.6   31.5     20177      1899  34%
+c0 [  202.07 1294    42    100     15175      671183    194304  56%   7   29.6   39.7     20177      1899  34%
+c0 I  202.07 1294    42    100     15175      671183    194304  56%   7   29.6   39.7     20177      1899  34%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 -  202.49 1294    42    101     15176      672594    186463  56%   7   29.6   39.7     20177      1899  34%
+c0 -  204.82 1295    42    102     15181      682644    189679  56%   7   29.4   39.6     20177      1899  34%
+c0 -  207.16 1299    42    103     15188      692744    191266  56%   7   29.5   39.8     20177      1899  34%
+c0 u  209.77 1300    42    103     15189      697522    195101  56%   7   29.6   39.9     20177      1899  34%
+c0 v  210.99 1301    42    103     15189      697522    195201  56%   7   29.6   39.9     20177      1899  34%
+c0 -  212.36 1302    42    104     15189      702893    191096  56%   7   29.6   40.0     20177      1899  34%
+c0 -  214.74 1303    42    105     15196      713092    194013  57%   7   29.7   40.0     20177      1899  34%
+c0 -  217.44 1303    42    106     15202      723340    196215  57%   7   29.7   40.0     20177      1899  34%
+c0 -  219.98 1305    42    107     15204      733636    197164  57%   7   29.7   40.0     20177      1899  34%
+c0 ]  220.33 1305    42    107     15204      735069    199149  57%   7   29.7   40.0     20177      1899  34%
+c0 {  220.33 1305    49    107     15204      735069    199149  59%   5   21.6   31.5     20177      1899  34%
+c
+c starting full simplification #12
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 0 variables 0% with bound 16 in 0.00 seconds
+c [1] all candidate variables 100% tried
+c
+c removed 0 variables 0% with 1899 remaining 34%
+c removed 0 clauses 0% with 20177 remaining 79%
+c
+c simplification #12 took 0.31 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s  221.28 1353    49    107     15205      735101    199195  59%   2   21.6   31.5     20177      1899  34%
+c0 -  226.98 1355    48    108     15687      743982    188550  59%   5   21.7   31.6     20177      1899  34%
+c0 -  234.10 1357    48    109     16380      754375    189933  58%   5   21.8   31.6     20177      1899  34%
+c0 -  237.75 1357    47    110     16566      764816    192449  59%   5   21.4   31.3     20177      1899  34%
+c0 u  239.24 1358    47    110     16570      765059    190080  59%   5   21.4   31.4     20177      1899  34%
+c0 v  240.15 1358    47    110     16570      765059    190814  59%   5   21.4   31.4     20177      1899  34%
+c0 }  242.43 1358    47    110     16769      768516    195901  59%   5   21.4   31.4     20177      1899  34%
+c0 [  242.43 1358    42    110     16769      768516    195901  57%   2   29.7   40.0     20177      1899  34%
+c0 B  242.43 1358    42    110     16769      768516    195901  57%   2   29.7   40.0     20177      1899  34%
+c0 -  244.32 1358    43    111     16774      775305    195657  57%   7   29.8   40.0     20177      1899  34%
+c0 -  247.03 1360    42    112     16779      785841    198803  57%   7   29.7   40.0     20177      1899  34%
+c0 -  249.67 1361    42    113     16783      796425    201390  57%   7   29.6   39.8     20177      1899  34%
+c0 -  252.37 1361    42    114     16788      807057    202324  57%   7   29.8   40.0     20177      1899  34%
+c0 -  255.33 1361    42    115     16794      817736    201869  57%   7   30.1   40.1     20177      1899  34%
+c0 -  257.98 1362    42    116     16798      828460    202741  57%   7   30.1   40.1     20177      1899  34%
+c0 ]  258.40 1362    42    116     16798      830473    205373  57%   7   30.1   40.1     20177      1899  34%
+c0 {  258.40 1362    47    116     16798      830473    205373  59%   5   21.4   31.4     20177      1899  34%
+c0 u  263.87 1364    47    116     17140      836008    211388  58%   5   21.5   31.5     20177      1899  34%
+c0 v  264.95 1364    47    116     17140      836008    211566  58%   5   21.5   31.5     20177      1899  34%
+c0 -  267.36 1366    47    117     17336      839232    195004  58%   5   21.5   31.5     20177      1899  34%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 -  275.83 1370    47    118     18129      850051    197324  58%   5   21.7   31.6     20177      1899  34%
+c0 }  281.85 1372    46    118     18568      860270    212224  58%   5   21.7   31.8     20177      1899  34%
+c0 [  281.85 1372    42    118     18568      860270    212224  57%   7   30.1   40.1     20177      1899  34%
+c0 W  281.94 1372    42    118     18568      860270    212224  57%   7   30.1   40.1     20177      1899  34%
+c0 -  282.17 1372    42    119     18568      860915    204032  57%   7   30.1   40.1     20177      1899  34%
+c0 -  285.20 1372    42    120     18574      871825    207471  57%   7   30.2   40.2     20177      1899  34%
+c0 -  288.03 1375    42    121     18581      882781    208983  58%   7   30.2   40.3     20177      1899  34%
+c0 -  290.92 1375    42    122     18583      893783    210657  57%   7   30.0   40.2     20177      1899  34%
+c0 -  294.13 1376    42    123     18589      904829    212078  57%   7   29.8   40.2     20177      1899  34%
+c
+c starting full simplification #13
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 0 variables 0% with bound 16 in 0.00 seconds
+c [1] all candidate variables 100% tried
+c
+c removed 0 variables 0% with 1899 remaining 34%
+c removed 0 clauses 0% with 20177 remaining 79%
+c
+c simplification #13 took 0.34 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s  295.32 1402    42    123     18592      907631    215924  57%   2   29.8   40.2     20177      1899  34%
+c0 u  297.95 1402    42    123     18593      910407    216970  57%   2   29.9   40.2     20177      1899  34%
+c0 v  299.42 1403    42    123     18593      910407    216573  57%   2   29.9   40.2     20177      1899  34%
+c0 -  301.38 1403    42    124     18596      915921    209446  56%   7   29.8   40.2     20177      1899  34%
+c0 -  304.50 1403    42    125     18598      927059    211927  56%   7   29.6   40.1     20177      1899  34%
+c0 ]  304.87 1404    42    125     18598      928526    214020  56%   7   29.6   40.1     20177      1899  34%
+c0 {  304.87 1404    46    125     18598      928526    214020  58%   2   21.7   31.8     20177      1899  34%
+c0 -  313.02 1407    46    126     19254      938240    206258  58%   5   21.9   31.9     20177      1899  34%
+c0 -  321.70 1411    46    127     20002      949465    208408  58%   5   22.0   32.0     20177      1899  34%
+c0 }  328.38 1416    46    127     20541      958276    221223  57%   5   22.1   32.1     20177      1899  34%
+c0 [  328.38 1416    42    127     20541      958276    221223  56%   7   29.6   40.1     20177      1899  34%
+c0 O  328.38 1416    42    127     20541      958276    221223  56%   7   29.6   40.1     20177      1899  34%
+c0 -  329.11 1417    41    128     20543      960735    214685  56%   7   29.4   40.0     20177      1899  34%
+c0 -  332.17 1421    41    129     20549      972049    218269  56%   6   29.1   40.0     20177      1899  34%
+c0 -  335.44 1423    41    130     20555      983407    218691  57%   6   29.1   39.9     20177      1899  34%
+c0 u  338.84 1425    41    130     20555      988286    221920  57%   6   29.0   39.8     20177      1899  34%
+c0 v  340.41 1425    41    130     20555      988286    222098  57%   6   29.0   39.8     20177      1899  34%
+c0 -  342.36 1426    41    131     20558      994809    214997  57%   6   29.0   39.8     20177      1899  34%
+c0 -  345.35 1428    41    132     20565     1006255    214704  57%   6   29.0   39.7     20177      1899  34%
+c0 -  348.61 1429    41    133     20570     1017745    216303  57%   6   29.0   39.7     20177      1899  34%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 -  351.91 1431    41    134     20571     1029278    217848  57%   6   29.0   39.7     20177      1899  34%
+c0 ]  352.85 1431    41    134     20571     1032295    221951  57%   6   29.0   39.7     20177      1899  34%
+c0 {  352.85 1431    46    134     20571     1032295    221951  57%   5   22.1   32.1     20177      1899  34%
+c0 -  358.24 1434    46    135     20924     1040856    213303  58%   5   22.1   32.3     20177      1899  34%
+c0 -  368.56 1441    46    136     21822     1052475    215960  57%   5   22.3   32.4     20177      1899  34%
+c0 -  375.22 1442    46    137     22224     1064137    218763  58%   5   22.4   32.5     20177      1899  34%
+c0 }  378.54 1443    46    137     22460     1068711    225528  58%   5   22.4   32.6     20177      1899  34%
+c0 [  378.55 1443    41    137     22460     1068711    225528  57%   6   29.0   39.7     20177      1899  34%
+c0 B  378.55 1443    41    137     22460     1068711    225528  57%   6   29.0   39.7     20177      1899  34%
+c0 u  380.86 1443    41    137     22460     1069649    223655  57%   6   29.0   39.7     20177      1899  34%
+c0 v  382.63 1443    41    137     22460     1069649    223817  57%   6   29.0   39.7     20177      1899  34%
+c0 -  384.51 1444    41    138     22465     1075842    221666  57%   6   29.0   39.7     20177      1899  34%
+c0 -  387.61 1445    41    139     22472     1087591    222961  57%   6   29.2   39.8     20177      1899  34%
+c0 -  390.92 1445    41    140     22474     1099381    221968  57%   6   29.3   39.9     20177      1899  34%
+c
+c starting full simplification #14
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 0 variables 0% with bound 16 in 0.00 seconds
+c [1] all candidate variables 100% tried
+c
+c removed 0 variables 0% with 1899 remaining 34%
+c removed 0 clauses 0% with 20177 remaining 79%
+c
+c simplification #14 took 0.35 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s  391.99 1502    41    140     22475     1102031    225565  57%   2   29.4   40.0     20177      1899  34%
+c0 -  394.70 1502    42    141     22481     1111214    223556  57%   6   29.4   40.0     20177      1899  34%
+c0 -  398.02 1504    42    142     22488     1123089    225128  57%   6   29.5   39.9     20177      1899  34%
+c0 -  401.67 1505    42    143     22490     1135006    226294  57%   6   29.7   40.0     20177      1899  34%
+c0 -  405.50 1506    42    144     22490     1146965    228270  57%   6   29.9   40.1     20177      1899  34%
+c0 ]  405.69 1506    42    144     22490     1147545    229084  57%   6   29.9   40.1     20177      1899  34%
+c0 {  405.69 1506    46    144     22490     1147545    229084  58%   2   22.4   32.6     20177      1899  34%
+c0 u  413.00 1508    46    144     22877     1154552    235767  58%   2   22.5   32.6     20177      1899  34%
+c0 v  414.48 1510    46    144     22877     1154552    235396  58%   2   22.5   32.6     20177      1899  34%
+c0 -  417.62 1511    46    145     23062     1158967    204761  58%   4   22.5   32.7     20177      1899  34%
+c0 -  424.66 1513    46    146     23518     1171011    203844  58%   4   22.5   32.9     20177      1899  34%
+c0 -  432.21 1517    46    147     24019     1183095    204791  58%   4   22.5   33.0     20177      1899  34%
+c0 }  437.48 1518    46    147     24439     1190717    215900  58%   4   22.6   33.0     20177      1899  34%
+c0 [  437.48 1518    42    147     24439     1190717    215900  57%   6   29.9   40.1     20177      1899  34%
+c0 W  437.58 1518    42    147     24439     1190717    215900  57%   6   29.9   40.1     20177      1899  34%
+c0 -  438.80 1518    42    148     24442     1195220    208734  58%   6   29.8   40.1     20177      1899  34%
+c0 -  442.25 1518    42    149     24449     1207388    208833  58%   6   29.9   40.0     20177      1899  34%
+c0 -  445.70 1519    42    150     24453     1219596    208918  58%   6   29.9   40.1     20177      1899  34%
+c0 -  449.21 1519    42    151     24460     1231845    211241  58%   6   30.0   40.2     20177      1899  34%
+c0 u  454.26 1521    42    151     24466     1243015    223963  58%   6   29.9   40.2     20177      1899  34%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 v  455.95 1521    42    151     24466     1243015    224113  58%   6   29.9   40.2     20177      1899  34%
+c0 -  456.41 1521    42    152     24467     1244134    212681  58%   6   29.9   40.2     20177      1899  34%
+c0 -  459.85 1523    42    153     24469     1256464    216059  58%   6   29.8   40.3     20177      1899  34%
+c0 -  463.71 1525    42    154     24469     1268836    218662  57%   6   29.9   40.5     20177      1899  34%
+c0 ]  466.97 1526    42    154     24475     1279962    233796  57%   6   30.0   40.6     20177      1899  34%
+c0 {  466.97 1526    46    154     24475     1279962    233796  58%   4   22.6   33.0     20177      1899  34%
+c0 -  467.64 1526    46    155     24507     1281246    203953  58%   4   22.6   33.0     20177      1899  34%
+c0 -  475.80 1529    46    156     25061     1293696    204337  59%   4   22.7   33.1     20177      1899  34%
+c0 -  483.09 1533    46    157     25549     1306186    203763  59%   4   22.8   33.3     20177      1899  34%
+c0 -  487.63 1537    46    158     25649     1318717    203242  60%   4   22.5   33.7     20177      1899  34%
+c
+c starting full simplification #15
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 0 variables 0% with bound 16 in 0.00 seconds
+c [1] all candidate variables 100% tried
+c
+c removed 0 variables 0% with 1899 remaining 34%
+c removed 0 clauses 0% with 20177 remaining 79%
+c
+c simplification #15 took 0.40 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s  489.10 1578    46    158     25680     1319115    203829  60%   2   22.5   33.7     20177      1899  34%
+c0 -  498.03 1579    46    159     26339     1331288    202811  59%   4   22.6   33.6     20177      1899  34%
+c0 }  498.52 1579    46    159     26370     1332064    203962  59%   4   22.6   33.6     20177      1899  34%
+c0 [  498.52 1579    42    159     26370     1332064    203962  57%   2   30.0   40.6     20177      1899  34%
+c0 I  498.52 1579    42    159     26370     1332064    203962  57%   2   30.0   40.6     20177      1899  34%
+c0 u  501.30 1580    42    159     26372     1335056    204959  57%   2   29.9   40.5     20177      1899  34%
+c0 v  503.29 1580    42    159     26372     1335056    205232  57%   2   29.9   40.5     20177      1899  34%
+c0 -  505.89 1581    42    160     26376     1343898    204087  57%   6   29.9   40.4     20177      1899  34%
+c0 -  509.15 1581    43    161     26383     1356549    207989  58%   6   29.9   40.5     20177      1899  34%
+c0 -  512.83 1582    43    162     26388     1369239    211267  58%   6   30.0   40.5     20177      1899  34%
+c0 -  516.44 1582    43    163     26395     1381967    214085  58%   6   30.1   40.5     20177      1899  34%
+c0 -  519.97 1583    43    164     26399     1394735    216558  58%   6   30.3   40.5     20177      1899  34%
+c0 -  523.56 1583    43    165     26400     1407544    219036  59%   6   30.6   40.8     20177      1899  34%
+c0 -  527.49 1586    43    166     26406     1420390    220965  59%   6   30.7   40.9     20177      1899  34%
+c0 ]  530.01 1587    43    166     26410     1429229    232655  59%   6   30.8   40.9     20177      1899  34%
+c0 {  530.01 1587    46    166     26410     1429229    232655  59%   4   22.6   33.6     20177      1899  34%
+c0 u  533.01 1588    46    166     26503     1430690    233343  59%   4   22.6   33.6     20177      1899  34%
+c0 v  534.36 1589    46    166     26503     1430690    233495  59%   4   22.6   33.6     20177      1899  34%
+c0 -  536.29 1591    46    167     26628     1433275    203807  59%   4   22.6   33.6     20177      1899  34%
+c0 -  545.31 1596    46    168     27280     1446200    200872  59%   4   22.8   33.6     20177      1899  34%
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 -  554.54 1602    46    169     28019     1459164    201325  59%   4   22.9   33.7     20177      1899  34%
+c0 -  563.69 1604    46    170     28674     1472167    203445  59%   4   23.0   33.7     20177      1899  34%
+c0 }  566.50 1606    46    170     28879     1476697    209952  59%   4   23.0   33.7     20177      1899  34%
+c0 [  566.50 1606    43    170     28879     1476697    209952  59%   6   30.8   40.9     20177      1899  34%
+c0 B  566.50 1606    43    170     28879     1476697    209952  59%   6   30.8   40.9     20177      1899  34%
+c0 -  569.26 1607    43    171     28885     1485206    209026  58%   6   30.8   40.8     20177      1899  34%
+c0 -  573.35 1609    43    172     28892     1498287    212433  59%   6   30.9   40.8     20177      1899  34%
+c0 -  577.46 1609    43    173     28895     1511403    215202  59%   6   30.9   40.8     20177      1899  34%
+c0 -  581.40 1610    43    174     28903     1524556    218886  59%   6   31.0   40.7     20177      1899  34%
+c0 u  585.53 1612    43    174     28906     1529959    223186  59%   6   31.0   40.7     20177      1899  34%
+c0 v  587.67 1612    43    174     28906     1529959    223323  59%   6   31.0   40.7     20177      1899  34%
+c0 -  590.77 1614    43    175     28908     1537749    219790  59%   6   30.9   40.6     20177      1899  34%
+c0 -  594.96 1617    42    176     28909     1550980    221386  60%   6   30.7   40.6     20177      1899  34%
+c
+c starting full simplification #16
+c
+c [1] substituted 0 variables 0% in 0.00 seconds
+c [1] removed 0 duplicated binary clauses 0% in 0.00 seconds
+c [1] subsumed 0 clauses 0% and strengthened 0 clauses 0% in 0.00 seconds
+c [1] eliminated 0 variables 0% with bound 16 in 0.00 seconds
+c [1] all candidate variables 100% tried
+c
+c removed 0 variables 0% with 1899 remaining 34%
+c removed 0 clauses 0% with 20177 remaining 79%
+c
+c simplification #16 took 0.39 seconds
+c
+c     seconds MB level reductions restarts conflicts redundant trail tier1 glue size irredundant variables
+c
+c0 s  598.69 1660    42    176     28910     1559682    233113  60%   2   30.7   40.6     20177      1899  34%
+c0 ]  600.00 1660    42    176     28914     1563892    238652  60%   2   30.7   40.7     20177      1899  34%
+c0 ?  600.00 1660    42    176     28914     1563892    238652  60%   2   30.7   40.7     20177      1899  34%
+c resources: 98% utilization = 18882.57 / 600.00 sec / 32 threads, 1654.93 MB
+c
+c exit 0

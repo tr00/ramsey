@@ -1,0 +1,138 @@
+{
+  "Lean_route": {
+    "candidate_API": "PBCatcher.fromVeriPBDirect / opb_veripb_file",
+    "format_obligations": "raw RoundingSat format2.0 must be translated to kernel format3.0; initial hint-free tautological RUP needs generic degree-zero handling in explicit builder; preserve IDs and recheck every step",
+    "inspected_revision": "29462e03759848dc9180112357191eb87c185078",
+    "mathematical_obligations": [
+      "prove exact PB encoding binding",
+      "prove degree bounds and existence of root8 without census axioms",
+      "prove lex-minimum completeness under block permutations",
+      "prove natural upper bound60 then complement lower bound60",
+      "preserve public real-valued API and audit all consumers"
+    ],
+    "project_Lean": "4.35.0",
+    "repository": "https://github.com/leansolving/pb-catcher",
+    "trust_warning": "Do not use veripb_reflect: native evaluation axioms and unproved implemented_by runtime replacement conflict with task axiom policy. Direct proof terms are a candidate requiring measured replay and axiom audit.",
+    "upstream_Lean": "4.30.0"
+  },
+  "archive": {
+    "bytes": 1079653,
+    "members": {
+      "refutation.pbp": {
+        "bytes": 5608514,
+        "final_contradiction_id": 64539,
+        "initial_constraint_count": 3737,
+        "lines": 60920,
+        "polynomial_literal_axiom_tokens": 12582,
+        "polynomial_operator_counts": {
+          "*": 38840,
+          "+": 197462,
+          "d": 11051,
+          "s": 85353
+        },
+        "rule_counts": {
+          "conclusion": 1,
+          "del": 113,
+          "end": 1,
+          "f": 1,
+          "output": 1,
+          "p": 10987,
+          "pseudo-Boolean": 1,
+          "rup": 49815
+        },
+        "sha256": "dfabfff550b329ba9758f9b8054d0716cfec562c8cbe361702f5c53f6e9b22f9"
+      },
+      "rooted-lex.opb": {
+        "bytes": 195546,
+        "inequalities": 3737,
+        "sha256": "69c845fe539185858b281585db64e971674968853f63c662246361faeaffba67",
+        "variables": 120
+      }
+    },
+    "path": "pb-proof.tar.gz",
+    "sha256": "b7577afd3d3218883c9e5c5aa06192fc518fa19693c178e895efececf96d5c42"
+  },
+  "checks": {
+    "Lean_run": false,
+    "RUP_inferences_checked": false,
+    "all_derived_ids_contiguous": true,
+    "all_references_live_when_used": true,
+    "archive_members_match_original_bytes": true,
+    "arithmetic_inferences_checked": false,
+    "conclusion_id_live": true,
+    "external_checker_run": false
+  },
+  "generator": {
+    "argv": [
+      "python3",
+      "research/ramsey_4_4_order16/generate_pb.py",
+      "scratch/order16/pb-proof/rooted-lex.opb",
+      "--symmetry",
+      "rooted-lex",
+      "--proof-header"
+    ],
+    "change": "optional full OPB comment header required by proof logger; all inequality bytes unchanged; default output backward-compatible",
+    "deterministic_regeneration_byte_identical": true,
+    "path": "generate_pb.py",
+    "sha256": "1e65d69b74bb96902cebcdb0c9d3311c6a13b2a322d1c5eefb0b2ed2621dc8fc"
+  },
+  "initial_failed_attempt": {
+    "cause": "proof logging requires #equal= and intsize= header fields ignored by ordinary solver mode",
+    "diagnostic": "Error: Invalid opb header.",
+    "exit_code": 1,
+    "proof_bytes": 0
+  },
+  "kind": "complete solver-emitted refutation, not independently checked or Lean certified",
+  "limits": {
+    "cpu_seconds": 60,
+    "free_storage_before_run_approx_GiB": 825,
+    "outer_kill_grace_seconds": 5,
+    "outer_wall_seconds": 70,
+    "per_regular_file_bytes": 67108864,
+    "storage_plan": "195546-byte input; trace size unknown before run, hard cap64MiB; enough free space for solver and later checker; retain compressed trace for subsequent checking",
+    "virtual_memory_bytes": 21474836480
+  },
+  "run": {
+    "argv": [
+      "/usr/bin/timeout",
+      "--signal=TERM",
+      "--kill-after=5s",
+      "70s",
+      "/usr/bin/prlimit",
+      "--as=21474836480",
+      "--fsize=67108864",
+      "--",
+      "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+      "--lp=0",
+      "--time-limit=60",
+      "--proof-log=/home/tarik/workspace/c/ramsey/scratch/order16/pb-proof/refutation",
+      "/home/tarik/workspace/c/ramsey/scratch/order16/pb-proof/rooted-lex.opb"
+    ],
+    "conflicts": 10938,
+    "cpu_seconds": 0.331303,
+    "exit_code": 0,
+    "log": "pb-proof.log",
+    "log_sha256": "69fdfe2116cdd3de4a40b0567d34e2a4e076b29dd0305b51cb0a1dfc33cd3a1e",
+    "lp": 0,
+    "outcome": "UNSATISFIABLE",
+    "proof_logging": true,
+    "wall_seconds": 0.34918400493916124
+  },
+  "solver": {
+    "binary_sha256": "54e044bf0b33c3183c3c1dc1b6d3da83307cc4dde72315ac0849d3064f3c2f75",
+    "existing_binary": true,
+    "name": "RoundingSat 2",
+    "soplex_functionality_observed": "LP-enabled runs made LP calls and LP-infeasibility reports",
+    "source_revision": "d4edbf7908a9bb951fd181940919e0f3ac7ab1ee"
+  },
+  "structural_analysis": {
+    "backward_dependency_cone_derived": 51397,
+    "backward_dependency_cone_initial": 1258,
+    "deleted_constraint_entries": 58418,
+    "derived_constraints": 60802,
+    "dummy_tautology_id": 3738,
+    "dummy_tautology_in_conclusion_dependency_cone": true,
+    "hint_free_rup": "rup >= 0 ;",
+    "hint_free_rup_count": 1
+  }
+}

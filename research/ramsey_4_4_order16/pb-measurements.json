@@ -1,0 +1,248 @@
+{
+  "generator_sha256": "6cfb86eebb2dd70edeca8d9731747cc5e319b30eec65ba2975ba285600f23abc",
+  "inputs": [
+    {
+      "auxiliary_variables": 0,
+      "bytes": 179618,
+      "constraints": 3641,
+      "deterministic_regeneration_byte_identical": true,
+      "generation_argv": [
+        "python3",
+        "research/ramsey_4_4_order16/generate_pb.py",
+        "scratch/order16/rounding-none.opb",
+        "--symmetry",
+        "none"
+      ],
+      "mode": "none",
+      "sha256": "e6b10e4ef14f2414bb7279350d1bd1ee0fafb9860a5cba0d319b8518544824be",
+      "variables": 120
+    },
+    {
+      "auxiliary_variables": 0,
+      "bytes": 183420,
+      "constraints": 3688,
+      "deterministic_regeneration_byte_identical": true,
+      "generation_argv": [
+        "python3",
+        "research/ramsey_4_4_order16/generate_pb.py",
+        "scratch/order16/rounding-rooted.opb",
+        "--symmetry",
+        "rooted"
+      ],
+      "mode": "rooted",
+      "sha256": "a5c193034c72760e41998bebe8f25b5d4c8aaa10e10b83e569b3c00e5f232bc4",
+      "variables": 120
+    },
+    {
+      "auxiliary_variables": 0,
+      "bytes": 195524,
+      "constraints": 3737,
+      "deterministic_regeneration_byte_identical": true,
+      "generation_argv": [
+        "python3",
+        "research/ramsey_4_4_order16/generate_pb.py",
+        "scratch/order16/rounding-rooted-lex.opb",
+        "--symmetry",
+        "rooted-lex"
+      ],
+      "mode": "rooted-lex",
+      "sha256": "056c37cec8b9ff844b310c3307b6af1f88b86b39f25726b063eb9d6dff1c8196",
+      "variables": 120
+    }
+  ],
+  "kind": "exploratory solver results only, not certified nonexistence",
+  "limits": {
+    "concurrent_processes": 6,
+    "cpu_seconds_requested": 600,
+    "per_process_virtual_bytes": 21474836480,
+    "per_regular_file_bytes": 67108864,
+    "proof_output": false,
+    "wall_timeout_seconds": 660
+  },
+  "runs": [
+    {
+      "LP_calls": 0,
+      "argv": [
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "660s",
+        "/usr/bin/prlimit",
+        "--as=21474836480",
+        "--fsize=67108864",
+        "--",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--lp=0",
+        "--time-limit=600",
+        "/home/tarik/workspace/c/ramsey/scratch/order16/rounding-none.opb"
+      ],
+      "conflicts": 3359258,
+      "cpu_seconds": 74.7066,
+      "elapsed_wall_seconds": 78.106,
+      "exit_code": 2,
+      "log": "order16-pb-none-lp0-tail.log",
+      "log_scope": "last 125 lines; initial/middle progress output not retained",
+      "log_sha256": "799220974c1439b74d89469011e9e63baa9c082cb7e0ee1e6920753ec62a2c4d",
+      "lp": 0,
+      "mode": "none",
+      "outcome": "UNKNOWN",
+      "termination": "supervisor stopped early after decisive symmetry-broken comparison; not the 600-second limit"
+    },
+    {
+      "LP_calls": 87197,
+      "argv": [
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "660s",
+        "/usr/bin/prlimit",
+        "--as=21474836480",
+        "--fsize=67108864",
+        "--",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--lp=1",
+        "--time-limit=600",
+        "/home/tarik/workspace/c/ramsey/scratch/order16/rounding-none.opb"
+      ],
+      "conflicts": 1164432,
+      "cpu_seconds": 75.7713,
+      "elapsed_wall_seconds": 78.106,
+      "exit_code": 2,
+      "log": "order16-pb-none-lp1-tail.log",
+      "log_scope": "last 125 lines; initial/middle progress output not retained",
+      "log_sha256": "1379761a3ff11c9331eb236a00a1e828744475e12015e63b09d9fe347cddd0fa",
+      "lp": 1,
+      "mode": "none",
+      "outcome": "UNKNOWN",
+      "termination": "supervisor stopped early after decisive symmetry-broken comparison; not the 600-second limit"
+    },
+    {
+      "LP_calls": 0,
+      "argv": [
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "660s",
+        "/usr/bin/prlimit",
+        "--as=21474836480",
+        "--fsize=67108864",
+        "--",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--lp=0",
+        "--time-limit=600",
+        "/home/tarik/workspace/c/ramsey/scratch/order16/rounding-rooted.opb"
+      ],
+      "conflicts": 2469726,
+      "cpu_seconds": 75.6418,
+      "elapsed_wall_seconds": 78.105,
+      "exit_code": 2,
+      "log": "order16-pb-rooted-lp0-tail.log",
+      "log_scope": "last 125 lines; initial/middle progress output not retained",
+      "log_sha256": "43612639a43faceacddbb1e94be047d0cf7a4591cad6e44b78d310865212878d",
+      "lp": 0,
+      "mode": "rooted",
+      "outcome": "UNKNOWN",
+      "termination": "supervisor stopped early after decisive symmetry-broken comparison; not the 600-second limit"
+    },
+    {
+      "LP_calls": 20664,
+      "argv": [
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "660s",
+        "/usr/bin/prlimit",
+        "--as=21474836480",
+        "--fsize=67108864",
+        "--",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--lp=1",
+        "--time-limit=600",
+        "/home/tarik/workspace/c/ramsey/scratch/order16/rounding-rooted.opb"
+      ],
+      "conflicts": 1293857,
+      "cpu_seconds": 75.6698,
+      "elapsed_wall_seconds": 78.105,
+      "exit_code": 2,
+      "log": "order16-pb-rooted-lp1-tail.log",
+      "log_scope": "last 125 lines; initial/middle progress output not retained",
+      "log_sha256": "043335d7816329252be7d03236b7278946f6c142fb77d7666d5aea1d8d8ca801",
+      "lp": 1,
+      "mode": "rooted",
+      "outcome": "UNKNOWN",
+      "termination": "supervisor stopped early after decisive symmetry-broken comparison; not the 600-second limit"
+    },
+    {
+      "LP_calls": 0,
+      "argv": [
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "660s",
+        "/usr/bin/prlimit",
+        "--as=21474836480",
+        "--fsize=67108864",
+        "--",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--lp=0",
+        "--time-limit=600",
+        "/home/tarik/workspace/c/ramsey/scratch/order16/rounding-rooted-lex.opb"
+      ],
+      "conflicts": 10938,
+      "cpu_seconds": 0.280776,
+      "elapsed_wall_seconds": 0.296,
+      "exit_code": 0,
+      "log": "order16-pb-rooted-lex-lp0-full.log",
+      "log_scope": "complete",
+      "log_sha256": "e383479b161d0f1907f269e84986f1737da145cee42ea66a4a8d36bd17fc31a1",
+      "lp": 0,
+      "mode": "rooted-lex",
+      "outcome": "UNSATISFIABLE",
+      "termination": "solver decision"
+    },
+    {
+      "LP_calls": 13,
+      "argv": [
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "660s",
+        "/usr/bin/prlimit",
+        "--as=21474836480",
+        "--fsize=67108864",
+        "--",
+        "/home/tarik/workspace/c/ramsey/third-party/roundingsat/build/roundingsat",
+        "--lp=1",
+        "--time-limit=600",
+        "/home/tarik/workspace/c/ramsey/scratch/order16/rounding-rooted-lex.opb"
+      ],
+      "conflicts": 11534,
+      "cpu_seconds": 1.35744,
+      "elapsed_wall_seconds": 1.396,
+      "exit_code": 0,
+      "log": "order16-pb-rooted-lex-lp1-full.log",
+      "log_scope": "complete",
+      "log_sha256": "0d5e44d39c70832090175e74fd7cef0bc45f0fd1d2b19c36893a44c676d25115",
+      "lp": 1,
+      "mode": "rooted-lex",
+      "outcome": "UNSATISFIABLE",
+      "termination": "solver decision"
+    }
+  ],
+  "solver": {
+    "binary_sha256": "54e044bf0b33c3183c3c1dc1b6d3da83307cc4dde72315ac0849d3064f3c2f75",
+    "existing_binary": true,
+    "name": "RoundingSat 2",
+    "soplex_functionality_observed": "LP-enabled runs made LP calls and LP-infeasibility reports",
+    "source_revision": "d4edbf7908a9bb951fd181940919e0f3ac7ab1ee"
+  },
+  "trust_limit": "No PB proof trace, independent proof checking, Lean semantics, Lean symmetry proof or kernel result. Two UNSAT solver statuses are not accepted as a certified Ramsey result.",
+  "validation": {
+    "controls_exit_code": 0,
+    "input_regeneration": "all three inputs byte-identical",
+    "lex_minimum_graph_cases_order5": 1024,
+    "native_pb_graph_threshold_cases": 12850,
+    "negative_control": "R(3,3,6) UNSATISFIABLE",
+    "positive_order16_rooted_lex_control": "60-edge Paley17 deletion; SATISFIABLE after 17 decreasing within-block transpositions"
+  }
+}
