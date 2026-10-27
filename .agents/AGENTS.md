@@ -29,10 +29,15 @@ Operational Constraints apply to every kind; the rules below are additional.
 Mathematical work: new lemmas, bounds, case analyses, and proof reviews.
 
 - Read the Starting Points below before extending any branch.
-- Use the claim and review templates in `docs/workflow.md`.
+- Keep one authoritative topic file under `research/`, following
+  `docs/workflow.md`: metadata and summary at the top, detailed statements,
+  proofs and inline review findings in the middle, changelog at the bottom.
 - Independent review precedes `accepted` status; a changed proof requires
-  renewed review.
-- Add a dated report under `research/reports/`.
+  renewed review of the affected sections. Review updates the topic file,
+  not a separate report or review file.
+- Do not create dated session reports or duplicate Git history with prose
+  timestamps, hashes, or task histories. Existing material is migrated only
+  as a separately scoped task.
 
 ### Formalization
 
@@ -45,8 +50,8 @@ Lean work under `lean/`.
 - Mirror the reviewed markdown statement exactly. Do not weaken or restate a
   claim to make it provable; a statement change requires renewed review of the
   source claim.
-- Lean work does not require a report under `research/reports/`; record outcomes in
-  the Lean tree as directed by `lean/AGENTS.md`.
+- Record formalization outcomes in the Lean tree as directed by `lean/AGENTS.md`;
+  do not create separate reports.
 
 ### Engine development
 
@@ -54,7 +59,7 @@ Code in `src/`, `scripts/`, `tests/`, and the root `CMakeLists.txt`.
 
 - Keep output formats, variable numbering, and ordering deterministic. An
   encoding change must stay byte-identical to the Python reference in
-  `scripts/ramsey.py` or record the divergence in a report.
+  `scripts/ramsey.py` or document the divergence in `docs/engine.md`.
 - Verify with the checks listed in `docs/engine.md` before handing off. Follow
   `.clang-format`.
 - The build never downloads or configures dependencies and never modifies
@@ -69,7 +74,9 @@ Solver runs, catalogue processing, searches, and other computations.
   authorization for each run beyond trivial validation.
 - Follow `docs/reproducibility.md` for evidence content, retention, and
   storage discipline.
-- Summarize an experimental session in one dated report under `research/reports/`.
+- Record useful experimental scope, commands, limits and outcomes in the
+  relevant research topic file, not a dated session report. Keep necessary
+  machine-readable evidence beside the topic under `research/`.
 
 ### Refactoring
 
@@ -77,10 +84,10 @@ Restructuring that must not change behavior: moves, renames, consolidation.
 
 - Do exactly what the user requested. No extra improvements, reformatting, or
   scope growth.
-- No semantic changes. Preserve proof bodies, claim anchors, review
-  provenance, and recorded hashes unless the request says otherwise.
-  Condense reviews or reports only as `docs/workflow.md` permits, and
-  reference Git history for the original audit.
+- No semantic changes. Preserve proof bodies, stable anchors, review outcomes,
+  and evidence provenance unless the request says otherwise. Follow
+  `docs/workflow.md` for consolidation; Git retains superseded reports,
+  reviews, and prose bookkeeping. Do not alter retained evidence hashes.
 - Update every inbound reference and verify with the checks of each touched
   area: `check.sh`, `ctest`, the Python tests, and link checks.
 
@@ -108,7 +115,7 @@ Restructuring that must not change behavior: moves, renames, consolidation.
 - Avoid large CNFs or proof traces until storage and certificate growth have
   been measured.
 - Other agents share this worktree. Assign distinct owned paths (`WORK.md`),
-  re-read files before patching, prefer narrow edits or new files, and never
+  re-read files before patching, integrate shared topics through one owner, and never
   overwrite another agent's or the user's newer work. Never reset, clean,
   stash, or switch the shared checkout to isolate a task. Coordinate Git-index
   changes; see `docs/workflow.md` for handoffs.
@@ -130,8 +137,9 @@ Read these before extending the work:
 - `docs/engine.md` for engine build, test, and solver-invocation commands
 - `WORK.md` for active ownership in this shared worktree
 
-Record substantial deductions beside the applicable mathematical branch, with
-shared lemmas at the nearest appropriate parent. Global or mixed-scope notes
-may remain in `docs/`. Have the coordinator update shared indexes with
-assumptions and search use after integration. Update the theory map only after
-the deduction is audited.
+Record research in its authoritative topic file under `research/`, with shared
+topics at the nearest appropriate parent. Do not create new mathematical notes
+in `docs/` or separate report/review trees. Existing locations remain legacy
+until a separately scoped migration. Have the coordinator update shared indexes
+with assumptions and search use after integration. Update the theory map only
+after the deduction is audited.

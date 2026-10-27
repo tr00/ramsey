@@ -12,7 +12,9 @@ collects:
 - open branches and rejected shortcuts;
 - implementation and certification requirements.
 
-Detailed proofs are organized under `research/n43/`, with global and mixed notes in `docs/`. This file should state enough assumptions
+Research belongs in one authoritative topic file under `research/`, including
+global and mixed-scope topics. Existing mathematical notes in `docs/` remain
+legacy sources pending migration. This index should state enough assumptions
 to prevent a valid branch from being pruned accidentally.
 
 ## Status labels
@@ -1124,9 +1126,11 @@ small-column exclusions, exhaustive search coverage, or order-43 nonexistence.
 
 ## 16. Update template
 
-For new results, use [the claim and review templates](../../docs/workflow.md).
-Put the proof at its mathematical home and add a short index entry with
-exact preconditions, conclusion, status, search use and source link.
+For new results, use [the topic-file workflow](../../docs/workflow.md).
+Keep metadata and summary, detailed statements and proofs, inline review, and
+a bottom changelog in one authoritative topic file under `research/`. Add only
+a short index entry here with exact preconditions, conclusion, status, search
+use and source link. Do not create separate claim, review, or session reports.
 Never turn an OPEN result into executable pruning without an audited proof
 or an explicitly admitted complete finite verification.
 
@@ -1143,7 +1147,7 @@ finite-cap and obligation-graph results; their proof notes own the statements.
 - [Layered theory map and formalization backlog](../../docs/theory_map.md).
 - [Engine documentation](../../docs/engine.md), [workflow](../../docs/workflow.md),
   and [evidence policy](../../docs/reproducibility.md).
-- [Reports index](../reports/README.md) for dated handoffs and validation.
+- [Historical reports index](../reports/README.md) for legacy handoffs and validation.
 
 The pre-cleanup index and original review presentations are preserved in Git
 at `3eebcca5e627fdc3df5f26fd2a1925a7c121153f`; proof notes retain their

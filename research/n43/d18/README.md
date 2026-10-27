@@ -44,9 +44,10 @@ External premises and proof status remain those recorded in the reduction index.
 ## Shared proof notes
 
 These results may have narrower hypotheses than the parent branch. Follow
-each proof's preconditions before applying a filter; reviews are linked in
-the proof notes. Dated synthesis and validation records are in the
-[report index](../../reports/README.md).
+each proof's preconditions before applying a filter. New work uses the
+[topic-file workflow](../../../docs/workflow.md), with review recorded inline.
+Existing separate reviews remain linked from the proof notes; earlier synthesis
+and validation records are in the [historical report index](../../reports/README.md).
 
 | Topic | Proof homes |
 | --- | --- |

@@ -43,7 +43,7 @@
       "kind": "local-deduction",
       "review_state": "accepted",
       "scope": "Every18-vertex F with alpha(F)<=3, without a clique-number assumption; every K4-transversal. In the q table specialize to the pure setting, uniformly over all E_A and x when an ambient interface exists.",
-      "dependencies": ["published-core-extrema", "small-Ramsey", "docs/general_theorems/transversal_deletion.md#claim-transversal-deletion-01"],
+      "dependencies": ["published-core-extrema", "small-Ramsey", "research/foundations/transversal_deletion.md#claim-transversal-deletion-01"],
       "conclusion": [
         "A transversal of size at most1 forces e(F)>=77; one of size at most2 forces e(F)>=76; one of size at most3 forces e(F)>=71.",
         "Consequently tau4(F)>=4 for q=0..2, >=3 for q=3..7, >=2 for q=8, and >=1 for q=9..35. Equivalently singleton transversals require q>=9, two-set transversals require q>=8, and three-set transversals require q>=3. These are necessary thresholds, not existence or sharpness assertions.",
@@ -97,7 +97,7 @@
       "kind": "local-deduction",
       "review_state": "accepted",
       "scope": "Pure A with a transversal T of size s=1,2,3. Write F=complement A, J=F-T, u=e(J)-L_(18-s), w_t=d_J(t)-(10-s), z=e(F[T]), and delta_1=q-9, delta_2=q-8, delta_3=q-3.",
-      "dependencies": ["claim-deletion-transfer-thresholds", "docs/general_theorems/transversal_deletion.md#claim-transversal-deletion-02", "published-core-extrema"],
+      "dependencies": ["claim-deletion-transfer-thresholds", "research/foundations/transversal_deletion.md#claim-transversal-deletion-02", "published-core-extrema"],
       "conclusion": [
         "u,z,w_t are nonnegative integers and u+z+sum_T w_t=delta_s. In A, e(A-T)=U(18-s)-u, d_(A-T)(t)=8-w_t, and d_A(t)=s+7-w_t-d_(F[T])(t).",
         "For s=1,2 the exact core census forces u=0 for every q, not just at threshold. For s=1 this gives d_A(t)=17-q exactly, core e=68, and q>=9. For s=2 one has z=q-8-sum w_t and z in{0,1}.",

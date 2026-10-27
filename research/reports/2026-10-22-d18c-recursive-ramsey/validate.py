@@ -267,7 +267,7 @@ assert replay(cert) > 0
 (HERE / "tiny_dag.json").write_text(json.dumps(cert, indent=2, sort_keys=True) + "\n")
 
 dependencies = ["docs/general_theorems/ramsey_attachment_calculus.md",
-                "docs/general_theorems/boundary_profiles.md",
+                "research/foundations/boundary_profiles.md",
                 "docs/mathematical_baseline.md", "research/n43/d18/neighborhood_connectivity.md",
                 "research/n43/d18/independent_row_cuts.md",
                 "research/n43/d18/cell_intersections.md",

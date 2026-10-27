@@ -13,17 +13,24 @@ checker result, and coverage argument to that claim. A solver's UNSAT status
 alone, or UNSAT after arbitrary experimental restrictions, does not close a
 branch.
 
-For pure experimentation, keep a concise session summary of the scope,
-commands or configuration, resource limits, outcome, and useful findings.
-Generated CNF/OPB models, proof traces, temporary assignments, and bulky logs
-need not be retained. Store them in ignored `scratch/` (or outside the repo)
-and delete them after recording the useful result. Small inputs, drivers,
-measurements, or logs may be kept when they help future work; a full artifact
-manifest and a report for every run are unnecessary.
+For pure experimentation, record useful scope, commands or configuration,
+resource limits, outcomes, and findings in the relevant topic file under
+`research/`, following the [topic workflow](workflow.md). Do not create a separate
+session report. Generated CNF/OPB models, proof traces, temporary assignments,
+and bulky logs need not be retained. Store them in ignored `scratch/` (or outside
+the repo) and delete them after recording the useful result. Small inputs,
+drivers, measurements, or logs may be kept beside the topic when they help future
+work; a full artifact manifest for every exploratory run is unnecessary.
 
 Before using an exploratory result to close a branch, promote it to a
 reproducibility package and independently check the evidence.
 Never discard the only copy of evidence for an already recorded closure.
+
+The one-file-per-topic rule applies to research prose, not to machine-readable
+evidence. Store retained research artifacts under `research/` beside the topic
+and link to them from its detailed section. Record required artifact hashes once
+in the evidence package, not in repeated prose summaries. Git preserves prose
+history; it does not replace witnesses, certificates, or replayable evidence.
 
 ## Trusted core
 

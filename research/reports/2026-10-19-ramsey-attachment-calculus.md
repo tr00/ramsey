@@ -17,7 +17,7 @@ The deliverable comprises four connected proof notes:
    root-signature cell types, the exact coloured higher-arity interface,
    an arity obstruction to raw pairwise checking, and order-independent
    mixed-interface convolution.
-2. [Finite boundary profiles](../../docs/general_theorems/boundary_profiles.md):
+2. [Finite boundary profiles](../foundations/boundary_profiles.md):
    exact uniform joins, forgetting, uniform introduction and relabelling,
    with a context replacement/congruence theorem.
 3. [Critical-face transport](../../docs/general_theorems/critical_face_transport.md):
@@ -101,7 +101,7 @@ Author-stage proof hashes, before any acceptance banner:
 
 Reviews:
 
-- [Boundary profiles, Main](../../docs/general_theorems/review_boundary_profiles_20261019_main.md):
+- [Boundary profiles, Main](../foundations/boundary_profiles.md#independent-review):
   four claims accepted at exact author-stage hash.
 - [Mixed interface and structural lifting, AttachmentInterfaceAudit](../../docs/general_theorems/review_ramsey_attachment_calculus_20261019_interface_audit.md): all seven claims and the order-43 instance accepted.
 - [Critical-face transport, CriticalTransportAudit](../../docs/general_theorems/review_critical_face_transport_20261019_transport_audit.md): all five claims, duals and worked instances accepted.

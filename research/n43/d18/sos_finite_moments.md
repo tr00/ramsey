@@ -59,7 +59,7 @@ sum_(u in I)d_A(u)<=32+E_I, E_I=sum_(u in I)epsilon_u.
 This argument uses the 24 actual B columns, each meeting I, and at most
 three columns with each exact singleton I signature. It is not a property
 of an isolated A with the same edge count. See
-[signature anchors](../../../docs/general_theorems/signature_anchors.md#claim-signature-anchors-03)
+[signature anchors](../../foundations/signature_anchors.md#claim-signature-anchors-03)
 and [frontier defects](frontier_band.md).
 
 ## Exact complementary moment bookkeeping

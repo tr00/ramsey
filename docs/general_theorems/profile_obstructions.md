@@ -17,7 +17,7 @@ Date: 2026-10-19. Task: `ramsey-attachment-calculus-20261019`.
 Author: Main. All three claims are ready for independent review, not accepted.
 Research, not a new Ramsey bound or a claim of novelty.
 
-The [boundary-profile calculus](boundary_profiles.md) can do more than
+The [boundary-profile calculus](../../research/foundations/boundary_profiles.md) can do more than
 compute clique and independence numbers. If a state has an equal-order
 representative with a forbidden structural feature, that representative
 can obstruct **every** occurrence of the state in a permitted context,
@@ -31,7 +31,7 @@ It is a structural bridge, not another degree/cross-edge budget.
 
 Use the B-boundaried graphs, fixed p,q>=2, profiles Sigma_(p,q), and
 well-typed contexts of
-[boundary profiles Claim 04](boundary_profiles.md#claim-boundary-profiles-04).
+[boundary profiles Claim 04](../../research/foundations/boundary_profiles.md#claim-boundary-profiles-04).
 Only complete/anticomplete joins between interiors, boundary forgetting,
 uniform interior introduction and fixed boundary relabelling are allowed.
 Interiors are copied apart before gluing. A boundary-fixing automorphism

@@ -1,108 +1,123 @@
-# Naming, ownership, and proof review
+# Research topics, ownership, and independent review
 
 ## Organization
 
-Mathematical case paths are the primary names: `research/n43/d18/x136/r0` means the
-order-43, chosen-degree-18-pivot, equality-frontier case with no size-four
-cross columns. Each branch README defines its predicate, parent assumptions,
-split scheme, and coverage source. Different schemes use different paths;
-`research/n43/d20` and `research/n43/min-degree20` are not interchangeable.
+Keep one authoritative Markdown file per research topic under `research/`.
+Statements, proofs, review findings, useful experimental results, and open
+questions belong in that file, not in separate claim, theorem, proof, review,
+handoff, or session-report files. Update an existing topic instead of creating
+a file for each task or continuation.
 
-Place shared proofs at the nearest parent where their hypotheses apply.
-Keep concise historical reports in `research/reports/`, global foundations and mixed
-phase notes in `docs/`, and branch-specific proofs beside the branch README.
-Do not create separate claim, task, or source trees merely to satisfy a template.
+Use mathematical scope for paths and descriptive lowercase snake_case topic
+filenames. Place shared topics at the nearest parent where their hypotheses
+apply, including general foundations under `research/`. Different schemes
+retain distinct scopes: `research/n43/d20` and
+`research/n43/min-degree20` are not interchangeable.
 
-Use descriptive lowercase snake_case proof filenames. Give independently
-reviewable statements stable anchors such as `claim-small-columns-01`.
-Reference them by repository path and anchor. Preserve anchors when renaming
-files and record the move. Reviews are sibling files named
-`review_<claim-slug>_<date>_<reviewer-token>.md`. Historical reviews remain
-historical; migration does not promote their status.
+Keep stable anchors for separately referenced statements and link by topic path
+and anchor. A topic can contain several related statements without repeating
+the same metadata for each. Keep unrelated hypotheses and conclusions explicit;
+do not combine topics merely to reduce the file count.
 
-Each result has one home: its proof note. Branch READMEs and
-`research/n43/reductions.md` link to that note and summarize only the assumptions,
-conclusion, and permitted use needed for navigation. Reports record what
-changed, validation, and unresolved work without repeating the proof.
+Indexes such as `results.md`, branch READMEs, and the theory map are navigation.
+Link to the authoritative topic and summarize only what navigation requires.
+Do not duplicate proofs, review records, or task histories in indexes.
+
+## Topic file structure
+
+Use this order:
+
+1. **Metadata and summary at the top.** State scope, ambient graph types and
+   hypotheses, dependencies and literature citations, kind of result, current
+   review state and permitted search use. Summarize the conclusions, limits,
+   and open questions. Include authors and independent reviewers as applicable.
+   Use a compact section-level table when review states or hypotheses differ.
+2. **Detailed development.** Include definitions, exact statements, complete
+   proofs, and any useful validation commands and results. Record independent
+   review findings alongside the relevant sections or in an inline review
+   subsection here. Do not repeat the proof in the review.
+3. **Changelog at the bottom.** Record meaningful mathematical changes,
+   corrections, dependency changes, and review decisions. Keep entries concise;
+   do not reproduce session transcripts or Git's file-edit history.
+
+Distinguish literature premises, proved-here deductions, conjectures, heuristics,
+designs, and failed approaches. Review states are `draft`, `ready`,
+`changes-requested`, `accepted`, or `withdrawn`. Keep kind, review state, and
+permitted search use separate. Acceptance is not a novelty claim or a formally
+checked certificate.
+
+Git history holds superseded prose and coordination history. Do not create
+dated research reports, sibling review files, or prose-hash manifests. Do not
+repeat timestamps, task tokens, source hashes, or base revisions in topic
+metadata, review records, and changelogs. The changelog records what matters
+mathematically, not who edited which file when.
 
 ## Same-worktree collaboration
 
-All agents and the user share this worktree. Use [WORK.md](../WORK.md) to list
-active task tokens, owners, base revisions, owned paths, and handoffs. Assign
-unique tokens once; use them in new filenames when collision is possible.
-Remove completed rows after their handoff is recorded in the dated report;
-Git history preserves the coordination record.
+All agents and the user share this worktree. Use [WORK.md](../WORK.md) for
+current task tokens, owners, base revisions, owned paths, and handoff state.
+One owner integrates edits to a shared topic, including inline reviews;
+reviewers can send findings to that owner without creating another file.
+Remove completed rows after useful results and review decisions have been
+integrated into the topic. Documentation-only tasks update the applicable
+documentation instead; no separate handoff report is required.
+
 The coordinator owns edits to WORK.md, results.md, root policy, and shared
 branch indexes during integration. Agents send handoff details to the
 coordinator rather than racing to update these files.
 
-Before editing, re-read the target and check its current hash/diff. Do not edit
-another task's owned paths. Prefer new branch-local files for independent work;
-if two tasks need the same file, agree on ownership before either edits it.
+Before editing, re-read the target and preserve concurrent changes. Do not edit
+another task's owned paths. If two tasks need the same topic, agree on an
+integration owner before either edits it; do not create competing topic files.
 Never reset, clean, stash, switch branches, or overwrite shared files to isolate
 one task. Commits, staging, and integration are coordinated because the Git
 index is shared. Unrelated user changes must be preserved.
 
-Task handoffs name the exact files, hashes or revisions, claims, review state,
-changed dependencies, unresolved issues, and suggested next actions. Parallel
-work is supported, but this protocol does not itself authorize spawning agents.
+Handoffs identify affected topics and sections, review state, changed
+dependencies, unresolved issues, and next actions. They are coordination
+messages, not additional retained reports. This protocol does not itself
+authorize spawning agents.
 
-## Claim template
+## Independent review and gates
 
-A note may contain multiple claims when they form a readable derivation. Give
-each separately reviewable claim its own statement and metadata:
+Independent review remains required before acceptance. The reviewer must be
+distinct from the author and independently check assumptions, quantifiers,
+ambient types, algebra, case coverage, dependency applicability, and permitted
+search use. An author's audit or validation run remains a self-check.
 
-```text
-Claim ID: path#stable-anchor
-Kind: local-deduction | literature-premise | conjecture | heuristic | design
-Review state: draft | ready | changes-requested | accepted | withdrawn
-Scope: branch path, ambient graph types, quantifiers, exact hypotheses
-Dependencies: claim links; precise theorem/table/page citations where available
-Conclusion: exact statement
-Proof: full argument or explicit evidence reference
-Search use: none | heuristic-only | propagate | branch | symmetry | terminate
-Reviews: links, or none
-```
+Record the reviewer, covered statement anchors or sections, decisive checks,
+substantive findings or repairs, outcome, and remaining limits in the topic
+file. Acceptance must apply to the proof actually retained. Review the current
+text and resolve intervening proof edits before recording acceptance; use Git
+for committed revision history, not duplicated prose hashes or timestamps.
+Do not mark a whole topic accepted when only some sections were reviewed.
 
-Keep review state separate from kind and search use. Accepted local reasoning
-is not a novelty claim or a formally checked certificate. Existing notes keep
-legacy status labels until their individual claims are explicitly reviewed.
-
-## Review template and gates
-
-```text
-Claim(s): paths and anchors
-Author and reviewer: distinct identities for independent review
-Reviewed revision: commit plus file hash, or SHA-256 of exact uncommitted file
-Dependencies reviewed: versions and unresolved external premises
-Checks: assumptions, quantifiers, ambient types, algebra, case coverage,
-        dependency applicability, and permitted search use
-Findings: specific gaps/corrections or supporting reasoning
-Outcome: accepted | changes-requested | unresolved
-Limits: unverified premises, missing certificates, novelty not checked
-```
-
-A reviewer rechecks reasoning independently, records evidence of the checks,
-and identifies the exact revision. An author's own audit remains a self-check.
-Keep reviews concise: one outcome per claim or claim group, the decisive
-independent checks, substantive findings and repairs, and remaining limits.
-Link to the proof instead of restating its derivation. Do not repeat the
-same assumptions, outcome, or operational history in several sections.
-A proof change requires renewed review; reference-only moves preserve the old
-provenance but must record the move. A changed or withdrawn dependency puts
-its affected dependents and pruning uses into pending review. Preserve the old
-review and record the replacement rather than silently changing its outcome.
-
-Editorial condensation preserves the reviewed source hashes, outcomes, and
-supersession history; it is not a new mathematical review. The original
-reviews and indexes before the 2026-10-21 cleanup are available at Git commit
-`3eebcca5e627fdc3df5f26fd2a1925a7c121153f`. Historical manifests still
-identify those original bytes; do not replace their hashes with hashes of
-the condensed presentation. The [cleanup manifest](../research/reports/2026-10-21-research-cleanup.json)
-maps original and condensed document hashes. Proof changes continue to require
-renewed review.
+A mathematical proof change requires renewed review of affected sections.
+A changed or withdrawn dependency also puts affected dependents and pruning
+uses into pending review. Update current metadata and note the change in the
+changelog; Git retains superseded outcomes. Pure editorial moves that preserve
+the argument and its scope do not constitute a new mathematical review.
 
 A branch closes only with applicable closure evidence and the required coverage
 argument. Distinguish disjoint partitions from overlapping unavoidable families.
 A timeout, failed search, empty frontier, or metadata validation cannot prove
 nonexistence. Follow [reproducibility policy](reproducibility.md) for evidence.
+Necessary machine-readable artifacts may accompany the topic under `research/`;
+they are evidence, not additional prose reports.
+
+## Existing material
+
+Existing research files outside `research/`, separate reports and reviews, and
+historical manifests are legacy material awaiting a separately scoped migration.
+This policy change does not itself move, delete, or reconcile them. Their links
+and evidence remain valid historical references; do not add new reports or
+separate reviews under the old conventions.
+
+When migrating a topic, preserve exact statements, proof arguments, stable
+anchors, substantive review findings, and the distinction between reviewed and
+unreviewed sections. Match historical acceptance to the proof retained rather
+than assuming an uncommitted snapshot exists in Git. Update inbound links and
+record the consolidation in the topic changelog. Use Git for the old reports,
+timestamps, and prose hashes instead of copying that bookkeeping into the topic.
+Do not rewrite historical evidence hashes to describe different bytes or discard
+the only copy of branch-closing evidence.

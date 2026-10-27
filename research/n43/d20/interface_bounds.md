@@ -174,7 +174,7 @@ Claim ID: n43/d20/interface_bounds.md#claim-d20-saturation-witnesses
 Kind: local-deduction  
 Review state: ready  
 Scope: no-degree18 setting, with G globally K5-saturated  
-Dependencies: [single-edge blocker characterization](../../../docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-01)  
+Dependencies: [single-edge blocker characterization](../../foundations/safe_augmentation.md#claim-safe-augmentation-01)
 Conclusion: every C_y contains a triangle; its missed set is I4-free;
 locally safe A-nonedges require external triangle blockers  
 Search use: none pending review; proposed witnessed propagation  

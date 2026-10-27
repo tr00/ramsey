@@ -22,14 +22,14 @@ labelled by a Ramsey type. There are two complementary calculi:
 
 - This note retains exact mixed attachments and their higher-order
   homogeneous obstructions. It does not promise small interfaces.
-- [Boundary profiles](boundary_profiles.md) compress blocks when the
+- [Boundary profiles](../../research/foundations/boundary_profiles.md) compress blocks when the
   permitted future joins are uniform across their interiors.
 - [Critical-face transport](critical_face_transport.md) extracts resource,
   equality and labelling certificates from the exact constraints.
 
 The starting mechanisms already exist in the project: the
-[exact signature criterion](signature_anchors.md#claim-signature-anchors-01),
-[transversal deletion](transversal_deletion.md#claim-transversal-deletion-01),
+[exact signature criterion](../../research/foundations/signature_anchors.md#claim-signature-anchors-01),
+[transversal deletion](../../research/foundations/transversal_deletion.md#claim-transversal-deletion-01),
 [pointed overlap gluing](symmetry_pair_gluing.md#claim-pair-gluing-01), and
 [saturated core-pair packing](../../research/n43/d18/critical_core_exterior.md).
 The purpose here is to put their interfaces and composition rules in one
@@ -151,7 +151,7 @@ applies. These cases exhaust every forbidden set, including the
 endpoint t=p-1 or u=q-1, where the residual set must be empty.
 
 This is not advertised as a new signature theorem: it extends the
-[existing exact criterion](signature_anchors.md#claim-signature-anchors-01)
+[existing exact criterion](../../research/foundations/signature_anchors.md#claim-signature-anchors-01)
 from a pivot partition to an arbitrary core, and identifies the data
 that an exact mixed attachment operator must retain.
 
@@ -294,7 +294,7 @@ Deleting a K_r-transversal T from F exposes a K_r-free induced core
 H=F-T while preserving the independent-set prohibition. The vertices
 of T are attachments to H. Their admissible ports are not arbitrary:
 F[H-N(x)] has the stronger independent-set prohibition supplied by x.
-The [deletion theorem](transversal_deletion.md) adds mandatory attachment
+The [deletion theorem](../../research/foundations/transversal_deletion.md) adds mandatory attachment
 and internal-T costs, and records the exact sum of nonnegative defects.
 This is a proof operator on a chosen decomposition, not a requirement
 that H be a neighborhood or a unique canonical core.
@@ -336,7 +336,7 @@ as well as the core. Fixing the same port labels makes this difference
 observable. This is why both the profile and symmetry layers matter.
 
 A genuine compression theorem is the
-[boundary-profile replacement theorem](boundary_profiles.md), with its
+[boundary-profile replacement theorem](../../research/foundations/boundary_profiles.md), with its
 explicitly restricted context algebra. Exact arbitrary mixed attachments
 are handled by (2)-(3), not silently by that smaller invariant.
 The distinction prevents an attractive but unsound recursive factorization.

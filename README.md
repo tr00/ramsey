@@ -113,8 +113,8 @@ when a computation closes a named subbranch.
 | [research/n43/](research/n43/README.md)                           | The 43-vertex case, organized by mathematical assumptions               |
 | [research/n43/d18/](research/n43/d18/README.md)                   | Degree-18 neighborhoods, cross-column compatibility, and frontier cases |
 | [research/n43/min-degree20/](research/n43/min-degree20/README.md) | The complementary line of work on normalized minimum degree 20          |
-| [docs/](docs/)                                  | Background, shared theorems, and evidence standards                     |
-| [research/reports/](research/reports/README.md)                    | Topic index of dated research, validation and handoffs                  |
+| [docs/](docs/)                                  | Workflow and evidence standards; legacy mathematical notes pending migration |
+| [research/reports/](research/reports/README.md)                    | Historical reports and validation artifacts; no new session reports    |
 | [src/](src/) and [tests/](tests/)               | C++ fixed-B OPB frontend and semantic regression tests                  |
 | [scripts/](scripts/)                            | Independent Python graph checker and reference CNF utilities            |
 
@@ -132,13 +132,19 @@ proposed lemma, or a careful review of an existing proof. Particularly useful
 questions concern compatibility between multiple columns, constraints from
 overlapping neighborhoods, and symmetry reductions that preserve all cases.
 
-Each proof note records its assumptions and review status. When extending an
-argument, make clear which cases it covers and which remain open. A failed
-search does not establish nonexistence. A construction needs exhaustive
-verification of every five-vertex subset, and an exclusion needs complete case
-coverage with independently checkable evidence. The
+Keep one authoritative file per research topic under `research/`: metadata and
+summary at the top, detailed statements, proofs and inline independent review
+in the middle, and a changelog at the bottom. Do not create separate research
+reports or review files, or duplicate Git history with prose hashes and
+timestamps. Existing research documents remain in place pending migration.
+
+When extending an argument, make clear which cases it covers and which remain
+open. A failed search does not establish nonexistence. A construction needs
+exhaustive verification of every five-vertex subset, and an exclusion needs
+complete case coverage with independently checkable evidence. The
 [workflow](docs/workflow.md) and
-[reproducibility notes](docs/reproducibility.md) explain how to record this work.
+[reproducibility notes](docs/reproducibility.md) define topic structure, review
+gates, and retained computational evidence.
 
 ## References
 

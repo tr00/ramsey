@@ -90,13 +90,13 @@ keeps its stated premises; no Ramsey/census input is implicit.
 | Topic | Note | Accepted content (one line) | Consumed by |
 | --- | --- | --- | --- |
 | Mixed attachment calculus | [ramsey_attachment_calculus.md](general_theorems/ramsey_attachment_calculus.md) | root-cell types, exact coloured higher-arity port interface and order-independent mixed rank convolution | general induced-block interface theory; worked pivot/K3 examples |
-| Boundary replacement | [boundary_profiles.md](general_theorems/boundary_profiles.md) | finite paired truncated profile, exact uniform joins/forgetting/introduction/relabeling and context congruence | certified uniform-context replacement; not arbitrary mixed joins |
+| Boundary replacement | [boundary_profiles.md](../research/foundations/boundary_profiles.md) | finite paired truncated profile, exact uniform joins/forgetting/introduction/relabeling and context congruence | certified uniform-context replacement; not arbitrary mixed joins |
 | Critical-face transport | [critical_face_transport.md](general_theorems/critical_face_transport.md) | capacities, weighted exact defects, unit labels, transversal demands and conflict-graph obstructions | generic witness-to-colouring theory; worked anchor/core instances |
 | Structural profile obstructions | [profile_obstructions.md](general_theorems/profile_obstructions.md) | equal-order replacement lifts forbidden interior automorphisms/modules; equal-profile sibling collisions have symmetric representatives | combines L1 replacement with L2 universal symmetry premises; conditional context obstructions only |
-| Safe augmentation | [safe_augmentation.md](general_theorems/safe_augmentation.md) | safe missing edges form a hypergraph of independence number at most the deficit; star-forest structure at deficit 1 | d18 `a=84` analysis (index §8.9) |
-| Signature anchors | [signature_anchors.md](general_theorems/signature_anchors.md) | exact mixed homogeneous-set criterion; Hall condition, singleton class caps, weighted degree-excess certificates; clique dual | L3 anchor theory, frontier bands |
-| Transversal deletion | [transversal_deletion.md](general_theorems/transversal_deletion.md) | edge lower bound after deleting a t-transversal; exact defect budget and equality structure | tau rungs, index §8.4-8.6 |
-| Transversal compatibility | [transversal_compatibility.md](general_theorems/transversal_compatibility.md) | avoidance forces occurrence; weighted occupancy; degree-gap obstruction to disjoint transversals | x136 r2 closure, w0 |
+| Safe augmentation | [safe_augmentation.md](../research/foundations/safe_augmentation.md) | safe missing edges form a hypergraph of independence number at most the deficit; star-forest structure at deficit 1 | d18 `a=84` analysis (index §8.9) |
+| Signature anchors | [signature_anchors.md](../research/foundations/signature_anchors.md) | exact mixed homogeneous-set criterion; Hall condition, singleton class caps, weighted degree-excess certificates; clique dual | L3 anchor theory, frontier bands |
+| Transversal deletion | [transversal_deletion.md](../research/foundations/transversal_deletion.md) | edge lower bound after deleting a t-transversal; exact defect budget and equality structure | tau rungs, index §8.4-8.6 |
+| Transversal compatibility | [transversal_compatibility.md](../research/foundations/transversal_compatibility.md) | avoidance forces occurrence; weighted occupancy; degree-gap obstruction to disjoint transversals | x136 r2 closure, w0 |
 | Family overlap | [family_overlap.md](general_theorems/family_overlap.md) | equal-degree prescribed families contain a low-codegree edge past a component threshold | d18 dense families, min-degree20 |
 | Cut capacity | [cut_capacity.md](general_theorems/cut_capacity.md) | degree cut demand across the non-root set forces many low-q roots; composes with family overlap | index §8.12, §8.14 |
 | Swap stabilizers | [disjoint_swap_stabilizers.md](general_theorems/disjoint_swap_stabilizers.md) | exact `(C2)^p` swap stabilizer structure; pair-separation orbit bounds | symmetry layer L4 |
@@ -378,8 +378,11 @@ Do not re-flip labels here; reconciliation is a separate task.
 - Update a node here only after the underlying claim's audit or integration;
   mirror the source's status words exactly (`accepted`, `ready`, `open`,
   `excluded`, plus the index's bracket labels where used).
-- New layers or nodes require a dated report under `research/reports/` and a WORK.md
-  row; shared-index edits follow [workflow](workflow.md).
-- This file never substitutes for the reduction index, branch READMEs,
-  reviews, or the Lean audit; if they disagree, they win and this map is
-  wrong.
+- New layers or nodes require an audited source topic under `research/`, with
+  its current review state and meaningful changes recorded in that file, not
+  a dated report. Coordinate active ownership in WORK.md and shared-index edits
+  through [workflow](workflow.md).
+- This file never substitutes for the authoritative topic and its review state,
+  the reduction index's coverage obligations, or the Lean audit. Existing
+  separate reviews remain historical sources until migration; unresolved
+  disagreements must not be presented here as accepted results.

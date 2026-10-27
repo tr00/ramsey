@@ -47,7 +47,7 @@ Kind: local-deduction
 Review state: ready  
 Scope: existence in R(5,5,43); the two residual predicates above  
 Dependencies: finite edge augmentation; the single-edge characterization
-in [safe augmentation](../../../docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-01)  
+in [safe augmentation](../../foundations/safe_augmentation.md#claim-safe-augmentation-01)
 Conclusion: global K5-saturation preserves the no-degree18 predicate under
 augmentation; complementing a saturated graph need not preserve saturation  
 Search use: none pending review; proposed existence coverage  

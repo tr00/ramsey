@@ -2,7 +2,7 @@
 
 Date: 2026-10-22. Author: Main, alone. Claims are ready for independent review; no branch is closed. This note distinguishes global K5-saturation from K4-saturation of a degree18 neighborhood.
 
-Let R(s,t,n) denote graphs of order n with no K_s or I_t. A K_r-free graph is K_r-saturated if every added missing edge creates a K_r. Equivalently, every nonedge has a K_(r-2) in its common neighborhood. This single-edge characterization is the accepted [safe augmentation theorem](../../../docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-01).
+Let R(s,t,n) denote graphs of order n with no K_s or I_t. A K_r-free graph is K_r-saturated if every added missing edge creates a K_r. Equivalently, every nonedge has a K_(r-2) in its common neighborhood. This single-edge characterization is the accepted [safe augmentation theorem](../../foundations/safe_augmentation.md#claim-safe-augmentation-01).
 
 <a id="claim-global-saturation-coverage"></a>
 ## 1. Global saturation is a complete reduction

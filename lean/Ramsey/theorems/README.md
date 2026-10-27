@@ -63,7 +63,7 @@ handshaking parity. None of these bounds is an axiom.
 ## Uniform boundary calculus
 
 All 4 accepted claims of
-[boundary_profiles.md](../../../docs/general_theorems/boundary_profiles.md)
+[boundary_profiles.md](../../../research/foundations/boundary_profiles.md)
 have proved interfaces in namespace `Ramsey.Boundary`:
 
 | Claim | Main interfaces |
@@ -121,21 +121,21 @@ Each linked statement is authoritative for its complete hypotheses and proof.
 
 ## Safe augmentation — accepted
 
-Source: [Safe augmentation below a Ramsey edge extremum](../../../docs/general_theorems/safe_augmentation.md).
+Source: [Safe augmentation below a Ramsey edge extremum](../../../research/foundations/safe_augmentation.md).
 Let `M` be the maximum edge count of a nonempty `(r,s)`-free class on a fixed
 vertex set, `q=M-e(G)`, and `T` the individually safe missing edges. A proved
 upper bound `U≥M` may replace `M` with deficit `U-e(G)` where stated.
 
-- [01 — Single-edge obstruction and deficit budget](../../../docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-01).
+- [01 — Single-edge obstruction and deficit budget](../../../research/foundations/safe_augmentation.md#claim-safe-augmentation-01).
   Adding `uv` is safe exactly when its common neighborhood has no `K_(r-2)`;
   every feasible addition set has at most `q` edges.
-- [02 — Bounded star forest at deficit one](../../../docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-02).
+- [02 — Bounded star forest at deficit one](../../../research/foundations/safe_augmentation.md#claim-safe-augmentation-02).
   When `q=1`, the safe-edge graph is a star forest with at most `r-1` edges.
-- [03 — Complete generation split](../../../docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-03).
+- [03 — Complete generation split](../../../research/foundations/safe_augmentation.md#claim-safe-augmentation-03).
   At deficit one, a graph is either already `K_r`-saturated or is obtained by
   deleting an edge from an extremal parent. Both cases must be retained;
   parent deletions must still pass the `I_s` prohibition.
-- [04 — Exact conflict hypergraph](../../../docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-04).
+- [04 — Exact conflict hypergraph](../../../research/foundations/safe_augmentation.md#claim-safe-augmentation-04).
   Inclusion-minimal missing-edge sets completing an r-set to a clique define
   a hypergraph on `T`. Its independent sets are exactly the feasible additions;
   its independence number is at most `q`, and hyperedge sizes lie between
@@ -143,61 +143,61 @@ upper bound `U≥M` may replace `M` with deficit `U-e(G)` where stated.
 
 ## Cross signatures and homogeneous anchors — accepted
 
-Source: [Cross signatures and weighted homogeneous anchors](../../../docs/general_theorems/signature_anchors.md).
+Source: [Cross signatures and weighted homogeneous anchors](../../../research/foundations/signature_anchors.md).
 
-- [01 — Exact mixed homogeneous-set criterion](../../../docs/general_theorems/signature_anchors.md#claim-signature-anchors-01).
+- [01 — Exact mixed homogeneous-set criterion](../../../research/foundations/signature_anchors.md#claim-signature-anchors-01).
   Given the correct internal graph types, rooted gluing is `(p,q)`-free
   exactly when column intersections over B-cliques exclude the corresponding
   A-cliques, and complements of column unions over B-independent sets exclude
   the corresponding A-independent sets.
-- [02 — Numerical union and intersection bounds](../../../docs/general_theorems/signature_anchors.md#claim-signature-anchors-02).
+- [02 — Numerical union and intersection bounds](../../../research/foundations/signature_anchors.md#claim-signature-anchors-02).
   For an independent t-set `Q⊆B`, its column union has size at least
   `|A|-R(p-1,q-t)+1`; for a clique t-set its column intersection has size at
   most `R(p-t,q)-1`. These necessary numerical bounds do not replace claim 01.
-- [03 — Independent anchors: Hall, capacities and defects](../../../docs/general_theorems/signature_anchors.md#claim-signature-anchors-03).
+- [03 — Independent anchors: Hall, capacities and defects](../../../research/foundations/signature_anchors.md#claim-signature-anchors-03).
   For an independent `(q-1)`-anchor `X⊆A`, signatures are nonempty and satisfy
   Hall's condition on independent B-subfamilies. Each exact singleton class
   has size at most `p-2`; with `c=(q-1)(p-2)`, this gives
   `e(X,B)≥max(|B|,2|B|-c)` and exact nonnegative defect identities.
-- [04 — Weighted degree/excess certificates](../../../docs/general_theorems/signature_anchors.md#claim-signature-anchors-04).
+- [04 — Weighted degree/excess certificates](../../../research/foundations/signature_anchors.md#claim-signature-anchors-04).
   Nonnegative anchor weights yield load-weighted degree-excess inequalities
   and the exact cross-edge count. Bounding total excess requires loads at
   most one and nonnegative vertex excesses; no perfect anchor cover is assumed.
-- [05 — Clique dual](../../../docs/general_theorems/signature_anchors.md#claim-signature-anchors-05).
+- [05 — Clique dual](../../../research/foundations/signature_anchors.md#claim-signature-anchors-05).
   For a `(p-1)`-clique `Y⊆B`, missing signatures satisfy the dual Hall and
   singleton bounds, giving
   `e(A,Y)≤min((p-2)|A|,(p-3)|A|+(p-1)(q-2))` and an exact defect identity.
 
 ## Transversal deletion — accepted
 
-Source: [Deleting a clique transversal: edge budgets and stability](../../../docs/general_theorems/transversal_deletion.md).
+Source: [Deleting a clique transversal: edge budgets and stability](../../../research/foundations/transversal_deletion.md).
 
-- [01 — General deletion lower bound](../../../docs/general_theorems/transversal_deletion.md#claim-transversal-deletion-01).
+- [01 — General deletion lower bound](../../../research/foundations/transversal_deletion.md#claim-transversal-deletion-01).
   If `α(F)<s` and a t-set meets every `K_r`, put `h=|F|-t`. Given a Ramsey
   upper bound `R≥R(r,s-1)` and a lower edge bound `L` for h-vertex
   `(r,s)`-free graphs,
   `e(F)≥L+t·max(0,h-R+1)+a(t,s)`, where `a(t,s)` is the edge count of
   balanced disjoint cliques on t vertices in `s-1` parts. A strict violation
   excludes all transversals of size at most t.
-- [02 — Exact defect budget and equality structure](../../../docs/general_theorems/transversal_deletion.md#claim-transversal-deletion-02).
+- [02 — Exact defect budget and equality structure](../../../research/foundations/transversal_deletion.md#claim-transversal-deletion-02).
   Excess above that bound is the sum of nonnegative core, internal-transversal
   and attachment defects. It bounds each defect separately; zero excess forces
   balanced disjoint cliques on the transversal and all attachment bounds tight.
 
 ## Transversal compatibility — accepted
 
-Source: [Weighted avoidance and two-transversal incompatibility](../../../docs/general_theorems/transversal_compatibility.md).
+Source: [Weighted avoidance and two-transversal incompatibility](../../../research/foundations/transversal_compatibility.md).
 
-- [01 — Avoidance forces occurrence](../../../docs/general_theorems/transversal_compatibility.md#claim-transversal-compatibility-01).
+- [01 — Avoidance forces occurrence](../../../research/foundations/transversal_compatibility.md#claim-transversal-compatibility-01).
   If every family member uses at least t points of `L` and every `L\T`, for
   a t-subset `T⊆L`, fails to be a transversal, every such `T` occurs as an
   exact intersection. For a family of independent sets and `t≥2`, `L` is
   independent; `t=1` gives only vertex occurrence.
-- [02 — Weighted occupancy and low-weight exclusion](../../../docs/general_theorems/transversal_compatibility.md#claim-transversal-compatibility-02).
+- [02 — Weighted occupancy and low-weight exclusion](../../../research/foundations/transversal_compatibility.md#claim-transversal-compatibility-02).
   Explicit weight gaps force family members to use at least t low-weight
   vertices, while weight lower bounds on transversals exclude the complementary
   subsets. Together these establish the hypotheses of claim 01.
-- [03 — Degree-gap obstruction to disjoint transversals](../../../docs/general_theorems/transversal_compatibility.md#claim-transversal-compatibility-03).
+- [03 — Degree-gap obstruction to disjoint transversals](../../../research/foundations/transversal_compatibility.md#claim-transversal-compatibility-03).
   For independent four-sets, explicit degree ranges, transversal degree bounds,
   induced-subgraph edge bounds and strict total-degree gaps exclude two
   disjoint s-set transversals. Every listed gap is a hypothesis, not a general
@@ -319,20 +319,20 @@ no algorithm or certificate is validated.
 These five claims complete the inventory of the nine source notes. All have
 independent acceptance on their explicit numerical and interface premises.
 
-- [Safe augmentation 05](../../../docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-05):
+- [Safe augmentation 05](../../../research/foundations/safe_augmentation.md#claim-safe-augmentation-05):
   using the 85-edge cap for 18-vertex `(4,5)`-free graphs, 85 edges implies
   saturation and 84 edges permits at most three safe edges in a star forest.
-- [Signature anchors 06](../../../docs/general_theorems/signature_anchors.md#claim-signature-anchors-06):
+- [Signature anchors 06](../../../research/foundations/signature_anchors.md#claim-signature-anchors-06):
   order-43 `(5,5)` specialization, including independent-four anchor
   incidence bounds 36 and 32 at pivot degrees 18 and 20, respectively.
-- [Transversal deletion 03](../../../docs/general_theorems/transversal_deletion.md#claim-transversal-deletion-03):
+- [Transversal deletion 03](../../../research/foundations/transversal_deletion.md#claim-transversal-deletion-03):
   an 18-vertex graph with independence number at most three and at most
   70 edges has no `K4`-transversal of size at most three, conditional on
   the stated Ramsey and 15-vertex edge-minimum premises.
-- [Transversal deletion 04](../../../docs/general_theorems/transversal_deletion.md#claim-transversal-deletion-04):
+- [Transversal deletion 04](../../../research/foundations/transversal_deletion.md#claim-transversal-deletion-04):
   a four-set transversal forces only 66 edges under the recorded premises;
   at `e(F)=68+q` the exact defect is `2+q`, not a contradiction.
-- [Transversal compatibility 04](../../../docs/general_theorems/transversal_compatibility.md#claim-transversal-compatibility-04):
+- [Transversal compatibility 04](../../../research/foundations/transversal_compatibility.md#claim-transversal-compatibility-04):
   in the full degree-18, `x=136` frontier/interface setting, any two
   four-set transversals of independent four-sets intersect. The transversals
   need not themselves be actual cross columns.

@@ -59,7 +59,7 @@ Scope: general K_p/I_q-free rooted gluing, p,q>=3, arbitrary pivot
 degree and actual repeated column C; then the order-43 degree-18 setting.
 
 Dependencies: the homogeneous-set argument below, equivalent to
-[signature-anchor Claim 01](../../../docs/general_theorems/signature_anchors.md#claim-signature-anchors-01);
+[signature-anchor Claim 01](../../foundations/signature_anchors.md#claim-signature-anchors-01);
 R(3,3)=6, R(3,4)=9, R(4,3)=9 and R(3,5)=14 for the numerical
 specialization.
 

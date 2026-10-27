@@ -34,11 +34,11 @@ branch remains open and is now documented as 143<=x<=288.
 
 | Source | Audited statements | Outcome / review |
 | --- | --- | --- |
-| [docs/general_theorems/transversal_deletion.md](../../docs/general_theorems/transversal_deletion.md) | 01–04 | accepted on stated premises; [review](../../docs/general_theorems/review_audit_pending_transversals_20261015.md) |
-| [docs/general_theorems/transversal_compatibility.md](../../docs/general_theorems/transversal_compatibility.md) | 01–04 | accepted on stated premises; [review](../../docs/general_theorems/review_audit_pending_transversals_20261015.md) |
+| [Transversal deletion](../foundations/transversal_deletion.md) | 01–04 | accepted on stated premises; [review](../foundations/transversal_deletion.md#audit-pending-review) |
+| [Transversal compatibility](../foundations/transversal_compatibility.md) | 01–04 | accepted on stated premises; [review](../foundations/transversal_compatibility.md#audit-pending-review) |
 | [docs/general_theorems/family_overlap.md](../../docs/general_theorems/family_overlap.md) | 01–04 | accepted on stated premises; [review](../../docs/general_theorems/review_audit_pending_family_overlap_20261015.md) |
-| [docs/general_theorems/signature_anchors.md](../../docs/general_theorems/signature_anchors.md) | 01–06 | accepted on stated premises; [review](../../docs/general_theorems/review_audit_pending_signature_anchors_20261015.md) |
-| [docs/general_theorems/safe_augmentation.md](../../docs/general_theorems/safe_augmentation.md) | 01–05 | accepted on stated premises; [review](../../docs/general_theorems/review_safe_augmentation_20261015_transversal.md) |
+| [Signature anchors](../foundations/signature_anchors.md) | 01–06 | accepted on stated premises; [review](../foundations/signature_anchors.md#audit-pending-review) |
+| [Safe augmentation](../foundations/safe_augmentation.md) | 01–05 | accepted on stated premises; [review](../foundations/safe_augmentation.md#independent-review) |
 | [docs/general_theorems/cut_capacity.md](../../docs/general_theorems/cut_capacity.md) | 01–03 | accepted on stated premises; [review](../../docs/general_theorems/review_cut_capacity_20261015_overlap.md) |
 | [research/n43/d18/weighted_averaging.md](../n43/d18/weighted_averaging.md) | both claims | accepted on stated premises; [review](../n43/d18/review_audit_pending_averaging_20261015.md) |
 | [research/n43/d18/anchored_cell_averaging.md](../n43/d18/anchored_cell_averaging.md) | all four, corrected higher-order example | accepted on stated premises; [review](../n43/d18/review_audit_pending_averaging_20261015.md) |

@@ -98,7 +98,7 @@ review status. Kernel checking does not change that review metadata.
 
 ## Uniform boundary profiles
 
-The 4 accepted claims in [boundary_profiles.md](../docs/general_theorems/boundary_profiles.md)
+The 4 accepted claims in [boundary_profiles.md](../research/foundations/boundary_profiles.md)
 are formalized in namespace `Ramsey.Boundary` and re-exported by `import Ramsey`.
 Vertices use `B ⊕ X`, separating retained boundary labels from a finite interior.
 The profile stores the exact boundary graph and 2 capped tables indexed only by
@@ -277,9 +277,10 @@ reproducible. `.lake/` is ignored.
 - A lemma counts as proved only if its file builds with zero `sorry` and
   `#print axioms` reports only `propext`, `Classical.choice`, `Quot.sound`,
   and the named premises of `Ramsey/Premises.lean` it explicitly consumes.
-- Record the correspondence between a Lean name and the informal claim
-  (claim file and revision) in this README or in the handoff report, never
-  in the `.lean` file itself (see `AGENTS.md`).
+- Record the correspondence between a Lean name and the informal statement
+  (topic path and stable anchor) in this README, with research-side review
+  decisions in the topic file under `research/`. Do not create a handoff report
+  or put Markdown references in the `.lean` file (see `AGENTS.md`).
 - Do not weaken a statement to make it provable; if the informal claim needs
   an extra hypothesis, say so in the docstring and flag it in the handoff.
 

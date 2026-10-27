@@ -1,33 +1,46 @@
 # Boundary profiles for uniform Ramsey gluing
 
-<!-- attachment-calculus-integration:start -->
-Integration status (2026-10-19): all four claims are independently **accepted**
-by [Main](review_boundary_profiles_20261019_main.md), distinct from author
-BoundaryProfileTheory, at SHA-256
-`013507deec2512db52acdbc8897cf38155c6f05bc9df6152dd5438d18d736673`.
-The reviewed body below is unchanged; ready/pending labels are historical.
-Permitted mathematical use: exact profile operations and replacement within
-the specified uniform-context language, with equal order when order matters.
-Arbitrary mixed attachments and a bounded-width factorization are not certified.
-<!-- attachment-calculus-integration:end -->
+**Author:** BoundaryProfileTheory. **Independent reviewer:** Main, a distinct
+identity. **Kind:** local deductions (Claims 01–04), with worked examples and
+contextual discussion. **Review state:** accepted for the four claims, their exact
+operator contracts, and the stated worked examples, by the historical independent
+written review [retained below](#independent-review). This editorial consolidation
+carries that decision forward; it is not a new mathematical review.
 
-Date: 2026-10-19. Author: `BoundaryProfileTheory`.
+**Scope and dependencies:** finite simple graphs with a fixed finite labelled
+boundary and thresholds `p,q>=1`; the profile is defined even when the graph is
+not `R(p,q)`-free. The four claims use only the definitions, finite maxima,
+elementary set decomposition, and structural induction. The completed-graph
+module consequence in section 7 additionally uses
+[the accepted module obstruction](../n43/symmetry_structure.md#claim-symmetry-structure-03),
+including its retained literature Ramsey premises. The Antipov–Kratsch citation
+in that section supplies standard terminology, not a premise of Claims 01–04.
 
-All claims are **ready for independent review**, not accepted. This is a
-mathematical note, not an implementation or a new Ramsey bound. The finite-state
-view is the standard boundaried-graph dynamic-programming viewpoint: retain the
-information visible through an interface and prove that each permitted operation
-acts on that information. No novelty claim or literature-priority review is made.
-No solver, graph search, enumeration, download, build, or formal verification was
-used. The small examples below are proved directly.
+| Covered statement | Conclusion and permitted search use | Review scope |
+| --- | --- | --- |
+| [Claim 01](#claim-boundary-profiles-01) | A finite profile gives exact clipped clique/independence observations and detects `R(p,q)`-freeness; exact propagation or terminal observation, not branch coverage. | Historically accepted. |
+| [Claim 02](#claim-boundary-profiles-02) | Exact propagation for complete or anticomplete interior joins over the same labelled boundary, counted once. | Historically accepted; uniform joins only. |
+| [Claim 03](#claim-boundary-profiles-03) | Exact forgetting, uniform interior introduction, and fixed relabelling. | Historically accepted; arbitrary mixed introduction excluded. |
+| [Claim 04](#claim-boundary-profiles-04) | Profile replacement only inside certified expressions of these operators; preserve order only with the additional equal-order hypothesis. | Historically accepted; no replacement under arbitrary ambient incidences. |
+| [Examples](#5-direct-examples) and [mixed-attachment counterexample](#6-why-arbitrary-mixed-joins-are-not-profile-operations) | Direct examples and the limit of the permitted operator language. | Covered by the historical written review; not extra formalized claims. |
+| [Decomposition discussion](#7-dynamic-programming-interpretation-and-limits-of-decomposition) | Interpretation, dependencies, and limitations; no bounded-width decomposition or Ramsey bound. | No separate claim acceptance or formalization asserted. |
 
 The contribution here is a sufficient finite replacement invariant, together with
 exact operations on that invariant. It is not a characterization of arbitrary
 attachments. The existing [cross-signature criterion](signature_anchors.md#claim-signature-anchors-01)
 already handles arbitrary mixed homogeneous sets when their actual cross columns
-are retained. The [two-root gluing theory](symmetry_pair_gluing.md) instead handles
+are retained. The [two-root gluing theory](../../docs/general_theorems/symmetry_pair_gluing.md) instead handles
 compatible overlap identifications and their automorphism quotients. Neither is
 being renamed as this invariant; no symmetry quotient is implicit here.
+
+The finite-state view is the standard boundaried-graph dynamic-programming
+viewpoint: retain the information visible through an interface and prove that
+each permitted operation acts on that information. No novelty claim or
+literature-priority review is made. This is a mathematical note, not an
+implementation or a new Ramsey bound. The original author-stage development used
+no solver, graph search, enumeration, download, build, or formal verification;
+the small examples below were proved directly. Historical reviewer validation
+and the later documented Lean correspondence are distinguished below.
 
 ## Objects, conventions, and observations
 
@@ -75,12 +88,6 @@ boundary set is actually used in a homogeneous set of the whole graph.
 
 <a id="claim-boundary-profiles-01"></a>
 ## 1. The finite profile detects both forbidden homogeneous sets exactly
-
-Claim ID: `docs/general_theorems/boundary_profiles.md#claim-boundary-profiles-01`
-
-Kind: local-deduction.
-
-Review state: ready.
 
 Scope: all finite simple B-boundaried graphs, fixed `p,q>=1` and finite label set
 `B`; no freeness hypothesis.
@@ -130,19 +137,8 @@ forces the eligible interior to be empty, exactly the zero entry. When `p=1` or
 `q=1`, any nonempty graph fails the corresponding test, as required. This proves
 all endpoint assertions. QED.
 
-Search use: none pending independent review; proposed exact propagation or
-terminal observation for the stated operators, not a branch-coverage result.
-
-Reviews: none.
-
 <a id="claim-boundary-profiles-02"></a>
 ## 2. Exact uniform gluing over a shared labelled boundary
-
-Claim ID: `docs/general_theorems/boundary_profiles.md#claim-boundary-profiles-02`
-
-Kind: local-deduction.
-
-Review state: ready.
 
 Scope: any two B-boundaried graphs `G_1,G_2` having exactly the same labelled
 boundary graph `H`, with disjoint interiors `X_1,X_2`. Fix `epsilon in {0,1}`.
@@ -191,19 +187,8 @@ For example, two copies of an edge `bx` with boundary `{b}`, joined completely
 on their singleton interiors, produce a triangle, not a four-vertex clique.
 The order is always `|G_1|+|G_2|-|B|`.
 
-Search use: none pending independent review; proposed exact propagation for
-uniform interior joins only.
-
-Reviews: none.
-
 <a id="claim-boundary-profiles-03"></a>
 ## 3. Forgetting, uniform introduction, and fixed relabelling are exact
-
-Claim ID: `docs/general_theorems/boundary_profiles.md#claim-boundary-profiles-03`
-
-Kind: local-deduction.
-
-Review state: ready.
 
 Scope: all profiles of finite boundaried graphs, fixed `p,q>=1`; each operation
 below has precisely the stated boundary data.
@@ -282,19 +267,8 @@ or permission to permute a boundary while keeping its attachments fixed.
 Together with claim 02, all three operations therefore act exactly on the
 finite profiles. QED.
 
-Search use: none pending independent review; proposed exact propagation for
-these operations only. In particular, arbitrary mixed introduction is excluded.
-
-Reviews: none.
-
 <a id="claim-boundary-profiles-04"></a>
 ## 4. Replacement theorem for every expression in this calculus
-
-Claim ID: `docs/general_theorems/boundary_profiles.md#claim-boundary-profiles-04`
-
-Kind: local-deduction.
-
-Review state: ready.
 
 Scope: fixed `p,q>=1`. Expressions have finite boundaried graphs as leaves and
 are generated by the two binary operators of claim 02 and the three unary
@@ -340,12 +314,6 @@ Boolean freeness observations. Exact order is not part of this finite invariant;
 when order matters, use the equal-order replacement assertion or track an
 additional integer order separately. Nor does the theorem preserve degrees,
 isomorphism type, or properties not determined by the stated profile.
-
-Search use: none pending independent review; proposed replacement of a block
-only inside a certified expression using the stated operators. It does not
-license replacement under arbitrary ambient incidences.
-
-Reviews: none.
 
 ## 5. Direct examples
 
@@ -501,7 +469,7 @@ complete join and disjoint union. Recursively using these two operations from
 singletons is the usual cograph construction, whose last nontrivial operation
 exhibits modules. This is a serious limitation for large Ramsey graphs, not a
 reason to assume they have such a decomposition. In particular,
-[research/n43/symmetry_structure.md, claim 03](../../research/n43/symmetry_structure.md#claim-symmetry-structure-03)
+[research/n43/symmetry_structure.md, claim 03](../n43/symmetry_structure.md#claim-symmetry-structure-03)
 proves that any `K_5/I_5`-free graph with a proper module of size at least 2 has
 order at most 39. Thus an order-43 `K_5/I_5`-free graph cannot have a top-level
 empty-boundary complete or anticomplete split into two nonempty interiors:
@@ -516,3 +484,227 @@ when that expression is given. It neither supplies a bounded-interface
 expression for every Ramsey graph nor transfers an inherited local graph to an
 unjustified stronger ambient Ramsey type. No new value or bound for `R(5,5)`
 follows from the note.
+
+<a id="independent-review"></a>
+## Independent review of the uniform boundary-profile calculus
+
+Historical independent written review by **Main**, distinct from author
+**BoundaryProfileTheory**. The checks and validation below are the retained
+historical record, not checks rerun during this editorial migration.
+
+### Claims and exact reviewed revision
+
+Main's independent review covers all four claims:
+
+- [claim-boundary-profiles-01](#claim-boundary-profiles-01)
+- [claim-boundary-profiles-02](#claim-boundary-profiles-02)
+- [claim-boundary-profiles-03](#claim-boundary-profiles-03)
+- [claim-boundary-profiles-04](#claim-boundary-profiles-04)
+
+It includes the strengthened section 5.3 with different interior graphs, the
+exact operator contracts, and the stated worked examples. It does not promote
+any sibling proof manuscript or alter search coverage.
+
+The review's recorded author-stage digest was recovered from the original
+committed topic by removing its later integration banner and the following blank
+line. Git history shows that the only subsequent change to that source before
+this consolidation relocated the module-obstruction reference; it changed no
+mathematical argument. This consolidation retains the statements, proofs,
+examples, and development verbatim apart from relative-link relocation and
+removal of repeated administrative labels. Historical acceptance therefore
+applies to the retained mathematical body, not to a newly reviewed revision.
+The old review's digest and revision bookkeeping remain in Git history rather
+than being duplicated here.
+
+### Dependencies reviewed
+
+The four proofs use only the note's definitions, finite maxima, elementary
+set decomposition, and structural induction on a specified expression.
+They require no numerical Ramsey theorem, catalogue or uniqueness premise.
+
+The contextual links to [signature anchors](signature_anchors.md) and
+[two-root gluing](../../docs/general_theorems/symmetry_pair_gluing.md) describe distinct pre-existing
+mechanisms, not additional premises of the four claims. Section 7 uses
+[the accepted module obstruction](../n43/symmetry_structure.md#claim-symmetry-structure-03)
+only for its stated completed-graph consequence: an order-43 K5/I5-free
+graph has no proper module with at least two vertices. The source statement
+and proof were read; its literature Ramsey premises are retained, not
+recertified by this review. The Antipov--Kratsch citation supplies standard
+terminology, not a mathematical dependency.
+
+### Independent proof checks
+
+#### Claim 01: the state and its exact observation
+
+For every homogeneous set Q in G, split it uniquely into U=Q intersect B
+and Q-B. If Q is a clique, U is a clique in the exact labelled boundary
+and Q-B lies in its eligible common interior neighborhood. Conversely,
+every clique there combines with U. The independent-set argument uses
+common interior nonneighbors. This independently derives the two maxima.
+
+The entries exclude |U|; adding it exactly once is essential. Clipping at
+the full threshold is safe because min(t,r+min(t,s))=min(t,r+s) for
+nonnegative r,s. This remains true when a boundary candidate already
+exceeds the threshold. Empty U supplies a candidate for every state,
+including the empty graph. At threshold 1, any nonempty graph is detected.
+Residual size 1 forces an empty eligible interior; residual size 0 needs
+no interior witness. Nonhomogeneous boundary subsets are not queried.
+
+The displayed finite state bound follows by choosing a labelled boundary
+graph and at most 2^|B| entries of each colour, each in 0..p or 0..q.
+It is an upper bound, not a realization assertion. No graph-order field
+is silently included in the invariant.
+
+#### Claim 02: both uniform joins
+
+Fix a homogeneous boundary U. The eligible interior after gluing is the
+disjoint union of the old eligible interiors. For a complete interior
+join, clique maxima add and independence maxima take their maximum.
+For an anticomplete join, these roles exchange. These equations also
+cover an empty side, a zero entry and an empty boundary. Clipping commutes
+with the sums and maxima used here.
+
+Both sides agree on the entire labelled boundary graph and their interiors
+are copied apart, so no conflicting boundary edge or duplicated interior
+vertex is hidden. The final boundary witness contributes |U| once.
+The graph order n1+n2-|B| is independently correct. Arbitrary mixed cross
+edges are not among this claim's operations.
+
+#### Claim 03: forgetting, introducing and relabelling
+
+Forgetting b partitions eligible homogeneous interior witnesses into
+those avoiding b and those using b. The latter branch exists exactly
+when U union {b} has the appropriate boundary homogeneous type. Its
+remaining vertices are counted by the old entry at U union {b}, plus
+one for b. This gives both displayed max recurrences and does not query
+an undefined entry. It also handles an empty old eligible interior:
+b alone is a genuine new interior witness. Iterated forgetting computes
+the same unchanged graph with its smaller boundary in every order.
+
+Introducing a boundary vertex leaves the interior unchanged. For entries
+not using it, eligibility is unchanged. For entries using it, a uniform
+edge/nonedge to the old interior either imposes no restriction or removes
+all interior candidates. Thus the entries are the old entry or zero;
+there is no extra one while the vertex is still in the boundary. The
+fixed edges to the old boundary determine which entries exist.
+
+A fixed bijection transports boundary sets, incidences and entries.
+It does not quotient by isomorphism, identify different boundary vertices,
+recover forgotten interior names or admit mixed interior introduction.
+
+#### Claim 04: context congruence
+
+The context's boundary graph is part of its type, and all unary operation
+data and binary bits are fixed. At every node on the hole-to-root path,
+Claims 02--03 compute the output profile solely from input profiles.
+Induction therefore preserves profile equality, including admissibility
+of subsequent typed operations. Claim 01 then gives equal clipped global
+homogeneous numbers and equivalent R(p,q)-freeness. Multiple replacements
+follow by successive applications.
+
+Graph order is not inferred from profile equality. The separate equal-order
+hypothesis is sufficient: unary introduction adds one, forgetting and
+relabeling preserve order, and a binary join subtracts the common boundary
+once. The same induction proves this assertion. The manuscript correctly
+does not preserve degrees, named-subset ranks or arbitrary contextual
+properties. It proves a sufficient congruence, not minimality or the
+converse that different profiles must have distinguishable Boolean tests.
+
+### Worked examples and exercised validation
+
+The examples were independently re-derived and exercised in an in-memory
+Python 3.12.3 validation with 30-second call deadlines. No packages,
+solver, catalogue, graph generation search or canonicalizer was used.
+Only subsets of explicitly fixed graphs were considered.
+
+- For b-x-y and b-z, the complete interior join has triangles; the
+  anticomplete join is the four-vertex path y-x-b-z. Its empty-boundary
+  clique and independence ranks after forgetting b are both 2.
+- The differently pointed three-vertex paths are distinguishable by the
+  same complete-join context, as stated.
+- The two section 5.3 examples have interiors P3 and K2+I1, and different
+  boundary degrees 1 and 2. Both have c(empty)=a(empty)=2 and
+  c({b})=a({b})=1 at p=q=3. Named interior subset {x,y} has different
+  ranks, so this is genuine information loss with safe replacement.
+  Both joins to a fixed context and subsequent forgetting preserve their
+  observed profile equality.
+- The P4 versus C4 mixed-attachment counterexample was checked by its
+  explicit triangle/C5 witnesses. It correctly limits the operator language.
+
+The scripted operator checks covered p,q=1..4, including threshold 1:
+64 uniform-join table entries, 160 forgetting entries, 1,888 uniform
+introduction entries and 112 relabelling entries. All passed. The broader
+calculus validation also exercised the C5 versus identically ported,
+relabelled P4 distinction. The dated
+[research report](../reports/2026-10-19-ramsey-attachment-calculus.md)
+retains the full validation source, commands, a corrected separate dual
+capacity-fixture assertion, and exact outputs. The correction concerned
+an erroneous fixture expectation, not this manuscript or its four claims.
+
+### Findings
+
+No proof gaps found. The important safeguards are explicit in the source:
+full labelled boundary, disjoint interiors, uniform cross joins, exact
+homogeneous eligibility, threshold clipping, shared boundary counted once,
+and equal order as an additional replacement condition when needed.
+
+The primeness discussion is confined to completed graphs. A partial module
+can be broken by later attachments. Nonempty interfaces need not define
+modules. There is no bounded-width or compact-decomposition theorem.
+
+### Outcome
+
+**Accepted**: all four claims, their exact operator contracts and the stated
+worked examples in the author-stage body identified above.
+Proposed permitted use is exact propagation and profile replacement only
+inside certified expressions formed from these operators. It is not a
+complete generator or a proof of coverage of any Ramsey branch.
+
+### Limits
+
+This is an independent written mathematical review, not a Lean proof,
+formal certificate, novelty review or numerical Ramsey improvement.
+No bound on required interface size, expression size or runtime follows.
+The state count can be large, and any graph can be represented trivially
+by retaining all its vertices as a boundary. Arbitrary mixed attachments
+require the richer interface, not these smaller tables.
+
+## Existing Lean correspondence
+
+The [Lean overview](../../lean/README.md#uniform-boundary-profiles) and
+[theorem-module documentation](../../lean/Ramsey/theorems/README.md#uniform-boundary-calculus)
+record proved interfaces for all four claims in namespace `Ramsey.Boundary`,
+re-exported by `import Ramsey`. This is existing repository correspondence, not a
+new build or axiom audit performed during this consolidation.
+
+| Claim | Existing interfaces and modules |
+| --- | --- |
+| 01 | `card_profile_le`, `capped_homogeneousNumber`, `isRamseyGraph_iff_candidates`, and endpoint lemmas in [BoundaryProfiles.lean](../../lean/Ramsey/theorems/BoundaryProfiles.lean). |
+| 02 | `entry_glue`, the four colour-specific formulas, whole-number corollaries, and `glue_order_sub` in [BoundaryProfileGluing.lean](../../lean/Ramsey/theorems/BoundaryProfileGluing.lean) and its definition module. |
+| 03 | Exact unary recurrences and profile congruences in [BoundaryProfileOperations.lean](../../lean/Ramsey/theorems/BoundaryProfileOperations.lean); retained-boundary reindexing and forgetting-order invariance in [BoundaryProfileTransport.lean](../../lean/Ramsey/theorems/BoundaryProfileTransport.lean). |
+| 04 | `uniform_replacement`, `uniform_replacement_observations`, `uniform_replacement_isRamseyGraph`, and `uniform_ordered_replacement` in [BoundaryProfileContexts.lean](../../lean/Ramsey/theorems/BoundaryProfileContexts.lean). |
+
+Concrete definitions use `B ⊕ X`, separate retained boundary labels from the
+finite interior, and store the exact boundary graph with two capped tables
+indexed only by homogeneous boundary sets. Interior names and graph order are
+not stored. The typed `UniformDerivation` grammar retains both join bits, all
+three unary operations, fixed operation data, and labelled-boundary gluing
+compatibility. Replacement leaves can have unrelated finite interior types;
+order preservation requires the separate equal-order hypothesis. The examples
+and decomposition discussion are explanatory, not additional formalized claims.
+No arbitrary mixed-attachment, minimal-state, bounded-width, or runtime theorem
+is asserted.
+
+## Changelog
+
+- The original development introduced the four exact profile claims and the
+  uniform-context replacement theorem; its strengthened equal-profile example
+  uses genuinely different interior graphs and records lost named-subset ranks.
+- Main's historical independent review accepted the four claims, their operator
+  contracts, and worked examples, while retaining the uniform-language,
+  equal-order, completed-module, and no-coverage limitations.
+- Consolidated the topic and its substantive independent review here, preserving
+  the reviewed mathematical development and stable anchors. Removed repeated
+  administrative metadata and obsolete source/review files; relocated links and
+  recorded the existing Lean correspondence. This is an editorial consolidation,
+  not renewed mathematical review or an extension of accepted scope.

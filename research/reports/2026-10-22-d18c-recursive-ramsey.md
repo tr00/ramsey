@@ -35,7 +35,7 @@ anchored claims, all **ready for independent review**:
   each colour has at most988 masks of width24, with exact future semantics.
 
 The new state congruence permits arbitrary fully assigned future rows, while the
-existing [boundary profiles](../../docs/general_theorems/boundary_profiles.md)
+existing [boundary profiles](../foundations/boundary_profiles.md)
 restrict their context algebra to uniform interior joins. The new theorem
 retains overlapping support masks. Each reachable fixed-parameter history has
 a polynomial-size representation; the number of possible states can still be
@@ -97,6 +97,9 @@ enumerating completions. A small [retained DAG](2026-10-22-d18c-recursive-ramsey
 and [validation output](2026-10-22-d18c-recursive-ramsey/validation.json) pin exact
 proof, prototype, driver, DAG, and dependency hashes. They are author self-checks,
 not independent review, a general production checker, or branch-closing evidence.
+The retained hashes describe the original snapshots; the current driver follows
+later topic relocations. Replay in a temporary tree to avoid replacing these
+historical outputs.
 
 The remaining large obligation is explicit: cover all permitted connected
 neighborhood inputs and exclude all completions of each, with the exact state

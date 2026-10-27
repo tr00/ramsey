@@ -38,9 +38,9 @@ forbidden homogeneous set. They assert no Ramsey-criticality of `H`.
 Write `omega` and `alpha` for clique and independence number, with value
 zero on the empty graph.
 
-The pre-existing [signature criterion](signature_anchors.md#claim-signature-anchors-01),
-[weighted anchor method](signature_anchors.md#claim-signature-anchors-04),
-and [transversal deletion/defect operator](transversal_deletion.md#claim-transversal-deletion-02)
+The pre-existing [signature criterion](../../research/foundations/signature_anchors.md#claim-signature-anchors-01),
+[weighted anchor method](../../research/foundations/signature_anchors.md#claim-signature-anchors-04),
+and [transversal deletion/defect operator](../../research/foundations/transversal_deletion.md#claim-transversal-deletion-02)
 remain the relevant general results. The contribution here is the passage
 from **individual face capacities** to **labels on a core link**, and then
 to colouring and rigid-partition obstructions. We do not give a second
@@ -317,7 +317,7 @@ for `tau_s(W)` need not be new searches. For example, let `s>=2`,
 `m=|W|`, and `0<=t<=m`. Here `alpha(W)<3` by Claim 03. Given a justified
 edge lower bound `L` for every `(m-t)`-vertex `K_s/I_3`-free graph, and
 a proved Ramsey upper bound `R` for `R(s,2)`,
-[transversal deletion Claim 01](transversal_deletion.md#claim-transversal-deletion-01)
+[transversal deletion Claim 01](../../research/foundations/transversal_deletion.md#claim-transversal-deletion-01)
 gives
 
 ```text
@@ -331,7 +331,7 @@ of `H`. Taking `s=p-r` and `t=r-1` in (8), when `t<=m`, supplies the
 tight-clique premise for (6). If `s=1`, use the exact value
 `tau_1(W)=m` instead. Equality or small defect in the deletion bound can
 also restrict the actual label set `L(Q)` through the existing
-[component-defect identity](transversal_deletion.md#claim-transversal-deletion-02).
+[component-defect identity](../../research/foundations/transversal_deletion.md#claim-transversal-deletion-02).
 
 Search use: none pending independent review; prospective use is a
 colouring obstruction or structural equality filter, not a graph
@@ -430,7 +430,7 @@ conclusion is transported without an ambient-type inference.
 ## Worked instance A: independent-anchor singleton capacities
 
 This is the mechanism already proved in
-[signature anchors Claim 03](signature_anchors.md#claim-signature-anchors-03),
+[signature anchors Claim 03](../../research/foundations/signature_anchors.md#claim-signature-anchors-03),
 not a new anchor bound. Let `X` be any independent `(q-1)`-set in a
 `K_p/I_q`-free graph, let `T` be any exterior set of order `b`, and
 put `S_t=N_G(t) intersect X`. No rooted decomposition is needed for
@@ -466,11 +466,11 @@ four singleton cliques of order three and all remaining signatures of
 size two. This does not assert those signatures can be realized in an
 ambient Ramsey-free graph. Weighted anchors and degree/excess transport
 remain exactly the separate existing results
-[Claims 03--04](signature_anchors.md#claim-signature-anchors-03).
+[Claims 03--04](../../research/foundations/signature_anchors.md#claim-signature-anchors-03).
 
 The complement instance uses a clique `(p-1)`-anchor, singleton
 **missing** signatures, and capacity `q-2`, recovering
-[signature anchors Claim 05](signature_anchors.md#claim-signature-anchors-05).
+[signature anchors Claim 05](../../research/foundations/signature_anchors.md#claim-signature-anchors-05).
 It is the dual of this same mechanism, not our second worked mechanism.
 
 ## Worked instance B: critical-core exterior labels without choosing a core

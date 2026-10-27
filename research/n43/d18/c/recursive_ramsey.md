@@ -146,7 +146,7 @@ derivatives again have the same semantics. This is an exact right congruence for
 arbitrary fully assigned future rows. It asserts a sufficient equivalence, not
 that semantically equivalent states always have the same normal form. QED.
 
-Unlike [uniform boundary profiles](../../../../docs/general_theorems/boundary_profiles.md),
+Unlike [uniform boundary profiles](../../../foundations/boundary_profiles.md),
 this congruence allows arbitrary mixed attachment rows. It retains overlapping
 masks. Arbitrarily supplied states can have exponentially many masks, but Claim 6
 proves a polynomial mask bound for states reached from fixed Ramsey prohibitions.

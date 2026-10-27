@@ -43,7 +43,7 @@ With `H=A-T5` (13 vertices) and `e(F)=68+q`:
 - Exact decomposition `e_F(H)+e_F(T5,H)+e_F(T5)=68+q`.
 - Derived here, unreviewed: the total `33+25+2=60<68+q` is the t=5
   specialization of the accepted
-  [transversal deletion claim 01](../../../../../docs/general_theorems/transversal_deletion.md#claim-transversal-deletion-01)
+  [transversal deletion claim 01](../../../../foundations/transversal_deletion.md#claim-transversal-deletion-01)
   with the published order-13 minimum 33. As at t=4, no arithmetic kill.
 
 The floors are weaker than t4's (order-13 census bound 33 vs 41, neighbor

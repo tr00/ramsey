@@ -1,19 +1,36 @@
 # Safe augmentation below a Ramsey edge extremum
 
-Integration status (2026-10-15): every claim below is independently accepted
-on its stated premises. The author-stage “ready” labels are preserved to
-keep the exact reviewed proof text unchanged. See the
-[independent review](review_safe_augmentation_20261015_transversal.md)
-and [integration manifest](integration_manifest.json).
+- **Kind and scope:** five local deductions for finite simple graphs on a fixed
+  labeled vertex set in a nonempty `C(n;r,s)`, with `r>=3`, `s>=2`.
+  The actual extremal maximum `M` and an independently justified upper bound
+  `U>=M` are distinct; an arbitrary reference count is not a substitute.
+- **Author:** `augmentation_author`. **Independent reviewer:**
+  `transversal_compatibility`, distinct from the author. **Review state:**
+  accepted for claims 01–05 on their stated premises, retaining historical
+  acceptance rather than recording a new review. Claim 05 is conditional on
+  the external upper bound 85; its ancillary slice statement also depends on
+  the source frontier identity.
+- **Dependencies:** the definitions and preceding claims specified below;
+  the degree-18 application uses the cited Angeltveit–McKay census upper bound
+  and source slice identity. The external table and census were not recertified.
+- **Search use:** claims 01–02 propagate; claim 03 branches only with both
+  saturated and augmentable cases retained. Claim 04 propagates and supports
+  independent-set enumeration only with complete `r`-set coverage. Claim 05
+  propagates on its conditional premises, and its generation split likewise
+  retains both alternatives. No order-43 branch is closed.
 
-Date: 2026-10-15. Author: `augmentation_author`.
+The deficit budget controls safe additions. At deficit one the safe-edge graph
+is a star forest with at most `r-1` edges; at higher deficit the exact object
+is a minimal-conflict hypergraph, not necessarily a star forest. Saturated
+cases cannot be omitted, extremal-parent deletion families can overlap, and
+parent deletions require the independent-set filter. The degree-18 application
+lists necessary patterns, not existence claims.
 
 This parameterizes the safe-addition argument in
-[degree-18 clique budgets and augmentation](../../research/n43/d18/cliques_augmentation.md),
+[degree-18 clique budgets and augmentation](../n43/d18/cliques_augmentation.md),
 section 2. It is mathematical work only: no graph enumeration, solver,
 installation, download, or literature search was performed. No novelty claim
-is made. The statements below are ready for independent review, rather than
-accepted or formally certified results.
+is made. Historical prose acceptance is not a formal proof-checking certificate.
 
 ## Setting and the actual extremal parameter
 
@@ -40,10 +57,6 @@ uncertified conjectural upper bound, cannot replace `M`.
 <a id="claim-safe-augmentation-01"></a>
 ## 1. Single-edge obstruction and the deficit budget
 
-Claim ID: `docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-01`
-
-Kind: local-deduction. Review state: accepted.
-
 Scope: all `n,r,s,G` in the setting; every missing edge `uv` and every
 subset `F` of missing edges. Dependencies: definitions above only.
 
@@ -60,14 +73,10 @@ absence of `I_s`, so any violation after exceeding the budget is a `K_r`.
 For `q=0`, a safe edge would violate the budget. The same argument uses
 `e(G)+|F|<=M<=U` for the upper-bound version.
 
-Search use: propagate. Reviews: [review](review_safe_augmentation_20261015_transversal.md).
+Search use: propagate.
 
 <a id="claim-safe-augmentation-02"></a>
 ## 2. One below the maximum: a bounded star forest
-
-Claim ID: `docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-02`
-
-Kind: local-deduction. Review state: accepted.
 
 Scope: the setting with `e(G)=M(n;r,s)-1`; equally, an established upper
 bound `U` and `e(G)=U-1`. Dependencies: claim 01.
@@ -110,14 +119,10 @@ in `G`: choose an incident `S` edge at each vertex and apply the disjoint
 edge rule. Hence all chosen vertices form a clique in `G` of size exactly
 `e(S)`. Since `G` has no `K_r`, `e(S)<=r-1`.
 
-Search use: propagate. Reviews: [review](review_safe_augmentation_20261015_transversal.md).
+Search use: propagate.
 
 <a id="claim-safe-augmentation-03"></a>
 ## 3. The precise generation split at deficit one
-
-Claim ID: `docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-03`
-
-Kind: local-deduction. Review state: accepted.
 
 Scope: `G in C(n;r,s)` with `e(G)=M-1`.
 Dependencies: claims 01 and 02.
@@ -142,14 +147,10 @@ version at `U-1`, a safe edge implies `M=U`; if `U` is not attained, every
 graph at `U-1` in the class is saturated. In particular an upper bound
 alone never supplies a catalogue of extremal parents.
 
-Search use: branch. Reviews: [review](review_safe_augmentation_20261015_transversal.md).
+Search use: branch.
 
 <a id="claim-safe-augmentation-04"></a>
 ## 4. Higher deficit: the exact conflict hypergraph
-
-Claim ID: `docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-04`
-
-Kind: local-deduction. Review state: accepted.
 
 Scope: the setting with arbitrary `q>=1`, including every `r`-vertex subset
 of `V(G)`; no restriction to a selected family of clique candidates.
@@ -203,14 +204,10 @@ set. There is no assumption that initial safety alone permits all edges
 of `F` to be added together.
 
 Search use: propagate; branch when used to enumerate all independent
-sets under complete `r`-set coverage. Reviews: [review](review_safe_augmentation_20261015_transversal.md).
+sets under complete `r`-set coverage.
 
 <a id="claim-safe-augmentation-05"></a>
 ## 5. Exact degree-18 specialization and its limits
-
-Claim ID: `docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-05`
-
-Kind: local-deduction. Review state: accepted.
 
 Scope: every 18-vertex `A` with neither `K4` nor `I5`, conditional on the
 published extremal upper bound `e(A)<=85`. For a degree-18 pivot in an
@@ -218,8 +215,8 @@ order-43 `(5,5)`-free candidate this applies to `A=N(v)`; no degree-excess,
 cross-column, or root-selection hypothesis is needed.
 
 Dependencies: claims 01–04; the upper bound 85 recorded in
-[theory phase 1](../theory_phase_1.md), section containing the interval
-`50<=a<=85`, and [reduction index](../../research/n43/reductions.md), sections 8
+[theory phase 1](../../docs/theory_phase_1.md), section containing the interval
+`50<=a<=85`, and [reduction index](../n43/reductions.md), sections 8
 and 15. Those notes attribute the census extrema to Angeltveit–McKay,
 *R(5,5)<=46*, arXiv:2409.15709v2, Appendix A, Table 1. The external table
 has not been independently rechecked in this task.
@@ -254,18 +251,19 @@ or the three-edge conclusion. `A` may contain `I4`; the proof prohibits
 only `I5` there. No order-43 branch is closed by these statements.
 
 Search use: propagate; branch for the saturated/augmentable split only
-when both alternatives are retained. Reviews: [review](review_safe_augmentation_20261015_transversal.md).
+when both alternatives are retained.
 
 ## Provenance, self-check, and handoff
 
-Source revision at start: `b12925f7a96d24e18d06b0237930a32e30660ca2`.
-The exact input SHA-256 values read for this derivation were:
-
-```text
-4cb5c4bd34d7d45a3c42783fdf091ac3aae0acafcc6f6fd6203f83cf9d366b2c  research/n43/d18/cliques_augmentation.md
-0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54  research/n43/d18/frontier_band.md
-51220632656f91905d0ace361179ea8953a51ea6e544005d723ac7425df7e5b2  docs/workflow.md
-```
+The historical [integration manifest](../../docs/general_theorems/integration_manifest.json)
+records acceptance of all five claims and a status-banner-only integration.
+The committed integrated source reproduces the manifest's integrated snapshot;
+removing that banner reproduces the exact uncommitted snapshot identified by
+its independent review. Subsequent history changes only per-claim review
+administration and relative links, not the retained mathematical argument.
+This consolidation preserves that argument and its hypotheses; it is not a
+renewed mathematical review. The original snapshot identifiers remain in the
+unchanged historical evidence rather than being repeated here.
 
 Author self-check: The two pair endpoint cases exhaust the possibilities;
 each clique witness must use both safe additions. The forbidden path is
@@ -281,5 +279,62 @@ imply extremality, and a maximal feasible augmentation may have fewer than
 No empirical claim, catalogue completeness assertion, novelty assertion,
 or certified Ramsey nonexistence result is made. Future enumeration must
 retain all saturated cases and all conflict-compatible choices, with its
-own coverage evidence. The coordinator owns shared-index/report updates;
-this author has edited only this theorem file.
+own coverage evidence.
+
+<a id="independent-review"></a>
+## Independent review of safe augmentation
+
+Reviewer: `transversal_compatibility`; author: `augmentation_author`, distinct
+from the reviewer. Coverage: claims `claim-safe-augmentation-01` through
+`claim-safe-augmentation-05`.
+
+Dependencies reviewed: Claims 01--04 are independently rederived below.
+For Claim 05, the value 85 is accepted only as the stated external upper
+bound. The recorded literature table and its proof/census are not
+independently rechecked in this audit. The source frontier identity is used
+only for the ancillary slice-location statement, not for the augmentation
+conclusions.
+
+Checks: assumptions, quantifiers, clique witness coverage, ambient graph
+types, upper-bound variant, minimal-conflict rank, and generation coverage.
+
+### Independent checks
+
+All five claims accepted on their exact hypotheses. A new clique must use
+all required added edges; the edge budget works with an upper bound U as
+well as an attained maximum. At deficit1, pair conflicts force the safe-edge
+star forest and at most r-1 edges, including r3. The saturated/unsaturated
+split is complete and retains saturated graphs even when U is unattained.
+
+The minimal-conflict hypergraph covers every r-set, has rank<=min(q+1,C(r,2)),
+and handles empty safe/conflict families. No star-forest conclusion is
+imported at higher deficit. Substitution r4/s5/U85 gives at most three safe
+edges at a 84; the listed forests are possible patterns, not constructions.
+No conclusion transfers the A18 edge cap to B24.
+
+Outcome: **accepted**, all five claims, conditional for Claim 05 on its
+stated external upper bound and for the slice statement on the source
+frontier identity.
+
+Permitted search use: Claims 01, 02, 04, and 05 propagate only on their
+stated hypotheses. Claim 03's branch split retains both cases. Conflict
+generation use requires coverage of every r-subset. No claim terminates
+an order-43 branch.
+
+Limits: no literature novelty check, external census recertification,
+graph enumeration, implementation audit, or formal proof-checking
+certificate. A substantive proof change requires renewed review.
+
+## Changelog
+
+- Established the deficit budget, deficit-one star-forest bound and complete
+  saturated/augmentable split, exact higher-deficit conflict hypergraph, and
+  conditional degree-18 specialization.
+- Independent review accepted all five claims on their explicit hypotheses,
+  retaining the external-bound and slice-identity conditions and the stated
+  generation-coverage limits; no census recertification or branch closure.
+- Consolidated the theorem and independent review into this authoritative
+  topic, preserving the mathematical development, stable anchors, and
+  substantive self-check and review limits. Removed repeated administrative
+  fields and stale readiness/handoff prose. Historical snapshot correspondence
+  was traced through the integration manifest and Git; no new review occurred.

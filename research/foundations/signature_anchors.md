@@ -1,16 +1,37 @@
 # Cross signatures and weighted homogeneous anchors
 
-Integration status (2026-10-15): every claim below is independently accepted
-on its stated premises. The author-stage “ready” labels are preserved to
-keep the exact reviewed proof text unchanged. See the
-[independent review](review_signature_anchors_20261015_overlap.md)
-and [integration manifest](integration_manifest.json).
+- **Kind and scope:** six local deductions for rooted simple `K_p`/`I_q`-free
+  graphs (`p,q>=3`); claim 06 specializes to order 43 and `(p,q)=(5,5)`.
+- **Author:** `augmentation_author` (augmentation-author agent).
+  **Independent reviewers:** overlap-author agent and audit-pending coordinator,
+  each distinct from the author. **Review state:** accepted for all six claims
+  on their explicit hypotheses, retaining historical acceptance rather than
+  recording a new mathematical review.
+- **Dependencies:** Ramsey definitions and the direct dependencies stated below;
+  numerical applications require independently established Ramsey bounds.
+  Claim 06 uses `R(4,3)=9` and `R(3,5)=14`; the optional global degree floor 18
+  is conditional on `R(4,5)=25`. These literature premises were checked for
+  applicability, not recertified.
+- **Search use:** propagate. Complete mixed-set checking requires every relevant
+  homogeneous opposite-side set; weighted certificates require explicit actual
+  anchors, nonnegative weights, loads and the stated degree/excess premises.
+  No branch closure, perfect-cover existence or new Ramsey value follows.
 
-Date: 2026-10-15. Author: `augmentation_author`. Purely mathematical
-parameterization of [four-bit anchors](../../research/n43/reductions.md), section 6,
-and [frontier anchor defects](../../research/n43/d18/frontier_band.md).
-No computation, installation, download, or novelty review was performed.
-All claims are ready for independent review, not yet accepted.
+The exact cross-column criterion characterizes rooted assembly; its numerical
+union/intersection consequences do not replace the induced-graph tests.
+Independent anchors give Hall conditions, singleton capacities and exact
+incidence defects. Weighted anchors yield degree/excess certificates, with a
+clique-anchor dual and explicit degree-18/20 specializations. Anchor existence
+and nonnegative excess are hypotheses where stated, not consequences of the
+signature count. No novelty review was performed.
+
+This is a mathematical parameterization of
+[four-bit anchors](../n43/reductions.md), section 6, and
+[frontier anchor defects](../n43/d18/frontier_band.md).
+The [Lean catalogue](../../lean/Ramsey/theorems/README.md#cross-signatures-and-homogeneous-anchors--accepted)
+inventories these claims; its separate formalization-status sections distinguish
+proved interfaces from prose acceptance. This topic does not assert that all
+six general claims are formally checked.
 
 ## Setting
 
@@ -29,10 +50,6 @@ graph; repeated columns are allowed.
 
 <a id="claim-signature-anchors-01"></a>
 ## 1. Exact mixed homogeneous-set criterion
-
-Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-01`
-
-Kind: local-deduction. Review state: accepted.
 
 Scope: every graph in the setting, or conversely a proposed pair of
 internal graphs of the stated ambient types with proposed cross columns.
@@ -64,14 +81,10 @@ are covered, including the endpoint `p-t=1` or `q-t=1` that forces an
 empty intersection or empty uncovered set.
 
 Search use: propagate; complete mixed-set checking with the full family
-of homogeneous `Q` sets. Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
+of homogeneous `Q` sets.
 
 <a id="claim-signature-anchors-02"></a>
 ## 2. Numerical union and intersection consequences
-
-Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-02`
-
-Kind: local-deduction. Review state: accepted.
 
 Scope: every actual clique or independent set `Q subset B`, with the
 size ranges in claim 01. Dependencies: claim 01 and Ramsey definitions;
@@ -101,14 +114,10 @@ These numerical consequences alone do not replace the induced-graph
 conditions of claim 01. No `I_(q-1)` prohibition is imposed on `A`, and
 no `K_(p-1)` prohibition is imposed on `B`.
 
-Search use: propagate. Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
+Search use: propagate.
 
 <a id="claim-signature-anchors-03"></a>
 ## 3. Independent anchors: Hall, capacity, incidence, and exact defects
-
-Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-03`
-
-Kind: local-deduction. Review state: accepted.
 
 Scope: any independent anchor `X subset A` of size `k=q-1`. Set
 `S_y=C_y intersect X` for all `y in B`. Dependencies: claim 01 only.
@@ -157,14 +166,10 @@ and it is completely joined to `x`, so it has size at most `p-2`. Thus
 least three proves the displayed identities. Nonnegativity gives the two
 incidence bounds. Equality is read from the respective nonnegative terms.
 
-Search use: propagate. Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
+Search use: propagate.
 
 <a id="claim-signature-anchors-04"></a>
 ## 4. Weighted anchors give degree and excess certificates
-
-Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-04`
-
-Kind: local-deduction. Review state: accepted.
 
 Scope: any family `F` of independent `(q-1)`-anchors in `A`, with arbitrary
 nonnegative real weights `w_X`. Define
@@ -223,14 +228,9 @@ additional conditions. A family need not be disjoint or cover every
 vertex; the zero-weight family is allowed.
 
 Search use: propagate with explicit weights, loads, and degree premises.
-Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
 
 <a id="claim-signature-anchors-05"></a>
 ## 5. Clean clique dual
-
-Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-05`
-
-Kind: local-deduction. Review state: accepted.
 
 Scope: any clique `Y subset B` of size `p-1`, with missing signatures
 `T_z=Y minus N_G(z)` for `z in A`. Dependencies: the elementary signature
@@ -266,14 +266,10 @@ counting missing incidences gives
 `e(A,Y)=(p-1)a-sum_z|T_z|`, proving both formulas. No claim is made
 about Hall's condition for noncliques `P`.
 
-Search use: propagate. Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
+Search use: propagate.
 
 <a id="claim-signature-anchors-06"></a>
 ## 6. `(5,5)` specialization across pivot degrees
-
-Claim ID: `docs/general_theorems/signature_anchors.md#claim-signature-anchors-06`
-
-Kind: local-deduction. Review state: accepted.
 
 Scope: an order-43 `(5,5)`-free graph, any pivot of degree `d`; numerical
 subcases `d=18` and `d=20`; independent four-anchors when they exist.
@@ -325,17 +321,21 @@ must be separately justified; it is not a conclusion of the signature
 count itself.
 
 Search use: propagate with actual anchors and stated degree premises.
-Reviews: [review](review_audit_pending_signature_anchors_20261015.md).
 
 ## Provenance and limits
 
-Input revision: `b12925f7a96d24e18d06b0237930a32e30660ca2`. SHA-256 read:
-
-```text
-492e4ce1fb5ea8e4f7292153f927089d632587eb734e4f8354ab61bdd5d6f29b  research/n43/reductions.md
-0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54  research/n43/d18/frontier_band.md
-e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a  research/n43/d18/dense_pivot_coverage.md
-```
+The signature record in the
+[historical integration manifest](../../docs/general_theorems/integration_manifest.json)
+identifies the reviewed source, its integrated snapshot and the original
+independent review. The committed integrated snapshot in Git (`f98a128`)
+matches that record; removing only its integration-status banner reconstructs
+the exact source fingerprint recorded by both independent reviewers. Subsequent
+pre-migration edits affected only review-state/review-link administration and
+relocated source references. The setting, scopes, dependencies, conclusions,
+proof prose and search conditions retained above match that reviewed development
+after removal of repeated administrative fields. Historical paths and hashes
+remain identifiers of the original bytes, not of this relocated topic.
+This correspondence preserves existing acceptance; it is not renewed review.
 
 Author self-check: The exact criterion includes sets through `v` and
 mixed sets avoiding it. The inherited forbidden types differ on the two
@@ -345,6 +345,98 @@ vertex for the clique obstruction. The exact defect has separate small-
 `b` and large-`b` equality cases. Weighted inequalities use actual loads
 and invoke packing plus nonnegative excess only when passing to total
 excess. Complementation swaps parameters and side roles. These are
-self-checks only; independent review and novelty review remain outstanding.
+self-checks only, separate from the historical independent reviews below;
+novelty review remains outstanding.
 No fractional perfect-cover existence, saturated-branch exclusion,
 order-43 nonexistence certificate, or new Ramsey value follows here.
+
+<a id="overlap-author-review"></a>
+## Independent review of signatures and weighted homogeneous anchors
+
+Historical reviewer: overlap-author agent, distinct from the augmentation-author
+agent (`augmentation_author`). Coverage: all six claims above. The original
+acceptance applies through the reviewed-body correspondence established in
+[Provenance and limits](#provenance-and-limits), not a new review of this move.
+
+Dependencies reviewed: all six direct proofs, the definitions of Ramsey
+numbers including `R(i,1)=R(1,j)=1`, and the stated small Ramsey premises
+`R(4,3)=9`, `R(3,5)=14` in the numerical specialization. The source
+four-bit anchor and frontier-defect arguments were read in
+[four-bit anchors](../n43/reductions.md), section 6, and
+[frontier anchor defects](../n43/d18/frontier_band.md) while checking
+the companion abstractions. No published small Ramsey certificates or the
+optional global degree floor 18 were independently recertified.
+
+### Independent checks
+
+All six direct proofs were checked. Mixed clique/independent splits give
+exact rooted assembly, including parameter-one and empty-family boundaries.
+Residual induced types give the numerical union/intersection caps. The Hall
+condition quantifies over every independent subfamily; singleton classes
+have capacity p-2. Incidence defects handle b<c, b=c and repeated signatures.
+
+Weighted excess needs nonnegative loads, load<=1 and nonnegative excess on
+positive-load vertices; no perfect packing is assumed. The clique-anchor
+dual exchanges asymmetric parameters correctly. At pivot degrees18/20,
+independent-anchor incidence floors are36/32 and clique-anchor ceilings48/52.
+A degree 20 pivot alone does not make excess above degree20 nonnegative.
+
+Outcome: accepted for all six claims on their explicit hypotheses and retained
+Ramsey premises. No proof correction is required for this exact revision.
+
+Permitted search use: exact mixed-set propagation using the complete family
+of opposite-side homogeneous sets, numerical signature and anchor propagation,
+and weighted excess bounds with recorded weights, loads and degree premises.
+These provide no fractional-cover existence or order-43 closure.
+
+Limits: no graph computation, download, formal proof checking, or literature
+certificate recertification was performed. The optional degree floor and all
+numerical Ramsey inputs remain stated application premises. Novelty was not
+checked. Proof changes require renewed exact-revision review.
+
+<a id="audit-pending-review"></a>
+## Independent audit of cross signatures and homogeneous anchors
+
+Historical reviewer: audit-pending coordinator, distinct from
+`augmentation_author` and from the original audit session's three subagent
+auditors. Coverage: all six claims above, with the same reviewed-body
+correspondence. This is a separate historical independent acceptance.
+
+Dependencies reviewed: the six direct arguments, the precise rooted graph
+setting and complement roles, and the Ramsey inputs R(4,3)=9 and R(3,5)=14.
+The optional global minimum-degree floor 18 is conditional on R(4,5)=25.
+These classical premises were checked for applicability, not recertified.
+
+### Independent checks
+
+All six claims were rederived. Every mixed forbidden-set split and empty
+endpoint case is covered. Hall applies to actual independent families;
+singleton capacities and exact defect identities handle repeated signatures.
+Weighted sums retain load and nonnegative-excess hypotheses, without an
+assumed perfect cover. The asymmetric clique-anchor dual and degree18/20
+numerical substitutions were checked in the correct complement orientation.
+
+Outcome: accepted, all six claims on their stated hypotheses.
+Permitted search use: propagate; Claim 01 supplies complete mixed-set checking
+only when every required homogeneous B subset is covered. Explicit anchor
+weights and loads are required for weighted certificates. No branch closes.
+Limits: mathematical independent review, without formal proof checker,
+literature novelty check, computation, or census recertification. Substantive
+source edits invalidate exact-revision acceptance and need a new review.
+
+## Changelog
+
+- Established the exact rooted mixed-set criterion and its numerical
+  consequences, independent-anchor Hall/capacity/defect identities, weighted
+  degree/excess certificates, clique dual and order-43 specialization.
+- Both independent reviewers accepted all six claims on their explicit
+  hypotheses and retained Ramsey premises, without proof correction. Their
+  checks cover boundary and equality cases, repeated signatures, complement
+  orientation, weighted-load restrictions and the numerical substitutions;
+  external certificate recertification, novelty and branch closure remain
+  outside the acceptance.
+- Consolidated the topic and both historical reviews here, preserving the
+  mathematical development, six claim anchors and existing heading anchors.
+  Removed contradictory author-stage readiness labels and repeated per-claim
+  administration; relocated outgoing links. Historical acceptance was matched
+  to the retained reviewed body rather than claimed as a new review.

@@ -28,8 +28,10 @@ obligations and formalization backlog.
 
 For shared tools and their hypotheses, use the [general theorem map](docs/general_theorems/README.md)
 and the topic links in the [d18 index](research/n43/d18/README.md). The
-[report index](research/reports/README.md) organizes research, formalization and engine
-history. [Workflow](docs/workflow.md) defines review states and
+[historical report index](research/reports/README.md) preserves earlier research,
+formalization and engine records. New research uses one topic file under
+`research/`, with inline review and a bottom changelog, not separate reports.
+[Workflow](docs/workflow.md) defines this format and review states;
 [reproducibility](docs/reproducibility.md) defines computational evidence.
 
 This dashboard is navigation, not an independent proof audit or coverage

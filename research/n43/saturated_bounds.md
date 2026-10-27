@@ -34,7 +34,7 @@ Claim ID: n43/saturated_bounds.md#claim-saturated-triangle-transversal
 Kind: local-deduction  
 Review state: ready  
 Scope: every saturated G in the setting, every pivot and every y in B  
-Dependencies: [single-edge obstruction](../../docs/general_theorems/safe_augmentation.md#claim-safe-augmentation-01); I5-freeness  
+Dependencies: [single-edge obstruction](../foundations/safe_augmentation.md#claim-safe-augmentation-01); I5-freeness
 Conclusion: C_y contains a triangle and meets every I4 of A; the bounds below hold  
 Search use: none pending review; proposed propagation and structural branching  
 Reviews: none

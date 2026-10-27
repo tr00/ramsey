@@ -1,10 +1,16 @@
-# Research reports
+# Historical research reports
 
-Reports record session outcomes, validation and provenance. Current branch
-states and mathematical statements live in [results](../../results.md), the
-[reduction index](../n43/reductions.md) and the linked proof notes. Older
-author-stage labels describe their date; later acceptance or closure is
-recorded separately.
+This is a legacy archive, not the destination for new research or review work.
+Use [one topic file under research/](../../docs/workflow.md) for metadata and
+summary, detailed statements and proofs, inline independent review, and a bottom
+changelog. Do not add dated session reports, separate reviews, or prose-hash
+manifests. Existing reports and artifacts remain here pending a separately
+scoped migration.
+
+These historical reports record session outcomes, validation and provenance.
+Current navigation is in [results](../../results.md) and the
+[reduction index](../n43/reductions.md). Older author-stage labels describe their
+date; later acceptance or closure may be recorded separately in legacy files.
 
 | Topic | Synthesis and follow-up |
 | --- | --- |
@@ -26,6 +32,7 @@ recorded separately.
 Additional dated files retain narrower session details. Historical manifests
 pin the original reviewed or integrated bytes; the
 [cleanup record](2026-10-21-research-cleanup.md) identifies editorial lineage.
-For exploratory computations, keep one useful session summary; full artifacts
-are required for a named subbranch closure or verified construction under the
-[retention policy](../../docs/reproducibility.md#retention-scope).
+Record new exploratory findings in the relevant topic file. Full evidence
+artifacts remain required for a named subbranch closure or verified construction
+under the [retention policy](../../docs/reproducibility.md#retention-scope);
+the one-file rule does not replace computational evidence.

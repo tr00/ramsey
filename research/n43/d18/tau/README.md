@@ -54,7 +54,7 @@ Additionally shared by every child:
 | Projected I4-support capacity and tripartite attachment obstructions | independently accepted | [general support theorem](transversal_support.md) |
 | Every four-set transversal excluded at x=137 | independently accepted 2026-10-18 | [effective anchor](../x137/effective_anchor.md#claim-x137-no-four-transversal) |
 | Every four-set transversal excluded at x=136 under equality assumptions | reviewed | [five-column compatibility](../x136/five_column_compatibility.md#claim-five-columns-no-four-transversal); x136 itself closed per user report |
-| Deletion budgets for a t-transversal | accepted | [transversal deletion](../../../../docs/general_theorems/transversal_deletion.md), [frontier band](../frontier_band.md) |
+| Deletion budgets for a t-transversal | accepted | [transversal deletion](../../../foundations/transversal_deletion.md), [frontier band](../frontier_band.md) |
 | Recorded edge-count totals reach 65 at t=4 (66 with the `e_F(T4)>=1` floor), below `e(F)=68+q` | recorded | [lemma phase II section 8](../../../../docs/lemma_phase_2.md) |
 | r=0 count structure (`s=8-k+H`, `5s<=54`, eight-vertex alternatives) | internally audited; extends to q<=2 cells | [small columns](../x136/small_columns.md) |
 
