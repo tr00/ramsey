@@ -30,6 +30,28 @@ That setup preserves vendored sources and avoids the upstream unbounded nested
 build. No SoPlex shared-library path is required. Pass `-- --lp=0` to disable
 LP reasoning for an individual run.
 
+Gimsatul is an additional, standalone CNF solver pinned by the
+`third-party/gimsatul` submodule. It does not replace RoundingSat in the frontend.
+Initialize it explicitly, then build a disposable source copy so configuration
+and compilation do not modify the third-party checkout:
+
+```sh
+git submodule update --init third-party/gimsatul
+mkdir -p scratch/order16
+cp -a third-party/gimsatul scratch/order16/gimsatul-build
+cd scratch/order16/gimsatul-build
+./configure
+make -j32
+./gimsatul --version
+```
+
+Use a fresh destination for the copy. Run `gimsatul --threads=32 --time=600
+input.cnf` for a bounded solver-only experiment. A second positional filename
+enables DRAT proof output and requires an agreed storage limit first. Neither
+the solver status nor an externally checked DRAT proof is a kernel-checked
+Lean theorem. Record the submodule revision and executable hash with retained
+experimental results. Root CMake never builds or configures Gimsatul.
+
 The frontend options include `-o/--output`, `-i/--index`, `-g/--generate-only`, and
 `-h/--help`, parsed with the system `getopt_long`. Degree and edge bounds default to the
 order-43 d18 case:

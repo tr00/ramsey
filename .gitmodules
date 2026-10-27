@@ -7,3 +7,6 @@
 [submodule "third-party/roundingsat"]
 	path = third-party/roundingsat
 	url = https://gitlab.com/MIAOresearch/software/roundingsat.git
+[submodule "third-party/gimsatul"]
+	path = third-party/gimsatul
+	url = https://github.com/arminbiere/gimsatul
