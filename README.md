@@ -112,7 +112,7 @@ when a computation closes a named subbranch.
 | [research/n43/](research/n43/README.md)                           | The 43-vertex case, organized by mathematical assumptions               |
 | [research/n43/d18/](research/n43/d18/README.md)                   | Degree-18 neighborhoods, cross-column compatibility, and frontier cases |
 | [docs/](docs/)                                  | Workflow and evidence standards; legacy mathematical notes pending migration |
-| [research/reports/](research/reports/README.md)                    | Historical reports and validation artifacts; no new session reports    |
+| Removed `research/reports/` tree | Earlier dated reports and validation artifacts remain recoverable in Git history; no new session reports |
 | [src/](src/) and [tests/](tests/)               | C++ fixed-B OPB frontend and semantic regression tests                  |
 | [scripts/](scripts/)                            | Independent Python graph checker and reference CNF utilities            |
 

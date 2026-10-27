@@ -1,8 +1,8 @@
 # Exact residual obligations and recursive Ramsey completion
 
-Date: 2026-10-22. Task: `d18c-recursive-ramsey-20261022`.
-Author: /root, working alone. Task kind: research with a branch-local prototype.
-All six claims are **ready for independent review**. No novelty claim.
+Author: /root. Task kind: research with a branch-local prototype.
+All six claims are **accepted** after independent review; see the
+[review record](#d18c-review-record) below. No novelty claim.
 
 This note gives an exact dynamic program for arbitrary attachments in the
 connected degree-18 branch. Its state is a family of overlapping homogeneous-set
@@ -13,8 +13,10 @@ future completions, even when their processed interiors differ.
 
 The [prototype](recursive_ramsey.py) implements the recurrence, memoization,
 weighted edge budgets, and a recurrence DAG. It runs nothing when imported.
-Only tiny semantic validation accompanies this note. An order-43 execution,
-independent review, and a branch-coverage certificate remain separate work.
+The [validation driver](validate_recursive_ramsey.py) with its recorded
+[outputs](validation.json) provides the tiny semantic self-check; the
+independent review and its own checks are recorded below. An order-43 execution
+and a branch-coverage certificate remain separate work.
 
 ## Objects and semantics
 
@@ -54,13 +56,14 @@ Relabelling would require transporting all masks, fixed pairs, and coefficients.
 
 Claim ID: `research/n43/d18/c/recursive_ramsey.md#claim-d18c-residual-derivative`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: every finite state defined above, every `u in U`, every specified future
 neighbor set `N subset U-{u}` compatible with its fixed incident pairs  
-Dependencies: definitions; compare the reviewed [attachment template](../../../../docs/general_theorems/ramsey_attachment_calculus.md#claim-attachment-exact-template)  
+Dependencies: definitions; compare the [attachment template](../../../../docs/general_theorems/ramsey_attachment_calculus.md#claim-attachment-exact-template),
+whose own claim remains unreviewed and is illustrative only here  
 Conclusion: the derivative below is in bijection with completions whose `u` row is `N`  
-Search use: none pending independent review; proposed exact propagation and branching  
-Reviews: none
+Search use: exact propagation and branching  
+Reviews: [independent review](#d18c-review-record)
 
 Put `W=U-{u}`, `D=W-N`. Transport each positive obligation `(k,X)` to
 
@@ -105,14 +108,14 @@ and (3) have no permanent supports, and forgetting its identity is unsound.
 
 Claim ID: `research/n43/d18/c/recursive_ramsey.md#claim-d18c-residual-congruence`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: every state above; every two processed histories with completely assigned
 rows whose normalized future state is identical on the same labelled `U`  
 Dependencies: Claim 1; elementary containment of homogeneous sets  
 Conclusion: the normalization is exact, and identical normalized states have
 identical labelled completion sets and counts  
-Search use: none pending independent review; proposed memoization  
-Reviews: none
+Search use: memoization  
+Reviews: [independent review](#d18c-review-record)
 
 Use the following deterministic normalization separately for each colour:
 
@@ -157,15 +160,15 @@ There is no bounded-width or polynomial-time assertion.
 
 Claim ID: `research/n43/d18/c/recursive_ramsey.md#claim-d18c-recursive-capacity`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: every state above and any valid upper-bound table `B(p,q)>=R(p,q)`
 for positive parameters, with `B(1,q)=B(p,1)=1`  
 Dependencies: elementary Ramsey recurrence; any table seeds retain their stated
 literature premises in the [baseline](../../../../docs/mathematical_baseline.md)  
 Conclusion: intersection capacities (4), row capacities (5), and recursively
 generated table entries are sound at every state  
-Search use: none pending independent review; proposed propagation and local termination  
-Reviews: none
+Search use: propagation and local termination  
+Reviews: [independent review](#d18c-review-record)
 
 For `(p,X) in P` and `(q,Y) in M`, put `T=X cap Y`. Necessarily
 
@@ -222,14 +225,14 @@ passing every comparison does not prove that the state is feasible.
 
 Claim ID: `research/n43/d18/c/recursive_ramsey.md#claim-d18c-completion-dp`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: every finite initial state, deterministic chosen pivot at each nonempty
 normalized state, all rows compatible with fixed incident pairs, a valid `B`  
 Dependencies: Claims 1–3  
 Conclusion: (7) computes the exact labelled completion count, terminates, admits
 memoization, and zero counts have the explicit recurrence evidence below  
-Search use: none pending independent review; proposed exact branching and counted coverage  
-Reviews: none
+Search use: exact branching and counted coverage  
+Reviews: [independent review](#d18c-review-record)
 
 An elementary failure of Claim 2 or capacity failure of Claim 3 has `f(S)=0`.
 The empty surviving state has `f(S)=1`. Otherwise choose `u in U` and write
@@ -277,8 +280,8 @@ check the following contracts independently:
 Induction over this DAG proves its root count. A root count zero closes only
 the **exact input state**. Exhaustive coverage of all initial branch inputs is
 an additional obligation. The prototype emits the explicit DAG; its small
-independent replay in the validation driver is author validation, not independent
-review or an order-43 certificate. QED.
+independent replay in the [validation driver](validate_recursive_ramsey.py) is
+author validation, not independent review or an order-43 certificate. QED.
 
 ## Connected degree-18 specialization
 
@@ -287,7 +290,7 @@ review or an order-43 certificate. QED.
 
 Claim ID: `research/n43/d18/c/recursive_ramsey.md#claim-d18c-unified-interface`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: fixed labelled connected `K4/I5`-free `A` on 18 vertices; root `v` joined
 to `A` and anticomplete to a labelled 24-vertex `B`; arbitrary edges of `B` and
 arbitrary `A`–`B` rows; optional valid linear budgets explicitly declared  
@@ -296,8 +299,8 @@ global 18..24 degree window on the recorded `R(4,5)=25` premise
 Conclusion: the initial state and its row elimination describe exactly the
 `K5/I5`-free completions of this fixed connected neighborhood, with the equivalent
 interface obligations (8) and the listed smaller-Ramsey corollaries  
-Search use: none pending independent review; proposed connected-branch completion  
-Reviews: none
+Search use: connected-branch completion  
+Reviews: [independent review](#d18c-review-record)
 
 Initialize `U={v} union A union B`, `P={(5,U)}`, `M={(5,U)}`, and fix all root
 edges and all internal `A` pairs. The full degree window may be imposed as 43
@@ -378,8 +381,9 @@ the `K4`-free Turan cap on `T-{t}` then give, for `s=|T|`,
  \tag{9}
 \]
 
-Indeed partition `A-t` into the core, the `s-1` attachment cuts, and `T-{t}`,
-bound their edges as stated, and subtract from `e(A)`. This recovers the common
+Indeed decompose the edges of `A-t` into core-internal edges, the attachment
+cuts between the core and the `s-1` vertices of `T-{t}`, and edges within
+`T-{t}`, bound them as stated, and subtract from `e(A)`. This recovers the common
 deletion-envelope argument in [reviewed deletion transfer](../deletion_degree_transfer.json);
 its sharper equality and four-transversal refinements require their own proofs.
 Published census entries in (9) remain external premises and are not generated
@@ -391,7 +395,7 @@ transversal decomposition, rather than only consecutive pivot roots.
 
 Claim ID: `research/n43/d18/c/recursive_ramsey.md#claim-d18c-polynomial-obligation-kernel`  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted  
 Scope: a state reached by completely assigning and forgetting `h` vertices from
 an initial `K_p/I_q`-free completion problem on `n` labels, `p,q>=2`; arbitrary
 fixed pairs and linear budgets, and `r=n-h` remaining labels; no extra externally
@@ -400,8 +404,8 @@ Dependencies: Claims 1–2; homogeneous-set provenance in Claim 5's proof
 Conclusion: every surviving normalized state has at most `A_p(h)` positive and
 `A_q(h)` negative obligations, defined in (10); at the fixed-d18 `B` phase
 each count is at most988, with exact completion congruence  
-Search use: none pending independent review; proposed exact interface compression  
-Reviews: none
+Search use: exact interface compression  
+Reviews: [independent review](#d18c-review-record)
 
 Put
 
@@ -458,8 +462,9 @@ generic `h=19` bound because the root contributes only the baseline `I4(B)`.
 Every nontrivial positive mask is indexed by the empty set, one `A` vertex, an
 `A` edge, or an `A` triangle. Every nontrivial negative mask is indexed by the
 baseline `I4(B)`, one `A` vertex, an independent pair, or an independent triple.
-The independent-four masks have already been checked for emptiness. Therefore
-each colour has at most
+The negative mask indexed by the empty set, `I5(B)`, is dominated by `I4(B)`
+and removed by normalization. The independent-four masks have already been
+checked for emptiness. Therefore each colour has at most
 
 \[
  1+18+\binom{18}{2}+\binom{18}{3}=988
@@ -501,4 +506,103 @@ No catalogue of connected `A`, proof of its completeness, large run, or speed
 measurement is supplied. The full connected branch and order43 remain open.
 An exact-state algorithm is useful here because it turns future closure evidence
 into a recurrence with explicit coverage contracts; it does not itself supply
-that evidence. Independent review is required before production pruning.
+that evidence. The recorded review accepts the six claims and the prototype's
+semantic validation; an order-43 execution, its coverage argument, and branch
+closure remain separate work.
+
+<a id="d18c-review-record"></a>
+## Independent review
+
+Reviewer: independent assistant review, distinct from the author. Covered
+sections: all six claims (`#claim-d18c-residual-derivative`,
+`#claim-d18c-residual-congruence`, `#claim-d18c-recursive-capacity`,
+`#claim-d18c-completion-dp`, `#claim-d18c-unified-interface`,
+`#claim-d18c-polynomial-obligation-kernel`), the object definitions, the
+prototype, and every linked premise. Outcome: **accepted** for all six claims
+with the repairs listed below. No novelty assessment; acceptance is not a
+certificate.
+
+Decisive checks.
+
+- Claim 1: the two-case split of a clique (independent set) through a fixed
+  row is exhaustive and reversible; the budget shift by `b_j(N)` is an
+  equality on the forgotten indicators; the threshold-one guard is exactly
+  what prevents transport of threshold zero. `derivative` implements (2),
+  (3), and the budget shift literally and rejects rows violating fixed pairs.
+- Claim 2: the dominance direction (`ell<=k`, `X subset Y`) is the correct
+  implication; removing all dominated tuples simultaneously is sound because
+  dominance is a strict order on distinct tuples and every removed tuple is
+  dominated by a survivor in a finite family. Budget clipping to
+  `[0, sum_e w_e]`, intersection of identical coefficient vectors, and
+  rejection of empty intervals preserve the conjunction. Equal normalized
+  states have equal derivatives under every row, so the congruence holds as
+  the stated sufficient equivalence.
+- Claim 3: (4) and (5) follow from `B>=R` alone, including the threshold-one
+  endpoints where `B(1,q)=B(p,1)=1`; no disjointness of supports is used, and
+  the `T`-degree interval subtracts correctly. Table recursion (6) is the
+  standard induction with `min` against valid seeds; the seeds equal the
+  baseline values `R(3,3)=6`, `R(3,4)=9`, `R(3,5)=14`, `R(4,4)=18`,
+  `R(4,5)=25`, and `B(5,5)=50` is confirmed by both implementations.
+- Claim 4: full rows partition completions, Claim 1 bijects each class to its
+  summand, and induction on `|U|` gives (7) with row multiplicity. The empty
+  leaf counts one because normalization clips every surviving budget to
+  contain the zero sum. The listed DAG contracts suffice for replay
+  induction.
+- Claim 5: the `18..24` window is the baseline's two-sided consequence of
+  `R(4,5)=25` at `n=43` (`N(v)` is `(4,5)`-free, `M(v)` is `(5,4)`-free).
+  Eliminating `v` and `A` regenerates exactly (8): cliques `Q` of `A` give
+  `no K_(5-|Q|)` on `cap R_a` with `|Q|<=3` since `A` is `K4`-free;
+  independent sets `I` give `no I_(5-|I|)` on `B-cup R_a` with `|I|<=4`
+  since `A` is `I5`-free; `v` contributes only the baseline `I4(B)` plus
+  empty supports. All seven table rows re-derive from (4) with the recorded
+  bounds, including `|R_a|<=17` and order `<=13` hence `|R_a cup R_b|>=11`.
+  In (9), `e(A-t)` decomposes into core-internal, attachment-cut, and
+  `T-{t}` edges bounded by `U(h)`, `8(s-1)` via `R(3,4)=9`, and the Turan
+  cap; `U(h)` remains an external premise.
+- Claim 6: provenance assigns one mask per processed clique or independent
+  set; a surviving state carries no threshold-one obligation, so only sizes
+  `<=k-2` contribute and (10) follows. Arithmetic checks:
+  `1+18+153+816=988`, `1976*24=47,424` bits `= 5,928` bytes, and
+  `A_5(19)=1160 > 988`.
+- Computational. `python3 research/n43/d18/c/validate_recursive_ramsey.py`
+  reproduces the author's self-check on the current text (`status PASS`;
+  11,584 normalization and 36,864 derivative truth cases, 181 completion
+  states, 1,328 replayed DAG nodes, 10,863 kernel-provenance cases, 36 bound
+  cells). `python3 research/n43/d18/c/review_checks_recursive_ramsey.py` is
+  the reviewer's independent cross-check against direct graph semantics:
+  2,500 randomized mixed states (548,458 graph evaluations) for normalization
+  equivalence and DP count against brute force; 40 small analogue
+  specializations comparing the eliminated family against (8) and the DP
+  count against brute force; 60 random row families on the
+  Paley17-plus-leaf fixture with exact accept/reject agreement (37 accepted,
+  23 rejected) between elimination and the (8) formula, each accepted family
+  matching (8) with at most 988 obligations per colour (observed maxima 84
+  and 19); degree-budget transport `43 -> 42` at the root; and
+  `ramsey_bound` against an independent recurrence on all 64 cells for
+  `p,q<=8`. Both drivers pass.
+
+Repairs applied with this review: removed the dated task bookkeeping from the
+header; corrected the attachment-template dependency label (that claim is
+still `ready`, and Claims 1 and 5 use it only as an illustrative equivalent);
+reworded the (9) accounting as an edge decomposition, since the attachment
+cuts lie inside the core; recorded why the `I5(B)` baseline is subsumed by
+`I4(B)` in the 988 count; linked the validation outputs; and restored the
+validation driver beside the topic after the reports tree removed it,
+updating its root computation, dependency paths, and filename.
+
+Limits: no order-43 execution, no branch-coverage or closure argument, no
+novelty review, and no performance claim. `U(h)`, the `B` seeds, the
+`(4,5,24)` census interval, and the degree window rest on recorded baseline
+and published premises. The DAG replay is author-side validation, not a
+production certificate; passing capacity comparisons do not imply
+feasibility; a root count zero closes only the exact input state.
+
+## Changelog
+
+- Accepted all six claims after independent review; recorded the review, its
+  computational checks, and its limits, and activated the search-use fields.
+- Repaired the (9) edge-decomposition wording, stated the `I5(B)` dominance
+  step behind the 988 bound, corrected the attachment-template review label,
+  removed dated task bookkeeping from the header, and restored the
+  validation driver beside the topic with current paths (outputs in
+  `validation.json`, example certificate in `tiny_dag.json`).

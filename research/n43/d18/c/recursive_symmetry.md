@@ -52,7 +52,7 @@ Review state: ready
 Scope: every normalized finite residual state, every bijection `g:U->U'`, every
 chosen `u in U` and full future row `N subset U-{u}` compatible with fixed pairs  
 Dependencies: [exact derivative and normalization](recursive_ramsey.md#claim-d18c-residual-derivative),
-[state congruence](recursive_ramsey.md#claim-d18c-residual-congruence), both ready  
+[state congruence](recursive_ramsey.md#claim-d18c-residual-congruence), both accepted  
 Conclusion: relabelling bijects completion sets, preserves counts, and gives (2)  
 Search use: none pending independent review; proposed witnessed transport  
 Reviews: none
@@ -97,7 +97,7 @@ Kind: local-deduction
 Review state: ready  
 Scope: every surviving state `(S,c)`, every chosen `u in U`, any verified subgroup
 `K <= Aut(S,c)` fixing `u`, and every compatible full row at `u`  
-Dependencies: Claim 1; [full row recurrence](recursive_ramsey.md#claim-d18c-completion-dp), ready  
+Dependencies: Claim 1; [full row recurrence](recursive_ramsey.md#claim-d18c-completion-dp), accepted  
 Conclusion: the weighted orbit recurrence (3) preserves exact labelled counts;
 any such subgroup may be chosen anew at every state  
 Search use: none pending independent review; proposed weighted symmetry branching  
@@ -353,7 +353,7 @@ Scope: fixed connected `K4/I5`-free neighborhood `A` of a degree18 root,
 24 future `B` vertices, all internal `B` pairs initially unassigned; process
 `A` rows in any chosen order; uniform 18..24 degree budgets and optional uniform
 `B`-edge or full cross-count budgets, no asymmetrically named `B` condition  
-Dependencies: Claims 1–5; [d18 initial-state theorem](recursive_ramsey.md#claim-d18c-unified-interface), ready;
+Dependencies: Claims 1–5; [d18 initial-state theorem](recursive_ramsey.md#claim-d18c-unified-interface), accepted;
 compare [reviewed column-multiset quotient](../symmetry_reduction.md#claim-d18-symmetry-01)  
 Conclusion: equal partial columns are certified interchangeable blocks; row
 branching uses count vectors, initially25 choices with exact binomial weights;

@@ -14,9 +14,9 @@ The disconnected alternatives have a complete component of order1,2,or3 and
 a `(4,4)`-free component; they are not inputs to this branch. Connectedness alone
 does not impose a minimum internal degree of two. The branch is **open**.
 
-The [residual-obligation theorem](recursive_ramsey.md) gives six claims ready
-for independent review: exact vertex-row differentiation, antichain state
-congruence for arbitrary mixed attachments, recursive Ramsey capacities on
+The [residual-obligation theorem](recursive_ramsey.md) gives six claims
+accepted after independent review: exact vertex-row differentiation, antichain
+state congruence for arbitrary mixed attachments, recursive Ramsey capacities on
 overlapping supports, an exact memoized completion recurrence, and its connected
 degree18 specialization, and a polynomial-size interface kernel (at most988
 obligations of each colour at the 24-vertex `B` phase). The [prototype](recursive_ramsey.py) preserves fixed
@@ -26,9 +26,11 @@ automatic research run or CLI. Its initializer accepts a supplied connected
 It describes a broader rooted class, which still contains every selected root
 with that `A`.
 
-The [report](../../../reports/2026-10-22-d18c-recursive-ramsey.md) records tiny
-semantic checks and exact artifact hashes. No order43 completion recursion or
-branch exclusion was performed. Production propagation awaits independent review.
+The [validation driver](validate_recursive_ramsey.py) records tiny semantic
+checks and dependency hashes in [validation.json](validation.json). No order43
+completion recursion or branch exclusion was performed. Independent review of
+the six claims is recorded in the theorem note; production propagation awaits
+an order-43 execution and its coverage argument.
 
 The older [zero-neighborhood-excess work](w0/research.json) is a narrower slice:
 every `A` vertex has global degree18. Its `q=1` case was separately excluded by
