@@ -238,13 +238,9 @@ uv and must not be replaced by the (4,5) neighborhood type.
 | Covered pair family | d | retained overlap range | size of D |
 | --- | --- | --- | --- |
 | [Prescribed degree18 family of at least13 roots](../../research/n43/d18/dense_pivot_coverage.md#claim-dense-pivot-01) | 18 | 0..10, further restricted by exact local bounds | 7+lambda |
-| [Normalized branch with n20>=13](../../research/n43/min-degree20/pair_coverage.md) | 20 | 2..11 | 3+lambda |
-| [Normalized branch with n20<=12](../../research/n43/min-degree20/pair_coverage.md) | 21 | 3..12 | 1+lambda |
 
-The lower bounds2 and3 use the existing edge codegree floor d-18. The
-degree18 family premise is conditional and is not proved for every order43
-candidate here. The two normalized rows cover that branch by the independently
-accepted pair-coverage theorem; they do not cover the lower-minimum branches.
+The degree18 family premise is conditional and is not proved for every order43
+candidate here.
 Large D cells remain, so this quotient alone does not promise tractability.
 
 A directly checkable omission witness is (a,b), with both pointed
@@ -268,6 +264,5 @@ Base revision: `7ebbef265ef9b55746b798b337b86e4fd6140045`. Input SHA-256:
 
 | Input | SHA-256 |
 | --- | --- |
-| research/n43/min-degree20/pair_coverage.md | `dcc49b82fd216c9db70de88d0d8f0dc33e25a82c0eb75e671d47542d4c30cbde` |
 | research/n43/d18/dense_pivot_coverage.md | `e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a` |
 | docs/mathematical_baseline.md | `e6ea1c070e32ac04a73eb53a5634921acb7fe6d02123a3c7d35a710f262a698e` |

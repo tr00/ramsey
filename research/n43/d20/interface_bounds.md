@@ -14,10 +14,7 @@ For u in A and y in B put
 
 The inherited isolated-side edge intervals are68<=a<=100 and117<=b<=143:
 Angeltveit--McKay, arXiv:2409.15709v2, Appendix A, Table1, orders20 and22
-(the latter complemented), already recorded in
-[theory phase I, Section7](../../../docs/theory_phase_1.md#7-complement-normalized-minimum-degree-20-branch).
-Their use here needs only the side types (4,5,20) and (5,4,22), not that
-section's minimum-degree20 or complement-selector hypotheses.
+(the latter complemented).
 Other premises are R(3,4)=9, R(4,4)=18, R(3,5)=14 and the recorded
 17-core degree8. They are not recertified by this task.
 

@@ -47,7 +47,7 @@ The proof retains the following external and reviewed premises:
   It is not asserted to be a published exact interval.
 - [Disconnected classification](neighborhood_connectivity.md#claim-connectivity-01)
   and [its edge threshold](neighborhood_connectivity.md#claim-connectivity-02).
-- [Reviewed separator profiles](connected_structure_transfer.json),
+- [Reviewed separator profiles](neighborhood_connectivity.md#claim-connected-separator-profiles),
   claim `claim-connected-separator-profiles`.
 - [Reviewed transversal deletion](deletion_degree_transfer.json), especially
   `claim-deletion-transfer-boundary-stability`, for comparison. The small-core

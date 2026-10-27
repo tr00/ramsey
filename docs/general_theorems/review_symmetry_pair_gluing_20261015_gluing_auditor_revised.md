@@ -39,9 +39,7 @@ lifts. The vertex action is faithful; the free-edge action need not be.
 For Claim 03, complete pointed representatives, compatible maps and full
 vector orbit minima preserve every admissible ordered-root completion.
 
-Application counts give |D|=43-2d+lambda and lambda>=d-18. The normalized
-degree20/21 coverage predicates were checked at the same family endpoints;
-they do not cover arbitrary degree 20 roots. All three revised claims are
+Application counts give |D|=43-2d+lambda and lambda>=d-18. All three revised claims are
 accepted, conditional on complete inputs/maps/completions.
 
 ## Dependencies reviewed
@@ -53,11 +51,9 @@ dependencies were read at these exact versions:
 
 | Dependency | SHA-256 |
 | --- | --- |
-| `research/n43/min-degree20/pair_coverage.md` | `dcc49b82fd216c9db70de88d0d8f0dc33e25a82c0eb75e671d47542d4c30cbde` |
 | `research/n43/d18/dense_pivot_coverage.md` | `e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a` |
 | `docs/mathematical_baseline.md` | `e6ea1c070e32ac04a73eb53a5634921acb7fe6d02123a3c7d35a710f262a698e` |
 | `docs/general_theorems/family_overlap.md` | `6fbd343167de8f0d43985ecf11d39fff9060b867680a91c12347772ffda86e87` |
-| `research/n43/min-degree20/review_pair_coverage_20261015_transversal.md` | `688cf4ba772d8ef5180c966dd063a2b9f34d2c189401a0648c35e6adb32f0376` |
 | `research/n43/d18/review_dense_pivot_coverage_20261014_low_s.md` | `9d23cb041c1d128c24236916f75dbe4c469111945c4d1941daba4c83bb813d59` |
 
 The previous independent reviews concern their recorded exact proof revisions;

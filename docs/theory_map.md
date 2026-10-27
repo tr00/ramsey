@@ -42,7 +42,7 @@ flowchart TD
 | L2 | Universal theory of an order-43 `(5,5)`-free graph: degree window, ambient types, codegrees, cells, counting identities, primality | [reduction index §4, §10.1-10.2, §11](../research/n43/reductions.md), [theory phase I](theory_phase_1.md) | `Ramsey/n43/D18.lean`, `theorems/LocalReductions.lean` |
 | L3 | Rooted interface theory for a fixed pivot: partition identities, exact rectangle criterion, row/column bounds, 4-bit anchors, transversal bounds | [reduction index §2, §5-§7, §8.4](../research/n43/reductions.md), [theory phase I §3-4](theory_phase_1.md) | `defs/RootedRamseyGraph.lean`, `theorems/{Counting,PivotInterface,TransversalFour}.lean`, `n17/Regularity.lean` |
 | L4 | Root-selection covers and symmetry machinery: even-pivot cover, canonical selectors, residual quotients, gluing | [reduction index §3, §10.3-10.6](../research/n43/reductions.md), [symmetry structure](../research/n43/symmetry_structure.md) | `Ramsey/n43/EvenPivot.lean` |
-| L5 | Branch theories: d18 (corridor, x-closures, connectivity subcases, tau overlay) and d20 / min-degree20 | [d18 index](../research/n43/d18/README.md) and children | `Ramsey/n43/d18/*`, `Ramsey/n43/d20/*` |
+| L5 | Branch theories: d18 (corridor, x-closures, connectivity subcases, tau overlay) and d20 | [d18 index](../research/n43/d18/README.md) and children | `Ramsey/n43/d18/*`, `Ramsey/n43/d20/*` |
 | L6 | Exclusion obligations and the certificate ladder: `Complete` carrier, sorry ledger, SAT proof obligations | [reduction index §14](../research/n43/reductions.md), [workflow](workflow.md) | `defs/Completeness.lean`, branch `Exclusion.lean` targets |
 | Apex | Order-43 exclusion + Exoo witness gives `ramseyNumber 5 5 = 43` | [lemma phase II](lemma_phase_2.md) | `Ramsey.lean` (exclusion half; equality assembly not formalized) |
 
@@ -97,10 +97,10 @@ keeps its stated premises; no Ramsey/census input is implicit.
 | Signature anchors | [signature_anchors.md](../research/foundations/signature_anchors.md) | exact mixed homogeneous-set criterion; Hall condition, singleton class caps, weighted degree-excess certificates; clique dual | L3 anchor theory, frontier bands |
 | Transversal deletion | [transversal_deletion.md](../research/foundations/transversal_deletion.md) | edge lower bound after deleting a t-transversal; exact defect budget and equality structure | tau rungs, index §8.4-8.6 |
 | Transversal compatibility | [transversal_compatibility.md](../research/foundations/transversal_compatibility.md) | avoidance forces occurrence; weighted occupancy; degree-gap obstruction to disjoint transversals | x136 r2 closure, w0 |
-| Family overlap | [family_overlap.md](general_theorems/family_overlap.md) | equal-degree prescribed families contain a low-codegree edge past a component threshold | d18 dense families, min-degree20 |
+| Family overlap | [family_overlap.md](general_theorems/family_overlap.md) | equal-degree prescribed families contain a low-codegree edge past a component threshold | d18 dense families |
 | Cut capacity | [cut_capacity.md](general_theorems/cut_capacity.md) | degree cut demand across the non-root set forces many low-q roots; composes with family overlap | index §8.12, §8.14 |
 | Swap stabilizers | [disjoint_swap_stabilizers.md](general_theorems/disjoint_swap_stabilizers.md) | exact `(C2)^p` swap stabilizer structure; pair-separation orbit bounds | symmetry layer L4 |
-| Two-root gluing | [symmetry_pair_gluing.md](general_theorems/symmetry_pair_gluing.md) | overlap maps classified by double cosets; fiber-product completion group; staged quotient coverage | two-root reductions, min-degree20 |
+| Two-root gluing | [symmetry_pair_gluing.md](general_theorems/symmetry_pair_gluing.md) | overlap maps classified by double cosets; fiber-product completion group; staged quotient coverage | two-root reductions |
 | Residual quotients | [symmetry_quotients.md](general_theorems/symmetry_quotients.md) | split extension `K ⋊ H`; exact 2-CNF lex minimization; uniform descent; hierarchical root selection | generator canonicalization (design) |
 
 Formal status: `theorems/TransversalFour.lean` proves the census-based
@@ -247,15 +247,10 @@ capacity (§8.17, conditional on the external complete `(4,5,24)` catalogue
 premise), SOS/SDP local theory (§16.1), obstruction coverage. These are
 filters, not closures.
 
-### 7.5 d20 and min-degree20
+### 7.5 d20
 
 - [d20](../research/n43/d20/README.md): open; no branch-specific predicate or proof
   exists. This is the largest single theory gap below the apex.
-- [min-degree20](../research/n43/min-degree20/README.md): alternative normalized
-  scheme (selector-based, not interchangeable with d20). Same-degree
-  pair-selection coverage accepted
-  ([pair coverage](../research/n43/min-degree20/pair_coverage.md)); branch decision
-  open.
 
 ### 7.6 tau overlay and reviewed support theory
 
@@ -328,7 +323,7 @@ Backlog, dependency-ordered (sources accepted unless noted):
 | B4 | connectivity claims 02 (census slices) and 03 items (a)/(c); item (b) at `m=1` is already in `k1/Rigidity.lean` | completes the connectivity interface the four subcases share |
 | B5 | k2 branch theory (mathematics first, then mirror; the Lean stub already exists) | largest d18 subbranch with zero markdown content |
 | B6 | d20 branch theory (mathematics first) | the other half of the even-pivot cover has no predicates to mirror yet |
-| B7 | optional: accepted tail theorems (`x ≤ 278` etc.), interior/connectivity transfers, min-degree20 pair coverage | sharpening and alternative-scheme support, not obligations |
+| B7 | optional: accepted tail theorems (`x ≤ 278` etc.), interior/connectivity transfers | sharpening and alternative-scheme support, not obligations |
 
 Formalization is math-first: no Lean statement may outrun its reviewed source
 claim. Where the markdown is stronger than Lean (k1 attachments 65 vs the

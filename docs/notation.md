@@ -176,13 +176,6 @@ stabilizer of a completed graph are different objects; specify the state.
 
 ## Other scopes and notation collisions
 
-The [normalized minimum-degree-20 branch](../research/n43/reductions.md#9-complement-normalized-minimum-degree-20-branch)
-uses `j,r` for degree-count parameters and `s` for
-`sum_(u in A)(d_G(u)-20)`. These are local aliases, distinct from
-`ell_4,ell_5` and `E_A` measured above the degree floor 18. In new text write
-`E_A^(20)` for that excess sum and explicitly label degree-count parameters.
-An arbitrary degree-20 pivot does not imply a global minimum degree of 20.
-
 In order-43 global counting, write `eta_z=d_G(z)-21`,
 `D_21=sum_z eta_z`, and `V_21=sum_z eta_z^2`. Existing reduction-index
 symbols `delta_z,Delta,V` denote these quantities, respectively; this

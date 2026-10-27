@@ -84,5 +84,5 @@ E(4,5,14)=60, R(4,3)=9, and the accepted reviewed core caps remain recorded
 external or reviewed-internal premises. No formal Lean certificate exists for
 these four claims (the Lean tree still carries d18 as an open sorry ledger
 target). Novelty was not checked. The x>=137 siblings, other degree-18
-profiles, the d20 and min-degree20 schemes, and the x>=143 residual remain
+profiles, the d20 scheme, and the x>=143 residual remain
 open; no R(5,5) value is claimed.

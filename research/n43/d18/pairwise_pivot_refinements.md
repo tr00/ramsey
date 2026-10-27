@@ -1,10 +1,32 @@
 # Pairwise refinements of pivot selection, excess cuts and dense families
 
-Date: 2026-10-14. Task: `pairwise-pivot-20261014`.
-Author: pivot/excess agent. Pure mathematics; no graph enumeration, solver,
-download, installation or novelty review. The bounded tables below were checked
-by exact integer arithmetic on their stated formulas. The coordinator accepted all four claims in an independent review of the
-exact proof revision; external census premises remain as recorded.
+Scope: local deductions for order-43 K5/I5-free graphs with at least one
+degree-18 root; exact degree data and explicit root-selection hypotheses are
+retained per claim. Author: pivot/excess agent. Independent reviewer: Codex
+coordinator, a distinct agent. All four claims are accepted on their stated
+premise chains; acceptance does not promote the parent topics wholesale.
+
+| Claim | Kind and review state | Permitted search use |
+| --- | --- | --- |
+| [01](#claim-pivot-pairwise-01), weighted family inequality | Local deduction; accepted | Propagate |
+| [02](#claim-pivot-pairwise-02), cut-capacity family count | Local deduction; accepted | Propagate; conditional family branching |
+| [03](#claim-pivot-pairwise-03), exact dense-root profiles | Local deduction; accepted | Propagate; conditional pointed branching |
+| [04](#claim-pivot-pairwise-04), maximum-edge selected root | Local deduction; accepted | Branch and propagate only under explicit safe selection, retaining all maximizers |
+
+Dependencies and literature: [pivot classes](pivot_classes.md),
+[excess bounds](excess_bounds.md), [cliques and augmentation](cliques_augmentation.md),
+Turan's theorem, and the recorded order-17/18/24 census premises of
+Angeltveit--McKay, [arXiv:2409.15709v2](https://arxiv.org/abs/2409.15709v2),
+Appendix A Table 1. These external premises are retained, not recertified.
+
+Summary: weighted missing-edge and cut capacities improve conditional dense
+families, force exact pointed profiles, and safely narrow the cross-count band
+at a maximum-edge root. Separate dense-family and overlap edges cannot be
+identified, and no unrestricted small-h or small-W theorem or branch closure
+is supplied. The bounded tables were author-checked by exact integer
+arithmetic; the [independent review](#review-pairwise-pivot-coordinator) records
+the separate acceptance checks. No graph enumeration, solver, download,
+installation, or novelty review was performed.
 
 The useful links are between [pivot families](pivot_classes.md),
 [high-degree cuts](excess_bounds.md), and [maximum-edge pivot
@@ -38,21 +60,11 @@ N(v) is (4,5)-free and may contain independent four-sets.
 <a id="claim-pivot-pairwise-01"></a>
 ## 1. The missing edges inside H improve the weighted family inequality
 
-Claim ID: `research/n43/d18/pairwise_pivot_refinements.md#claim-pivot-pairwise-01`
-
-Kind: local-deduction
-
-Review state: accepted
-
 Scope: common setting; any h, with h=0 handled separately
 
 Dependencies: `pivot_classes.md`, sections 1 and 4; `excess_bounds.md`, section 5; Turan's theorem
 
 Conclusion: the weighted lower bound and family refinement below
-
-Search use: propagate
-
-Reviews: [independent coordinator review](review_pairwise-pivot_2026-10-14_coordinator.md)
 
 For h>0 let eta_min=min_(z in H)epsilon_z and
 L_h=C(h,2)-floor(3h^2/8). Then
@@ -100,21 +112,11 @@ Four roots alone do not force adjacency since alpha(G) may equal four.
 <a id="claim-pivot-pairwise-02"></a>
 ## 2. Cut capacity turns a dense-root existence argument into a family count
 
-Claim ID: `research/n43/d18/pairwise_pivot_refinements.md#claim-pivot-pairwise-02`
-
-Kind: local-deduction
-
-Review state: accepted
-
 Scope: common setting, actual positive excess multiset of H
 
 Dependencies: `excess_bounds.md`, section 2; common census premises
 
 Conclusion: the cut-capacity family bound and examples below
-
-Search use: propagate | branch
-
-Reviews: [independent coordinator review](review_pairwise-pivot_2026-10-14_coordinator.md)
 
 Sort the H excesses eta_1<=...<=eta_h and write S_m=sum_(i<=m)eta_i.
 Define
@@ -161,21 +163,11 @@ a small overlap for the same pair, or realizability of either degree profile.
 <a id="claim-pivot-pairwise-03"></a>
 ## 3. The extremal small-h cuts force exact dense-root profiles and pointed pairs
 
-Claim ID: `research/n43/d18/pairwise_pivot_refinements.md#claim-pivot-pairwise-03`
-
-Kind: local-deduction
-
-Review state: accepted
-
 Scope: common setting and one exact (h,W) row in the table
 
 Dependencies: claim-pivot-pairwise-02; `pivot_classes.md`, section 2
 
 Conclusion: forced root counts, exact first-root profile, and pointed overlap bounds
-
-Search use: propagate | branch
-
-Reviews: [independent coordinator review](review_pairwise-pivot_2026-10-14_coordinator.md)
 
 |h|W|p|C_lo|at least this many roots|their (q,E,m_H,x)|some adjacent d18 neighbor overlap|
 |---|---|---|---|---|---|---|
@@ -209,21 +201,11 @@ covered in any later exhaustive gluing use.
 <a id="claim-pivot-pairwise-04"></a>
 ## 4. Safe maximum-edge root selection gives a smaller cross-count band
 
-Claim ID: `research/n43/d18/pairwise_pivot_refinements.md#claim-pivot-pairwise-04`
-
-Kind: local-deduction
-
-Review state: accepted
-
 Scope: common setting; v explicitly chosen to maximize e(N(v)) over P
 
 Dependencies: claim-pivot-pairwise-01; `cliques_augmentation.md`, section 3; `pivot_classes.md`, sections 1..3
 
 Conclusion: same selected root satisfies the bound and pointed-pair table below
-
-Search use: branch | propagate
-
-Reviews: [independent coordinator review](review_pairwise-pivot_2026-10-14_coordinator.md)
 
 Put q_*=min_(u in P)q_u, so q_v=q_*. Summing q_u+E_u<=B0 and using
 q_u>=q_* gives p*q_*+J<=p*B0. Therefore
@@ -281,3 +263,48 @@ into a stronger pair statement without another argument. Claim 04 is a safe
 alternative root-selection scheme, not an additional predicate on every
 representation. The linked independent review governs use in shared indexes or executable
 pruning; it is conditional on the retained external census premises.
+
+<a id="review-pairwise-pivot-coordinator"></a>
+## Independent review of pivot/excess pairings
+
+The Codex coordinator independently accepted claims 01--04 on the stated
+premises, separately from author pivot/excess agent. The historical review
+identified an exact uncommitted proof revision and expressly preserved its
+acceptance through metadata/formatting changes, including conversion of
+metadata hard-break spaces to blank paragraphs; proof changes require renewed
+review. The retained development is that accepted argument, not a new review.
+The reviewer rederived q+E<=W/2+4, the degree/cut identities, integer
+capacities and pointed overlap bounds from the dependency snapshots. The
+external order-18/24 extrema and order-17 maximum 79 were not recertified.
+
+- Claim 01: checked the weighted nonedge identity, the direction of Turan on
+  H versus complement-Turan, and the balanced-excess square minimum. The six
+  W=6 lower bounds and uniform count four were independently reproduced;
+  four roots alone do not force adjacency.
+- Claim 02: verified the S_m capacities separately at every root without a
+  simultaneous minimum-cost assignment assumption. The h3/W18 and h5/W30
+  cut surpluses give 66-40=26 and 102-76=26 family roots, respectively;
+  alpha<=4 gives two dense endpoints but not a same-edge overlap cap.
+- Claim 03: checked that m_H=a+1 forces E=3h+2 and q=0, the cut surpluses
+  1,2,3, and the excess-six omitted vertices. Interior degree accounting gives
+  pointed overlap caps 9,10,10; the companion need not share the deficit.
+- Claim 04: verified that the average and the rootwise budget constrain the
+  same minimum-q root, with no minimum-E selector substituted. Exact rational
+  arithmetic for every feasible h at even W=0..10 reproduced q caps
+  4,4,4,4,5,5, x caps 144,145,146,147,149,150 and overlap caps
+  9,9,10,11,12,12. Existence coverage keeps all maximizing roots.
+
+Outcome: accepted for numerical propagation and conditional pointed/family
+branching. No whole order-43 or degree-18 branch is terminated; no unrestricted
+bound on h or W is established. No catalogue replay, formal proof checking,
+graph enumeration, novelty review or exhaustion certificate was supplied.
+Maximum-edge selection cannot constrain an arbitrary previously chosen root,
+and separate dense-family and overlap guarantees cannot be merged.
+
+## Changelog
+
+- The independent coordinator accepted all four claims and their conditional
+  propagation/branching uses, with the external census premises retained.
+- Consolidated the topic-specific review inline and replaced repeated claim
+  administration with a topic-level review/use table. The mathematical
+  development, claim anchors, tables and review outcome are unchanged.

@@ -112,7 +112,7 @@ Shared reduction: [symmetry.md](symmetry.md) (ready, unreviewed).
 
 The accepted connectivity classification of A
 ([neighborhood connectivity](../neighborhood_connectivity.md),
-[transfer](../connected_structure_transfer.json)) splits d18 by `kappa(A)`;
+[separator transfer](../neighborhood_connectivity.md#claim-connected-density-connectivity)) splits d18 by `kappa(A)`;
 this scheme splits by `tau_4`. The axes compose; the coverage argument above
 is unchanged.
 
@@ -154,4 +154,4 @@ is unchanged.
 - UNSAT of rungs is candidate evidence, never a certified Ramsey result.
   SAT of any rung is a 43-vertex candidate: verify by exhaustive 5-subset
   checking before any bound claim, and report immediately.
-- This overlay does not impose anything on the d20 or min-degree20 lines.
+- This overlay does not impose anything on the d20 line.

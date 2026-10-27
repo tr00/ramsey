@@ -139,7 +139,7 @@ imposed.
   and [first deductions](d20/README.md#first-deductions-pending-independent-review)
   are ready for independent review; no executable pruning is enabled.
 - [Minimum-degree normalization](#102-canonical-complement-selector) is an
-  alternative scheme, including [min-degree20](min-degree20/README.md).
+  alternative scheme.
 
 These schemes are alternatives, not one disjoint partition. A canonical
 pivot requires an invariant tie rule or explicit coverage of every choice.
@@ -704,77 +704,6 @@ Reviews and premise limits: [extension report](../reports/2026-10-17-d18-extensi
 Further current threads are indexed in [d18](d18/README.md), including K1's
 open double-core completion and the reviewed interior/connectivity transfers.
 
-## 9. Complement-normalized minimum-degree-20 branch
-
-Use the canonical degree-sequence orientation described in Section 10. If the
-minimum degree is 20, every degree is 20, 21, or 22.
-
-Parameterize:
-
-```text
-n20-n22=2j+1,
-n22=r.
-```
-
-Then:
-
-```text
-n20=r+2j+1,
-n21=42-2(j+r),
-n22=r,
-e(G)=451-j,
-j,r>=0,
-j+r<=21.
-```
-
-There are 253 arithmetically possible degree-count triples before pruning.
-
-Fix a degree-20 pivot and define:
-
-```text
-s=sum_(u in A)(d_G(u)-20).
-```
-
-Then:
-
-```text
-b=a+51-j-s,
-x=380+s-2a.
-```
-
-Using published edge ranges:
-
-```text
-68 <= a <= 100,
-117 <= b <= 143,
-max(68,66+j+s) <= a <= min(100,92+j+s),
-j+s <= 34.
-```
-
-Search use: branch on `(j,r,s,a)` only after feasibility checks from these
-intervals.
-
-### 9.1 Complete same-degree pair-selection coverage
-
-**[PROVED-HERE; independently reviewed]** Under the global normalized
-minimum-degree20 assumptions of this section, the count predicates
-n20>=13 and n20<=12 give a disjoint exhaustive split. The first guarantees
-an edge with both endpoints of degree20 and codegree<=11. The second forces
-n21>=20 and guarantees an edge with both endpoints of degree21 and
-codegree<=12. More strongly, every thirteen-element prescribed subset of
-the indicated degree class contains such an edge.
-
-Dependencies: degree-count/selector identities and classical
-R(3,3)=6, R(3,4)=9, R(3,5)=14 through the generalized family-overlap theorem.
-No edge census or small-excess bound is assumed. This does not apply to an
-arbitrary even-pivot d20 branch without the global normalization premises.
-
-Search use: branch | propagate for complete two-root existence coverage;
-retain every allowed overlap value, map, internal graph and completion.
-No branch termination follows without exhaustive exclusion/certificates.
-Proof and exact reviews: [pair coverage](min-degree20/pair_coverage.md),
-[general family overlap](../../docs/general_theorems/family_overlap.md).
-
 ## 10. Symmetry reductions
 
 ### 10.1 Global action
@@ -1142,7 +1071,7 @@ finite-cap and obligation-graph results; their proof notes own the statements.
 
 - [Mathematical baseline](../../docs/mathematical_baseline.md) and
   [phase-I/II foundations](../../docs/theory_phase_1.md).
-- [Degree-18 proof map](d18/README.md) and [normalized degree20](min-degree20/README.md).
+- [Degree-18 proof map](d18/README.md).
 - [Shared theorem map](../../docs/general_theorems/README.md).
 - [Layered theory map and formalization backlog](../../docs/theory_map.md).
 - [Engine documentation](../../docs/engine.md), [workflow](../../docs/workflow.md),

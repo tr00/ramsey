@@ -70,9 +70,8 @@ Much of the current work follows a vertex of degree 18. Its two sides have
 18 and 24 vertices. The original cross-edge floor was 136; the reviewed
 [x136](research/n43/d18/x136/README.md) and [x137](research/n43/d18/x137/README.md) exclusions
 raise it to 138. Higher cross counts remain open.
-Other threads study overlapping vertex neighborhoods, symmetry reductions,
-and the case with minimum degree 20 after choosing between a graph and its
-complement.
+Other threads study overlapping vertex neighborhoods and symmetry
+reductions.
 
 ```text
 43 vertices
@@ -112,7 +111,6 @@ when a computation closes a named subbranch.
 | [results.md](results.md)                        | Current progress and links to recent deductions                         |
 | [research/n43/](research/n43/README.md)                           | The 43-vertex case, organized by mathematical assumptions               |
 | [research/n43/d18/](research/n43/d18/README.md)                   | Degree-18 neighborhoods, cross-column compatibility, and frontier cases |
-| [research/n43/min-degree20/](research/n43/min-degree20/README.md) | The complementary line of work on normalized minimum degree 20          |
 | [docs/](docs/)                                  | Workflow and evidence standards; legacy mathematical notes pending migration |
 | [research/reports/](research/reports/README.md)                    | Historical reports and validation artifacts; no new session reports    |
 | [src/](src/) and [tests/](tests/)               | C++ fixed-B OPB frontend and semantic regression tests                  |

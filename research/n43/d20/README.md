@@ -8,7 +8,7 @@ Giving d18 priority in either complementary orientation further restricts
 the residual to degrees 19 through 23. The
 [routing proof](residual_coverage.md#claim-d20-residual-routing) records this
 complete split separately from the one-orientation no-degree-18 predicate.
-Degree 19 is allowed in both; this is not the minimum-degree-20 branch.
+Degree 19 is allowed in both.
 
 The older general degree-20 scope allowed degrees 18 through 24. Historical
 formulas remain valid on their stated scopes; the new residual deductions
@@ -36,8 +36,7 @@ the exact assumptions and permitted use; no search filters have been added.
 | Pair coverage | [Mixed-degree families and exhaustive selection](residual_coverage.md#claim-d20-complete-pair-selection): a bounded-overlap edge in degrees at most 20 or 21, or a bounded-common-nonneighbor nonedge in degrees at least 22 |
 
 See [reduction index](../reductions.md), sections 3 and 5, for scope and shared
-interface predicates. Do not import minimum-degree-20 restrictions from the
-alternative [normalized branch](../min-degree20/README.md).
+interface predicates.
 
 ## Saturated closure attempt
 

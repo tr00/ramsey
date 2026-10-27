@@ -52,7 +52,7 @@ in [AGENTS.md](AGENTS.md).
 | `Ramsey/n43/d18/k1/{Completion,Parameters,Reduction}.lean` | Exact 8/3 mixed obstruction types, arbitrary cross-core replacement, the scalar outer envelope, and `Complete` reductions to admissible erased keys with 289 Boolean positions. No exclusion or realizability claim. |
 | `Ramsey/n43/d18/k2/Exclusion.lean` | K2 d18 subcase target `Ramsey.d18.k2.excludes : ExcludesSubcase .k2` (complete component of order 2) — deliberate `sorry` |
 | `Ramsey/n43/d18/k3/Exclusion.lean` | K3 d18 subcase target `Ramsey.d18.k3.excludes : ExcludesSubcase .k3` (complete component of order 3) — deliberate `sorry` |
-| `Ramsey/n43/d20/Exclusion.lean` | d20 branch target `Ramsey.d20.excludes : ExcludesDegree 20` — deliberate `sorry`, mirrors `../research/n43/d20/`; arbitrary even-pivot d20, _not_ the normalized min-degree-20 scheme of `../research/n43/min-degree20/` |
+| `Ramsey/n43/d20/Exclusion.lean` | d20 branch target `Ramsey.d20.excludes : ExcludesDegree 20` — deliberate `sorry`, mirrors `../research/n43/d20/`; arbitrary even-pivot d20 |
 | `Ramsey/defs/Completeness.lean` | Enumeration completeness carrier `Complete S P` with premise-free glue lemmas (`mono`, `of_imp`, `sep`, `union`, `iUnion`, `cover`, `forall_not_of_eq_empty`); every branch states its obligation as a `Complete` proof |
 | `Ramsey/defs/RamseyGraph.lean` | Repository Ramsey graph, bound-predicate and balanced-clique vocabulary. Elementary results live in `basics/RamseyTheory.lean`. |
 | `Ramsey/defs/Transversals.lean` | Repository pivot-interface vocabulary: antineighborhood, rows, edge counts, degree excess, deletion counts and rectangle predicates |
@@ -299,8 +299,8 @@ The claim-02 census edge slices and the sufficient-connectivity wrappers
 here until the 2026-10-18 fusion and removed: the d18 branch now handles
 disconnected neighborhoods through the subcase obligations instead of
 proving connectivity from edge counts. The informal claims remain in
-`research/n43/d18/neighborhood_connectivity.md` and the removed theorem names and
-premise chains in `research/reports/2026-10-17-d18-connectivity.md`. The theorem
+`research/n43/d18/neighborhood_connectivity.md`; the removed theorem names and
+premise chains are retained in its [formalization history](../research/n43/d18/neighborhood_connectivity.md#lean-formalization-history). The theorem
 names and premise chains of the survivors are included in
 `scripts/Audit.lean` and its expectations. Nothing here asserts that any
 exceptional graph extends to an order-43 Ramsey candidate. The

@@ -213,7 +213,7 @@ A bound giving q_u<0 refutes the specified signature configuration.
 For example, to force a destination with at least 69, 75, 81, 84 edges,
 it suffices respectively that Delta_I<=51,27,3,-9. These bounds land
 in the connected, three-connected, four-connected, and q<=1 regimes
-of the [accepted connectivity transfer](connected_structure_transfer.json).
+of the [accepted connectivity transfer](neighborhood_connectivity.md#claim-connected-density-connectivity).
 If |P|>=25, R(5,4)=25 supplies an independent four in P, so the
 63-edge guarantee has occurrence coverage. In particular every source
 with a_v<=62 then has a strict degree-18 destination, even if no local

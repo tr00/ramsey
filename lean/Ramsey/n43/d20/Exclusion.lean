@@ -17,11 +17,7 @@ proved modulo this `sorry` and the d18 one.
 
 Scope warning (`../research/n43/README.md`, coverage-distinction column): this is
 the *arbitrary even-pivot* d20 branch — the pivot has degree 20 and global
-degrees may be anything in `18..24`. It is **not** the complement-normalized
-minimum-degree-20 scheme of `../research/n43/min-degree20/` (only degrees 20, 21,
-22). Do not import that scheme's hypotheses here; merging the two schemes
-requires the separate coverage argument flagged in
-`../docs/proof_review_2026_10_13.md`.
+degrees may be anything in `18..24`.
 
 Status: **[OPEN]** — this is the statement under attack on this branch. The
 `sorry` is deliberate; see `README.md` in the project root for the evidence

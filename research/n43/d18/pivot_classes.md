@@ -1,8 +1,31 @@
 # Degree-18 pivot classes and conditional unavoidable pairs
 
-Date: 2026-10-14. Derived here; internally audited by separate degree, edge,
-incidence and overlap counts. No solver or graph enumeration was run. Numerical
-census inputs are identified below. No novelty or order-43 exclusion is claimed.
+Scope: local deductions for an order-43 (5,5)-free graph and its actual
+degree-18 roots. Numerical profiles partition roots, not neighborhood
+isomorphism classes. Author: branch authors; independent reviewers cover only
+the scoped material listed below. No novelty or order-43 exclusion is claimed.
+
+| Development | Kind and review state | Permitted mathematical use |
+| --- | --- | --- |
+| Sections 1 and 3--6; original Section 2 overlap development as a standalone topic | Derived here; draft (self-audited, without standalone independent acceptance) | Necessary profile and conditional-family deductions; not a new executable pruning authorization |
+| Section 2 corrected adjacent-root cell paragraph | Local deduction; accepted after the scoped LegacyCellAudit correction | Use the corrected cell types and unchanged overlap bounds |
+| Section 2 strengthened interior floor, ceiling, and pointed filters | Imported accepted local deductions from [interior transfer](interior_transfer.md#claim-interior-transfer-interface), independently reviewed by InteriorAudit | Parameter-conditioned propagation and pointed-family branching on the exact hypotheses |
+
+Dependencies: the degree and census premises in
+[theory phase I](../../../docs/theory_phase_1.md),
+[lemma phase II](../../../docs/lemma_phase_2.md),
+[frontier band](frontier_band.md), and
+[cliques and augmentation](cliques_augmentation.md); Angeltveit--McKay,
+*R(5,5)<=46*, [arXiv:2409.15709v2](https://arxiv.org/abs/2409.15709v2),
+Appendix A Table 1, including E(4,5,17)=79. External numerical premises are
+retained, not recertified here.
+
+Summary: the profiles and overlap filters give necessary conditions, complete
+conditional near-regular pointed families, and weighted dense-root counts.
+Neither a global small-W hypothesis nor the dense frontier is forced. Separate
+family and overlap guarantees must not be joined without a same-pair argument.
+The degree, edge, incidence, overlap and table arithmetic audits in this topic
+are author self-checks; no solver or graph enumeration was run.
 
 ## 1. Complete numerical profiles
 
@@ -87,9 +110,9 @@ Audit of the simplification: with L=max(0,6-q_v), the function
 (170-2q_v-L*z)/(18-z) is increasing in z because
 170-2q_v-18L>=0 for every q_v=0,...,35. Use z<=E_v.
 
-The [reviewed interior transfer](interior_transfer.json), with its
-[independent audit](review_interior_transfer_20261019.json), strengthens
-the floor L in both formulas above, uniformly in x and E_v:
+The [reviewed interior transfer](interior_transfer.md), with its
+[historical machine-readable independent audit](review_interior_transfer_20261019.json),
+strengthens the floor L in both formulas above, uniformly in x and E_v:
 
 |q_v|0|1|2..5|6..10|11..15|16|17..35|
 |---|---|---|---|---|---|---|---|
@@ -123,7 +146,7 @@ vertices; the remaining common-nonneighbor cell has order 7+lambda and is
 (5,4)-free. These equations include both adjacent roots in the union.
 The opposite mixed cells, not this common-nonneighbor cell, are (4,4)-free.
 The former (4,4) assertion for the latter cell is withdrawn; see the
-[superseding ambient-type audit](review_adjacent_root_cell_20261017_audit.md).
+[scoped inline correction and acceptance](#review-adjacent-root-cell-pivot-scope).
 The overlap bounds above do not use that assertion.
 
 ## 3. A complete reduction when the graph is near 18-regular
@@ -255,6 +278,63 @@ degree classes using their neighborhood extrema and induced adjacency
 constraints, or to prove stronger local bounds on q+E. Those are the remaining
 coverage gaps; numerical root profiles alone are not full classifications.
 
-Sources: `theory_phase_1.md`, `lemma_phase_2.md`, `research/n43/d18/frontier_band.md`,
-`research/n43/d18/cliques_augmentation.md`, and Angeltveit-McKay, R(5,5)<=46,
-arXiv:2409.15709v2, Appendix A Table 1 for E(4,5,17)=79.
+## Historical independent review coverage
+
+<a id="review-adjacent-root-cell-pivot-scope"></a>
+### Adjacent-root cell correction and acceptance
+
+LegacyCellAudit, independent of the branch authors and the coordinator who
+applied the correction, accepted only the corrected Section 2 pointed-pair
+paragraph. The common-nonneighbor cell of adjacent degree-18 roots is
+(5,4)-free, not (4,4)-free: a K4 there is not forbidden by the standing
+hypotheses. Its order 7+lambda, union order 36-lambda including both roots,
+common-neighbor type (3,5), and opposite mixed-cell type (4,4) were checked.
+The prior typing was changes-requested and superseded; no overlap table
+changed because the proofs use the common-neighbor cap 13, the deletion floor
+from E(4,5,17)=79, and, where required, the opposite mixed cells, not the
+withdrawn type. The [shared ambient-type audit](review_adjacent_root_cell_20261017_audit.md)
+retains the historical exact-revision evidence and its separate transfer-bounds
+coverage. This acceptance does not extend to all of this topic or recertify
+the external Ramsey and census premises; no closure or search-use claim was
+reviewed by that audit.
+
+### Overlap and interior-transfer dependency audits
+
+The [pairwise coordinator review](pairwise_pivot_refinements.md#review-pairwise-pivot-coordinator)
+rederived q+E<=W/2+4, degree/cut identities, capacities and pointed overlap
+bounds as dependencies of its four accepted claims. The
+[dense-family review](dense_pivot_coverage.md#review-dense-pivot-low-excess)
+likewise rederived x=136+2q+E and q+E<=W/2+4. These dependency checks are not
+independent acceptance of Sections 1--6 as a whole.
+
+InteriorAudit separately accepted the strengthened floor, ceiling and
+interface claims now developed in [interior transfer](interior_transfer.md).
+Its [historical JSON review snapshot](review_interior_transfer_20261019.json)
+records the corrected adjacent-cell lineage, actual-multiplicity averaging,
+positive denominator, monotonic E substitution, and the three improvements
+11->10, 13->12 and 10->9. It reproduced the old W<=10 table and found its
+worst-case caps unchanged. This is parameter-conditioned transfer acceptance,
+not an occurrence, matching-companion-profile, or whole-branch conclusion.
+
+### Further scoped dependency checks and snapshots
+
+The [density-rerooting independent review](review_density_rerooting_20261021_independent.md#dependencies-reviewed-and-limits)
+rederived this topic's q/E/W budget and antineighborhood bounds as
+dependencies of that separate result; this is not acceptance of all pivot
+classes. The [forced-q0 review](review_closure_consequences_forced_q0_20261021_cr10.md#independent-checks-and-findings)
+likewise rederived the root budget for its own scoped consequence.
+The retained [machine-readable interior-transfer proof snapshot](interior_transfer.json)
+and its JSON review are historical evidence; current mathematical dependency
+links point to the authoritative Markdown topic.
+
+## Changelog
+
+- Corrected the adjacent-root common-nonneighbor type from (4,4) to (5,4);
+  the scoped independent audit accepted the corrected paragraph and confirmed
+  the overlap bounds unchanged.
+- Added the independently accepted interior floor and ceiling transfer; it
+  strengthens individual filters without improving the old worst-case W table.
+- Consolidated metadata and scoped review findings without changing the
+  mathematical development or promoting the self-audited sections. Current
+  interior-transfer dependencies use the authoritative Markdown topic; JSON
+  remains historical proof/review evidence.

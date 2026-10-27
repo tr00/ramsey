@@ -1,22 +1,32 @@
-<!-- sos-theory-integration:start -->
-Integration status (2026-10-15): all 4 claims received independent
-exact-revision acceptance in [the review](review_sos_pivot_selection_20261015_finite.md) at reviewed-body
-SHA-256 `037901dc6de8864744ef9d5945d218624aaa575f889afc7c74650ccdf6f526e7`.
-The reviewed body is preserved verbatim below; its ready labels are historical.
-Current state: accepted local deductions on each exact premise chain.
-Permitted use: conditional excess/covariance propagation, safe selected-root and same-family branching, and the twelve-root overlap theorem.
-No complete x branch or order-43 case is closed. External premises are retained;
-independent mathematical review is not a formal exhaustion certificate or novelty review.
-See [the synthesis](../../reports/2026-10-15-sos-theory.md) and
-[the manifest](sos_theory_manifest.json).
-<!-- sos-theory-integration:end -->
-
 # Quadratic positivity for degree-18 pivot selection
 
-Date: 2026-10-15. Task: `sos-pivot-20261015`. Author: pivot/SOS agent.
-Theory only: no solver, graph enumeration, download, installation, or novelty
-review. Base HEAD: `5c8d20526b37a1a74b6dbb3cb7540c6e829dec92`.
-All claims below are ready for independent review, not accepted.
+Scope: local deductions for order-43 K5/I5-free graphs with a nonempty
+degree-18 set, plus the standalone K5-free degree-square theorem in Claim 01.
+Author: sos_pivot (pivot/SOS agent). Independent reviewer: sos_finite,
+distinct from the author and making no source edits during review.
+
+| Claim | Kind and current review state | Permitted search use |
+| --- | --- | --- |
+| [Degree square](#claim-sos-pivot-degree-square) | Local deduction; accepted | Propagate on actual H statistics |
+| [Covariance](#claim-sos-pivot-covariance) | Local deduction; accepted | Conditional excess/covariance propagation; feed the family claim |
+| [Families and selected roots](#claim-sos-pivot-family) | Local deduction; accepted | Propagate and branch under explicit safe selection or complete same-family coverage |
+| [Twelve roots](#claim-sos-pivot-twelve) | Local deduction; accepted | Same-family overlap existence coverage and propagation; retain every permitted profile, map and completion |
+
+Dependencies: [pivot classes](pivot_classes.md),
+[pairwise refinements](pairwise_pivot_refinements.md),
+[dense-pivot Claim 01](dense_pivot_coverage.md#claim-dense-pivot-01), the
+elementary principles and exact small Ramsey numbers stated per claim, and
+the retained Angeltveit--McKay census premises,
+[arXiv:2409.15709v2](https://arxiv.org/abs/2409.15709v2), Appendix A Table 1.
+External premises are not recertified by this topic or its review.
+
+The [inline independent review](#review-sos-pivot-finite) and the retained
+[historical machine-readable integration manifest](sos_theory_manifest.json)
+document acceptance of all four claims. The old author's ready labels were
+superseded by that existing exact-revision acceptance, not by a new review.
+The manifest's source, audit and integration hashes refer to historical bytes,
+not the current editorial presentation. Theory only: no solver, graph
+enumeration, download, installation or novelty review was performed.
 
 There are two deliverables: an explicit quadratic certificate improving the
 weighted excess bound used to select dense roots, and a strengthening of the
@@ -56,12 +66,6 @@ This task does not independently certify those external data.
 
 <a id="claim-sos-pivot-degree-square"></a>
 ## 1. A degree-square bound for any K5-free graph
-
-Claim ID: `research/n43/d18/sos_pivot_selection.md#claim-sos-pivot-degree-square`
-
-Kind: local-deduction
-
-Review state: accepted
 
 Scope: every K5-free simple graph H on h>0 vertices with e edges
 
@@ -103,18 +107,10 @@ For e=0 the conclusion is immediate as well. Subtracting the squared
 mean contribution 4e^2/h gives
 sum_z(d_H(z)-2e/h)^2<=V. The left side is nonnegative, establishing V>=0.
 
-Search use: propagate on actual H statistics after independent review
-
-Reviews: [review](review_sos_pivot_selection_20261015_finite.md)
+Search use: propagate on actual H statistics
 
 <a id="claim-sos-pivot-covariance"></a>
 ## 2. A rational SOS covariance certificate for the excess cut
-
-Claim ID: `research/n43/d18/sos_pivot_selection.md#claim-sos-pivot-covariance`
-
-Kind: local-deduction
-
-Review state: accepted
 
 Scope: the setting above with h>0; every positive rational t
 
@@ -147,18 +143,10 @@ replace V and can only improve the bound. For h=0, J=W=Z=0 separately.
 This is a quadratic SOS step combined with a K5-free spectral/clique bound.
 It is not a full Boolean SOS refutation or a claim about its hierarchy degree.
 
-Search use: propagate, then branch through Claim03, after independent review
-
-Reviews: [review](review_sos_pivot_selection_20261015_finite.md)
+Search use: propagate, then branch through Claim03
 
 <a id="claim-sos-pivot-family"></a>
 ## 3. Dense-root families and safe selected roots from any J certificate
-
-Claim ID: `research/n43/d18/sos_pivot_selection.md#claim-sos-pivot-family`
-
-Kind: local-deduction
-
-Review state: accepted
 
 Scope: the setting, any proved rational lower bound J_lo<=J,
 any integer Q>=0 with 0<=D0=B0-Q-1<U0=min(W,B0)
@@ -217,20 +205,12 @@ both x<=172. The prior J lower bound with even the improved U0 cap
 would yield only nine such roots, below the twelve-root threshold.
 These bounds narrow a future conditional family; they do not eliminate it.
 
-Search use: propagate | branch after independent review; safe selection
-must be used explicitly, and a two-root branch must retain all maps and
-completions permitted by the guaranteed profiles
-
-Reviews: [review](review_sos_pivot_selection_20261015_finite.md)
+Search use: propagate | branch; safe selection must be used explicitly, and
+a two-root branch must retain all maps and completions permitted by the
+guaranteed profiles
 
 <a id="claim-sos-pivot-twelve"></a>
 ## 4. Twelve degree-18 roots suffice for the same-family overlap bound
-
-Claim ID: `research/n43/d18/sos_pivot_selection.md#claim-sos-pivot-twelve`
-
-Kind: local-deduction
-
-Review state: accepted
 
 Scope: every subset F of P with |F|>=12, with no restrictions on W, h,
 q, x, or how the family is chosen
@@ -317,11 +297,9 @@ There are 43-12=31 vertices outside F, but
 a contradiction. Thus |F|=12 is also impossible under the all-high-overlap
 assumption, completing the proof.
 
-Search use: branch | propagate after independent review. This is an
-overlapping unavoidable family theorem. Excluding one representation or
-one overlap map is insufficient to exclude the global family.
-
-Reviews: [review](review_sos_pivot_selection_20261015_finite.md)
+Search use: branch | propagate. This is an overlapping unavoidable family
+theorem. Excluding one representation or one overlap map is insufficient to
+exclude the global family.
 
 ## Limits and author audit
 
@@ -347,10 +325,70 @@ was checked component by component; independent sets are added across
 components and triangle common-neighbor counts include all ambient vertices.
 This is a self-check, not independent review or a formal certificate.
 
-| Input file | SHA-256 |
-| --- | --- |
-| pivot_classes.md | `43d4ff670667705f4f974ef69dfe37a1dc43aa09e7825a2fc7448cff60d76233` |
-| dense_pivot_coverage.md | `e64d608ff25049f90b46ceb5775b76dcb0354fbb510a0479d0efaca619c1cd7a` |
-| excess_bounds.md | `2577e6eccf38b51fbb2d691d488d747302b4445fca31dbe344b64dd30af73c97` |
-| pairwise_pivot_refinements.md | `2b357ef5a53588c4e6879078210de4deae564ea22611fc4ffd81c21ecaa572e3` |
-| docs/mathematical_baseline.md | `e6ea1c070e32ac04a73eb53a5634921acb7fe6d02123a3c7d35a710f262a698e` |
+<a id="review-sos-pivot-finite"></a>
+## Independent review of quadratic degree-18 pivot selection
+
+Independent reviewer sos_finite accepted all four claims, separately from
+author sos_pivot, for the exact uncommitted proof revision recorded in the
+historical review. The retained integration manifest pairs that reviewed body
+with its original audit and integrated source, records four accepted claims
+and their permitted uses, and the former integration record explicitly
+preserved the reviewed body. This is the correspondence behind the current
+accepted state; the earlier ready labels were historical author metadata.
+The later condensed audit retained the same outcomes, decisive checks and
+limits. Its retired prose is consolidated here, not restored as a second proof.
+
+### Independent checks
+
+The reviewer read the degree/excess dependencies and independently rederived
+the four high-codegree consequences from dense-pivot Claim 01. Checks covered
+assumptions, quantifiers, ambient types, algebra, spectral direction, positive
+parameters, integer rounding, exact equality at twelve roots, additive
+component independence, global-vertex coverage, the example and conditional
+branching use.
+
+Weighted K5-free mass merging and the adjacency operator norm gave the
+degree-square bound 3eh/2. Centered rational squares verified covariance for
+t>0, including e=0 and the h>0 boundary. Family and selected-root bounds
+were checked with positive denominators and the same root/statistics; E and
+q minimizers were not conflated. The exact example reproduced R=40,
+V=108/5, t=3/4, J>=4003/5, integer J>=801, q_*<=4 and M_7>=14.
+For twelve roots, the reviewer reconstructed the equality components,
+the eight-cell minimum 10 excluding the cubic triangle-free case, and
+outside-vertex coverage allowing at most 16 of 31 vertices. Counts include
+all ambient common neighbors and overlapping component cover sets.
+
+### Outcome and limits
+
+Outcome: accepted for all four claims on their exact stated dependencies.
+Permitted use is degree/variance/covariance propagation, safe selected-root
+and conditional same-family branching, and termination only of an explicitly
+inconsistent statistic profile. Twelve-root coverage remains an overlapping
+unavoidable-family statement requiring every permitted root profile, overlap
+map and completion in eventual exhaustive gluing.
+
+The review supplies no graph construction, order-43 nonexistence, general
+degree-18 existence, unconditional small-x or small-excess assumption, or
+novelty result. It is independent mathematical review, not a formal
+certificate or replay of the external census. Exact Ramsey values and census
+extrema remain external premises. No solver, graph enumeration, download,
+installation, staging or commit was used in the review.
+
+## Validation of the conditional example
+
+Exact rational replay reproduced each bound in the displayed covariance
+example, including the integer J bound, selected-root deficit and family
+count. The selected-root cross-count formula also reproduced all six entries
+of the low-W table in the pairwise topic. This is arithmetic validation,
+not renewed independent review or evidence that the specified profile occurs.
+
+## Changelog
+
+- Independent review accepted the degree-square, rational covariance, safe
+  family/selected-root and twelve-root overlap claims on their stated premises.
+- Reconciled historical ready labels with that documented acceptance and
+  consolidated the existing condensed review inline. The retained JSON
+  manifest remains historical integration evidence, not current prose metadata.
+- Preserved the full mathematical development, conditional example, limits
+  and all original section/claim anchors; removed duplicated date/hash/task
+  administration and the obsolete synthesis link.

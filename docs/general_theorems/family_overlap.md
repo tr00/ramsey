@@ -315,9 +315,7 @@ For order 43 this gives the following conditional family guarantees:
 | 21 | 21 | 30 | 13 | 28 | at most 12 |
 
 Each row requires at least thirteen actual degree-`d` vertices in the
-prescribed family. In particular, the degree-20 row applies conditionally
-in the normalized minimum-degree-20 branch if it has at least thirteen
-degree-20 roots; it does not establish that count throughout the branch.
+prescribed family.
 
 Proof: suppose all family edges have codegree at least `L`. For any triangle
 `u,v,w` in the family, its common neighbors are independent and have size

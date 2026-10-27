@@ -1,8 +1,24 @@
 # Degree-18 avenues: clique budgets, augmentation, and pivot transfer
 
-Date: 2026-10-14. Mathematical work only. The deductions were internally
-audited using separate obstruction counts and explicit equality analysis.
-No enumeration, solver, installation, download, or novelty review was performed.
+- **Kind and scope:** local deductions for an order-43 `(5,5)`-free graph
+  with a degree-18 root. Section 1 uses only the stated 24-vertex `(5,4)`
+  graph; Section 2 uses a pure 18-vertex `(4,5)` graph; Section 3 additionally
+  selects a maximum-neighborhood-edge degree-18 root.
+- **Dependencies:** the recorded degree and interface identities,
+  `R(3,4)=9`, and the published 85-edge neighborhood upper bound. The
+  external census is retained, not recertified.
+- **Review coverage:** the source records an author self-audit, not
+  whole-topic independent acceptance. Sections 2 and 3 have the scoped
+  independent dependency checks retained below; these do not accept every
+  statement in this topic.
+- **Summary and search use:** the four-clique degree sum is at most 60,
+  with rigid equality signatures. At 84 edges the safe-missing-edge graph
+  is a star forest with at most three edges; generation must retain both
+  saturated and augmentable cases. Maximum-density root selection preserves
+  existence coverage only under its explicit selection hypothesis. No
+  census recertification, novelty claim, or order-43 exclusion follows.
+
+## Setting
 
 Let G be an order-43 (5,5)-free graph, v a degree-18 vertex, A=N(v), B=M(v).
 Write a=e(A), x=136+k, q=85-a, and epsilon_z=d_G(z)-18. For y in B,
@@ -162,3 +178,24 @@ Audit: clique degrees were counted by cut edges and independently by pair
 codegrees; equality was checked for all ten masks. Safe-edge coverage uses
 both possible endpoint patterns and a forbidden-path argument. Pivot formulas
 include the pivot contribution for A vertices and exclude it for B vertices.
+
+## Independent dependency checks
+
+These are historical checks within reviews of other claims, not a new
+review or a whole-topic acceptance decision. The mathematical development
+above is retained unchanged.
+
+| Covered section | Reviewer and decisive check | Coverage limit |
+| --- | --- | --- |
+| Section 2 | The small-column agent independently rechecked the disjoint/incident safe-edge cases and star-component bound in the [actual-column bridge review](review_pairwise-safe-columns_2026-10-14_small-agent.md). | This checks the at-most-three dependency; the review's acceptance outcome concerns the bridge claim, not this entire topic. |
+| Section 3 | `ConnectivityAudit` checked maximum-edge selection and the unchanged interface inequalities as dependencies of the [separator/root transfer](neighborhood_connectivity.md#review-connected-structure-transfer); its original [machine-readable review](review_connected_structure_transfer_20261019.json) is retained. | The choice cannot be imposed on an arbitrary fixed root or on its companion. |
+| Section 3, existence coverage | `/root/a69_review_clean` independently checked that a nonempty finite degree-18 class has a maximizer in the [69-edge attachment review](review_a69_attachment_obstructions_20261021_independent.md#premises-and-applicability). | Only degree-18 destinations and the explicitly selected root are covered; no 69-edge conclusion is added. |
+
+## Changelog
+
+- Consolidated scope, argument limits, self-audit, and the existing scoped
+  dependency checks here without changing the mathematical development or
+  promoting the topic to independent acceptance. Shared reviews remain with
+  their primary claims.
+- Retained the saturated/augmentable split and the distinction between a
+  selected maximum-density root and an arbitrary root or companion.

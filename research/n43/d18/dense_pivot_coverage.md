@@ -1,9 +1,32 @@
 # Dense degree-18 families with a simultaneous overlap guarantee
 
-Date: 2026-10-14. Task: `dense-pivots-20261014`.
-Author: pivot-coverage agent. Pure mathematics; the numerical tables use only
-exact arithmetic on their displayed formulas. No graph enumeration, solver,
-download, installation, or novelty review was performed.
+Scope: local deductions for order-43 K5/I5-free graphs, their actual
+degree-18 roots, and the exact degree-data predicates stated below.
+Author: pivot-coverage agent. Independent reviewer: low-excess agent,
+a distinct identity. All three claims are accepted on their stated premises.
+
+| Claim | Kind and review state | Permitted search use |
+| --- | --- | --- |
+| [01](#claim-dense-pivot-01), thirteen-root overlap theorem | Local deduction; accepted; no edge census | Existence coverage and propagation for a complete same-family two-root branch |
+| [02](#claim-dense-pivot-02), odd-h near-maximum-excess families | Local deduction; accepted on the retained census premises | Numerical propagation and conditional family counts |
+| [03](#claim-dense-pivot-03), simultaneous dense endpoints and overlap | Local deduction; accepted on the retained census premises | Conditional same-family two-root branching with all maps/completions |
+
+Dependencies: [pivot classes](pivot_classes.md), [excess bounds](excess_bounds.md),
+[frontier band](frontier_band.md#four-transversal-extension), the
+[independent-four anchor](../../../docs/theory_phase_1.md#4-anchored-4-bit-signature-theory),
+Turan's theorem and the small Ramsey numbers stated per claim. The numerical
+census premises are those recorded from Angeltveit--McKay,
+[arXiv:2409.15709v2](https://arxiv.org/abs/2409.15709v2), Appendix A Table 1;
+the four-transversal observation also retains the published order-15 (4,4)
+minimum of 50. These external premises are not recertified here.
+
+Summary: this topic obtains density at both endpoints and overlap at most ten
+on the same edge in one conditional family. It establishes neither small h,
+small W nor small x globally, and closes no profile or order-43 branch.
+The later [twelve-root theorem](sos_pivot_selection.md#claim-sos-pivot-twelve)
+strengthens the thirteen-root threshold without replacing this proof.
+The author used exact arithmetic on the displayed formulas; no graph
+enumeration, solver, download, installation or novelty review was performed.
 
 Let G have 43 vertices and neither K5 nor I5. Write P for its degree-18
 vertices, H=V(G)-P, h=|H|, p=43-h, epsilon_z=d_G(z)-18, and
@@ -26,12 +49,6 @@ for that very pair. It does not combine two separately guaranteed pairs.
 
 <a id="claim-dense-pivot-01"></a>
 ## 1. Any thirteen degree-18 roots contain an edge of overlap at most ten
-
-Claim ID: `research/n43/d18/dense_pivot_coverage.md#claim-dense-pivot-01`
-
-Kind: local-deduction
-
-Review state: accepted
 
 Scope: any subset F of P with |F|>=13; no restriction on W, h, q, x,
 or root selection.
@@ -125,21 +142,12 @@ consequence. Thus |D|<=12=3a in this case as well.
 Independence numbers add over the components of G[F]. Hence
 |F|<=3*alpha(G[F])<=12, contradiction. The conclusion follows.
 
-Search use: branch | propagate after independent review. An exhaustive
-two-root gluing family must retain all allowed overlap values, maps, and
-completions for the guaranteed edge; this claim supplies only existence
-coverage for that family.
-
-Reviews: [exact independent low-excess-agent review](review_dense_pivot_coverage_20261014_low_s.md).
+Search use: branch | propagate. An exhaustive two-root gluing family must
+retain all allowed overlap values, maps, and completions for the guaranteed
+edge; this claim supplies only existence coverage for that family.
 
 <a id="claim-dense-pivot-02"></a>
 ## 2. Odd high-degree counts near their excess maximum force dense families
-
-Claim ID: `research/n43/d18/dense_pivot_coverage.md#claim-dense-pivot-02`
-
-Kind: local-deduction
-
-Review state: accepted
 
 Scope: h odd, 1<=h<=35, W=6h-D, D in {0,2,4,6}, and h<=W.
 The statements are conditional on these exact global degree data.
@@ -209,19 +217,11 @@ For h=15 and17, R_h=-4 and-16 respectively; the nonnegative count is
 zero and the same formula remains valid. Values beyond the table do not
 inherit a positive count by interpolation.
 
-Search use: propagate | branch after independent review; no termination
-claim for any listed degree profile.
-
-Reviews: [exact independent low-excess-agent review](review_dense_pivot_coverage_20261014_low_s.md).
+Search use: propagate | branch; no termination claim for any listed degree
+profile.
 
 <a id="claim-dense-pivot-03"></a>
 ## 3. Two dense endpoints and overlap ten in the same conditional family
-
-Claim ID: `research/n43/d18/dense_pivot_coverage.md#claim-dense-pivot-03`
-
-Kind: local-deduction
-
-Review state: accepted
 
 Scope: a row of Claim02 with M_D>=13; all exact hypotheses of that claim.
 
@@ -264,13 +264,10 @@ endpoint edge-count ranges82..85 and81..85 respectively. They do not
 gain a four-transversal bound from q<=2 unless the actual q values supply
 that additional hypothesis.
 
-Search use: branch after independent review. Excluding these conditional
-degree predicates requires exhaustive exclusion of the entire two-root
-family, including all stated q,E values, all overlaps up to ten, all maps,
-and all remaining Ramsey-compatible completions. No such exclusion is
-provided here.
-
-Reviews: [exact independent low-excess-agent review](review_dense_pivot_coverage_20261014_low_s.md).
+Search use: branch. Excluding these conditional degree predicates requires
+exhaustive exclusion of the entire two-root family, including all stated q,E
+values, all overlaps up to ten, all maps, and all remaining Ramsey-compatible
+completions. No such exclusion is provided here.
 
 ## Limits, self-checks, and source revisions
 
@@ -292,15 +289,49 @@ The odd-h family count was derived both from omitted excess and from the
 P-H cut; all table entries use the same formula and even D. These are
 self-checks, not independent acceptance or formal certification.
 
-| Input file | SHA-256 |
-| --- | --- |
-| pivot_classes.md | `43d4ff670667705f4f974ef69dfe37a1dc43aa09e7825a2fc7448cff60d76233` |
-| pairwise_pivot_refinements.md | `2b357ef5a53588c4e6879078210de4deae564ea22611fc4ffd81c21ecaa572e3` |
-| excess_bounds.md | `2577e6eccf38b51fbb2d691d488d747302b4445fca31dbe344b64dd30af73c97` |
-| frontier_band.md | `0b8eaa6bd7ca0c6ea8691409112754ab2f0d4b2730166ff4d843b5b807269a54` |
-| docs/theory_phase_1.md | `218966e74964005a1e5b1254a37912731732ba9eb9e2ae115a5493c5cd00ea37` |
-
 No novelty is claimed. Complete multipartite structure of connected paw-free
 graphs with a triangle is standard; its short direct proof above is included
 to keep this local deduction independent of an additional classification
 premise.
+
+<a id="review-dense-pivot-low-excess"></a>
+## Independent review of dense degree-18 pivot coverage
+
+The low-excess agent independently accepted claims 01--03, separately from
+author pivot-coverage agent, for the exact proof revision identified by the
+historical audit. Its condensed review retained the original acceptance,
+decisive checks and limits; this consolidation does not restore superseded
+long-form review prose or constitute a new review.
+
+### Independent checks
+
+All three claims were independently checked. The reviewer rederived
+x=136+2q+E and q+E<=W/2+4 from degree/edge sums and the applicable extrema.
+The thirteen-root argument was checked using ambient common neighbors,
+triangle-codegree equality and component independence; it supplies one
+same-family overlap<=10 edge without an edge census. The h/W/deficit
+substitutions were recomputed, including family counts 26/26/24/20/14 at
+h=3/5/7/9/11, D=0. Both endpoint predicates belong to that same family;
+separate root selectors are not merged. No mathematical correction was
+required for the reviewed revision.
+
+Outcome: accepted on the explicitly retained literature premises. Claim 01
+and Claim 03 provide existence coverage for a complete two-root family;
+Claim 02 provides numerical propagation and conditional family counts.
+The families are conditional and overlapping, not a disjoint root partition.
+Applying their properties to an arbitrary earlier root, identifying separate
+guaranteed pairs, or omitting allowed overlaps, maps or completions exceeds
+the claims. Census premises and small Ramsey-number certificates were checked
+for applicability, not recertified. No exhaustive graph computation, formal
+proof checking, construction, novelty review or order-43 exclusion was
+performed; proof changes require renewed review.
+
+## Changelog
+
+- Established and independently accepted the thirteen-root same-family
+  overlap theorem, odd-h family counts and simultaneous density/overlap use.
+- Recorded the later twelve-root strengthening as a separate dependency link;
+  the thirteen-root proof and all conditional numerical tables remain intact.
+- Consolidated the topic-specific condensed review inline, replaced repeated
+  administration with top-level metadata and removed prose-hash bookkeeping.
+  Mathematical statements, proofs and section/claim anchors are unchanged.

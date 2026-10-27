@@ -11,8 +11,7 @@ a file for each task or continuation.
 Use mathematical scope for paths and descriptive lowercase snake_case topic
 filenames. Place shared topics at the nearest parent where their hypotheses
 apply, including general foundations under `research/`. Different schemes
-retain distinct scopes: `research/n43/d20` and
-`research/n43/min-degree20` are not interchangeable.
+retain distinct scopes.
 
 Keep stable anchors for separately referenced statements and link by topic path
 and anchor. A topic can contain several related statements without repeating

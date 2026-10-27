@@ -1,8 +1,29 @@
 # Conditional upper bounds on degree excess
 
-Date: 2026-10-14. Derived here, internally audited by independent degree and
-cut counts plus exact arithmetic on the stated finite tables. No graph search,
-solver, catalogue acquisition, or novelty review was performed.
+Scope: local deductions for an order-43 (5,5)-free graph with nonempty
+degree-18 set P; exact h and W hypotheses are retained in each result.
+Author: branch authors. Kind: derived-here necessary cut, excess, selected-root
+and pointed-overlap bounds. Review state: draft (self-audited, without
+standalone independent acceptance); scoped dependency checks are listed below.
+
+| Development | Review coverage | Permitted mathematical use |
+| --- | --- | --- |
+| Sections 1--7 as a standalone development, including the selected-minimum-E bounds | Author degree/cut and exact-table audits only | Necessary conditional deductions; no new executable pruning authorization |
+| Degree/cut identities, capacities and overlap premises used by pairwise refinements | Independently rederived by the coordinator for those accepted claims, not all of this topic | Use within the accepted dependent claims' exact scopes |
+| Section 4 forced-q0 premise at (h,W)=(2,8),(4,20),(6,32) | Independently rederived by cr10 for the accepted forced-q0 closure consequence | That scoped unavoidable-root premise; not a promotion of the remaining sections |
+
+Dependencies: [pivot classes](pivot_classes.md) and its recorded degree and
+edge-census premises; Turan's theorem for H or its complement, each K5-free.
+The external census source is Angeltveit--McKay, *R(5,5)<=46*,
+[arXiv:2409.15709v2](https://arxiv.org/abs/2409.15709v2), Appendix A Table 1,
+as retained in the linked topic; it is not recertified here.
+
+Summary: the high-degree cut gives conditional W upper bounds and dense-root
+existence, while separate weighted averages select a small-E root. Neither
+small h nor small W is established globally, and the minimum-E root cannot
+be identified with a maximum-edge root without proof. The original audits
+used degree and cut counts and exact arithmetic on the stated finite tables;
+no graph search, solver, catalogue acquisition, or novelty review was performed.
 
 ## 1. Setting and existing bounds
 
@@ -257,3 +278,33 @@ counts all nonneighbors in H; cut degrees were counted from both sides;
 Turan is applied only to H or its complement, each K5-free. Tables were
 checked by exact integer and rational arithmetic. No excluded row is a
 graph-search result.
+
+## Historical independent review coverage
+
+<a id="review-excess-scoped-dependencies"></a>
+The [pairwise coordinator review](pairwise_pivot_refinements.md#review-pairwise-pivot-coordinator)
+independently rederived the q+E budget, degree/cut identities, integer
+capacities and pointed overlap bounds needed by its four accepted claims.
+The [dense-family review](dense_pivot_coverage.md#review-dense-pivot-low-excess)
+also rederived the root budget from degree/edge sums and applicable extrema.
+Neither review accepts the entire excess-bound development, and in particular
+the selected-minimum-E bounds in Section 5 remain author-audited here.
+
+Reviewer cr10 independently checked the Section 4 premise for the accepted
+[forced-q0 closure consequence](x136_closure_consequences.md#claim-closure-consequences-forced-q0).
+The [shared review](review_closure_consequences_forced_q0_20261021_cr10.md)
+rederived q>=0, q+E<=W/2+4, the omitted-excess capacity and the P-H cut.
+Assuming q>=1 at every root gives m<=h/2 for W=6h-4; the three decisive
+contradictions are 42>41, 80>78 and 114>111. No root selector or I4-free
+neighborhood assumption is used. Its outcome accepts the dependent
+forced-q0 claim, explicitly not this note wholesale; the external census
+premises and x136 closure dependency are not recertified by that review.
+
+## Changelog
+
+- Established the conditional cut bounds, separate minimum-E selection and
+  exact-h pointed-overlap bounds, with author arithmetic audits.
+- Recorded scoped independent dependency checks, including the forced-q0
+  premise, without promoting the unreviewed remainder.
+- Consolidated topic metadata and review coverage; statements, proofs and
+  numerical tables are unchanged.

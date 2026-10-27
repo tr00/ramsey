@@ -41,8 +41,7 @@ The correct normalized split is:
 - Minimum 20: only degrees 20,21,22 occur and `n20>n22`.
 
 The alternative arbitrary even-degree pivot split into 18 and 20 is sound.
-It must not be combined with minimum-degree-20 restrictions without a separate
-coverage argument. The error propagates to the Phase I report.
+The error propagates to the Phase I report.
 
 ## Results that survive this review
 
@@ -50,8 +49,7 @@ Re-derivation supports the universal degree/codegree bounds, Goodman identity,
 triangle lower inequalities, homogeneous-set counting bounds, exact gluing
 criterion (assuming the internal graphs have their stipulated Ramsey types),
 single-signature and intersection constraints, Hall anchor bounds, quadratic
-interface inequalities, the census-dependent degree-18 corridor, and the
-minimum-degree-20 parametrization and pivot identities.
+interface inequalities, and the census-dependent degree-18 corridor.
 
 In Phase II, the identity
 `x=136+2(85-a)+Delta_A` proves the frontier and its equality conclusions.
@@ -125,10 +123,7 @@ document one consistently before generating evidence.
    fixed-pivot symmetry from the separate choice among possible pivots.
 4. Address coverage beyond the extreme corner. Develop the minimum-degree-19
    branch explicitly if using minimum pivots; otherwise develop the arbitrary
-   degree-20 branch allowing the full global degree range 18..24. In parallel,
-   the normalized minimum-degree-20 branch offers a narrow degree alphabet for
-   constraints on adjacent and nonadjacent pairs of pivots. A useful goal is
-   coupling their induced neighborhoods, rather than another scalar moment bound.
+   degree-20 branch allowing the full global degree range 18..24.
 5. Park the 15-vertex attachment problem as a later finite diagnostic. Even
    proving tau>=4 would remove size-three columns only in the x=136 branch
    (and mu=3 at pivots with e(A)=85 in the regular corner); it would not remove

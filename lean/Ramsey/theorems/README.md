@@ -337,11 +337,10 @@ independent acceptance on their explicit numerical and interface premises.
   four-set transversals of independent four-sets intersect. The transversals
   need not themselves be actual cross columns.
 
-The source index also links the
-[normalized minimum-degree-20 pair-coverage theorem](../../../research/n43/min-degree20/pair_coverage.md)
-and [order-43 symmetry structure](../../../research/n43/symmetry_structure.md).
-Those are order-specific applications outside the nine general theorem notes,
-not additional general results. No entry here closes an order-43 branch.
+The source index also links
+[order-43 symmetry structure](../../../research/n43/symmetry_structure.md).
+That is an order-specific application outside the nine general theorem notes,
+not an additional general result. No entry here closes an order-43 branch.
 
 ## Standard tools used in the proofs
 

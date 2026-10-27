@@ -45,8 +45,11 @@ Lean work under `lean/`.
 
 - Follow `lean/AGENTS.md` for file placement, visibility, naming, and comment
   rules.
-- `sh lean/scripts/check.sh` must pass with the unchanged sorry ledger and the
-  audited axiom set. No new axioms or sorries without explicit instruction.
+- Run `sh lean/scripts/check.sh` only when this task modified files under
+  `lean/` (including `lean/scripts/` ledgers). If no `.lean` file or Lean
+  script changed, skip it. When run, it must pass with the unchanged sorry
+  ledger and the audited axiom set. No new axioms or sorries without explicit
+  instruction.
 - Mirror the reviewed markdown statement exactly. Do not weaken or restate a
   claim to make it provable; a statement change requires renewed review of the
   source claim.

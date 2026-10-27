@@ -26,9 +26,9 @@ identical, so the reviewed revision is exact and stable.
 Dependencies reviewed:
 
 - `research/n43/d18/neighborhood_connectivity.md` claims 01-03, read in full.
-  Review state accepted (reviews: `research/reports/2026-10-17-d18-connectivity.md`
-  with Lean verification; claim 03 addendum
-  `review_neighborhood_connectivity_20261018_conn3_rigor.md`). Its
+  Review state accepted (historical reviews now retained in the
+  [connectivity topic](../neighborhood_connectivity.md#independent-review), including
+  Lean verification and the scoped claim 03 addendum). Its
   claim-connectivity-02 conclusion (disconnected degree-18 neighborhood:
   a in [53,58] at m=3, a=61 at m=2, a=68 at m=1; a>=69 forces connected)
   rechecked against its own proof: 3+[50,55], 1+60, 0+68 with the census
