@@ -7,10 +7,14 @@ minimum-degree normalization is imposed.
 
 The accepted [double-core reduction](research.json) gives an edge uv,
 two disjoint critical17 cores C,D, and a common seven-cell T. Both cores
-are SRG(17,8,3,4); both C+T and D+T are K5/I4-free. The remaining
-C-D matrix has289 edge bits, with the exact11 obstruction families in
-that reduction. None of the new restrictions proves that every such
-matrix is impossible.
+are SRG(17,8,3,4); by the accepted
+[Paley-17 classification](../../../foundations/paley17_uniqueness.md)
+(2026-10-27, grounded in the audited Lean proof `Ramsey.d18.k1.Frame.paley_cores`)
+each is the Paley-17 graph, so completion keys may fix both cores to the
+Paley-17 adjacency while retaining all bijections. Both C+T and D+T are
+K5/I4-free. The remaining C-D matrix has289 edge bits, with the exact11
+obstruction families in that reduction. None of the new restrictions proves
+that every such matrix is impossible.
 
 ## Current independently reviewed restrictions
 

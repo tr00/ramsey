@@ -28,10 +28,18 @@ their difference belongs to `{1,2,4,8,9,13,15,16}`. The historical
 [analogue report](../research/reports/2026-10-18-b-maximality-analogy.md) records the
 verification passing. This collection does not rerun it.
 
-**Uniqueness is not a proved-here or recertified premise.** The large-row note
-mentions a published unique-core census as a possible additional external
-premise, but explicitly does not acquire or certify it. The accepted arguments
-retain all (4,4)-free 17-cores and do not identify every core with Paley-17.
+**Uniqueness.** The classification of this family is now proved in-repo and
+accepted: every 17-vertex `(4,4)`-free graph is isomorphic to Paley-17, with
+the census usage reversed (68 edges becomes a consequence, not an input). See
+the authoritative topic
+[paley17 uniqueness](../research/foundations/paley17_uniqueness.md), accepted
+2026-10-27 on the basis of the audited Lean formalization
+(`Ramsey.n17.isomorphic_paley17`). Historically, the accepted k1 and large-row
+arguments were deliberately proved census-free and uniqueness-free; they
+remain valid exactly as reviewed, and their recorded hashes are unchanged.
+The large-row note's remark that a published unique-core census could be
+retained as an external premise is superseded: the classification is available
+in-repo and needs no acquisition or recertification.
 
 ## 2. Universal structure of every 17-core
 
@@ -240,7 +248,10 @@ On eligible internally homogeneous selections with the required fixed
 T-attachments, exclude an all-one C-D rectangle for K5 and an all-zero
 rectangle for I5. Together with valid fixed sides and the vertex degree
 conditions this is an exact completion criterion. All labelings remain;
-there is no established automatic orbit quotient or unique-core substitution.
+the accepted [core classification](../research/foundations/paley17_uniqueness.md)
+identifies every fixed core with Paley-17, but no automatic orbit quotient on
+the bijections is established, so labelled keys still retain all bijections
+unless a separately proved orbit rule is recorded.
 **K1 remains open: neither a full exclusion nor a 43-vertex construction is recorded.**
 
 ## 5. Historical computations and rejected reductions
@@ -281,8 +292,10 @@ and quartic-coset omission classes. Bounded exact enumeration finds 7,991
 legal single omissions in 72 affine subgroup orbits, with only 51 size-eight
 omissions in two orbits. Joint packing permits at most four of the latter.
 A finite local check proposes the stronger bound `e(Paley17,T)>=70` for
-any K5/I4-free seven-cell extension; applying it to every K1 core retains
-the external unique-core classification premise. The new claims are ready
+any K5/I4-free seven-cell extension; applying it to every K1 core is now
+licensed in-repo by the accepted
+[core classification](../research/foundations/paley17_uniqueness.md), which
+identifies each core with Paley-17. The new claims are ready
 for independent review and have no pruning authority yet. Sources, complete
 small case lists and checks are in the
 [session report](../research/reports/2026-10-21-paley17-arithmetic.md).
@@ -291,6 +304,7 @@ small case lists and checks are in the
 
 | Source | Role |
 | --- | --- |
+| [Paley-17 uniqueness foundation](../research/foundations/paley17_uniqueness.md) | Accepted classification of `R(4,4,17)` and the K1 core corollary; prose proof, Lean correspondence, acceptance basis |
 | [Large-row review](../research/n43/d18/review_large_row_extensions_20261017_audit.md) | Acceptance and exact reviewed body for codegrees, moments, extension domain, two-core balance and eight-cell classification |
 | [K1 research review](../research/n43/d18/k1/review_research_20261019.json) | Double-core structure, budgets and exact eleven-obstruction partition |
 | [K1 attachment review](../research/n43/d18/k1/review_attachments_20261019.json) | Cross-core and seven-cell claims, scope and exact hashes |

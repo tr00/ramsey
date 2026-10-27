@@ -22,8 +22,11 @@ K = {1,4,13,16}, the subgroup of fourth powers.
 
 These results are standalone arithmetic or conditional statements about
 extensions of this specified H. Applying them to every member of R(4,4,17)
-uses the published unique-core classification as an additional external
-premise. This session does not recertify that classification. Existing
+rests on the accepted in-repo core classification
+[research/foundations/paley17_uniqueness.md](../research/foundations/paley17_uniqueness.md)
+(accepted 2026-10-27; Lean `Ramsey.n17.isomorphic_paley17`), which supersedes
+the previously unacquired published unique-core census; no external premise
+is retained. Existing
 [census-free SRG proofs](../research/n43/d18/large_row_extensions.md#claim-seventeen-codegree-moments)
 supply some of the same character-matrix identities for an arbitrary 17-core,
 but the exact signature classification below specifically uses Paley labels.
@@ -37,8 +40,8 @@ p = e(H,T) = 119-sum_t |W_t|.
 ```
 
 No 43-vertex graph is needed for these one-side restrictions. In the K1
-specialization they apply separately to C+T and D+T, if the cores are
-identified with Paley-17 on the retained classification premise.
+specialization they apply separately to C+T and D+T: both cores are Paley-17
+by the accepted core classification, so no further premise is retained.
 
 <a id="claim-paley-ap-obstructions"></a>
 ## 1. Every homogeneous triple is an arithmetic progression
