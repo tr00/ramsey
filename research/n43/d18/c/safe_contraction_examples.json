@@ -1,0 +1,7 @@
+{
+  "scope": "Pure connected R(4,5,18) examples only; no order-43 ambient extensions asserted.",
+  "sources": [
+    "safe_contraction_evidence.json",
+    "d18ci/instances.json"
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "scope": "Supplied pure local examples only; exhaustive safe histories, no order-43 completion claim.",
+  "method": "Explore every currently safe edge until terminal; merge identical labeled adjacency states only.",
+  "results": [
+    {
+      "name": "anticomplete",
+      "minimum_reachable_order": 17,
+      "one_shortest_order_history": [
+        [
+          0,
+          17
+        ]
+      ],
+      "distinct_labeled_states": 2,
+      "terminal_labeled_states": 1
+    },
+    {
+      "name": "shielded_matching",
+      "minimum_reachable_order": 17,
+      "one_shortest_order_history": [
+        [
+          0,
+          17
+        ]
+      ],
+      "distinct_labeled_states": 3,
+      "terminal_labeled_states": 2
+    },
+    {
+      "name": "shielded_star_forest",
+      "minimum_reachable_order": 17,
+      "one_shortest_order_history": [
+        [
+          0,
+          17
+        ]
+      ],
+      "distinct_labeled_states": 2,
+      "terminal_labeled_states": 1
+    },
+    {
+      "name": "compatible_adjacent_pair",
+      "minimum_reachable_order": 16,
+      "one_shortest_order_history": [
+        [
+          5,
+          12
+        ],
+        [
+          10,
+          14
+        ]
+      ],
+      "distinct_labeled_states": 5,
+      "terminal_labeled_states": 2
+    },
+    {
+      "name": "dense_compatible_pair",
+      "minimum_reachable_order": 16,
+      "one_shortest_order_history": [
+        [
+          3,
+          11
+        ],
+        [
+          8,
+          15
+        ]
+      ],
+      "distinct_labeled_states": 5,
+      "terminal_labeled_states": 2
+    },
+    {
+      "name": "sequential_3",
+      "minimum_reachable_order": 15,
+      "one_shortest_order_history": [
+        [
+          6,
+          17
+        ],
+        [
+          8,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "distinct_labeled_states": 7,
+      "terminal_labeled_states": 2
+    },
+    {
+      "name": "sequential_4",
+      "minimum_reachable_order": 14,
+      "one_shortest_order_history": [
+        [
+          4,
+          10
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          8,
+          11
+        ]
+      ],
+      "distinct_labeled_states": 30,
+      "terminal_labeled_states": 8
+    },
+    {
+      "name": "contraction_irreducible",
+      "minimum_reachable_order": 18,
+      "one_shortest_order_history": [],
+      "distinct_labeled_states": 1,
+      "terminal_labeled_states": 1
+    },
+    {
+      "name": "sequential_6_to12",
+      "minimum_reachable_order": 12,
+      "one_shortest_order_history": [
+        [
+          3,
+          12
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          8,
+          11
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "distinct_labeled_states": 62,
+      "terminal_labeled_states": 25
+    },
+    {
+      "name": "sequential_7_to11",
+      "minimum_reachable_order": 11,
+      "one_shortest_order_history": [
+        [
+          2,
+          6
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          5,
+          19
+        ],
+        [
+          8,
+          13
+        ],
+        [
+          10,
+          14
+        ],
+        [
+          11,
+          16
+        ],
+        [
+          7,
+          23
+        ]
+      ],
+      "distinct_labeled_states": 131,
+      "terminal_labeled_states": 27
+    }
+  ]
+}

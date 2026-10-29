@@ -1,0 +1,531 @@
+{
+  "scope": "Graph-only scientific checks; no order18 family completeness.",
+  "small_labeled_census": [
+    {
+      "n": 1,
+      "connected_K4_free_labeled": 1,
+      "irreducible_labeled": 1,
+      "octahedron_labeled": 0
+    },
+    {
+      "n": 2,
+      "connected_K4_free_labeled": 1,
+      "irreducible_labeled": 0,
+      "octahedron_labeled": 0
+    },
+    {
+      "n": 3,
+      "connected_K4_free_labeled": 4,
+      "irreducible_labeled": 0,
+      "octahedron_labeled": 0
+    },
+    {
+      "n": 4,
+      "connected_K4_free_labeled": 37,
+      "irreducible_labeled": 0,
+      "octahedron_labeled": 0
+    },
+    {
+      "n": 5,
+      "connected_K4_free_labeled": 667,
+      "irreducible_labeled": 0,
+      "octahedron_labeled": 0
+    },
+    {
+      "n": 6,
+      "connected_K4_free_labeled": 21958,
+      "irreducible_labeled": 15,
+      "octahedron_labeled": 15
+    }
+  ],
+  "homology_injection_edge_checks": 155143,
+  "retained_order18_beta2": [
+    {
+      "name": "anticomplete",
+      "n": 18,
+      "edges": 71,
+      "triangles": 68,
+      "triangle_boundary_rank_F2": 54,
+      "beta2_F2": 14
+    },
+    {
+      "name": "shielded_matching",
+      "n": 18,
+      "edges": 70,
+      "triangles": 66,
+      "triangle_boundary_rank_F2": 53,
+      "beta2_F2": 13
+    },
+    {
+      "name": "shielded_star_forest",
+      "n": 18,
+      "edges": 70,
+      "triangles": 63,
+      "triangle_boundary_rank_F2": 52,
+      "beta2_F2": 11
+    },
+    {
+      "name": "compatible_adjacent_pair",
+      "n": 18,
+      "edges": 71,
+      "triangles": 63,
+      "triangle_boundary_rank_F2": 53,
+      "beta2_F2": 10
+    },
+    {
+      "name": "dense_compatible_pair",
+      "n": 18,
+      "edges": 75,
+      "triangles": 75,
+      "triangle_boundary_rank_F2": 58,
+      "beta2_F2": 17
+    },
+    {
+      "name": "sequential_3",
+      "n": 18,
+      "edges": 73,
+      "triangles": 66,
+      "triangle_boundary_rank_F2": 56,
+      "beta2_F2": 10
+    },
+    {
+      "name": "sequential_4",
+      "n": 18,
+      "edges": 71,
+      "triangles": 63,
+      "triangle_boundary_rank_F2": 54,
+      "beta2_F2": 9
+    },
+    {
+      "name": "sequential_6_to12",
+      "n": 18,
+      "edges": 70,
+      "triangles": 58,
+      "triangle_boundary_rank_F2": 52,
+      "beta2_F2": 6
+    },
+    {
+      "name": "sequential_7_to11",
+      "n": 18,
+      "edges": 71,
+      "triangles": 62,
+      "triangle_boundary_rank_F2": 53,
+      "beta2_F2": 9
+    },
+    {
+      "name": "adjacent_twin_family",
+      "n": 18,
+      "edges": 70,
+      "triangles": 59,
+      "triangle_boundary_rank_F2": 50,
+      "beta2_F2": 9
+    },
+    {
+      "name": "degree_four_defect_family",
+      "n": 18,
+      "edges": 70,
+      "triangles": 62,
+      "triangle_boundary_rank_F2": 50,
+      "beta2_F2": 12
+    },
+    {
+      "name": "scientific_17_contractions_to_one",
+      "n": 18,
+      "edges": 63,
+      "triangles": 43,
+      "triangle_boundary_rank_F2": 43,
+      "beta2_F2": 0
+    },
+    {
+      "name": "contraction_irreducible",
+      "n": 18,
+      "edges": 71,
+      "triangles": 61,
+      "triangle_boundary_rank_F2": 53,
+      "beta2_F2": 8
+    }
+  ],
+  "order17_to_one": {
+    "n": 17,
+    "labels": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        15
+      ],
+      [
+        1,
+        16
+      ],
+      [
+        1,
+        17
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        13
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        3,
+        13
+      ],
+      [
+        3,
+        18
+      ],
+      [
+        3,
+        19
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        5,
+        13
+      ],
+      [
+        5,
+        14
+      ],
+      [
+        5,
+        15
+      ],
+      [
+        5,
+        16
+      ],
+      [
+        5,
+        17
+      ],
+      [
+        5,
+        18
+      ],
+      [
+        5,
+        19
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        7,
+        12
+      ],
+      [
+        7,
+        13
+      ],
+      [
+        7,
+        16
+      ],
+      [
+        7,
+        17
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        8,
+        13
+      ],
+      [
+        8,
+        14
+      ],
+      [
+        8,
+        15
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        13
+      ],
+      [
+        9,
+        18
+      ],
+      [
+        9,
+        19
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        10,
+        13
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        11,
+        13
+      ],
+      [
+        11,
+        16
+      ],
+      [
+        11,
+        17
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        12,
+        14
+      ],
+      [
+        12,
+        15
+      ],
+      [
+        12,
+        18
+      ],
+      [
+        12,
+        19
+      ],
+      [
+        13,
+        15
+      ],
+      [
+        13,
+        17
+      ],
+      [
+        13,
+        19
+      ],
+      [
+        14,
+        15
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ]
+    ],
+    "initial_stats": {
+      "n": 17,
+      "edges": 54,
+      "triangles": 38,
+      "triangle_boundary_rank_F2": 38,
+      "beta2_F2": 0
+    },
+    "growth": [
+      {
+        "z": 0,
+        "left": [
+          1,
+          5,
+          8,
+          12
+        ],
+        "right": [
+          1,
+          5,
+          8,
+          12,
+          13
+        ],
+        "pair": [
+          14,
+          15
+        ]
+      },
+      {
+        "z": 6,
+        "left": [
+          1,
+          5,
+          7,
+          11
+        ],
+        "right": [
+          1,
+          5,
+          7,
+          11,
+          13
+        ],
+        "pair": [
+          16,
+          17
+        ]
+      },
+      {
+        "z": 4,
+        "left": [
+          3,
+          5,
+          9,
+          12
+        ],
+        "right": [
+          3,
+          5,
+          9,
+          12,
+          13
+        ],
+        "pair": [
+          18,
+          19
+        ]
+      }
+    ],
+    "safe_history_to_one": [
+      [
+        18,
+        19
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        14,
+        15
+      ],
+      [
+        13,
+        22
+      ],
+      [
+        23,
+        1
+      ],
+      [
+        24,
+        2
+      ],
+      [
+        25,
+        3
+      ],
+      [
+        26,
+        20
+      ],
+      [
+        27,
+        5
+      ],
+      [
+        28,
+        21
+      ],
+      [
+        29,
+        7
+      ],
+      [
+        30,
+        8
+      ],
+      [
+        31,
+        9
+      ],
+      [
+        32,
+        10
+      ],
+      [
+        33,
+        11
+      ],
+      [
+        34,
+        12
+      ]
+    ],
+    "scope": "Pure order17 scientific example, not a degree18 branch instance."
+  },
+  "order18_to_one": {
+    "source": "../safe_contraction_evidence.json",
+    "safe_contractions_checked": 17,
+    "initial_beta2_F2": 0,
+    "final_n": 1,
+    "name": "scientific_17_contractions_to_one"
+  }
+}

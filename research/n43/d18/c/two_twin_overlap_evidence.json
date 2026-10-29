@@ -1,0 +1,306 @@
+{
+  "scope": "Universal pure R(4,5,18) family bound for two adjacent twin pairs with independent common four-sets intersecting in two; no order-43 completion assertion.",
+  "conclusion": "e(A)<=69, so this whole structural family is absent from residual d18c with 4<=q<=15.",
+  "proof_steps": [
+    "The two twin pairs are anticomplete: adjacency between the two modules would give K4.",
+    "Their common-set union S has six vertices, with X the common two and Y,Z the exclusive two each. X is anticomplete to Y,Z; each of X,Y,Z is independent; only four Y-Z edges are possible.",
+    "The remaining D has eight vertices anticomplete to both twin pairs. Choosing one endpoint of each pair forces alpha(D)<=2, so D is K4/I3-free.",
+    "F=complement(D) is triangle-free/I4-free of order eight. Its degrees are at most three by independent neighborhoods, and at least two by R(3,3)=6 on antineighborhoods.",
+    "The census excludes e(F)=8,9, so e(D)<=18; at e(F)=10 the degree multiset is four threes and four twos, and all 72 fixed-degree labeled graphs are isomorphic to the reference.",
+    "Each S-to-D neighbor row is triangle-free/I3-free, so has at most five vertices by R(3,3)=6. With 18 edges incident to twin endpoints, e(A)<=18+18+30+4=70.",
+    "Equality forces e(D)=18, all six S rows of size five (each induces C5), and complete Y-Z.",
+    "Every Y/Z cross-row intersection is independent by K4-freeness and has size at least two; alpha(D)<=2 forces size exactly two.",
+    "Every two Y rows have a clique of common missed D-vertices: an independent missed pair, both Y vertices and one endpoint of the opposite twin pair would form I5. The same holds for two Z rows.",
+    "The four induced C5 rows of the unique D representative admit zero four-row assignments satisfying these necessary constraints. Equality is impossible, so e(A)<=69."
+  ],
+  "reference_F": {
+    "vertices": [
+      2,
+      3,
+      4,
+      6,
+      7,
+      9,
+      10,
+      11
+    ],
+    "edges": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        10,
+        11
+      ]
+    ]
+  },
+  "census": [
+    {
+      "degrees": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 8,
+      "recursion_nodes": 37479,
+      "valid_fixed_degree_graphs": 0,
+      "graphs_isomorphic_to_reference": 0
+    },
+    {
+      "degrees": [
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 9,
+      "recursion_nodes": 36345,
+      "valid_fixed_degree_graphs": 0,
+      "graphs_isomorphic_to_reference": 0
+    },
+    {
+      "degrees": [
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 10,
+      "recursion_nodes": 34385,
+      "valid_fixed_degree_graphs": 72,
+      "graphs_isomorphic_to_reference": 72
+    }
+  ],
+  "reference_D": {
+    "vertices": [
+      2,
+      3,
+      4,
+      6,
+      7,
+      9,
+      10,
+      11
+    ],
+    "edges": [
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        9,
+        11
+      ]
+    ]
+  },
+  "C5_rows": [
+    [
+      2,
+      3,
+      4,
+      9,
+      10
+    ],
+    [
+      2,
+      3,
+      6,
+      7,
+      11
+    ],
+    [
+      2,
+      6,
+      7,
+      10,
+      11
+    ],
+    [
+      3,
+      4,
+      9,
+      10,
+      11
+    ]
+  ],
+  "cross_compatible_ordered_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ]
+  ],
+  "within_compatible_ordered_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ]
+  ],
+  "four_row_assignments_checked": 256,
+  "valid_four_row_assignments": []
+}
