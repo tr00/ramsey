@@ -18,6 +18,15 @@ The [validation driver](validate_recursive_ramsey.py) with its recorded
 independent review and its own checks are recorded below. An order-43 execution
 and a branch-coverage certificate remain separate work.
 
+The separate [quadratic completion development](../../../foundations/quadratic_completion.md)
+uses this state semantics to eliminate a reserved matching by 2-SAT for
+existence queries. Its matching-specific complexity and hardness results
+remain ready for independent review. The implication/Boolean-ideal calculus
+and a stronger saturated-cell extension now have independent acceptance:
+disjoint inherited five-vertex `(3,3)` cells can be completed together through
+three Boolean squares per cell. Those separate results and review scopes are
+not part of the six accepted claims below.
+
 ## Objects and semantics
 
 All graphs are finite, simple, and labelled. Let `U` be the unprocessed labels.

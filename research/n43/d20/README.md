@@ -10,6 +10,24 @@ the residual to degrees 19 through 23. The
 complete split separately from the one-orientation no-degree-18 predicate.
 Degree 19 is allowed in both.
 
+The [20-regular specialization](regular_case.md) remains open. Its new
+deductions give `87<=e(N(v))<=100` and even `180<=x_v<=206` at every vertex,
+two-sided bounds for small pair overlaps, and an exact two-Paley-core frame
+with 124 cross edges if an edge has codegree two. The note states the full
+remaining fixed-side completion problem. Claims are ready for independent
+review; finite author validation is included.
+
+The [Seidel-switching investigation](../seidel_switching.md) gives exact
+preservation constraints and excludes cuts with a side of size at most
+eight. Its [spectral theorem](../seidel_switching.md#claim-switch-spectral-dichotomy)
+gives a conditional split into rigid graphs and graphs whose every
+nontrivial preserving cut reaches degree 18 or 24, with stronger criteria
+for all-even degrees and regular d20. A
+[quartet-closure theorem](../seidel_switching.md#claim-switch-quartet-rigidity)
+also certifies rigidity. These deductions are ready for independent review;
+the hypotheses are not established for every input, and a complete
+switching reduction of this branch to d18 remains open.
+
 The older general degree-20 scope allowed degrees 18 through 24. Historical
 formulas remain valid on their stated scopes; the new residual deductions
 use the no-degree-18 assumption explicitly. Global saturation and maximizing

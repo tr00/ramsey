@@ -1,8 +1,8 @@
 # A 58-edge floor for K4-saturated degree-18 neighborhoods
 
-Date: 2026-10-22. Author and self-auditor: Main, working alone.
+Author: Main. Independent reviewer: `/root/forcing_coverage`.
 
-Here **K4-saturated** means K4-free and adding any missing edge creates a K4. It does not mean maximizing neighborhood edges over degree-18 roots. All claims are ready for independent review. No executable pruning change, ambient branch closure, or sharpness claim is made.
+Here **K4-saturated** means K4-free and adding any missing edge creates a K4. It does not mean maximizing neighborhood edges over degree-18 roots. All three claims are accepted after the independent review recorded below. Permitted use is the pure saturated-neighborhood floor on its stated premises. No executable pruning change, ambient branch closure, or sharpness claim is made.
 
 ## Setting and premises
 
@@ -19,12 +19,12 @@ These are witnesses to saturation inside A; no B-side interface is assumed.
 
 Claim ID: n43/d18/saturated_neighborhood_density_floor.md#claim-saturated-low-degrees  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted
 Scope: the pure setting above  
 Dependencies: (1); Mantel; recorded12-vertex (4,4) minimum26  
 Conclusion: delta(A)>=5; a vertex of degree5 forces a>=59  
-Search use: none pending independent review  
-Reviews: none
+Search use: scoped saturation propagation
+Reviews: /root/forcing_coverage, accepted in the inline review below
 
 For d<=4, Mantel and (1) give 17-d<=3floor(d^2/4), false for d=0,1,2,3,4. Thus d>=5. If d=5, then |H|=12, f>=4 and c>=24. H is K4/I4-free: an I4 in H would extend with v to I5. Therefore
 
@@ -37,12 +37,12 @@ Consequently a<=58 implies delta(A)>=6.
 
 Claim ID: n43/d18/saturated_neighborhood_density_floor.md#claim-saturated-degree-six-surplus  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted
 Scope: the pure setting with delta(A)>=6; any vertex v with d_A(v)=6  
 Dependencies: saturation witnesses and edge capacity three proved above  
 Conclusion: sum_(u in N_A(v))(d_A(u)-6)>=4  
-Search use: none pending independent review  
-Reviews: none
+Search use: scoped saturation propagation
+Reviews: /root/forcing_coverage, accepted in the inline review below
 
 Write t=sum_S(d_A(u)-6), so |S|=6, |H|=11, and
 
@@ -71,12 +71,12 @@ Both cases contradict t<=3, proving t>=4. This proof retains isolated incidences
 
 Claim ID: n43/d18/saturated_neighborhood_density_floor.md#claim-saturated-density-floor  
 Kind: local-deduction  
-Review state: ready  
+Review state: accepted
 Scope: every K4-saturated K4/I5-free graph A on18 vertices  
 Dependencies: Claims1 and2; degree incidence; convex square bound  
 Conclusion: e(A)>=58  
-Search use: none pending independent review  
-Reviews: none
+Search use: scoped saturation propagation
+Reviews: /root/forcing_coverage, accepted in the inline review below
 
 Assume a<=57. Claim1 gives delta(A)>=6. Put
 
@@ -107,4 +107,29 @@ This exhausts every possible T and h, contradicting a<=57. Therefore a>=58.
 
 For an actual degree-18 pivot of an order43 K5/I5-free graph, A=G[N_G(v)] has the required forbidden subgraphs. If it is K4-saturated, the theorem applies unconditionally within that branch, independently of excess, column sizes, connectivity, root count, complementation, or root maximization.
 
-The theorem does not assert that a 58-edge example exists, that every order43 candidate has a saturated degree-18 neighborhood, or that saturating a neighborhood preserves an ambient completion. It raises the recorded pure floor from50 to58 under the explicitly requested saturation hypothesis. The [validation and handoff](../../reports/2026-10-22-saturated-d18-floor.md) records author checks; independent review remains pending.
+The theorem does not assert that a 58-edge example exists, that every order43 candidate has a saturated degree-18 neighborhood, or that saturating a neighborhood preserves an ambient completion. It raises the recorded pure floor from50 to58 under the explicitly requested saturation hypothesis. Historical author checks remain recoverable in Git; the current independent review follows.
+
+<a id="review-saturated-density-floor"></a>
+## Independent review
+
+`/root/forcing_coverage`, independent of Main, accepted Claims 1--3 as retained.
+The reviewer checked the edge-witness capacity three including the fixed
+vertex in the independent set; all degree-at-most-four Mantel comparisons;
+the degree-five 59-edge partition and applicability of the published
+order-12 floor 26; both degree-six isolated-incidence cases; the one-support
+coverage contradiction; and every convex-square table entry. The tightest
+comparison is 62<64. No mathematical repair was required.
+
+Acceptance is conditional on the recorded external census premise, which was
+checked for applicability and was not recertified. It covers intrinsic
+saturation only; it does not authorize assuming that ambient B repairs can
+saturate A or applying 58 to every d18c pivot. The quantitative hole supply
+and the repair barriers are developed in
+[density transfer](../density_transfer.md#claim-density-hole-count).
+
+## Changelog
+
+- Established the pure 58-edge floor using low-degree saturation witnesses,
+  isolated-signature incidences and a global surplus bound.
+- Accepted the retained three claims after independent review; kept ambient
+  saturation coverage and sharpness outside the theorem's scope.

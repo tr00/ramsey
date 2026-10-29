@@ -1,6 +1,7 @@
 # Irreducible connected degree-18 neighborhoods
 
 Branch name: `d18ci`. Parent: [connected d18c](../README.md).
+Directory: `i` under `d18/c`, giving the branch shorthand `d18ci`.
 Scope: **all** original instances of the connected degree-18 branch whose
 18-vertex neighborhood admits no safe edge contraction. The narrower residual
 `q`, connectivity and transversal assumptions used by the examples are not
@@ -22,7 +23,8 @@ six and `tau_4=6`. Its artifact includes an obstruction triangle and the marked
 pattern for **each of its 71 edges**. It is independently reviewed as a pure
 local example, not an order-43 extension or a complete irreducible catalogue.
 
-The [branch split and coverage convention](../safe_contractions.md#branch-organization)
+The complementary [reducible branch](../d18cr/README.md),
+[branch split and coverage convention](../safe_contractions.md#branch-organization)
 and all proofs and review findings remain in the shared topic. Run
 `python research/n43/d18/c/verify_safe_contractions.py` to check the retained
 instance and full obstruction coverage.

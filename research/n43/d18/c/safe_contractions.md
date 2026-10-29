@@ -18,7 +18,8 @@ is proved here over `F_2` and requires no topological classification theorem.
 **Kind:** local reductions, universal family theorems, and constructive examples.
 **Authors:** Main; force_safe_reductions for complete-history exhaustion and
 later constructions; minimum_safe_core for the scientific construction and
-homology investigation.
+homology investigation; exoo_uncontract_extension for the author-hosted
+order-42 source and inverse-split obstruction evidence.
 **Review state:** accepted for the local theorems, ten supplied examples,
 example-only minimum-order claims, and branch predicates by
 review_safe_contractions, on the scoped review below, including sections
@@ -30,6 +31,19 @@ The full [module classification](#module-classification),
 module counts, weighted quotient, and scoped ambient row consequence are also
 **accepted** by review_safe_contractions. These are local family restrictions
 and exact representations, without a complete parent catalogue.
+The [complete marked-parent decomposition](#safe-edge-normal-form),
+[trace-coloring classification](#safe-split-traces), and
+[complete noncritical marked-parent family](#split-family-p17) are also
+**accepted** by review_safe_contractions. They supply an exact local family
+schema and parent restrictions, without a completed graph catalogue or
+automatic order-43 pruning implementation.
+The new [ambient quotient and inverse-split clarification](#ambient-quotients)
+is **accepted** by review_safe_contractions. The local
+irreducible/reducible split alone does not make the order-42 ambient quotient
+`(5,5)`-free.
+The [Exoo inverse-edge family exclusion](#exoo-inverse-splits) and known-source
+evidence are also **accepted** by review_safe_contractions. They concern specific
+order-42 inputs, without completeness for all order-42 Ramsey graphs.
 
 The working contraction neighborhood is
 `(N_A(u) union N_A(w)) minus {u,w}`, as clarified by the user.
@@ -48,6 +62,12 @@ Residual graphs have at most two adjacent twin modules and at most seven
 nontrivial proper modules altogether. Independent modules have order two or
 three, obstruct every incident edge initially, and admit exact weighted
 quotient compression for family generation.
+Every residual graph with a marked safe edge has an exact decomposition into
+small `(3,5)` and `(4,4)` sides, at most 64 cross-adjacency variables for fixed
+sides, and an inverse-split trace-coloring problem on at most 13 vertices.
+Singleton traces force common neighbors and two-vertex traces impose opposite
+colors. The complete Paley-17-minus-one-edge marked family has one minimal
+trace, allowing all its splits to be described by one local color condition.
 
 ### Scope audit against existing tools
 
@@ -172,12 +192,179 @@ Also `kappa(H)>=kappa(G[A])-1`, so at least three-connected 17-vertex parents
 suffice. A cut of size `r` in `H` lifts to at most `r+1` deleted vertices in
 the original graph, proving this connectivity bound.
 
+<a id="safe-edge-normal-form"></a>
+### Complete decomposition of every marked safe-edge parent
+
+For a marked parent `(H,z)`, put `W=N_H(z)` and
+`D=V(H) minus (W union {z})`. Then `H[W]` is `(3,5)`-free, and `H[D]` is
+`(4,4)`-free: a triangle in `W` with `z` would give `K4`, and an `I4` in
+`D` with `z` would give `I5`. Every residual safe edge therefore has
+
+```text
+4<=m=|W|<=13,             3<=|D|=16-m<=12,
+0<=c=|J|<=4,             m+c>=6,
+65<=e(H)<=79,            kappa(H)>=3,
+H-z contains an I4,      e(A)=e(H)+1+c.
+```
+
+The lower bound `m>=4` follows because deleting `W` separates the original
+edge endpoints from the nonempty `D`, contradicting `kappa(A)>=4` if `m<4`.
+The endpoints have neighborhoods `J union L` and `J union R`, where
+`W=J disjoint union L disjoint union R`; their minimum degrees impose
+`c+|L|>=3`, `c+|R|>=3`, hence `m+c>=6`. These are necessary conditions,
+not sufficient residual filters.
+
+There is an **exact generator for all marked parents of residual safe edges**,
+without first assuming a complete order-17 catalogue. Choose `4<=m<=13`,
+`W in R(3,5,m)` and
+`D in R(4,4,16-m)`, join the marked vertex `z` to all of `W` and none of
+`D`, and choose a row `R_w subset D` for each `w in W`. The resulting
+`H` is `(4,5)`-free exactly when:
+
+1. Each `D[R_w]` is triangle-free.
+2. For every edge `ww'` of `W`, `D[R_w intersect R_w']` is independent.
+3. For every independent pair `U` in `W`,
+   `D minus union_(w in U) R_w` is `I3`-free.
+4. For every independent triple `U` in `W`, that missed remainder is
+   `I2`-free.
+5. For every independent four-set `U` in `W`, that missed remainder is empty.
+
+Proof. A `K4` avoiding `z` uses zero, one or two vertices of `W`, since
+`W` is triangle-free. The zero case is excluded by `D`; the other cases
+give conditions 1 and 2. An `I5` avoiding `z` cannot use zero or one vertex
+of `W`, because `D` is `I4`-free, or five vertices of `W`, because `W` is
+`I5`-free. The remaining cases give conditions 3--5. A `K4` using `z`
+is excluded by triangle-freeness of `W`, and an `I5` using `z` is excluded
+by `I4`-freeness of `D`. These exhaust the cases.
+
+For fixed side graphs, at most `m*(16-m)<=64` cross-adjacency variables
+remain. The small-side catalogues and all row choices still need complete
+coverage in an exhaustive implementation. Apply the edge, connectivity,
+marked-noncritical and eventual lift filters; satisfying this parent
+generator alone does not guarantee an admissible residual split.
+
+<a id="safe-split-traces"></a>
+### Exact classification of all safe inverse splits by trace coloring
+
+Fix a valid marked parent `(H,z)` and put `C=H-z`, `W=N_H(z)`. Form the
+hypergraph on `W`
+
+```text
+T_z = { I intersect W : I is an independent four-set of C }.
+```
+
+Every trace is nonempty, since otherwise `I union {z}` would be `I5` in
+`H`. Each has size at most four. Choose an independent common set
+`J subset W`, and color every vertex of `W minus J` left or right,
+giving exclusive sets `L,R`. Then the inverse split with attachments
+`P=J union L`, `Q=J union R` is valid and its edge is safe **if and only if**
+every trace disjoint from `J` has at least one left and one right vertex.
+Traces meeting `J` are already satisfied at both endpoints and are discarded;
+they must not be replaced by their difference with `J`.
+
+Proof. Section 3's exact split conditions require `J` independent and each
+independent four-set of `C` to meet both `P` and `Q`. Its incidence with the
+endpoint neighborhoods is exactly its trace on `W`. A trace meeting `J`
+meets both neighborhoods; a disjoint trace does so exactly when it has both
+colors. This proves both directions. The contracted neighborhood remains
+the triangle-free `W`, so the recovered edge is safe.
+
+Only inclusion-minimal traces are needed: meeting or giving both colors to
+a trace also satisfies every larger trace containing it. The resulting
+classification is a finite constraint system on at most 13 vertices, with
+common/left/right states and hyperedges of size at most four. It is an exact
+family parametrization, not an isomorphism catalogue of all parents.
+
+It gives immediate family restrictions before constructing any lift:
+
+* Every singleton trace `{w}` forces `w in J`. If the forced set contains
+  an edge, or has more than four vertices, the marked parent has no safe
+  inverse split.
+* For fixed `J`, every two-vertex trace disjoint from `J` forces its vertices
+  to opposite sides. Their graph must be bipartite. Equivalently, `J` must
+  meet the vertex set of every odd cycle in the original two-trace graph.
+* For `J` independent and containing every forced singleton-trace vertex,
+  if the remaining two-trace graph is bipartite with `k` connected components,
+  counting isolated vertices of `W minus J`, all remaining assignments arise
+  from its `2^k` component orientations.
+  Filter them by the three- and four-vertex traces, which forbid
+  monochromatic assignments. When `k=0`, the unique empty assignment is
+  included.
+
+The parent rows compute all traces directly. For an independent set
+`U subset W`, put `D_U=D minus union_(w in U) R_w`. Then:
+
+| Trace `U` | Exact condition for occurrence |
+| --- | --- |
+| Singleton `{w}` | `D_{w}` contains an independent triple |
+| Independent pair | `D_U` contains an independent pair |
+| Independent triple | `D_U` is nonempty |
+| Independent four-set | Always occurs |
+
+Proof. An independent four-set whose trace is exactly `U` consists of `U`
+and an independent `(4-|U|)`-set in `D_U`. Since `D` is `I4`-free, these
+are all possible traces. Thus forced-common vertices and pair-color
+constraints can be derived during row generation, before constructing a
+full lift. In particular, four forced common vertices fix `J` completely;
+their independence and the remaining coloring constraints still need checks.
+
+Define `eta(H,z)` as the minimum size of an independent `J` for which the
+traces disjoint from `J` admit such a coloring, or infinity if none exists. It is
+the exact minimum codegree among **pure local** inverse splits of that
+marked parent. In the residual branch every valid split must satisfy
+`c>=eta(H,z)` and loses `1+c` edges under contraction. Residual degree,
+connectivity, transversal and ambient constraints can exclude the pure
+minimum, so `eta` is only a lower bound for those more constrained families.
+
+Combine the exact marked-parent generator with this trace-coloring theorem,
+then filter the lifted graph by the residual and original ambient predicates.
+Every residual graph with a marked safe edge occurs, and every passing lift
+has such an edge. Multiple safe edges can generate the same original graph;
+deduplication must preserve coverage or use a justified canonical marking.
+No further safe contraction is forced solely by having one safe edge.
+
 The three single-edge examples share the parent
 
 ```text
 H = Paley17 minus edge {1,2},  marked vertex z=0,
 N_H(0) = {1,2,4,8,9,13,15,16},  e(H)=67.
 ```
+
+<a id="split-family-p17"></a>
+**A completely described noncritical parent family.** In the standard
+square-difference Paley labeling, `C=H-0` has exactly three independent
+four-sets:
+
+```text
+{1,2,7,12}, {1,2,7,13}, {1,2,8,13}.
+```
+
+Their traces are `{1,2}`, `{1,2,13}` and `{1,2,8,13}`, so the unique minimal
+trace is `{1,2}`. Consequently **all** pure safe splits of this marked
+parent are obtained by choosing an independent `J subset W` and assigning
+the remaining vertices left/right, subject only to:
+
+```text
+J meets {1,2}, or 1 and 2 have opposite exclusive colors.
+```
+
+For the residual edge range this gives the following full family counts,
+before connectivity, transversal and ambient filtering:
+
+| Common order `c` | Original edges `a=68+c` | Ordered marked lifts |
+| --- | --- | --- |
+| 2 | 70 | 832 |
+| 3 | 71 | 288 |
+| 4 | 72 | 16 |
+
+The number of independent common sets at orders `c=0,1,2,3,4` is
+`1,8,17,10,1`. For each such `J`, the number of assignments is `2^(8-c)`
+if `J` meets `{1,2}`, and `2^(7-c)` otherwise. This yields full ordered
+counts `128,640,832,288,16`, respectively. The endpoint-swap involution has
+no fixed assignment because `W minus J` is nonempty, so forgetting only
+the endpoint order divides the counts by two. These are labeled lifts over
+one fixed marked parent, not graph-isomorphism counts. The residual predicates
+must still be tested; no order-43 completion is asserted.
 
 In the square-difference Paley labeling their attachments are:
 
@@ -387,7 +574,7 @@ marked witnesses is a concrete next route for the rigid subbranch. There is no
 proof yet that this route makes that subbranch small or excludes it.
 
 <a id="branch-organization"></a>
-## 8. Irreducible branch and reduced-order families
+## 8. Irreducible and reducible branches
 
 Fix an original instance `(G,v)` of connected `d18/c`, including the inherited
 maximum-density root selector. Put `A_0=G[N_G(v)]`. A legal history is
@@ -407,22 +594,19 @@ to restore all original rows and selected-root constraints.
 `A_0` has an external triangle, equivalently a marked five-vertex obstruction
 as proved in section 7. It includes all connected original neighborhoods
 meeting that condition, not only the narrower residual scope. See the
-[branch definition and instance](d18ci/README.md). Irreducibility concerns
+[branch definition and instance](i/README.md). Irreducibility concerns
 edge contractions inside `A_0`, not vertex deletion or ambient contractions.
 Terminal smaller cores are recorded in the shared supporting evidence, with
 terminality recorded separately; they are not original 18-vertex instances
 of `d18ci`.
 
-**Reduced-order family convention `d18crnXX`.** Retain such a folder only
-when it indexes a useful proved family reduction to order `XX`; an example
-history or a history prefix alone does not justify a folder. A reduction's
-objects carry a certified legal history of length `18-XX`. The number is an
-attained order, not an assumed minimum over all histories. Histories can
-contract already merged vertices. Families can overlap after projecting
-away the history: one original neighborhood can admit several reductions.
-Individual minimum-order claims require a lower bound matching the attained
-order, or complete-history exhaustion. Reaching order one supplies that lower
-bound immediately.
+**Reducible branch `d18cr`.** Its predicate is that the original `A_0` has
+at least one edge with triangle-free external union. Its states carry a
+chosen first contraction and all lift data. The first reduced neighborhood
+has order 17. Further local contractions can involve merged vertices and
+are recorded as histories within this branch. Family descriptions can
+overlap; individual examples or history prefixes do not create new branch
+folders. See the [reducible branch index](d18cr/README.md).
 
 There is an exact disjoint split of original instances into `d18ci` and those
 with at least one safe edge. Every original in the latter class has a legal
@@ -430,20 +614,155 @@ order-17 history. This proves predicate coverage; it does not prove that the
 retained family generators or any unprovided parent catalogue exhaust that
 class.
 
-The retained family folders are:
+The reducible branch retains these proved local families:
 
-| Folder | Proved family reductions |
+| Guaranteed local order | Proved family reductions |
 | --- | --- |
-| [d18crn17](d18crn17/README.md) | Adjacent twin modules, independent degree-four anchors with an isolated defect vertex, and exact marked-parent inverse splitting |
-| [d18crn16](d18crn16/README.md) | Compatible disjoint safe-edge pairs, including the two-adjacent-twin-pair family |
+| 17 | Adjacent twin modules, independent degree-four anchors with an isolated defect vertex, and exact marked-parent inverse splitting |
+| 16 | Compatible disjoint safe-edge pairs, including the two-adjacent-twin-pair family |
 
 The folders for orders 01 through 15 were removed because their contents
 were individual constructions or history prefixes. This is a retention
 decision, not a nonexistence or branch-closure claim. Concrete graphs remain
 supporting evidence in [safe_contraction_evidence.json](safe_contraction_evidence.json),
-with the original irreducible graph retained in `d18ci/instances.json`.
+with the original irreducible graph retained in `i/instances.json`.
 The shared [example manifest](safe_contraction_examples.json) resolves both
 sources. No prefix files or example-indexed reduced branches are retained.
+The original irreducible folder is now `i`, so its branch shorthand is
+`d18ci` for `d18/c/i`. The former order-17 and order-16 navigation folders
+are consolidated into `d18cr`.
+
+<a id="ambient-quotients"></a>
+### Local reduction and the order-42 ambient quotient
+
+Let `G` be an actual order-43 `(5,5)`-free graph, let `p` be its original
+degree-18 selected root, and contract a locally safe edge `uv` inside
+`A=N_G(p)`. Write `H=G/uv` and `z` for the merged vertex. Then
+
+```text
+|H|=42,                       d_H(p)=17,
+H[N_H(p)]=A/uv in R(4,5,17),  H-z=G-{u,v} in R(5,5,41),
+alpha(H)<=4.
+```
+
+Proof. The two neighbors `u,v` of `p` become one, and the root has no other
+changed adjacencies. The induced root neighborhood is exactly the local
+quotient. The graph avoiding `z` is unchanged. An independent set using
+`z` lifts by replacing it with either endpoint, so contraction cannot
+create `I5`.
+
+However, **`H` is `(5,5)`-free if and only if**
+
+```text
+G[(N_G(u) union N_G(v)) minus {u,v}] is K4-free.
+```
+
+A new `K5` must use `z`, and its other four vertices are precisely a `K4`
+in that global external union. Local safety checks only the triangle-free
+union inside `A`. It excludes a global `K4` wholly there or using `p`,
+but leaves possible `K4` witnesses using the original `B` vertices.
+Such a witness creates a `K5` through `z` in `H`.
+
+Thus the full reducible branch has two disjoint original-instance alternatives:
+
+* At least one edge inside `A` passes the **global** `K4`-free test. Choose
+  such an edge to obtain an actual order-42 `(5,5)`-free parent with root
+  degree 17. Global safety implies local safety because `p` sees the whole
+  local union.
+* `A` has a locally safe edge, but no edge inside `A` passes the global
+  test. Its order-42 quotient retains the lift constraints above and may
+  contain `K5` through `z`; it cannot be discarded from local coverage.
+
+The existence of general order-42 `(5,5)`-free graphs is already known.
+An order-42 search here must concern marked parents with the necessary
+root and lift constraints, rather than exclude all such graphs.
+
+**Exact ambient inverse splitting.** Given a marked order-42 graph `H` with
+`C=H-z` `(5,5)`-free, choose `P,Q subset N_H(z)` with
+`P union Q=N_H(z)` and replace `z` by adjacent endpoints attached to `P,Q`.
+The resulting graph is `(5,5)`-free exactly when
+
+```text
+C[P] and C[Q] are K4-free,
+C[P intersect Q] is triangle-free,
+C-P and C-Q are I4-free.
+```
+
+Proof. A `K5` avoiding both endpoints is excluded by `C`. One using exactly
+one endpoint is an endpoint plus a `K4` in its row; one using both endpoints
+is their edge plus a triangle in the common row. An `I5` cannot use both
+adjacent endpoints, and one using a single endpoint is an `I4` in its missed
+remainder. These exhaust the cases. If `H` is already `(5,5)`-free, the two
+individual-row `K4` tests are automatic, since `N_H(z)` is `K4`-free.
+
+For the chosen root `p` to survive this split as the original degree-18
+root with both endpoints in its neighborhood, require
+`d_H(p)=17` and `p in P intersect Q`. Original residual, selected-root,
+degree and interface constraints must be checked after reconstructing all
+43 vertices. A locally reduced parent and an ambiently reduced parent are
+different objects, even though both have a 17-vertex root neighborhood.
+
+<a id="exoo-inverse-splits"></a>
+### Exoo's order-42 witness and a complete inverse-edge family obstruction
+
+The user requested an inverse edge split of Exoo's order-42 `(5,5)` graph
+which would satisfy the original degree-18 connected-neighborhood subbranch.
+The [author-hosted source](https://cs.indstate.edu/ge/SmallRamsey/r5.5.42)
+is linked from [Exoo's construction page](https://cs.indstate.edu/ge/SmallRamsey/index.html).
+The retained input is a symmetric loopless matrix of order 42 with 428 edges
+and degree counts `19:6,20:20,21:10,22:6`; direct searches verify no `K5` and
+no `I5`. It has no degree-17 vertex, so it cannot be the preserved-root parent
+of an edge contracted inside the original degree-18 neighborhood.
+
+That degree obstruction alone would not rule out an arbitrary split that
+creates a new degree-18 root at one endpoint. The stronger certificate below
+excludes **every** inverse edge split of this source, regardless of which
+vertex becomes the root.
+
+For a source graph `H` and split vertex `z`, put
+
+```text
+D_z=V(H) minus (N_H(z) union {z}),
+F_z={x in N_H(z): H[D_z minus N_H(x)] contains an I3}.
+```
+
+**Forced-common-triangle theorem.** If `H[F_z]` contains a triangle, no
+inverse edge split of `z` can produce a `(5,5)`-free graph.
+
+Proof. For each `x in F_z`, fix an independent triple `T_x` in `D_z` missed
+by `x`. In an inverse split into adjacent endpoints `u,v`, the vertices of
+`D_z` are adjacent to neither endpoint. If either endpoint misses `x`, that
+endpoint together with `x` and `T_x` forms `I5`. Thus both endpoints must
+see every vertex of `F_z`. A triangle in `F_z` together with the edge `uv`
+then forms `K5`. This rules out every attachment assignment.
+
+The [offline checker](exoo_uncontract_extension.py) verifies the retained
+[source and certificate evidence](exoo_uncontract_extension_evidence.json).
+For every one of the 42 split vertices of Exoo's graph and its complement,
+the evidence contains a forced-common triangle and three explicit independent
+triple witnesses. All 84 source certificates exclude their entire inverse
+families before any residual or selected-root filter is applied.
+
+The same checker verifies all 328 entries supplied in
+[McKay's known order-42 collection](https://users.cecs.anu.edu.au/~bdm/data/r55_42some.g6)
+and their complements. Every split vertex is similarly blocked, giving
+27,636 checked marked input vertices including the separate Exoo sources.
+The supplied collection is **not** a complete order-42 catalogue; repeated
+graphs or complements are not asserted to be distinct. This exact exclusion
+does not establish nonexistence of other order-42 parents or order-43 graphs.
+The locally reducible alternative with an ambiently unsafe quotient remains
+part of `d18cr` as well.
+
+Run the source/certificate replay without network access:
+
+```sh
+python research/n43/d18/c/exoo_uncontract_extension.py
+```
+
+The snapshot retains exact source bytes, provenance and digests; `--refresh`
+downloads the attributed sources and regenerates the evidence. No order-43
+witness was constructed. A fully verified order-43 `(5,5)`-free graph would
+prove `R(5,5)>43`, but an order-42 source or a local lift alone does not.
 
 ### Reviewed individual evidence at orders 12 and 11
 
@@ -722,7 +1041,7 @@ minor obtainable by vertex deletion, rather than an edge contraction.
 Reconstructing the original requires remembering the independent multiplicity
 and separate ambient attachment rows. Thus only the **edge-containing**
 modules provide the safe
-edge reductions used for `d18crnXX`. Every original `d18ci` graph has no
+edge reductions used within `d18cr`. Every original `d18ci` graph has no
 adjacent twin pair, but it can still have independent modules or fail to be
 prime. Conversely, absence of modules does not imply edge irreducibility.
 
@@ -928,15 +1247,15 @@ is trivially irreducible. A direct labeled census through order six finds
 octahedron; that uniqueness is recorded computationally, not used in the
 size-bound proof.
 
-The [scientific checker](d18ci/minimum_safe_core.py) uses the standard
+The [scientific checker](i/minimum_safe_core.py) uses the standard
 library to perform this census, check homology on 155,143 safe contractions,
 and replay the order-one source. Run
 
 ```sh
-python research/n43/d18/c/d18ci/minimum_safe_core.py
+python research/n43/d18/c/i/minimum_safe_core.py
 ```
 
-The [evidence](d18ci/minimum_safe_core_evidence.json) is scientific support,
+The [evidence](i/minimum_safe_core_evidence.json) is scientific support,
 not a complete order-18 catalogue. It resides under `d18ci` because it studies
 terminal obstructions; the reducible original graph is stored in the shared
 supporting artifact, without an order-one family folder.
@@ -1035,6 +1354,47 @@ existing pair-separation theorem. Acceptance applies to the retained text;
 the extremal counts and allowed independent types are not asserted attained,
 and separate ambient rows are still required.
 
+For [the complete marked-parent decomposition](#safe-edge-normal-form), the
+reviewer checked the residual scope `4<=m<=13`, the two side types, all five
+cross-row conditions by a complete `K4/I5` case split, the edge/connectivity
+restrictions, and the at-most-64 cross-variable bound. For
+[the exact trace classification](#safe-split-traces), the reviewer checked
+both directions of the split equivalence, discarding rather than shrinking
+traces meeting `J`, inclusion-minimal trace sufficiency, singleton prerequisites,
+odd-cycle hitting and component orientations, all direct row-to-trace formulas,
+and the pure-local scope of `eta(H,z)`. The exact residual generation schema
+and its completeness/deduplication limits were accepted.
+
+For [the completely described noncritical parent family](#split-family-p17),
+the reviewer independently derived its three independent four-sets and one
+minimal trace, and constructed all 6,561 ternary neighbor assignments.
+Separate direct bitmask `K4/I5` checks reproduced ordered lift counts
+`128,640,832,288,16` by common-set size; the endpoint-swap division by two
+was also confirmed. Acceptance applies to the retained statements and scope
+repairs. The counts precede residual connectivity, transversal and ambient
+filters; complete small-side catalogues and exhaustive row generation remain
+required for an implemented complete search. One safe edge does not force a
+second contraction.
+
+For [the ambient quotient clarification](#ambient-quotients), the reviewer
+checked the degree-17 preserved root, the unchanged 41-vertex remainder,
+independence preservation, the exact global `K4`-free contraction condition,
+the disjoint global-safe versus locally-only-reducible alternatives, and all
+cases of the ambient inverse-split criterion. The original selected-root and
+residual conditions remain conditions on the reconstructed 43-vertex graph.
+
+For [the Exoo inverse-edge exclusion](#exoo-inverse-splits), the reviewer
+independently decoded the source matrix and all 328 graph6 entries without
+importing the author's parser or search. Across all 658 input/complement
+checks, independent searches confirmed `K5/I5`-freeness, edge and degree
+metadata, absence of degree-17 roots, and forced-common triangles at all
+27,636 marked split vertices. All 84 explicit Exoo certificates and both
+source byte-count/digest records were independently validated. The general
+forced-common-triangle proof and the retained source-family exclusion were
+accepted. The supplied collection is incomplete, and the ambiently unsafe
+local quotient alternative is still covered; neither a 43-vertex witness
+nor closure of `d18cr` is claimed.
+
 **Limits:** acceptance concerns these local results and supplied graphs.
 It does not provide a complete order-18 isomorphism census, a complete
 reduced-parent catalogue, an actual order-43 extension, exclusion of the full
@@ -1076,3 +1436,18 @@ The exploratory edge-walk proportions remain nonrepresentative observations.
   16. Removed example-only folders for orders 01 through 15 and all prefix
   files; consolidated their certificates and exhaustion evidence, and updated
   replay paths without changing the mathematical proofs.
+- Added the accepted complete parent-side and trace-coloring classification
+  of marked residual safe edges, with forced-common and opposite-color family
+  restrictions. Completely described and independently counted the marked
+  Paley-17-minus-one-edge split family; no complete parent census or additional
+  forced contraction is claimed.
+- Renamed the irreducible folder to `i` and consolidated all locally reducible
+  families under `d18cr`. Made the additional global contraction test explicit
+  before treating a 42-vertex quotient as `(5,5)`-free, and recorded exact
+  ambient inverse-split conditions.
+- Added the author-hosted Exoo source and exact forced-common-triangle
+  certificates excluding every inverse edge split of that source, its
+  complement, and the supplied 328 known inputs with their complements.
+  Independent review reproduced all source checks and accepted the ambient
+  clarification and source-family exclusions; the reducible branch remains
+  open.

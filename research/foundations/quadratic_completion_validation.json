@@ -1,0 +1,257 @@
+{
+  "scope": "author validation; no order-43 exclusion",
+  "exhaustive": {
+    "cofactors": 21875,
+    "graph_assignments": 169340,
+    "counts": [
+      {
+        "p": 3,
+        "q": 3,
+        "n": 0,
+        "count": 1
+      },
+      {
+        "p": 3,
+        "q": 3,
+        "n": 1,
+        "count": 1
+      },
+      {
+        "p": 3,
+        "q": 3,
+        "n": 2,
+        "count": 2
+      },
+      {
+        "p": 3,
+        "q": 3,
+        "n": 3,
+        "count": 6
+      },
+      {
+        "p": 3,
+        "q": 3,
+        "n": 4,
+        "count": 18
+      },
+      {
+        "p": 3,
+        "q": 3,
+        "n": 5,
+        "count": 12
+      },
+      {
+        "p": 3,
+        "q": 3,
+        "n": 6,
+        "count": 0
+      },
+      {
+        "p": 3,
+        "q": 4,
+        "n": 0,
+        "count": 1
+      },
+      {
+        "p": 3,
+        "q": 4,
+        "n": 1,
+        "count": 1
+      },
+      {
+        "p": 3,
+        "q": 4,
+        "n": 2,
+        "count": 2
+      },
+      {
+        "p": 3,
+        "q": 4,
+        "n": 3,
+        "count": 7
+      },
+      {
+        "p": 3,
+        "q": 4,
+        "n": 4,
+        "count": 40
+      },
+      {
+        "p": 3,
+        "q": 4,
+        "n": 5,
+        "count": 322
+      },
+      {
+        "p": 3,
+        "q": 4,
+        "n": 6,
+        "count": 2812
+      },
+      {
+        "p": 4,
+        "q": 3,
+        "n": 0,
+        "count": 1
+      },
+      {
+        "p": 4,
+        "q": 3,
+        "n": 1,
+        "count": 1
+      },
+      {
+        "p": 4,
+        "q": 3,
+        "n": 2,
+        "count": 2
+      },
+      {
+        "p": 4,
+        "q": 3,
+        "n": 3,
+        "count": 7
+      },
+      {
+        "p": 4,
+        "q": 3,
+        "n": 4,
+        "count": 40
+      },
+      {
+        "p": 4,
+        "q": 3,
+        "n": 5,
+        "count": 322
+      },
+      {
+        "p": 4,
+        "q": 3,
+        "n": 6,
+        "count": 2812
+      },
+      {
+        "p": 4,
+        "q": 4,
+        "n": 0,
+        "count": 1
+      },
+      {
+        "p": 4,
+        "q": 4,
+        "n": 1,
+        "count": 1
+      },
+      {
+        "p": 4,
+        "q": 4,
+        "n": 2,
+        "count": 2
+      },
+      {
+        "p": 4,
+        "q": 4,
+        "n": 3,
+        "count": 8
+      },
+      {
+        "p": 4,
+        "q": 4,
+        "n": 4,
+        "count": 62
+      },
+      {
+        "p": 4,
+        "q": 4,
+        "n": 5,
+        "count": 892
+      },
+      {
+        "p": 4,
+        "q": 4,
+        "n": 6,
+        "count": 22484
+      },
+      {
+        "p": 5,
+        "q": 5,
+        "n": 0,
+        "count": 1
+      },
+      {
+        "p": 5,
+        "q": 5,
+        "n": 1,
+        "count": 1
+      },
+      {
+        "p": 5,
+        "q": 5,
+        "n": 2,
+        "count": 2
+      },
+      {
+        "p": 5,
+        "q": 5,
+        "n": 3,
+        "count": 8
+      },
+      {
+        "p": 5,
+        "q": 5,
+        "n": 4,
+        "count": 64
+      },
+      {
+        "p": 5,
+        "q": 5,
+        "n": 5,
+        "count": 1022
+      },
+      {
+        "p": 5,
+        "q": 5,
+        "n": 6,
+        "count": 32424
+      }
+    ]
+  },
+  "random_residual_states": 600,
+  "implication_algebra": {
+    "formulas": 500,
+    "input_clauses": 4007
+  },
+  "boundaries": {
+    "threshold_six_or_models": 7,
+    "vertex_cover_models": 11,
+    "unsupported_budget_rejected": true,
+    "gadgets_verified": true
+  },
+  "hardness_graph_embeddings": [
+    {
+      "source_clauses": 2,
+      "matching_variables": 24,
+      "satisfying_source_assignments": 6
+    },
+    {
+      "source_clauses": 8,
+      "matching_variables": 87,
+      "satisfying_source_assignments": 0
+    }
+  ],
+  "coverage": {
+    "r33_order6_outer_cofactors": 4096,
+    "r33_order5_witness_cofactor": 43
+  },
+  "known_order42_cofactor": {
+    "source": "research/n43/d18/c/exoo_uncontract_extension_evidence.json",
+    "order": 42,
+    "fixed_pairs": 840,
+    "reserved_pairs": 21,
+    "kernel_clauses": 33,
+    "forced_reserved_pairs": 21,
+    "original_recovered": true,
+    "direct_all_five_subsets_check": true,
+    "scope": "one supplied cofactor; no search of order-42 or order-43 families"
+  }
+}

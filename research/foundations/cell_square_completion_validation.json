@@ -1,0 +1,187 @@
+{
+  "evidence_kind": "author validation; independent review recorded in quadratic_completion.md",
+  "local_chart_partition": {
+    "all_labelled_graphs_checked": 1024,
+    "labelled_cycles": 12,
+    "disjoint_charts": 3,
+    "models_per_chart": 4
+  },
+  "exhaustive_one_cell": {
+    "cofactors": 6144,
+    "coordinate_assignments": 49152,
+    "satisfying_assignments": 43368,
+    "skipped_witnesses": 405504,
+    "budgeted_cofactors": 0
+  },
+  "two_cell_seeded_semantics": {
+    "cofactors": 720,
+    "coordinate_assignments": 23040,
+    "satisfying_assignments": 7085,
+    "skipped_witnesses": 760806,
+    "budgeted_cofactors": 540
+  },
+  "partial_cell_fixings": {
+    "cofactors": 244,
+    "coordinate_assignments": 976,
+    "satisfying_assignments": 192,
+    "skipped_witnesses": 4880,
+    "budgeted_cofactors": 0
+  },
+  "contract_rejections": {
+    "missing_cell_premise": true,
+    "overlapping_cells": true,
+    "matching_touches_cell": true,
+    "three_coordinate_budget": true,
+    "unconditioned_exterior": true
+  },
+  "totals": {
+    "cofactors": 7108,
+    "coordinate_assignments": 73168,
+    "satisfying_assignments": 50645,
+    "skipped_witnesses": 1171190,
+    "budgeted_cofactors": 540
+  },
+  "supplied_exoo42_residual": {
+    "source_matrix_sha256": "36ba90fb6727c9a876ecc127d8acbe9b9bf07a5b0925364a1b2f46f6e15052aa",
+    "processed_labels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "remaining_labels": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41
+    ],
+    "certified_size_five_cells": 14,
+    "maximum_disjoint_packing_in_this_list": 3,
+    "chosen_cells_and_anchor_pairs": [
+      [
+        [
+          18,
+          21,
+          24,
+          28,
+          31
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          13
+        ]
+      ],
+      [
+        [
+          19,
+          22,
+          25,
+          29,
+          32
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          14
+        ]
+      ],
+      [
+        [
+          27,
+          30,
+          34,
+          37,
+          40
+        ],
+        [
+          10,
+          14
+        ],
+        [
+          2,
+          12
+        ]
+      ]
+    ],
+    "positive_obligations": 86,
+    "negative_obligations": 122,
+    "differentiated_degree_budgets": 24,
+    "conditioned_remaining_pairs": 242,
+    "free_internal_cell_pairs": 30,
+    "uncovered_matching": [
+      [
+        20,
+        23
+      ],
+      [
+        26,
+        33
+      ],
+      [
+        35,
+        36
+      ],
+      [
+        38,
+        39
+      ]
+    ],
+    "chart_combinations_checked": 27,
+    "coordinates_per_chart": 10,
+    "clause_count_min": 34,
+    "clause_count_max": 44,
+    "satisfiable_charts": [
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "returned_models_equal_source": [
+      true
+    ],
+    "all_returned_42_vertex_graphs_directly_verified": true,
+    "scope": "one supplied order-42 residual; not the rooted degree-18 B24 branch"
+  }
+}
